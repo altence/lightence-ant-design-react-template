@@ -1,5 +1,5 @@
-import React from 'react';
 import {Button} from "antd";
+import Test from "./components/Test";
 
 function App() {
   return (
@@ -7,6 +7,7 @@ function App() {
       <header>
         <Button type="primary">TEST</Button>
       </header>
+        <Test />
     </div>
   );
 }
