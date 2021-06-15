@@ -1,15 +1,16 @@
-import {Button} from "antd";
-import Test from "./components/Test";
+import React from 'react';
+import { Button } from 'antd';
+import Test from './components/Test';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div>
       <header>
         <Button type="primary">TEST</Button>
       </header>
-        <Test />
+      <Test testVal={4} />
     </div>
   );
-}
+};
 
 export default App;
