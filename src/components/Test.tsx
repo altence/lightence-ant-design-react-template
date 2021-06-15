@@ -1,5 +1,11 @@
-function Test() {
-    return <div>TEST DIV</div>
+import React from 'react';
+
+interface Test {
+  testVal: number;
 }
 
-export default Test
+const Test: React.FC<Test> = (props: Test) => {
+  return <div>TEST DIV {props.testVal}</div>;
+};
+
+export default Test;
