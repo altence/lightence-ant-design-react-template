@@ -1,13 +1,17 @@
 import React from 'react';
-import { Button } from 'antd';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { routes } from './routes/routes';
 
 const App: React.FC = () => {
   return (
     <div>
-      <header>
-        HELLO WORLD
-        <Button type="primary">TEST</Button>
-      </header>
+      <BrowserRouter>
+        <Switch>
+          {routes.map((route, index) => (
+            <Route {...route} key={index} />
+          ))}
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 };
