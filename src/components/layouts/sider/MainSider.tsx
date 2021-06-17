@@ -25,7 +25,6 @@ const SiderStyled = styled(Sider)`
   position: fixed;
   z-index: 2;
   height: 100%;
-  background: ${(props) => props.theme.colors.primary};
 `;
 
 export default MainSider;
