@@ -26,9 +26,9 @@ const MainLayout: React.FC = ({ children }) => {
         <SiderContent />
       </MainSider>
       <Layout>
-        <Header>
+        <HeaderStyled>
           <Button type="text" icon={icon} onClick={toggleSider} />
-        </Header>
+        </HeaderStyled>
         <Content>{children}</Content>
         <Footer>Footer</Footer>
       </Layout>
@@ -38,6 +38,14 @@ const MainLayout: React.FC = ({ children }) => {
 
 const LayoutStyled = styled(Layout)`
   height: 100vh;
+`;
+
+const HeaderStyled = styled(Header)`
+  background: radial-gradient(
+    105.83% 2039.86% at 93.06% 21.95%,
+    rgba(56, 179, 206, 0.7) 0%,
+    rgba(131, 217, 84, 0.7) 100%
+  );
 `;
 
 export default MainLayout;
