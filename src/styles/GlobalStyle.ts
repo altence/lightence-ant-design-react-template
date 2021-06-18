@@ -6,4 +6,8 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+  
+  img {
+    display: block;
+  }
 `;
