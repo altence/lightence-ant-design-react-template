@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import { Button, Layout } from 'antd';
-import logo from '../../../assets/images/logo.svg';
 import { RightOutlined } from '@ant-design/icons';
 import styled, { css } from 'styled-components';
 
 const { Sider } = Layout;
 
-const DesktopSider: React.FC = ({ children }) => {
+interface DesktopSiderProps {
+  logo: ReactNode;
+}
+
+const DesktopSider: React.FC<DesktopSiderProps> = ({ children, logo }) => {
   const [siderCollapsed, setSiderCollapsed] = useState(false);
 
   const toggleSider = () => setSiderCollapsed(!siderCollapsed);
@@ -18,7 +21,7 @@ const DesktopSider: React.FC = ({ children }) => {
       </CollapseDiv>
       <LogoDiv>
         <Logo href="/" hidden={siderCollapsed}>
-          <img src={logo} alt="Altence" />
+          {logo}
         </Logo>
       </LogoDiv>
       <ContentDiv>{children}</ContentDiv>

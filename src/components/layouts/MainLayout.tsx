@@ -4,15 +4,25 @@ import SiderContent from '../sider/SiderContent';
 import DesktopLayout from './desktop/DesktopLayout';
 import { useMediaQuery } from 'react-responsive';
 import theme from '../../styles/theme';
+import logo from '../../assets/images/logo.svg';
 
 const MainLayout: React.FC = ({ children }) => {
   const isDesktop = useMediaQuery({
     query: theme.media.md,
   });
 
-  const Layout = isDesktop ? DesktopLayout : MobileLayout;
+  const Logo = <img src={logo} alt="Altence" />;
 
-  return <Layout siderContent={<SiderContent />}>{children}</Layout>;
+  // TODO mini logo for mobile layout
+  return isDesktop ? (
+    <DesktopLayout siderContent={<SiderContent />} logo={Logo}>
+      {children}
+    </DesktopLayout>
+  ) : (
+    <MobileLayout siderContent={<SiderContent />} logo={Logo}>
+      {children}
+    </MobileLayout>
+  );
 };
 
 export default MainLayout;
