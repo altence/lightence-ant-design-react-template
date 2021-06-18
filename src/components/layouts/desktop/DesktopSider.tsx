@@ -13,41 +13,51 @@ const DesktopSider: React.FC = ({ children }) => {
 
   return (
     <SiderStyled width={212} collapsible={true} trigger={null} collapsed={siderCollapsed}>
+      <CollapseDiv>
+        <Button type="link" icon={<CollapseIcon rotate={siderCollapsed ? 180 : 0} />} onClick={toggleSider} />
+      </CollapseDiv>
       <LogoDiv>
         <Logo href="/" hidden={siderCollapsed}>
           <img src={logo} alt="Altence" />
         </Logo>
-        <Button type="link" icon={<CollapseIcon rotate={siderCollapsed ? 180 : 0} />} onClick={toggleSider} />
       </LogoDiv>
-      {children}
+      <ContentDiv>{children}</ContentDiv>
     </SiderStyled>
   );
 };
 
-interface SiderStyledProps {
-  collapsed: boolean;
-}
+const SiderStyled = styled(Sider)`
+  padding: ${(props) => props.theme.desktopLayout.paddingVertical}
+    ${(props) => props.theme.desktopLayout.paddingHorizontal};
 
-const SiderStyled = styled(Sider)<SiderStyledProps>`
-  padding: 1.25rem 2rem;
   color: ${(props) => props.theme.colors.white};
-
-  ${(props) =>
-    !props.collapsed &&
-    css`
-      padding-right: 1rem;
-    `}
 `;
 
 const CollapseIcon = styled(RightOutlined)`
   color: ${(props) => props.theme.colors.white};
 `;
 
+const CollapseDiv = styled.div`
+  height: ${(props) => props.theme.desktopLayout.headerLineHeight};
+  line-height: ${(props) => props.theme.desktopLayout.headerLineHeight};
+  text-align: right;
+`;
+
 const LogoDiv = styled.div`
+  height: ${(props) =>
+    `calc(${props.theme.desktopLayout.contentOffset} -
+      ${props.theme.desktopLayout.headerLineHeight} -
+      ${props.theme.desktopLayout.headerLineHeight} -
+      ${props.theme.desktopLayout.paddingVertical}
+    )`};
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 2rem;
+  justify-content: center;
+  margin-bottom: ${(props) => props.theme.desktopLayout.headerLineHeight};
+`;
+
+const ContentDiv = styled.div`
+  padding: ${(props) => props.theme.desktopLayout.paddingVertical} 0;
 `;
 
 interface LogoProps {
