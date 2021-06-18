@@ -6,10 +6,10 @@ import styled from 'styled-components';
 import DesktopHeader from './DesktopHeader';
 import DesktopContent from './DesktopContent';
 
-const DesktopLayout: React.FC<LayoutProps> = ({ children, siderContent }) => {
+const DesktopLayout: React.FC<LayoutProps> = ({ children, siderContent, logo }) => {
   return (
     <LayoutStyled>
-      <DesktopSider>{siderContent}</DesktopSider>
+      <DesktopSider logo={logo}>{siderContent}</DesktopSider>
       <ContentLayoutStyled>
         <DesktopHeader>HEADER</DesktopHeader>
         <DesktopContent>{children}</DesktopContent>

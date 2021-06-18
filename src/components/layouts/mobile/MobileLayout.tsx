@@ -5,7 +5,7 @@ import hamburgerIcon from '../../../assets/icons/hamburger.svg';
 import styled from 'styled-components';
 import { LayoutProps } from '../interfaces';
 
-const { Header, Footer, Content } = Layout;
+const { Header, Content } = Layout;
 
 const MobileLayout: React.FC<LayoutProps> = ({ children, siderContent }) => {
   const [siderCollapsed, setSiderCollapsed] = useState(true);
@@ -23,7 +23,6 @@ const MobileLayout: React.FC<LayoutProps> = ({ children, siderContent }) => {
           <Button type="text" icon={icon} onClick={toggleSider} />
         </HeaderStyled>
         <Content>{children}</Content>
-        <Footer>Footer</Footer>
       </Layout>
     </LayoutStyled>
   );
