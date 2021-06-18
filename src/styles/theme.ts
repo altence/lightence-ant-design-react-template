@@ -16,10 +16,19 @@ export const media = {
   xl: getMedia(breakpoints.xl),
 };
 
+export const desktopLayout = {
+  paddingVertical: '1.25rem',
+  paddingHorizontal: '1.5rem',
+  headerLineHeight: '2rem',
+  headerHeight: '4.5rem',
+  contentOffset: '12rem',
+};
+
 const theme = {
   colors,
   breakpoints,
   media,
+  desktopLayout,
 };
 
 export default theme;
