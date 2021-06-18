@@ -12,10 +12,12 @@ interface MainSiderProps extends SiderProps {
   siderCollapsed: boolean;
 }
 
-const MainSider: React.FC<MainSiderProps> = ({ children, toggleSider, siderCollapsed, ...props }) => {
+const MobileSider: React.FC<MainSiderProps> = ({ children, toggleSider, siderCollapsed, ...props }) => {
   return (
     <>
-      <SiderStyled {...props}>{children}</SiderStyled>
+      <SiderStyled trigger={null} collapsedWidth={0} collapsible={true} {...props}>
+        {children}
+      </SiderStyled>
       <Overlay onClick={toggleSider} show={!siderCollapsed} />
     </>
   );
@@ -27,4 +29,4 @@ const SiderStyled = styled(Sider)`
   height: 100%;
 `;
 
-export default MainSider;
+export default MobileSider;
