@@ -19,9 +19,9 @@ const MobileLayout: React.FC<LayoutProps> = ({ children, siderContent }) => {
         {siderContent}
       </MobileSider>
       <Layout>
-        <HeaderStyled>
+        <Header>
           <Button type="text" icon={icon} onClick={toggleSider} />
-        </HeaderStyled>
+        </Header>
         <Content>{children}</Content>
       </Layout>
     </LayoutStyled>
@@ -30,14 +30,6 @@ const MobileLayout: React.FC<LayoutProps> = ({ children, siderContent }) => {
 
 const LayoutStyled = styled(Layout)`
   height: 100vh;
-`;
-
-const HeaderStyled = styled(Header)`
-  background: radial-gradient(
-    105.83% 2039.86% at 93.06% 21.95%,
-    rgba(56, 179, 206, 0.7) 0%,
-    rgba(131, 217, 84, 0.7) 100%
-  );
 `;
 
 export default MobileLayout;

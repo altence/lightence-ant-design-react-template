@@ -15,9 +15,14 @@ const DesktopSider: React.FC<DesktopSiderProps> = ({ children, logo }) => {
   const toggleSider = () => setSiderCollapsed(!siderCollapsed);
 
   return (
-    <SiderStyled width={212} collapsible={true} trigger={null} collapsed={siderCollapsed}>
+    <SiderStyled width={250} collapsedWidth={60} collapsible={true} trigger={null} collapsed={siderCollapsed}>
       <CollapseDiv>
-        <Button type="link" icon={<CollapseIcon rotate={siderCollapsed ? 180 : 0} />} onClick={toggleSider} />
+        <Button
+          size="small"
+          type="link"
+          icon={<CollapseIcon rotate={siderCollapsed ? 0 : 180} />}
+          onClick={toggleSider}
+        />
       </CollapseDiv>
       <LogoDiv>
         <Logo href="/" hidden={siderCollapsed}>
@@ -34,6 +39,13 @@ const SiderStyled = styled(Sider)`
     ${(props) => props.theme.desktopLayout.paddingHorizontal};
 
   color: ${(props) => props.theme.colors.white};
+
+  ${(props) =>
+    props.collapsed &&
+    css`
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    `}
 `;
 
 const CollapseIcon = styled(RightOutlined)`
