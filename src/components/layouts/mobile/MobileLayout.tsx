@@ -4,10 +4,11 @@ import MobileSider from './MobileSider';
 import hamburgerIcon from '../../../assets/icons/hamburger.svg';
 import styled from 'styled-components';
 import { LayoutProps } from '../interfaces';
+import MobileContent from './MobileContent';
 
-const { Header, Content } = Layout;
+const { Header } = Layout;
 
-const MobileLayout: React.FC<LayoutProps> = ({ children, siderContent }) => {
+const MobileLayout: React.FC<LayoutProps> = ({ children, siderContent, logo }) => {
   const [siderCollapsed, setSiderCollapsed] = useState(true);
 
   const toggleSider = () => setSiderCollapsed(!siderCollapsed);
@@ -15,14 +16,14 @@ const MobileLayout: React.FC<LayoutProps> = ({ children, siderContent }) => {
 
   return (
     <LayoutStyled>
-      <MobileSider collapsed={siderCollapsed} toggleSider={toggleSider} siderCollapsed={siderCollapsed}>
+      <MobileSider collapsed={siderCollapsed} toggleSider={toggleSider} siderCollapsed={siderCollapsed} logo={logo}>
         {siderContent}
       </MobileSider>
       <Layout>
         <Header>
-          <Button type="text" icon={icon} onClick={toggleSider} />
+          <Button size="small" type="link" icon={icon} onClick={toggleSider} />
         </Header>
-        <Content>{children}</Content>
+        <MobileContent>{children}</MobileContent>
       </Layout>
     </LayoutStyled>
   );
