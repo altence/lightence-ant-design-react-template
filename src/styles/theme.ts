@@ -24,11 +24,16 @@ export const desktopLayout = {
   contentOffset: '12rem',
 };
 
+export const mobileLayout = {
+  headerHeight: '3rem',
+};
+
 const theme = {
   colors,
   breakpoints,
   media,
   desktopLayout,
+  mobileLayout,
 };
 
 export default theme;
