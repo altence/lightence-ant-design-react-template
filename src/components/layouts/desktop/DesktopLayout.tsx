@@ -23,7 +23,7 @@ const LayoutStyled = styled(Layout)`
 `;
 
 const ContentLayoutStyled = styled(Layout)`
-  background: linear-gradient(#c4c4c4 25%, white 25%);
+  background: linear-gradient(#c4c4c4 25%, #ffffff 25%);
 `;
 
 export default DesktopLayout;
