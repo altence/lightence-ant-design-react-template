@@ -38,7 +38,7 @@ const SiderStyled = styled(Sider)`
   padding: ${(props) => props.theme.desktopLayout.paddingVertical}
     ${(props) => props.theme.desktopLayout.paddingHorizontal};
 
-  color: ${(props) => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.basic};
 
   ${(props) =>
     props.collapsed &&
@@ -49,7 +49,7 @@ const SiderStyled = styled(Sider)`
 `;
 
 const CollapseIcon = styled(RightOutlined)`
-  color: ${(props) => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.basic};
 `;
 
 const CollapseDiv = styled.div`
