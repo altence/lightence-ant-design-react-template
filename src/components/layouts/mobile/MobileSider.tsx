@@ -48,7 +48,7 @@ const SiderHeader = styled.div`
 `;
 
 const CloseIcon = styled(CloseOutlined)`
-  color: ${(props) => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.basic};
 `;
 
 const SiderContent = styled.div`
