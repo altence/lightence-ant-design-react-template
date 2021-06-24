@@ -35,7 +35,7 @@ const SiderStyled = styled(Sider)`
   position: fixed;
   z-index: 2;
   height: 100%;
-  color: white;
+  color: #ffffff;
 `;
 
 const SiderHeader = styled.div`
