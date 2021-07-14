@@ -7,7 +7,7 @@ export const LoginLayoutStyled = styled.div`
   width: 100vw;
 `;
 
-export const LoginBackgroundDiv = styled.div`
+export const LoginBackgroundContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-items: center;
@@ -18,13 +18,13 @@ export const LoginBackgroundDiv = styled.div`
   background-size: cover;
 `;
 
-export const LoginLogoDiv = styled.div`
+export const LoginLogoContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
-export const LoginFormDiv = styled.div`
+export const LoginFormContainer = styled.div`
   display: flex;
   justify-items: center;
   align-items: center;

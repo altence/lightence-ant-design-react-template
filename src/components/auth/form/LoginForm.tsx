@@ -1,11 +1,22 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import { FormDiv, FormStyled, FormTitle } from './LoginFormStyles';
+import {
+  FormDiv,
+  FormStyled,
+  FormTitle,
+  RememberMeDiv,
+  LogInDiv,
+  RegisterNowDiv,
+  FormButtonStyled,
+} from './LoginFormStyles';
 
 const LoginForm: React.FC = () => {
+  const history = useHistory();
+
   const handleSubmit = () => {
-    console.log('Received values of form');
+    history.push('/');
   };
 
   return (
@@ -18,22 +29,24 @@ const LoginForm: React.FC = () => {
         <Form.Item name="password" rules={[{ required: true, message: 'Please input your Password!' }]}>
           <Input prefix={<LockOutlined className="site-form-item-icon" />} type="password" placeholder="Password" />
         </Form.Item>
-        <Form.Item>
+
+        <RememberMeDiv>
           <Form.Item name="remember" valuePropName="checked" noStyle>
             <Checkbox>Remember me</Checkbox>
           </Form.Item>
-
           <a className="login-form-forgot" href="">
-            Forgot password
+            Forgot password?
           </a>
-        </Form.Item>
+        </RememberMeDiv>
 
-        <Form.Item>
-          <Button type="primary" htmlType="submit" className="login-form-button">
-            Log in
-          </Button>
-          Or <a href="">register now!</a>
-        </Form.Item>
+        <LogInDiv>
+          <FormButtonStyled type="primary" htmlType="submit" className="login-form-button">
+            Login
+          </FormButtonStyled>
+          <RegisterNowDiv>
+            Don’t have an account? Create one <a href="">here</a>
+          </RegisterNowDiv>
+        </LogInDiv>
       </FormStyled>
     </FormDiv>
   );
