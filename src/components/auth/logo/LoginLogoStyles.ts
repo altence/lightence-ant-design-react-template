@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const LogoDiv = styled.div`
-  padding-top: 6.5rem;
+  padding: 6.5rem 0 6.5rem 0;
 `;
 
 export const LogoText = styled.a`

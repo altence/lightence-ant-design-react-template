@@ -8,6 +8,10 @@ export const LoginLayoutStyled = styled.div`
 `;
 
 export const LoginBackgroundDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
   height: 100vh;
   width: 100vw;
   background-image: url('${loginPicture}'), linear-gradient(#00c3db 20%, #1f1f1f 20%);
@@ -21,5 +25,8 @@ export const LoginLogoDiv = styled.div`
 `;
 
 export const LoginFormDiv = styled.div`
+  display: flex;
+  justify-items: center;
+  align-items: center;
   width: 66vw; ;
 `;
