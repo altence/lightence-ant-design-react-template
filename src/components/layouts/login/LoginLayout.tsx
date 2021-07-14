@@ -1,7 +1,12 @@
 import React, { ReactNode } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import theme from '../../../styles/theme';
-import { LoginLayoutStyled, LoginBackgroundDiv, LoginLogoDiv, LoginFormDiv } from './LoginLayoutStyles';
+import {
+  LoginLayoutStyled,
+  LoginBackgroundContainer,
+  LoginLogoContainer,
+  LoginFormContainer,
+} from './LoginLayoutStyles';
 
 export interface LoginLayoutProps {
   logo: ReactNode;
@@ -13,11 +18,11 @@ const LoginLayout: React.FC<LoginLayoutProps> = ({ logo, children }) => {
 
   return (
     <LoginLayoutStyled>
-      <LoginBackgroundDiv>
-        <LoginLogoDiv>{logo}</LoginLogoDiv>
+      <LoginBackgroundContainer>
+        <LoginLogoContainer>{logo}</LoginLogoContainer>
         {!isDesktop && children}
-      </LoginBackgroundDiv>
-      {isDesktop && <LoginFormDiv>{children}</LoginFormDiv>}
+      </LoginBackgroundContainer>
+      {isDesktop && <LoginFormContainer>{children}</LoginFormContainer>}
     </LoginLayoutStyled>
   );
 };
