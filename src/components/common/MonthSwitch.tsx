@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Button, Typography } from 'antd';
+import { Button, Col, Row, Typography } from 'antd';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { months } from '../../constants/months';
 
