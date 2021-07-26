@@ -1,7 +1,7 @@
 import React from 'react';
 import MainLayout from '../../components/layouts/MainLayout';
 import { Card } from 'antd';
-import { CovidChartCard } from './CovidChart/CovidChartCard';
+import { CovidChartCard } from '../Dashboard/CovidChart/CovidChartCard';
 
 const Dashboard: React.FC = () => {
   return (

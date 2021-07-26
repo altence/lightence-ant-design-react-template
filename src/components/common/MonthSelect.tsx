@@ -19,4 +19,5 @@ export const MonthSelect: React.FC = () => {
 
 const SelectStyled = styled(Select)`
   min-width: 20rem;
+  font-size: 0.75rem;
 `;

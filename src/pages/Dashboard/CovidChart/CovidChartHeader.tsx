@@ -16,3 +16,7 @@ const CovidChartHeaderWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
+
+const TextStyled = styled(Typography.Text)`
+  color: ${(props) => props.theme.colors.primary};
+`;
