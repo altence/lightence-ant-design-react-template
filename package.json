@@ -21,8 +21,8 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "craco eject",
-    "lint": "eslint '*/**/*.{js,ts,tsx}' --fix",
-    "lint:styles":"stylelint '*/**/*.{js,ts,tsx}'",
+    "lint": "eslint \"*/**/*.{js,ts,tsx}\" --fix",
+    "lint:styles": "stylelint '*/**/*.{js,ts,tsx}'",
     "prepare": "husky install"
   },
   "browserslist": {
