@@ -1,7 +1,20 @@
+import * as echarts from 'echarts';
+
 export const colors = {
   primary: '#088a98',
   secondary: '#fffffff',
   basic: '#dddddd',
+  additionally: '#f7f7f7',
+  primaryGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+    {
+      offset: 0,
+      color: '#088A98',
+    },
+    {
+      offset: 1,
+      color: '#94F5FF',
+    },
+  ]),
 };
 
 export const breakpoints = {
