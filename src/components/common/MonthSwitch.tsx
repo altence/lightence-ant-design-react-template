@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Button, Typography } from 'antd';
+import { Button, Col, Row, Typography } from 'antd';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { months } from '../../constants/months';
 
@@ -22,23 +22,23 @@ export const MonthSwitch: React.FC<MonthSwitchProps> = ({ width }) => {
   };
 
   return (
-    <MonthSwitchWrapper>
-      <Button type="text" disabled={currentMonth <= 0} onClick={handleDecrease}>
-        <LeftOutlined />
-      </Button>
-      <TextStyled width={width}>{`${months[currentMonth]} ${today.getFullYear()}`}</TextStyled>
-      <Button type="text" disabled={currentMonth >= 11} onClick={handleIncrease}>
-        <RightOutlined />
-      </Button>
-    </MonthSwitchWrapper>
+    <Row align="middle" justify="space-between">
+      <Col>
+        <Button type="text" disabled={currentMonth <= 0} onClick={handleDecrease}>
+          <LeftOutlined />
+        </Button>
+      </Col>
+      <Col>
+        <TextStyled width={width}>{`${months[currentMonth]} ${today.getFullYear()}`}</TextStyled>
+      </Col>
+      <Col>
+        <Button type="text" disabled={currentMonth >= 11} onClick={handleIncrease}>
+          <RightOutlined />
+        </Button>
+      </Col>
+    </Row>
   );
 };
-
-const MonthSwitchWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
 
 const TextStyled = styled(Typography.Text)<MonthSwitchProps>`
   text-align: center;

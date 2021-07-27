@@ -1,20 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Typography } from 'antd';
-import { MonthSwitch } from '../../../components/common/MonthSwitch';
+import { Col, Row, Typography } from 'antd';
+import { MonthSelect } from '../../../components/common/MonthSelect';
 
 export const CovidChartHeader: React.FC = () => {
   return (
-    <CovidChartHeaderDiv>
-      <Typography.Text>COVID-19</Typography.Text>
-      <MonthSwitch width="7rem" />
-    </CovidChartHeaderDiv>
+    <Row align="middle" justify="space-between">
+      <Col>
+        <TextStyled>COVID-19</TextStyled>
+      </Col>
+      <Col>
+        <MonthSelect />
+      </Col>
+    </Row>
   );
 };
 
-const CovidChartHeaderDiv = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: 400;
+const TextStyled = styled(Typography.Text)`
+  color: ${(props) => props.theme.colors.primary};
 `;

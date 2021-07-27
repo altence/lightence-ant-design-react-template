@@ -27,7 +27,6 @@ const option = {
         400, 410, 420, 430, 480, 500, 360, 320,
       ],
       type: 'line',
-      smooth: true,
       areaStyle: {},
       showSymbol: false,
     },
