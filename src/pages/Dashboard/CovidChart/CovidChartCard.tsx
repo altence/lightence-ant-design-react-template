@@ -1,18 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Card } from 'antd';
 import { CovidChartHeader } from './CovidChartHeader';
 import { CovidChart } from './CovidChart';
+import { Card } from '../../../components/common/Card';
 
 export const CovidChartCard: React.FC = () => {
   return (
-    <CovidChartWrapper title={<CovidChartHeader />}>
+    <CardStyled title={<CovidChartHeader />}>
       <CovidChart />
-    </CovidChartWrapper>
+    </CardStyled>
   );
 };
 
-const CovidChartWrapper = styled(Card)`
+const CardStyled = styled(Card)`
   background: ${(props) => props.theme.colors.secondary};
 
   & .ant-card-body {
