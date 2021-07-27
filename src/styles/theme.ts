@@ -16,6 +16,26 @@ export const colors = {
       color: '#79BCFF',
     },
   ]),
+  secondaryGradient: new echarts.graphic.LinearGradient(0, 0, 0.17, 0.73, [
+    {
+      offset: 1,
+      color: '#FF6291',
+    },
+    {
+      offset: 0,
+      color: '#FFDEE8',
+    },
+  ]),
+  additionallyGradient: new echarts.graphic.LinearGradient(0, 0, 0.14, 0.65, [
+    {
+      offset: 1,
+      color: '#FFA215',
+    },
+    {
+      offset: 0,
+      color: '#FFD595',
+    },
+  ]),
 };
 
 export const breakpoints = {

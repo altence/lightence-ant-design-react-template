@@ -1,12 +1,21 @@
 import React from 'react';
+import styled from 'styled-components';
 import { Card } from '../../../../components/common/Card';
 import { ActivityChart } from './ActivityChart';
 import { ActivityChartHeader } from './ActivityChartHeader';
 
 export const ActivityChartCard: React.FC = () => {
   return (
-    <Card title={<ActivityChartHeader />}>
+    <CardStyled title={<ActivityChartHeader />}>
       <ActivityChart />
-    </Card>
+    </CardStyled>
   );
 };
+
+const CardStyled = styled(Card)`
+  background: ${(props) => props.theme.colors.secondary};
+
+  & .ant-card-body {
+    padding: 0;
+  }
+`;
