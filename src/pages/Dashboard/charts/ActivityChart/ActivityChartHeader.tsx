@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'antd';
-import { MonthSwitch } from '../../../components/common/MonthSwitch';
+import { MonthSwitch } from '../../../../components/common/MonthSwitch';
 
 export const ActivityChartHeader: React.FC = () => {
   return (

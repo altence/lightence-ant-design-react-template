@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ReactECharts from 'echarts-for-react';
-import theme from '../../../styles/theme';
+import theme from '../../../../styles/theme';
 
 const option = {
   color: theme.colors.primaryGradient,

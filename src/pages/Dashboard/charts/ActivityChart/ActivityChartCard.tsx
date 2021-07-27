@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from '../../../components/common/Card';
+import { Card } from '../../../../components/common/Card';
 import { ActivityChart } from './ActivityChart';
 import { ActivityChartHeader } from './ActivityChartHeader';
 

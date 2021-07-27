@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { MonthSelect } from '../../../components/common/MonthSelect';
+import { MonthSelect } from '../../../../components/common/MonthSelect';
 
 export const CovidChartHeader: React.FC = () => {
   return (
@@ -15,8 +15,4 @@ const CovidChartHeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-`;
-
-const TextStyled = styled(Typography.Text)`
-  color: ${(props) => props.theme.colors.primary};
 `;

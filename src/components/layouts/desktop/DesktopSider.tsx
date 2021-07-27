@@ -35,8 +35,7 @@ const DesktopSider: React.FC<DesktopSiderProps> = ({ children, logo }) => {
 };
 
 const SiderStyled = styled(Sider)`
-  padding: ${(props) => props.theme.desktopLayout.paddingVertical};
-  ${(props) => props.theme.desktopLayout.paddingHorizontal};
+  padding: ${(props) => `${props.theme.desktopLayout.paddingVertical} ${props.theme.desktopLayout.paddingHorizontal}`};
 
   color: ${(props) => props.theme.colors.basic};
 
