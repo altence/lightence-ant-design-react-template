@@ -14,7 +14,6 @@ export const CovidChartCard: React.FC = () => {
 
 const CovidChartWrapper = styled(Card)`
   background: ${(props) => props.theme.colors.secondary};
-  font-weight: 400;
 
   & .ant-card-body {
     padding: 0;

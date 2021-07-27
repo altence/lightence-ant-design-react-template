@@ -1,18 +1,18 @@
 import * as echarts from 'echarts';
 
 export const colors = {
-  primary: '#088a98',
+  primary: '#0059AB;',
   secondary: '#fffffff',
   basic: '#dddddd',
   additionally: '#f7f7f7',
-  primaryGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+  primaryGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1.1984, [
     {
       offset: 0,
-      color: '#088A98',
+      color: '#0059AB',
     },
     {
       offset: 1,
-      color: '#94F5FF',
+      color: '#79BCFF',
     },
   ]),
 };
