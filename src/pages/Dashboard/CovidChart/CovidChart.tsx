@@ -1,6 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-import ReactECharts from 'echarts-for-react';
+import { Chart } from '../../../components/common/Chart';
 import theme from '../../../styles/theme';
 
 const option = {
@@ -37,21 +36,5 @@ const option = {
 };
 
 export const CovidChart: React.FC = () => {
-  return <CovidChartStyled option={option} />;
+  return <Chart option={option} />;
 };
-
-const CovidChartStyled = styled(ReactECharts)`
-  position: relative;
-  width: 100%;
-  height: 400px;
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: ${(props) => props.theme.colors.secondary};
-  }
-`;

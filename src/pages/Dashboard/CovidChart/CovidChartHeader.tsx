@@ -1,14 +1,18 @@
 import React from 'react';
-import { Col, Row } from 'antd';
+import styled from 'styled-components';
 import { MonthSelect } from '../../../components/common/MonthSelect';
 
 export const CovidChartHeader: React.FC = () => {
   return (
-    <Row align="middle" justify="space-between">
-      <Col>COVID-19</Col>
-      <Col>
-        <MonthSelect />
-      </Col>
-    </Row>
+    <CovidChartHeaderWrapper>
+      COVID-19
+      <MonthSelect />
+    </CovidChartHeaderWrapper>
   );
 };
+
+const CovidChartHeaderWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
