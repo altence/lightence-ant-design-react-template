@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Button, Col, Row, Typography } from 'antd';
+import { Button, Typography } from 'antd';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { months } from '../../constants/months';
 
-interface MonthSwitchProps {
-  width?: string;
-}
-
 const today = new Date();
 
-export const MonthSwitch: React.FC<MonthSwitchProps> = ({ width }) => {
+export const MonthSwitch: React.FC = () => {
   const [currentMonth, setMonth] = useState(today.getMonth());
 
   const handleDecrease = () => {
@@ -22,25 +18,24 @@ export const MonthSwitch: React.FC<MonthSwitchProps> = ({ width }) => {
   };
 
   return (
-    <Row align="middle" justify="space-between">
-      <Col>
-        <Button type="text" disabled={currentMonth <= 0} onClick={handleDecrease}>
-          <LeftOutlined />
-        </Button>
-      </Col>
-      <Col>
-        <TextStyled width={width}>{`${months[currentMonth]} ${today.getFullYear()}`}</TextStyled>
-      </Col>
-      <Col>
-        <Button type="text" disabled={currentMonth >= 11} onClick={handleIncrease}>
-          <RightOutlined />
-        </Button>
-      </Col>
-    </Row>
+    <MonthSwitchWrapper>
+      <Button type="text" disabled={currentMonth <= 0} onClick={handleDecrease}>
+        <LeftOutlined />
+      </Button>
+      <TextStyled>{`${months[currentMonth]} ${today.getFullYear()}`}</TextStyled>
+      <Button type="text" disabled={currentMonth >= 11} onClick={handleIncrease}>
+        <RightOutlined />
+      </Button>
+    </MonthSwitchWrapper>
   );
 };
 
-const TextStyled = styled(Typography.Text)<MonthSwitchProps>`
+const MonthSwitchWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const TextStyled = styled(Typography.Text)`
   text-align: center;
-  width: ${(props) => props.width || '5rem'};
 `;
