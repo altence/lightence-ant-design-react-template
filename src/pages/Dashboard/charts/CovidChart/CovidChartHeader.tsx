@@ -1,18 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
+import { ChartHeader } from '../../../../components/common/ChartHeader';
 import { MonthSelect } from '../../../../components/common/MonthSelect';
 
 export const CovidChartHeader: React.FC = () => {
   return (
-    <CovidChartHeaderWrapper>
-      COVID-19
+    <ChartHeader title="COVID-19">
       <MonthSelect />
-    </CovidChartHeaderWrapper>
+    </ChartHeader>
   );
 };
-
-const CovidChartHeaderWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;

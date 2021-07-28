@@ -1,6 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-import ReactECharts from 'echarts-for-react';
+import { Chart } from '../../../../components/common/Chart';
 import theme from '../../../../styles/theme';
 
 const option = {
@@ -50,10 +49,5 @@ const option = {
 };
 
 export const ActivityChart: React.FC = () => {
-  return <ActivityChartStyled option={option} />;
+  return <Chart option={option} />;
 };
-
-const ActivityChartStyled = styled(ReactECharts)`
-  width: 100%;
-  height: 400px;
-`;
