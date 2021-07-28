@@ -11,6 +11,7 @@ const option = {
     bottom: 0,
   },
   xAxis: {
+    show: false,
     type: 'category',
     boundaryGap: false,
     data: Array.from({ length: 30 }, (_, i) => i + 1),
