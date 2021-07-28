@@ -1,6 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-import ReactECharts from 'echarts-for-react';
+import { Chart } from '../../../../components/common/Chart';
 import theme from '../../../../styles/theme';
 
 const option = {
@@ -10,19 +9,14 @@ const option = {
     theme.colors.primaryGradient,
     theme.colors.additionally,
   ],
-
   tooltip: {
     trigger: 'item',
-  },
-  legend: {
-    orient: 'vertical',
-    right: 0,
-    top: 100,
   },
   series: [
     {
       type: 'pie',
-      radius: ['50%', '70%'],
+      radius: [70, 120],
+      center: ['50%', '50%'],
       labelLine: false,
       data: [
         { value: 72, name: 'Lifestyle' },
@@ -35,9 +29,5 @@ const option = {
 };
 
 export const HealthChart: React.FC = () => {
-  return <HealthChartStyled option={option} />;
+  return <Chart option={option} />;
 };
-
-const HealthChartStyled = styled(ReactECharts)`
-  width: 100%;
-`;
