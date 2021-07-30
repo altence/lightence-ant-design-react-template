@@ -18,6 +18,9 @@ const option = {
     axisTick: {
       show: false,
     },
+    axisLine: {
+      show: false,
+    },
     data: wDays,
     position: 'top',
     axisLabel: {
