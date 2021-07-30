@@ -1,11 +1,12 @@
 import * as echarts from 'echarts';
 
 export const colors = {
-  primary: '##088a98',
+  primary: '#088a98',
   secondary: '#fffffff',
   basic: '#dddddd',
   additionally: '#f7f7f7',
   text: '#404040',
+  chartLabel: '#c7c7c7',
   primaryGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1.5, [
     {
       offset: 0,
