@@ -1,22 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Select } from 'antd';
-import { months } from '../../constants/months';
+import { Select } from './Select';
+import { dates } from '../../constants/dates';
 
-const { Option } = Select;
+const months = dates.getMonths();
 
 export const MonthSelect: React.FC = () => {
-  return (
-    <SelectStyled size="large" defaultValue="Month">
-      {months.map((option, index) => (
-        <Option key={index} value={option}>
-          {option}
-        </Option>
-      ))}
-    </SelectStyled>
-  );
+  return <Select options={months} defaultValue="Month" />;
 };
-
-const SelectStyled = styled(Select)`
-  min-width: 20rem;
-`;
