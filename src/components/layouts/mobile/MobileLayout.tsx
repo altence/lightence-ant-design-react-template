@@ -30,7 +30,7 @@ const MobileLayout: React.FC<LayoutProps> = ({ children, siderContent, logo }) =
 };
 
 const LayoutStyled = styled(Layout)`
-  height: 100vh;
+  min-height: 100vh;
 `;
 
 export default MobileLayout;
