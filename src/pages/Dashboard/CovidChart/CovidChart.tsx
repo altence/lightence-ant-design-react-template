@@ -29,6 +29,10 @@ const option = {
       type: 'line',
       areaStyle: {},
       showSymbol: false,
+      smooth: true,
+      lineStyle: {
+        width: 0,
+      },
     },
   ],
   tooltip: {
