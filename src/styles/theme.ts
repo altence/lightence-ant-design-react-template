@@ -7,6 +7,8 @@ export const colors = {
   additionally: '#f7f7f7',
   text: '#404040',
   chartLabel: '#c7c7c7',
+  success: '#57D682',
+  fail: '#FF5252',
   primaryGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1.5, [
     {
       offset: 0,
