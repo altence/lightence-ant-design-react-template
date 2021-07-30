@@ -11,7 +11,7 @@ interface ChartProps extends ChartStyledProps {
   option: EChartsOption;
 }
 
-export const Chart: React.FC<ChartProps> = ({ option, width, height }) => {
+export const Chart: React.FC<ChartProps> = ({ option, width, height = '315px' }) => {
   return <ChartStyled option={option} width={width} height={height} />;
 };
 
