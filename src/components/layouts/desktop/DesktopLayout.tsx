@@ -19,7 +19,7 @@ const DesktopLayout: React.FC<LayoutProps> = ({ children, siderContent, logo }) 
 };
 
 const LayoutStyled = styled(Layout)`
-  height: 100vh;
+  min-height: 100vh;
 `;
 
 const ContentLayoutStyled = styled(Layout)`
