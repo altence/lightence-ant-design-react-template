@@ -2,7 +2,7 @@ import * as echarts from 'echarts';
 
 export const colors = {
   primary: '#088a98',
-  secondary: '#fffffff',
+  secondary: '#fff',
   basic: '#dddddd',
   additionally: '#f7f7f7',
   text: '#404040',
@@ -15,6 +15,26 @@ export const colors = {
     {
       offset: 1,
       color: '#F1FEFF',
+    },
+  ]),
+  secondaryGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+    {
+      offset: 1,
+      color: '#FF6291',
+    },
+    {
+      offset: 0,
+      color: '#FFDEE8',
+    },
+  ]),
+  additionallyGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+    {
+      offset: 0,
+      color: '#FFA215',
+    },
+    {
+      offset: 1,
+      color: '#FFD595',
     },
   ]),
 };
