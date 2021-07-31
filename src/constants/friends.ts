@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface Friend {
   id: number;
   name: string;
