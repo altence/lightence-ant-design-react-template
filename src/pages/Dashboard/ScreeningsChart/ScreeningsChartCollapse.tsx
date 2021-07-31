@@ -25,7 +25,9 @@ export const ScreeningsChartCollapse: React.FC = () => {
         {friends.map((item) => (
           <ListItem key={item.id}>
             <Friend>
-              <AvatarStyled isCollapsed={isCollapsed} src={item.imgUrl} />
+              <AvatarWrapper isCollapsed={isCollapsed}>
+                <Avatar src={item.imgUrl} />
+              </AvatarWrapper>
               {!isCollapsed && (
                 <>
                   <Text>{item.name}</Text>
@@ -68,6 +70,7 @@ const Header = styled.div`
 const Text = styled(Typography.Text)`
   font-size: 0.75rem;
   color: inherit;
+  white-space: nowrap;
 `;
 
 const List = styled.ul`
@@ -89,8 +92,9 @@ const Friend = styled.div`
   align-items: center;
 `;
 
-const AvatarStyled = styled(Avatar)<Collapse>`
-  ${(props) => props.isCollapsed && 'margin: 0 auto'}
+const AvatarWrapper = styled.div<Collapse>`
+  ${(props) => props.isCollapsed && 'transform: translateX(50%)'};
+  transition: all 0.3s ease;
 `;
 
 interface Statistic {
