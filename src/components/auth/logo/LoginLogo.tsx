@@ -1,13 +1,16 @@
 import React from 'react';
-import { LogoDiv, LogoText } from './LoginLogoStyles';
+import * as S from './LoginLogoStyles';
 
 const LoginLogo: React.FC = () => {
   return (
-    <LogoDiv>
+    <S.LogoDiv>
       <h1>
-        <LogoText href="/">Altence</LogoText>
+        <S.CompanyLogo href="/">Altence</S.CompanyLogo>
       </h1>
-    </LogoDiv>
+      <h2>
+        <S.LogoText href="/">Masakra</S.LogoText>
+      </h2>
+    </S.LogoDiv>
   );
 };
 

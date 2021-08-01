@@ -4,33 +4,42 @@ import { Form, Button } from 'antd';
 export const FormDiv = styled.div`
   width: 22rem;
   background: white;
-  padding: 1rem 2rem 1rem 2rem;
+  padding: 1.25rem 2rem 0.75rem 2rem;
 `;
 
 export const FormStyled = styled(Form)``;
 
 export const FormTitle = styled.h2`
-  font-weight: 700;
+  margin-bottom: 1.125rem;
 `;
 
-export const RememberMeDiv = styled.div`
-  margin: -0.5rem 0 3rem 0;
-  display: flex;
-  justify-content: space-between;
+export const FormInput = styled(Form.Item)`
+  margin-bottom: 1rem;
 `;
 
-export const LogInDiv = styled.div`
-  display: flex;
-  flex-flow: column;
+export const RememberMeContainer = styled(Form.Item)`
+  margin: -0.75rem 0 2.5rem 0;
+  .ant-form-item-control-input-content {
+    display: flex;
+    justify-content: space-between;
+  }
+`;
+
+export const LogInContainer = styled(Form.Item)`
+  margin-bottom: 0;
 `;
 
 export const FormButtonStyled = styled(Button)`
-  height: 2.5rem;
   font-size: 1rem;
+  width: 100%;
+  margin-bottom: 0.75rem;
 `;
 
 export const RegisterNowDiv = styled.div`
   display: flex;
   justify-content: center;
-  margin: 1rem 0 0 0;
+`;
+
+export const RegisterNowLink = styled.a`
+  margin-left: 0.375rem;
 `;
