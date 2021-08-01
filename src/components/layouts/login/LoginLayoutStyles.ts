@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import loginPicture from '../../../assets/images/loginPicture.jpg';
+//import theme from '../../../styles/theme';
 
 export const LoginLayoutStyled = styled.div`
   display: flex;
@@ -10,7 +11,6 @@ export const LoginLayoutStyled = styled.div`
 export const LoginBackgroundContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-items: center;
   align-items: center;
   height: 100vh;
   width: 100vw;
@@ -26,7 +26,7 @@ export const LoginLogoContainer = styled.div`
 
 export const LoginFormContainer = styled.div`
   display: flex;
-  justify-items: center;
+  justify-content: center;
   align-items: center;
-  width: 66vw;
+  width: 66%;
 `;
