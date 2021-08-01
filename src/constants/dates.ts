@@ -1,7 +1,5 @@
-class Dates {
-  today: Date = new Date();
-
-  months: string[] = [
+export class Dates {
+  static months: string[] = [
     'January',
     'February',
     'March',
@@ -16,19 +14,17 @@ class Dates {
     'December',
   ];
 
-  wDays: string[] = ['Sun', 'Mon', 'Tue', 'Wed', 'The', 'Fri', 'Sat'];
+  static days: string[] = ['Sun', 'Mon', 'Tue', 'Wed', 'The', 'Fri', 'Sat'];
 
-  getToday(): Date {
-    return this.today;
+  static getToday(): Date {
+    return new Date();
   }
 
-  getMonths(): string[] {
+  static getMonths(): string[] {
     return this.months;
   }
 
-  getWDays(): string[] {
-    return this.wDays;
+  static getDays(): string[] {
+    return this.days;
   }
 }
-
-export const dates = new Dates();

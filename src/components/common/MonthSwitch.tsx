@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Button } from 'antd';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
-import { dates } from '../../constants/dates';
+import { Dates } from '../../constants/dates';
 
-const today = dates.getToday();
-const months = dates.getMonths();
+const today = Dates.getToday();
+const months = Dates.getMonths();
 
 interface MonthSwitchProps {
   width?: string;
