@@ -1,9 +1,9 @@
 import React from 'react';
 import { Chart } from '../../../components/common/Chart';
 import theme from '../../../styles/theme';
-import { dates } from '../../../constants/dates';
+import { Dates } from '../../../constants/dates';
 
-const wDays = dates.getWDays();
+const days = Dates.getDays();
 
 const option = {
   color: theme.colors.primaryGradient,
@@ -21,7 +21,7 @@ const option = {
     axisLine: {
       show: false,
     },
-    data: wDays,
+    data: days,
     position: 'top',
     axisLabel: {
       color: theme.colors.primary,
