@@ -5,6 +5,9 @@ import styled from 'styled-components';
 interface CardProps {
   padding?: string | number;
   children: React.ReactNode;
+  $small?: boolean;
+  $medium?: boolean;
+  $large?: boolean;
   [key: string]: React.ReactNode;
 }
 
@@ -21,7 +24,7 @@ const CardStyled = styled(AntCard)<CardProps>`
   box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.07);
 
   height: ${(props) =>
-    (props.small && '18.5rem') || (props.medium && '23.5rem') || (props.large && '28.5rem') || '23.5rem'};
+    (props.$small && '18.5rem') || (props.$medium && '23.5rem') || (props.$large && '28.5rem') || '23.5rem'};
 
   & .ant-card-body {
     padding: ${(props) => props.padding};
