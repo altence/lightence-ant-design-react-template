@@ -21,10 +21,13 @@ const LoginForm: React.FC = () => {
         initialValues={{ remember: true }}
         onFinish={handleSubmit}
       >
-        <S.FormInput name="username" rules={[{ required: true, message: 'Please input your Username!' }]}>
+        <S.FormInput
+          name="username"
+          rules={[{ required: true, message: 'Please input users name or delete this field' }]}
+        >
           <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
         </S.FormInput>
-        <S.FormInput name="password" rules={[{ required: true, message: 'Please input your Password!' }]}>
+        <S.FormInput name="password" rules={[{ required: true, message: 'Wrong login or password' }]}>
           <Input prefix={<LockOutlined className="site-form-item-icon" />} type="password" placeholder="Password" />
         </S.FormInput>
 
