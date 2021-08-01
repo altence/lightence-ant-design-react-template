@@ -14,7 +14,7 @@ export const LoginBackgroundContainer = styled.div`
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background-image: url('${loginPicture}'), linear-gradient(#00c3db 20%, #1f1f1f 20%);
+  background-image: url('${loginPicture}');
   background-size: cover;
 `;
 
@@ -28,5 +28,5 @@ export const LoginFormContainer = styled.div`
   display: flex;
   justify-items: center;
   align-items: center;
-  width: 66vw; ;
+  width: 66vw;
 `;
