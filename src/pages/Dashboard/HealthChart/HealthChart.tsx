@@ -3,6 +3,13 @@ import React from 'react';
 import { Chart } from '../../../components/common/Chart';
 import theme from '../../../styles/theme';
 
+const chartData = [
+  { value: 72, name: 'Lifestyle' },
+  { value: 50, name: 'Ecology' },
+  { value: 70, name: 'Genetics' },
+  { value: 20, name: 'Any info' },
+];
+
 const option = {
   color: [
     theme.colors.secondaryGradient,
@@ -22,19 +29,14 @@ const option = {
       label: {
         show: true,
         position: 'center',
-        formatter: function (label: EChartsOption) {
+        formatter: (label: EChartsOption) => {
           return `${label.value} percent`;
         },
         backgroundColor: theme.colors.secondary,
         color: theme.colors.primary,
         fontSize: 24,
       },
-      data: [
-        { value: 72, name: 'Lifestyle' },
-        { value: 50, name: 'Ecology' },
-        { value: 70, name: 'Genetics' },
-        { value: 20, name: 'Any info' },
-      ],
+      data: chartData,
       emphasis: {
         label: {
           show: true,
