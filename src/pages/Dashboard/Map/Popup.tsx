@@ -1,8 +1,8 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Typography, Avatar } from 'antd';
-import { StarFilled, StarOutlined } from '@ant-design/icons';
 import { Popup as LPopup } from 'react-leaflet';
+import { Rating } from '../../../components/common/Rating';
 
 interface PopupProps {
   isDoctor?: boolean;
@@ -13,20 +13,6 @@ interface PopupProps {
 }
 
 export const Popup: React.FC<PopupProps> = ({ isDoctor, imgUrl, name, specifity, rating = 5 }) => {
-  const getRating = useMemo(() => {
-    const stars = [];
-
-    for (let i = 0; i < 5; i++) {
-      stars.push(<StarOutlined />);
-    }
-
-    for (let i = 0; i < rating; i++) {
-      stars[i] = <StarFilled />;
-    }
-
-    return stars;
-  }, [rating]);
-
   return (
     <Wrapper>
       {!isDoctor && <Text>{name}</Text>}
@@ -42,10 +28,7 @@ export const Popup: React.FC<PopupProps> = ({ isDoctor, imgUrl, name, specifity,
               <InfoTitle>Specifity</InfoTitle>
               <Text>{specifity}</Text>
             </InfoItem>
-            <InfoItem>
-              <Rating>{getRating}</Rating>
-              <Text>{rating}</Text>
-            </InfoItem>
+            <Rating value={rating} />
           </Info>
         </>
       )}
@@ -93,12 +76,4 @@ const InfoTitle = styled(Typography.Text)`
 
 const Text = styled(Typography.Text)`
   font-size: 0.75rem;
-`;
-
-const Rating = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 5rem;
-  color: ${(props) => props.theme.colors.star};
-  margin-right: 0.4rem;
 `;
