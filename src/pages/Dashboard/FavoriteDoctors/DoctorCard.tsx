@@ -27,6 +27,13 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0.3rem;
+  border-radius: 7px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #ecfdff;
+  }
 `;
 
 const AvatarStyled = styled(Avatar)`
