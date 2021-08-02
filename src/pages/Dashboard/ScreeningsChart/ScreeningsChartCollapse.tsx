@@ -1,7 +1,7 @@
-import { ArrowLeftOutlined, ArrowRightOutlined, CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
-import { Button, Typography, Avatar } from 'antd';
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Button, Typography, Avatar } from 'antd';
+import { ArrowLeftOutlined, ArrowRightOutlined, CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
 import { friends } from '../../../constants/friends';
 
 export const ScreeningsChartCollapse: React.FC = () => {
