@@ -1,9 +1,9 @@
 import React from 'react';
 import { Typography } from 'antd';
 import styled from 'styled-components';
-import { dates } from '../../../constants/dates';
+import { Dates } from '../../../constants/dates';
 
-const today = dates.getToday();
+const today = Dates.getToday();
 
 export const MapCardHeader: React.FC = () => {
   return (

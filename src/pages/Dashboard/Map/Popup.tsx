@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import { Typography, Avatar } from 'antd';
-import { StarFilled } from '@ant-design/icons';
+import { StarFilled, StarOutlined } from '@ant-design/icons';
 import { Popup as LPopup } from 'react-leaflet';
 
 interface PopupProps {
@@ -16,8 +16,12 @@ export const Popup: React.FC<PopupProps> = ({ isDoctor, imgUrl, name, specifity,
   const getRating = useMemo(() => {
     const stars = [];
 
+    for (let i = 0; i < 5; i++) {
+      stars.push(<StarOutlined />);
+    }
+
     for (let i = 0; i < rating; i++) {
-      stars.push(<StarFilled key={i} />);
+      stars[i] = <StarFilled />;
     }
 
     return stars;

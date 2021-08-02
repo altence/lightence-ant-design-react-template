@@ -23,7 +23,7 @@ export const doctorsData: Doctor[] = [
     name: 'Ivanov Ivan',
     specifity: 'Dermatologist',
     imgUrl: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-    rating: 5,
+    rating: 4,
   },
   {
     id: 2,
@@ -56,7 +56,7 @@ export const doctorsData: Doctor[] = [
     name: 'Ivanov Ivan',
     specifity: 'Dermatologist',
     imgUrl: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-    rating: 5,
+    rating: 4,
   },
 ];
 
