@@ -5,12 +5,15 @@
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
     "@craco/craco": "^6.1.2",
+    "@types/leaflet": "^1.7.4",
     "antd": "^4.16.3",
     "craco-antd": "^1.19.0",
     "echarts": "^5.1.2",
     "echarts-for-react": "^3.0.1",
+    "leaflet": "^1.7.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-leaflet": "^3.2.0",
     "react-responsive": "^8.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
@@ -28,18 +31,11 @@
     "lint:styles": "stylelint '*/**/*.{js,ts,tsx}'",
     "prepare": "husky install"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ],
   "devDependencies": {
     "@testing-library/dom": "^7.31.2",
     "@testing-library/jest-dom": "^5.11.4",

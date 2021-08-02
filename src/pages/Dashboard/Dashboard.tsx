@@ -7,7 +7,7 @@ import { BonesCard } from './statistics/Bones/BonesCard';
 import { WaterBalanceCard } from './statistics/WaterBalance/WaterBalanceCard';
 import { WeightCard } from './statistics/Weight/WeightCard';
 import { MapCard } from './Map/MapCard';
-import { ScreeningChartCard } from './ScreeningChart/ScreeningChartCard';
+import { ScreeningsChartCard } from './ScreeningsChart/ScreeningsChartCard';
 import { ActivityChartCard } from './ActivityChart/ActivityChartCard';
 import { TreatmentCard } from './Treatment/TreatmentCard';
 import { CovidChartCard } from './CovidChart/CovidChartCard';
@@ -43,7 +43,7 @@ const Dashboard: React.FC = () => {
           <MapCard />
         </Col>
         <Col span="14">
-          <ScreeningChartCard />
+          <ScreeningsChartCard />
         </Col>
       </RowStyled>
       <RowStyled justify="space-between">
