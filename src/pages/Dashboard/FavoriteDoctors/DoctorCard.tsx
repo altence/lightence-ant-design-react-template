@@ -7,7 +7,7 @@ import { FavoriteDoctor } from '../../../constants/favoriteDoctors';
 export const DoctorCard: React.FC<FavoriteDoctor> = ({ imgUrl, rating, name, specifity, visit }) => {
   return (
     <Wrapper>
-      <AvatarStyled src={imgUrl} />
+      <AvatarStyled shape="square" src={imgUrl} />
       <RatingStyled value={rating} />
       <Info>
         <InfoTitle>Doctor</InfoTitle>

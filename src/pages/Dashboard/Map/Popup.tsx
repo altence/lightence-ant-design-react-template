@@ -18,7 +18,7 @@ export const Popup: React.FC<PopupProps> = ({ isDoctor, imgUrl, name, specifity,
       {!isDoctor && <Text>{name}</Text>}
       {isDoctor && (
         <>
-          <AvatarStyled src={imgUrl} />
+          <AvatarStyled shape="square" src={imgUrl} />
           <Info>
             <InfoItem>
               <InfoTitle>Doctor</InfoTitle>

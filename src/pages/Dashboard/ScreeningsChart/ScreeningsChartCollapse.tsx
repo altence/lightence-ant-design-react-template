@@ -26,7 +26,7 @@ export const ScreeningsChartCollapse: React.FC = () => {
           <ListItem key={item.id}>
             <Friend>
               <AvatarWrapper isCollapsed={isCollapsed}>
-                <Avatar src={item.imgUrl} />
+                <Avatar shape="square" src={item.imgUrl} />
               </AvatarWrapper>
               {!isCollapsed && (
                 <>
@@ -93,7 +93,7 @@ const Friend = styled.div`
 `;
 
 const AvatarWrapper = styled.div<Collapse>`
-  ${(props) => props.isCollapsed && 'transform: translateX(50%)'};
+  ${(props) => props.isCollapsed && 'transform: translateX(70%)'};
   transition: all 0.3s ease;
 `;
 
