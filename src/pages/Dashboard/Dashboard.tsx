@@ -13,8 +13,8 @@ import { TreatmentCard } from './Treatment/TreatmentCard';
 import { CovidChartCard } from './CovidChart/CovidChartCard';
 import { HealthChartCard } from './HealthChart/HealthChartCard';
 import { FavoriteDoctorsCard } from './FavoriteDoctors/FavoriteDoctorsCard';
-import { TreatmentTimelineCard } from './timelines/TreatmentTimelineCard';
-import { ResultsTimelineCard } from './timelines/ResultsTimelineCard';
+import { TreatmentTimelineCard } from './timelines/TreatmentTimeline/TreatmentTimelineCard';
+import { ResultsTimelineCard } from './timelines/ResultsTimeline/ResultsTimelineCard';
 import { AdvicesCard } from './Advices/AdvicesCard';
 import styled from 'styled-components';
 
