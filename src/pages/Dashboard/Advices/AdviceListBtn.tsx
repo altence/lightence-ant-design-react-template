@@ -31,4 +31,8 @@ const Item = styled.div<ItemProps>`
   margin-bottom: 0.2rem;
 
   ${(props) => !props.isActive && 'opacity: 0.4'};
+
+  &:nth-last-of-type(1) {
+    margin-bottom: 0;
+  }
 `;
