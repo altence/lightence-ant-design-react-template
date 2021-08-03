@@ -22,7 +22,7 @@ export const doctorsData: Doctor[] = [
     },
     name: 'Ivanov Ivan',
     specifity: 'Dermatologist',
-    imgUrl: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+    imgUrl: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1628001278/Rectangle_534_vxr19u.jpg',
     rating: 4,
   },
   {
@@ -33,7 +33,7 @@ export const doctorsData: Doctor[] = [
     },
     name: 'Ivanov Ivan',
     specifity: 'Dermatologist',
-    imgUrl: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+    imgUrl: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1628001000/Rectangle_551_md1rkl.jpg',
     rating: 5,
   },
   {
@@ -44,7 +44,7 @@ export const doctorsData: Doctor[] = [
     },
     name: 'Ivanov Ivan',
     specifity: 'Dermatologist',
-    imgUrl: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+    imgUrl: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1628001000/Rectangle_687_ohu79e.jpg',
     rating: 5,
   },
   {
@@ -55,7 +55,7 @@ export const doctorsData: Doctor[] = [
     },
     name: 'Ivanov Ivan',
     specifity: 'Dermatologist',
-    imgUrl: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+    imgUrl: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1628001000/Rectangle_689_dzzqsc.jpg',
     rating: 4,
   },
 ];
