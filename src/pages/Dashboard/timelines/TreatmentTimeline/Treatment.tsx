@@ -29,7 +29,7 @@ interface TitleProps {
   isActive?: boolean;
 }
 
-const Title = styled(Typography.Text)<TitleProps>`
+const Title = styled.span<TitleProps>`
   color: ${(props) => (props.isActive && props.theme.colors.primary) || 'unset'};
   font-weight: 500;
   font-size: 1rem;
