@@ -13,11 +13,11 @@ export const Rating: React.FC<RatingProps> = ({ className, value }) => {
     const stars = [];
 
     for (let i = 0; i < 5; i++) {
-      stars.push(<StarOutlined />);
+      stars.push(<StarOutlined key={i} />);
     }
 
     for (let i = 0; i < value; i++) {
-      stars[i] = <StarFilled />;
+      stars[i] = <StarFilled key={i} />;
     }
 
     return stars;

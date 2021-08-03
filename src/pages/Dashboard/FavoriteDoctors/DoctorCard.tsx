@@ -32,7 +32,7 @@ const Wrapper = styled.div`
   transition: all 0.3s ease;
 
   &:hover {
-    background: #ecfdff;
+    background: ${(props) => props.theme.colors.accent};
   }
 `;
 
