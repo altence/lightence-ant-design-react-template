@@ -3,6 +3,7 @@ import { Card as AntCard } from 'antd';
 import styled from 'styled-components';
 
 interface CardProps {
+  className?: string;
   padding?: string | number;
   children: React.ReactNode;
   $small?: boolean;
@@ -11,9 +12,9 @@ interface CardProps {
   [key: string]: React.ReactNode;
 }
 
-export const Card: React.FC<CardProps> = ({ padding, children, ...props }) => {
+export const Card: React.FC<CardProps> = ({ className, padding, children, ...props }) => {
   return (
-    <CardStyled padding={padding} {...props}>
+    <CardStyled className={className} padding={padding} {...props}>
       {children}
     </CardStyled>
   );
