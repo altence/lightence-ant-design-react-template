@@ -1,6 +1,6 @@
-import { Button, Image, Typography } from 'antd';
 import React from 'react';
 import styled from 'styled-components';
+import { Button, Image, Typography } from 'antd';
 import { Advice as AdviceProps } from '../../../constants/advices';
 
 export const Advice: React.FC<AdviceProps> = ({ imgUrl, title, date, description }) => {

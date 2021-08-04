@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import { Card } from '../../../components/common/Card';
 import { advices } from '../../../constants/advices';
 import { Advice } from './Advice';
-import { AdvicesHeader } from './AdvicesHeader';
+import { AdviceListHeader } from './AdviceListHeader';
 
-export const AdvicesCard: React.FC = () => {
+export const AdviceListCard: React.FC = () => {
   return (
-    <Card $large title={<AdvicesHeader />}>
+    <Card $large title={<AdviceListHeader />}>
       <Wrapper>
         {advices.map((advice) => (
           <Advice

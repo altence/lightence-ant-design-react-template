@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { AdviceListBtn } from './AdviceListBtn';
 import { AdviceTileBtn } from './AdviceTileBtn';
 
-export const AdvicesHeader: React.FC = () => {
+export const AdviceListHeader: React.FC = () => {
   const [isActive, setActive] = useState('tile');
 
   const handleClick = (mode: string) => () => {

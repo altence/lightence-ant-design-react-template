@@ -9,7 +9,7 @@ interface RatingProps {
 }
 
 export const Rating: React.FC<RatingProps> = ({ className, value }) => {
-  const getRating = useMemo(() => {
+  const rating = useMemo(() => {
     const stars = [];
 
     for (let i = 0; i < 5; i++) {
@@ -25,7 +25,7 @@ export const Rating: React.FC<RatingProps> = ({ className, value }) => {
 
   return (
     <Wrapper className={className}>
-      <RatingWrapper>{getRating}</RatingWrapper>
+      <RatingWrapper>{rating}</RatingWrapper>
       <Text>{value}</Text>
     </Wrapper>
   );
