@@ -3,15 +3,23 @@ import styled from 'styled-components';
 import { Typography } from 'antd';
 import { Card } from '../../../../components/common/Card';
 import { ResultsChart } from './ResultsChart';
-import { ResultsTable } from './ResultsTable';
+import { Cell, ResultsTable } from './ResultsTable';
 
 export const ResultsTimelineCard: React.FC = () => {
-  const [activeItem, setActiveItem] = useState('White blood cells');
+  const [activeItem, setActiveItem] = useState<Cell>({
+    key: 0,
+    values: {
+      min: 80,
+      current: 90,
+      cellName: 'Red blood cells',
+    },
+    data: [410, 466, 455, 467, 649, 670, 620, 600, 500, 400, 500, 700],
+  });
 
   return (
     <CardStyled title="Patient timeline" padding="0">
-      <Badge>{activeItem}</Badge>
-      <ResultsChart />
+      <Badge>{activeItem.values.cellName}</Badge>
+      <ResultsChart activeItem={activeItem} />
       <ResultsTable activeItem={activeItem} setActiveItem={setActiveItem} />
     </CardStyled>
   );
