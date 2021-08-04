@@ -58,7 +58,7 @@ const Wrapper = styled.div`
     right: 0;
     bottom: 0;
     left: 0;
-    background: ${(props) => props.theme.colors.gradient};
+    background: ${(props) => props.theme.colors.primaryGradient};
     border-radius: 7px;
     opacity: 0;
     transition: all 0.3s ease;

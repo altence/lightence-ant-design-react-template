@@ -3,7 +3,7 @@ import { Chart } from '../../../components/common/Chart';
 import theme from '../../../styles/theme';
 
 const option = {
-  color: theme.colors.primaryGradient,
+  color: theme.colors.echartsPrimaryGradient,
   grid: {
     top: 0,
     left: 0,

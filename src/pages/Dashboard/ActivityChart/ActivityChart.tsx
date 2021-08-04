@@ -6,7 +6,7 @@ import { Dates } from '../../../constants/dates';
 const days = Dates.getDays();
 
 const option = {
-  color: theme.colors.primaryGradient,
+  color: theme.colors.echartsPrimaryGradient,
   grid: {
     top: 50,
     right: 50,
@@ -35,7 +35,7 @@ const option = {
     max: 110,
     interval: 10,
     axisLabel: {
-      color: theme.colors.chartLabel,
+      color: theme.colors.basic,
       fontWeight: 500,
       fontSize: 12,
     },
