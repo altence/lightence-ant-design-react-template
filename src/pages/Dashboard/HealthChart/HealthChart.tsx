@@ -12,10 +12,10 @@ const chartData = [
 
 const option = {
   color: [
-    theme.colors.secondaryGradient,
-    theme.colors.additionallyGradient,
-    theme.colors.primaryGradient,
-    theme.colors.additionally,
+    theme.colors.echartsSecondaryGradient,
+    theme.colors.echartsAdditionallyGradient,
+    theme.colors.echartsPrimaryGradient,
+    theme.colors.basicLight,
   ],
   tooltip: {
     trigger: 'item',

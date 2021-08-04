@@ -50,7 +50,7 @@ const DiagramItem = styled.div<DiagramProps>`
   align-items: center;
   position: relative;
 
-  background: ${(props) => (props.isActive && props.theme.colors.primary) || props.theme.colors.additionally};
+  background: ${(props) => (props.isActive && props.theme.colors.primary) || props.theme.colors.basicLight};
 
   ${(props) =>
     props.isActive &&

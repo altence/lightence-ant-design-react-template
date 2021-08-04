@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Button } from 'antd';
+import { Button, Typography } from 'antd';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { Dates } from '../../constants/dates';
 
@@ -41,9 +41,8 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const Text = styled.span<MonthSwitchProps>`
+const Text = styled(Typography.Text)<MonthSwitchProps>`
   text-align: center;
-  color: ${(props) => props.theme.colors.text};
   width: ${(props) => props.width || '6rem'};
   margin: 0 1.25rem;
   font-size: 0.75rem;
