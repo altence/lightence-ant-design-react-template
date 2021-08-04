@@ -2,17 +2,16 @@ import * as echarts from 'echarts';
 
 export const colors = {
   primary: '#088a98',
+  primaryLight: '#ecfdff',
+  primaryGradient: 'linear-gradient(257.25deg, rgba(8, 138, 152, 0.7) -19.13%, rgba(38, 188, 204, 0.7) 106.53%)',
   secondary: '#fff',
-  dark: '#000',
   basic: '#dddddd',
-  additionally: '#f7f7f7',
-  text: '#404040',
-  chartLabel: '#c7c7c7',
+  basicLight: '#f7f7f7',
+  basicDark: '#000',
   success: '#57D682',
   fail: '#FF5252',
   star: '#FFC24B',
-  gradient: 'linear-gradient(257.25deg, rgba(8, 138, 152, 0.7) -19.13%, rgba(38, 188, 204, 0.7) 106.53%)',
-  primaryGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1.5, [
+  echartsPrimaryGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1.5, [
     {
       offset: 0,
       color: '#088a98',
@@ -22,7 +21,7 @@ export const colors = {
       color: '#F1FEFF',
     },
   ]),
-  secondaryGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+  echartsSecondaryGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
     {
       offset: 1,
       color: '#FF6291',
@@ -32,7 +31,7 @@ export const colors = {
       color: '#FFDEE8',
     },
   ]),
-  additionallyGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+  echartsAdditionallyGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
     {
       offset: 0,
       color: '#FFA215',

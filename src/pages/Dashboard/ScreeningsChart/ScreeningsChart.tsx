@@ -42,7 +42,7 @@ const option = {
       showSymbol: false,
       areaStyle: {
         opacity: 1,
-        color: theme.colors.secondaryGradient,
+        color: theme.colors.echartsSecondaryGradient,
       },
       emphasis: {
         focus: 'series',
@@ -59,7 +59,7 @@ const option = {
       showSymbol: false,
       areaStyle: {
         opacity: 1,
-        color: theme.colors.primaryGradient,
+        color: theme.colors.echartsPrimaryGradient,
       },
       emphasis: {
         focus: 'series',
