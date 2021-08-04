@@ -3,6 +3,7 @@ import * as echarts from 'echarts';
 export const colors = {
   primary: '#088a98',
   secondary: '#fff',
+  dark: '#000',
   basic: '#dddddd',
   additionally: '#f7f7f7',
   text: '#404040',
@@ -10,6 +11,7 @@ export const colors = {
   success: '#57D682',
   fail: '#FF5252',
   star: '#FFC24B',
+  gradient: 'linear-gradient(257.25deg, rgba(8, 138, 152, 0.7) -19.13%, rgba(38, 188, 204, 0.7) 106.53%)',
   primaryGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1.5, [
     {
       offset: 0,

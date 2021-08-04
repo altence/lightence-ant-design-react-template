@@ -15,7 +15,7 @@ import { HealthChartCard } from './HealthChart/HealthChartCard';
 import { FavoriteDoctorsCard } from './FavoriteDoctors/FavoriteDoctorsCard';
 import { TreatmentTimelineCard } from './timelines/TreatmentTimelineCard';
 import { ResultsTimelineCard } from './timelines/ResultsTimelineCard';
-import { NewsCard } from './News/NewsCard';
+import { AdvicesCard } from './Advices/AdvicesCard';
 import styled from 'styled-components';
 
 const Dashboard: React.FC = () => {
@@ -75,7 +75,7 @@ const Dashboard: React.FC = () => {
       </RowStyled>
       <RowStyled justify="space-between">
         <Col span="24">
-          <NewsCard />
+          <AdvicesCard />
         </Col>
       </RowStyled>
     </MainLayout>
