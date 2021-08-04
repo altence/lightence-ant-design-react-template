@@ -4,7 +4,7 @@ import { Table, Typography } from 'antd';
 import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
 
 interface ResultsTableProps {
-  activeItem: string;
+  activeItem: Cell;
   setActiveItem: (cell: any) => void;
 }
 
@@ -14,9 +14,10 @@ interface Values {
   current: number;
 }
 
-interface Cell {
+export interface Cell {
   key: number;
   values: Values;
+  data: number[];
 }
 
 interface Column {
@@ -34,7 +35,7 @@ interface PercentageProps extends TextProps {
   isDowngrade: boolean;
 }
 
-const dataSource: Cell[] = [
+export const dataSource: Cell[] = [
   {
     key: 0,
     values: {
@@ -42,6 +43,7 @@ const dataSource: Cell[] = [
       min: 80,
       current: 90,
     },
+    data: [410, 466, 455, 467, 649, 670, 620, 600, 500, 400, 500, 700],
   },
   {
     key: 1,
@@ -50,6 +52,7 @@ const dataSource: Cell[] = [
       min: 90,
       current: 91,
     },
+    data: [277, 426, 632, 452, 536, 670, 432, 523, 500, 400, 550, 770],
   },
   {
     key: 2,
@@ -58,6 +61,7 @@ const dataSource: Cell[] = [
       min: 60,
       current: 55,
     },
+    data: [347, 525, 542, 452, 325, 424, 366, 421, 565, 400, 320, 340],
   },
   {
     key: 3,
@@ -66,6 +70,7 @@ const dataSource: Cell[] = [
       min: 40,
       current: 60,
     },
+    data: [425, 423, 314, 455, 546, 620, 482, 513, 450, 470, 520, 600],
   },
   {
     key: 4,
@@ -74,6 +79,7 @@ const dataSource: Cell[] = [
       min: 30,
       current: 20,
     },
+    data: [222, 426, 652, 482, 426, 450, 482, 523, 540, 500, 400, 450],
   },
 ];
 
@@ -83,22 +89,22 @@ export const ResultsTable: React.FC<ResultsTableProps> = ({ activeItem, setActiv
       title: 'Cell',
       dataIndex: 'values',
       key: 'values',
-      render: ({ cellName }) => <Text isActive={cellName === activeItem}>{cellName}</Text>,
+      render: ({ cellName }) => <Text isActive={cellName === activeItem.values.cellName}>{cellName}</Text>,
     },
     {
       title: 'Min',
       dataIndex: 'values',
       key: 'values',
-      render: ({ cellName, min }) => <Text isActive={cellName === activeItem}>{min}</Text>,
+      render: ({ cellName, min }) => <Text isActive={cellName === activeItem.values.cellName}>{min}</Text>,
     },
     {
       title: 'Your perf.',
       dataIndex: 'values',
       key: 'values',
       render: ({ cellName, min, current }) => (
-        <Text isActive={cellName === activeItem}>
+        <Text isActive={cellName === activeItem.values.cellName}>
           {current}
-          <Percentage isActive={cellName === activeItem} isDowngrade={min > current}>
+          <Percentage isActive={cellName === activeItem.values.cellName} isDowngrade={min > current}>
             {min < current ? <CaretUpOutlined /> : <CaretDownOutlined />}
             {Math.abs(Math.round(((current - min) / min) * 100))}%
           </Percentage>
@@ -112,9 +118,9 @@ export const ResultsTable: React.FC<ResultsTableProps> = ({ activeItem, setActiv
       pagination={false}
       columns={columns}
       dataSource={dataSource}
-      onRow={(record: any) => {
+      onRow={(record) => {
         return {
-          onClick: () => setActiveItem(record.values.cellName),
+          onClick: () => setActiveItem(record),
         };
       }}
     />
