@@ -1,6 +1,6 @@
 import React from 'react';
-import { Chart } from '../../../components/common/Chart/Chart';
-import theme from '../../../styles/theme';
+import { Chart } from '../../../../components/common/Chart/Chart';
+import theme from '../../../../styles/theme';
 
 const option = {
   tooltip: {

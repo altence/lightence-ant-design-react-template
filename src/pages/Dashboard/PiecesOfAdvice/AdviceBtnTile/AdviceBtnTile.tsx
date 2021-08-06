@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'antd';
-import { AdviceBtnProps } from './AdviceBtnList';
+import { AdviceBtnProps } from '../AdviceBtnList/AdviceBtnList';
 import * as S from './AdviceBtnTile.styles';
 
 export const AdviceTileBtn: React.FC<AdviceBtnProps> = ({ isActive, onClick }) => {

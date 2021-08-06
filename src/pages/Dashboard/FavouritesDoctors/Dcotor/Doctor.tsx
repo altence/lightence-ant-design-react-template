@@ -1,5 +1,5 @@
 import React from 'react';
-import { FavoriteDoctor as DoctorProps } from '../../../constants/favouritesDoctors';
+import { FavoriteDoctor as DoctorProps } from '../../../../constants/favouritesDoctors';
 import * as S from './Doctor.styles';
 
 export const Doctor: React.FC<DoctorProps> = ({ imgUrl, rating, name, specifity, visit }) => {
