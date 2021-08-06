@@ -1,8 +1,6 @@
 // Here you can find all the default antd variables
 // https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less
 
-@border-radius-base: 7px;
-
 @component-bg: #fff;
 @heading-color: #000;
 @primary-color: #088a98;
@@ -14,15 +12,19 @@
 @font-size-lg: @font-size-base + 2px;
 @font-size-sm: @font-size-base - 2px;
 
+@border-radius-base: 7px;
+
+@item-hover-bg: @primary-light-color;
+
 // Layout
 @layout-header-background: @primary-color;
 @layout-header-height: 48px;
-@layout-header-padding: 0 1rem;
+@layout-header-padding: 0 16px;
 
 // Card
 @card-head-color: @primary-color;
-@card-head-padding: 0.875rem;
-@card-padding-base: 0.875rem;
+@card-head-padding: 13px;
+@card-padding-base: 20px;
 
 // Dropdown
 @dropdown-font-size: @font-size-sm;
@@ -30,5 +32,14 @@
 // Table
 @table-header-bg: @component-bg;
 @table-row-hover-bg: @primary-light-color;
-@table-padding-vertical: 0.375rem;
-@table-padding-horizontal: 0.5rem;
+@table-padding-vertical: 6px;
+@table-padding-horizontal: 8px;
+
+// Button
+@btn-font-weight: 500;
+@btn-default-color: #fff;
+@btn-default-bg: @primary-color;
+@btn-default-border: transparent;
+
+// Select
+@select-item-selected-font-weight: 500;
