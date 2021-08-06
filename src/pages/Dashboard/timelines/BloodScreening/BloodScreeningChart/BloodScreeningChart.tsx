@@ -1,9 +1,9 @@
 import React from 'react';
 import { EChartsInstance } from 'echarts-for-react';
-import { Chart } from '../../../../components/common/Chart/Chart';
-import theme from '../../../../styles/theme';
-import { Dates } from '../../../../constants/dates';
-import { Cell } from './BloodScreeningTable';
+import { Chart } from '../../../../../components/common/Chart/Chart';
+import theme from '../../../../../styles/theme';
+import { Dates } from '../../../../../constants/dates';
+import { Cell } from '../BloodScreeningTable/BloodScreeningTable';
 
 const months = Dates.getMonths();
 

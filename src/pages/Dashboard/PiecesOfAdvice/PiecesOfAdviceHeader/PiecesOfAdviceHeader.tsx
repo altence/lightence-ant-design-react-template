@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { AdviceListBtn } from './AdviceBtnList';
-import { AdviceTileBtn } from './AdviceBtnTile';
+import { AdviceListBtn } from '../AdviceBtnList/AdviceBtnList';
+import { AdviceTileBtn } from '../AdviceBtnTile/AdviceBtnTile';
 import * as S from './PiecesOfAdviceHeader.styles';
 
 export const PiecesOfAdviceHeader: React.FC = () => {

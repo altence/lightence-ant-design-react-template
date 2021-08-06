@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from '../../../components/common/Card/Card';
-import { Map } from './Map';
-import { MapHeader } from './MapHeader';
+import { Map } from './Map/Map';
+import { MapHeader } from './MapHeader/MapHeader';
 
 export const MapCard: React.FC = () => {
   return (

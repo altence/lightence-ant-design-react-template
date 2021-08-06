@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { BloodScreeningChart } from './BloodScreeningChart';
-import { Cell, BloodScreeningTable } from './BloodScreeningTable';
+import { BloodScreeningChart } from './BloodScreeningChart/BloodScreeningChart';
+import { Cell, BloodScreeningTable } from './BloodScreeningTable/BloodScreeningTable';
 import * as S from './BloodScreeningCard.styles';
 
 export const BloodScreeningCard: React.FC = () => {

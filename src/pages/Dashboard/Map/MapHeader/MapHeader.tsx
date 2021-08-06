@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dates } from '../../../constants/dates';
+import { Dates } from '../../../../constants/dates';
 import * as S from './MapHeader.styles';
 
 const today = Dates.getToday();
