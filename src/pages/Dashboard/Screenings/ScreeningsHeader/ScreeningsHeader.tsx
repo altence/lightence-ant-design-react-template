@@ -1,6 +1,6 @@
 import React from 'react';
-import { ScreeningsSelect } from './ScreeningsSelect';
-import { Dates } from '../../../constants/dates';
+import { ScreeningsSelect } from '../ScreeningsSelect/ScreeningsSelect';
+import { Dates } from '../../../../constants/dates';
 import * as S from './ScreeningsHeader.styles';
 
 const months = Dates.getMonths();

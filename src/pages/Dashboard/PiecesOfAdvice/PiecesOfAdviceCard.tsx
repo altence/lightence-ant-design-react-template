@@ -1,8 +1,8 @@
 import React from 'react';
-import { PiecesOfAdviceHeader } from './PiecesOfAdviceHeader';
+import { PiecesOfAdviceHeader } from './PiecesOfAdviceHeader/PiecesOfAdviceHeader';
 import { Card } from '../../../components/common/Card/Card';
 import { advices } from '../../../constants/advices';
-import { Advice } from './Advice';
+import { Advice } from './Advice/Advice';
 import * as S from './PiecesOfAdviceCard.styles';
 
 export const PiecesOfAdviceCard: React.FC = () => {

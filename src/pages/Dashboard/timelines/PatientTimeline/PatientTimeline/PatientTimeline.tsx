@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from 'antd';
-import { PatientTimeline as PatientTimelineProps } from '../../../../constants/patientTimeline';
+import { PatientTimeline as PatientTimelineProps } from '../../../../../constants/patientTimeline';
 import * as S from './PatientTimeline.styles';
 
 export const PatientTimeline: React.FC<PatientTimelineProps> = ({ title, date, description, isActive }) => {

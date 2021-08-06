@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowLeftOutlined, ArrowRightOutlined, CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
-import { friends } from '../../../constants/friends';
+import { friends } from '../../../../constants/friends';
 import * as S from './ScreeningsCollapse.styles';
 
 export const ScreeningsCollapse: React.FC = () => {

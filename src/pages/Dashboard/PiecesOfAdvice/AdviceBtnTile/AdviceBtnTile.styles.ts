@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ItemProps } from './AdviceBtnList.styles';
+import { ItemProps } from '../AdviceBtnList/AdviceBtnList.styles';
 
 export const TileRow = styled.div`
   display: flex;

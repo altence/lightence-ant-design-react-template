@@ -3,7 +3,7 @@ import { SwiperSlide } from 'swiper/react';
 import { Card } from '../../../components/common/Card/Card';
 import { Slider } from '../../../components/common/Slider/Slider';
 import { favoriteDoctors } from '../../../constants/favouritesDoctors';
-import { Doctor } from './Doctor';
+import { Doctor } from './Dcotor/Doctor';
 
 export const FavouritesDoctorsCard: React.FC = () => {
   return (
