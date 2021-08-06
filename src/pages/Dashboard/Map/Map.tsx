@@ -1,15 +1,15 @@
 import React from 'react';
-import styled from 'styled-components';
 import L from 'leaflet';
-import { MapContainer, Marker, TileLayer } from 'react-leaflet';
+import { Marker, TileLayer } from 'react-leaflet';
 import { Popup } from './Popup';
 import { doctorsData, polyclinicData } from '../../../constants/map';
 import markerDoctor from '../../../assets/icons/marker-doctor.svg';
 import markerPolyclinic from '../../../assets/icons/marker-polyclinic.svg';
+import * as S from './Map.styles';
 
 export const Map: React.FC = () => {
   return (
-    <MapStyled center={[42.343574, -83.046792]} zoom={13} scrollWheelZoom={false}>
+    <S.Map center={[42.343574, -83.046792]} zoom={13} scrollWheelZoom={false}>
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -30,13 +30,9 @@ export const Map: React.FC = () => {
           <Popup name={marker.name} />
         </Marker>
       ))}
-    </MapStyled>
+    </S.Map>
   );
 };
-
-const MapStyled = styled(MapContainer)`
-  height: 322px;
-`;
 
 const MarkerDoctor = new L.Icon({
   iconUrl: markerDoctor,
