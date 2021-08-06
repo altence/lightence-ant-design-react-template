@@ -7,15 +7,15 @@ import { BonesCard } from './statistics/Bones/BonesCard';
 import { WaterBalanceCard } from './statistics/WaterBalance/WaterBalanceCard';
 import { WeightCard } from './statistics/Weight/WeightCard';
 import { MapCard } from './Map/MapCard';
-import { ScreeningsChartCard } from './ScreeningsChart/ScreeningsChartCard';
-import { ActivityChartCard } from './ActivityChart/ActivityChartCard';
+import { ScreeningsCard } from './Screenings/ScreeningsCard';
+import { ActivityCard } from './Activity/ActivityCard';
 import { TreatmentCard } from './Treatment/TreatmentCard';
-import { CovidChartCard } from './CovidChart/CovidChartCard';
-import { HealthChartCard } from './HealthChart/HealthChartCard';
-import { FavoriteDoctorsCard } from './FavoriteDoctors/FavoriteDoctorsCard';
-import { TreatmentTimelineCard } from './timelines/TreatmentTimeline/TreatmentTimelineCard';
-import { ResultsTimelineCard } from './timelines/ResultsTimeline/ResultsTimelineCard';
-import { AdviceListCard } from './AdviceList/AdviceListCard';
+import { CovidCard } from './Covid/CovidCard';
+import { HealthCard } from './Health/HealthCard';
+import { FavouritesDoctorsCard } from './FavouritesDoctors/FavouritesDoctorsCard';
+import { PatientTimelineCard } from './timelines/PatientTimeline/PatientTimelineCard';
+import { BloodScreeningCard } from './timelines/BloodScreening/BloodScreeningCard';
+import { PiecesOfAdviceCard } from './PiecesOfAdvice/PiecesOfAdviceCard';
 import styled from 'styled-components';
 
 const Dashboard: React.FC = () => {
@@ -43,7 +43,7 @@ const Dashboard: React.FC = () => {
           <MapCard />
         </Col>
         <Col span="14">
-          <ScreeningsChartCard />
+          <ScreeningsCard />
         </Col>
       </RowStyled>
       <RowStyled justify="space-between">
@@ -51,31 +51,31 @@ const Dashboard: React.FC = () => {
           <TreatmentCard />
         </Col>
         <Col span="8">
-          <ActivityChartCard />
+          <ActivityCard />
         </Col>
       </RowStyled>
       <RowStyled justify="space-between">
         <Col span="11">
-          <CovidChartCard />
+          <CovidCard />
         </Col>
         <Col span="11">
-          <HealthChartCard />
+          <HealthCard />
         </Col>
       </RowStyled>
       <RowStyled justify="space-between">
         <Col span="8">
-          <FavoriteDoctorsCard />
+          <FavouritesDoctorsCard />
         </Col>
         <Col span="8">
-          <TreatmentTimelineCard />
+          <PatientTimelineCard />
         </Col>
         <Col span="5">
-          <ResultsTimelineCard />
+          <BloodScreeningCard />
         </Col>
       </RowStyled>
       <RowStyled justify="space-between">
         <Col span="24">
-          <AdviceListCard />
+          <PiecesOfAdviceCard />
         </Col>
       </RowStyled>
     </MainLayout>

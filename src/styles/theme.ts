@@ -3,6 +3,7 @@ import * as echarts from 'echarts';
 export const colors = {
   primary: '#088a98',
   primaryLight: '#ecfdff',
+  primaryDark: '#0059AB',
   primaryGradient: 'linear-gradient(257.25deg, rgba(8, 138, 152, 0.7) -19.13%, rgba(38, 188, 204, 0.7) 106.53%)',
   secondary: '#fff',
   basic: '#dddddd',
@@ -11,7 +12,7 @@ export const colors = {
   success: '#57D682',
   fail: '#FF5252',
   star: '#FFC24B',
-  echartsPrimaryGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1.5, [
+  chartsPrimaryGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1.5, [
     {
       offset: 0,
       color: '#088a98',
@@ -21,7 +22,7 @@ export const colors = {
       color: '#F1FEFF',
     },
   ]),
-  echartsSecondaryGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+  chartsSecondaryGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
     {
       offset: 1,
       color: '#FF6291',
@@ -31,7 +32,7 @@ export const colors = {
       color: '#FFDEE8',
     },
   ]),
-  echartsAdditionallyGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+  chartsAdditionallyGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
     {
       offset: 0,
       color: '#FFA215',
