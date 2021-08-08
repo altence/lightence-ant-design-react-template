@@ -1,11 +1,6 @@
 import React from 'react';
 import MainLayout from '../components/layouts/MainLayout';
 import { Col, Row } from 'antd';
-import { ProteinCard } from '../components/dashboard/statistics/ProteinCard/ProteinCard';
-import { FatCard } from '../components/dashboard/statistics/FatCard/FatCard';
-import { BonesCard } from '../components/dashboard/statistics/BonesCard/BonesCard';
-import { WaterBalanceCard } from '../components/dashboard/statistics/WaterBalanceCard/WaterBalanceCard';
-import { WeightCard } from '../components/dashboard/statistics/WeightCard/WeightCard';
 import { MapCard } from '../components/dashboard/MapCard/MapCard';
 import { ScreeningsCard } from '../components/dashboard/ScreeningsCard/ScreeningsCard';
 import { ActivityCard } from '../components/dashboard/ActivityCard/ActivityCard';
@@ -17,26 +12,24 @@ import { PatientTimelineCard } from '../components/dashboard/timelines/PatientTi
 import { BloodScreeningCard } from '../components/dashboard/timelines/BloodScreeningCard/BloodScreeningCard';
 import { PiecesOfAdviceCard } from '../components/dashboard/PiecesOfAdviceCard/PiecesOfAdviceCard';
 import styled from 'styled-components';
+import { StatisticsCard } from '../components/dashboard/StatisticsCard/StatisticsCard';
+import { statisticsData } from '../constants/statistics';
 
 const Dashboard: React.FC = () => {
   return (
     <MainLayout>
       <RowStyled justify="space-between">
-        <Col span="4">
-          <ProteinCard />
-        </Col>
-        <Col span="4">
-          <FatCard />
-        </Col>
-        <Col span="4">
-          <BonesCard />
-        </Col>
-        <Col span="4">
-          <WaterBalanceCard />
-        </Col>
-        <Col span="4">
-          <WeightCard />
-        </Col>
+        {statisticsData.map((st) => (
+          <Col key={st.id} span="4">
+            <StatisticsCard
+              title={st.title}
+              value={st.value}
+              percent={st.percent}
+              icon={st.icon}
+              isDowngrade={st.isDowngrade}
+            />
+          </Col>
+        ))}
       </RowStyled>
       <RowStyled justify="space-between">
         <Col span="8">

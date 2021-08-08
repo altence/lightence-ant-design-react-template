@@ -7,6 +7,8 @@ export interface ChartProps {
 }
 
 export const Chart = styled(ReactECharts)<ChartProps>`
+  flex-shrink: 0;
+
   width: ${(props) => props.width};
 
   height: ${(props) => props.height || '100%'} !important;
