@@ -49,5 +49,5 @@ export const Rating = styled(Rate)`
   font-size: 0.93rem;
   margin-right: 0.4rem;
 
-  color: ${(props) => props.theme.colors.star};
+  color: ${(props) => props.theme.colors.accent};
 `;

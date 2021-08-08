@@ -11,7 +11,8 @@ export const colors = {
   basicDark: '#000',
   success: '#57D682',
   fail: '#FF5252',
-  star: '#FFC24B',
+  accent: '#FFC24B',
+  accentLight: '#FFA41C',
   chartsPrimaryGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1.5, [
     {
       offset: 0,

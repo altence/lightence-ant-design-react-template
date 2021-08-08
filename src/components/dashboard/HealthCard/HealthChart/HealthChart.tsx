@@ -1,22 +1,11 @@
-import { EChartsOption } from 'echarts';
 import React from 'react';
+import { EChartsOption } from 'echarts';
 import { Chart } from '../../../common/Chart/Chart';
 import theme from '../../../../styles/theme';
-
-const chartData = [
-  { value: 72, name: 'Lifestyle' },
-  { value: 50, name: 'Ecology' },
-  { value: 70, name: 'Genetics' },
-  { value: 20, name: 'Any info' },
-];
+import { healthChartData } from '../../../../constants/healthChart';
 
 const option = {
-  color: [
-    theme.colors.chartsSecondaryGradient,
-    theme.colors.chartsAdditionallyGradient,
-    theme.colors.chartsPrimaryGradient,
-    theme.colors.basicLight,
-  ],
+  color: healthChartData.map((item) => item.chartColor),
   tooltip: {
     trigger: 'item',
   },
@@ -36,7 +25,12 @@ const option = {
         color: theme.colors.primary,
         fontSize: 24,
       },
-      data: chartData,
+      data: healthChartData.map((item) => {
+        return {
+          value: item.value,
+          name: item.title,
+        };
+      }),
       emphasis: {
         label: {
           show: true,
@@ -49,5 +43,5 @@ const option = {
 };
 
 export const HealthChart: React.FC = () => {
-  return <Chart option={option} />;
+  return <Chart option={option} width="300px" height="300px" />;
 };
