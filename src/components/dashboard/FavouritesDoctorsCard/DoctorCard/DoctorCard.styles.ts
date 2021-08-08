@@ -45,7 +45,7 @@ export const RatingWrapper = styled.div`
 export const Rating = styled(Rate)`
   font-size: 1rem;
 
-  color: ${(props) => props.theme.colors.star};
+  color: ${(props) => props.theme.colors.accent};
 `;
 
 export const InfoWrapper = styled.div`
