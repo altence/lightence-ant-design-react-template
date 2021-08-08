@@ -38,7 +38,7 @@ export const Wrapper = styled.div`
     transition: all 0.3s ease;
     pointer-events: none;
 
-    background-color: ${(props) => props.theme.colors.primaryGradient};
+    background: ${(props) => props.theme.colors.primaryGradient};
   }
 
   &:hover {
