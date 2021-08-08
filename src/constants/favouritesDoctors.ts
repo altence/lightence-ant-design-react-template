@@ -14,7 +14,7 @@ export const favoriteDoctors: Array<FavoriteDoctor> = [
     specifity: 'Surgeon',
     visit: '6.08.21',
     rating: 4,
-    imgUrl: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1628001383/Rectangle_463_jnyv7r.jpg',
+    imgUrl: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1628436647/Rectangle_463_1_d1omr2.jpg',
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ export const favoriteDoctors: Array<FavoriteDoctor> = [
     specifity: 'Dermatologist',
     visit: '9.08.21',
     rating: 5,
-    imgUrl: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1628001384/Rectangle_638_nreofs.jpg',
+    imgUrl: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1628436647/Rectangle_463_2_hgqjsp.jpg',
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ export const favoriteDoctors: Array<FavoriteDoctor> = [
     specifity: 'Oncologist',
     visit: '6.08.21',
     rating: 5,
-    imgUrl: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1628001387/Rectangle_639_arezkv.jpg',
+    imgUrl: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1628436646/Rectangle_463_3_gl0gcr.jpg',
   },
   {
     id: 4,
@@ -38,6 +38,6 @@ export const favoriteDoctors: Array<FavoriteDoctor> = [
     specifity: 'Cardiologist',
     visit: '3.08.21',
     rating: 4,
-    imgUrl: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1628001278/Rectangle_534_vxr19u.jpg',
+    imgUrl: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1628436647/Rectangle_463_4_gep4lc.jpg',
   },
 ];
