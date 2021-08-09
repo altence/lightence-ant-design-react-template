@@ -7,7 +7,7 @@ import * as S from './PiecesOfAdviceCard.styles';
 
 export const PiecesOfAdviceCard: React.FC = () => {
   return (
-    <Card $large title={<PiecesOfAdviceHeader />} padding="0.875rem 1.25rem">
+    <Card title={<PiecesOfAdviceHeader />} padding="0.875rem 1.25rem">
       <S.Wrapper>
         {piecesOfAdviceData.map((advice) => (
           <Advice

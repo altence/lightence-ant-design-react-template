@@ -6,9 +6,6 @@ export interface CardProps extends AntCardProps {
   className?: string;
   padding?: string | number;
   children: React.ReactNode;
-  $small?: boolean;
-  $medium?: boolean;
-  $large?: boolean;
 }
 
 export const Card: React.FC<CardProps> = ({ className, padding, children, ...props }) => {
