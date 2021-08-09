@@ -14,34 +14,26 @@ const LoginForm: React.FC = () => {
   return (
     <S.FormDiv>
       <S.FormTitle>Login</S.FormTitle>
-      <S.FormStyled
-        name="normal_login"
-        className="login-form"
-        layout="vertical"
-        initialValues={{ remember: true }}
-        onFinish={handleSubmit}
-      >
+      <S.FormStyled layout="vertical" initialValues={{ remember: true }} onFinish={handleSubmit}>
         <S.FormInput
           name="username"
           rules={[{ required: true, message: 'Please input users name or delete this field' }]}
         >
-          <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+          <Input prefix={<UserOutlined />} placeholder="Username" />
         </S.FormInput>
         <S.FormInput name="password" rules={[{ required: true, message: 'Wrong login or password' }]}>
-          <Input prefix={<LockOutlined className="site-form-item-icon" />} type="password" placeholder="Password" />
+          <Input prefix={<LockOutlined />} type="password" placeholder="Password" />
         </S.FormInput>
 
         <S.RememberMeContainer>
           <Form.Item name="remember" valuePropName="checked" noStyle>
             <Checkbox>Remember me</Checkbox>
           </Form.Item>
-          <a className="login-form-forgot" href="">
-            Forgot password?
-          </a>
+          <a href="">Forgot password?</a>
         </S.RememberMeContainer>
 
         <S.LogInContainer>
-          <S.FormButtonStyled type="primary" htmlType="submit" className="login-form-button">
+          <S.FormButtonStyled type="primary" htmlType="submit">
             Login
           </S.FormButtonStyled>
           <S.RegisterNowDiv>
