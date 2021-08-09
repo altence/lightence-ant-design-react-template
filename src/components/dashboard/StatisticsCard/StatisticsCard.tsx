@@ -14,7 +14,7 @@ interface StatisticsCardProps {
 
 export const StatisticsCard: React.FC<StatisticsCardProps> = ({ value, percent, icon, title, isDowngrade }) => {
   return (
-    <Card $small>
+    <Card>
       <S.Wrapper>
         <S.Icon component={icon} />
         <StatisticsChart value={value} isDowngrade={isDowngrade} />

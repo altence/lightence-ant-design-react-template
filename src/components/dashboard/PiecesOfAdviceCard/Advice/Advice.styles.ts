@@ -15,6 +15,8 @@ export const BtnMore = styled(Button)`
   transition: all 0.3s ease;
   pointer-events: none;
 
+  color: ${(props) => props.theme.colors.secondary};
+
   &:hover {
     background-color: ${(props) => props.theme.colors.secondary};
   }
