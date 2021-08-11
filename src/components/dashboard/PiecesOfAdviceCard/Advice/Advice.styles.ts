@@ -24,9 +24,7 @@ export const BtnMore = styled(Button)`
 
 export const Wrapper = styled.div`
   display: flex;
-  align-items: center;
   position: relative;
-  border-radius: 7px;
 
   &::after {
     content: '';
@@ -56,22 +54,27 @@ export const Wrapper = styled.div`
 `;
 
 export const Image = styled(AntImage)`
-  width: 22rem;
+  height: 100%;
 `;
 
 export const InfoWrapper = styled.div`
   padding: 1.25rem;
+  width: 50%;
+  flex-shrink: 0;
 `;
 
 export const InfoHeader = styled.div`
-  margin-bottom: 1.25rem;
   display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
 `;
 
 export const Title = styled(Typography.Text)`
   font-weight: 500;
   font-size: 1rem;
   margin-right: 0.625rem;
+
+  color: ${(props) => props.theme.colors.basicDark};
 `;
 
 export const Text = styled(Typography.Text)`

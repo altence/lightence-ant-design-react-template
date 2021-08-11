@@ -1,7 +1,7 @@
 import React from 'react';
 import { BarChartOutlined, CalendarOutlined, CheckOutlined, FileTextOutlined } from '@ant-design/icons';
-import { Card } from '../../../common/Card/Card';
-import { patientTimeline } from '../../../../constants/patientTimeline';
+import { Card } from '../../common/Card/Card';
+import { patientTimeline } from '../../../constants/patientTimeline';
 import * as S from './PatientTimelineCard.styles';
 
 const icons = [<CheckOutlined key={0} />, <BarChartOutlined key={1} />, <FileTextOutlined key={2} />];

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Typography } from 'antd';
-import { Card as CardStyled } from '../../../common/Card/Card';
+import { Card as CardStyled } from '../../common/Card/Card';
 
 export const Card = styled(CardStyled)`
   & .ant-card-body {

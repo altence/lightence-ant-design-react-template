@@ -6,7 +6,8 @@ interface PercentageProps {
 }
 
 export const Wrapper = styled.div`
-  line-height: initial;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Title = styled(Typography.Text)`
@@ -18,27 +19,17 @@ export const Title = styled(Typography.Text)`
 `;
 
 export const Text = styled(Typography.Text)`
-  font-size: 0.75rem;
-`;
-
-export const PercentageWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  font-weight: 600;
+  margin-left: 0.125rem;
 `;
 
 export const Percentage = styled.div<PercentageProps>`
-  width: 3rem;
-  margin-left: 0.625rem;
   display: flex;
   align-items: center;
 
   color: ${(props) => (props.isDowngrade && props.theme.colors.fail) || props.theme.colors.success};
 
   & ${Text} {
-    font-weight: 600;
-    font-size: unset;
-    margin-left: 0.125rem;
     color: ${(props) => (props.isDowngrade && props.theme.colors.fail) || props.theme.colors.success};
   }
 `;

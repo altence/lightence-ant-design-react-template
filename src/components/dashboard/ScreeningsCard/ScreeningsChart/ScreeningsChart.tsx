@@ -11,7 +11,7 @@ const option = {
   },
   grid: {
     top: 0,
-    left: 80,
+    left: 60,
     right: 0,
     bottom: 0,
   },

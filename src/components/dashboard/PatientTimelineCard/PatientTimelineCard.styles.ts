@@ -6,7 +6,9 @@ interface ItemProps {
 }
 
 export const Wrapper = styled.div`
-  line-height: initial;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 `;
 
 export const Item = styled.div`
@@ -37,11 +39,11 @@ export const IconWrapper = styled.div<ItemProps>`
   &::after {
     position: absolute;
     content: '';
-    top: 110%;
+    top: 100%;
     left: 50%;
     transform: translateX(-50%);
     width: 2px;
-    height: 100%;
+    height: 200%;
     background: ${(props) => props.theme.colors.basic};
   }
 `;
@@ -51,7 +53,7 @@ export const InfoWrapper = styled.div`
   flex-direction: column;
 `;
 
-export const Title = styled(Typography.Text)<ItemProps>`
+export const Title = styled.span<ItemProps>`
   font-weight: 500;
   font-size: 1rem;
   margin-bottom: 0.25rem;

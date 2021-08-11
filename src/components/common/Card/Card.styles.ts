@@ -5,7 +5,7 @@ import { CardProps } from './Card';
 export const Card = styled(AntCard)<CardProps>`
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  height: 100%;
   box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.07);
 
   & .ant-card-head {

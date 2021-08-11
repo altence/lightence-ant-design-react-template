@@ -24,7 +24,7 @@ export const healthChartData: HealthChartItem[] = [
     title: 'Ecology',
     description: 'Without new treatments, the W.H.O. says, the number of new cancer patients.',
     value: 50,
-    color: theme.colors.accentLight,
+    color: theme.colors.accentDark,
     chartColor: theme.colors.chartsAdditionallyGradient,
   },
   {
