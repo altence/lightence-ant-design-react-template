@@ -12,7 +12,7 @@ export const ScreeningsCollapse: React.FC = () => {
       <S.HeaderWrapper isCollapsed={isCollapsed}>
         {!isCollapsed && <S.Text>Friends</S.Text>}
         <S.ArrowBtn type="text" onClick={() => setCollapsed(!isCollapsed)}>
-          <S.Arrow>{isCollapsed ? <ArrowRightOutlined /> : <ArrowLeftOutlined />}</S.Arrow>
+          {isCollapsed ? <ArrowRightOutlined /> : <ArrowLeftOutlined />}
         </S.ArrowBtn>
       </S.HeaderWrapper>
       <S.List>

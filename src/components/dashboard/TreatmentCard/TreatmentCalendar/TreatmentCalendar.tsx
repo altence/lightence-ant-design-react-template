@@ -12,5 +12,21 @@ export const TreatmentCalendar: React.FC<TreatmentCalendarProps> = ({ date, setD
     setDate(value);
   };
 
-  return <S.Calendar value={date} onSelect={handleSelect} fullscreen={false} />;
+  return (
+    <S.Wrapper>
+      <S.Calendar value={date} onSelect={handleSelect} fullscreen={false} />
+      <S.Legend>
+        <S.LegendItem>
+          <S.LegendIcon />
+          {'-'}
+          <S.Text>implementation of the treatment plan</S.Text>
+        </S.LegendItem>
+        <S.LegendItem>
+          <S.LegendIcon isPrimary />
+          {'-'}
+          <S.Text>upcoming treatment according to plan</S.Text>
+        </S.LegendItem>
+      </S.Legend>
+    </S.Wrapper>
+  );
 };

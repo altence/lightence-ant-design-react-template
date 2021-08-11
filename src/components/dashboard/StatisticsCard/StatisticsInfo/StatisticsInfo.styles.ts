@@ -27,9 +27,9 @@ export const Percentage = styled.div<PercentageProps>`
   display: flex;
   align-items: center;
 
-  color: ${(props) => (props.isDowngrade && props.theme.colors.fail) || props.theme.colors.success};
+  color: ${(props) => (props.isDowngrade && props.theme.colors.error) || props.theme.colors.success};
 
   & ${Text} {
-    color: ${(props) => (props.isDowngrade && props.theme.colors.fail) || props.theme.colors.success};
+    color: ${(props) => (props.isDowngrade && props.theme.colors.error) || props.theme.colors.success};
   }
 `;

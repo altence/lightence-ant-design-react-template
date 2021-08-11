@@ -7,7 +7,7 @@ import { DoctorCard } from './DoctorCard/DoctorCard';
 
 export const FavouritesDoctorsCard: React.FC = () => {
   return (
-    <Card title="Favorite doctors" padding="0.75rem 3.5rem">
+    <Card title="Favorite doctors" padding="0.75rem 3rem">
       <Slider>
         {favoriteDoctors.map((doctor) => (
           <SwiperSlide key={doctor.id}>

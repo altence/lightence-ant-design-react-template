@@ -11,7 +11,7 @@ const option = {
   },
   grid: {
     top: 0,
-    left: 60,
+    left: '7%',
     right: 0,
     bottom: 0,
   },

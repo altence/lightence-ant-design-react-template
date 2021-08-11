@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Table as AntTable, Typography } from 'antd';
+import { Table as AntTable } from 'antd';
 
 interface TextProps {
   isActive?: boolean;
@@ -43,7 +43,7 @@ export const Percentage = styled.span<PercentageProps>`
   width: 2.6rem;
 
   color: ${(props) =>
-    (props.isActive && props.isDowngrade && props.theme.colors.fail) ||
+    (props.isActive && props.isDowngrade && props.theme.colors.error) ||
     (props.isActive && props.theme.colors.success) ||
     props.theme.colors.basic};
 
@@ -51,7 +51,7 @@ export const Percentage = styled.span<PercentageProps>`
     margin-left: 0.2rem;
 
     color: ${(props) =>
-      (props.isActive && props.isDowngrade && props.theme.colors.fail) ||
+      (props.isActive && props.isDowngrade && props.theme.colors.error) ||
       (props.isActive && props.theme.colors.success) ||
       props.theme.colors.basic};
   }
