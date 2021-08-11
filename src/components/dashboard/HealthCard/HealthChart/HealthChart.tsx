@@ -9,11 +9,17 @@ const option = {
   tooltip: {
     trigger: 'item',
   },
+  legend: {
+    right: 0,
+    top: '35%',
+    orient: 'vertical',
+    icon: 'square',
+  },
   series: [
     {
       type: 'pie',
-      radius: [80, 120],
-      center: ['50%', '50%'],
+      radius: ['55%', '80%'],
+      avoidLabelOverlap: false,
       labelLine: false,
       label: {
         show: true,
@@ -29,6 +35,7 @@ const option = {
         return {
           value: item.value,
           name: item.title,
+          description: item.description,
         };
       }),
       emphasis: {
@@ -43,5 +50,5 @@ const option = {
 };
 
 export const HealthChart: React.FC = () => {
-  return <Chart option={option} width="300px" height="300px" />;
+  return <Chart option={option} />;
 };

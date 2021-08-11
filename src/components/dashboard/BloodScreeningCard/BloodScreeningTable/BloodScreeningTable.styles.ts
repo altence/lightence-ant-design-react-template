@@ -27,7 +27,7 @@ export const Table = styled(AntTable)`
   }
 `;
 
-export const Text = styled(Typography.Text)<TextProps>`
+export const Text = styled.span<TextProps>`
   color: ${(props) => (props.isActive && props.theme.colors.basicDark) || props.theme.colors.basic};
 `;
 
@@ -37,7 +37,7 @@ export const Performance = styled.div`
   width: 5rem;
 `;
 
-export const Percentage = styled(Typography.Text)<PercentageProps>`
+export const Percentage = styled.span<PercentageProps>`
   display: flex;
   align-items: center;
   width: 2.6rem;
@@ -49,6 +49,7 @@ export const Percentage = styled(Typography.Text)<PercentageProps>`
 
   & ${Text} {
     margin-left: 0.2rem;
+
     color: ${(props) =>
       (props.isActive && props.isDowngrade && props.theme.colors.fail) ||
       (props.isActive && props.theme.colors.success) ||

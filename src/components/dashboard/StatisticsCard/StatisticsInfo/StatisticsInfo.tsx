@@ -12,13 +12,10 @@ export const StatisticsInfo: React.FC<StatisticsInfoProps> = ({ title, percent, 
   return (
     <S.Wrapper>
       <S.Title>{title}</S.Title>
-      <S.PercentageWrapper>
-        <S.Text>percent</S.Text>
-        <S.Percentage isDowngrade={isDowngrade}>
-          {(!isDowngrade && <CaretUpOutlined />) || <CaretDownOutlined />}
-          <S.Text>{percent}%</S.Text>
-        </S.Percentage>
-      </S.PercentageWrapper>
+      <S.Percentage isDowngrade={isDowngrade}>
+        {(!isDowngrade && <CaretUpOutlined />) || <CaretDownOutlined />}
+        <S.Text>{percent}%</S.Text>
+      </S.Percentage>
     </S.Wrapper>
   );
 };

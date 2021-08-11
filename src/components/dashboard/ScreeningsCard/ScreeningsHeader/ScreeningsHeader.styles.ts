@@ -7,7 +7,8 @@ export const Wrapper = styled.div`
 `;
 
 export const SelectsWrapper = styled.div`
-  & div:first-of-type {
-    margin-right: 0.625rem;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
 `;
