@@ -16,7 +16,7 @@ export const healthChartData: HealthChartItem[] = [
     title: 'Lifestyle',
     description: 'Without new treatments, the W.H.O. says, the number of new cancer patients.',
     value: 72,
-    color: theme.colors.fail,
+    color: theme.colors.error,
     chartColor: theme.colors.chartsSecondaryGradient,
   },
   {

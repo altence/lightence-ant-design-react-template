@@ -43,7 +43,7 @@ export const Wrapper = styled.div`
 
   &:hover {
     &::after {
-      opacity: 1;
+      opacity: 0.7;
     }
 
     & ${BtnMore} {

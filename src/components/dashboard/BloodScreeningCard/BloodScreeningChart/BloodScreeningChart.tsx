@@ -13,7 +13,7 @@ interface BloodScreeningChartsProps {
 
 export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ activeItem }) => {
   const option = {
-    color: theme.colors.fail,
+    color: theme.colors.error,
     grid: {
       top: '50%',
       bottom: 0,

@@ -1,26 +1,25 @@
 import * as echarts from 'echarts';
 
 export const colors = {
-  primary: '#088a98',
+  primary: '#0059AB',
   primaryLight: '#ecfdff',
   primaryDark: '#0059AB',
-  primaryGradient: 'linear-gradient(257.25deg, rgba(8, 138, 152, 0.7) -19.13%, rgba(38, 188, 204, 0.7) 106.53%)',
+  primaryGradient: 'linear-gradient(180deg, #0059AB 0%, #EEF5FC 119.84%)',
   secondary: '#fff',
   basic: '#dddddd',
   basicLight: '#f7f7f7',
   basicDark: '#000',
   success: '#57D682',
-  fail: '#FF5252',
-  accent: '#FFC24B',
+  error: '#FF5252',
   accentDark: '#FFA41C',
-  chartsPrimaryGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1.5, [
+  chartsPrimaryGradient: new echarts.graphic.LinearGradient(0, 0, 0, 2, [
     {
       offset: 0,
-      color: '#088a98',
+      color: '#0059AB',
     },
     {
       offset: 1,
-      color: '#F1FEFF',
+      color: '#EEF5FC',
     },
   ]),
   chartsSecondaryGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1, [

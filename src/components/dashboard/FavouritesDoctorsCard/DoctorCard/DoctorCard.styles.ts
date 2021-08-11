@@ -33,8 +33,6 @@ export const RatingWrapper = styled.div`
 
 export const Rating = styled(Rate)`
   font-size: 0.9rem;
-
-  color: ${(props) => props.theme.colors.accent};
 `;
 
 export const Title = styled(Typography.Text)`

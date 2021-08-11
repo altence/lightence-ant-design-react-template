@@ -46,7 +46,7 @@ const option = {
       data: [52, 58, 63, 78, 71, 68, 91],
       type: 'bar',
       itemStyle: {
-        borderRadius: 90,
+        borderRadius: 7,
       },
     },
   ],

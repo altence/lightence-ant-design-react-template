@@ -18,7 +18,7 @@ export const Wrapper = styled.div<CollapseProps>`
   z-index: 2;
   transition: all 0.3s ease;
 
-  width: ${(props) => (props.isCollapsed && '5rem') || '15rem'};
+  width: ${(props) => (props.isCollapsed && '7%') || '25%'};
 
   background-color: ${(props) => props.theme.colors.secondary};
 `;
@@ -40,8 +40,6 @@ export const Text = styled(Typography.Text)`
 export const ArrowBtn = styled(Button)`
   font-size: 0.5rem;
 `;
-
-export const Arrow = styled.div``;
 
 export const List = styled.ul`
   list-style-type: none;
@@ -69,6 +67,6 @@ export const ListItem = styled.li<ListProps>`
     justify-content: space-between;
     align-items: center;
 
-    color: ${(props) => (props.isDowngrade && props.theme.colors.fail) || props.theme.colors.success};
+    color: ${(props) => (props.isDowngrade && props.theme.colors.error) || props.theme.colors.success};
   }
 `;
