@@ -1,20 +1,16 @@
 import React from 'react';
-import { Button, Calendar, Radio, Select } from 'antd';
-import styled from 'styled-components';
-// import { MonthSwitch } from '../../../components/common/MonthSwitch/MonthSwitch';
+import { Moment } from 'moment';
+import * as S from './TreatmentCalendar.styles';
 
-export const TreatmentCalendar: React.FC = () => {
-  return <CalendarStyled fullscreen={false} />;
+interface TreatmentCalendarProps {
+  date: Moment;
+  setDate: (date: Moment) => void;
+}
+
+export const TreatmentCalendar: React.FC<TreatmentCalendarProps> = ({ date, setDate }) => {
+  const handleSelect = (value: Moment) => {
+    setDate(value);
+  };
+
+  return <S.Calendar value={date} onSelect={handleSelect} fullscreen={false} />;
 };
-
-const CalendarStyled = styled(Calendar)`
-  & .ant-picker-calendar-header {
-    display: none;
-  }
-
-  & .ant-picker-date-panel .ant-picker-content th {
-    font-weight: 500;
-
-    color: ${(props) => props.theme.colors.primaryDark};
-  }
-`;
