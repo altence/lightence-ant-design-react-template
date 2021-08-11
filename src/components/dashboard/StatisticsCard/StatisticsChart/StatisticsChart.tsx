@@ -37,5 +37,5 @@ export const StatisticsChart: React.FC<StatisticsChartProps> = ({ value, isDowng
     ],
   };
 
-  return <Chart option={option} width="50%" />;
+  return <Chart option={option} width="50%" height="150px" />;
 };
