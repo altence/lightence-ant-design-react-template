@@ -7,4 +7,7 @@ export default createGlobalStyle`
     padding: 0;
   }
   
+  body {
+    min-width: 425px;
+  }
 `;

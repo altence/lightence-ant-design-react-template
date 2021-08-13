@@ -1,7 +1,7 @@
-import React from 'react';
-import { treatmentData } from '../../../../constants/treatment';
-import { Dates } from '../../../../constants/Dates';
-import { AppDate } from '../../../../constants/Dates';
+import React, { useState } from 'react';
+import { Input, notification } from 'antd';
+import { treatmentData } from '../../../../../constants/treatmentData';
+import { Dates, AppDate } from '../../../../../constants/Dates';
 import * as S from './TreatmentDoctorCard.styles';
 
 interface TreatmentDoctorCardProps {
@@ -9,12 +9,27 @@ interface TreatmentDoctorCardProps {
 }
 
 export const TreatmentDoctorCard: React.FC<TreatmentDoctorCardProps> = ({ date }) => {
+  const [isModalVisible, setModalVisible] = useState(false);
+
   const treatment = treatmentData.find((tr) => {
     const dbDate = Dates.format(tr.date, 'L');
     const selectedDate = Dates.format(date, 'L');
 
     return dbDate === selectedDate;
   });
+
+  const handleOk = () => {
+    setModalVisible(false);
+
+    notification.open({
+      message: 'Success!',
+      description: 'Your question was sent to the doctor.',
+    });
+  };
+
+  const handleCancel = () => {
+    setModalVisible(false);
+  };
 
   return (
     <S.Wrapper>
@@ -45,10 +60,15 @@ export const TreatmentDoctorCard: React.FC<TreatmentDoctorCardProps> = ({ date }
             <S.Title>Upcoming visits</S.Title>
             <S.Text>{Dates.format(treatment.date, 'L')}</S.Text>
           </S.VisitWrapper>
-          <S.Button type="primary">Ask the doctor a question</S.Button>
+          <S.Button size="middle" type="primary" onClick={() => setModalVisible(true)}>
+            Ask the doctor a question
+          </S.Button>
+          <S.Modal visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+            <Input placeholder="Enter your question here" />
+          </S.Modal>
         </>
       ) : (
-        <S.Title>There is no treatments at this day.</S.Title>
+        <S.WarningText>There is no treatments at this day.</S.WarningText>
       )}
     </S.Wrapper>
   );

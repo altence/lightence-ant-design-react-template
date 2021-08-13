@@ -8,7 +8,7 @@ export const BtnMore = styled(Button)`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.875rem 4.8rem;
+  padding: 0.5rem 3rem;
   transform: translate(-50%, -50%);
   opacity: 0;
   z-index: 2;
@@ -24,7 +24,11 @@ export const BtnMore = styled(Button)`
 
 export const Wrapper = styled.div`
   display: flex;
+  flex-direction: column;
   position: relative;
+  border-radius: 7px;
+
+  background-color: ${(props) => props.theme.colors.basicLight};
 
   &::after {
     content: '';
@@ -55,25 +59,22 @@ export const Wrapper = styled.div`
 `;
 
 export const Image = styled(AntImage)`
+  width: 100%;
   height: 100%;
 `;
 
 export const InfoWrapper = styled.div`
-  padding: 1.25rem;
-  width: 50%;
-  flex-shrink: 0;
+  padding: 0.875rem;
 `;
 
 export const InfoHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1.25rem;
 `;
 
 export const Title = styled(Typography.Text)`
   font-weight: 500;
-  font-size: 1rem;
-  margin-right: 0.625rem;
+  font-size: 0.75rem;
 
   color: ${(props) => props.theme.colors.basicDark};
 `;
@@ -83,5 +84,5 @@ export const Text = styled(Typography.Text)`
 `;
 
 export const Description = styled(Typography.Text)`
-  font-size: 1rem;
+  font-size: 0.625rem;
 `;

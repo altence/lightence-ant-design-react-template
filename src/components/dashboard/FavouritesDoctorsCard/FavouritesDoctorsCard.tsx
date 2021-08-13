@@ -2,14 +2,14 @@ import React from 'react';
 import { SwiperSlide } from 'swiper/react';
 import { Card } from '../../../components/common/Card/Card';
 import { Slider } from '../../../components/common/Slider/Slider';
-import { favoriteDoctors } from '../../../constants/favouritesDoctors';
+import { favouritesDoctorsData } from '../../../constants/favouritesDoctorsData';
 import { DoctorCard } from './DoctorCard/DoctorCard';
 
 export const FavouritesDoctorsCard: React.FC = () => {
   return (
-    <Card title="Favorite doctors" padding="0.75rem 3rem">
+    <Card title="Favorite doctors" padding="0.625rem">
       <Slider>
-        {favoriteDoctors.map((doctor) => (
+        {favouritesDoctorsData.map((doctor) => (
           <SwiperSlide key={doctor.id}>
             <DoctorCard
               imgUrl={doctor.imgUrl}

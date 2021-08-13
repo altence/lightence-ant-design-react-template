@@ -23,6 +23,7 @@ interface Column {
   title: string;
   dataIndex: string;
   key: string;
+  colSpan?: number;
   render: (values: Values) => React.ReactElement;
 }
 
@@ -93,19 +94,20 @@ export const BloodScreeningTable: React.FC<BloodScreeningTableProps> = ({ active
       dataIndex: 'values',
       key: 'values',
       render: ({ cellName, min, current }) => (
-        <S.Performance>
+        <S.PercentageWrapper>
           <S.Text isActive={cellName === activeItem.values.cellName}>{current}</S.Text>
           <S.Percentage isActive={cellName === activeItem.values.cellName} isDowngrade={min > current}>
             {min < current ? <CaretUpOutlined /> : <CaretDownOutlined />}
             <S.Text>{Math.abs(Math.round(((current - min) / min) * 100))}%</S.Text>
           </S.Percentage>
-        </S.Performance>
+        </S.PercentageWrapper>
       ),
     },
   ];
 
   return (
     <S.Table
+      size="small"
       pagination={false}
       columns={columns}
       dataSource={dataSource}

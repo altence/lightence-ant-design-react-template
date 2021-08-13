@@ -1,5 +1,7 @@
 import React from 'react';
 import { CardProps as AntCardProps } from 'antd';
+import { useMediaQuery } from 'react-responsive';
+import { media } from '../../../styles/theme';
 import * as S from './Card.styles';
 
 export interface CardProps extends AntCardProps {
@@ -9,8 +11,10 @@ export interface CardProps extends AntCardProps {
 }
 
 export const Card: React.FC<CardProps> = ({ className, padding, children, ...props }) => {
+  const isPC = useMediaQuery({ query: media.xl });
+
   return (
-    <S.Card className={className} bordered={false} padding={padding} {...props}>
+    <S.Card size={(isPC && 'default') || 'small'} className={className} bordered={false} padding={padding} {...props}>
       {children}
     </S.Card>
   );

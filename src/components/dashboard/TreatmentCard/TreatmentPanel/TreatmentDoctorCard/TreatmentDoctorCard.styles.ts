@@ -1,17 +1,16 @@
 import styled from 'styled-components';
-import { Rate, Typography, Avatar as AntAvatar, Button as AntButton } from 'antd';
+import { Rate, Typography, Avatar as AntAvatar, Button as AntButton, Modal as AntModal } from 'antd';
 
 export const Wrapper = styled.div`
-  width: 30%;
-  height: 100%;
   display: flex;
   justify-content: space-between;
+  width: 60%;
   flex-direction: column;
-  padding: 0.5rem;
+  padding: 0.375rem;
 `;
 
 export const Title = styled(Typography.Text)`
-  font-size: 0.75rem;
+  font-size: 0.625rem;
   display: block;
 
   color: ${(props) => props.theme.colors.primary};
@@ -19,6 +18,7 @@ export const Title = styled(Typography.Text)`
 
 export const Text = styled(Typography.Text)`
   font-weight: 500;
+  font-size: 0.625rem;
 `;
 
 export const ProfileWrapper = styled.div`
@@ -29,7 +29,7 @@ export const ProfileWrapper = styled.div`
 
 export const Avatar = styled(AntAvatar)`
   width: 100%;
-  max-width: 4rem;
+  max-width: 3rem;
   height: 100%;
   margin-right: 0.875rem;
 `;
@@ -48,18 +48,14 @@ export const InfoItem = styled.div`
   }
 `;
 
-export const Rating = styled(Rate)`
-  font-size: 0.9rem;
-
-  color: ${(props) => props.theme.colors.accent};
-`;
+export const Rating = styled(Rate)``;
 
 export const DiagnosisWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
   & ${Title} {
-    margin-bottom: 0.625rem;
+    margin-bottom: 0.375rem;
     position: relative;
 
     &::after {
@@ -84,5 +80,15 @@ export const VisitWrapper = styled.div`
 `;
 
 export const Button = styled(AntButton)`
-  width: 100%;
+  font-size: 0.75rem;
+`;
+
+export const WarningText = styled.div`
+  margin-left: 2rem;
+`;
+
+export const Modal = styled(AntModal)`
+  & .ant-modal-close {
+    display: none;
+  }
 `;

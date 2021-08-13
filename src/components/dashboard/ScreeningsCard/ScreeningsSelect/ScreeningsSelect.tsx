@@ -11,7 +11,7 @@ interface ScreeningsSelectProps {
 
 export const ScreeningsSelect: React.FC<ScreeningsSelectProps> = ({ options, defaultValue }) => {
   return (
-    <S.Select defaultValue={defaultValue}>
+    <S.Select size="small" bordered={false} defaultValue={defaultValue}>
       {options.map((option, index) => (
         <Option key={index} value={option}>
           {option}

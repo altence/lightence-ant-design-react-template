@@ -6,7 +6,7 @@ interface Friend {
   isDowngrade: boolean;
 }
 
-export const friends: Array<Friend> = [
+export const friendsData: Array<Friend> = [
   {
     id: 1,
     name: 'Ivanov Ivan',

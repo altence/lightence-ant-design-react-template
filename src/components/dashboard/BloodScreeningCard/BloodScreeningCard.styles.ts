@@ -9,7 +9,9 @@ export const Card = styled(CardStyled)`
 `;
 
 export const Badge = styled(Typography.Text)`
-  padding: 0.3rem 1rem;
+  padding: 0.125rem 0.375rem;
+  font-size: 0.625rem;
+  border-radius: 7px;
   font-weight: 500;
   position: absolute;
   top: 3%;

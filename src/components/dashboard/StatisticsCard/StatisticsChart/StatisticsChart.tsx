@@ -1,18 +1,17 @@
 import React from 'react';
 import { Chart } from '../../../common/Chart/Chart';
 import theme from '../../../../styles/theme';
+import { LinearGradientObject } from 'echarts';
 
 interface StatisticsChartProps {
   value: number;
-  isDowngrade?: boolean;
+  color: string;
+  chartColor: LinearGradientObject;
 }
 
-export const StatisticsChart: React.FC<StatisticsChartProps> = ({ value, isDowngrade }) => {
+export const StatisticsChart: React.FC<StatisticsChartProps> = ({ value, chartColor, color }) => {
   const option = {
-    color: [
-      (isDowngrade && theme.colors.chartsSecondaryGradient) || theme.colors.chartsPrimaryGradient,
-      theme.colors.basicLight,
-    ],
+    color: [chartColor, theme.colors.basicLight],
     series: [
       {
         type: 'pie',
@@ -20,8 +19,8 @@ export const StatisticsChart: React.FC<StatisticsChartProps> = ({ value, isDowng
         label: {
           show: true,
           position: 'center',
-          fontSize: '18px',
-          color: theme.colors.primary,
+          fontSize: '12px',
+          color,
           formatter: function () {
             return `${value} kg`;
           },
@@ -37,5 +36,5 @@ export const StatisticsChart: React.FC<StatisticsChartProps> = ({ value, isDowng
     ],
   };
 
-  return <Chart option={option} width="50%" height="150px" />;
+  return <Chart option={option} width="50%" height="100px" />;
 };

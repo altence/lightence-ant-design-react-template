@@ -7,7 +7,7 @@ export interface FavoriteDoctor {
   imgUrl: string;
 }
 
-export const favoriteDoctors: Array<FavoriteDoctor> = [
+export const favouritesDoctorsData: Array<FavoriteDoctor> = [
   {
     id: 1,
     name: 'Ivanov Ivan',

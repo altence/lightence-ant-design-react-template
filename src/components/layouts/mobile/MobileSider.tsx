@@ -33,7 +33,7 @@ const MobileSider: React.FC<MainSiderProps> = ({ children, toggleSider, siderCol
 
 const SiderStyled = styled(Sider)`
   position: fixed;
-  z-index: 2;
+  z-index: 5;
   height: 100%;
   color: #ffffff;
 `;

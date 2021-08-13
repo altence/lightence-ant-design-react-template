@@ -1,17 +1,20 @@
 import React from 'react';
+import { LinearGradientObject } from 'echarts';
 import { BonesIcon } from '../components/dashboard/StatisticsCard/icons/BonesIcon';
 import { FatIcon } from '../components/dashboard/StatisticsCard/icons/FatIcon';
 import { ProteinIcon } from '../components/dashboard/StatisticsCard/icons/ProteinIcon';
 import { WaterBalanceIcon } from '../components/dashboard/StatisticsCard/icons/WaterBalanceIcon';
-import { WeightIcon } from '../components/dashboard/StatisticsCard/icons/WeightIcon';
+import theme from '../styles/theme';
 
-interface Statistic {
-  id: number;
+export interface Statistic {
+  id?: number;
   title: string;
   value: number;
   percent: number;
   icon: React.FC;
   isDowngrade: boolean;
+  color: string;
+  chartColor: LinearGradientObject;
 }
 
 export const statisticsData: Statistic[] = [
@@ -22,6 +25,8 @@ export const statisticsData: Statistic[] = [
     percent: 14,
     icon: ProteinIcon,
     isDowngrade: false,
+    color: theme.colors.primary,
+    chartColor: theme.colors.chartsPrimaryGradient,
   },
   {
     id: 2,
@@ -30,6 +35,8 @@ export const statisticsData: Statistic[] = [
     percent: 20,
     icon: FatIcon,
     isDowngrade: true,
+    color: theme.colors.error,
+    chartColor: theme.colors.chartsSecondaryGradient,
   },
   {
     id: 3,
@@ -38,6 +45,8 @@ export const statisticsData: Statistic[] = [
     percent: 34,
     icon: BonesIcon,
     isDowngrade: false,
+    color: theme.colors.primaryAccent,
+    chartColor: theme.colors.chartsPrimaryLightGradient,
   },
   {
     id: 4,
@@ -46,13 +55,7 @@ export const statisticsData: Statistic[] = [
     percent: 21,
     icon: WaterBalanceIcon,
     isDowngrade: false,
-  },
-  {
-    id: 5,
-    title: 'Weight',
-    value: 68,
-    percent: 30,
-    icon: WeightIcon,
-    isDowngrade: false,
+    color: theme.colors.accent,
+    chartColor: theme.colors.chartsAdditionallyGradient,
   },
 ];

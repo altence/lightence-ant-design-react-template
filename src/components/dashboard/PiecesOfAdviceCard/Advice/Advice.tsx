@@ -1,5 +1,5 @@
 import React from 'react';
-import { Advice as AdviceProps } from '../../../../constants/piecesOfAdvice';
+import { Advice as AdviceProps } from '../../../../constants/piecesOfAdviceData';
 import { Dates } from '../../../../constants/Dates';
 import * as S from './Advice.styles';
 

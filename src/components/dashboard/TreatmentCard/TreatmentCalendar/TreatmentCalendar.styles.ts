@@ -11,7 +11,7 @@ interface LegendProps {
 }
 
 export const Wrapper = styled.div`
-  width: 40%;
+  background-color: ${(props) => props.theme.colors.secondary};
 `;
 
 export const Calendar = styled(AntCalendar)`
@@ -25,23 +25,25 @@ export const Calendar = styled(AntCalendar)`
 
   & .ant-picker-date-panel .ant-picker-content th {
     font-weight: 500;
+    font-size: 0.75rem;
 
-    color: ${(props) => props.theme.colors.primaryDark};
+    color: ${(props) => props.theme.colors.primary};
   }
 
   & .ant-picker-cell-inner {
-    height: 2.37rem;
-    width: 2.37rem;
+    height: 1.43rem;
+    width: 1.43rem;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+    font-size: 0.625rem;
   }
 `;
 
 export const Legend = styled.div`
   display: flex;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
 `;
 
 export const LegendItem = styled.div`
@@ -52,17 +54,17 @@ export const LegendItem = styled.div`
 `;
 
 export const LegendIcon = styled.div<LegendProps>`
-  width: 1rem;
-  height: 1rem;
+  width: 0.625rem;
+  height: 0.625rem;
   border-radius: 4px;
   box-shadow: 0px 5px 15px rgba(0, 89, 171, 0.3);
   flex-shrink: 0;
-  margin-right: 0.5rem;
+  margin-right: 0.3rem;
 
   background-color: ${(props) => (props.isPrimary && props.theme.colors.primary) || props.theme.colors.basic};
 `;
 
 export const Text = styled(Typography.Text)`
-  font-size: 0.75rem;
-  margin-left: 0.5rem;
+  font-size: 0.625rem;
+  margin-left: 0.3rem;
 `;
