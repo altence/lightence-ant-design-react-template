@@ -10,11 +10,11 @@ interface PercentageProps extends TextProps {
 }
 
 export const Table = styled(AntTable)`
-  padding: 0 1rem;
+  padding: 0 1rem 0.625rem 1rem;
 
   & .ant-table-thead > tr > th {
     font-weight: 400;
-    font-size: 0.75rem;
+    /* text-align: center; */
 
     &::before {
       display: none;
@@ -31,25 +31,23 @@ export const Text = styled.span<TextProps>`
   color: ${(props) => (props.isActive && props.theme.colors.basicDark) || props.theme.colors.basic};
 `;
 
-export const Performance = styled.div`
+export const PercentageWrapper = styled.div`
   display: flex;
+  width: 3rem;
   justify-content: space-between;
-  width: 5rem;
 `;
 
-export const Percentage = styled.span<PercentageProps>`
-  display: flex;
+export const Percentage = styled.div<PercentageProps>`
+  display: inline-flex;
+  width: 2rem;
+  justify-content: space-between;
   align-items: center;
-  width: 2.6rem;
-
   color: ${(props) =>
     (props.isActive && props.isDowngrade && props.theme.colors.error) ||
     (props.isActive && props.theme.colors.success) ||
     props.theme.colors.basic};
 
   & ${Text} {
-    margin-left: 0.2rem;
-
     color: ${(props) =>
       (props.isActive && props.isDowngrade && props.theme.colors.error) ||
       (props.isActive && props.theme.colors.success) ||

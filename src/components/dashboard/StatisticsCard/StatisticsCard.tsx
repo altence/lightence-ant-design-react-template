@@ -1,25 +1,29 @@
 import React from 'react';
-import { StatisticsChart } from './StatisticsChart/StatisticsChart';
-import * as S from './StatisticsCard.styles';
-import { StatisticsInfo } from './StatisticsInfo/StatisticsInfo';
 import { Card } from '../../common/Card/Card';
+import { StatisticsChart } from './StatisticsChart/StatisticsChart';
+import { StatisticsInfo } from './StatisticsInfo/StatisticsInfo';
+import { Statistic as StatisticsCardProps } from '../../../constants/statisticsData';
+import * as S from './StatisticsCard.styles';
 
-interface StatisticsCardProps {
-  value: number;
-  percent: number;
-  icon: React.FC;
-  title: string;
-  isDowngrade?: boolean;
-}
-
-export const StatisticsCard: React.FC<StatisticsCardProps> = ({ value, percent, icon, title, isDowngrade }) => {
+export const StatisticsCard: React.FC<StatisticsCardProps> = ({
+  value,
+  percent,
+  icon,
+  title,
+  isDowngrade,
+  color,
+  chartColor,
+}) => {
   return (
-    <Card>
-      <S.Wrapper>
-        <S.Icon component={icon} />
-        <StatisticsChart value={value} isDowngrade={isDowngrade} />
-        <StatisticsInfo title={title} percent={percent} isDowngrade={isDowngrade} />
-      </S.Wrapper>
-    </Card>
+    <S.CardWrapper>
+      <S.Line color={color} />
+      <Card>
+        <S.Wrapper>
+          <S.Icon color={color} component={icon} />
+          <StatisticsChart color={color} chartColor={chartColor} value={value} />
+          <StatisticsInfo color={color} title={title} percent={percent} isDowngrade={isDowngrade} />
+        </S.Wrapper>
+      </Card>
+    </S.CardWrapper>
   );
 };

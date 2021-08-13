@@ -1,6 +1,7 @@
 import React from 'react';
+import { useMediaQuery } from 'react-responsive';
 import MainLayout from '../../components/layouts/MainLayout';
-import { Col } from 'antd';
+import { Col, Row } from 'antd';
 import { MapCard } from '../../components/dashboard/MapCard/MapCard';
 import { ScreeningsCard } from '../../components/dashboard/ScreeningsCard/ScreeningsCard';
 import { ActivityCard } from '../../components/dashboard/ActivityCard/ActivityCard';
@@ -12,65 +13,71 @@ import { PatientTimelineCard } from '../../components/dashboard/PatientTimelineC
 import { BloodScreeningCard } from '../../components/dashboard/BloodScreeningCard/BloodScreeningCard';
 import { PiecesOfAdviceCard } from '../../components/dashboard/PiecesOfAdviceCard/PiecesOfAdviceCard';
 import { StatisticsCard } from '../../components/dashboard/StatisticsCard/StatisticsCard';
-import { statisticsData } from '../../constants/statistics';
-import * as S from './Dashboard.styles';
+import { statisticsData } from '../../constants/statisticsData';
+import { media } from '../../styles/theme';
 
 const Dashboard: React.FC = () => {
+  const isPC = useMediaQuery({ query: media.xl });
+
   return (
     <MainLayout>
-      <S.Row justify="space-between" gutter={{ xs: 0, sm: 6, md: 10, lg: 14, xl: 20 }}>
-        {statisticsData.map((st) => (
-          <Col span="4" key={st.id}>
+      <Row justify="space-between" gutter={[10, 10]}>
+        {statisticsData.map((st, index) => (
+          <Col key={st.id} order={(!isPC && index + 1) || 0} xs={12} xl={6}>
             <StatisticsCard
               title={st.title}
+              icon={st.icon}
               value={st.value}
               percent={st.percent}
-              icon={st.icon}
               isDowngrade={st.isDowngrade}
+              color={st.color}
+              chartColor={st.chartColor}
             />
           </Col>
         ))}
-      </S.Row>
-      <S.Row justify="space-between" gutter={{ xs: 0, sm: 6, md: 10, lg: 14, xl: 20 }}>
-        <Col span="9">
-          <MapCard />
-        </Col>
-        <Col span="15">
+
+        {isPC && (
+          <Col order={0} xl={9}>
+            <MapCard />
+          </Col>
+        )}
+
+        <Col order={(!isPC && 5) || 0} xs={24} xl={15}>
           <ScreeningsCard />
         </Col>
-      </S.Row>
-      <S.Row justify="space-between" gutter={{ xs: 0, sm: 6, md: 10, lg: 14, xl: 20 }}>
-        <Col span="15">
+
+        <Col order={(!isPC && 7) || 0} xs={24} xl={15}>
           <TreatmentCard />
         </Col>
-        <Col span="9">
+
+        <Col order={(!isPC && 6) || 0} xs={24} xl={9}>
           <ActivityCard />
         </Col>
-      </S.Row>
-      <S.Row justify="space-between" gutter={{ xs: 0, sm: 6, md: 10, lg: 14, xl: 20 }}>
-        <Col span="12">
+
+        <Col order={(!isPC && 12) || 0} xs={24} xl={12}>
           <CovidCard />
         </Col>
-        <Col span="12">
+
+        <Col order={(!isPC && 8) || 0} xs={24} xl={12}>
           <HealthCard />
         </Col>
-      </S.Row>
-      <S.Row justify="space-between" gutter={{ xs: 0, sm: 6, md: 10, lg: 14, xl: 20 }}>
-        <Col span="9">
+
+        <Col order={(!isPC && 11) || 0} xs={24} xl={9}>
           <FavouritesDoctorsCard />
         </Col>
-        <Col span="9">
+
+        <Col order={(!isPC && 9) || 0} xs={24} xl={9}>
           <PatientTimelineCard />
         </Col>
-        <Col span="6">
+
+        <Col order={(!isPC && 10) || 0} xs={24} xl={6}>
           <BloodScreeningCard />
         </Col>
-      </S.Row>
-      <S.Row justify="space-between">
-        <Col>
+
+        <Col order={(!isPC && 13) || 0} span={24}>
           <PiecesOfAdviceCard />
         </Col>
-      </S.Row>
+      </Row>
     </MainLayout>
   );
 };

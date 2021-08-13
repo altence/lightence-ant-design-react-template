@@ -6,12 +6,13 @@ interface StatisticsInfoProps {
   title: string;
   percent: number;
   isDowngrade?: boolean;
+  color: string;
 }
 
-export const StatisticsInfo: React.FC<StatisticsInfoProps> = ({ title, percent, isDowngrade = false }) => {
+export const StatisticsInfo: React.FC<StatisticsInfoProps> = ({ title, percent, isDowngrade = false, color }) => {
   return (
     <S.Wrapper>
-      <S.Title>{title}</S.Title>
+      <S.Title color={color}>{title}</S.Title>
       <S.Percentage isDowngrade={isDowngrade}>
         {(!isDowngrade && <CaretUpOutlined />) || <CaretDownOutlined />}
         <S.Text>{percent}%</S.Text>

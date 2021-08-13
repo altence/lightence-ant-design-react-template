@@ -6,7 +6,7 @@ export interface PatientTimeline {
   isActive: boolean;
 }
 
-export const patientTimeline: Array<PatientTimeline> = [
+export const patientTimelineData: Array<PatientTimeline> = [
   {
     id: 1,
     title: 'Patient Discharge',

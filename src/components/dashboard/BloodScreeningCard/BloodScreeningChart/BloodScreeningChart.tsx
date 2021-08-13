@@ -13,7 +13,7 @@ interface BloodScreeningChartsProps {
 
 export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ activeItem }) => {
   const option = {
-    color: theme.colors.error,
+    color: [theme.colors.error, theme.colors.basicLight],
     grid: {
       top: '50%',
       bottom: 0,
@@ -41,6 +41,12 @@ export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ activ
     series: [
       {
         data: activeItem.data,
+        type: 'line',
+        smooth: true,
+        showSymbol: false,
+      },
+      {
+        data: activeItem.data.map((point) => point - 50),
         type: 'line',
         smooth: true,
         showSymbol: false,

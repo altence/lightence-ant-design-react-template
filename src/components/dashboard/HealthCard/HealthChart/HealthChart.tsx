@@ -2,53 +2,73 @@ import React from 'react';
 import { EChartsOption } from 'echarts';
 import { Chart } from '../../../common/Chart/Chart';
 import theme from '../../../../styles/theme';
-import { healthChartData } from '../../../../constants/healthChart';
-
-const option = {
-  color: healthChartData.map((item) => item.chartColor),
-  tooltip: {
-    trigger: 'item',
-  },
-  legend: {
-    right: 0,
-    top: '35%',
-    orient: 'vertical',
-    icon: 'square',
-  },
-  series: [
-    {
-      type: 'pie',
-      radius: ['55%', '80%'],
-      avoidLabelOverlap: false,
-      labelLine: false,
-      label: {
-        show: true,
-        position: 'center',
-        formatter: (label: EChartsOption) => {
-          return `${label.value} percent`;
-        },
-        backgroundColor: theme.colors.secondary,
-        color: theme.colors.primary,
-        fontSize: 24,
-      },
-      data: healthChartData.map((item) => {
-        return {
-          value: item.value,
-          name: item.title,
-          description: item.description,
-        };
-      }),
-      emphasis: {
-        label: {
-          show: true,
-          backgroundColor: theme.colors.secondary,
-          color: theme.colors.primary,
-        },
-      },
-    },
-  ],
-};
 
 export const HealthChart: React.FC = () => {
+  const option = {
+    color: [
+      theme.colors.chartsSecondaryGradient,
+      theme.colors.chartsAdditionallyGradient,
+      theme.colors.chartsPrimaryGradient,
+      theme.colors.basicLight,
+    ],
+    tooltip: {
+      trigger: 'item',
+    },
+    legend: {
+      left: '60%',
+      top: 'center',
+      orient: 'vertical',
+      icon: 'circle',
+      textStyle: {
+        fontSize: 16,
+        fontWeight: 500,
+      },
+    },
+    series: [
+      {
+        type: 'pie',
+        radius: ['45%', '60%'],
+        center: ['30%', 'center'],
+        avoidLabelOverlap: false,
+        labelLine: false,
+        label: {
+          show: true,
+          position: 'center',
+          formatter: (label: EChartsOption) => {
+            return `${label.value} percent`;
+          },
+          backgroundColor: theme.colors.secondary,
+          color: theme.colors.primary,
+          fontSize: 12,
+        },
+        data: [
+          {
+            value: 72,
+            name: 'Lifestyle',
+          },
+          {
+            value: 50,
+            name: 'Ecology',
+          },
+          {
+            value: 70,
+            name: 'Genetics',
+          },
+          {
+            value: 20,
+            name: 'Some info',
+          },
+        ],
+        emphasis: {
+          label: {
+            show: true,
+            backgroundColor: theme.colors.secondary,
+            color: theme.colors.primary,
+          },
+        },
+      },
+    ],
+  };
+
   return <Chart option={option} />;
 };

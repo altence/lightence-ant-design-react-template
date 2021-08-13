@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Avatar } from 'antd';
 import { ArrowLeftOutlined, ArrowRightOutlined, CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
-import { friends } from '../../../../constants/friends';
+import { friendsData } from '../../../../constants/friendsData';
 import * as S from './ScreeningsCollapse.styles';
 
 export const ScreeningsCollapse: React.FC = () => {
@@ -16,9 +15,9 @@ export const ScreeningsCollapse: React.FC = () => {
         </S.ArrowBtn>
       </S.HeaderWrapper>
       <S.List>
-        {friends.map((friend) => (
+        {friendsData.map((friend) => (
           <S.ListItem key={friend.id} isCollapsed={isCollapsed} isDowngrade={friend.isDowngrade}>
-            <Avatar src={friend.imgUrl} shape="square" />
+            <S.Avatar src={friend.imgUrl} shape="square" />
             {!isCollapsed && (
               <>
                 <S.Text>{friend.name}</S.Text>

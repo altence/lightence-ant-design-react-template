@@ -2,7 +2,7 @@ import React from 'react';
 import L from 'leaflet';
 import { Marker, TileLayer } from 'react-leaflet';
 import { Popup } from '../Popup/Popup';
-import { doctorsData, polyclinicData } from '../../../../constants/map';
+import { doctorsData, polyclinicData } from '../../../../constants/mapData';
 import markerDoctor from '../../../../assets/icons/marker-doctor.svg';
 import markerPolyclinic from '../../../../assets/icons/marker-polyclinic.svg';
 import * as S from './Map.styles';

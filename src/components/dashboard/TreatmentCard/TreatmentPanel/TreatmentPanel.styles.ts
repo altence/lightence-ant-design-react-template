@@ -4,13 +4,17 @@ import { BellOutlined } from '@ant-design/icons';
 
 export const Wrapper = styled.div`
   display: flex;
+  justify-content: space-between;
+`;
+
+export const DateWrapper = styled.div`
+  display: flex;
+  width: 40%;
   flex-direction: column;
   justify-content: space-between;
-  width: 20%;
-  height: 100%;
   text-align: center;
   position: relative;
-  padding: 5rem 0.5rem 0.5rem 0.5rem;
+  padding: 2.6rem 0.375rem 0.375rem 0.375rem;
   box-shadow: 0px 5px 40px #e6e6e6;
   border-radius: 10px;
 `;
@@ -22,30 +26,30 @@ export const Notification = styled(Badge)`
 `;
 
 export const Bell = styled(BellOutlined)`
-  font-size: 1.8rem;
+  font-size: 1.2rem;
 
   color: ${(props) => props.theme.colors.primary};
 `;
 
 export const Title = styled(Typography.Text)`
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 2.8rem;
 
   color: ${(props) => props.theme.colors.primary};
 `;
 
 export const Subtitle = styled(Typography.Text)`
   font-weight: 700;
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   position: relative;
-  margin-bottom: 2rem;
+  margin-bottom: 0.875rem;
 
   color: ${(props) => props.theme.colors.primary};
 
   &::after {
     content: '';
     position: absolute;
-    top: 150%;
+    top: 130%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
@@ -57,9 +61,10 @@ export const Subtitle = styled(Typography.Text)`
 
 export const Text = styled(Typography.Text)`
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+  margin-bottom: 1.75rem;
 `;
 
 export const Button = styled(AntButton)`
-  margin-top: auto;
+  font-size: 0.75rem;
 `;
