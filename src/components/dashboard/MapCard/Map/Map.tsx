@@ -38,12 +38,12 @@ const MarkerDoctor = new L.Icon({
   iconUrl: markerDoctor,
   iconRetinaUrl: markerDoctor,
   popupAnchor: [-0, -0],
-  iconSize: [50, 70],
+  iconSize: [30, 50],
 });
 
 const MarkerPolyclinic = new L.Icon({
   iconUrl: markerPolyclinic,
   iconRetinaUrl: markerPolyclinic,
   popupAnchor: [-0, -0],
-  iconSize: [50, 70],
+  iconSize: [30, 50],
 });
