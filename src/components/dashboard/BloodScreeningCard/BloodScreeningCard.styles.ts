@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Typography } from 'antd';
 import { Card as CardStyled } from '../../common/Card/Card';
+import { media } from '../../../styles/theme';
 
 export const Card = styled(CardStyled)`
   & .ant-card-body {
@@ -23,4 +24,8 @@ export const Badge = styled(Typography.Text)`
   background-color: ${(props) => props.theme.colors.primaryLight};
 
   color: ${(props) => props.theme.colors.primary};
+
+  @media only screen and ${media.md} {
+    display: none;
+  }
 `;
