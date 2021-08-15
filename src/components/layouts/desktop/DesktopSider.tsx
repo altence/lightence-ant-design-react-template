@@ -10,7 +10,7 @@ interface DesktopSiderProps {
 }
 
 const DesktopSider: React.FC<DesktopSiderProps> = ({ children, logo }) => {
-  const [siderCollapsed, setSiderCollapsed] = useState(false);
+  const [siderCollapsed, setSiderCollapsed] = useState(true);
 
   const toggleSider = () => setSiderCollapsed(!siderCollapsed);
 
