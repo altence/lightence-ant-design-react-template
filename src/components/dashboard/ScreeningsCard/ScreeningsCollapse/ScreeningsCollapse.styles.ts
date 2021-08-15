@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Button, Typography, Avatar as AntAvatar } from 'antd';
+import { media } from '../../../../styles/theme';
 
 interface CollapseProps {
   isCollapsed: boolean;
@@ -24,6 +25,12 @@ export const Wrapper = styled.div<CollapseProps>`
   background-color: ${(props) => props.theme.colors.secondary};
 `;
 
+export const Text = styled(Typography.Text)`
+  font-weight: 500;
+  font-size: 0.625rem;
+  white-space: nowrap;
+`;
+
 export const HeaderWrapper = styled.div<CollapseProps>`
   display: flex;
   align-items: center;
@@ -31,12 +38,12 @@ export const HeaderWrapper = styled.div<CollapseProps>`
   font-size: 0.75rem;
 
   justify-content: ${(props) => (props.isCollapsed && 'center') || 'space-between'};
-`;
 
-export const Text = styled(Typography.Text)`
-  font-weight: 500;
-  font-size: 0.625rem;
-  white-space: nowrap;
+  @media only screen and ${media.md} {
+    & ${Text} {
+      font-size: 0.75rem;
+    }
+  }
 `;
 
 export const ArrowBtn = styled(Button)`
@@ -55,6 +62,10 @@ export const ListItem = styled.li<ListProps>`
   margin-bottom: 0.2rem;
 
   justify-content: ${(props) => (props.isCollapsed && 'center') || 'space-between'};
+
+  @media only screen and ${media.md} {
+    margin-bottom: 0.4rem;
+  }
 
   &:nth-last-of-type(1) {
     margin-bottom: 0;
@@ -78,4 +89,9 @@ export const ListItem = styled.li<ListProps>`
 export const Avatar = styled(AntAvatar)`
   max-width: 1.6rem;
   max-height: 1.6rem;
+
+  @media only screen and ${media.md} {
+    max-width: 1.4rem;
+    max-height: 1.4rem;
+  }
 `;
