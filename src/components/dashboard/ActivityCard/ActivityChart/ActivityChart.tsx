@@ -1,18 +1,21 @@
 import React from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { Chart } from '../../../common/Chart/Chart';
-import theme from '../../../../styles/theme';
+import theme, { media } from '../../../../styles/theme';
 import { Dates } from '../../../../constants/Dates';
 
 const days = Dates.getDays();
 
 export const ActivityChart: React.FC = () => {
+  const isTablet = useMediaQuery({ query: media.md });
+
   const option = {
     color: theme.colors.chartsPrimaryGradient,
     grid: {
       top: 30,
       right: 10,
       bottom: 10,
-      left: 30,
+      left: (isTablet && 35) || 30,
     },
     xAxis: {
       type: 'category',
@@ -43,7 +46,7 @@ export const ActivityChart: React.FC = () => {
     },
     series: [
       {
-        barMaxWidth: 26,
+        barMaxWidth: (isTablet && 21) || 26,
         data: [52, 58, 63, 78, 71, 68, 91],
         type: 'bar',
         itemStyle: {
