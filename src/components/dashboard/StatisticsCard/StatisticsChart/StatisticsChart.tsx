@@ -1,6 +1,7 @@
 import React from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { Chart } from '../../../common/Chart/Chart';
-import theme from '../../../../styles/theme';
+import theme, { media } from '../../../../styles/theme';
 import { LinearGradientObject } from 'echarts';
 
 interface StatisticsChartProps {
@@ -10,6 +11,8 @@ interface StatisticsChartProps {
 }
 
 export const StatisticsChart: React.FC<StatisticsChartProps> = ({ value, chartColor, color }) => {
+  const isTablet = useMediaQuery({ query: media.md });
+
   const option = {
     color: [chartColor, theme.colors.basicLight],
     series: [
@@ -19,7 +22,7 @@ export const StatisticsChart: React.FC<StatisticsChartProps> = ({ value, chartCo
         label: {
           show: true,
           position: 'center',
-          fontSize: '12px',
+          fontSize: '10px',
           color,
           formatter: function () {
             return `${value} kg`;
@@ -36,5 +39,5 @@ export const StatisticsChart: React.FC<StatisticsChartProps> = ({ value, chartCo
     ],
   };
 
-  return <Chart option={option} width="50%" height="100px" />;
+  return <Chart option={option} width={(isTablet && '100%') || '50%'} height={(isTablet && '70px') || '60px'} />;
 };

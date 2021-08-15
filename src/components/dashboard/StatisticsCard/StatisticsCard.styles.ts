@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { default as AntIcon } from '@ant-design/icons';
+import { media } from '../../../styles/theme';
 
 interface StatisticsProps {
   color: string;
@@ -7,10 +8,12 @@ interface StatisticsProps {
 
 export const CardWrapper = styled.div`
   position: relative;
+  height: 100%;
 `;
 
 export const Wrapper = styled.div`
   display: flex;
+  flex-wrap: wrap;
   position: relative;
   align-items: center;
 `;
@@ -34,4 +37,8 @@ export const Icon = styled(AntIcon)<StatisticsProps>`
   font-size: 1rem;
 
   color: ${(props) => props.color};
+
+  @media only screen and ${media.md} {
+    font-size: 0.8rem;
+  }
 `;

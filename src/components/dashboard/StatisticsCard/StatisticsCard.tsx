@@ -17,7 +17,7 @@ export const StatisticsCard: React.FC<StatisticsCardProps> = ({
   return (
     <S.CardWrapper>
       <S.Line color={color} />
-      <Card>
+      <Card padding="8px">
         <S.Wrapper>
           <S.Icon color={color} component={icon} />
           <StatisticsChart color={color} chartColor={chartColor} value={value} />
