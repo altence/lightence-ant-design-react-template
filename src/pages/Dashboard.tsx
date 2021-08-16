@@ -107,7 +107,7 @@ const Dashboard: React.FC = () => {
           </Col>
         )}
 
-        <Col order={(isDesktop && 8) || (isTablet && 9) || 0} xs={24} xl={9}>
+        <Col order={(isDesktop && 8) || (isTablet && 9) || 0} xs={24} xl={15}>
           <FavouritesDoctorsCard />
         </Col>
 
