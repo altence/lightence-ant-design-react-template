@@ -13,6 +13,7 @@ interface StatisticsChartProps {
 export const StatisticsChart: React.FC<StatisticsChartProps> = ({ value, chartColor, color }) => {
   const isTablet = useMediaQuery({ query: media.md });
   const isDesktop = useMediaQuery({ query: media.xl });
+  const isBigScreen = useMediaQuery({ query: media.xxl });
 
   const option = {
     color: [chartColor, theme.colors.basicLight],
@@ -23,7 +24,7 @@ export const StatisticsChart: React.FC<StatisticsChartProps> = ({ value, chartCo
         label: {
           show: true,
           position: 'center',
-          fontSize: (isTablet && '14px') || '12px',
+          fontSize: (isBigScreen && '24px') || (isTablet && '14px') || '12px',
           color,
           formatter: function () {
             return `${value} kg`;
@@ -44,7 +45,7 @@ export const StatisticsChart: React.FC<StatisticsChartProps> = ({ value, chartCo
     <Chart
       option={option}
       width={(isTablet && !isDesktop && '100%') || '50%'}
-      height={(isTablet && '70px') || '60px'}
+      height={(isBigScreen && '120px') || (isTablet && '70px') || '60px'}
     />
   );
 };
