@@ -14,6 +14,7 @@ interface BloodScreeningChartsProps {
 
 export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ activeItem }) => {
   const isTablet = useMediaQuery({ query: media.md });
+  const isBigScreen = useMediaQuery({ query: media.xxl });
 
   const option = {
     color: [theme.colors.error, theme.colors.basicLight],
@@ -57,5 +58,5 @@ export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ activ
     ],
   };
 
-  return <Chart option={option} height={(isTablet && 150) || 100} />;
+  return <Chart option={option} height={(isBigScreen && 200) || (isTablet && 150) || 100} />;
 };

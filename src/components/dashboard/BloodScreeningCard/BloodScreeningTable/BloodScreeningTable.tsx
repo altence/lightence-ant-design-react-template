@@ -79,6 +79,7 @@ export const dataSource: Cell[] = [
 
 export const BloodScreeningTable: React.FC<BloodScreeningTableProps> = ({ activeItem, setActiveItem }) => {
   const isTablet = useMediaQuery({ query: media.md });
+  const isBigScreen = useMediaQuery({ query: media.xxl });
 
   const columns: Column[] = [
     {
@@ -111,7 +112,7 @@ export const BloodScreeningTable: React.FC<BloodScreeningTableProps> = ({ active
 
   return (
     <S.Table
-      size={(isTablet && 'middle') || 'small'}
+      size={(isBigScreen && 'large') || (isTablet && 'middle') || 'small'}
       pagination={false}
       columns={columns}
       dataSource={dataSource}
