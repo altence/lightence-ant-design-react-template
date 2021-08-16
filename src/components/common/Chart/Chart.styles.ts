@@ -11,5 +11,5 @@ export const Chart = styled(ReactECharts)<ChartProps>`
 
   width: ${(props) => (typeof props.width === 'number' ? `${props.width}px` : props.width)};
 
-  height: ${(props) => (typeof props.height === 'number' ? `${props.height}px` : props.height) || '100%'} !important;
+  height: ${(props) => (typeof props.height === 'number' ? `${props.height}px` : props.height)} !important;
 `;

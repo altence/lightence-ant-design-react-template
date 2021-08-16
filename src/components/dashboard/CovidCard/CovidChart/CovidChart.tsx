@@ -44,5 +44,5 @@ const option = {
 export const CovidChart: React.FC = () => {
   const isTablet = useMediaQuery({ query: media.md });
 
-  return <Chart option={option} height={(isTablet && '100%') || '200px'} />;
+  return <Chart option={option} height={isTablet && '100%'} />;
 };
