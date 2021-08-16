@@ -18,6 +18,10 @@ export const BtnMore = styled(Button)`
 
   color: ${(props) => props.theme.colors.secondary};
 
+  @media only screen and ${media.xxl} {
+    padding: 0.875rem 4.875rem;
+  }
+
   &:hover {
     background-color: ${(props) => props.theme.colors.secondary};
   }
@@ -38,6 +42,11 @@ export const Wrapper = styled.div`
   @media only screen and ${media.xl} {
     flex-direction: row;
     width: calc(50% - 0.4375rem);
+  }
+
+  @media only screen and ${media.xxl} {
+    flex-direction: row;
+    width: calc(50% - 0.625rem);
   }
 
   &::after {
@@ -81,6 +90,10 @@ export const InfoWrapper = styled.div`
     flex-shrink: 0;
     padding: 1rem;
   }
+
+  @media only screen and ${media.xxl} {
+    padding: 1.85rem;
+  }
 `;
 
 export const InfoHeader = styled.div`
@@ -91,6 +104,10 @@ export const InfoHeader = styled.div`
   @media only screen and ${media.md} {
     margin-bottom: 0.625rem;
   }
+
+  @media only screen and ${media.xxl} {
+    margin-bottom: 1.25rem;
+  }
 `;
 
 export const Title = styled(Typography.Text)`
@@ -99,6 +116,10 @@ export const Title = styled(Typography.Text)`
   width: 60%;
 
   color: ${(props) => props.theme.colors.basicDark};
+
+  @media only screen and ${media.xxl} {
+    font-size: 1rem;
+  }
 `;
 
 export const Text = styled(Typography.Text)`
@@ -107,4 +128,8 @@ export const Text = styled(Typography.Text)`
 
 export const Description = styled(Typography.Text)`
   font-size: 0.625rem;
+
+  @media only screen and ${media.xxl} {
+    font-size: 1rem;
+  }
 `;

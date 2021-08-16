@@ -9,9 +9,10 @@ import * as S from './PiecesOfAdviceCard.styles';
 
 export const PiecesOfAdviceCard: React.FC = () => {
   const isDesktop = useMediaQuery({ query: media.xl });
+  const isBigScreen = useMediaQuery({ query: media.xxl });
 
   return (
-    <Card title={<PiecesOfAdviceHeader />} padding="0.625rem">
+    <Card title={<PiecesOfAdviceHeader />} padding={(isBigScreen && '1rem') || '0.625rem'}>
       <S.Wrapper>
         {piecesOfAdviceData.map((advice) => (
           <Advice
