@@ -9,6 +9,7 @@ const days = Dates.getDays();
 export const ActivityChart: React.FC = () => {
   const isTablet = useMediaQuery({ query: media.md });
   const isDesktop = useMediaQuery({ query: media.xl });
+  const isBigScreen = useMediaQuery({ query: media.xxl });
 
   const option = {
     color: theme.colors.chartsPrimaryGradient,
@@ -31,7 +32,7 @@ export const ActivityChart: React.FC = () => {
       axisLabel: {
         color: theme.colors.primary,
         fontWeight: 500,
-        fontSize: (isDesktop && 12) || 10,
+        fontSize: (isBigScreen && 14) || (isDesktop && 12) || 10,
       },
     },
     yAxis: {
@@ -47,7 +48,7 @@ export const ActivityChart: React.FC = () => {
     },
     series: [
       {
-        barMaxWidth: (isTablet && 21) || 26,
+        barMaxWidth: (isBigScreen && 30) || (isTablet && 21) || 26,
         data: [52, 58, 63, 78, 71, 68, 91],
         type: 'bar',
         itemStyle: {
