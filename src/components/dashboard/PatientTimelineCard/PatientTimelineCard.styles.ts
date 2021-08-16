@@ -1,5 +1,6 @@
 import { Typography } from 'antd';
 import styled from 'styled-components';
+import { media } from '../../../styles/theme';
 
 interface ItemProps {
   isActive: boolean;
@@ -14,6 +15,10 @@ export const Wrapper = styled.div`
 export const Item = styled.div`
   display: flex;
   margin-bottom: 1.3rem;
+
+  @media only screen and ${media.md} {
+    margin-bottom: 0.625rem;
+  }
 
   &:nth-last-of-type(1) {
     margin-bottom: 0;
