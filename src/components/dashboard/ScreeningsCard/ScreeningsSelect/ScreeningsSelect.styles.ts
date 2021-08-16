@@ -14,4 +14,8 @@ export const Select = styled(AntSelect)`
   @media only screen and ${media.md} {
     margin: 0 0.3rem;
   }
+
+  @media only screen and ${media.xxl} {
+    font-size: 0.75rem;
+  }
 `;

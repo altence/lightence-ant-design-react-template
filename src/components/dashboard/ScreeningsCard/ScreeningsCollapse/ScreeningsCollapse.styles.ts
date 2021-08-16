@@ -23,12 +23,22 @@ export const Wrapper = styled.div<CollapseProps>`
   width: ${(props) => (props.isCollapsed && '3rem') || '12rem'};
 
   background-color: ${(props) => props.theme.colors.secondary};
+
+  @media only screen and ${media.xxl} {
+    padding: 1.25rem;
+
+    width: ${(props) => (props.isCollapsed && '5rem') || '15rem'};
+  }
 `;
 
 export const Text = styled(Typography.Text)`
   font-weight: 500;
   font-size: 0.625rem;
   white-space: nowrap;
+
+  @media only screen and ${media.xxl} {
+    font-size: 0.75rem;
+  }
 `;
 
 export const HeaderWrapper = styled.div<CollapseProps>`
@@ -75,6 +85,10 @@ export const ListItem = styled.li<ListProps>`
     margin-bottom: 0.8rem;
   }
 
+  @media only screen and ${media.xxl} {
+    margin-bottom: 1.2rem;
+  }
+
   &:nth-last-of-type(1) {
     margin-bottom: 0;
   }
@@ -101,5 +115,10 @@ export const Avatar = styled(AntAvatar)`
   @media only screen and ${media.md} {
     max-width: 1.4rem;
     max-height: 1.4rem;
+  }
+
+  @media only screen and ${media.md} {
+    max-width: 2.18rem;
+    max-height: 2.18rem;
   }
 `;
