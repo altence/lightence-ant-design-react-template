@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Button, Typography, Image as AntImage } from 'antd';
+import { media } from '../../../../styles/theme';
 
 export const BtnMore = styled(Button)`
   position: absolute;
@@ -29,6 +30,10 @@ export const Wrapper = styled.div`
   border-radius: 7px;
 
   background-color: ${(props) => props.theme.colors.basicLight};
+
+  @media only screen and ${media.md} {
+    width: calc(50% - 0.3125rem);
+  }
 
   &::after {
     content: '';
@@ -70,6 +75,11 @@ export const InfoWrapper = styled.div`
 export const InfoHeader = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 0.375rem;
+
+  @media only screen and ${media.md} {
+    margin-bottom: 0.625rem;
+  }
 `;
 
 export const Title = styled(Typography.Text)`

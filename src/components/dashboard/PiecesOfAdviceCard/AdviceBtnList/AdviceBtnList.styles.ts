@@ -5,10 +5,11 @@ export interface BtnProps {
 }
 
 export const Line = styled.div<BtnProps>`
-  width: 1.5rem;
-  height: 0.3rem;
+  width: 1rem;
+  height: 0.18rem;
   border-radius: 5px;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.125rem;
+  flex-shrink: 0;
 
   background-color: ${(props) => props.theme.colors.primary};
 
