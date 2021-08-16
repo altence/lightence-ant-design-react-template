@@ -68,6 +68,7 @@ export const colors = {
 export const breakpoints = {
   md: 768,
   xl: 1200,
+  xxl: 1920,
 };
 
 const getMedia = (breakpoint: number) => `(min-width: ${breakpoint}px)`;
@@ -75,6 +76,7 @@ const getMedia = (breakpoint: number) => `(min-width: ${breakpoint}px)`;
 export const media = {
   md: getMedia(breakpoints.md),
   xl: getMedia(breakpoints.xl),
+  xxl: getMedia(breakpoints.xxl),
 };
 
 export const desktopLayout = {
