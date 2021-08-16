@@ -7,18 +7,14 @@ export const DateWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 40%;
+  width: calc(40% - 0.25rem);
   position: relative;
   text-align: center;
   padding: 2.6rem 0.375rem 0.375rem 0.375rem;
   border-radius: 10px;
   margin-right: 0.5rem;
   box-shadow: 0px 5px 40px #e6e6e6;
-
-  @media only screen and ${media.md} {
-    width: 35%;
-    margin-right: 1.5rem;
-  }
+  flex-shrink: 0;
 `;
 
 export const Notification = styled(Badge)`

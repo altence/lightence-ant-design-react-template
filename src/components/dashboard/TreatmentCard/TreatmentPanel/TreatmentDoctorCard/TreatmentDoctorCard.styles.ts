@@ -6,13 +6,9 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  width: 60%;
+  width: calc(60% - 0.25rem);
   flex-shrink: 0;
   padding: 0.375rem;
-
-  @media only screen and ${media.md} {
-    width: 65%;
-  }
 `;
 
 export const Title = styled(Typography.Text)`
@@ -89,8 +85,8 @@ export const Button = styled(AntButton)`
   font-size: 0.75rem;
 `;
 
-export const WarningText = styled.div`
-  margin-left: 2rem;
+export const WarningText = styled(Typography.Text)`
+  font-size: 1rem;
 `;
 
 export const Modal = styled(AntModal)`
