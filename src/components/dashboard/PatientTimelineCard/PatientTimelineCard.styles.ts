@@ -20,6 +20,10 @@ export const Item = styled.div`
     margin-bottom: 0.625rem;
   }
 
+  @media only screen and ${media.xxl} {
+    margin-bottom: 1.5rem;
+  }
+
   &:nth-last-of-type(1) {
     margin-bottom: 0;
   }
@@ -40,6 +44,12 @@ export const IconWrapper = styled.div<ItemProps>`
 
   color: ${(props) => (props.isActive && props.theme.colors.secondary) || props.theme.colors.primary};
 
+  @media only screen and ${media.xxl} {
+    width: 3.12rem;
+    height: 3.12rem;
+    margin-right: 1.5rem;
+  }
+
   &::after {
     content: '';
     position: absolute;
@@ -50,6 +60,10 @@ export const IconWrapper = styled.div<ItemProps>`
     height: 100%;
 
     background-color: ${(props) => props.theme.colors.basic};
+
+    @media only screen and ${media.xxl} {
+      top: 120%;
+    }
   }
 `;
 
@@ -67,6 +81,10 @@ export const InfoHeader = styled.div`
     flex-direction: column;
     align-items: flex-start;
   }
+
+  @media only screen and ${media.xxl} {
+    margin-bottom: 0.375rem;
+  }
 `;
 
 export const Title = styled.span<ItemProps>`
@@ -74,19 +92,36 @@ export const Title = styled.span<ItemProps>`
   font-size: 0.75rem;
 
   color: ${(props) => props.isActive && props.theme.colors.primary};
+
+  @media only screen and ${media.xxl} {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+  }
 `;
 
 export const DateWrapper = styled.div`
   display: flex;
   align-items: center;
   font-size: 0.5rem;
+
+  @media only screen and ${media.xxl} {
+    font-size: 0.625rem;
+  }
 `;
 
 export const Text = styled(Typography.Text)`
   font-size: 0.625rem;
   margin-left: 0.5rem;
+
+  @media only screen and ${media.xxl} {
+    font-size: 0.625rem;
+  }
 `;
 
 export const Description = styled(Typography.Text)`
   font-size: 0.625rem;
+
+  @media only screen and ${media.xxl} {
+    font-size: 0.875rem;
+  }
 `;
