@@ -13,7 +13,7 @@ export const colors = {
   success: '#57D682',
   error: '#FF5252',
   accent: '#FFB155',
-  chartsPrimaryGradient: new echarts.graphic.LinearGradient(0, 0, 0, 2, [
+  chartsPrimaryGradient: new echarts.graphic.LinearGradient(0, 0, 0, 0.959, [
     {
       offset: 0,
       color: '#0059AB',
