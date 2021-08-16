@@ -8,14 +8,15 @@ const days = Dates.getDays();
 
 export const ActivityChart: React.FC = () => {
   const isTablet = useMediaQuery({ query: media.md });
+  const isDesktop = useMediaQuery({ query: media.xl });
 
   const option = {
     color: theme.colors.chartsPrimaryGradient,
     grid: {
-      top: 30,
-      right: 10,
-      bottom: 10,
-      left: (isTablet && 35) || 30,
+      top: (isDesktop && 40) || 30,
+      right: (isDesktop && 20) || 10,
+      bottom: (isDesktop && 20) || 10,
+      left: (isDesktop && 40) || (isTablet && 35) || 30,
     },
     xAxis: {
       type: 'category',
@@ -30,7 +31,7 @@ export const ActivityChart: React.FC = () => {
       axisLabel: {
         color: theme.colors.primary,
         fontWeight: 500,
-        fontSize: 10,
+        fontSize: (isDesktop && 12) || 10,
       },
     },
     yAxis: {
@@ -41,7 +42,7 @@ export const ActivityChart: React.FC = () => {
       axisLabel: {
         color: theme.colors.basic,
         fontWeight: 500,
-        fontSize: 10,
+        fontSize: (isDesktop && 12) || 10,
       },
     },
     series: [
@@ -50,7 +51,7 @@ export const ActivityChart: React.FC = () => {
         data: [52, 58, 63, 78, 71, 68, 91],
         type: 'bar',
         itemStyle: {
-          borderRadius: 5,
+          borderRadius: (isDesktop && 7) || 5,
         },
       },
     ],
@@ -59,5 +60,5 @@ export const ActivityChart: React.FC = () => {
     },
   };
 
-  return <Chart option={option} />;
+  return <Chart option={option} height={(isDesktop && '100%') || '200px'} />;
 };
