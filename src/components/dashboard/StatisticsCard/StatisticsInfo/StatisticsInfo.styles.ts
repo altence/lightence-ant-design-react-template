@@ -38,6 +38,10 @@ export const Title = styled(Typography.Text)<TitleProps>`
     font-size: 1rem;
     text-align: left;
   }
+
+  @media only screen and ${media.xxl} {
+    font-size: 1.37rem;
+  }
 `;
 
 export const Text = styled(Typography.Text)`
@@ -47,6 +51,10 @@ export const Text = styled(Typography.Text)`
 
   @media only screen and ${media.xl} {
     font-size: 0.75rem;
+  }
+
+  @media only screen and ${media.xl} {
+    font-size: 0.875rem;
   }
 `;
 
