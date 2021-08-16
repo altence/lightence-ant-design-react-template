@@ -40,4 +40,12 @@ export const favouritesDoctorsData: Array<FavoriteDoctor> = [
     rating: 4,
     imgUrl: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1628436647/Rectangle_463_4_gep4lc.jpg',
   },
+  {
+    id: 5,
+    name: 'Kozlov Egor',
+    specifity: 'Therapist',
+    visit: '14.08.21',
+    rating: 5,
+    imgUrl: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1628436647/Rectangle_463_4_gep4lc.jpg',
+  },
 ];
