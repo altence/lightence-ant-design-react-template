@@ -13,5 +13,9 @@ export const Wrapper = styled.div`
       margin-bottom: 0;
       margin-right: 0.625rem;
     }
+
+    @media only screen and ${media.xl} {
+      margin-right: 0.875rem;
+    }
   }
 `;

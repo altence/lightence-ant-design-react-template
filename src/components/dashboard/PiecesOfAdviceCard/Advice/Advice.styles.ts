@@ -35,6 +35,11 @@ export const Wrapper = styled.div`
     width: calc(50% - 0.3125rem);
   }
 
+  @media only screen and ${media.xl} {
+    flex-direction: row;
+    width: calc(50% - 0.4375rem);
+  }
+
   &::after {
     content: '';
     position: absolute;
@@ -70,6 +75,12 @@ export const Image = styled(AntImage)`
 
 export const InfoWrapper = styled.div`
   padding: 0.875rem;
+
+  @media only screen and ${media.xl} {
+    width: 50%;
+    flex-shrink: 0;
+    padding: 1rem;
+  }
 `;
 
 export const InfoHeader = styled.div`
@@ -85,6 +96,7 @@ export const InfoHeader = styled.div`
 export const Title = styled(Typography.Text)`
   font-weight: 500;
   font-size: 0.75rem;
+  width: 60%;
 
   color: ${(props) => props.theme.colors.basicDark};
 `;
