@@ -27,7 +27,7 @@ export const HealthChart: React.FC = () => {
     series: [
       {
         type: 'pie',
-        radius: ['45%', '60%'],
+        radius: ['60%', '85%'],
         center: ['30%', 'center'],
         avoidLabelOverlap: false,
         labelLine: false,
@@ -39,7 +39,7 @@ export const HealthChart: React.FC = () => {
           },
           backgroundColor: theme.colors.secondary,
           color: theme.colors.primary,
-          fontSize: 12,
+          fontSize: 20,
         },
         data: [
           {
