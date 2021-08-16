@@ -17,5 +17,9 @@ export const Wrapper = styled.div`
     @media only screen and ${media.xl} {
       margin-right: 0.875rem;
     }
+
+    @media only screen and ${media.xxl} {
+      margin-right: 1.25rem;
+    }
   }
 `;

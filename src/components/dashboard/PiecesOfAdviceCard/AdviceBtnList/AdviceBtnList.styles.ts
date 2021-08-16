@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { media } from '../../../../styles/theme';
 
 export interface BtnProps {
   isActive: boolean;
@@ -14,6 +15,11 @@ export const Line = styled.div<BtnProps>`
   background-color: ${(props) => props.theme.colors.primary};
 
   ${(props) => !props.isActive && 'opacity: 0.4'};
+
+  @media only screen and ${media.xxl} {
+    width: 1.5rem;
+    height: 0.3rem;
+  }
 
   &:nth-last-of-type(1) {
     margin-bottom: 0;
