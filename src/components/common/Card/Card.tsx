@@ -11,10 +11,16 @@ export interface CardProps extends AntCardProps {
 }
 
 export const Card: React.FC<CardProps> = ({ className, padding, children, ...props }) => {
-  const isPC = useMediaQuery({ query: media.xl });
+  const isDesktop = useMediaQuery({ query: media.xl });
 
   return (
-    <S.Card size={(isPC && 'default') || 'small'} className={className} bordered={false} padding={padding} {...props}>
+    <S.Card
+      size={(isDesktop && 'default') || 'small'}
+      className={className}
+      bordered={false}
+      padding={padding}
+      {...props}
+    >
       {children}
     </S.Card>
   );
