@@ -1,6 +1,7 @@
 import React from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { Chart } from '../../../common/Chart/Chart';
-import theme from '../../../../styles/theme';
+import theme, { media } from '../../../../styles/theme';
 
 const option = {
   color: theme.colors.chartsPrimaryGradient,
@@ -41,5 +42,7 @@ const option = {
 };
 
 export const CovidChart: React.FC = () => {
-  return <Chart option={option} />;
+  const isTablet = useMediaQuery({ query: media.md });
+
+  return <Chart option={option} height={(isTablet && '100%') || '200px'} />;
 };
