@@ -9,6 +9,10 @@ export const Wrapper = styled.div`
   width: calc(60% - 0.25rem);
   flex-shrink: 0;
   padding: 0.375rem;
+
+  @media only screen and ${media.xxl} {
+    padding: 0.5rem;
+  }
 `;
 
 export const Title = styled(Typography.Text)`
@@ -16,11 +20,19 @@ export const Title = styled(Typography.Text)`
   display: block;
 
   color: ${(props) => props.theme.colors.primary};
+
+  @media only screen and ${media.xxl} {
+    font-size: 0.75rem;
+  }
 `;
 
 export const Text = styled(Typography.Text)`
   font-weight: 500;
   font-size: 0.625rem;
+
+  @media only screen and ${media.xxl} {
+    font-size: 0.875rem;
+  }
 `;
 
 export const ProfileWrapper = styled.div`
@@ -34,6 +46,10 @@ export const Avatar = styled(AntAvatar)`
   max-width: 3rem;
   height: 100%;
   margin-right: 0.875rem;
+
+  @media only screen and ${media.xxl} {
+    max-width: 4rem;
+  }
 `;
 
 export const InfoWrapper = styled.div`
@@ -50,7 +66,11 @@ export const InfoItem = styled.div`
   }
 `;
 
-export const Rating = styled(Rate)``;
+export const Rating = styled(Rate)`
+  @media only screen and ${media.xxl} {
+    font-size: 1rem;
+  }
+`;
 
 export const DiagnosisWrapper = styled.div`
   display: flex;
@@ -83,6 +103,10 @@ export const VisitWrapper = styled.div`
 
 export const Button = styled(AntButton)`
   font-size: 0.75rem;
+
+  @media only screen and ${media.xxl} {
+    font-size: 1rem;
+  }
 `;
 
 export const WarningText = styled(Typography.Text)`

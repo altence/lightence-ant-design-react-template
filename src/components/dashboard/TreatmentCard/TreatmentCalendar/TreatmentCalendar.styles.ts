@@ -34,6 +34,10 @@ export const Calendar = styled(AntCalendar)`
     font-size: 0.75rem;
 
     color: ${(props) => props.theme.colors.primary};
+
+    @media only screen and ${media.xxl} {
+      font-size: 0.875rem;
+    }
   }
 
   & .ant-picker-cell-inner {
@@ -44,6 +48,12 @@ export const Calendar = styled(AntCalendar)`
     align-items: center;
     margin: 0 auto;
     font-size: 0.625rem;
+
+    @media only screen and ${media.xxl} {
+      height: 2.37rem;
+      width: 2.37rem;
+      font-size: 0.875rem;
+    }
   }
 `;
 
@@ -54,6 +64,10 @@ export const Legend = styled.div`
   @media only screen and ${media.md} {
     padding: 0 0.5rem;
   }
+
+  @media only screen and ${media.xxl} {
+    padding: 1rem;
+  }
 `;
 
 export const LegendItem = styled.div`
@@ -61,6 +75,10 @@ export const LegendItem = styled.div`
   display: flex;
   align-items: center;
   margin-right: 0.3rem;
+
+  @media only screen and ${media.xxl} {
+    margin-right: 1rem;
+  }
 
   &:nth-last-of-type(1) {
     margin-right: 0;
@@ -76,9 +94,20 @@ export const LegendIcon = styled.div<LegendProps>`
   margin-right: 0.2rem;
 
   background-color: ${(props) => (props.isPrimary && props.theme.colors.primary) || props.theme.colors.basic};
+
+  @media only screen and ${media.xxl} {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+  }
 `;
 
 export const Text = styled(Typography.Text)`
   font-size: 0.625rem;
   margin-left: 0.3rem;
+
+  @media only screen and ${media.xxl} {
+    font-size: 0.75rem;
+    margin-left: 0.5rem;
+  }
 `;

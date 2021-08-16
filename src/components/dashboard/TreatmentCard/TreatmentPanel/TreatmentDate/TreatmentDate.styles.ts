@@ -15,6 +15,10 @@ export const DateWrapper = styled.div`
   margin-right: 0.5rem;
   box-shadow: 0px 5px 40px #e6e6e6;
   flex-shrink: 0;
+
+  @media only screen and ${media.xxl} {
+    padding: 5rem 0.5rem 0.5rem 0.5rem;
+  }
 `;
 
 export const Notification = styled(Badge)`
@@ -27,6 +31,10 @@ export const Bell = styled(BellOutlined)`
   font-size: 1.2rem;
 
   color: ${(props) => props.theme.colors.primary};
+
+  @media only screen and ${media.xxl} {
+    font-size: 1.6rem;
+  }
 `;
 
 export const Title = styled(Typography.Text)`
@@ -75,8 +83,16 @@ export const Text = styled(Typography.Text)`
   @media only screen and ${media.md} {
     font-size: 1.37rem;
   }
+
+  @media only screen and ${media.xxl} {
+    font-size: 1.5rem;
+  }
 `;
 
 export const Button = styled(AntButton)`
   font-size: 0.75rem;
+
+  @media only screen and ${media.xxl} {
+    font-size: 1rem;
+  }
 `;
