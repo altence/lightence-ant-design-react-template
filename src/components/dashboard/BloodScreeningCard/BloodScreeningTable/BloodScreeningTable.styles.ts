@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Table as AntTable } from 'antd';
+import { media } from '../../../../styles/theme';
 
 interface TextProps {
   isActive?: boolean;
@@ -34,6 +35,10 @@ export const PercentageWrapper = styled.div`
   display: flex;
   width: 3rem;
   justify-content: space-between;
+
+  @media only screen and ${media.xxl} {
+    width: 4rem;
+  }
 `;
 
 export const Percentage = styled.div<PercentageProps>`
