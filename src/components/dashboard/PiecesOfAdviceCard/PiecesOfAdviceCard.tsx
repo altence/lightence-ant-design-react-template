@@ -8,7 +8,7 @@ import { media } from '../../../styles/theme';
 import * as S from './PiecesOfAdviceCard.styles';
 
 export const PiecesOfAdviceCard: React.FC = () => {
-  const isPC = useMediaQuery({ query: media.xl });
+  const isDesktop = useMediaQuery({ query: media.xl });
 
   return (
     <Card title={<PiecesOfAdviceHeader />} padding="0.625rem">
@@ -16,7 +16,7 @@ export const PiecesOfAdviceCard: React.FC = () => {
         {piecesOfAdviceData.map((advice) => (
           <Advice
             key={advice.id}
-            imgUrl={(isPC && advice.imgUrlHighResol) || advice.imgUrl}
+            imgUrl={(isDesktop && advice.imgUrlHighResol) || advice.imgUrl}
             title={advice.title}
             date={advice.date}
             description={advice.description}
