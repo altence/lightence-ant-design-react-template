@@ -117,7 +117,7 @@ export const Avatar = styled(AntAvatar)`
     max-height: 1.4rem;
   }
 
-  @media only screen and ${media.md} {
+  @media only screen and ${media.xxl} {
     max-width: 2.18rem;
     max-height: 2.18rem;
   }
