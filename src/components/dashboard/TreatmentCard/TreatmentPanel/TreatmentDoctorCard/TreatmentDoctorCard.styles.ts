@@ -1,12 +1,18 @@
 import styled from 'styled-components';
 import { Rate, Typography, Avatar as AntAvatar, Button as AntButton, Modal as AntModal } from 'antd';
+import { media } from '../../../../../styles/theme';
 
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 60%;
   flex-direction: column;
+  width: 60%;
+  flex-shrink: 0;
   padding: 0.375rem;
+
+  @media only screen and ${media.md} {
+    width: 65%;
+  }
 `;
 
 export const Title = styled(Typography.Text)`

@@ -3,6 +3,7 @@ import { Typography } from 'antd';
 import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 import generateCalendar from 'antd/lib/calendar/generateCalendar';
 import { AppDate } from '../../../../constants/Dates';
+import { media } from '../../../../styles/theme';
 
 const AntCalendar = generateCalendar<AppDate>(dayjsGenerateConfig);
 
@@ -12,6 +13,11 @@ interface LegendProps {
 
 export const Wrapper = styled.div`
   background-color: ${(props) => props.theme.colors.secondary};
+
+  @media only screen and ${media.md} {
+    width: 45%;
+    margin-right: 1.5rem;
+  }
 `;
 
 export const Calendar = styled(AntCalendar)`
@@ -43,14 +49,22 @@ export const Calendar = styled(AntCalendar)`
 
 export const Legend = styled.div`
   display: flex;
-  padding: 0.5rem 1rem;
+  padding: 0 1rem;
+
+  @media only screen and ${media.md} {
+    padding: 0 0.5rem;
+  }
 `;
 
 export const LegendItem = styled.div`
   width: 50%;
   display: flex;
   align-items: center;
-  margin: 0 0.3rem;
+  margin-right: 0.3rem;
+
+  &:nth-last-of-type(1) {
+    margin-right: 0;
+  }
 `;
 
 export const LegendIcon = styled.div<LegendProps>`
@@ -59,7 +73,7 @@ export const LegendIcon = styled.div<LegendProps>`
   border-radius: 4px;
   box-shadow: 0px 5px 15px rgba(0, 89, 171, 0.3);
   flex-shrink: 0;
-  margin-right: 0.3rem;
+  margin-right: 0.2rem;
 
   background-color: ${(props) => (props.isPrimary && props.theme.colors.primary) || props.theme.colors.basic};
 `;
