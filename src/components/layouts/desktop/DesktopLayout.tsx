@@ -24,6 +24,7 @@ const LayoutStyled = styled(Layout)`
 
 const ContentLayoutStyled = styled(Layout)`
   background: linear-gradient(#c4c4c4 25%, #ffffff 25%);
+  margin-left: 60px;
 `;
 
 export default DesktopLayout;
