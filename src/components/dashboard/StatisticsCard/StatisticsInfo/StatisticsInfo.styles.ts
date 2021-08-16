@@ -16,6 +16,10 @@ export const Wrapper = styled.div`
   @media only screen and ${media.md} {
     width: 100%;
   }
+
+  @media only screen and ${media.xl} {
+    width: 50%;
+  }
 `;
 
 export const Title = styled(Typography.Text)<TitleProps>`
@@ -29,12 +33,21 @@ export const Title = styled(Typography.Text)<TitleProps>`
     font-size: 0.75rem;
     text-align: center;
   }
+
+  @media only screen and ${media.xl} {
+    font-size: 1rem;
+    text-align: left;
+  }
 `;
 
 export const Text = styled(Typography.Text)`
   font-weight: 600;
   font-size: 0.625rem;
   margin-left: 0.125rem;
+
+  @media only screen and ${media.xl} {
+    font-size: 0.75rem;
+  }
 `;
 
 export const Percentage = styled.div<PercentageProps>`
@@ -49,5 +62,9 @@ export const Percentage = styled.div<PercentageProps>`
 
   @media only screen and ${media.md} {
     margin: 0 auto;
+  }
+
+  @media only screen and ${media.xl} {
+    margin: unset;
   }
 `;

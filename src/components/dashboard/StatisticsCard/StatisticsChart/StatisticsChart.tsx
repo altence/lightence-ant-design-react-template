@@ -12,17 +12,18 @@ interface StatisticsChartProps {
 
 export const StatisticsChart: React.FC<StatisticsChartProps> = ({ value, chartColor, color }) => {
   const isTablet = useMediaQuery({ query: media.md });
+  const isDesktop = useMediaQuery({ query: media.xl });
 
   const option = {
     color: [chartColor, theme.colors.basicLight],
     series: [
       {
         type: 'pie',
-        radius: ['55%', '70%'],
+        radius: ['70%', '95%'],
         label: {
           show: true,
           position: 'center',
-          fontSize: '10px',
+          fontSize: (isTablet && '14px') || '12px',
           color,
           formatter: function () {
             return `${value} kg`;
@@ -39,5 +40,11 @@ export const StatisticsChart: React.FC<StatisticsChartProps> = ({ value, chartCo
     ],
   };
 
-  return <Chart option={option} width={(isTablet && '100%') || '50%'} height={(isTablet && '70px') || '60px'} />;
+  return (
+    <Chart
+      option={option}
+      width={(isTablet && !isDesktop && '100%') || '50%'}
+      height={(isTablet && '70px') || '60px'}
+    />
+  );
 };

@@ -41,4 +41,8 @@ export const Icon = styled(AntIcon)<StatisticsProps>`
   @media only screen and ${media.md} {
     font-size: 0.8rem;
   }
+
+  @media only screen and ${media.xl} {
+    font-size: 1.5rem;
+  }
 `;
