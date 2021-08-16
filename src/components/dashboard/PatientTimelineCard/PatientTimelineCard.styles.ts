@@ -47,6 +47,7 @@ export const IconWrapper = styled.div<ItemProps>`
   @media only screen and ${media.xxl} {
     width: 3.12rem;
     height: 3.12rem;
+    font-size: 1.5rem;
     margin-right: 1.5rem;
   }
 
