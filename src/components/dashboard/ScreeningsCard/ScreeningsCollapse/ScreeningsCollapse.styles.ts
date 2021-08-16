@@ -44,6 +44,10 @@ export const HeaderWrapper = styled.div<CollapseProps>`
       font-size: 0.75rem;
     }
   }
+
+  @media only screen and ${media.xl} {
+    margin-bottom: 1rem;
+  }
 `;
 
 export const ArrowBtn = styled(Button)`
@@ -65,6 +69,10 @@ export const ListItem = styled.li<ListProps>`
 
   @media only screen and ${media.md} {
     margin-bottom: 0.4rem;
+  }
+
+  @media only screen and ${media.xl} {
+    margin-bottom: 0.8rem;
   }
 
   &:nth-last-of-type(1) {

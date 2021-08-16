@@ -1,8 +1,11 @@
 import React from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { Chart } from '../../../common/Chart/Chart';
-import theme from '../../../../styles/theme';
+import theme, { media } from '../../../../styles/theme';
 
 export const ScreeningsChart: React.FC = () => {
+  const isDesktop = useMediaQuery({ query: media.xl });
+
   const option = {
     tooltip: {
       trigger: 'axis',
@@ -119,5 +122,5 @@ export const ScreeningsChart: React.FC = () => {
     ],
   };
 
-  return <Chart option={option} />;
+  return <Chart option={option} height={(isDesktop && '250px') || '200px'} />;
 };
