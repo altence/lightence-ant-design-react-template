@@ -15,8 +15,8 @@ export const Wrapper = styled.div`
   background-color: ${(props) => props.theme.colors.secondary};
 
   @media only screen and ${media.md} {
-    width: 45%;
-    margin-right: 1.5rem;
+    width: calc(45% - 0.25rem);
+    margin-right: 0.5rem;
   }
 `;
 

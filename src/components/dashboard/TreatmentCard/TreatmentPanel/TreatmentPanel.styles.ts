@@ -7,6 +7,6 @@ export const Wrapper = styled.div`
   height: 100%;
 
   @media only screen and ${media.md} {
-    width: 55%;
+    width: calc(55% - 0.25rem);
   }
 `;
