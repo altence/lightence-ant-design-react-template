@@ -60,5 +60,5 @@ export const ActivityChart: React.FC = () => {
     },
   };
 
-  return <Chart option={option} height={(isDesktop && '100%') || '200px'} />;
+  return <Chart option={option} height={isDesktop && '100%'} />;
 };
