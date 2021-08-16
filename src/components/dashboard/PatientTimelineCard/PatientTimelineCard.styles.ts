@@ -62,6 +62,11 @@ export const InfoHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media only screen and ${media.xl} {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 export const Title = styled.span<ItemProps>`
