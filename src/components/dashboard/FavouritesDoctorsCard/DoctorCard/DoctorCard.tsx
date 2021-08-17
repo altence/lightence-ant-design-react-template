@@ -1,5 +1,6 @@
 import React from 'react';
 import { FavoriteDoctor } from '../../../../constants/favouritesDoctors';
+import { Dates } from '../../../../constants/dates';
 import * as S from './DoctorCard.styles';
 
 type DoctorCardProps = Omit<FavoriteDoctor, 'id'>;
@@ -19,7 +20,7 @@ export const DoctorCard: React.FC<DoctorCardProps> = ({ imgUrl, rating, name, sp
         <S.Text>{specifity}</S.Text>
         <S.VisitWrapper>
           <S.Title>Last visit</S.Title>
-          <S.Text>{visit}</S.Text>
+          <S.Text>{Dates.format(visit, 'L')}</S.Text>
         </S.VisitWrapper>
       </S.InfoWrapper>
     </S.Wrapper>

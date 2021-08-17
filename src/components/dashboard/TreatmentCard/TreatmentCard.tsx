@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import { Card } from '../../common/Card/Card';
 import { TreatmentCalendar } from './TreatmentCalendar/TreatmentCalendar';
 import { TreatmentPanel } from './TreatmentPanel/TreatmentPanel';
-import * as S from './TreatmentCard.styles';
 import { TreatmentDoctorCard } from './TreatmentDoctorCard/TreatmentDoctorCard';
+import * as S from './TreatmentCard.styles';
 
 export const TreatmentCard: React.FC = () => {
-  const [selectedDate, setDate] = useState(moment());
+  const [selectedDate, setDate] = useState(dayjs());
 
   return (
     <Card title="Treatment plan">
