@@ -21,7 +21,7 @@ export const HealthChart: React.FC = () => {
       left: '60%',
       top: 'center',
       orient: 'vertical',
-      icon: 'circle',
+      icon: (isBigScreen && 'square') || 'circle',
       textStyle: {
         fontSize: 16,
         fontWeight: 500,
