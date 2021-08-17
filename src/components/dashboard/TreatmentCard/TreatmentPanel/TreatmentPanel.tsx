@@ -1,10 +1,10 @@
 import React from 'react';
-import { Dayjs } from 'dayjs';
 import { notification } from 'antd';
+import { AppDate } from '../../../../constants/Dates';
 import * as S from './TreatmentPanel.styles';
 
 interface TreatmentPanelProps {
-  date: Dayjs;
+  date: AppDate;
 }
 
 export const TreatmentPanel: React.FC<TreatmentPanelProps> = ({ date }) => {
