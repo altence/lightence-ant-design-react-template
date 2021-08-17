@@ -5,8 +5,9 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   padding: 0.375rem;
   max-width: 9.5rem;
-  border-radius: 7px;
   transition: all 0.3s ease;
+
+  border-radius: ${(props) => props.theme.colors.border.radius};
 
   background-color: ${(props) => props.theme.colors.secondary};
 

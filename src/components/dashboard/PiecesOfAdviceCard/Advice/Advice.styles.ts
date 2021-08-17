@@ -34,9 +34,10 @@ export const Wrapper = styled.div`
     bottom: 0;
     left: 0;
     opacity: 0;
-    border-radius: 7px;
     transition: all 0.3s ease;
     pointer-events: none;
+
+    border-radius: ${(props) => props.theme.colors.border.radius};
 
     background: ${(props) => props.theme.colors.primaryGradient};
   }
