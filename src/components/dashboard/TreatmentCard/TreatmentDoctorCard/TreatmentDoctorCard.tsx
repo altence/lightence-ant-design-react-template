@@ -1,8 +1,8 @@
 import React from 'react';
-import dayjs, { Dayjs } from 'dayjs';
+import { Dayjs } from 'dayjs';
 import { treatmentData } from '../../../../constants/treatment';
 import * as S from './TreatmentDoctorCard.styles';
-import { Dates } from '../../../../constants/dates';
+import { Dates } from '../../../../constants/Dates';
 
 interface TreatmentDoctorCardProps {
   date: Dayjs;

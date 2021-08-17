@@ -2,7 +2,7 @@ import React from 'react';
 import { EChartsInstance } from 'echarts-for-react';
 import { Chart } from '../../../common/Chart/Chart';
 import theme from '../../../../styles/theme';
-import { Dates } from '../../../../constants/dates';
+import { Dates } from '../../../../constants/Dates';
 import { Cell } from '../BloodScreeningTable/BloodScreeningTable';
 
 const months = Dates.getMonths();
