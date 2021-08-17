@@ -1,7 +1,7 @@
 import React from 'react';
 import { Chart } from '../../../common/Chart/Chart';
 import theme from '../../../../styles/theme';
-import { Dates } from '../../../../constants/dates';
+import { Dates } from '../../../../constants/Dates';
 
 const days = Dates.getDays();
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { FavoriteDoctor } from '../../../../constants/favouritesDoctors';
-import { Dates } from '../../../../constants/dates';
+import { Dates } from '../../../../constants/Dates';
 import * as S from './DoctorCard.styles';
 
 type DoctorCardProps = Omit<FavoriteDoctor, 'id'>;

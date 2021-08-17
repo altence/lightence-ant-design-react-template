@@ -1,6 +1,6 @@
 import React from 'react';
 import { Advice as AdviceProps } from '../../../../constants/piecesOfAdvice';
-import { Dates } from '../../../../constants/dates';
+import { Dates } from '../../../../constants/Dates';
 import * as S from './Advice.styles';
 
 export const Advice: React.FC<AdviceProps> = ({ imgUrl, title, date, description }) => {

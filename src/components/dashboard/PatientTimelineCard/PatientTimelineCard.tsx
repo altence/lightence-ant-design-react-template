@@ -3,7 +3,7 @@ import { BarChartOutlined, CalendarOutlined, CheckOutlined, FileTextOutlined } f
 import { Card } from '../../common/Card/Card';
 import { patientTimeline } from '../../../constants/patientTimeline';
 import * as S from './PatientTimelineCard.styles';
-import { Dates } from '../../../constants/dates';
+import { Dates } from '../../../constants/Dates';
 
 const icons = [<CheckOutlined key={0} />, <BarChartOutlined key={1} />, <FileTextOutlined key={2} />];
 
