@@ -44,10 +44,6 @@ export const colors = {
   ]),
 };
 
-const border = {
-  radius: '7px',
-};
-
 export const breakpoints = {
   md: 768,
   xl: 1200,
@@ -74,7 +70,9 @@ export const mobileLayout = {
 
 const theme = {
   colors,
-  border,
+  border: {
+    radius: '7px',
+  },
   breakpoints,
   media,
   desktopLayout,

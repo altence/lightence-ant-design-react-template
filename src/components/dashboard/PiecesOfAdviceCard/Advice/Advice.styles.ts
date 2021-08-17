@@ -37,7 +37,7 @@ export const Wrapper = styled.div`
     transition: all 0.3s ease;
     pointer-events: none;
 
-    border-radius: ${(props) => props.theme.colors.border.radius};
+    border-radius: ${(props) => props.theme.border.radius};
 
     background: ${(props) => props.theme.colors.primaryGradient};
   }
