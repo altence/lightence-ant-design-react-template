@@ -22,8 +22,8 @@ export class Dates {
 
   static days: string[] = ['Sun', 'Mon', 'Tue', 'Wed', 'The', 'Fri', 'Sat'];
 
-  static getToday(): string {
-    return dayjs().format('L');
+  static getToday(): AppDate {
+    return dayjs();
   }
 
   static getMonths(): string[] {
