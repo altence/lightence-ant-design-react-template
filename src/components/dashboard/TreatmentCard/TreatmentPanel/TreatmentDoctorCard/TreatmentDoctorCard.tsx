@@ -1,22 +1,15 @@
 import React, { useState } from 'react';
 import { Input, notification } from 'antd';
-import { treatmentData } from '../../../../../constants/treatmentData';
-import { Dates, AppDate } from '../../../../../constants/Dates';
+import { Doctor } from '../../../../../constants/doctorsData';
+import { Dates } from '../../../../../constants/Dates';
 import * as S from './TreatmentDoctorCard.styles';
 
 interface TreatmentDoctorCardProps {
-  date: AppDate;
+  treatment: Doctor;
 }
 
-export const TreatmentDoctorCard: React.FC<TreatmentDoctorCardProps> = ({ date }) => {
+export const TreatmentDoctorCard: React.FC<TreatmentDoctorCardProps> = ({ treatment }) => {
   const [isModalVisible, setModalVisible] = useState(false);
-
-  const treatment = treatmentData.find((tr) => {
-    const dbDate = Dates.format(tr.date, 'L');
-    const selectedDate = Dates.format(date, 'L');
-
-    return dbDate === selectedDate;
-  });
 
   const handleOk = () => {
     setModalVisible(false);
@@ -36,29 +29,29 @@ export const TreatmentDoctorCard: React.FC<TreatmentDoctorCardProps> = ({ date }
       {treatment ? (
         <>
           <S.ProfileWrapper>
-            <S.Avatar src={treatment?.doctorImgUrl} shape="square" />
+            <S.Avatar src={treatment.imgUrl} shape="square" />
             <S.InfoWrapper>
               <S.InfoItem>
                 <S.Title>Doctor</S.Title>
-                <S.Text>{treatment.doctorName}</S.Text>
+                <S.Text>{treatment.name}</S.Text>
               </S.InfoItem>
               <S.InfoItem>
                 <S.Title>Speciality</S.Title>
-                <S.Text>{treatment.doctorSpeciality}</S.Text>
+                <S.Text>{treatment.specifity}</S.Text>
               </S.InfoItem>
               <S.InfoItem>
-                <S.Rating disabled defaultValue={treatment.doctorRating} />
-                <S.Text>{treatment.doctorRating}</S.Text>
+                <S.Rating disabled defaultValue={treatment.rating} />
+                <S.Text>{treatment.rating}</S.Text>
               </S.InfoItem>
             </S.InfoWrapper>
           </S.ProfileWrapper>
           <S.DiagnosisWrapper>
             <S.Title>Diagnosis</S.Title>
-            <S.Text>{treatment.diagnosis}</S.Text>
+            <S.Text>{treatment.lastDiagnosis}</S.Text>
           </S.DiagnosisWrapper>
           <S.VisitWrapper>
             <S.Title>Upcoming visits</S.Title>
-            <S.Text>{Dates.format(treatment.date, 'L')}</S.Text>
+            <S.Text>{Dates.format(treatment.nextVisit, 'L')}</S.Text>
           </S.VisitWrapper>
           <S.Button size="middle" type="primary" onClick={() => setModalVisible(true)}>
             Ask the doctor a question
