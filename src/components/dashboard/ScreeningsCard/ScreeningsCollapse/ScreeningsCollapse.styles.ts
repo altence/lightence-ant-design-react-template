@@ -44,7 +44,7 @@ export const Text = styled(Typography.Text)`
 export const HeaderWrapper = styled.div<CollapseProps>`
   display: flex;
   align-items: center;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.3rem;
   font-size: 0.75rem;
 
   justify-content: ${(props) => (props.isCollapsed && 'center') || 'space-between'};
@@ -73,13 +73,9 @@ export const List = styled.ul`
 export const ListItem = styled.li<ListProps>`
   display: flex;
   align-items: center;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.4rem;
 
   justify-content: ${(props) => (props.isCollapsed && 'center') || 'space-between'};
-
-  @media only screen and ${media.md} {
-    margin-bottom: 0.4rem;
-  }
 
   @media only screen and ${media.xl} {
     margin-bottom: 0.8rem;
@@ -109,13 +105,8 @@ export const ListItem = styled.li<ListProps>`
 `;
 
 export const Avatar = styled(AntAvatar)`
-  max-width: 1.6rem;
-  max-height: 1.6rem;
-
-  @media only screen and ${media.md} {
-    max-width: 1.4rem;
-    max-height: 1.4rem;
-  }
+  max-width: 1.4rem;
+  max-height: 1.4rem;
 
   @media only screen and ${media.xxl} {
     max-width: 2.18rem;

@@ -1,7 +1,29 @@
 import React, { useState } from 'react';
 import { ArrowLeftOutlined, ArrowRightOutlined, CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
-import { friendsData } from '../../../../constants/friendsData';
+import { doctorsData } from '../../../../constants/doctorsData';
 import * as S from './ScreeningsCollapse.styles';
+
+const getFriendsData = () => {
+  const result = [];
+
+  for (let i = 0; i <= doctorsData.length && i < 6; i++) {
+    if (i === 1 || i === 5) {
+      result.push({
+        isDowngrade: true,
+        value: Math.floor(1 + Math.random() * 99),
+        ...doctorsData[i],
+      });
+    } else {
+      result.push({
+        isDowngrade: false,
+        value: Math.floor(1 + Math.random() * 99),
+        ...doctorsData[i],
+      });
+    }
+  }
+
+  return result;
+};
 
 export const ScreeningsCollapse: React.FC = () => {
   const [isCollapsed, setCollapsed] = useState(true);
@@ -15,7 +37,7 @@ export const ScreeningsCollapse: React.FC = () => {
         </S.ArrowBtn>
       </S.HeaderWrapper>
       <S.List>
-        {friendsData.map((friend) => (
+        {getFriendsData().map((friend) => (
           <S.ListItem key={friend.id} isCollapsed={isCollapsed} isDowngrade={friend.isDowngrade}>
             <S.Avatar src={friend.imgUrl} shape="square" />
             {!isCollapsed && (
