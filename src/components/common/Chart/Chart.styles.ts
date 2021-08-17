@@ -2,14 +2,14 @@ import styled from 'styled-components';
 import ReactECharts from 'echarts-for-react';
 
 export interface ChartProps {
-  width?: string;
-  height?: string;
+  width?: string | number;
+  height?: string | number;
 }
 
 export const Chart = styled(ReactECharts)<ChartProps>`
   flex-shrink: 0;
 
-  width: ${(props) => props.width || '100%'};
+  width: ${(props) => (typeof props.width === 'number' ? `${props.width}px` : props.width)};
 
-  height: ${(props) => props.height || '100%'} !important;
+  height: ${(props) => (typeof props.height === 'number' ? `${props.height}px` : props.height) || '100%'} !important;
 `;

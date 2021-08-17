@@ -6,7 +6,7 @@ import * as S from './ScreeningsCard.styles';
 
 export const ScreeningsCard: React.FC = () => {
   return (
-    <S.Card title={<ScreeningsHeader />} padding="0">
+    <S.Card title={<ScreeningsHeader />} padding={0}>
       <ScreeningsCollapse />
       <ScreeningsChart />
     </S.Card>
