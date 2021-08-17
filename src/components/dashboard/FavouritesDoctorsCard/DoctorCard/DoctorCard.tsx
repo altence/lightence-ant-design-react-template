@@ -1,8 +1,10 @@
 import React from 'react';
-import { FavoriteDoctor as DoctorProps } from '../../../../constants/favouritesDoctors';
+import { FavoriteDoctor } from '../../../../constants/favouritesDoctors';
 import * as S from './DoctorCard.styles';
 
-export const DoctorCard: React.FC<DoctorProps> = ({ imgUrl, rating, name, specifity, visit }) => {
+type DoctorCardProps = Omit<FavoriteDoctor, 'id'>;
+
+export const DoctorCard: React.FC<DoctorCardProps> = ({ imgUrl, rating, name, specifity, visit }) => {
   return (
     <S.Wrapper>
       <S.Avatar shape="square" src={imgUrl} />

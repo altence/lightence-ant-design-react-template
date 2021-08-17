@@ -1,5 +1,5 @@
 export interface FavoriteDoctor {
-  id?: number;
+  id: number;
   name: string;
   specifity: string;
   visit: string;
