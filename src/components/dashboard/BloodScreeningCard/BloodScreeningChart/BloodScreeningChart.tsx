@@ -48,5 +48,5 @@ export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ activ
     ],
   };
 
-  return <Chart option={option} height="100px" />;
+  return <Chart option={option} height={100} />;
 };

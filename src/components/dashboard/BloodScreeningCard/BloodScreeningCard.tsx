@@ -15,7 +15,7 @@ export const BloodScreeningCard: React.FC = () => {
   });
 
   return (
-    <S.Card title="Patient timeline" padding="0">
+    <S.Card title="Patient timeline" padding={0}>
       <S.Badge>{activeItem.values.cellName}</S.Badge>
       <BloodScreeningChart activeItem={activeItem} />
       <BloodScreeningTable activeItem={activeItem} setActiveItem={setActiveItem} />

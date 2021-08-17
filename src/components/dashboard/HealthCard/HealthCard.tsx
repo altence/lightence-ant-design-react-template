@@ -4,7 +4,7 @@ import { HealthChart } from './HealthChart/HealthChart';
 
 export const HealthCard: React.FC = () => {
   return (
-    <Card title="Health" padding="0">
+    <Card title="Health" padding={0}>
       <HealthChart />
     </Card>
   );

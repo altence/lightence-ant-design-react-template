@@ -4,7 +4,7 @@ import { ActivityChart } from './ActivityChart/ActivityChart';
 
 export const ActivityCard: React.FC = () => {
   return (
-    <Card title="Activity" padding="0">
+    <Card title="Activity" padding={0}>
       <ActivityChart />
     </Card>
   );
