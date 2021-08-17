@@ -1,15 +1,16 @@
 import React from 'react';
-import { Moment } from 'moment';
-import { Doctor } from '../../../../../constants/doctorsData';
+import { AppDate } from '../../../../../constants/Dates';
+import { Dates } from '../../../../../constants/Dates';
 import { notification } from 'antd';
 import * as S from './TreatmentDate.styles';
 
+const today = Dates.getToday();
+
 interface TreatmentDateProps {
-  date: Moment;
-  treatment: Doctor | undefined;
+  date: AppDate;
 }
 
-export const TreatmentDate: React.FC<TreatmentDateProps> = ({ treatment, date }) => {
+export const TreatmentDate: React.FC<TreatmentDateProps> = ({ date }) => {
   const handleClickBtn = () => {
     notification.open({
       message: 'Success!',
@@ -25,7 +26,7 @@ export const TreatmentDate: React.FC<TreatmentDateProps> = ({ treatment, date })
       <S.Title>{date.format('D')}</S.Title>
       <S.Subtitle>{date.format('MMMM')}</S.Subtitle>
       <S.Text>08:00</S.Text>
-      {treatment?.nextVisit && (
+      {date.isAfter(today) && (
         <S.Button size="middle" type="primary" onClick={handleClickBtn}>
           Confirm
         </S.Button>

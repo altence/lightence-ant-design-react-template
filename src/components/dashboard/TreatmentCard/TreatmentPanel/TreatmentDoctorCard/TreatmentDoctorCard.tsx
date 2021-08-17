@@ -1,15 +1,49 @@
 import React, { useState } from 'react';
 import { Input, notification } from 'antd';
-import { Doctor } from '../../../../../constants/doctorsData';
-import { Dates } from '../../../../../constants/Dates';
+import { doctorsData } from '../../../../../constants/doctorsData';
+import { AppDate, Dates } from '../../../../../constants/Dates';
 import * as S from './TreatmentDoctorCard.styles';
 
+const today = Dates.getToday();
+
 interface TreatmentDoctorCardProps {
-  treatment: Doctor;
+  date: AppDate;
 }
 
-export const TreatmentDoctorCard: React.FC<TreatmentDoctorCardProps> = ({ treatment }) => {
+export const TreatmentDoctorCard: React.FC<TreatmentDoctorCardProps> = ({ date }) => {
   const [isModalVisible, setModalVisible] = useState(false);
+
+  const treatmentData = doctorsData.map((tr, index) => {
+    if (index === 1) {
+      return {
+        nextVisit: 1629838800000,
+        ...tr,
+      };
+    } else if (index === 3) {
+      return {
+        nextVisit: 1630098000000,
+        ...tr,
+      };
+    } else if (index === 5) {
+      return {
+        nextVisit: 1630270800000,
+        ...tr,
+      };
+    } else {
+      return {
+        ...tr,
+      };
+    }
+  });
+
+  const treatment = treatmentData.find((tr) => {
+    const dbLastVisitDate = Dates.format(tr.lastVisit, 'L');
+    const dbNextVisitDate = tr.nextVisit && Dates.format(tr.nextVisit, 'L');
+
+    const selectedDate = Dates.format(date, 'L');
+
+    return dbLastVisitDate === selectedDate || dbNextVisitDate === selectedDate;
+  });
 
   const handleOk = () => {
     setModalVisible(false);
@@ -47,11 +81,15 @@ export const TreatmentDoctorCard: React.FC<TreatmentDoctorCardProps> = ({ treatm
           </S.ProfileWrapper>
           <S.DiagnosisWrapper>
             <S.Title>Diagnosis</S.Title>
-            <S.Text>{treatment.lastDiagnosis}</S.Text>
+            <S.Text>
+              {(today.isAfter(date) && treatment.lastDiagnosis) || 'Diagnonis would be available after visit.'}
+            </S.Text>
           </S.DiagnosisWrapper>
           <S.VisitWrapper>
             <S.Title>Upcoming visits</S.Title>
-            <S.Text>{Dates.format(treatment.nextVisit, 'L')}</S.Text>
+            <S.Text>
+              {(treatment.nextVisit && Dates.format(treatment.nextVisit, 'L')) || 'There is no upcoming visit.'}
+            </S.Text>
           </S.VisitWrapper>
           <S.Button size="middle" type="primary" onClick={() => setModalVisible(true)}>
             Ask the doctor a question

@@ -15,10 +15,7 @@ export const Chart: React.FC<ChartProps> = ({ option, width, height }) => {
 
   const chartHeight = height
     ? height
-    : (isBigScreen && '350px') ||
-      (isDesktop && '250px') ||
-      (isTablet && '200px') ||
-      (!isDesktop && !isTablet && '200px');
+    : (isBigScreen && 350) || (isDesktop && 250) || (isTablet && 200) || (!isDesktop && !isTablet && 200) || '100%';
 
   return <S.Chart option={option} width={width} height={chartHeight} />;
 };

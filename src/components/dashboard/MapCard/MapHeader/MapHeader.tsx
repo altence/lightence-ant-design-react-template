@@ -8,7 +8,7 @@ export const MapHeader: React.FC = () => {
   return (
     <S.Wrapper>
       Map
-      <S.Text>{today}</S.Text>
+      <S.Text>{Dates.format(today, 'L')}</S.Text>
     </S.Wrapper>
   );
 };
