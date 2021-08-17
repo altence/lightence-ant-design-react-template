@@ -4,7 +4,7 @@ import { Popup as LPopup } from 'react-leaflet';
 
 export const Wrapper = styled(LPopup)`
   & .leaflet-popup-content-wrapper {
-    border-radius: ${(props) => props.theme.colors.border.radius};
+    border-radius: ${(props) => props.theme.border.radius};
   }
 
   & .leaflet-popup-content {

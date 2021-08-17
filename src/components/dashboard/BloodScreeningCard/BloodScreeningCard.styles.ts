@@ -16,7 +16,7 @@ export const Badge = styled(Typography.Text)`
   left: 5%;
   z-index: 2;
 
-  border-radius: ${(props) => props.theme.colors.border.radius};
+  border-radius: ${(props) => props.theme.border.radius};
 
   background-color: ${(props) => props.theme.colors.primaryLight};
 
