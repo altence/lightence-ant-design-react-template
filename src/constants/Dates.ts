@@ -2,6 +2,8 @@ import dayjs, { Dayjs } from 'dayjs';
 import LocalizedFormat from 'dayjs/plugin/localizedFormat';
 dayjs.extend(LocalizedFormat);
 
+export type AppDate = Dayjs;
+
 export class Dates {
   static months: string[] = [
     'January',
@@ -32,7 +34,7 @@ export class Dates {
     return this.days;
   }
 
-  static format(date: Dayjs | string | number, query: string): string {
+  static format(date: AppDate | string | number, query: string): string {
     if (typeof date === 'string' || typeof date === 'number') {
       return dayjs(date).format(query);
     } else {

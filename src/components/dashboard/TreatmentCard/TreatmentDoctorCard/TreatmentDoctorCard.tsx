@@ -1,11 +1,11 @@
 import React from 'react';
-import { Dayjs } from 'dayjs';
 import { treatmentData } from '../../../../constants/treatment';
-import * as S from './TreatmentDoctorCard.styles';
 import { Dates } from '../../../../constants/Dates';
+import { AppDate } from '../../../../constants/Dates';
+import * as S from './TreatmentDoctorCard.styles';
 
 interface TreatmentDoctorCardProps {
-  date: Dayjs;
+  date: AppDate;
 }
 
 export const TreatmentDoctorCard: React.FC<TreatmentDoctorCardProps> = ({ date }) => {
