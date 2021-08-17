@@ -21,7 +21,7 @@ export const Item = styled.div`
   }
 
   @media only screen and ${media.xxl} {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   &:nth-last-of-type(1) {
@@ -84,7 +84,7 @@ export const InfoHeader = styled.div`
   }
 
   @media only screen and ${media.xxl} {
-    margin-bottom: 0.375rem;
+    margin-bottom: 0.2rem;
   }
 `;
 
@@ -96,7 +96,7 @@ export const Title = styled.span<ItemProps>`
 
   @media only screen and ${media.xxl} {
     font-size: 1rem;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.1rem;
   }
 `;
 
