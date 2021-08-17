@@ -1,6 +1,6 @@
 interface Treatment {
   id: number;
-  date: string;
+  date: number;
   diagnosis: string;
   doctorName: string;
   doctorSpeciality: string;
@@ -11,7 +11,7 @@ interface Treatment {
 export const treatmentData: Treatment[] = [
   {
     id: 1,
-    date: '06.08.21',
+    date: 1628197200000,
     diagnosis:
       'Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million.',
     doctorName: 'Ivanov Ivan',
@@ -21,7 +21,7 @@ export const treatmentData: Treatment[] = [
   },
   {
     id: 2,
-    date: '09.08.21',
+    date: 1628456400000,
     diagnosis:
       'Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million.',
     doctorName: 'Fedorova Lida',
@@ -31,7 +31,7 @@ export const treatmentData: Treatment[] = [
   },
   {
     id: 3,
-    date: '16.08.21',
+    date: 1629061200000,
     diagnosis:
       'Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million.',
     doctorName: 'Stepanov Fedor',
@@ -41,7 +41,7 @@ export const treatmentData: Treatment[] = [
   },
   {
     id: 4,
-    date: '19.08.21',
+    date: 1629320400000,
     diagnosis:
       'Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million.',
     doctorName: 'Filippov Anton',

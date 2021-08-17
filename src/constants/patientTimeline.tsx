@@ -2,7 +2,7 @@ export interface PatientTimeline {
   id?: number;
   title: string;
   description: string;
-  date: string | Date;
+  date: number;
   isActive: boolean;
 }
 
@@ -12,7 +12,7 @@ export const patientTimeline: Array<PatientTimeline> = [
     title: 'Patient Discharge',
     description:
       'Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million.',
-    date: '1 August 2021',
+    date: 1627765200000,
     isActive: true,
   },
   {
@@ -20,7 +20,7 @@ export const patientTimeline: Array<PatientTimeline> = [
     title: 'Treatment Starts',
     description:
       'Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million.',
-    date: '2 August 2021',
+    date: 1627851600000,
     isActive: false,
   },
   {
@@ -28,7 +28,7 @@ export const patientTimeline: Array<PatientTimeline> = [
     title: 'Patient admission',
     description:
       'Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million.',
-    date: '5 August 2021',
+    date: 1628110800000,
     isActive: false,
   },
 ];
