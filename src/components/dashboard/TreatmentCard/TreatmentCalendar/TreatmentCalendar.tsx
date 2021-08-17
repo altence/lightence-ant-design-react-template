@@ -1,14 +1,15 @@
 import React from 'react';
-import { Moment } from 'moment';
+import { Dayjs } from 'dayjs';
+
 import * as S from './TreatmentCalendar.styles';
 
 interface TreatmentCalendarProps {
-  date: Moment;
-  setDate: (date: Moment) => void;
+  date: Dayjs;
+  setDate: (date: Dayjs) => void;
 }
 
 export const TreatmentCalendar: React.FC<TreatmentCalendarProps> = ({ date, setDate }) => {
-  const handleSelect = (value: Moment) => {
+  const handleSelect = (value: Dayjs) => {
     setDate(value);
   };
 

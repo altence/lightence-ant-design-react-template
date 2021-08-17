@@ -3,6 +3,7 @@ import { BarChartOutlined, CalendarOutlined, CheckOutlined, FileTextOutlined } f
 import { Card } from '../../common/Card/Card';
 import { patientTimeline } from '../../../constants/patientTimeline';
 import * as S from './PatientTimelineCard.styles';
+import { Dates } from '../../../constants/dates';
 
 const icons = [<CheckOutlined key={0} />, <BarChartOutlined key={1} />, <FileTextOutlined key={2} />];
 
@@ -17,7 +18,7 @@ export const PatientTimelineCard: React.FC = () => {
               <S.Title isActive={item.isActive}>{item.title}</S.Title>
               <S.DateWrapper>
                 <CalendarOutlined />
-                <S.Text>{item.date}</S.Text>
+                <S.Text>{Dates.format(item.date, 'L')}</S.Text>
               </S.DateWrapper>
               <S.Description>{item.description}</S.Description>
             </S.InfoWrapper>

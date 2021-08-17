@@ -1,5 +1,10 @@
-import { Calendar as AntCalendar, Typography } from 'antd';
 import styled from 'styled-components';
+import { Typography } from 'antd';
+import { Dayjs } from 'dayjs';
+import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
+import generateCalendar from 'antd/lib/calendar/generateCalendar';
+
+const AntCalendar = generateCalendar<Dayjs>(dayjsGenerateConfig);
 
 interface LegendProps {
   isPrimary?: boolean;

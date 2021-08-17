@@ -1,3 +1,7 @@
+import dayjs, { Dayjs } from 'dayjs';
+import LocalizedFormat from 'dayjs/plugin/localizedFormat';
+dayjs.extend(LocalizedFormat);
+
 export class Dates {
   static months: string[] = [
     'January',
@@ -16,8 +20,8 @@ export class Dates {
 
   static days: string[] = ['Sun', 'Mon', 'Tue', 'Wed', 'The', 'Fri', 'Sat'];
 
-  static getToday(): Date {
-    return new Date();
+  static getToday(): string {
+    return dayjs().format('L');
   }
 
   static getMonths(): string[] {
@@ -26,5 +30,13 @@ export class Dates {
 
   static getDays(): string[] {
     return this.days;
+  }
+
+  static format(date: Dayjs | string | number, query: string): string {
+    if (typeof date === 'string' || typeof date === 'number') {
+      return dayjs(date).format(query);
+    } else {
+      return date.format(query);
+    }
   }
 }

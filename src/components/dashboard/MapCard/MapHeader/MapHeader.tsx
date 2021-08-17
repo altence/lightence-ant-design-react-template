@@ -8,7 +8,7 @@ export const MapHeader: React.FC = () => {
   return (
     <S.Wrapper>
       Map
-      <S.Text>{today.toLocaleDateString()}</S.Text>
+      <S.Text>{today}</S.Text>
     </S.Wrapper>
   );
 };
