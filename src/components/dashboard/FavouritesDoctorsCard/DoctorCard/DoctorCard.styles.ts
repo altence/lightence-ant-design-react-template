@@ -51,6 +51,10 @@ export const Avatar = styled(AntAvatar)`
   height: 100%;
   max-width: 6.25rem;
 
+  @media only screen and ${media.xl} {
+    margin-bottom: 0.5rem;
+  }
+
   @media only screen and ${media.xxl} {
     max-width: 8.75rem;
     margin-bottom: 0.625rem;
@@ -62,6 +66,10 @@ export const RatingWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 0.125rem;
+
+  @media only screen and ${media.xl} {
+    margin-bottom: 0.5rem;
+  }
 
   @media only screen and ${media.xxl} {
     margin-bottom: 1rem;
@@ -94,7 +102,21 @@ export const InfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
+  @media only screen and ${media.xl} {
+    & ${Title} {
+      margin-bottom: 0.2rem;
+    }
+
+    & ${Text} {
+      margin-bottom: 0.4rem;
+    }
+  }
+
   @media only screen and ${media.xxl} {
+    & ${Title} {
+      margin-bottom: 0.4rem;
+    }
+
     & ${Text} {
       margin-bottom: 0.625rem;
     }
