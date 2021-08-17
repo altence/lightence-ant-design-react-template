@@ -1,9 +1,15 @@
 import React from 'react';
+import { Moment } from 'moment';
+import { Doctor } from '../../../../../constants/doctorsData';
 import { notification } from 'antd';
-import { TreatmentPanelProps as TreatmentDateProps } from '../TreatmentPanel';
 import * as S from './TreatmentDate.styles';
 
-export const TreatmentDate: React.FC<TreatmentDateProps> = ({ date }) => {
+interface TreatmentDateProps {
+  date: Moment;
+  treatment: Doctor | undefined;
+}
+
+export const TreatmentDate: React.FC<TreatmentDateProps> = ({ treatment, date }) => {
   const handleClickBtn = () => {
     notification.open({
       message: 'Success!',
@@ -19,9 +25,11 @@ export const TreatmentDate: React.FC<TreatmentDateProps> = ({ date }) => {
       <S.Title>{date.format('D')}</S.Title>
       <S.Subtitle>{date.format('MMMM')}</S.Subtitle>
       <S.Text>08:00</S.Text>
-      <S.Button size="middle" type="primary" onClick={handleClickBtn}>
-        Confirm
-      </S.Button>
+      {treatment?.nextVisit && (
+        <S.Button size="middle" type="primary" onClick={handleClickBtn}>
+          Confirm
+        </S.Button>
+      )}
     </S.DateWrapper>
   );
 };
