@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Typography } from 'antd';
+import { Button, Typography } from 'antd';
 import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 import generateCalendar from 'antd/lib/calendar/generateCalendar';
 import { AppDate } from '../../../../constants/Dates';
@@ -12,12 +12,38 @@ interface LegendProps {
 }
 
 export const Wrapper = styled.div`
+  position: relative;
+
   background-color: ${(props) => props.theme.colors.secondary};
 
   @media only screen and ${media.md} {
     width: calc(45% - 0.25rem);
     margin-right: 0.5rem;
   }
+`;
+
+export const ButtonLeft = styled.button`
+  border: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 150px;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 2;
+
+  color: ${(props) => props.theme.colors.primary};
+`;
+
+export const ButtonRight = styled.button`
+  border: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 150px;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 2;
+
+  color: ${(props) => props.theme.colors.primary};
 `;
 
 export const Calendar = styled(AntCalendar)`
