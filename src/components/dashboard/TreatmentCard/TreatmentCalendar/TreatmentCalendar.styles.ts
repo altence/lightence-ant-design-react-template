@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button, Typography } from 'antd';
+import { Typography } from 'antd';
 import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 import generateCalendar from 'antd/lib/calendar/generateCalendar';
 import { AppDate } from '../../../../constants/Dates';

@@ -59,7 +59,7 @@ export const Subtitle = styled(Typography.Text)`
   color: ${(props) => props.theme.colors.primary};
 
   @media only screen and ${media.md} {
-    font-size: 1.37rem;
+    font-size: 1.3rem;
   }
 
   &::after {
