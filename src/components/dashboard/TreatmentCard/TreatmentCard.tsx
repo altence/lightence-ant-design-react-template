@@ -21,10 +21,44 @@ export const TreatmentCard: React.FC = () => {
     date: Dates.getToday(),
   });
 
+  const handleDecreaseMonth = () => {
+    setDate((prev) => {
+      return {
+        ...prev,
+        date: prev.date.month(prev.date.month() - 1),
+      };
+    });
+  };
+
+  const handleIncreaseeMonth = () => {
+    setDate((prev) => {
+      return {
+        ...prev,
+        date: prev.date.month(prev.date.month() + 1),
+      };
+    });
+  };
+
   return (
-    <Card title={<TreatmentHeader date={selectedDate} setDate={setDate} />}>
+    <Card
+      title={
+        <TreatmentHeader
+          date={selectedDate}
+          setDate={setDate}
+          handleDecrease={handleDecreaseMonth}
+          handleIncrease={handleIncreaseeMonth}
+        />
+      }
+    >
       <S.Wrapper>
-        {(!selectedDate.isDateClicked || isTablet) && <TreatmentCalendar date={selectedDate} setDate={setDate} />}
+        {(!selectedDate.isDateClicked || isTablet) && (
+          <TreatmentCalendar
+            date={selectedDate}
+            setDate={setDate}
+            handleDecrease={handleDecreaseMonth}
+            handleIncrease={handleIncreaseeMonth}
+          />
+        )}
         {(selectedDate.isDateClicked || isTablet) && <TreatmentPanel date={selectedDate.date} />}
       </S.Wrapper>
     </Card>
