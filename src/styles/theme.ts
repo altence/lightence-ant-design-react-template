@@ -66,6 +66,7 @@ export const colors = {
 };
 
 export const breakpoints = {
+  xs: 425,
   md: 768,
   xl: 1200,
   xxl: 1920,
@@ -74,6 +75,7 @@ export const breakpoints = {
 const getMedia = (breakpoint: number) => `(min-width: ${breakpoint}px)`;
 
 export const media = {
+  xs: getMedia(breakpoints.xs),
   md: getMedia(breakpoints.md),
   xl: getMedia(breakpoints.xl),
   xxl: getMedia(breakpoints.xxl),

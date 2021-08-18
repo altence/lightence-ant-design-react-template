@@ -17,14 +17,14 @@ import { statisticsData } from '../constants/statisticsData';
 import { media } from '../styles/theme';
 
 const Dashboard: React.FC = () => {
-  const isDesktop = useMediaQuery({ query: media.xl });
+  const isMobile = useMediaQuery({ query: media.xs });
   const isTablet = useMediaQuery({ query: media.md });
-  const isMobile = !isDesktop && !isTablet;
+  const isDesktop = useMediaQuery({ query: media.xl });
 
   return (
     <MainLayout>
       <Row justify="space-between" gutter={[10, 10]}>
-        {isMobile && (
+        {isMobile && !isTablet && (
           <>
             {statisticsData.map((st) => (
               <Col key={st.id} xs={12}>
@@ -101,7 +101,7 @@ const Dashboard: React.FC = () => {
           <PatientTimelineCard />
         </Col>
 
-        {isMobile && (
+        {isMobile && !isTablet && (
           <Col xs={24}>
             <BloodScreeningCard />
           </Col>
