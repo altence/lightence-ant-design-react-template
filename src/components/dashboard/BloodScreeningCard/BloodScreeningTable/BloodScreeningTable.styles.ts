@@ -11,8 +11,6 @@ interface PercentageProps extends TextProps {
 }
 
 export const Table = styled(AntTable)`
-  padding: 0 0.625rem 0 0.625rem;
-
   & .ant-table-thead > tr > th {
     font-weight: 400;
 
