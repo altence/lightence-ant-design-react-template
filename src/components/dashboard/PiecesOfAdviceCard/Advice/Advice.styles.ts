@@ -31,7 +31,8 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  border-radius: 7px;
+
+  border-radius: ${(props) => props.theme.border.radius};
 
   background-color: ${(props) => props.theme.colors.basicLight};
 
