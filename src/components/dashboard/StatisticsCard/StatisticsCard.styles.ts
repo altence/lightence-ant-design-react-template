@@ -24,8 +24,9 @@ export const Line = styled.div<StatisticsProps>`
   left: 0;
   width: 7px;
   height: 100%;
-  border-radius: 7px 0 0 7px;
   z-index: 2;
+
+  border-radius: ${(props) => `${props.theme.border.radius} 0 0 ${props.theme.border.radius}`};
 
   background-color: ${(props) => props.color};
 `;
