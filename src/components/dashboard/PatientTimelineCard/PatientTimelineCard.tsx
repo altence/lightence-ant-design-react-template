@@ -1,19 +1,15 @@
 import React from 'react';
 import { BarChartOutlined, CalendarOutlined, CheckOutlined, FileTextOutlined } from '@ant-design/icons';
-import { useMediaQuery } from 'react-responsive';
 import { Card } from '../../common/Card/Card';
 import { patientTimelineData } from '../../../constants/patientTimelineData';
 import { Dates } from '../../../constants/Dates';
-import { media } from '../../../styles/theme';
 import * as S from './PatientTimelineCard.styles';
 
 const icons = [<CheckOutlined key={0} />, <BarChartOutlined key={1} />, <FileTextOutlined key={2} />];
 
 export const PatientTimelineCard: React.FC = () => {
-  const isBigScreen = useMediaQuery({ query: media.xxl });
-
   return (
-    <Card title="Patient timeline" padding={(isBigScreen && '1rem 2.5rem') || '0.625rem 0.875rem'}>
+    <Card title="Patient timeline">
       <S.Wrapper>
         {patientTimelineData.map((item, index) => (
           <S.Item key={item.id}>

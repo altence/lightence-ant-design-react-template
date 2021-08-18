@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   max-width: 7rem;
   padding: 0.375rem;
-  max-width: 9.5rem;
+  max-width: 7.5rem;
   transition: all 0.3s ease;
 
   border-radius: ${(props) => props.theme.border.radius};

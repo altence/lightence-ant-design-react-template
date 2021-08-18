@@ -48,7 +48,7 @@ const Dashboard: React.FC = () => {
 
         {isTablet && (
           <>
-            <Col order={1} md={16} xl={20}>
+            <Col order={1} md={16} xl={18}>
               <Row justify="space-between" gutter={[10, 10]}>
                 {statisticsData.map((st) => (
                   <Col key={st.id} md={6}>
@@ -73,7 +73,7 @@ const Dashboard: React.FC = () => {
                 </Col>
               </Row>
             </Col>
-            <Col order={2} md={8} xl={4}>
+            <Col order={2} md={8} xl={6}>
               <BloodScreeningCard />
             </Col>
           </>
