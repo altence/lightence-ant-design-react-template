@@ -7,6 +7,8 @@ interface CollapseProps {
 }
 
 interface ListProps extends CollapseProps {
+  isFirstActive: boolean;
+  isSecondActive: boolean;
   isDowngrade: boolean;
 }
 
@@ -70,12 +72,24 @@ export const List = styled.ul`
   list-style-type: none;
 `;
 
+export const Avatar = styled(AntAvatar)`
+  max-width: 1.4rem;
+  max-height: 1.4rem;
+
+  @media only screen and ${media.xxl} {
+    max-width: 2.18rem;
+    max-height: 2.18rem;
+  }
+`;
+
 export const ListItem = styled.li<ListProps>`
   display: flex;
   align-items: center;
   margin-bottom: 0.4rem;
 
   justify-content: ${(props) => (props.isCollapsed && 'center') || 'space-between'};
+
+  ${(props) => !props.isFirstActive && !props.isSecondActive && 'opacity: 0.5'};
 
   @media only screen and ${media.xl} {
     margin-bottom: 0.8rem;
@@ -102,14 +116,24 @@ export const ListItem = styled.li<ListProps>`
 
     color: ${(props) => (props.isDowngrade && props.theme.colors.error) || props.theme.colors.success};
   }
-`;
 
-export const Avatar = styled(AntAvatar)`
-  max-width: 1.4rem;
-  max-height: 1.4rem;
+  & ${Avatar} {
+    position: relative;
 
-  @media only screen and ${media.xxl} {
-    max-width: 2.18rem;
-    max-height: 2.18rem;
+    &::after {
+      position: absolute;
+      content: '';
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+
+      border-radius: ${(props) => props.theme.border.radius};
+
+      ${(props) =>
+        (props.isFirstActive && `border: 2px solid ${props.theme.colors.primary}`) ||
+        (props.isSecondActive && `border: 2px solid ${props.theme.colors.errorLight}`)};
+    }
   }
 `;
