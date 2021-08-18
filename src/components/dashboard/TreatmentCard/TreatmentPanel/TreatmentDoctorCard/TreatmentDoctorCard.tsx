@@ -13,30 +13,7 @@ interface TreatmentDoctorCardProps {
 export const TreatmentDoctorCard: React.FC<TreatmentDoctorCardProps> = ({ date }) => {
   const [isModalVisible, setModalVisible] = useState(false);
 
-  const treatmentData = doctorsData.map((tr, index) => {
-    if (index === 1) {
-      return {
-        nextVisit: 1629838800000,
-        ...tr,
-      };
-    } else if (index === 3) {
-      return {
-        nextVisit: 1630098000000,
-        ...tr,
-      };
-    } else if (index === 5) {
-      return {
-        nextVisit: 1630270800000,
-        ...tr,
-      };
-    } else {
-      return {
-        ...tr,
-      };
-    }
-  });
-
-  const treatment = treatmentData.find((tr) => {
+  const treatment = doctorsData.find((tr) => {
     const dbLastVisitDate = Dates.format(tr.lastVisit, 'L');
     const dbNextVisitDate = tr.nextVisit && Dates.format(tr.nextVisit, 'L');
 

@@ -5,7 +5,7 @@ export interface Doctor {
   rating: number;
   lastVisit: number;
   lastDiagnosis: string;
-  nextVisit?: number;
+  nextVisit: number | null;
   gps: {
     latitude: number;
     longitude: number;
@@ -22,6 +22,7 @@ export const doctorsData: Doctor[] = [
     lastVisit: 1628110800000,
     lastDiagnosis:
       'Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million.',
+    nextVisit: null,
     gps: {
       latitude: 42.341798,
       longitude: -83.070841,
@@ -37,6 +38,7 @@ export const doctorsData: Doctor[] = [
     lastVisit: 1628974800000,
     lastDiagnosis:
       'Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million.',
+    nextVisit: 1629838800000,
     gps: {
       latitude: 42.362096,
       longitude: -83.039921,
@@ -52,6 +54,7 @@ export const doctorsData: Doctor[] = [
     lastVisit: 1628024400000,
     lastDiagnosis:
       'Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million.',
+    nextVisit: null,
     gps: {
       latitude: 42.355246,
       longitude: -83.023087,
@@ -67,6 +70,7 @@ export const doctorsData: Doctor[] = [
     lastVisit: 1628542800000,
     lastDiagnosis:
       'Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million.',
+    nextVisit: 1630098000000,
     gps: {
       latitude: 42.328601,
       longitude: -83.049541,
@@ -82,6 +86,7 @@ export const doctorsData: Doctor[] = [
     lastVisit: 1628629200000,
     lastDiagnosis:
       'Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million.',
+    nextVisit: null,
     gps: {
       latitude: 42.321493,
       longitude: -83.097294,
@@ -97,6 +102,7 @@ export const doctorsData: Doctor[] = [
     lastVisit: 1628110800000,
     lastDiagnosis:
       'Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million.',
+    nextVisit: 1630270800000,
     gps: {
       latitude: 42.324032,
       longitude: -83.071872,
@@ -112,6 +118,7 @@ export const doctorsData: Doctor[] = [
     lastVisit: 1627765200000,
     lastDiagnosis:
       'Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million.',
+    nextVisit: null,
     gps: {
       latitude: 42.316416,
       longitude: -83.08527,
