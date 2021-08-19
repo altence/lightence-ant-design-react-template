@@ -3,21 +3,12 @@ import { useMediaQuery } from 'react-responsive';
 import { EChartsOption } from 'echarts';
 import { Chart } from '../../../common/Chart/Chart';
 import theme, { media } from '../../../../styles/theme';
-
-const legendDescription = [
-  'Without new treatments, the W.H.O. says, the number of new cancer patients.',
-  'Without new treatments, the W.H.O. says, the number of new cancer patients.',
-  'Without new treatments, the W.H.O. says, the number of new cancer patients.',
-  'Without new treatments, the W.H.O. says, the number of new cancer patients.',
-];
+import { pieChartData } from '../../../../constants/healthChartData';
 
 export const HealthChart: React.FC = () => {
   const isMobile = useMediaQuery({ query: media.xs });
-  const MobileTablet = useMediaQuery({ query: '(min-width: 545px' });
   const isTablet = useMediaQuery({ query: media.md });
-  const TabletDesktop = useMediaQuery({ query: '(min-width: 1000px' });
   const isDesktop = useMediaQuery({ query: media.xl });
-  const DesktopBigScreen = useMediaQuery({ query: '(min-width: 1600px' });
   const isBigScreen = useMediaQuery({ query: media.xxl });
 
   const option = {
@@ -36,22 +27,35 @@ export const HealthChart: React.FC = () => {
       orient: 'vertical',
       itemWidth: (isBigScreen && 20) || 13,
       itemHeight: (isBigScreen && 20) || 13,
-      itemGap: 15,
+      itemGap: (isBigScreen && 25) || (isTablet && 10) || 5,
       icon: (isBigScreen && 'roundRect') || 'circle',
       textStyle: {
-        padding: 5,
-        fontSize: (DesktopBigScreen && 14) || (isDesktop && 10) || (TabletDesktop && 14) || (isTablet && 12) || 10,
-        width:
-          (DesktopBigScreen && 350) ||
-          (isDesktop && 230) ||
-          (TabletDesktop && 400) ||
-          (isTablet && 300) ||
-          (MobileTablet && 220) ||
-          150,
+        padding: 10,
+        width: (isBigScreen && 320) || (isDesktop && 170) || (isTablet && 220) || 130,
         overflow: 'break',
+        rich: {
+          a: {
+            fontFamily: 'Montserrat',
+            fontSize: 16,
+            fontWeight: 500,
+            padding: [0, 0, 5, 0],
+          },
+          b: {
+            fontFamily: 'Montserrat',
+            fontSize: (isBigScreen && 12) || 10,
+          },
+        },
       },
-      formatter: function (name: string) {
-        return `${name}\n${legendDescription[0]}`;
+      formatter: (name: string) => {
+        let target;
+
+        for (let i = 0; i < pieChartData.length; i++) {
+          if (pieChartData[i].name === name) {
+            target = pieChartData[i].description;
+          }
+        }
+
+        return `{a|${name}}\n\n{b|${target}}`;
       },
     },
     series: [
@@ -71,24 +75,7 @@ export const HealthChart: React.FC = () => {
           color: theme.colors.primary,
           fontSize: (isBigScreen && 24) || 16,
         },
-        data: [
-          {
-            value: 72,
-            name: 'Lifestyle',
-          },
-          {
-            value: 50,
-            name: 'Ecology',
-          },
-          {
-            value: 70,
-            name: 'Genetics',
-          },
-          {
-            value: 20,
-            name: 'Some info',
-          },
-        ],
+        data: pieChartData,
         emphasis: {
           label: {
             show: true,
