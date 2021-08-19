@@ -86,6 +86,7 @@ export const ListItem = styled.li<ListProps>`
   display: flex;
   align-items: center;
   margin-bottom: 0.4rem;
+  cursor: pointer;
 
   justify-content: ${(props) => (props.isCollapsed && 'center') || 'space-between'};
 
