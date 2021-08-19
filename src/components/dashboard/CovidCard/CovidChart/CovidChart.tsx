@@ -2,6 +2,9 @@ import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Chart } from '../../../common/Chart/Chart';
 import theme, { media } from '../../../../styles/theme';
+import { getMarkAreaData } from '../../../../helpers/getMarkAreaData';
+
+const xAxisData = Array.from({ length: 30 }, (_, i) => i + 1);
 
 const option = {
   color: theme.colors.chartsPrimaryGradient,
@@ -29,10 +32,16 @@ const option = {
       ],
       type: 'line',
       areaStyle: {},
+      markArea: {
+        itemStyle: {
+          color: theme.colors.primaryAlpha,
+        },
+        data: getMarkAreaData(xAxisData),
+      },
       showSymbol: false,
       smooth: true,
       lineStyle: {
-        width: 0,
+        width: 2,
       },
     },
   ],
