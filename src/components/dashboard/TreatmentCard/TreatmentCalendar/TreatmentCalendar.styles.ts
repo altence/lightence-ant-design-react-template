@@ -26,7 +26,7 @@ export const ButtonLeft = styled.button`
   border: 0;
   background-color: transparent;
   position: absolute;
-  top: 150px;
+  top: 50%;
   left: 0;
   transform: translateY(-50%);
   z-index: 2;
@@ -34,16 +34,9 @@ export const ButtonLeft = styled.button`
   color: ${(props) => props.theme.colors.primary};
 `;
 
-export const ButtonRight = styled.button`
-  border: 0;
-  background-color: transparent;
-  position: absolute;
-  top: 150px;
+export const ButtonRight = styled(ButtonLeft)`
+  left: unset;
   right: 0;
-  transform: translateY(-50%);
-  z-index: 2;
-
-  color: ${(props) => props.theme.colors.primary};
 `;
 
 export const Calendar = styled(AntCalendar)`
