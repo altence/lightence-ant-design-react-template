@@ -17,7 +17,7 @@ export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ activ
   const isBigScreen = useMediaQuery({ query: media.xxl });
 
   const option = {
-    color: [theme.colors.error, theme.colors.basicLight],
+    color: (isTablet && theme.colors.chartsErrorGradient) || theme.colors.error,
     grid: {
       top: '30%',
       bottom: 0,
@@ -48,12 +48,13 @@ export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ activ
         type: 'line',
         smooth: true,
         showSymbol: false,
-      },
-      {
-        data: activeItem.data.map((point) => point - 50),
-        type: 'line',
-        smooth: true,
-        showSymbol: false,
+        areaStyle: {
+          opacity: (isTablet && 0.4) || 0,
+        },
+        lineStyle: {
+          width: 2,
+          color: theme.colors.error,
+        },
       },
     ],
   };

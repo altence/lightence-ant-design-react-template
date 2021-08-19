@@ -36,7 +36,7 @@ export const statisticsData: Statistic[] = [
     icon: FatIcon,
     isDowngrade: true,
     color: theme.colors.error,
-    chartColor: theme.colors.chartsSecondaryGradient,
+    chartColor: theme.colors.chartsErrorGradient,
   },
   {
     id: 3,
@@ -56,6 +56,6 @@ export const statisticsData: Statistic[] = [
     icon: WaterBalanceIcon,
     isDowngrade: false,
     color: theme.colors.accent,
-    chartColor: theme.colors.chartsAdditionallyGradient,
+    chartColor: theme.colors.chartsAccentGradient,
   },
 ];

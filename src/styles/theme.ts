@@ -14,7 +14,7 @@ export const colors = {
   error: '#FF5252',
   errorLight: '#FF9999',
   accent: '#FFB155',
-  chartsPrimaryGradient: new echarts.graphic.LinearGradient(0, 0, 0, 0.959, [
+  chartsPrimaryGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
     {
       offset: 0,
       color: '#0059AB',
@@ -24,7 +24,7 @@ export const colors = {
       color: '#EEF5FC',
     },
   ]),
-  chartsPrimaryLightGradient: new echarts.graphic.LinearGradient(0, 0, 0, 0.935, [
+  chartsPrimaryLightGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
     {
       offset: 0,
       color: '#4092de',
@@ -34,17 +34,7 @@ export const colors = {
       color: '#c1e1ff',
     },
   ]),
-  chartsSecondaryGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-    {
-      offset: 1,
-      color: '#FF6291',
-    },
-    {
-      offset: 0,
-      color: '#FFDEE8',
-    },
-  ]),
-  chartsSecondaryLightGradient: new echarts.graphic.LinearGradient(0, 0, 0.962, 1, [
+  chartsErrorGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
     {
       offset: 1,
       color: '#ffa9a9',
@@ -54,7 +44,7 @@ export const colors = {
       color: '#ffffff',
     },
   ]),
-  chartsAdditionallyGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+  chartsAccentGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
     {
       offset: 0,
       color: '#FFA215',

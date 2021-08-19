@@ -2,6 +2,9 @@ import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Chart } from '../../../common/Chart/Chart';
 import theme, { media } from '../../../../styles/theme';
+import { getMarkAreaData } from '../../../../helpers/getMarkAreaData';
+
+const xAxisData = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
 export const ScreeningsChart: React.FC = () => {
   const isBigScreen = useMediaQuery({ query: media.xxl });
@@ -24,7 +27,7 @@ export const ScreeningsChart: React.FC = () => {
         show: false,
         type: 'category',
         boundaryGap: false,
-        data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+        data: xAxisData,
       },
     ],
     yAxis: [
@@ -47,7 +50,7 @@ export const ScreeningsChart: React.FC = () => {
         },
         areaStyle: {
           opacity: 1,
-          color: theme.colors.chartsSecondaryLightGradient,
+          color: theme.colors.chartsErrorGradient,
         },
         emphasis: {
           focus: 'series',
@@ -57,48 +60,7 @@ export const ScreeningsChart: React.FC = () => {
           itemStyle: {
             color: theme.colors.primaryAlpha,
           },
-          data: [
-            [
-              {
-                xAxis: '1',
-              },
-              {
-                xAxis: '2',
-              },
-            ],
-            [
-              {
-                xAxis: '3',
-              },
-              {
-                xAxis: '4',
-              },
-            ],
-            [
-              {
-                xAxis: '5',
-              },
-              {
-                xAxis: '6',
-              },
-            ],
-            [
-              {
-                xAxis: '7',
-              },
-              {
-                xAxis: '8',
-              },
-            ],
-            [
-              {
-                xAxis: '9',
-              },
-              {
-                xAxis: '10',
-              },
-            ],
-          ],
+          data: getMarkAreaData(xAxisData),
         },
       },
       {

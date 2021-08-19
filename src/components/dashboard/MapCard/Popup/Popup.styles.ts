@@ -65,8 +65,6 @@ export const Rating = styled(Rate)`
   font-size: 0.75rem;
   margin-right: 0.375rem;
 
-  color: ${(props) => props.theme.colors.accent};
-
   @media only screen and ${media.xxl} {
     font-size: 1rem;
   }

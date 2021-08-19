@@ -9,8 +9,8 @@ export const HealthChart: React.FC = () => {
 
   const option = {
     color: [
-      theme.colors.chartsSecondaryGradient,
-      theme.colors.chartsAdditionallyGradient,
+      theme.colors.chartsErrorGradient,
+      theme.colors.chartsAccentGradient,
       theme.colors.chartsPrimaryGradient,
       theme.colors.basicLight,
     ],
