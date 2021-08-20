@@ -39,8 +39,7 @@ const SiderStyled = styled(Sider)`
   height: 100%;
   z-index: 999;
 
-  padding: ${(props) => props.theme.desktopLayout.paddingVertical}
-    ${(props) => props.theme.desktopLayout.paddingHorizontal};
+  padding: ${(props) => `${props.theme.desktopLayout.paddingVertical} ${props.theme.desktopLayout.paddingHorizontal}`};
 
   color: ${(props) => props.theme.colors.basic};
 
@@ -57,21 +56,25 @@ const CollapseIcon = styled(RightOutlined)`
 `;
 
 const CollapseDiv = styled.div`
-  height: ${(props) => props.theme.desktopLayout.headerLineHeight};
-  line-height: ${(props) => props.theme.desktopLayout.headerLineHeight};
   text-align: right;
+
+  line-height: ${(props) => props.theme.desktopLayout.headerLineHeight};
+
+  height: ${(props) => props.theme.desktopLayout.headerLineHeight};
 `;
 
 const LogoDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   height: ${(props) =>
     `calc(${props.theme.desktopLayout.contentOffset} -
       ${props.theme.desktopLayout.headerLineHeight} -
       ${props.theme.desktopLayout.headerLineHeight} -
       ${props.theme.desktopLayout.paddingVertical}
     )`};
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
   margin-bottom: ${(props) => props.theme.desktopLayout.headerLineHeight};
 `;
 
