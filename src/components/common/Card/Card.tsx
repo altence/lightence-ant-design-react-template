@@ -1,7 +1,7 @@
 import React from 'react';
 import { CardProps as AntCardProps } from 'antd';
 import { useMediaQuery } from 'react-responsive';
-import { media } from '../../../styles/theme';
+import theme from '../../../styles/theme';
 import * as S from './Card.styles';
 
 export interface CardProps extends AntCardProps {
@@ -11,7 +11,7 @@ export interface CardProps extends AntCardProps {
 }
 
 export const Card: React.FC<CardProps> = ({ className, padding, children, ...props }) => {
-  const isBigScreen = useMediaQuery({ query: media.xxl });
+  const isBigScreen = useMediaQuery({ query: theme.media.xxl });
 
   return (
     <S.Card

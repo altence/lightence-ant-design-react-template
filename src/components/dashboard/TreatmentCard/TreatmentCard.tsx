@@ -4,7 +4,7 @@ import { Card } from '../../common/Card/Card';
 import { TreatmentHeader } from './TreatmentHeader/TreatmentHeader';
 import { TreatmentCalendar } from './TreatmentCalendar/TreatmentCalendar';
 import { TreatmentPanel } from './TreatmentPanel/TreatmentPanel';
-import { media } from '../../../styles/theme';
+import theme from '../../../styles/theme';
 import { AppDate, Dates } from '../../../constants/Dates';
 import * as S from './TreatmentCard.styles';
 
@@ -14,7 +14,7 @@ export interface TreatmentCardState {
 }
 
 export const TreatmentCard: React.FC = () => {
-  const isTablet = useMediaQuery({ query: media.md });
+  const isTablet = useMediaQuery({ query: theme.media.md });
 
   const [selectedDate, setDate] = useState<TreatmentCardState>({
     isDateClicked: false,

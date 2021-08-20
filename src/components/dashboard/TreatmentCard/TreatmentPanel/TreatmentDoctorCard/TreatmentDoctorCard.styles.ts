@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Rate, Typography, Avatar as AntAvatar, Button as AntButton, Modal as AntModal } from 'antd';
-import { media } from '../../../../../styles/theme';
+import theme from '../../../../../styles/theme';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   flex-shrink: 0;
   padding: 0.375rem;
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     padding: 0.5rem;
   }
 `;
@@ -21,7 +21,7 @@ export const Title = styled(Typography.Text)`
 
   color: ${(props) => props.theme.colors.primary};
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     font-size: 0.75rem;
   }
 `;
@@ -30,7 +30,7 @@ export const Text = styled(Typography.Text)`
   font-weight: 500;
   font-size: 0.625rem;
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     font-size: 0.875rem;
   }
 `;
@@ -47,7 +47,7 @@ export const Avatar = styled(AntAvatar)`
   height: 100%;
   margin-right: 0.875rem;
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     max-width: 4rem;
   }
 `;
@@ -67,7 +67,7 @@ export const InfoItem = styled.div`
 `;
 
 export const Rating = styled(Rate)`
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     font-size: 1rem;
   }
 `;
@@ -104,7 +104,7 @@ export const VisitWrapper = styled.div`
 export const Button = styled(AntButton)`
   font-size: 0.75rem;
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     font-size: 1rem;
   }
 `;

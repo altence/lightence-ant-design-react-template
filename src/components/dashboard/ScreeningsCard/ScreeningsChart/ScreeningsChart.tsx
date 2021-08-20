@@ -1,13 +1,13 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Chart } from '../../../common/Chart/Chart';
-import theme, { media } from '../../../../styles/theme';
+import theme from '../../../../styles/theme';
 import { getMarkAreaData } from '../../../../helpers/getMarkAreaData';
 
 const xAxisData = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
 export const ScreeningsChart: React.FC = () => {
-  const isBigScreen = useMediaQuery({ query: media.xxl });
+  const isBigScreen = useMediaQuery({ query: theme.media.xxl });
 
   const option = {
     tooltip: {

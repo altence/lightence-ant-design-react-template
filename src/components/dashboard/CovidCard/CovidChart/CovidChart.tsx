@@ -1,7 +1,7 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Chart } from '../../../common/Chart/Chart';
-import theme, { media } from '../../../../styles/theme';
+import theme from '../../../../styles/theme';
 import { getMarkAreaData } from '../../../../helpers/getMarkAreaData';
 
 const xAxisData = Array.from({ length: 30 }, (_, i) => i + 1);
@@ -51,7 +51,7 @@ const option = {
 };
 
 export const CovidChart: React.FC = () => {
-  const isTablet = useMediaQuery({ query: media.md });
+  const isTablet = useMediaQuery({ query: theme.media.md });
 
   return <Chart option={option} height={isTablet && '100%'} />;
 };

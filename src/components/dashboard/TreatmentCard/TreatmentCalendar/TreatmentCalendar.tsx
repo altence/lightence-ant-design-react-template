@@ -4,7 +4,7 @@ import { AppDate } from '../../../../constants/Dates';
 import * as S from './TreatmentCalendar.styles';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { useMediaQuery } from 'react-responsive';
-import { media } from '../../../../styles/theme';
+import theme from '../../../../styles/theme';
 
 export interface TreatmentCalendarProps {
   date: TreatmentCardState;
@@ -19,7 +19,7 @@ export const TreatmentCalendar: React.FC<TreatmentCalendarProps> = ({
   handleDecrease,
   handleIncrease,
 }) => {
-  const isTablet = useMediaQuery({ query: media.md });
+  const isTablet = useMediaQuery({ query: theme.media.md });
 
   const handleSelect = (value: AppDate) => {
     setDate({ date: value, isDateClicked: true });

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Select as AntSelect } from 'antd';
-import { media } from '../../../../styles/theme';
+import theme from '../../../../styles/theme';
 
 export const Select = styled(AntSelect)`
   width: 50%;
@@ -12,11 +12,11 @@ export const Select = styled(AntSelect)`
 
   background-color: ${(props) => props.theme.colors.secondary};
 
-  @media only screen and ${media.md} {
+  @media only screen and ${theme.media.md} {
     margin: 0 0.3rem;
   }
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     font-size: 0.75rem;
   }
 `;

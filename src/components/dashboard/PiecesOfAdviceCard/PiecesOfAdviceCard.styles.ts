@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { media } from '../../../styles/theme';
+import theme from '../../../styles/theme';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -9,16 +9,16 @@ export const Wrapper = styled.div`
   & > div:first-of-type {
     margin-bottom: 0.625rem;
 
-    @media only screen and ${media.md} {
+    @media only screen and ${theme.media.md} {
       margin-bottom: 0;
       margin-right: 0.625rem;
     }
 
-    @media only screen and ${media.xl} {
+    @media only screen and ${theme.media.xl} {
       margin-right: 0.875rem;
     }
 
-    @media only screen and ${media.xxl} {
+    @media only screen and ${theme.media.xxl} {
       margin-right: 1.25rem;
     }
   }

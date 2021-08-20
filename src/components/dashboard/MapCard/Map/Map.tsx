@@ -7,11 +7,11 @@ import { doctorsData } from '../../../../constants/doctorsData';
 import { polyclinicData } from '../../../../constants/polyclinicsData';
 import markerDoctor from '../../../../assets/icons/marker-doctor.svg';
 import markerPolyclinic from '../../../../assets/icons/marker-polyclinic.svg';
-import { media } from '../../../../styles/theme';
+import theme from '../../../../styles/theme';
 import * as S from './Map.styles';
 
 export const Map: React.FC = () => {
-  const isDesktop = useMediaQuery({ query: media.xl });
+  const isDesktop = useMediaQuery({ query: theme.media.xl });
 
   const MarkerDoctor = new L.Icon({
     iconUrl: markerDoctor,

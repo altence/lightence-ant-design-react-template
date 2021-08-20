@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { media } from '../../../../styles/theme';
+import theme from '../../../../styles/theme';
 
 export interface BtnProps {
   isActive: boolean;
@@ -16,7 +16,7 @@ export const Line = styled.div<BtnProps>`
 
   ${(props) => !props.isActive && 'opacity: 0.4'};
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     width: 1.5rem;
     height: 0.3rem;
   }

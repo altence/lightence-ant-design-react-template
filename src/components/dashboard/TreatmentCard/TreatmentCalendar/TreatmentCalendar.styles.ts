@@ -3,7 +3,7 @@ import { Typography } from 'antd';
 import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 import generateCalendar from 'antd/lib/calendar/generateCalendar';
 import { AppDate } from '../../../../constants/Dates';
-import { media } from '../../../../styles/theme';
+import theme from '../../../../styles/theme';
 
 const AntCalendar = generateCalendar<AppDate>(dayjsGenerateConfig);
 
@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
 
   background-color: ${(props) => props.theme.colors.secondary};
 
-  @media only screen and ${media.md} {
+  @media only screen and ${theme.media.md} {
     width: calc(45% - 0.25rem);
     margin-right: 0.5rem;
   }
@@ -54,7 +54,7 @@ export const Calendar = styled(AntCalendar)`
 
     color: ${(props) => props.theme.colors.primary};
 
-    @media only screen and ${media.xxl} {
+    @media only screen and ${theme.media.xxl} {
       font-size: 0.875rem;
     }
   }
@@ -68,7 +68,7 @@ export const Calendar = styled(AntCalendar)`
     margin: 0 auto;
     font-size: 0.625rem;
 
-    @media only screen and ${media.xxl} {
+    @media only screen and ${theme.media.xxl} {
       height: 2.37rem;
       width: 2.37rem;
       font-size: 0.875rem;
@@ -80,11 +80,11 @@ export const Legend = styled.div`
   display: flex;
   padding: 0 1rem;
 
-  @media only screen and ${media.md} {
+  @media only screen and ${theme.media.md} {
     padding: 0 0.5rem;
   }
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     padding: 1rem;
   }
 `;
@@ -95,7 +95,7 @@ export const LegendItem = styled.div`
   align-items: center;
   margin-right: 0.3rem;
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     margin-right: 1rem;
   }
 
@@ -114,7 +114,7 @@ export const LegendIcon = styled.div<LegendProps>`
 
   background-color: ${(props) => (props.isPrimary && props.theme.colors.primary) || props.theme.colors.basic};
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     width: 1rem;
     height: 1rem;
     margin-right: 0.5rem;
@@ -125,7 +125,7 @@ export const Text = styled(Typography.Text)`
   font-size: 0.625rem;
   margin-left: 0.3rem;
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     font-size: 0.75rem;
     margin-left: 0.5rem;
   }
