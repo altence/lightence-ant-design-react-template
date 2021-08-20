@@ -1,7 +1,7 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
-import { media } from '../../../../styles/theme';
+import theme from '../../../../styles/theme';
 import * as S from './BloodScreeningTable.styles';
 
 interface BloodScreeningTableProps {
@@ -78,8 +78,8 @@ export const dataSource: Cell[] = [
 ];
 
 export const BloodScreeningTable: React.FC<BloodScreeningTableProps> = ({ activeItem, setActiveItem }) => {
-  const isTablet = useMediaQuery({ query: media.md });
-  const isBigScreen = useMediaQuery({ query: media.xxl });
+  const isTablet = useMediaQuery({ query: theme.media.md });
+  const isBigScreen = useMediaQuery({ query: theme.media.xxl });
 
   const columns: Column[] = [
     {

@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { BloodScreeningChart } from './BloodScreeningChart/BloodScreeningChart';
 import { Cell, BloodScreeningTable } from './BloodScreeningTable/BloodScreeningTable';
-import { media } from '../../../styles/theme';
+import theme from '../../../styles/theme';
 import * as S from './BloodScreeningCard.styles';
 
 export const BloodScreeningCard: React.FC = () => {
-  const isTablet = useMediaQuery({ query: media.md });
+  const isTablet = useMediaQuery({ query: theme.media.md });
 
   const [activeItem, setActiveItem] = useState<Cell>({
     key: 0,

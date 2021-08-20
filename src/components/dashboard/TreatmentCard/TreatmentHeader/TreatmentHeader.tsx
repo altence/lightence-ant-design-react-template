@@ -2,11 +2,11 @@ import React from 'react';
 import { CalendarOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { useMediaQuery } from 'react-responsive';
 import { TreatmentCalendarProps as TreatmentHeaderProps } from '../TreatmentCalendar/TreatmentCalendar';
-import { media } from '../../../../styles/theme';
+import theme from '../../../../styles/theme';
 import * as S from './TreatmentHeader.styles';
 
 export const TreatmentHeader: React.FC<TreatmentHeaderProps> = ({ date, setDate, handleIncrease, handleDecrease }) => {
-  const isTablet = useMediaQuery({ query: media.md });
+  const isTablet = useMediaQuery({ query: theme.media.md });
 
   return (
     <S.Wrapper>

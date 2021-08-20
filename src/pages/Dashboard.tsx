@@ -14,12 +14,12 @@ import { BloodScreeningCard } from '../components/dashboard/BloodScreeningCard/B
 import { PiecesOfAdviceCard } from '../components/dashboard/PiecesOfAdviceCard/PiecesOfAdviceCard';
 import { StatisticsCard } from '../components/dashboard/StatisticsCard/StatisticsCard';
 import { statisticsData } from '../constants/statisticsData';
-import { media } from '../styles/theme';
+import theme from '../styles/theme';
 
 const Dashboard: React.FC = () => {
-  const isMobile = useMediaQuery({ query: media.xs });
-  const isTablet = useMediaQuery({ query: media.md });
-  const isDesktop = useMediaQuery({ query: media.xl });
+  const isMobile = useMediaQuery({ query: theme.media.xs });
+  const isTablet = useMediaQuery({ query: theme.media.md });
+  const isDesktop = useMediaQuery({ query: theme.media.xl });
 
   return (
     <MainLayout>

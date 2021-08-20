@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Button, Typography, Avatar as AntAvatar } from 'antd';
-import { media } from '../../../../styles/theme';
+import theme from '../../../../styles/theme';
 
 interface CollapseProps {
   isCollapsed: boolean;
@@ -26,7 +26,7 @@ export const Wrapper = styled.div<CollapseProps>`
 
   background-color: ${(props) => props.theme.colors.secondary};
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     padding: 1.25rem;
 
     width: ${(props) => (props.isCollapsed && '5rem') || '15rem'};
@@ -38,7 +38,7 @@ export const Text = styled(Typography.Text)`
   font-size: 0.625rem;
   white-space: nowrap;
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     font-size: 0.75rem;
   }
 `;
@@ -51,13 +51,13 @@ export const HeaderWrapper = styled.div<CollapseProps>`
 
   justify-content: ${(props) => (props.isCollapsed && 'center') || 'space-between'};
 
-  @media only screen and ${media.md} {
+  @media only screen and ${theme.media.md} {
     & ${Text} {
       font-size: 0.75rem;
     }
   }
 
-  @media only screen and ${media.xl} {
+  @media only screen and ${theme.media.xl} {
     margin-bottom: 1rem;
   }
 `;
@@ -76,7 +76,7 @@ export const Avatar = styled(AntAvatar)`
   max-width: 1.4rem;
   max-height: 1.4rem;
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     max-width: 2.18rem;
     max-height: 2.18rem;
   }
@@ -92,11 +92,11 @@ export const ListItem = styled.li<ListProps>`
 
   ${(props) => !props.isFirstActive && !props.isSecondActive && 'opacity: 0.5'};
 
-  @media only screen and ${media.xl} {
+  @media only screen and ${theme.media.xl} {
     margin-bottom: 0.8rem;
   }
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     margin-bottom: 1.2rem;
   }
 

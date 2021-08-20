@@ -1,6 +1,6 @@
 import { Button as AntButton, Typography } from 'antd';
 import styled from 'styled-components';
-import { media } from '../../../../styles/theme';
+import theme from '../../../../styles/theme';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -21,7 +21,7 @@ export const MonthSwitch = styled.div`
 export const Button = styled(AntButton)`
   font-size: 0.5rem;
 
-  @media only screen and ${media.xl} {
+  @media only screen and ${theme.media.xl} {
     font-size: 0.75rem;
   }
 `;
@@ -33,7 +33,7 @@ export const Text = styled(Typography.Text)`
   width: 5rem;
   margin: 0 0.2rem;
 
-  @media only screen and ${media.xl} {
+  @media only screen and ${theme.media.xl} {
     font-size: 0.75rem;
     width: 7rem;
   }

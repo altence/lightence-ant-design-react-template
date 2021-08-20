@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Table as AntTable } from 'antd';
-import { media } from '../../../../styles/theme';
+import theme from '../../../../styles/theme';
 
 interface TextProps {
   isActive?: boolean;
@@ -34,7 +34,7 @@ export const PercentageWrapper = styled.div`
   width: 3rem;
   justify-content: space-between;
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     width: 4rem;
   }
 `;

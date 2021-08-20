@@ -2,7 +2,7 @@ import React from 'react';
 import { EChartsInstance } from 'echarts-for-react';
 import { useMediaQuery } from 'react-responsive';
 import { Chart } from '../../../common/Chart/Chart';
-import theme, { media } from '../../../../styles/theme';
+import theme from '../../../../styles/theme';
 import { Dates } from '../../../../constants/Dates';
 import { Cell } from '../BloodScreeningTable/BloodScreeningTable';
 
@@ -13,8 +13,8 @@ interface BloodScreeningChartsProps {
 }
 
 export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ activeItem }) => {
-  const isTablet = useMediaQuery({ query: media.md });
-  const isBigScreen = useMediaQuery({ query: media.xxl });
+  const isTablet = useMediaQuery({ query: theme.media.md });
+  const isBigScreen = useMediaQuery({ query: theme.media.xxl });
 
   const option = {
     color: (isTablet && theme.colors.chartsErrorGradient) || theme.colors.error,

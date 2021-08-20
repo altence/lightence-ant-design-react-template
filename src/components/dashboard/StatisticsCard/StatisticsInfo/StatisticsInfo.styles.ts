@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Typography } from 'antd';
-import { media } from '../../../../styles/theme';
+import theme from '../../../../styles/theme';
 interface TitleProps {
   color: string;
 }
@@ -13,11 +13,11 @@ export const Wrapper = styled.div`
   width: 50%;
   flex-direction: column;
 
-  @media only screen and ${media.md} {
+  @media only screen and ${theme.media.md} {
     width: 100%;
   }
 
-  @media only screen and ${media.xl} {
+  @media only screen and ${theme.media.xl} {
     width: 50%;
   }
 `;
@@ -29,17 +29,17 @@ export const Title = styled(Typography.Text)<TitleProps>`
 
   color: ${(props) => props.color};
 
-  @media only screen and ${media.md} {
+  @media only screen and ${theme.media.md} {
     font-size: 0.75rem;
     text-align: center;
   }
 
-  @media only screen and ${media.xl} {
+  @media only screen and ${theme.media.xl} {
     font-size: 1rem;
     text-align: left;
   }
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     font-size: 1.37rem;
   }
 `;
@@ -49,11 +49,11 @@ export const Text = styled(Typography.Text)`
   font-size: 0.625rem;
   margin-left: 0.125rem;
 
-  @media only screen and ${media.xl} {
+  @media only screen and ${theme.media.xl} {
     font-size: 0.75rem;
   }
 
-  @media only screen and ${media.xl} {
+  @media only screen and ${theme.media.xl} {
     font-size: 0.875rem;
   }
 `;
@@ -68,11 +68,11 @@ export const Percentage = styled.div<PercentageProps>`
     color: ${(props) => (props.isDowngrade && props.theme.colors.error) || props.theme.colors.success};
   }
 
-  @media only screen and ${media.md} {
+  @media only screen and ${theme.media.md} {
     margin: 0 auto;
   }
 
-  @media only screen and ${media.xl} {
+  @media only screen and ${theme.media.xl} {
     margin: unset;
   }
 `;

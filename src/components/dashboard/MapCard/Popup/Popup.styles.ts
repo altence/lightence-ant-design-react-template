@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import { Typography, Avatar as AntAvatar, Rate } from 'antd';
 import { Popup as LPopup } from 'react-leaflet';
-import { media } from '../../../../styles/theme';
+import theme from '../../../../styles/theme';
 
 export const Wrapper = styled(LPopup)`
   font-size: 0.625rem;
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     font-size: 0.75rem;
   }
 
@@ -33,7 +33,7 @@ export const Avatar = styled(AntAvatar)`
   height: 100%;
   margin-right: 0.625rem;
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     min-width: 3.12rem;
   }
 `;
@@ -65,7 +65,7 @@ export const Rating = styled(Rate)`
   font-size: 0.75rem;
   margin-right: 0.375rem;
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     font-size: 1rem;
   }
 `;

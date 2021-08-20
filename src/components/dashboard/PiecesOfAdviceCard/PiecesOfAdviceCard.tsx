@@ -4,11 +4,11 @@ import { PiecesOfAdviceHeader } from './PiecesOfAdviceHeader/PiecesOfAdviceHeade
 import { Card } from '../../common/Card/Card';
 import { piecesOfAdviceData } from '../../../constants/piecesOfAdviceData';
 import { Advice } from './Advice/Advice';
-import { media } from '../../../styles/theme';
+import theme from '../../../styles/theme';
 import * as S from './PiecesOfAdviceCard.styles';
 
 export const PiecesOfAdviceCard: React.FC = () => {
-  const isDesktop = useMediaQuery({ query: media.xl });
+  const isDesktop = useMediaQuery({ query: theme.media.xl });
 
   return (
     <Card title={<PiecesOfAdviceHeader />}>

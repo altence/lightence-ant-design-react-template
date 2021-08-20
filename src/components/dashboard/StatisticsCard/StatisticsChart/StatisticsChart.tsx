@@ -1,7 +1,7 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Chart } from '../../../common/Chart/Chart';
-import theme, { media } from '../../../../styles/theme';
+import theme from '../../../../styles/theme';
 import { LinearGradientObject } from 'echarts';
 
 interface StatisticsChartProps {
@@ -11,9 +11,9 @@ interface StatisticsChartProps {
 }
 
 export const StatisticsChart: React.FC<StatisticsChartProps> = ({ value, chartColor, color }) => {
-  const isTablet = useMediaQuery({ query: media.md });
-  const isDesktop = useMediaQuery({ query: media.xl });
-  const isBigScreen = useMediaQuery({ query: media.xxl });
+  const isTablet = useMediaQuery({ query: theme.media.md });
+  const isDesktop = useMediaQuery({ query: theme.media.xl });
+  const isBigScreen = useMediaQuery({ query: theme.media.xxl });
 
   const option = {
     color: [chartColor, theme.colors.basicLight],

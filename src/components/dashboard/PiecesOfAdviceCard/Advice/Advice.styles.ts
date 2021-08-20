@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Button, Typography, Image as AntImage } from 'antd';
-import { media } from '../../../../styles/theme';
+import theme from '../../../../styles/theme';
 
 export const BtnMore = styled(Button)`
   position: absolute;
@@ -18,7 +18,7 @@ export const BtnMore = styled(Button)`
 
   color: ${(props) => props.theme.colors.secondary};
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     padding: 0.875rem 4.875rem;
   }
 
@@ -36,16 +36,16 @@ export const Wrapper = styled.div`
 
   background-color: ${(props) => props.theme.colors.basicLight};
 
-  @media only screen and ${media.md} {
+  @media only screen and ${theme.media.md} {
     width: calc(50% - 0.3125rem);
   }
 
-  @media only screen and ${media.xl} {
+  @media only screen and ${theme.media.xl} {
     flex-direction: row;
     width: calc(50% - 0.4375rem);
   }
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     flex-direction: row;
     width: calc(50% - 0.625rem);
   }
@@ -86,13 +86,13 @@ export const Image = styled(AntImage)`
 export const InfoWrapper = styled.div`
   padding: 0.875rem;
 
-  @media only screen and ${media.xl} {
+  @media only screen and ${theme.media.xl} {
     width: 50%;
     flex-shrink: 0;
     padding: 1rem;
   }
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     padding: 1.85rem;
   }
 `;
@@ -102,11 +102,11 @@ export const InfoHeader = styled.div`
   justify-content: space-between;
   margin-bottom: 0.375rem;
 
-  @media only screen and ${media.md} {
+  @media only screen and ${theme.media.md} {
     margin-bottom: 0.625rem;
   }
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     margin-bottom: 1.25rem;
   }
 `;
@@ -118,7 +118,7 @@ export const Title = styled(Typography.Text)`
 
   color: ${(props) => props.theme.colors.basicDark};
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     font-size: 1rem;
   }
 `;
@@ -130,7 +130,7 @@ export const Text = styled(Typography.Text)`
 export const Description = styled(Typography.Text)`
   font-size: 0.625rem;
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     font-size: 1rem;
   }
 `;

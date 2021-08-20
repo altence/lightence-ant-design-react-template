@@ -7,14 +7,12 @@ import theme from '../../styles/theme';
 import logo from '../../assets/images/logo.svg';
 
 const MainLayout: React.FC = ({ children }) => {
-  const isDesktop = useMediaQuery({
-    query: theme.media.md,
-  });
+  const isTablet = useMediaQuery({ query: theme.media.md });
 
   const Logo = <img src={logo} alt="Altence" />;
 
   // TODO mini logo for mobile layout
-  return isDesktop ? (
+  return isTablet ? (
     <DesktopLayout siderContent={<SiderContent />} logo={Logo}>
       {children}
     </DesktopLayout>

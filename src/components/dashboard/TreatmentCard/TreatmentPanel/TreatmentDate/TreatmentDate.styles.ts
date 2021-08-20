@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Typography, Badge, Button as AntButton } from 'antd';
 import { BellOutlined } from '@ant-design/icons';
-import { media } from '../../../../../styles/theme';
+import theme from '../../../../../styles/theme';
 
 export const DateWrapper = styled.div`
   display: flex;
@@ -16,7 +16,7 @@ export const DateWrapper = styled.div`
   box-shadow: 0px 5px 40px #e6e6e6;
   flex-shrink: 0;
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     padding: 5rem 0.5rem 0.5rem 0.5rem;
   }
 `;
@@ -32,7 +32,7 @@ export const Bell = styled(BellOutlined)`
 
   color: ${(props) => props.theme.colors.primary};
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     font-size: 1.6rem;
   }
 `;
@@ -44,7 +44,7 @@ export const Title = styled(Typography.Text)`
 
   color: ${(props) => props.theme.colors.primary};
 
-  @media only screen and ${media.md} {
+  @media only screen and ${theme.media.md} {
     font-size: 3.1rem;
   }
 `;
@@ -58,7 +58,7 @@ export const Subtitle = styled(Typography.Text)`
 
   color: ${(props) => props.theme.colors.primary};
 
-  @media only screen and ${media.md} {
+  @media only screen and ${theme.media.md} {
     font-size: 1.3rem;
   }
 
@@ -80,11 +80,11 @@ export const Text = styled(Typography.Text)`
   font-size: 1.25rem;
   margin-bottom: 1.75rem;
 
-  @media only screen and ${media.md} {
+  @media only screen and ${theme.media.md} {
     font-size: 1.37rem;
   }
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     font-size: 1.5rem;
   }
 `;
@@ -92,7 +92,7 @@ export const Text = styled(Typography.Text)`
 export const Button = styled(AntButton)`
   font-size: 0.75rem;
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     font-size: 1rem;
   }
 `;

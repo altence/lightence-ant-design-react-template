@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { default as AntIcon } from '@ant-design/icons';
-import { media } from '../../../styles/theme';
+import theme from '../../../styles/theme';
 
 interface StatisticsProps {
   color: string;
@@ -39,15 +39,15 @@ export const Icon = styled(AntIcon)<StatisticsProps>`
 
   color: ${(props) => props.color};
 
-  @media only screen and ${media.md} {
+  @media only screen and ${theme.media.md} {
     font-size: 0.8rem;
   }
 
-  @media only screen and ${media.xl} {
+  @media only screen and ${theme.media.xl} {
     font-size: 1.5rem;
   }
 
-  @media only screen and ${media.xxl} {
+  @media only screen and ${theme.media.xxl} {
     font-size: 2rem;
   }
 `;

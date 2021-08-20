@@ -2,14 +2,14 @@ import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { EChartsOption } from 'echarts';
 import { Chart } from '../../../common/Chart/Chart';
-import theme, { media } from '../../../../styles/theme';
+import theme from '../../../../styles/theme';
 import { pieChartData } from '../../../../constants/healthChartData';
 
 export const HealthChart: React.FC = () => {
-  const isMobile = useMediaQuery({ query: media.xs });
-  const isTablet = useMediaQuery({ query: media.md });
-  const isDesktop = useMediaQuery({ query: media.xl });
-  const isBigScreen = useMediaQuery({ query: media.xxl });
+  const isMobile = useMediaQuery({ query: theme.media.xs });
+  const isTablet = useMediaQuery({ query: theme.media.md });
+  const isDesktop = useMediaQuery({ query: theme.media.xl });
+  const isBigScreen = useMediaQuery({ query: theme.media.xxl });
 
   const option = {
     color: [
