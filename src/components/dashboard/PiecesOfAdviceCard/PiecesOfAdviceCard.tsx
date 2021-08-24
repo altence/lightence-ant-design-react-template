@@ -11,7 +11,7 @@ export const PiecesOfAdviceCard: React.FC = () => {
   const isDesktop = useMediaQuery({ query: theme.media.xl });
 
   return (
-    <Card title={<PiecesOfAdviceHeader />}>
+    <Card id="advice" title={<PiecesOfAdviceHeader />}>
       <S.Wrapper>
         {piecesOfAdviceData.map((advice) => (
           <Advice

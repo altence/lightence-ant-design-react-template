@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 import { Layout } from 'antd';
+import bg from '../../../assets/images/bg.png';
+import theme from '../../../styles/theme';
 
 const { Header } = Layout;
 
 export default styled(Header)`
-  background: transparent;
+  background: linear-gradient(0deg, rgba(0, 89, 171, 0.4), rgba(0, 89, 171, 0.4)), url(${bg});
+  background-size: cover;
 
   padding: ${(props) => `${props.theme.desktopLayout.paddingVertical} ${props.theme.desktopLayout.paddingHorizontal}`};
 
@@ -14,4 +17,8 @@ export default styled(Header)`
 
   margin-bottom: ${(props) =>
     `calc(${props.theme.desktopLayout.contentOffset} - ${props.theme.desktopLayout.headerHeight})`};
+
+  @media only screen and ${theme.media.xxl} {
+    height: 21rem;
+  }
 `;

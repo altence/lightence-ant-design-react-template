@@ -9,7 +9,7 @@ const icons = [<CheckOutlined key={0} />, <BarChartOutlined key={1} />, <FileTex
 
 export const PatientTimelineCard: React.FC = () => {
   return (
-    <Card title="Patient timeline">
+    <Card id="timeline" title="Patient timeline">
       <S.Wrapper>
         {patientTimelineData.map((item, index) => (
           <S.Item key={item.id}>
