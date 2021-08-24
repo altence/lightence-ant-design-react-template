@@ -2,6 +2,7 @@ import React, { ReactNode, useState } from 'react';
 import { Button, Layout } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import styled, { css } from 'styled-components';
+import theme from '../../../styles/theme';
 
 const { Sider } = Layout;
 
@@ -49,6 +50,11 @@ const SiderStyled = styled(Sider)`
       padding-left: 1.25rem;
       padding-right: 1.25rem;
     `}
+
+  @media only screen and ${theme.media.xxl} {
+    position: unset;
+    height: unset;
+  }
 `;
 
 const CollapseIcon = styled(RightOutlined)`
