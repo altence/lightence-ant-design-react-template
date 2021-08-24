@@ -7,7 +7,7 @@ import { doctorsData } from '../../../constants/doctorsData';
 
 export const FavouritesDoctorsCard: React.FC = () => {
   return (
-    <Card title="Favorite doctors">
+    <Card id="fav-doctors" title="Favorite doctors">
       <Slider>
         {doctorsData.map((doctor) => (
           <SwiperSlide key={doctor.id}>

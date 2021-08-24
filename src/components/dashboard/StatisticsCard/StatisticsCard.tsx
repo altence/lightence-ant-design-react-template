@@ -15,7 +15,7 @@ export const StatisticsCard: React.FC<StatisticsCardProps> = ({
   chartColor,
 }) => {
   return (
-    <S.CardWrapper>
+    <S.CardWrapper id={title.toLowerCase().replaceAll(' ', '-')}>
       <S.Line color={color} />
       <Card>
         <S.Wrapper>

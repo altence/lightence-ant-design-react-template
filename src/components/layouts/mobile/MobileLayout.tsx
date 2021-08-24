@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
-import { Button, Layout } from 'antd';
+import { Layout } from 'antd';
 import MobileSider from './MobileSider';
-import hamburgerIcon from '../../../assets/icons/hamburger.svg';
 import styled from 'styled-components';
 import { LayoutProps } from '../interfaces';
 import MobileContent from './MobileContent';
-
-const { Header } = Layout;
+import MobileHeader from './MobileHeader';
+import { Header } from '../../Header/Header';
 
 const MobileLayout: React.FC<LayoutProps> = ({ children, siderContent, logo }) => {
   const [siderCollapsed, setSiderCollapsed] = useState(true);
 
   const toggleSider = () => setSiderCollapsed(!siderCollapsed);
-  const icon = <img src={hamburgerIcon} alt="Toggle Sider" />;
 
   return (
     <LayoutStyled>
@@ -20,9 +18,9 @@ const MobileLayout: React.FC<LayoutProps> = ({ children, siderContent, logo }) =
         {siderContent}
       </MobileSider>
       <Layout>
-        <Header>
-          <Button size="small" type="link" icon={icon} onClick={toggleSider} />
-        </Header>
+        <MobileHeader>
+          <Header toggleSider={toggleSider} />
+        </MobileHeader>
         <MobileContent>{children}</MobileContent>
       </Layout>
     </LayoutStyled>

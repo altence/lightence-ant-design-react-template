@@ -41,6 +41,7 @@ export const TreatmentCard: React.FC = () => {
 
   return (
     <Card
+      id="treatment"
       title={
         <TreatmentHeader
           date={selectedDate}

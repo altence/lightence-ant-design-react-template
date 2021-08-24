@@ -5,7 +5,7 @@ import { MapHeader } from './MapHeader/MapHeader';
 
 export const MapCard: React.FC = () => {
   return (
-    <Card title={<MapHeader />} padding={0}>
+    <Card id="map" title={<MapHeader />} padding={0}>
       <Map />
     </Card>
   );

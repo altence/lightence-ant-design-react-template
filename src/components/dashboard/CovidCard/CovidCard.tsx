@@ -4,7 +4,7 @@ import { CovidChart } from './CovidChart/CovidChart';
 
 export const CovidCard: React.FC = () => {
   return (
-    <Card title="COVID-19" padding={0}>
+    <Card id="covid" title="COVID-19" padding={0}>
       <CovidChart />
     </Card>
   );

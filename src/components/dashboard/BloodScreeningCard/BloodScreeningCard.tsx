@@ -19,7 +19,7 @@ export const BloodScreeningCard: React.FC = () => {
   });
 
   return (
-    <S.Card title={!isTablet && 'Blood screening'} padding={0}>
+    <S.Card id="blood-screening" title={!isTablet && 'Blood screening'} padding={0}>
       <S.Badge>{activeItem.values.cellName}</S.Badge>
       <BloodScreeningChart activeItem={activeItem} />
       <BloodScreeningTable activeItem={activeItem} setActiveItem={setActiveItem} />
