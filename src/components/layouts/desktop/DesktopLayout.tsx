@@ -5,13 +5,17 @@ import DesktopSider from './DesktopSider';
 import styled from 'styled-components';
 import DesktopHeader from './DesktopHeader';
 import DesktopContent from './DesktopContent';
+import { Header } from '../../Header/Header';
+import theme from '../../../styles/theme';
 
 const DesktopLayout: React.FC<LayoutProps> = ({ children, siderContent, logo }) => {
   return (
     <LayoutStyled>
       <DesktopSider logo={logo}>{siderContent}</DesktopSider>
       <ContentLayoutStyled>
-        <DesktopHeader>HEADER</DesktopHeader>
+        <DesktopHeader>
+          <Header />
+        </DesktopHeader>
         <DesktopContent>{children}</DesktopContent>
       </ContentLayoutStyled>
     </LayoutStyled>
@@ -23,8 +27,12 @@ const LayoutStyled = styled(Layout)`
 `;
 
 const ContentLayoutStyled = styled(Layout)`
-  background: linear-gradient(#c4c4c4 25%, #ffffff 25%);
   margin-left: 60px;
+  background-color: ${(props) => props.theme.colors.basicLight};
+
+  @media only screen and ${theme.media.xxl} {
+    margin-left: unset;
+  }
 `;
 
 export default DesktopLayout;
