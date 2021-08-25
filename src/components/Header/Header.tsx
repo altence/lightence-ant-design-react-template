@@ -18,6 +18,8 @@ export const Header: React.FC<HeaderProps> = ({ toggleSider }) => {
   const [isFilterActive, setFilterActive] = useState(false);
   const [isOverlayActive, setOverlayActive] = useState(false);
 
+  console.log(isOverlayActive);
+
   const isTablet = useMediaQuery({ query: theme.media.md });
 
   const menu = <S.DropdownContent>Temp item</S.DropdownContent>;
@@ -30,15 +32,11 @@ export const Header: React.FC<HeaderProps> = ({ toggleSider }) => {
   };
 
   const handleClickInput = (event: React.MouseEvent<HTMLInputElement>) => {
-    event.stopPropagation();
-
-    !isOverlayActive && setOverlayActive(true);
+    isOverlayActive && event.stopPropagation();
   };
 
   const handleFilter = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.stopPropagation();
-
-    !isOverlayActive && setOverlayActive(true);
+    isOverlayActive && event.stopPropagation();
 
     setFilterActive(!isFilterActive);
   };
@@ -53,7 +51,7 @@ export const Header: React.FC<HeaderProps> = ({ toggleSider }) => {
         )}
 
         <Dropdown
-          visible={isOverlayActive}
+          onVisibleChange={(visible) => setOverlayActive(visible)}
           overlay={
             <S.DropdownContent>
               <SearchFilter value={value} isFilterActive={isFilterActive} />
@@ -61,7 +59,7 @@ export const Header: React.FC<HeaderProps> = ({ toggleSider }) => {
           }
           trigger={['click']}
         >
-          <S.SearchDropdownHeader onClick={() => setOverlayActive(!isOverlayActive)}>
+          <S.SearchDropdownHeader>
             <SearchOutlined />
             {isTablet && (
               <>
