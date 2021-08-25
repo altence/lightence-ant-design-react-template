@@ -1,4 +1,6 @@
 import Dashboard from '../pages/Dashboard';
+import Error404 from '../pages/Error404';
+import Error500 from '../pages/Error500';
 import Login from '../pages/Login';
 
 export const routes = [
@@ -11,7 +13,19 @@ export const routes = [
   {
     path: '/login',
     guarded: false,
-    exact: true,
+    exact: false,
     component: Login,
+  },
+  {
+    path: '/500',
+    guarded: false,
+    exact: false,
+    component: Error500,
+  },
+  {
+    path: '',
+    guarded: false,
+    exact: false,
+    component: Error404,
   },
 ];
