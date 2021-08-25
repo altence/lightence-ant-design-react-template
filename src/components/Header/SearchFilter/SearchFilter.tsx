@@ -1,5 +1,4 @@
 import React, { useMemo, useState } from 'react';
-import { CheckOutlined } from '@ant-design/icons';
 import useDebounce from '../../../hooks/useDebounce';
 import { componentsData } from '../../../constants/componentsData';
 import * as S from './SearchFilter.styles';
