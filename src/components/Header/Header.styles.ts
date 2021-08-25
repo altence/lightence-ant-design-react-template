@@ -88,6 +88,7 @@ export const SearchDropdownHeader = styled(DropdownHeader)`
     & > button {
       display: flex;
       align-items: center;
+      justify-content: center;
     }
   }
 `;
