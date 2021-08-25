@@ -18,9 +18,8 @@ export const Header: React.FC<HeaderProps> = ({ toggleSider }) => {
   const [isFilterActive, setFilterActive] = useState(false);
   const [isOverlayActive, setOverlayActive] = useState(false);
 
-  console.log(isOverlayActive);
-
   const isTablet = useMediaQuery({ query: theme.media.md });
+  const isBigScreen = useMediaQuery({ query: theme.media.xxl });
 
   const menu = <S.DropdownContent>Temp item</S.DropdownContent>;
 
@@ -71,7 +70,7 @@ export const Header: React.FC<HeaderProps> = ({ toggleSider }) => {
                   onChange={handleChangeInput}
                   onClick={handleClickInput}
                 />
-                <Button size="small" type="text" icon={filter} onClick={handleFilter} />
+                <Button size={(isBigScreen && 'middle') || 'small'} type="text" icon={filter} onClick={handleFilter} />
               </>
             )}
           </S.SearchDropdownHeader>
