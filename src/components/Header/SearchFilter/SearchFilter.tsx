@@ -57,15 +57,16 @@ export const SearchFilter: React.FC<SearchFilterProps> = ({ value, isFilterActiv
   return (
     <S.Wrapper>
       <S.ResultsWrapper>
-        {results
-          ? (results.length !== 0 &&
-              results.map((item, index) => (
-                <S.Link key={index} type="text" href={item.url}>
-                  {item.name}
-                </S.Link>
-              ))) ||
-            'Try to change your search query'
-          : 'Enter your search term'}
+        {results ? (
+          (results.length !== 0 &&
+            results.map((item, index) => (
+              <S.Link key={index} type="text" href={item.url}>
+                {item.name}
+              </S.Link>
+            ))) || <S.Text>Try to change your search query</S.Text>
+        ) : (
+          <S.Text>Enter your search term</S.Text>
+        )}
       </S.ResultsWrapper>
 
       {isFilterActive && (
@@ -73,31 +74,31 @@ export const SearchFilter: React.FC<SearchFilterProps> = ({ value, isFilterActiv
           <S.List>
             <S.ListItem onClick={handleClickCategory('apps')}>
               Apps
-              {category === 'apps' && <CheckOutlined />}
+              {category === 'apps' && <S.Check />}
             </S.ListItem>
             <S.ListItem onClick={handleClickCategory('auth')}>
               Auth
-              {category === 'auth' && <CheckOutlined />}
+              {category === 'auth' && <S.Check />}
             </S.ListItem>
             <S.ListItem onClick={handleClickCategory('forms')}>
               Forms
-              {category === 'forms' && <CheckOutlined />}
+              {category === 'forms' && <S.Check />}
             </S.ListItem>
             <S.ListItem onClick={handleClickCategory('data tables')}>
               Data tables
-              {category === 'data tables' && <CheckOutlined />}
+              {category === 'data tables' && <S.Check />}
             </S.ListItem>
             <S.ListItem onClick={handleClickCategory('charts')}>
               Charts
-              {category === 'charts' && <CheckOutlined />}
+              {category === 'charts' && <S.Check />}
             </S.ListItem>
             <S.ListItem onClick={handleClickCategory('maps')}>
               Maps
-              {category === 'maps' && <CheckOutlined />}
+              {category === 'maps' && <S.Check />}
             </S.ListItem>
             <S.ListItem onClick={handleClickCategory('pages')}>
               Pages
-              {category === 'pages' && <CheckOutlined />}
+              {category === 'pages' && <S.Check />}
             </S.ListItem>
           </S.List>
         </S.FilterWrapper>
