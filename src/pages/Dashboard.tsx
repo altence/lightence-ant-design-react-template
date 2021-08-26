@@ -29,7 +29,7 @@ const Dashboard: React.FC = () => {
             {statisticsData.map((st) => (
               <Col key={st.id} xs={12}>
                 <StatisticsCard
-                  title={st.title}
+                  name={st.name}
                   icon={st.icon}
                   value={st.value}
                   percent={st.percent}
@@ -53,7 +53,7 @@ const Dashboard: React.FC = () => {
                 {statisticsData.map((st) => (
                   <Col key={st.id} md={6}>
                     <StatisticsCard
-                      title={st.title}
+                      name={st.name}
                       icon={st.icon}
                       value={st.value}
                       percent={st.percent}

@@ -9,7 +9,7 @@ export const StatisticsCard: React.FC<StatisticsCardProps> = ({
   value,
   percent,
   icon,
-  title,
+  name: title,
   isDowngrade,
   color,
   chartColor,
