@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Typography, Badge as AntBadge, Avatar, Menu } from 'antd';
+import { Typography, Badge as AntBadge, Avatar, Menu, Spin as AntSpin } from 'antd';
 import theme from '../../styles/theme';
 
 export const Wrapper = styled.div`
@@ -71,7 +71,7 @@ export const DropdownHeader = styled.div`
 
 export const SearchDropdownHeader = styled(DropdownHeader)`
   @media only screen and ${theme.media.md} {
-    width: 40%;
+    width: 50%;
 
     & > input {
       margin: 0 0.5rem;
@@ -119,6 +119,10 @@ export const ProfileDropdownHeader = styled(DropdownHeader)`
       font-size: 0.875rem;
     }
   }
+`;
+
+export const Spin = styled(AntSpin)`
+  margin: 0 0.75rem;
 `;
 
 export const Badge = styled(AntBadge)`

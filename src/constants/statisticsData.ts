@@ -8,7 +8,7 @@ import theme from '../styles/theme';
 
 export interface Statistic {
   id?: number;
-  title: string;
+  name: string;
   value: number;
   percent: number;
   icon: React.FC;
@@ -20,7 +20,7 @@ export interface Statistic {
 export const statisticsData: Statistic[] = [
   {
     id: 1,
-    title: 'Protein',
+    name: 'Protein',
     value: 45,
     percent: 14,
     icon: ProteinIcon,
@@ -30,7 +30,7 @@ export const statisticsData: Statistic[] = [
   },
   {
     id: 2,
-    title: 'Fat',
+    name: 'Fat',
     value: 12,
     percent: 20,
     icon: FatIcon,
@@ -40,7 +40,7 @@ export const statisticsData: Statistic[] = [
   },
   {
     id: 3,
-    title: 'Bones',
+    name: 'Bones',
     value: 90,
     percent: 34,
     icon: BonesIcon,
@@ -50,7 +50,7 @@ export const statisticsData: Statistic[] = [
   },
   {
     id: 4,
-    title: 'Water balance',
+    name: 'Water balance',
     value: 78,
     percent: 21,
     icon: WaterBalanceIcon,
