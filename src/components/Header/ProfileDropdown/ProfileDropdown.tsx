@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Dropdown, Spin } from 'antd';
+import { Dropdown } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { useMediaQuery } from 'react-responsive';
 import theme from '../../../styles/theme';
