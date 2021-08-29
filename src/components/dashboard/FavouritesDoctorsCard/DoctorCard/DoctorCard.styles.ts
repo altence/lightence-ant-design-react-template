@@ -132,6 +132,7 @@ export const VisitWrapper = styled.div`
     & ${Text} {
       font-size: 0.75rem;
       margin-bottom: 0;
+      margin-left: 0.1rem;
     }
   }
 `;

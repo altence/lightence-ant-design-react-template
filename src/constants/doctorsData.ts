@@ -1,10 +1,10 @@
 export interface Doctor {
   id: number;
   name: string;
-  specifity: string;
+  specifity: number;
   rating: number;
   lastVisit: number;
-  lastDiagnosis: string;
+  lastDiagnosis: number;
   nextVisit: number | null;
   gps: {
     latitude: number;
@@ -17,11 +17,10 @@ export const doctorsData: Doctor[] = [
   {
     id: 1,
     name: 'Ivanov Ivan',
-    specifity: 'Surgeon',
+    specifity: 1,
     rating: 5,
     lastVisit: 1628110800000,
-    lastDiagnosis:
-      'Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million.',
+    lastDiagnosis: 1,
     nextVisit: null,
     gps: {
       latitude: 42.341798,
@@ -33,11 +32,10 @@ export const doctorsData: Doctor[] = [
   {
     id: 2,
     name: 'Fedorova Lida',
-    specifity: 'Dermatologist',
+    specifity: 2,
     rating: 5,
     lastVisit: 1628974800000,
-    lastDiagnosis:
-      'Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million.',
+    lastDiagnosis: 2,
     nextVisit: 1629838800000,
     gps: {
       latitude: 42.362096,
@@ -49,11 +47,10 @@ export const doctorsData: Doctor[] = [
   {
     id: 3,
     name: 'Kozlov Fedor',
-    specifity: 'Oncologist',
+    specifity: 3,
     rating: 4,
     lastVisit: 1628024400000,
-    lastDiagnosis:
-      'Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million.',
+    lastDiagnosis: 3,
     nextVisit: null,
     gps: {
       latitude: 42.355246,
@@ -65,11 +62,10 @@ export const doctorsData: Doctor[] = [
   {
     id: 4,
     name: 'Chernov Alex',
-    specifity: 'Cardiologist',
+    specifity: 4,
     rating: 5,
     lastVisit: 1628542800000,
-    lastDiagnosis:
-      'Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million.',
+    lastDiagnosis: 4,
     nextVisit: 1630098000000,
     gps: {
       latitude: 42.328601,
@@ -81,11 +77,10 @@ export const doctorsData: Doctor[] = [
   {
     id: 5,
     name: 'Zelenskiy Nik',
-    specifity: 'Therapist',
+    specifity: 5,
     rating: 4,
     lastVisit: 1628629200000,
-    lastDiagnosis:
-      'Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million.',
+    lastDiagnosis: 5,
     nextVisit: null,
     gps: {
       latitude: 42.321493,
@@ -97,11 +92,10 @@ export const doctorsData: Doctor[] = [
   {
     id: 6,
     name: 'Buzmakova Mia',
-    specifity: 'Ophthalmologist',
+    specifity: 6,
     rating: 5,
     lastVisit: 1628110800000,
-    lastDiagnosis:
-      'Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million.',
+    lastDiagnosis: 6,
     nextVisit: 1630270800000,
     gps: {
       latitude: 42.324032,
@@ -113,11 +107,10 @@ export const doctorsData: Doctor[] = [
   {
     id: 7,
     name: 'Lapkin Filipp',
-    specifity: 'Neurologist',
+    specifity: 7,
     rating: 4,
     lastVisit: 1627765200000,
-    lastDiagnosis:
-      'Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million.',
+    lastDiagnosis: 7,
     nextVisit: null,
     gps: {
       latitude: 42.316416,

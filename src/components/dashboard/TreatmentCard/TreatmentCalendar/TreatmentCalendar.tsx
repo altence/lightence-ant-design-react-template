@@ -4,6 +4,7 @@ import { AppDate } from '../../../../constants/Dates';
 import * as S from './TreatmentCalendar.styles';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { useMediaQuery } from 'react-responsive';
+import { useTranslation } from 'react-i18next';
 import theme from '../../../../styles/theme';
 
 export interface TreatmentCalendarProps {
@@ -20,6 +21,8 @@ export const TreatmentCalendar: React.FC<TreatmentCalendarProps> = ({
   handleIncrease,
 }) => {
   const isTablet = useMediaQuery({ query: theme.media.md });
+
+  const { t } = useTranslation();
 
   const handleSelect = (value: AppDate) => {
     setDate({ date: value, isDateClicked: true });
@@ -42,12 +45,12 @@ export const TreatmentCalendar: React.FC<TreatmentCalendarProps> = ({
         <S.LegendItem>
           <S.LegendIcon isPrimary />
           {'-'}
-          <S.Text>upcoming treatment according to plan</S.Text>
+          <S.Text>{t('dashboard.treatmentPlan.upcomingTreatment')}</S.Text>
         </S.LegendItem>
         <S.LegendItem>
           <S.LegendIcon />
           {'-'}
-          <S.Text>implementation of the treatment plan</S.Text>
+          <S.Text>{t('dashboard.treatmentPlan.implementationTreatment')}</S.Text>
         </S.LegendItem>
       </S.Legend>
     </S.Wrapper>

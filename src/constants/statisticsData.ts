@@ -7,7 +7,7 @@ import { WaterBalanceIcon } from '../components/dashboard/StatisticsCard/icons/W
 import theme from '../styles/theme';
 
 export interface Statistic {
-  id?: number;
+  id: number;
   name: string;
   value: number;
   percent: number;
@@ -20,7 +20,7 @@ export interface Statistic {
 export const statisticsData: Statistic[] = [
   {
     id: 1,
-    name: 'Protein',
+    name: 'dashboard.protein',
     value: 45,
     percent: 14,
     icon: ProteinIcon,
@@ -30,7 +30,7 @@ export const statisticsData: Statistic[] = [
   },
   {
     id: 2,
-    name: 'Fat',
+    name: 'dashboard.fat',
     value: 12,
     percent: 20,
     icon: FatIcon,
@@ -40,7 +40,7 @@ export const statisticsData: Statistic[] = [
   },
   {
     id: 3,
-    name: 'Bones',
+    name: 'dashboard.bones',
     value: 90,
     percent: 34,
     icon: BonesIcon,
@@ -50,7 +50,7 @@ export const statisticsData: Statistic[] = [
   },
   {
     id: 4,
-    name: 'Water balance',
+    name: 'dashboard.waterBalance',
     value: 78,
     percent: 21,
     icon: WaterBalanceIcon,

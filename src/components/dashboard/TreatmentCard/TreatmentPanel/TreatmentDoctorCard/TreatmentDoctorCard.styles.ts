@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Rate, Typography, Avatar as AntAvatar, Button as AntButton, Modal as AntModal } from 'antd';
+import { Rate, Typography, Avatar as AntAvatar, Button as AntButton } from 'antd';
 import theme from '../../../../../styles/theme';
 
 export const Wrapper = styled.div`
@@ -99,6 +99,10 @@ export const VisitWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1rem;
+
+  & > ${Text} {
+    margin-left: 0.5rem;
+  }
 `;
 
 export const Button = styled(AntButton)`
@@ -111,10 +115,4 @@ export const Button = styled(AntButton)`
 
 export const WarningText = styled(Typography.Text)`
   font-size: 1rem;
-`;
-
-export const Modal = styled(AntModal)`
-  & .ant-modal-close {
-    display: none;
-  }
 `;

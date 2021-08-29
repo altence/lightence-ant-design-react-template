@@ -1,4 +1,6 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { getCamelizedName } from '../../../../../../helpers/getCamelizedName';
 import * as S from './Checkbox.styles';
 
 interface CheckboxProps {
@@ -8,6 +10,10 @@ interface CheckboxProps {
 }
 
 export const Checkbox: React.FC<CheckboxProps> = ({ setCategory, category, name }) => {
+  const { t } = useTranslation();
+
+  const nameFromLowerCase = name.toLowerCase();
+
   const handleClickCategory = (mode: string) => () => {
     setCategory((prev: string) => {
       if (prev === mode) {
@@ -19,8 +25,8 @@ export const Checkbox: React.FC<CheckboxProps> = ({ setCategory, category, name 
   };
 
   return (
-    <S.Checkbox checked={category === name} onChange={handleClickCategory(name)}>{`${name[0].toUpperCase()}${name.slice(
-      1,
-    )}`}</S.Checkbox>
+    <S.Checkbox checked={category === nameFromLowerCase} onChange={handleClickCategory(nameFromLowerCase)}>
+      {t(`common.${getCamelizedName(name)}`)}
+    </S.Checkbox>
   );
 };

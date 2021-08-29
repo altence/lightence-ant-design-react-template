@@ -1,7 +1,7 @@
 import React from 'react';
-import { AppDate } from '../../../../../constants/Dates';
-import { Dates } from '../../../../../constants/Dates';
+import { useTranslation } from 'react-i18next';
 import { notification } from 'antd';
+import { Dates, AppDate } from '../../../../../constants/Dates';
 import * as S from './TreatmentDate.styles';
 
 const today = Dates.getToday();
@@ -11,10 +11,12 @@ interface TreatmentDateProps {
 }
 
 export const TreatmentDate: React.FC<TreatmentDateProps> = ({ date }) => {
+  const { t } = useTranslation();
+
   const handleClickBtn = () => {
     notification.open({
-      message: 'Success!',
-      description: "You've successfully confirmed the treatment.",
+      message: t('dashboard.treatmentPlan.success'),
+      description: t('dashboard.treatmentPlan.successTreatment'),
     });
   };
 
@@ -28,7 +30,7 @@ export const TreatmentDate: React.FC<TreatmentDateProps> = ({ date }) => {
       <S.Text>08:00</S.Text>
       {date.isAfter(today) && (
         <S.Button size="middle" type="primary" onClick={handleClickBtn}>
-          Confirm
+          {t('dashboard.treatmentPlan.confirm')}
         </S.Button>
       )}
     </S.DateWrapper>

@@ -9,7 +9,7 @@ export const Menu = styled(AntMenu)`
 export const MenuItem = styled(Menu.Item)`
   color: ${(props) => props.theme.colors.secondary};
 
-  & a {
-    color: inherit;
+  & a button span {
+    color: ${(props) => props.theme.colors.secondary};
   }
 `;

@@ -1,8 +1,7 @@
 import React from 'react';
 import { Checkbox } from './Checkbox/Checkbox';
+import { filterData } from '../../../../../constants/filterData';
 import * as S from './SearchFilter.styles';
-
-const filter = ['apps', 'auth', 'forms', 'data tables', 'charts', 'maps'];
 
 interface SearchFilterProps {
   category: string;
@@ -13,9 +12,9 @@ export const SearchFilter: React.FC<SearchFilterProps> = ({ category, setCategor
   return (
     <S.FilterWrapper>
       <S.List>
-        {filter.map((item, index) => (
-          <S.ListItem key={index}>
-            <Checkbox category={category} setCategory={setCategory} name={item} />
+        {filterData.map((item) => (
+          <S.ListItem key={item.id}>
+            <Checkbox category={category} setCategory={setCategory} name={item.name} />
           </S.ListItem>
         ))}
       </S.List>

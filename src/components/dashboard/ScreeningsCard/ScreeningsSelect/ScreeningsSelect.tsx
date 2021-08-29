@@ -6,12 +6,12 @@ const { Option } = Select;
 
 interface ScreeningsSelectProps {
   options: string[];
-  defaultValue: string;
+  placeholder: string;
 }
 
-export const ScreeningsSelect: React.FC<ScreeningsSelectProps> = ({ options, defaultValue }) => {
+export const ScreeningsSelect: React.FC<ScreeningsSelectProps> = ({ options, placeholder }) => {
   return (
-    <S.Select size="small" bordered={false} defaultValue={defaultValue}>
+    <S.Select size="small" bordered={false} placeholder={placeholder}>
       {options.map((option, index) => (
         <Option key={index} value={option}>
           {option}

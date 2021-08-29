@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { useTranslation } from 'react-i18next';
 import { BloodScreeningChart } from './BloodScreeningChart/BloodScreeningChart';
 import { Cell, BloodScreeningTable } from './BloodScreeningTable/BloodScreeningTable';
 import theme from '../../../styles/theme';
+import { getCamelizedName } from '../../../helpers/getCamelizedName';
 import * as S from './BloodScreeningCard.styles';
 
 export const BloodScreeningCard: React.FC = () => {
-  const isTablet = useMediaQuery({ query: theme.media.md });
+  const { t } = useTranslation();
 
   const [activeItem, setActiveItem] = useState<Cell>({
     key: 0,
@@ -18,9 +20,11 @@ export const BloodScreeningCard: React.FC = () => {
     data: [410, 466, 455, 467, 649, 670, 620, 600, 500, 400, 500, 700],
   });
 
+  const isTablet = useMediaQuery({ query: theme.media.md });
+
   return (
-    <S.Card id="blood-screening" title={!isTablet && 'Blood screening'} padding={0}>
-      <S.Badge>{activeItem.values.cellName}</S.Badge>
+    <S.Card id="blood-screening" title={!isTablet && t('dashboard.bloodScreening.title')} padding={0}>
+      <S.Badge>{t(`dashboard.bloodScreening.${getCamelizedName(activeItem.values.cellName)}`)}</S.Badge>
       <BloodScreeningChart activeItem={activeItem} />
       <BloodScreeningTable activeItem={activeItem} setActiveItem={setActiveItem} />
     </S.Card>

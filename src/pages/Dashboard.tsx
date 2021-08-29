@@ -9,7 +9,7 @@ import { TreatmentCard } from '../components/dashboard/TreatmentCard/TreatmentCa
 import { CovidCard } from '../components/dashboard/CovidCard/CovidCard';
 import { HealthCard } from '../components/dashboard/HealthCard/HealthCard';
 import { FavouritesDoctorsCard } from '../components/dashboard/FavouritesDoctorsCard/FavouritesDoctorsCard';
-import { PatientTimelineCard } from '../components/dashboard/PatientTimelineCard/PatientTimelineCard';
+import { PatientResultsCard } from '../components/dashboard/PatientResultsCard/PatientResultsCard';
 import { BloodScreeningCard } from '../components/dashboard/BloodScreeningCard/BloodScreeningCard';
 import { PiecesOfAdviceCard } from '../components/dashboard/PiecesOfAdviceCard/PiecesOfAdviceCard';
 import { StatisticsCard } from '../components/dashboard/StatisticsCard/StatisticsCard';
@@ -98,7 +98,7 @@ const Dashboard: React.FC = () => {
         </Col>
 
         <Col order={(isDesktop && 9) || (isTablet && 7) || 0} xs={24} md={12} xl={9}>
-          <PatientTimelineCard />
+          <PatientResultsCard />
         </Col>
 
         {isMobile && !isTablet && (

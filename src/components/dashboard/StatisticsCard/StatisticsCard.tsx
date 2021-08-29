@@ -2,8 +2,10 @@ import React from 'react';
 import { Card } from '../../common/Card/Card';
 import { StatisticsChart } from './StatisticsChart/StatisticsChart';
 import { StatisticsInfo } from './StatisticsInfo/StatisticsInfo';
-import { Statistic as StatisticsCardProps } from '../../../constants/statisticsData';
+import { Statistic } from '../../../constants/statisticsData';
 import * as S from './StatisticsCard.styles';
+
+type StatisticsCardProps = Omit<Statistic, 'id'>;
 
 export const StatisticsCard: React.FC<StatisticsCardProps> = ({
   value,

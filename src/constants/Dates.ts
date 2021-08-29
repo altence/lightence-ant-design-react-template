@@ -1,37 +1,23 @@
 import dayjs, { Dayjs } from 'dayjs';
 import LocalizedFormat from 'dayjs/plugin/localizedFormat';
+import localeData from 'dayjs/plugin/localeData';
+
 dayjs.extend(LocalizedFormat);
+dayjs.extend(localeData);
 
 export type AppDate = Dayjs;
 
 export class Dates {
-  static months: string[] = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
-
-  static days: string[] = ['Sun', 'Mon', 'Tue', 'Wed', 'The', 'Fri', 'Sat'];
-
   static getToday(): AppDate {
     return dayjs();
   }
 
   static getMonths(): string[] {
-    return this.months;
+    return dayjs.months();
   }
 
   static getDays(): string[] {
-    return this.days;
+    return dayjs.weekdaysShort();
   }
 
   static format(date: AppDate | string | number, query: string): string {

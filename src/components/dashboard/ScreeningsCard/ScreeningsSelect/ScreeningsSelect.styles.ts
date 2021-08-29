@@ -12,6 +12,10 @@ export const Select = styled(AntSelect)`
 
   background-color: ${(props) => props.theme.colors.secondary};
 
+  & .ant-select-selection-placeholder {
+    color: ${(props) => props.theme.colors.basicDark};
+  }
+
   @media only screen and ${theme.media.md} {
     margin: 0 0.3rem;
   }
