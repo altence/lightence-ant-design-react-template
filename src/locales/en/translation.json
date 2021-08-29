@@ -1,0 +1,135 @@
+{
+  "common": {
+    "apps": "Apps",
+    "auth": "Auth",
+    "forms": "Forms",
+    "dataTables": "Data tables",
+    "charts": "Charts",
+    "maps": "Maps",
+    "doctor": "Doctor",
+    "specifity": "Specifity",
+    "surgeon": "Surgeon",
+    "dermatologist": "Dermatologist",
+    "oncologist": "Oncologist",
+    "cardiologist": "Cardiologist",
+    "therapist": "Therapist",
+    "ophthalmologist": "Ophthalmologist",
+    "neurologist": "Neurologist",
+    "cancel": "Cancel",
+    "ok": "Ok",
+    "oops": "Oops!",
+    "kg": "kg",
+    "tempDiagnosis": "Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million."
+  },
+  "header": {
+    "search": "Search",
+    "searchTerm": "Enter your search term",
+    "notFound": "Try to change your search query",
+    "export": "Export"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "protein": "Protein",
+    "fat": "Fat",
+    "bones": "Bones",
+    "waterBalance": "Water balance",
+    "map": {
+      "title": "Map",
+      "polyclinic": "Polyclinic"
+    },
+    "latestScreenings": {
+      "title": "Latest screenings",
+      "friends": "Friends",
+      "statistics": "Statistics",
+      "months": "Months"
+    },
+    "bloodScreening": {
+      "title": "Blood screening",
+      "cell": "Cell",
+      "min": "Min",
+      "yourPerf": "Your perf.",
+      "redBloodCells": "Red blood cells",
+      "whiteBloodCells": "White blood cells",
+      "platelets": "Platelets",
+      "hemoglobin": "Hemoglobin",
+      "hematocrit": "Hematocrit"
+    },
+    "treatmentPlan": {
+      "title": "Treatment plan",
+      "upcomingTreatment": "upcoming treatment according to plan",
+      "implementationTreatment": "implementation of the treatment plan",
+      "success": "Success",
+      "successTreatment": "You've successfully confirmed the treatment.",
+      "confirm": "Confirm",
+      "successQuestion": "Your question was sent to the doctor",
+      "upcomingVisits": "Upcoming visits",
+      "noUpcomingVisits": "There is no upcoming visit.",
+      "noTreatments": "There is no treatments at this day.",
+      "diagnosis": "Diagnosis",
+      "noDiagnosis": "Diagnosis would be available after treatment",
+      "question": "Enter your question here",
+      "askQuestion": "Ask the doctor a question"
+    },
+    "activity": "Activity",
+    "covid": "COVID-19",
+    "health": {
+      "title": "Health",
+      "percent": "percent",
+      "lifestyle": {
+        "title": "Lifestyle",
+        "description": "Without new treatments, the W.H.O. says, the number of new cancer patients"
+      },
+      "ecology": {
+        "title": "Ecology",
+        "description": "Without new treatments, the W.H.O. says, the number of new cancer patients"
+      },
+      "genetics": {
+        "title": "Genetics",
+        "description": "Without new treatments, the W.H.O. says, the number of new cancer patients"
+      },
+      "someInfo": {
+        "title": "Some info",
+        "description": "Without new treatments, the W.H.O. says, the number of new cancer patients"
+      }
+    },
+    "favoriteDoctors": {
+      "title": "Favorite doctors",
+      "lastVisit": "Last visit"
+    },
+    "patientResults": {
+      "title": "Patient timeline",
+      "patientDischarge": {
+        "title": "Patient discharge",
+        "description": "Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million."
+      },
+      "treatmentStarts": {
+        "title": "Treatment starts",
+        "description": "Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million."
+      },
+      "patientAdmission": {
+        "title": "Patient admission",
+        "description": "Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million."
+      }
+    },
+    "piecesOfAdvice": {
+      "title": "Pieces of advice",
+      "lab": {
+        "title": "Curbing COVID-19 through border controls and restricted entry",
+        "description": "Case finding via measures such as border controls, restricted entry, and inbound traveler quarantine, combined with testing high-risk populations and contacts of diagnosed COVID-19 patients. Timely and repeated testing may be necessary to minimize false-negative results. Trace digital tools can aid in outbreak investigation, contact tracing, and monitoring compliance with self-isolation."
+      },
+      "doc": {
+        "title": "Curbing COVID-19 through border controls and restricted entry",
+        "description": "Case finding via measures such as border controls, restricted entry, and inbound traveler quarantine, combined with testing high-risk populations and contacts of diagnosed COVID-19 patients. Timely and repeated testing may be necessary to minimize false-negative results. Trace digital tools can aid in outbreak investigation, contact tracing, and monitoring compliance with self-isolation."
+      },
+      "moreDetails": "More details"
+    }
+  },
+  "error404": {
+    "notFound": "Sorry, page not found!",
+    "comeBack": "Come back"
+  },
+  "error500": {
+    "serverError": "Internal server error",
+    "tryAgain": "Try again"
+  }
+}

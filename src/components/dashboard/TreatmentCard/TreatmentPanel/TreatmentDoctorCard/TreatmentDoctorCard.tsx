@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Input, notification } from 'antd';
+import { useTranslation } from 'react-i18next';
+import { TreatmentDoctorProfile } from './TreatmentDoctorProfile/TreatmentDoctorProfile';
+import { TreatmentDiagnosis } from './TreatmentDiagnosis/TreatmentDiagnosis';
+import { TreatmentVisit } from './TreatmentVisit/TreatmentVisit';
+import { TreatmentModal } from './TreatmentModal/TreatmentModal';
 import { doctorsData } from '../../../../../constants/doctorsData';
 import { AppDate, Dates } from '../../../../../constants/Dates';
 import * as S from './TreatmentDoctorCard.styles';
-
-const today = Dates.getToday();
 
 interface TreatmentDoctorCardProps {
   date: AppDate;
@@ -12,6 +14,8 @@ interface TreatmentDoctorCardProps {
 
 export const TreatmentDoctorCard: React.FC<TreatmentDoctorCardProps> = ({ date }) => {
   const [isModalVisible, setModalVisible] = useState(false);
+
+  const { t } = useTranslation();
 
   const treatment = doctorsData.find((tr) => {
     const dbLastVisitDate = Dates.format(tr.lastVisit, 'L');
@@ -22,61 +26,20 @@ export const TreatmentDoctorCard: React.FC<TreatmentDoctorCardProps> = ({ date }
     return dbLastVisitDate === selectedDate || dbNextVisitDate === selectedDate;
   });
 
-  const handleOk = () => {
-    setModalVisible(false);
-
-    notification.open({
-      message: 'Success!',
-      description: 'Your question was sent to the doctor.',
-    });
-  };
-
-  const handleCancel = () => {
-    setModalVisible(false);
-  };
-
   return (
     <S.Wrapper>
       {treatment ? (
         <>
-          <S.ProfileWrapper>
-            <S.Avatar src={treatment.imgUrl} shape="square" />
-            <S.InfoWrapper>
-              <S.InfoItem>
-                <S.Title>Doctor</S.Title>
-                <S.Text>{treatment.name}</S.Text>
-              </S.InfoItem>
-              <S.InfoItem>
-                <S.Title>Speciality</S.Title>
-                <S.Text>{treatment.specifity}</S.Text>
-              </S.InfoItem>
-              <S.InfoItem>
-                <S.Rating disabled defaultValue={treatment.rating} />
-                <S.Text>{treatment.rating}</S.Text>
-              </S.InfoItem>
-            </S.InfoWrapper>
-          </S.ProfileWrapper>
-          <S.DiagnosisWrapper>
-            <S.Title>Diagnosis</S.Title>
-            <S.Text>
-              {(today.isAfter(date) && treatment.lastDiagnosis) || 'Diagnonis would be available after visit.'}
-            </S.Text>
-          </S.DiagnosisWrapper>
-          <S.VisitWrapper>
-            <S.Title>Upcoming visits</S.Title>
-            <S.Text>
-              {(treatment.nextVisit && Dates.format(treatment.nextVisit, 'L')) || 'There is no upcoming visit.'}
-            </S.Text>
-          </S.VisitWrapper>
+          <TreatmentDoctorProfile treatment={treatment} />
+          <TreatmentDiagnosis date={date} treatment={treatment} />
+          <TreatmentVisit treatment={treatment} />
           <S.Button size="middle" type="primary" onClick={() => setModalVisible(true)}>
-            Ask the doctor a question
+            {t('dashboard.treatmentPlan.askQuestion')}
           </S.Button>
-          <S.Modal visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-            <Input placeholder="Enter your question here" />
-          </S.Modal>
+          <TreatmentModal isModalVisible={isModalVisible} setModalVisible={setModalVisible} />
         </>
       ) : (
-        <S.WarningText>There is no treatments at this day.</S.WarningText>
+        <S.WarningText>{t('dashboard.treatmentPlan.noTreatments')}</S.WarningText>
       )}
     </S.Wrapper>
   );

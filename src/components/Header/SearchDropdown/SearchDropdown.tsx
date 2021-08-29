@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Dropdown, Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { useMediaQuery } from 'react-responsive';
+import { useTranslation } from 'react-i18next';
 import { SearchOverlay } from './SearchOverlay/SearchOverlay';
 import filterIcon from '../../../assets/icons/filter.svg';
 import theme from '../../../styles/theme';
@@ -13,6 +14,8 @@ export const SearchDropdown: React.FC = () => {
   const [query, setQuery] = useState('');
   const [isOverlayActive, setOverlayActive] = useState(false);
   const [isFilterActive, setFilterActive] = useState(false);
+
+  const { t } = useTranslation();
 
   const isTablet = useMediaQuery({ query: theme.media.md });
 
@@ -47,7 +50,7 @@ export const SearchDropdown: React.FC = () => {
             <Input
               size="small"
               bordered={false}
-              placeholder="Search"
+              placeholder={t('header.search')}
               value={query}
               onChange={handleChangeInput}
               onClick={handleClickInput}

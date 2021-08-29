@@ -1,8 +1,9 @@
 import React from 'react';
+import { LinearGradientObject } from 'echarts';
 import { useMediaQuery } from 'react-responsive';
+import { useTranslation } from 'react-i18next';
 import { Chart } from '../../../common/Chart/Chart';
 import theme from '../../../../styles/theme';
-import { LinearGradientObject } from 'echarts';
 
 interface StatisticsChartProps {
   value: number;
@@ -14,6 +15,8 @@ export const StatisticsChart: React.FC<StatisticsChartProps> = ({ value, chartCo
   const isTablet = useMediaQuery({ query: theme.media.md });
   const isDesktop = useMediaQuery({ query: theme.media.xl });
   const isBigScreen = useMediaQuery({ query: theme.media.xxl });
+
+  const { t } = useTranslation();
 
   const option = {
     color: [chartColor, theme.colors.basicLight],
@@ -27,7 +30,7 @@ export const StatisticsChart: React.FC<StatisticsChartProps> = ({ value, chartCo
           fontSize: (isBigScreen && '24px') || (isTablet && '14px') || '12px',
           color,
           formatter: function () {
-            return `${value} kg`;
+            return `${value} ${t('common.kg')}`;
           },
         },
         data: [

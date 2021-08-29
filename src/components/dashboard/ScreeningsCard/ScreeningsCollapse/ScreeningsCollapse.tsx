@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { ArrowLeftOutlined, ArrowRightOutlined, CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
 import { doctorsData } from '../../../../constants/doctorsData';
 import * as S from './ScreeningsCollapse.styles';
 
@@ -11,6 +12,8 @@ interface ScreeningsItemState {
 
 export const ScreeningsCollapse: React.FC = () => {
   const [isCollapsed, setCollapsed] = useState(true);
+
+  const { t } = useTranslation();
 
   const [activeItems, setActiveItems] = useState<ScreeningsItemState>({
     firstItem: 1,
@@ -65,7 +68,7 @@ export const ScreeningsCollapse: React.FC = () => {
   return (
     <S.Wrapper isCollapsed={isCollapsed}>
       <S.HeaderWrapper isCollapsed={isCollapsed}>
-        {!isCollapsed && <S.Text>Friends</S.Text>}
+        {!isCollapsed && <S.Text>{t('dashboard.latestScreenings.friends')}</S.Text>}
         <S.ArrowBtn type="text" onClick={() => setCollapsed(!isCollapsed)}>
           {isCollapsed ? <ArrowRightOutlined /> : <ArrowLeftOutlined />}
         </S.ArrowBtn>

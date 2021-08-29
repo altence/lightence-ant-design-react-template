@@ -1,6 +1,8 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Button } from 'antd';
+import { useTranslation } from 'react-i18next';
+
 import hamburgerIcon from '../../assets/icons/hamburger.svg';
 import theme from '../../styles/theme';
 import { SearchDropdown } from './SearchDropdown/SearchDropdown';
@@ -18,6 +20,7 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ toggleSider }) => {
   const isTablet = useMediaQuery({ query: theme.media.md });
+  const { t } = useTranslation();
 
   return (
     <S.Wrapper>
@@ -38,7 +41,7 @@ export const Header: React.FC<HeaderProps> = ({ toggleSider }) => {
       </S.TopWrapper>
 
       <S.BottomWrapper>
-        <S.Title>Dashboard</S.Title>
+        <S.Title>{t('dashboard.title')}</S.Title>
         <ExportDropdown />
       </S.BottomWrapper>
     </S.Wrapper>

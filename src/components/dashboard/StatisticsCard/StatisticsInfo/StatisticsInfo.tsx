@@ -1,5 +1,6 @@
-import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
 import React from 'react';
+import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
 import * as S from './StatisticsInfo.styles';
 
 interface StatisticsInfoProps {
@@ -10,9 +11,11 @@ interface StatisticsInfoProps {
 }
 
 export const StatisticsInfo: React.FC<StatisticsInfoProps> = ({ title, percent, isDowngrade = false, color }) => {
+  const { t } = useTranslation();
+
   return (
     <S.Wrapper>
-      <S.Title color={color}>{title}</S.Title>
+      <S.Title color={color}>{t(title)}</S.Title>
       <S.Percentage isDowngrade={isDowngrade}>
         {(!isDowngrade && <CaretUpOutlined />) || <CaretDownOutlined />}
         <S.Text>{percent}%</S.Text>

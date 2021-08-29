@@ -1,28 +1,28 @@
 interface Pie {
   value: number;
   name: string;
-  description?: string;
+  description: string;
 }
 
 export const pieChartData: Pie[] = [
   {
     value: 72,
-    name: 'Lifestyle',
-    description: 'Without new treatments, the W.H.O. says, the number of new cancer patients.',
+    name: 'dashboard.health.lifestyle.title',
+    description: 'dashboard.health.lifestyle.description',
   },
   {
     value: 50,
-    name: 'Ecology',
-    description: 'Without new treatments, the W.H.O. says, the number of new cancer patients.',
+    name: 'dashboard.health.ecology.title',
+    description: 'dashboard.health.ecology.description',
   },
   {
     value: 70,
-    name: 'Genetics',
-    description: 'Without new treatments, the W.H.O. says, the number of new cancer patients.',
+    name: 'dashboard.health.genetics.title',
+    description: 'dashboard.health.genetics.description',
   },
   {
     value: 20,
-    name: 'Some info',
-    description: 'Without new treatments, the W.H.O. says, the number of new cancer patients.',
+    name: 'dashboard.health.someInfo.title',
+    description: 'dashboard.health.someInfo.description',
   },
 ];

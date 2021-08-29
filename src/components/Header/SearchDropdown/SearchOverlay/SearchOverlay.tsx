@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import useDebounce from '../../../../hooks/useDebounce';
 import { SearchFilter } from './SearchFilter/SearchFilter';
 import { Component, componentsData } from '../../../../constants/componentsData';
@@ -11,6 +12,8 @@ interface SearchOverlayProps {
 
 export const SearchOverlay: React.FC<SearchOverlayProps> = ({ value, isFilterActive }) => {
   const [category, setCategory] = useState('');
+
+  const { t } = useTranslation();
 
   const debouncedValue = useDebounce(value, 1000);
 
@@ -44,6 +47,8 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ value, isFilterAct
     }
   }, [debouncedValue, category, componentsData]);
 
+  console.log(results);
+
   return (
     <S.Wrapper>
       <S.ResultsWrapper>
@@ -53,9 +58,9 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ value, isFilterAct
               <S.Link key={index} type="text" href={item.url}>
                 {item.name}
               </S.Link>
-            ))) || <S.Text>Try to change your search query</S.Text>
+            ))) || <S.Text>{t('header.notFound')} </S.Text>
         ) : (
-          <S.Text>Enter your search term</S.Text>
+          <S.Text>{t('header.searchTerm')}</S.Text>
         )}
       </S.ResultsWrapper>
 

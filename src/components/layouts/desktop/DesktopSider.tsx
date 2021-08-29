@@ -1,6 +1,7 @@
 import React, { ReactNode, useState } from 'react';
 import { Button, Layout } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import theme from '../../../styles/theme';
 
@@ -26,7 +27,7 @@ const DesktopSider: React.FC<DesktopSiderProps> = ({ children, logo }) => {
         />
       </CollapseDiv>
       <LogoDiv>
-        <Logo href="/" hidden={siderCollapsed}>
+        <Logo to="/" hidden={siderCollapsed}>
           {logo}
         </Logo>
       </LogoDiv>
@@ -92,7 +93,7 @@ interface LogoProps {
   hidden: boolean;
 }
 
-const Logo = styled.a<LogoProps>`
+const Logo = styled(Link)<LogoProps>`
   ${(props) =>
     props.hidden &&
     css`

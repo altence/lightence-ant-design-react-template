@@ -1,7 +1,9 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
 import theme from '../../../../styles/theme';
+import { getCamelizedName } from '../../../../helpers/getCamelizedName';
 import * as S from './BloodScreeningTable.styles';
 
 interface BloodScreeningTableProps {
@@ -29,7 +31,7 @@ interface Column {
   render: (values: Values) => React.ReactElement;
 }
 
-export const dataSource: Cell[] = [
+const dataSource: Cell[] = [
   {
     key: 0,
     values: {
@@ -81,21 +83,27 @@ export const BloodScreeningTable: React.FC<BloodScreeningTableProps> = ({ active
   const isTablet = useMediaQuery({ query: theme.media.md });
   const isBigScreen = useMediaQuery({ query: theme.media.xxl });
 
+  const { t } = useTranslation();
+
   const columns: Column[] = [
     {
-      title: 'Cell',
+      title: t('dashboard.bloodScreening.cell'),
       dataIndex: 'values',
       key: 'values',
-      render: ({ cellName }) => <S.Text isActive={cellName === activeItem.values.cellName}>{cellName}</S.Text>,
+      render: ({ cellName }) => (
+        <S.Text isActive={cellName === activeItem.values.cellName}>
+          {t(`dashboard.bloodScreening.${getCamelizedName(cellName)}`)}
+        </S.Text>
+      ),
     },
     {
-      title: 'Min',
+      title: t('dashboard.bloodScreening.min'),
       dataIndex: 'values',
       key: 'values',
       render: ({ cellName, min }) => <S.Text isActive={cellName === activeItem.values.cellName}>{min}</S.Text>,
     },
     {
-      title: 'Your perf.',
+      title: t('dashboard.bloodScreening.yourPerf'),
       dataIndex: 'values',
       key: 'values',
       render: ({ cellName, min, current }) => (

@@ -23,6 +23,10 @@ export const Table = styled(AntTable)`
     border: 0;
     cursor: pointer;
   }
+
+  @media only screen and ${theme.media.xl} {
+    padding: 0 1rem;
+  }
 `;
 
 export const Text = styled.span<TextProps>`

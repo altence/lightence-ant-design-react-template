@@ -1,6 +1,7 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { EChartsOption } from 'echarts';
+import { useTranslation } from 'react-i18next';
 import { Chart } from '../../../common/Chart/Chart';
 import theme from '../../../../styles/theme';
 import { pieChartData } from '../../../../constants/healthChartData';
@@ -10,6 +11,16 @@ export const HealthChart: React.FC = () => {
   const isTablet = useMediaQuery({ query: theme.media.md });
   const isDesktop = useMediaQuery({ query: theme.media.xl });
   const isBigScreen = useMediaQuery({ query: theme.media.xxl });
+
+  const { t } = useTranslation();
+
+  const data = pieChartData.map((item) => {
+    return {
+      ...item,
+      name: t(item.name),
+      description: t(item.description),
+    };
+  });
 
   const option = {
     color: [
@@ -31,7 +42,7 @@ export const HealthChart: React.FC = () => {
       icon: (isBigScreen && 'roundRect') || 'circle',
       textStyle: {
         padding: 10,
-        width: (isBigScreen && 320) || (isDesktop && 170) || (isTablet && 220) || 130,
+        width: (isBigScreen && 260) || (isDesktop && 170) || (isTablet && 220) || 130,
         overflow: 'break',
         rich: {
           a: {
@@ -49,9 +60,9 @@ export const HealthChart: React.FC = () => {
       formatter: (name: string) => {
         let target;
 
-        for (let i = 0; i < pieChartData.length; i++) {
-          if (pieChartData[i].name === name) {
-            target = pieChartData[i].description;
+        for (let i = 0; i < data.length; i++) {
+          if (data[i].name === name) {
+            target = data[i].description;
           }
         }
 
@@ -69,13 +80,13 @@ export const HealthChart: React.FC = () => {
           show: true,
           position: 'center',
           formatter: (label: EChartsOption) => {
-            return `${label.value} percent`;
+            return `${label.value} ${t('dashboard.health.percent')}`;
           },
           backgroundColor: theme.colors.secondary,
           color: theme.colors.primary,
-          fontSize: (isBigScreen && 24) || 16,
+          fontSize: (isBigScreen && 18) || 12,
         },
-        data: pieChartData,
+        data,
         emphasis: {
           label: {
             show: true,
