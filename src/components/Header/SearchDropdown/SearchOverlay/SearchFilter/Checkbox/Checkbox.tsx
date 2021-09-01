@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { getCamelizedName } from '../../../../../../helpers/getCamelizedName';
+import { camelize } from '../../../../../../helpers/camelize';
 import * as S from './Checkbox.styles';
 
 interface CheckboxProps {
@@ -26,7 +26,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({ setCategory, category, name 
 
   return (
     <S.Checkbox checked={category === nameFromLowerCase} onChange={handleClickCategory(nameFromLowerCase)}>
-      {t(`common.${getCamelizedName(name)}`)}
+      {t(`common.${camelize(name)}`)}
     </S.Checkbox>
   );
 };
