@@ -47,8 +47,6 @@ export const SearchOverlay: React.FC<SearchOverlayProps> = ({ value, isFilterAct
     }
   }, [debouncedValue, category, componentsData]);
 
-  console.log(results);
-
   return (
     <S.Wrapper>
       <S.ResultsWrapper>
