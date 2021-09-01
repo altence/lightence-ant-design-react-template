@@ -3,7 +3,7 @@ import { useMediaQuery } from 'react-responsive';
 import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import theme from '../../../../styles/theme';
-import { getCamelizedName } from '../../../../helpers/getCamelizedName';
+import { camelize } from '../../../../helpers/camelize';
 import * as S from './BloodScreeningTable.styles';
 
 interface BloodScreeningTableProps {
@@ -92,7 +92,7 @@ export const BloodScreeningTable: React.FC<BloodScreeningTableProps> = ({ active
       key: 'values',
       render: ({ cellName }) => (
         <S.Text isActive={cellName === activeItem.values.cellName}>
-          {t(`dashboard.bloodScreening.${getCamelizedName(cellName)}`)}
+          {t(`dashboard.bloodScreening.${camelize(cellName)}`)}
         </S.Text>
       ),
     },

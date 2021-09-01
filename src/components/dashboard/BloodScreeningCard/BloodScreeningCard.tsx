@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { BloodScreeningChart } from './BloodScreeningChart/BloodScreeningChart';
 import { Cell, BloodScreeningTable } from './BloodScreeningTable/BloodScreeningTable';
 import theme from '../../../styles/theme';
-import { getCamelizedName } from '../../../helpers/getCamelizedName';
+import { camelize } from '../../../helpers/camelize';
 import * as S from './BloodScreeningCard.styles';
 
 export const BloodScreeningCard: React.FC = () => {
@@ -24,7 +24,7 @@ export const BloodScreeningCard: React.FC = () => {
 
   return (
     <S.Card id="blood-screening" title={!isTablet && t('dashboard.bloodScreening.title')} padding={0}>
-      <S.Badge>{t(`dashboard.bloodScreening.${getCamelizedName(activeItem.values.cellName)}`)}</S.Badge>
+      <S.Badge>{t(`dashboard.bloodScreening.${camelize(activeItem.values.cellName)}`)}</S.Badge>
       <BloodScreeningChart activeItem={activeItem} />
       <BloodScreeningTable activeItem={activeItem} setActiveItem={setActiveItem} />
     </S.Card>
