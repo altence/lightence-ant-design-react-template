@@ -20,6 +20,10 @@ export class Dates {
     return dayjs.weekdaysShort();
   }
 
+  static getDate(date: number): AppDate {
+    return dayjs(date);
+  }
+
   static format(date: AppDate | string | number, query: string): string {
     if (typeof date === 'string' || typeof date === 'number') {
       return dayjs(date).format(query);
