@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button, Typography, Image as AntImage } from 'antd';
+import { Button, Typography, Image as AntImage, Input } from 'antd';
 import theme from '../../../../styles/theme';
 
 export const BtnMore = styled(Button)`
@@ -31,6 +31,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  width: 100%;
 
   border-radius: ${(props) => props.theme.border.radius};
 
@@ -81,7 +82,11 @@ export const Wrapper = styled.div`
 export const Image = styled(AntImage)`
   width: 100%;
   height: 100%;
+
+  border-radius: ${(props) => props.theme.border.radius};
 `;
+
+export const Author = styled(Typography.Text)``;
 
 export const InfoWrapper = styled.div`
   padding: 0.875rem;
@@ -132,5 +137,17 @@ export const Description = styled(Typography.Text)`
 
   @media only screen and ${theme.media.xxl} {
     font-size: 1rem;
+  }
+`;
+
+export const Keywords = styled(Input)`
+  margin-top: 0.5rem;
+
+  @media only screen and ${theme.media.md} {
+    margin-top: 0.75rem;
+  }
+
+  @media only screen and ${theme.media.xxl} {
+    margin-top: 1rem;
   }
 `;

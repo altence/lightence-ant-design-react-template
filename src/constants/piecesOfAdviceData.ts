@@ -2,7 +2,7 @@ export interface Advice {
   id?: number;
   title: string;
   description: string;
-  date: number;
+  date: number | string;
   imgUrl: string;
   imgUrlHighResol?: string;
 }

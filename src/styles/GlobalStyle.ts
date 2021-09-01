@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import theme from './theme';
 
 export default createGlobalStyle`
   * {
@@ -9,5 +10,14 @@ export default createGlobalStyle`
   
   body {
     min-width: 425px;
+  }
+
+  .range-picker {
+    & .ant-picker-panels {
+      @media only screen and ${theme.media.xs} and (max-width: ${theme.breakpoints.md - 1}px) {
+        display: flex;
+      flex-direction: column;
+      }
+    }
   }
 `;
