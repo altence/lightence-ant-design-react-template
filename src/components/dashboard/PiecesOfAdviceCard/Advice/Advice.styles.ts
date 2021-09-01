@@ -27,6 +27,24 @@ export const BtnMore = styled(Button)`
   }
 `;
 
+export const Keywords = styled(Input)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  width: 50%;
+  z-index: 2;
+  opacity: 0;
+  transition: all 0.3s ease;
+
+  color: ${(props) => props.theme.colors.secondary};
+
+  &::placeholder {
+    color: ${(props) => props.theme.colors.secondary};
+  }
+`;
+
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -74,6 +92,10 @@ export const Wrapper = styled.div`
 
     & ${BtnMore} {
       pointer-events: all;
+      opacity: 1;
+    }
+
+    & ${Keywords} {
       opacity: 1;
     }
   }
@@ -137,17 +159,5 @@ export const Description = styled(Typography.Text)`
 
   @media only screen and ${theme.media.xxl} {
     font-size: 1rem;
-  }
-`;
-
-export const Keywords = styled(Input)`
-  margin-top: 0.5rem;
-
-  @media only screen and ${theme.media.md} {
-    margin-top: 0.75rem;
-  }
-
-  @media only screen and ${theme.media.xxl} {
-    margin-top: 1rem;
   }
 `;
