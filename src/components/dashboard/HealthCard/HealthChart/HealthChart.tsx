@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { EChartsOption } from 'echarts';
+import { ThemeContext } from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import { Chart } from '../../../common/Chart/Chart';
-import theme from '../../../../styles/theme';
 import { pieChartData } from '../../../../constants/healthChartData';
 
 export const HealthChart: React.FC = () => {
-  const isMobile = useMediaQuery({ query: theme.media.xs });
-  const isTablet = useMediaQuery({ query: theme.media.md });
-  const isDesktop = useMediaQuery({ query: theme.media.xl });
-  const isBigScreen = useMediaQuery({ query: theme.media.xxl });
+  const themeContext = useContext(ThemeContext);
+
+  const isMobile = useMediaQuery({ query: themeContext.media.xs });
+  const isTablet = useMediaQuery({ query: themeContext.media.md });
+  const isDesktop = useMediaQuery({ query: themeContext.media.xl });
+  const isBigScreen = useMediaQuery({ query: themeContext.media.xxl });
 
   const { t } = useTranslation();
 
@@ -24,10 +26,10 @@ export const HealthChart: React.FC = () => {
 
   const option = {
     color: [
-      theme.colors.chartsErrorGradient,
-      theme.colors.chartsAccentGradient,
-      theme.colors.chartsPrimaryGradient,
-      theme.colors.basicLight,
+      themeContext.colors.chartsErrorGradient,
+      themeContext.colors.chartsAccentGradient,
+      themeContext.colors.chartsPrimaryGradient,
+      themeContext.colors.basicLight,
     ],
     tooltip: {
       trigger: 'item',
@@ -82,16 +84,16 @@ export const HealthChart: React.FC = () => {
           formatter: (label: EChartsOption) => {
             return `${label.value} ${t('dashboard.health.percent')}`;
           },
-          backgroundColor: theme.colors.secondary,
-          color: theme.colors.primary,
+          backgroundColor: themeContext.colors.secondary,
+          color: themeContext.colors.primary,
           fontSize: (isBigScreen && 18) || 12,
         },
         data,
         emphasis: {
           label: {
             show: true,
-            backgroundColor: theme.colors.secondary,
-            color: theme.colors.primary,
+            backgroundColor: themeContext.colors.secondary,
+            color: themeContext.colors.primary,
           },
         },
       },

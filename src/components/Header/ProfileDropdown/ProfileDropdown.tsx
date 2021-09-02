@@ -18,7 +18,14 @@ export const ProfileDropdown: React.FC = () => {
   }, []);
 
   return (
-    <Dropdown overlay={<S.DropdownContent>Temp item</S.DropdownContent>} trigger={['click']}>
+    <Dropdown
+      overlay={
+        <S.Menu>
+          <S.DropdownContent>Temp item</S.DropdownContent>
+        </S.Menu>
+      }
+      trigger={['click']}
+    >
       <S.ProfileDropdownHeader>
         {!user ? (
           <S.Spin />

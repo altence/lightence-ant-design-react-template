@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { ThemeContext } from 'styled-components';
 import { Chart } from '../../../common/Chart/Chart';
-import theme from '../../../../styles/theme';
 import { Dates } from '../../../../constants/Dates';
 
 const days = Dates.getDays();
 
 export const ActivityChart: React.FC = () => {
-  const isTablet = useMediaQuery({ query: theme.media.md });
-  const isDesktop = useMediaQuery({ query: theme.media.xl });
-  const isBigScreen = useMediaQuery({ query: theme.media.xxl });
+  const themeContext = useContext(ThemeContext);
+
+  const isTablet = useMediaQuery({ query: themeContext.media.md });
+  const isDesktop = useMediaQuery({ query: themeContext.media.xl });
+  const isBigScreen = useMediaQuery({ query: themeContext.media.xxl });
 
   const option = {
-    color: theme.colors.chartsPrimaryGradient,
+    color: themeContext.colors.chartsPrimaryGradient,
     grid: {
       top: (isDesktop && 40) || 30,
       right: (isDesktop && 20) || 10,
@@ -30,7 +32,7 @@ export const ActivityChart: React.FC = () => {
       data: days,
       position: 'top',
       axisLabel: {
-        color: theme.colors.primary,
+        color: themeContext.colors.primary,
         fontWeight: 500,
         fontSize: (isBigScreen && 14) || (isDesktop && 12) || 10,
       },
@@ -41,7 +43,7 @@ export const ActivityChart: React.FC = () => {
       max: 110,
       interval: 10,
       axisLabel: {
-        color: theme.colors.basic,
+        color: themeContext.colors.basic,
         fontWeight: 500,
         fontSize: (isDesktop && 12) || 10,
       },

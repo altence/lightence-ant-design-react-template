@@ -1,25 +1,26 @@
-import React from 'react';
-import { LinearGradientObject } from 'echarts';
+import React, { useContext } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { ThemeContext } from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import { Chart } from '../../../common/Chart/Chart';
-import theme from '../../../../styles/theme';
 
 interface StatisticsChartProps {
   value: number;
   color: string;
-  chartColor: LinearGradientObject;
+  chartColor: string;
 }
 
 export const StatisticsChart: React.FC<StatisticsChartProps> = ({ value, chartColor, color }) => {
-  const isTablet = useMediaQuery({ query: theme.media.md });
-  const isDesktop = useMediaQuery({ query: theme.media.xl });
-  const isBigScreen = useMediaQuery({ query: theme.media.xxl });
+  const themeContext = useContext(ThemeContext);
+
+  const isTablet = useMediaQuery({ query: themeContext.media.md });
+  const isDesktop = useMediaQuery({ query: themeContext.media.xl });
+  const isBigScreen = useMediaQuery({ query: themeContext.media.xxl });
 
   const { t } = useTranslation();
 
   const option = {
-    color: [chartColor, theme.colors.basicLight],
+    color: [chartColor, themeContext.colors.basicLight],
     series: [
       {
         type: 'pie',

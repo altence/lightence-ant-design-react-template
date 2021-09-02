@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Typography, Badge as AntBadge, Avatar, Menu, Spin as AntSpin } from 'antd';
+import { Typography, Badge as AntBadge, Avatar, Spin as AntSpin, Menu as AntMenu } from 'antd';
 import theme from '../../styles/theme';
 
 export const Wrapper = styled.div`
@@ -29,7 +29,11 @@ export const ButtonsWrapper = styled.div`
   justify-content: space-between;
 `;
 
-export const DropdownContent = styled(Menu)`
+export const Menu = styled(AntMenu)`
+  padding: 0;
+`;
+
+export const DropdownContent = styled.div`
   padding: 0.5rem;
   font-size: 0.625rem;
 
@@ -161,4 +165,9 @@ export const ExportDropdownHeader = styled(DropdownHeader)`
       font-size: 0.75rem;
     }
   }
+`;
+
+export const SwitchWrapper = styled.div`
+  margin-top: 2rem;
+  text-align: center;
 `;
