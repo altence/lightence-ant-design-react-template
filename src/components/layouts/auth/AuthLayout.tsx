@@ -16,8 +16,14 @@ const AuthLayout: React.FC = ({ children }) => {
           <S.Subtitle>Masakra</S.Subtitle>
           {!isDesktop && children}
         </S.LoginWrapper>
+        {!isDesktop && <S.Copyright>2021 &copy; Altence. All Rights Reserved</S.Copyright>}
       </S.BackgroundWrapper>
-      {isDesktop && <S.FormWrapper>{children}</S.FormWrapper>}
+      {isDesktop && (
+        <S.FormWrapper>
+          {children}
+          <S.Copyright>2021 &copy; Altence. All Rights Reserved</S.Copyright>
+        </S.FormWrapper>
+      )}
     </S.Wrapper>
   );
 };
