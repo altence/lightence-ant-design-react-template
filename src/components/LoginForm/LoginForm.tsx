@@ -40,7 +40,7 @@ const LoginForm: React.FC = () => {
         </Form.Item>
         <S.SignupWrapper>
           <S.Text>
-            Don’t have an account? Create one
+            Don’t have an account? Create one{' '}
             <Link to="/signup">
               <S.SignupText>here</S.SignupText>
             </Link>
