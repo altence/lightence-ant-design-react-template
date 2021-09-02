@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { Button, Typography, Input as AntInput, Form, Checkbox } from 'antd';
-import theme from '../../styles/theme';
+import theme from '../../../styles/theme';
 
 export const Wrapper = styled.div`
-  padding: 1.875rem 1.875rem 5.5rem 1.875rem;
+  padding: 1.875rem 1.875rem;
   width: 20.5rem;
 
   background-color: ${(props) => props.theme.colors.secondary};
@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   border-radius: ${(props) => props.theme.border.radius};
 
   @media only screen and ${theme.media.md} {
-    padding: 1.25rem 2rem 0.75rem 2rem;
+    padding: 1.25rem 2rem;
 
     background-color: ${(props) => props.theme.colors.secondaryAlpha};
   }
@@ -27,11 +27,17 @@ export const Title = styled(Typography.Text)`
   display: block;
   font-size: 1.12rem;
   font-weight: 500;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 
   @media only screen and ${theme.media.xl} {
     margin-bottom: 2rem;
   }
+`;
+
+export const Text = styled(Typography.Text)`
+  display: block;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
 `;
 
 export const FormItem = styled(Form.Item)`
@@ -57,12 +63,6 @@ export const Input = styled(AntInput)`
   background-color: ${(props) => props.theme.colors.basicLight};
 `;
 
-export const ActionsWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 3rem;
-`;
-
 export const CheckBox = styled(Checkbox)`
   display: flex;
   align-items: center;
@@ -72,24 +72,7 @@ export const CheckBox = styled(Checkbox)`
   }
 `;
 
-export const Text = styled(Typography.Text)`
-  font-size: 0.68rem;
-
-  color: ${(props) => props.theme.colors.basicMurky};
-`;
-
 export const SubmitButton = styled(Button)`
   font-size: 1rem;
   width: 100%;
-`;
-
-export const SignupWrapper = styled.div`
-  margin-top: 0.875rem;
-  text-align: center;
-`;
-
-export const SignupText = styled(Typography.Text)`
-  text-decoration: underline;
-
-  color: ${(props) => props.theme.colors.primary};
 `;

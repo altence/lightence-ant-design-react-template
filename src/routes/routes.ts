@@ -2,6 +2,7 @@ import Dashboard from '../pages/Dashboard';
 import Error404 from '../pages/Error404';
 import Error500 from '../pages/Error500';
 import NewsFeedPage from '../pages/NewsFeedPage';
+import ForgotPassword from '../pages/ForgotPassword';
 import Login from '../pages/Login';
 
 export const routes = [
@@ -16,6 +17,12 @@ export const routes = [
     guarded: false,
     exact: false,
     component: Login,
+  },
+  {
+    path: '/forgot-password',
+    guarded: false,
+    exact: false,
+    component: ForgotPassword,
   },
   {
     path: '/feed',

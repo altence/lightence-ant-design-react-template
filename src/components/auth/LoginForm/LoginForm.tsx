@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import * as S from './LoginForm.styles';
 
-const LoginForm: React.FC = () => {
+export const LoginForm: React.FC = () => {
   const history = useHistory();
 
   const { t } = useTranslation();
@@ -53,5 +53,3 @@ const LoginForm: React.FC = () => {
     </S.Wrapper>
   );
 };
-
-export default LoginForm;

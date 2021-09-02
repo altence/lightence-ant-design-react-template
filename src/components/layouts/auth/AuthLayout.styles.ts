@@ -64,8 +64,24 @@ export const Subtitle = styled(Typography.Text)`
 `;
 
 export const FormWrapper = styled.div`
+  position: relative;
   width: 40%;
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+
+export const Copyright = styled(Typography.Text)`
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 0.625rem;
+
+  color: ${(props) => props.theme.colors.secondaryAlpha};
+
+  @media only screen and ${theme.media.xl} {
+    color: ${(props) => props.theme.colors.basic};
+  }
 `;
