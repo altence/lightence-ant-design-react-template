@@ -1,10 +1,8 @@
 import React from 'react';
-import { LinearGradientObject } from 'echarts';
 import { BonesIcon } from '../components/dashboard/StatisticsCard/icons/BonesIcon';
 import { FatIcon } from '../components/dashboard/StatisticsCard/icons/FatIcon';
 import { ProteinIcon } from '../components/dashboard/StatisticsCard/icons/ProteinIcon';
 import { WaterBalanceIcon } from '../components/dashboard/StatisticsCard/icons/WaterBalanceIcon';
-import theme from '../styles/theme';
 
 export interface Statistic {
   id: number;
@@ -14,7 +12,7 @@ export interface Statistic {
   icon: React.FC;
   isDowngrade: boolean;
   color: string;
-  chartColor: LinearGradientObject;
+  chartColor: string;
 }
 
 export const statisticsData: Statistic[] = [
@@ -25,8 +23,8 @@ export const statisticsData: Statistic[] = [
     percent: 14,
     icon: ProteinIcon,
     isDowngrade: false,
-    color: theme.colors.primary,
-    chartColor: theme.colors.chartsPrimaryGradient,
+    color: 'primary',
+    chartColor: 'chartsPrimaryGradient',
   },
   {
     id: 2,
@@ -35,8 +33,8 @@ export const statisticsData: Statistic[] = [
     percent: 20,
     icon: FatIcon,
     isDowngrade: true,
-    color: theme.colors.error,
-    chartColor: theme.colors.chartsErrorGradient,
+    color: 'error',
+    chartColor: 'chartsErrorGradient',
   },
   {
     id: 3,
@@ -45,8 +43,8 @@ export const statisticsData: Statistic[] = [
     percent: 34,
     icon: BonesIcon,
     isDowngrade: false,
-    color: theme.colors.primaryAccent,
-    chartColor: theme.colors.chartsPrimaryLightGradient,
+    color: 'primaryAccent',
+    chartColor: 'chartsPrimaryLightGradient',
   },
   {
     id: 4,
@@ -55,7 +53,7 @@ export const statisticsData: Statistic[] = [
     percent: 21,
     icon: WaterBalanceIcon,
     isDowngrade: false,
-    color: theme.colors.accent,
-    chartColor: theme.colors.chartsAccentGradient,
+    color: 'accent',
+    chartColor: 'chartsAccentGradient',
   },
 ];

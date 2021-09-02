@@ -5,7 +5,14 @@ import * as S from '../Header.styles';
 
 export const NotificationDropdown: React.FC = () => {
   return (
-    <Dropdown overlay={<S.DropdownContent>Temp item</S.DropdownContent>} trigger={['click']}>
+    <Dropdown
+      overlay={
+        <S.Menu>
+          <S.DropdownContent>Temp item</S.DropdownContent>
+        </S.Menu>
+      }
+      trigger={['click']}
+    >
       <S.DropdownHeader>
         <S.Badge color="red">
           <BellOutlined />

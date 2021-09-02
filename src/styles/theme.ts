@@ -1,9 +1,22 @@
 import * as echarts from 'echarts';
+import { DefaultTheme } from 'styled-components';
+
+const primary = {
+  base: '#0059AB',
+  light: '#ecfdff',
+  accent: '#35A0DC',
+};
+
+const primaryDark = {
+  base: '#000',
+  light: '#808080',
+  accent: '#E75480',
+};
 
 export const colors = {
-  primary: '#0059AB',
-  primaryLight: '#ecfdff',
-  primaryAccent: '#35A0DC',
+  primary: primary.base,
+  primaryLight: primary.light,
+  primaryAccent: primary.accent,
   primaryGradient: 'linear-gradient(257.25deg, rgba(0, 108, 207, 0.7) -19.13%, rgba(0, 80, 154, 0.7) 106.53%)',
   primaryAlpha: 'rgba(226, 241, 255, 0.3)',
   secondary: '#fff',
@@ -17,7 +30,63 @@ export const colors = {
   chartsPrimaryGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
     {
       offset: 0,
-      color: '#0059AB',
+      color: primary.base,
+    },
+    {
+      offset: 1,
+      color: '#EEF5FC',
+    },
+  ]),
+  chartsPrimaryLightGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+    {
+      offset: 0,
+      color: '#4092de',
+    },
+    {
+      offset: 1,
+      color: '#c1e1ff',
+    },
+  ]),
+  chartsErrorGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+    {
+      offset: 1,
+      color: '#ffa9a9',
+    },
+    {
+      offset: 0,
+      color: '#ffffff',
+    },
+  ]),
+  chartsAccentGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+    {
+      offset: 0,
+      color: '#FFA215',
+    },
+    {
+      offset: 1,
+      color: '#FFD595',
+    },
+  ]),
+};
+
+export const darkColors = {
+  primary: primaryDark.base,
+  primaryLight: primaryDark.light,
+  primaryAccent: primaryDark.accent,
+  primaryGradient: 'linear-gradient(257.25deg, rgba(0, 108, 207, 0.7) -19.13%, rgba(0, 80, 154, 0.7) 106.53%)',
+  primaryAlpha: 'rgba(226, 241, 255, 0.3)',
+  secondary: '#fff',
+  basic: '#dddddd',
+  basicLight: '#f7f7f7',
+  basicDark: '#000',
+  success: '#57D682',
+  error: '#FF5252',
+  errorLight: '#FF9999',
+  accent: '#FFB155',
+  chartsPrimaryGradient: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+    {
+      offset: 0,
+      color: primaryDark.base,
     },
     {
       offset: 1,
@@ -93,6 +162,9 @@ const theme = {
   media,
   desktopLayout,
   mobileLayout,
+  switchTheme: (newTheme: DefaultTheme): DefaultTheme | void => {
+    return newTheme;
+  },
 };
 
 export default theme;

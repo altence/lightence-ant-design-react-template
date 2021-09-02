@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Chart } from '../../../common/Chart/Chart';
-import theme from '../../../../styles/theme';
 import { getMarkAreaData } from '../../../../helpers/getMarkAreaData';
+import { ThemeContext } from 'styled-components';
 
 const xAxisData = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
 export const ScreeningsChart: React.FC = () => {
-  const isBigScreen = useMediaQuery({ query: theme.media.xxl });
+  const themeContext = useContext(ThemeContext);
+
+  const isBigScreen = useMediaQuery({ query: themeContext.media.xxl });
 
   const option = {
     tooltip: {
@@ -46,11 +48,11 @@ export const ScreeningsChart: React.FC = () => {
         showSymbol: false,
         lineStyle: {
           width: 2,
-          color: theme.colors.error,
+          color: themeContext.colors.error,
         },
         areaStyle: {
           opacity: 1,
-          color: theme.colors.chartsErrorGradient,
+          color: themeContext.colors.chartsErrorGradient,
         },
         emphasis: {
           focus: 'series',
@@ -58,7 +60,7 @@ export const ScreeningsChart: React.FC = () => {
         data: [28, 32, 39, 41, 38, 40, 45, 49, 50, 48],
         markArea: {
           itemStyle: {
-            color: theme.colors.primaryAlpha,
+            color: themeContext.colors.primaryAlpha,
           },
           data: getMarkAreaData(xAxisData),
         },
@@ -69,12 +71,12 @@ export const ScreeningsChart: React.FC = () => {
         smooth: true,
         lineStyle: {
           width: 2,
-          color: theme.colors.primary,
+          color: themeContext.colors.primary,
         },
         showSymbol: false,
         areaStyle: {
           opacity: 1,
-          color: theme.colors.chartsPrimaryLightGradient,
+          color: themeContext.colors.chartsPrimaryLightGradient,
         },
         emphasis: {
           focus: 'series',

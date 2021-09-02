@@ -37,9 +37,11 @@ export const SearchDropdown: React.FC = () => {
     <Dropdown
       onVisibleChange={(visible) => setOverlayActive(visible)}
       overlay={
-        <S.DropdownContent>
-          <SearchOverlay value={query} isFilterActive={isFilterActive} />
-        </S.DropdownContent>
+        <S.Menu>
+          <S.DropdownContent>
+            <SearchOverlay value={query} isFilterActive={isFilterActive} />
+          </S.DropdownContent>
+        </S.Menu>
       }
       trigger={['click']}
     >

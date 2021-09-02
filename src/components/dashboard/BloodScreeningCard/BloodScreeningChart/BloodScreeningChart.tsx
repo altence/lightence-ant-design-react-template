@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { EChartsInstance } from 'echarts-for-react';
+import { ThemeContext } from 'styled-components';
 import { useMediaQuery } from 'react-responsive';
 import { Chart } from '../../../common/Chart/Chart';
-import theme from '../../../../styles/theme';
 import { Dates } from '../../../../constants/Dates';
 import { Cell } from '../BloodScreeningTable/BloodScreeningTable';
 
@@ -13,11 +13,13 @@ interface BloodScreeningChartsProps {
 }
 
 export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ activeItem }) => {
-  const isTablet = useMediaQuery({ query: theme.media.md });
-  const isBigScreen = useMediaQuery({ query: theme.media.xxl });
+  const themeContext = useContext(ThemeContext);
+
+  const isTablet = useMediaQuery({ query: themeContext.media.md });
+  const isBigScreen = useMediaQuery({ query: themeContext.media.xxl });
 
   const option = {
-    color: (isTablet && theme.colors.chartsErrorGradient) || theme.colors.error,
+    color: (isTablet && themeContext.colors.chartsErrorGradient) || themeContext.colors.error,
     grid: {
       top: '30%',
       bottom: 0,
@@ -53,7 +55,7 @@ export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ activ
         },
         lineStyle: {
           width: 2,
-          color: theme.colors.error,
+          color: themeContext.colors.error,
         },
       },
     ],
