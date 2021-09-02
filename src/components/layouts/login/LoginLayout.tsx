@@ -1,24 +1,24 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import theme from '../../../styles/theme';
-import * as S from './LoginLayoutStyles';
+import * as S from './LoginLayout.styles';
 
-export interface LoginLayoutProps {
-  logo: ReactNode;
-}
-const LoginLayout: React.FC<LoginLayoutProps> = ({ logo, children }) => {
+const LoginLayout: React.FC = ({ children }) => {
   const isDesktop = useMediaQuery({
-    query: theme.media.md,
+    query: theme.media.xl,
   });
 
   return (
-    <S.LoginLayoutStyled>
-      <S.LoginBackgroundContainer>
-        <S.LoginLogoContainer>{logo}</S.LoginLogoContainer>
-        {!isDesktop && children}
-      </S.LoginBackgroundContainer>
-      {isDesktop && <S.LoginFormContainer>{children}</S.LoginFormContainer>}
-    </S.LoginLayoutStyled>
+    <S.Wrapper>
+      <S.BackgroundWrapper>
+        <S.LoginWrapper>
+          <S.Title>Altence</S.Title>
+          <S.Subtitle>Masakra</S.Subtitle>
+          {!isDesktop && children}
+        </S.LoginWrapper>
+      </S.BackgroundWrapper>
+      {isDesktop && <S.FormWrapper>{children}</S.FormWrapper>}
+    </S.Wrapper>
   );
 };
 

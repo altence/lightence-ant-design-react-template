@@ -1,11 +1,10 @@
 import React from 'react';
-import LoginLogo from '../components/auth/logo/LoginLogo';
-import LoginForm from '../components/auth/form/LoginForm';
+import LoginForm from '../components/LoginForm/LoginForm';
 import LoginLayout from '../components/layouts/login/LoginLayout';
 
 const Login: React.FC = () => {
   return (
-    <LoginLayout logo={<LoginLogo />}>
+    <LoginLayout>
       <LoginForm />
     </LoginLayout>
   );

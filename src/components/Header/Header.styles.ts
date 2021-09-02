@@ -52,11 +52,12 @@ export const DropdownHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.1);
   padding: 0.45rem;
   margin: 0 0.3rem;
   font-size: 1rem;
   cursor: pointer;
+
+  background-color: ${(props) => props.theme.colors.secondaryAlpha};
 
   border-radius: ${(props) => props.theme.border.radius};
 
