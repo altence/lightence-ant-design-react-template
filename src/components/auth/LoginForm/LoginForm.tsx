@@ -53,5 +53,3 @@ export const LoginForm: React.FC = () => {
     </S.Wrapper>
   );
 };
-
-export default LoginForm;
