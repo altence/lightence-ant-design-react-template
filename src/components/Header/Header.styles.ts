@@ -57,7 +57,7 @@ export const DropdownHeader = styled.div`
   font-size: 1rem;
   cursor: pointer;
 
-  background-color: ${(props) => props.theme.colors.secondaryAlpha};
+  background-color: rgba(255, 255, 255, 0.1);
 
   border-radius: ${(props) => props.theme.border.radius};
 

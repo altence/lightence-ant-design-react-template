@@ -124,5 +124,16 @@
     "authorSearch": "Search by author",
     "titleSearch": "Search by title",
     "reset": "Reset filter"
+  },
+  "login": {
+    "title": "Login",
+    "email": "Email",
+    "emailError": "Please input users name or delete this field",
+    "password": "Password",
+    "passwordError": "Wrong login or password",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "noAccount": "Don’t have an account? Create one",
+    "signupLink": "here"
   }
 }
