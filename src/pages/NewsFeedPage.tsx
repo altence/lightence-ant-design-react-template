@@ -2,7 +2,7 @@ import React from 'react';
 import MainLayout from '../components/layouts/MainLayout';
 import { NewsFeed } from '../components/NewsFeed/NewsFeed';
 
-const Feed: React.FC = () => {
+const NewsFeedPage: React.FC = () => {
   return (
     <MainLayout>
       <NewsFeed />
@@ -10,4 +10,4 @@ const Feed: React.FC = () => {
   );
 };
 
-export default Feed;
+export default NewsFeedPage;
