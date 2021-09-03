@@ -18,9 +18,9 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ imgUrl, title, date, d
   return (
     <S.Wrapper>
       {keywords ? (
-        <S.Keywords placeholder={t('newsFeed.keywords')} />
+        <S.Keywords placeholder={t('common.keywords')} />
       ) : (
-        <S.BtnMore type="ghost">{t('dashboard.piecesOfAdvice.moreDetails')}</S.BtnMore>
+        <S.BtnMore type="ghost">{t('common.moreDetails')}</S.BtnMore>
       )}
       <S.Image src={imgUrl} preview={false} />
       <S.InfoWrapper>
