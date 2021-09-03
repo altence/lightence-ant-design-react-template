@@ -19,7 +19,8 @@
     "ok": "DE!!!Ok",
     "oops": "DE!!!Oops!",
     "kg": "DE!!!kg",
-    "tempDiagnosis": "DE!!!Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million."
+    "tempDiagnosis": "DE!!!Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million.",
+    "loading": "DE!!!Loading..."
   },
   "header": {
     "search": "DE!!!Search",
@@ -131,5 +132,12 @@
   "error500": {
     "serverError": "DE!!!Internal server error",
     "tryAgain": "DE!!!Try again"
+  },
+  "newsFeed": {
+    "keywords": "DE!!!Any keywords?",
+    "filter": "DE!!!Filter",
+    "authorSearch": "DE!!!Search by author",
+    "titleSearch": "DE!!!Search by title",
+    "reset": "DE!!!Reset filter"
   }
 }

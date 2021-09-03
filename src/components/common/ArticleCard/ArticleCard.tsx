@@ -1,21 +1,24 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Advice as AdviceProps } from '../../../../constants/piecesOfAdviceData';
-import { Dates } from '../../../../constants/Dates';
-import * as S from './Advice.styles';
+import { Dates } from '../../../constants/Dates';
+import * as S from './ArticleCard.styles.';
 
-interface AdviceExtendedProps extends AdviceProps {
+interface ArticleCardProps {
   author?: React.ReactNode;
   keywords?: boolean;
+  imgUrl: string;
+  title: string;
+  date: number;
+  description: string;
 }
-// TODO rename to ArticleCard
-export const Advice: React.FC<AdviceExtendedProps> = ({ imgUrl, title, date, description, author, keywords }) => {
+
+export const ArticleCard: React.FC<ArticleCardProps> = ({ imgUrl, title, date, description, author, keywords }) => {
   const { t } = useTranslation();
 
   return (
     <S.Wrapper>
       {keywords ? (
-        <S.Keywords placeholder="Any keywords?" />
+        <S.Keywords placeholder={t('newsFeed.keywords')} />
       ) : (
         <S.BtnMore type="ghost">{t('dashboard.piecesOfAdvice.moreDetails')}</S.BtnMore>
       )}

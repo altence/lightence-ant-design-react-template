@@ -1,5 +1,6 @@
 import React, { ReactNode, useMemo, useState } from 'react';
 import { Dropdown, Menu } from 'antd';
+import { useTranslation } from 'react-i18next';
 import useDebounce from '../../../hooks/useDebounce';
 import { AppDate, Dates } from '../../../constants/Dates';
 import { Post } from '../../../api/news.api';
@@ -7,13 +8,15 @@ import * as S from './NewsFilter.styles';
 
 interface NewsFilterProps {
   news: Post[];
-  children: ({ cards }: any) => ReactNode;
+  children: ({ filteredNews }: { filteredNews: Post[] }) => ReactNode;
 }
 
 export const NewsFilter: React.FC<NewsFilterProps> = ({ news, children }) => {
   const [author, setAuthor] = useState('');
   const [title, setTitle] = useState('');
   const [dates, setDates] = useState<[AppDate, AppDate] | [null, null]>([null, null]);
+
+  const { t } = useTranslation();
 
   const handleClickReset = () => {
     setAuthor('');
@@ -57,23 +60,27 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, children }) => {
           <Menu>
             <S.Dropdown>
               <S.Input
-                placeholder="Search by author"
+                placeholder={t('newsFeed.authorSearch')}
                 value={author}
                 onChange={(event) => setAuthor(event.target.value)}
               />
-              <S.Input placeholder="Search by title" value={title} onChange={(event) => setTitle(event.target.value)} />
+              <S.Input
+                placeholder={t('newsFeed.titleSearch')}
+                value={title}
+                onChange={(event) => setTitle(event.target.value)}
+              />
               <S.RangePicker
                 dropdownClassName="range-picker"
                 value={dates}
                 onChange={(dates: any) => setDates([dates[0], dates[1]])}
               />
-              <S.Btn onClick={handleClickReset}>Reset filter</S.Btn>
+              <S.Btn onClick={handleClickReset}>{t('newsFeed.reset')}</S.Btn>
             </S.Dropdown>
           </Menu>
         }
       >
         <S.TitleHeader>
-          <S.Title>Filter</S.Title>
+          <S.Title>{t('newsFeed.filter')}</S.Title>
         </S.TitleHeader>
       </Dropdown>
 
