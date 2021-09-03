@@ -20,6 +20,7 @@ export const colors = {
   primaryGradient: 'linear-gradient(257.25deg, rgba(0, 108, 207, 0.7) -19.13%, rgba(0, 80, 154, 0.7) 106.53%)',
   primaryAlpha: 'rgba(226, 241, 255, 0.3)',
   secondary: '#fff',
+  secondaryAlpha: 'rgba(255, 255, 255, 0.7)',
   basic: '#dddddd',
   basicLight: '#f7f7f7',
   basicDark: '#000',
