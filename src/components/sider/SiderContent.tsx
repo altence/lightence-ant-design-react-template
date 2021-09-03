@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'antd';
-import { CloseOutlined, ExclamationOutlined, FormOutlined } from '@ant-design/icons';
+import { CloseOutlined, ExclamationOutlined, FormOutlined, LoginOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import * as S from './SiderContent.styles';
 
@@ -20,6 +20,11 @@ const SiderContent: React.FC = () => {
       <S.MenuItem key="3" icon={<FormOutlined />}>
         <Link to="/feed">
           <Button type="link">Feed</Button>
+        </Link>
+      </S.MenuItem>
+      <S.MenuItem key="4" icon={<LoginOutlined />}>
+        <Link to="/login">
+          <Button type="link">Login</Button>
         </Link>
       </S.MenuItem>
     </S.Menu>
