@@ -23,6 +23,7 @@ export const colors = {
   basic: '#dddddd',
   basicLight: '#f7f7f7',
   basicDark: '#000',
+  basicMurky: '#898989',
   success: '#57D682',
   error: '#FF5252',
   errorLight: '#FF9999',
