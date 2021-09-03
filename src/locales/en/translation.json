@@ -17,7 +17,12 @@
     "moreDetails": "More details",
     "keywords": "Any keywords?",
     "lightTheme": "Light theme",
-    "darkTheme": "Dark theme"
+    "darkTheme": "Dark theme",
+    "success": "Success",
+    "email": "Email",
+    "emailError": "Please input users name or delete this field",
+    "password": "Password",
+    "passwordError": "Wrong login or password"
   },
   "header": {
     "search": "Search",
@@ -56,7 +61,6 @@
       "title": "Treatment plan",
       "upcomingTreatment": "upcoming treatment according to plan",
       "implementationTreatment": "implementation of the treatment plan",
-      "success": "Success",
       "successTreatment": "You've successfully confirmed the treatment.",
       "confirm": "Confirm",
       "successQuestion": "Your question was sent to the doctor",
@@ -127,13 +131,15 @@
   },
   "login": {
     "title": "Login",
-    "email": "Email",
-    "emailError": "Please input users name or delete this field",
-    "password": "Password",
-    "passwordError": "Wrong login or password",
     "rememberMe": "Remember me",
     "forgotPassword": "Forgot password?",
     "noAccount": "Don’t have an account? Create one",
     "signupLink": "here"
+  },
+  "forgotPassword": {
+    "title": "Forgot your password?",
+    "description": "Enter your email, we'll send you the reset link",
+    "reset": "Reset",
+    "successReset": "We've sent to your email address the reset link"
   }
 }
