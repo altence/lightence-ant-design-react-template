@@ -2,14 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Dropdown, Radio, RadioChangeEvent, Switch } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
-import theme, { darkColors } from '../../../styles/theme';
 import { ThemeSwitchContext } from '../../../context/ThemeSwitchContext';
 import * as S from '../Header.styles';
 
 export const SettingsDropdown: React.FC = () => {
   const [isChecked, setChecked] = useState(false);
 
-  const handleSwitch = useContext(ThemeSwitchContext);
+  const { currentTheme, changeTheme } = useContext(ThemeSwitchContext);
 
   const { t, i18n } = useTranslation();
 
@@ -18,10 +17,10 @@ export const SettingsDropdown: React.FC = () => {
   };
 
   useEffect(() => {
-    if (isChecked) {
-      handleSwitch(darkColors);
-    } else {
-      handleSwitch(theme.colors);
+    if (isChecked && currentTheme !== 'dark') {
+      changeTheme('dark');
+    } else if (!isChecked && currentTheme !== 'light') {
+      changeTheme('light');
     }
   }, [isChecked]);
 

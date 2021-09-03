@@ -167,4 +167,9 @@ const theme = {
   },
 };
 
+export const darkTheme = {
+  ...theme,
+  colors: darkColors,
+};
+
 export default theme;
