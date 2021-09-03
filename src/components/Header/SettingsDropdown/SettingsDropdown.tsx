@@ -15,7 +15,7 @@ export const SettingsDropdown: React.FC = () => {
     <Dropdown
       overlay={
         <S.DropdownContent>
-          <Radio.Group defaultValue="en" onChange={handleChange}>
+          <Radio.Group defaultValue={i18n.language} onChange={handleChange}>
             <Radio value="en">English</Radio>
             <Radio value="de">Deutsch</Radio>
           </Radio.Group>
