@@ -2,26 +2,24 @@ import React, { useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { routes } from './routes/routes';
 import GlobalStyle from './styles/GlobalStyle';
-import { DefaultTheme, ThemeProvider } from 'styled-components';
-import theme from './styles/theme';
+import { ThemeProvider } from 'styled-components';
+import theme, { darkTheme } from './styles/theme';
 import { ThemeSwitchContext } from './context/ThemeSwitchContext';
 import 'typeface-montserrat';
 import 'typeface-poppins';
 
 const App: React.FC = () => {
-  const [currentTheme, setCurrentTheme] = useState<DefaultTheme>(theme);
+  const [currentTheme, setCurrentTheme] = useState('light');
 
-  const handleThemeSwitch = (colors: DefaultTheme) => {
-    setCurrentTheme((prev) => {
-      return { ...prev, colors };
-    });
+  const handleThemeSwitch = (theme: string) => {
+    setCurrentTheme(theme);
   };
 
   return (
     <>
       <GlobalStyle />
-      <ThemeProvider theme={currentTheme}>
-        <ThemeSwitchContext.Provider value={handleThemeSwitch}>
+      <ThemeProvider theme={currentTheme === 'light' ? theme : darkTheme}>
+        <ThemeSwitchContext.Provider value={{ currentTheme, changeTheme: handleThemeSwitch }}>
           <BrowserRouter>
             <Switch>
               {routes.map((route, index) => (

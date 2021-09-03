@@ -1,4 +1,10 @@
 import React from 'react';
-import theme from '../styles/theme';
 
-export const ThemeSwitchContext = React.createContext(theme.switchTheme);
+const themeContext = {
+  currentTheme: 'light',
+  changeTheme: (theme: string): void | string => {
+    return theme;
+  },
+};
+
+export const ThemeSwitchContext = React.createContext(themeContext);
