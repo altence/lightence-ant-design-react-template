@@ -8,7 +8,7 @@ interface AdviceExtendedProps extends AdviceProps {
   author?: React.ReactNode;
   keywords?: boolean;
 }
-
+// TODO rename to ArticleCard
 export const Advice: React.FC<AdviceExtendedProps> = ({ imgUrl, title, date, description, author, keywords }) => {
   const { t } = useTranslation();
 
