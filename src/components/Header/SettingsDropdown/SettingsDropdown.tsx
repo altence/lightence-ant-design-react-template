@@ -11,7 +11,7 @@ export const SettingsDropdown: React.FC = () => {
 
   const handleSwitch = useContext(ThemeSwitchContext);
 
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const handleChange = (e: RadioChangeEvent) => {
     i18n.changeLanguage(e.target.value);
@@ -37,8 +37,8 @@ export const SettingsDropdown: React.FC = () => {
             <S.SwitchWrapper>
               <Switch
                 defaultChecked={isChecked}
-                checkedChildren="Dark theme"
-                unCheckedChildren="Light theme"
+                checkedChildren={t('common.darkTheme')}
+                unCheckedChildren={t('common.lightTheme')}
                 onChange={(value) => setChecked(value)}
               />
             </S.SwitchWrapper>
