@@ -15,7 +15,9 @@
     "tempDiagnosis": "DE!!!Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million.",
     "loading": "DE!!!Loading...",
     "moreDetails": "DE!!!More details",
-    "keywords": "DE!!!Any keywords?"
+    "keywords": "DE!!!Any keywords?",
+    "lightTheme": "DE!!!Light theme",
+    "darkTheme": "DE!!!Dark theme"
   },
   "header": {
     "search": "DE!!!Search",
