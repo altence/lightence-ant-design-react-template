@@ -1,33 +1,19 @@
-import React, { useMemo, useState } from 'react';
+import React, { ReactNode, useMemo, useState } from 'react';
 import { Dropdown, Menu } from 'antd';
 import useDebounce from '../../../hooks/useDebounce';
 import { AppDate, Dates } from '../../../constants/Dates';
-import { FeedProps } from '../../common/Feed/Feed';
 import { Post } from '../../../api/news.api';
 import * as S from './NewsFilter.styles';
 
 interface NewsFilterProps {
   news: Post[];
-  RenderComponent: React.FC<FeedProps>;
-  setNews: (fc: (state: Post[]) => Post[]) => void;
+  children: ({ cards }: any) => ReactNode;
 }
 
-export const NewsFilter: React.FC<NewsFilterProps> = ({ news, RenderComponent, setNews }) => {
+export const NewsFilter: React.FC<NewsFilterProps> = ({ news, children }) => {
   const [author, setAuthor] = useState('');
   const [title, setTitle] = useState('');
   const [dates, setDates] = useState<[AppDate, AppDate] | [null, null]>([null, null]);
-
-  const handleChangeAuthor = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setAuthor(event.target.value);
-  };
-
-  const handleChangeTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setTitle(event.target.value);
-  };
-
-  const handleChangeDate = (dates: any) => {
-    setDates([dates[0], dates[1]]);
-  };
 
   const handleClickReset = () => {
     setAuthor('');
@@ -70,9 +56,17 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, RenderComponent, s
         overlay={
           <Menu>
             <S.Dropdown>
-              <S.Input placeholder="Search by author" value={author} onChange={handleChangeAuthor} />
-              <S.Input placeholder="Search by title" value={title} onChange={handleChangeTitle} />
-              <S.RangePicker dropdownClassName="range-picker" value={dates} onChange={handleChangeDate} />
+              <S.Input
+                placeholder="Search by author"
+                value={author}
+                onChange={(event) => setAuthor(event.target.value)}
+              />
+              <S.Input placeholder="Search by title" value={title} onChange={(event) => setTitle(event.target.value)} />
+              <S.RangePicker
+                dropdownClassName="range-picker"
+                value={dates}
+                onChange={(dates: any) => setDates([dates[0], dates[1]])}
+              />
               <S.Btn onClick={handleClickReset}>Reset filter</S.Btn>
             </S.Dropdown>
           </Menu>
@@ -83,7 +77,7 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, RenderComponent, s
         </S.TitleHeader>
       </Dropdown>
 
-      {<RenderComponent data={filteredNews ? filteredNews : news} setNews={setNews} isFiltered={!!filteredNews} />}
+      {children({ filteredNews: filteredNews || news })}
     </>
   );
 };
