@@ -1,15 +1,18 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Form, notification } from 'antd';
+import { useTranslation } from 'react-i18next';
 import * as S from './ForgotPasswordForm.styles';
 
 export const ForgotPasswordForm: React.FC = () => {
+  const { t } = useTranslation();
+
   const history = useHistory();
 
   const handleSubmit = () => {
     notification.open({
-      message: 'Success!',
-      description: "We've sent to your email address the reset link",
+      message: t('common.success'),
+      description: t('forgotPassword.successReset'),
     });
 
     setTimeout(() => {
@@ -20,14 +23,14 @@ export const ForgotPasswordForm: React.FC = () => {
   return (
     <S.Wrapper>
       <Form layout="vertical" onFinish={handleSubmit}>
-        <S.Title>Forgot your password?</S.Title>
-        <S.Text>Enter your email, we’ll send you the reset link</S.Text>
-        <S.FormItem name="email" rules={[{ required: true, message: 'Please input users name or delete this field' }]}>
-          <S.Input placeholder="Email" />
+        <S.Title>{t('forgotPassword.title')}</S.Title>
+        <S.Text>{t('forgotPassword.description')}</S.Text>
+        <S.FormItem name="email" rules={[{ required: true, message: t('common.emailError') }]}>
+          <S.Input placeholder={t('common.email')} />
         </S.FormItem>
         <Form.Item noStyle>
           <S.SubmitButton type="primary" htmlType="submit">
-            Reset
+            {t('forgotPassword.reset')}
           </S.SubmitButton>
         </Form.Item>
       </Form>

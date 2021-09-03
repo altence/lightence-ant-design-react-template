@@ -17,7 +17,12 @@
     "moreDetails": "DE!!!More details",
     "keywords": "DE!!!Any keywords?",
     "lightTheme": "DE!!!Light theme",
-    "darkTheme": "DE!!!Dark theme"
+    "darkTheme": "DE!!!Dark theme",
+    "success": "DE!!!Success",
+    "email": "DE!!!Email",
+    "emailError": "DE!!!Please input users name or delete this field",
+    "password": "DE!!!Password",
+    "passwordError": "DE!!!Wrong login or password"
   },
   "header": {
     "search": "DE!!!Search",
@@ -56,7 +61,6 @@
       "title": "DE!!!Treatment plan",
       "upcomingTreatment": "DE!!!upcoming treatment according to plan",
       "implementationTreatment": "DE!!!implementation of the treatment plan",
-      "success": "DE!!!Success",
       "successTreatment": "DE!!!You've successfully confirmed the treatment.",
       "confirm": "DE!!!Confirm",
       "successQuestion": "DE!!!Your question was sent to the doctor",
@@ -127,13 +131,15 @@
   },
   "login": {
     "title": "DE!!!Login",
-    "email": "DE!!!Email",
-    "emailError": "DE!!!Please input users name or delete this field",
-    "password": "DE!!!Password",
-    "passwordError": "DE!!!Wrong login or password",
     "rememberMe": "DE!!!Remember me",
     "forgotPassword": "DE!!!Forgot password?",
     "noAccount": "DE!!!Don’t have an account? Create one",
     "signupLink": "DE!!!here"
+  },
+  "forgotPassword": {
+    "title": "DE!!!Forgot your password?",
+    "description": "DE!!!Enter your email, we'll send you the reset link",
+    "reset": "DE!!!Reset",
+    "successReset": "DE!!!We've sent to your email address the reset link"
   }
 }

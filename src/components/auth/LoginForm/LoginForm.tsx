@@ -20,11 +20,11 @@ export const LoginForm: React.FC = () => {
     <S.Wrapper>
       <Form layout="vertical" onFinish={handleSubmit}>
         <S.Title>{t('login.title')}</S.Title>
-        <S.FormItem name="email" rules={[{ required: true, message: t('login.emailError') }]}>
-          <S.Input placeholder={t('login.email')} />
+        <S.FormItem name="email" rules={[{ required: true, message: t('common.emailError') }]}>
+          <S.Input placeholder={t('common.email')} />
         </S.FormItem>
-        <S.FormItem name="password" rules={[{ required: true, message: t('login.passwordError') }]}>
-          <S.Input placeholder={t('login.password')} />
+        <S.FormItem name="password" rules={[{ required: true, message: t('common.passwordError') }]}>
+          <S.Input placeholder={t('common.password')} />
         </S.FormItem>
         <S.ActionsWrapper>
           <Form.Item name="rememberMe" valuePropName="checked" noStyle>

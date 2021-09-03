@@ -15,7 +15,7 @@ export const TreatmentModal: React.FC<TreatmentModal> = ({ setModalVisible, isMo
     setModalVisible(false);
 
     notification.open({
-      message: t('dashboard.treatmentPlan.success'),
+      message: t('common.success'),
       description: t('dashboard.treatmentPlan.successQuestion'),
     });
   };
