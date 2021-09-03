@@ -1,8 +1,8 @@
-export interface Advice {
+interface Advice {
   id?: number;
   title: string;
   description: string;
-  date: number | string;
+  date: number;
   imgUrl: string;
   imgUrlHighResol?: string;
 }

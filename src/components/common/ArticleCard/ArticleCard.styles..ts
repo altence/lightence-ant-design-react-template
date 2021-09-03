@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Button, Typography, Image as AntImage, Input } from 'antd';
-import theme from '../../../../styles/theme';
+import theme from '../../../styles/theme';
 
 export const BtnMore = styled(Button)`
   position: absolute;
