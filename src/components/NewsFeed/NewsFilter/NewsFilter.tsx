@@ -1,54 +1,89 @@
+import React, { useMemo, useState } from 'react';
 import { Dropdown, Menu } from 'antd';
-import React from 'react';
-import { AppDate } from '../../../constants/Dates';
-
+import useDebounce from '../../../hooks/useDebounce';
+import { AppDate, Dates } from '../../../constants/Dates';
+import { FeedProps } from '../../common/Feed/Feed';
+import { Post } from '../../../api/news.api';
 import * as S from './NewsFilter.styles';
 
 interface NewsFilterProps {
-  author: string;
-  setAuthor: (value: string) => void;
-  title: string;
-  setTitle: (value: string) => void;
-  dates: [AppDate, AppDate] | [null, null];
-  setDates: (values: [AppDate, AppDate] | [null, null]) => void;
+  news: Post[];
+  RenderComponent: React.FC<FeedProps>;
+  setNews: (fc: (state: Post[]) => Post[]) => void;
 }
 
-export const NewsFilter: React.FC<NewsFilterProps> = ({ author, setAuthor, title, setTitle, dates, setDates }) => {
-  const handleFilterAuthor = (event: React.ChangeEvent<HTMLInputElement>) => {
+export const NewsFilter: React.FC<NewsFilterProps> = ({ news, RenderComponent, setNews }) => {
+  const [author, setAuthor] = useState('');
+  const [title, setTitle] = useState('');
+  const [dates, setDates] = useState<[AppDate, AppDate] | [null, null]>([null, null]);
+
+  const handleChangeAuthor = (event: React.ChangeEvent<HTMLInputElement>) => {
     setAuthor(event.target.value);
   };
 
-  const handleFilterTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
   };
 
-  const handleDate = (dates: any) => {
+  const handleChangeDate = (dates: any) => {
     setDates([dates[0], dates[1]]);
   };
 
-  const handleReset = () => {
+  const handleClickReset = () => {
     setAuthor('');
     setTitle('');
     setDates([null, null]);
   };
 
+  const debouncedAuthor = useDebounce(author, 1500);
+  const debouncedTitle = useDebounce(title, 1500);
+  const debouncedDates = dates.map((date) => useDebounce(date, 1500));
+
+  const filteredNews = useMemo(() => {
+    let result;
+
+    if (debouncedAuthor || debouncedTitle || debouncedDates[0]) {
+      result = news.filter((post) => {
+        const postAuthor = post.author.toLowerCase();
+        const enteredAuthor = debouncedAuthor.toLowerCase();
+        const postTitle = post.title.toLowerCase();
+        const enteredTitle = debouncedTitle.toLowerCase();
+        const postDate = Dates.getDate(post.date);
+        const fromDate = debouncedDates[0];
+        const toDate = debouncedDates[1];
+
+        return (
+          (debouncedAuthor ? postAuthor.includes(enteredAuthor) : true) &&
+          (debouncedDates[0] ? postDate.isAfter(fromDate) && postDate.isBefore(toDate) : true) &&
+          (debouncedTitle ? postTitle.includes(enteredTitle) : true)
+        );
+      });
+    }
+
+    return result;
+  }, [debouncedAuthor, debouncedTitle, debouncedDates]);
+
   return (
-    <Dropdown
-      trigger={['click']}
-      overlay={
-        <Menu>
-          <S.Dropdown>
-            <S.Input placeholder="Search by author" value={author} onChange={handleFilterAuthor} />
-            <S.Input placeholder="Search by title" value={title} onChange={handleFilterTitle} />
-            <S.RangePicker dropdownClassName="range-picker" value={dates} onChange={handleDate} />
-            <S.Btn onClick={handleReset}>Reset filter</S.Btn>
-          </S.Dropdown>
-        </Menu>
-      }
-    >
-      <S.TitleHeader>
-        <S.Title>Filter</S.Title>
-      </S.TitleHeader>
-    </Dropdown>
+    <>
+      <Dropdown
+        trigger={['click']}
+        overlay={
+          <Menu>
+            <S.Dropdown>
+              <S.Input placeholder="Search by author" value={author} onChange={handleChangeAuthor} />
+              <S.Input placeholder="Search by title" value={title} onChange={handleChangeTitle} />
+              <S.RangePicker dropdownClassName="range-picker" value={dates} onChange={handleChangeDate} />
+              <S.Btn onClick={handleClickReset}>Reset filter</S.Btn>
+            </S.Dropdown>
+          </Menu>
+        }
+      >
+        <S.TitleHeader>
+          <S.Title>Filter</S.Title>
+        </S.TitleHeader>
+      </Dropdown>
+
+      {<RenderComponent data={filteredNews ? filteredNews : news} setNews={setNews} isFiltered={!!filteredNews} />}
+    </>
   );
 };

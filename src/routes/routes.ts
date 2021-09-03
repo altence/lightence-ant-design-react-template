@@ -1,7 +1,7 @@
 import Dashboard from '../pages/Dashboard';
 import Error404 from '../pages/Error404';
 import Error500 from '../pages/Error500';
-import Feed from '../pages/Feed';
+import NewsFeedPage from '../pages/NewsFeedPage';
 import Login from '../pages/Login';
 
 export const routes = [
@@ -21,7 +21,7 @@ export const routes = [
     path: '/feed',
     guarded: false,
     exact: false,
-    component: Feed,
+    component: NewsFeedPage,
   },
   {
     path: '/500',
