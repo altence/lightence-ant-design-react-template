@@ -114,17 +114,7 @@
         "description": "DE!!!Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million."
       }
     },
-    "piecesOfAdvice": {
-      "title": "DE!!!Pieces of advice",
-      "lab": {
-        "title": "DE!!!Curbing COVID-19 through border controls and restricted entry",
-        "description": "DE!!!Case finding via measures such as border controls, restricted entry, and inbound traveler quarantine, combined with testing high-risk populations and contacts of diagnosed COVID-19 patients. Timely and repeated testing may be necessary to minimize false-negative results. Trace digital tools can aid in outbreak investigation, contact tracing, and monitoring compliance with self-isolation."
-      },
-      "doc": {
-        "title": "DE!!!Curbing COVID-19 through border controls and restricted entry",
-        "description": "DE!!!Case finding via measures such as border controls, restricted entry, and inbound traveler quarantine, combined with testing high-risk populations and contacts of diagnosed COVID-19 patients. Timely and repeated testing may be necessary to minimize false-negative results. Trace digital tools can aid in outbreak investigation, contact tracing, and monitoring compliance with self-isolation."
-      }
-    }
+    "piecesOfAdvice": "DE!!!Pieces of advice"
   },
   "error404": {
     "notFound": "DE!!!Sorry, page not found!",

@@ -19,7 +19,7 @@ export const PiecesOfAdviceHeader: React.FC = () => {
 
   return (
     <S.Wrapper>
-      {t('dashboard.piecesOfAdvice.title')}
+      {t('dashboard.piecesOfAdvice')}
       {isTablet && (
         <S.ButtonsWrapper>
           <AdviceTileBtn isActive={isActive === 'tile'} onClick={handleClick('tile')} />
