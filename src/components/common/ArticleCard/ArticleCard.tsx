@@ -26,10 +26,10 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ imgUrl, title, date, d
       <S.InfoWrapper>
         {author && <S.Author>{author}</S.Author>}
         <S.InfoHeader>
-          <S.Title>{t(title)}</S.Title>
+          <S.Title>{title}</S.Title>
           <S.Text>{Dates.format(date, 'L')}</S.Text>
         </S.InfoHeader>
-        <S.Description>{t(description)}</S.Description>
+        <S.Description>{description}</S.Description>
       </S.InfoWrapper>
     </S.Wrapper>
   );
