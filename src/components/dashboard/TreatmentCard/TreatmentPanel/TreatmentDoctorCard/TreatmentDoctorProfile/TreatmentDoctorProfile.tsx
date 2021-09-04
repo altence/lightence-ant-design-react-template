@@ -33,7 +33,7 @@ export const TreatmentDoctorProfile: React.FC<TreatmentDoctorProfileProps> = ({ 
         </S.InfoItem>
         <S.InfoItem>
           <S.Title>{t('common.specifity')}</S.Title>
-          <S.Text>{speciality && speciality}</S.Text>
+          <S.Text>{speciality}</S.Text>
         </S.InfoItem>
         <S.InfoItem>
           <S.Rating disabled defaultValue={treatment.rating} />

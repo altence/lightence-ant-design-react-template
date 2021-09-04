@@ -33,7 +33,7 @@ export const DoctorCard: React.FC<DoctorCardProps> = ({ name, specifity, rating,
         <S.Title>{t('common.doctor')}</S.Title>
         <S.Text>{name}</S.Text>
         <S.Title>{t('common.specifity')}</S.Title>
-        <S.Text>{speciality && speciality}</S.Text>
+        <S.Text>{speciality}</S.Text>
         <S.VisitWrapper>
           <S.Title>{t('dashboard.favoriteDoctors.lastVisit')}</S.Title>
           <S.Text>{Dates.format(lastVisit, 'L')}</S.Text>
