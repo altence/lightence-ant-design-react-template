@@ -1,12 +1,12 @@
 import React from 'react';
 import LoginForm from '../components/LoginForm/LoginForm';
-import LoginLayout from '../components/layouts/login/LoginLayout';
+import AuthLayout from '../components/layouts/auth/AuthLayout';
 
 const Login: React.FC = () => {
   return (
-    <LoginLayout>
+    <AuthLayout>
       <LoginForm />
-    </LoginLayout>
+    </AuthLayout>
   );
 };
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import theme from '../../../styles/theme';
-import * as S from './LoginLayout.styles';
+import * as S from './AuthLayout.styles';
 
-const LoginLayout: React.FC = ({ children }) => {
+const AuthLayout: React.FC = ({ children }) => {
   const isDesktop = useMediaQuery({
     query: theme.media.xl,
   });
@@ -22,4 +22,4 @@ const LoginLayout: React.FC = ({ children }) => {
   );
 };
 
-export default LoginLayout;
+export default AuthLayout;
