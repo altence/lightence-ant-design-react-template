@@ -1,12 +1,12 @@
 import React from 'react';
-import LoginLayout from '../components/layouts/login/LoginLayout';
+import AuthLayout from '../components/layouts/auth/AuthLayout';
 import { ForgotPasswordForm } from '../components/auth/ForgotPasswordForm/ForgotPasswordForm';
 
 const ForgotPassword: React.FC = () => {
   return (
-    <LoginLayout>
+    <AuthLayout>
       <ForgotPasswordForm />
-    </LoginLayout>
+    </AuthLayout>
   );
 };
 
