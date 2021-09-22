@@ -24,7 +24,7 @@ export const StatisticsChart: React.FC<StatisticsChartProps> = ({ value, chartCo
     series: [
       {
         type: 'pie',
-        radius: ['70%', '95%'],
+        radius: ['70%', '90%'],
         label: {
           show: true,
           position: 'center',
