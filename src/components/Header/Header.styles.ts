@@ -167,8 +167,3 @@ export const ExportDropdownHeader = styled(DropdownHeader)`
     }
   }
 `;
-
-export const SwitchWrapper = styled.div`
-  margin-top: 2rem;
-  text-align: center;
-`;
