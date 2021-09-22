@@ -1,5 +1,4 @@
 import * as echarts from 'echarts';
-import { DefaultTheme } from 'styled-components';
 
 const primary = {
   base: '#0059AB',
@@ -166,9 +165,6 @@ const theme = {
   media,
   desktopLayout,
   mobileLayout,
-  switchTheme: (newTheme: DefaultTheme): DefaultTheme | void => {
-    return newTheme;
-  },
 };
 
 export const darkTheme = {
