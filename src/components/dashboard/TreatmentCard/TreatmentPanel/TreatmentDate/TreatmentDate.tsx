@@ -15,7 +15,7 @@ export const TreatmentDate: React.FC<TreatmentDateProps> = ({ date }) => {
 
   const handleClickBtn = () => {
     notification.open({
-      message: t('dashboard.treatmentPlan.success'),
+      message: t('common.success'),
       description: t('dashboard.treatmentPlan.successTreatment'),
     });
   };
