@@ -1,4 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { ConfigProvider } from 'antd';
+import { useTranslation } from 'react-i18next';
+import deDe from 'antd/lib/locale/de_DE';
+import enUS from 'antd/lib/locale/en_US';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { ThemeContext } from './context/ThemeContext';
@@ -15,19 +19,25 @@ const App: React.FC = () => {
   const { isNightMode, setNightMode, nightTime, setNightTime } = useNightMode();
   const [theme, setTheme] = useTheme(isNightMode, nightTime);
 
+  useEffect(() => {
+    setCurrentLocale(i18n.language);
+  }, [i18n.language]);
+
   return (
     <>
       <GlobalStyle />
       <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
         <ThemeContext.Provider value={{ theme, setTheme }}>
           <NightModeContext.Provider value={{ isNightMode, setNightMode, nightTime, setNightTime }}>
-            <BrowserRouter>
-              <Switch>
-                {routes.map((route, index) => (
-                  <Route {...route} key={index} />
-                ))}
-              </Switch>
-            </BrowserRouter>
+            <ConfigProvider locale={currentLocale === 'en' ? enUS : deDe}>
+              <BrowserRouter>
+                <Switch>
+                  {routes.map((route, index) => (
+                    <Route {...route} key={index} />
+                  ))}
+                </Switch>
+              </BrowserRouter>
+            </ConfigProvider>
           </NightModeContext.Provider>
         </ThemeContext.Provider>
       </ThemeProvider>
