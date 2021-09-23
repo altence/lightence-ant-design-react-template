@@ -22,7 +22,7 @@ export class Dates {
     return dayjs.weekdaysShort();
   }
 
-  static getDate(date: number): AppDate {
+  static getDate(date: number | string): AppDate {
     return dayjs(date);
   }
 

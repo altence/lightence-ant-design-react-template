@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import { ThemeSwitchContext } from './context/ThemeSwitchContext';
+import { getTheme } from './helpers/getTheme';
+import { initialNightTime } from './constants/initialNightTime';
+import { AppDate, Dates } from './constants/Dates';
+import theme, { darkTheme } from './styles/theme';
 import { routes } from './routes/routes';
 import GlobalStyle from './styles/GlobalStyle';
-import { ThemeProvider } from 'styled-components';
-import theme, { darkTheme } from './styles/theme';
-import { ThemeSwitchContext } from './context/ThemeSwitchContext';
-import { Dates } from './constants/Dates';
-import 'typeface-montserrat';
 import 'typeface-poppins';
+import 'typeface-montserrat';
 
 const App: React.FC = () => {
   const localIsAutoChangeEnabled = localStorage.getItem('autoChange');
@@ -18,35 +20,19 @@ const App: React.FC = () => {
   const [isAutoChangeEnabled, setAutoChangeEnabled] = useState(
     (!localIsAutoChangeEnabled && true) || JSON.parse(localIsAutoChangeEnabled),
   );
-  const [nightTime, setNightTime] = useState((localNightTime && JSON.parse(localNightTime)) || [20, 6]);
-  const [now, setNow] = useState(Dates.getToday().hour());
+  const [nightTime, setNightTime] = useState<AppDate[]>(
+    (localNightTime && JSON.parse(localNightTime).map((el: string) => Dates.getDate(el))) || initialNightTime,
+  );
+  const [now, setNow] = useState(Dates.getToday());
 
   const handleThemeSwitch = (theme: string) => {
     setCurrentTheme(theme);
   };
 
-  const handleAutoThemeSwitch = () => {
-    if (isAutoChangeEnabled) {
-      if (now > nightTime[0] && now !== 0) {
-        setCurrentTheme('dark');
-        localStorage.setItem('theme', 'dark');
-      } else if (now >= 0 && now < nightTime[0]) {
-        setCurrentTheme('dark');
-        localStorage.setItem('theme', 'dark');
-      } else if (now > 0 && now < nightTime[1]) {
-        setCurrentTheme('dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        setCurrentTheme('light');
-        localStorage.setItem('theme', 'light');
-      }
-    }
-  };
-
   useEffect(() => {
     const id = setInterval(() => {
-      setNow(Dates.getToday().hour());
-    }, 1000);
+      setNow(Dates.getToday());
+    }, 60000);
 
     return () => {
       clearInterval(id);
@@ -54,7 +40,9 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    handleAutoThemeSwitch();
+    if (isAutoChangeEnabled) {
+      getTheme(nightTime[0], nightTime[1], now) === 'light' ? setCurrentTheme('light') : setCurrentTheme('dark');
+    }
   }, [now, nightTime, isAutoChangeEnabled]);
 
   return (
