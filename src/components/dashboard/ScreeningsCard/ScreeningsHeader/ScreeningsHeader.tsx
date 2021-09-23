@@ -4,11 +4,12 @@ import { ScreeningsSelect } from '../ScreeningsSelect/ScreeningsSelect';
 import { Dates } from '../../../../constants/Dates';
 import * as S from './ScreeningsHeader.styles';
 
-const months = Dates.getMonths();
 const statistics = ['Statistics 1', 'Statistics 2', 'Statistics 3'];
 
 export const ScreeningsHeader: React.FC = () => {
   const { t } = useTranslation();
+
+  const months = Dates.getMonths();
 
   return (
     <S.Wrapper>

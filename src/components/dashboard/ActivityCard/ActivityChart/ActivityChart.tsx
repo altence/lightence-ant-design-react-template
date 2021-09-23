@@ -4,10 +4,10 @@ import { ThemeContext } from 'styled-components';
 import { Chart } from '../../../common/Chart/Chart';
 import { Dates } from '../../../../constants/Dates';
 
-const days = Dates.getDays();
-
 export const ActivityChart: React.FC = () => {
   const themeContext = useContext(ThemeContext);
+
+  const days = Dates.getDays();
 
   const isTablet = useMediaQuery({ query: themeContext.media.md });
   const isDesktop = useMediaQuery({ query: themeContext.media.xl });
