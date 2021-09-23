@@ -1,12 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Switch } from 'antd';
-import { ThemeSwitchContext } from '../../../../../context/ThemeSwitchContext';
+import { useTranslation } from 'react-i18next';
 import { TimePicker } from './TimePicker/TimePicker';
+import { ThemeSwitchContext } from '../../../../../context/ThemeSwitchContext';
 
 export const AutoThemePicker: React.FC = () => {
   const { isAutoSwitchEnabled, changeAutoSwitchEnabled, changeNightTime } = useContext(ThemeSwitchContext);
 
   const [isEnabled, setEnabled] = useState(isAutoSwitchEnabled);
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     setEnabled(isAutoSwitchEnabled);
@@ -22,8 +25,8 @@ export const AutoThemePicker: React.FC = () => {
     <>
       <Switch
         checked={isEnabled}
-        checkedChildren="Auto change enabled"
-        unCheckedChildren="Auto change disabled"
+        checkedChildren={t('header.autoChangeOn')}
+        unCheckedChildren={t('header.autoChangeOff')}
         onChange={handleSwitch}
       />
       <TimePicker setNightTime={changeNightTime} />
