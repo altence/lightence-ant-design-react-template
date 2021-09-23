@@ -1,11 +1,12 @@
 import React from 'react';
+import { AppDate } from '../constants/Dates';
 
 const themeContext = {
   currentTheme: 'light',
   changeTheme: (theme: string): void | string => {
     return theme;
   },
-  changeNightTime: (time: [number, number]): void | [number, number] => {
+  changeNightTime: (time: AppDate[]): void | AppDate[] => {
     return time;
   },
   isAutoSwitchEnabled: true,
