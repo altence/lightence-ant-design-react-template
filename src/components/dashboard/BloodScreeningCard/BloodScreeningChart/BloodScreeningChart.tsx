@@ -6,8 +6,6 @@ import { Chart } from '../../../common/Chart/Chart';
 import { Dates } from '../../../../constants/Dates';
 import { Cell } from '../BloodScreeningTable/BloodScreeningTable';
 
-const months = Dates.getMonths();
-
 interface BloodScreeningChartsProps {
   activeItem: Cell;
 }
@@ -17,6 +15,8 @@ export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ activ
 
   const isTablet = useMediaQuery({ query: themeContext.media.md });
   const isBigScreen = useMediaQuery({ query: themeContext.media.xxl });
+
+  const months = Dates.getMonths();
 
   const option = {
     color: (isTablet && themeContext.colors.chartsErrorGradient) || themeContext.colors.error,

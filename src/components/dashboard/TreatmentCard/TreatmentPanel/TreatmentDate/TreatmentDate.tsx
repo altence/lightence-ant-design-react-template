@@ -4,14 +4,14 @@ import { notification } from 'antd';
 import { Dates, AppDate } from '../../../../../constants/Dates';
 import * as S from './TreatmentDate.styles';
 
-const today = Dates.getToday();
-
 interface TreatmentDateProps {
   date: AppDate;
 }
 
 export const TreatmentDate: React.FC<TreatmentDateProps> = ({ date }) => {
   const { t } = useTranslation();
+
+  const today = Dates.getToday();
 
   const handleClickBtn = () => {
     notification.open({

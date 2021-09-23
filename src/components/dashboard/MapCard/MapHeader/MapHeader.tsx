@@ -3,10 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { Dates } from '../../../../constants/Dates';
 import * as S from './MapHeader.styles';
 
-const today = Dates.getToday();
-
 export const MapHeader: React.FC = () => {
   const { t } = useTranslation();
+
+  const today = Dates.getToday();
 
   return (
     <S.Wrapper>
