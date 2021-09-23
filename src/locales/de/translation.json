@@ -28,7 +28,9 @@
     "search": "DE!!!Search",
     "searchTerm": "DE!!!Enter your search term",
     "notFound": "DE!!!Try to change your search query",
-    "export": "DE!!!Export"
+    "export": "DE!!!Export",
+    "autoChangeOn": "DE!!!Auto change enabled",
+    "autoChangeOff": "DE!!!Auto change disalbed"
   },
   "dashboard": {
     "title": "DE!!!Dashboard",
