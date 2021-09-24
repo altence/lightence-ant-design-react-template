@@ -7,6 +7,7 @@ import DesktopHeader from './DesktopHeader';
 import DesktopContent from './DesktopContent';
 import { Header } from '../../Header/Header';
 import theme from '../../../styles/theme';
+import { Container } from '../../common/Container/Container';
 
 const DesktopLayout: React.FC<LayoutProps> = ({ children, siderContent, logo }) => {
   return (
@@ -14,9 +15,13 @@ const DesktopLayout: React.FC<LayoutProps> = ({ children, siderContent, logo }) 
       <DesktopSider logo={logo}>{siderContent}</DesktopSider>
       <ContentLayoutStyled>
         <DesktopHeader>
-          <Header />
+          <Container>
+            <Header />
+          </Container>
         </DesktopHeader>
-        <DesktopContent>{children}</DesktopContent>
+        <DesktopContent>
+          <Container>{children}</Container>
+        </DesktopContent>
       </ContentLayoutStyled>
     </LayoutStyled>
   );

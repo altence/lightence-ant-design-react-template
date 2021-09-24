@@ -6,6 +6,7 @@ import { LayoutProps } from '../interfaces';
 import MobileContent from './MobileContent';
 import MobileHeader from './MobileHeader';
 import { Header } from '../../Header/Header';
+import { Container } from '../../common/Container/Container';
 
 const MobileLayout: React.FC<LayoutProps> = ({ children, siderContent, logo }) => {
   const [siderCollapsed, setSiderCollapsed] = useState(true);
@@ -19,9 +20,13 @@ const MobileLayout: React.FC<LayoutProps> = ({ children, siderContent, logo }) =
       </MobileSider>
       <Layout>
         <MobileHeader>
-          <Header toggleSider={toggleSider} />
+          <Container>
+            <Header toggleSider={toggleSider} />
+          </Container>
         </MobileHeader>
-        <MobileContent>{children}</MobileContent>
+        <MobileContent>
+          <Container>{children}</Container>
+        </MobileContent>
       </Layout>
     </LayoutStyled>
   );
