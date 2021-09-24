@@ -129,7 +129,7 @@ export const darkColors = {
 };
 
 export const breakpoints = {
-  xs: 425,
+  xs: 360,
   md: 768,
   xl: 1200,
   xxl: 1920,
