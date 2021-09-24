@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { ConfigProvider } from 'antd';
-import { useTranslation } from 'react-i18next';
 import deDe from 'antd/lib/locale/de_DE';
 import enUS from 'antd/lib/locale/en_US';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -14,14 +13,13 @@ import 'typeface-poppins';
 import 'typeface-montserrat';
 import { useTheme } from './hooks/useTheme';
 import { useNightMode } from './hooks/useNightMode';
+import { useLanguage } from './hooks/useLanguage';
 
 const App: React.FC = () => {
   const { isNightMode, setNightMode, nightTime, setNightTime } = useNightMode();
   const [theme, setTheme] = useTheme(isNightMode, nightTime);
 
-  useEffect(() => {
-    setCurrentLocale(i18n.language);
-  }, [i18n.language]);
+  const currentLanguage = useLanguage();
 
   return (
     <>
