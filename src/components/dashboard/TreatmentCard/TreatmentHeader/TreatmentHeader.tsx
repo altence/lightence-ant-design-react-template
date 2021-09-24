@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { TreatmentCalendarProps as TreatmentHeaderProps } from '../TreatmentCalendar/TreatmentCalendar';
 import theme from '../../../../styles/theme';
 import * as S from './TreatmentHeader.styles';
+import { Dates } from '../../../../constants/Dates';
 
 export const TreatmentHeader: React.FC<TreatmentHeaderProps> = ({ date, setDate, handleIncrease, handleDecrease }) => {
   const isTablet = useMediaQuery({ query: theme.media.md });
@@ -15,7 +16,7 @@ export const TreatmentHeader: React.FC<TreatmentHeaderProps> = ({ date, setDate,
     <S.Wrapper>
       {!isTablet ? (
         <>
-          {(date.isDateClicked && t('dashboard.treatmentPlan.title')) || date.date.format('MMMM YYYY')}
+          {(date.isDateClicked && t('dashboard.treatmentPlan.title')) || Dates.format(date.date, 'LL')}
           {date.isDateClicked && (
             <S.CalendarBtn size="small" type="text" onClick={() => setDate({ isDateClicked: false, date: date.date })}>
               <CalendarOutlined />
@@ -29,7 +30,7 @@ export const TreatmentHeader: React.FC<TreatmentHeaderProps> = ({ date, setDate,
             <S.Button type="text" onClick={handleDecrease}>
               <LeftOutlined />
             </S.Button>
-            <S.Text>{date.date.format('MMMM YYYY')}</S.Text>
+            <S.Text>{Dates.format(date.date, 'LL')}</S.Text>
             <S.Button type="text" onClick={handleIncrease}>
               <RightOutlined />
             </S.Button>
