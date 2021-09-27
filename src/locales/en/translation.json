@@ -9,6 +9,7 @@
     "doctor": "Doctor",
     "specifity": "Specifity",
     "cancel": "Cancel",
+    "save": "Save",
     "ok": "Ok",
     "oops": "Oops!",
     "kg": "kg",
@@ -22,7 +23,8 @@
     "email": "Email",
     "emailError": "Please input users name or delete this field",
     "password": "Password",
-    "passwordError": "Wrong login or password"
+    "passwordError": "Wrong login or password",
+    "back": "Back"
   },
   "header": {
     "search": "Search",
@@ -143,5 +145,47 @@
     "description": "Enter your email, we'll send you the reset link",
     "reset": "Reset",
     "successReset": "We've sent to your email address the reset link"
+  },
+  "profile": {
+    "title": "Profile",
+    "fullness": "fullness of your profile",
+    "nav": {
+      "personalInfo": {
+        "title": "Personal info",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "nickname": "Nickname",
+        "sex": "Sex",
+        "male": "Male",
+        "female": "Female",
+        "birthday": "Birthday",
+        "language": "Language",
+        "contactInfo": "Contact Info",
+        "phone": "Phone",
+        "wrongNumber": "Wrong number",
+        "email": "Email",
+        "notValidEmail": "Please input a valid email address!",
+        "verified": "Verified",
+        "notVerified": "Not verified",
+        "address": "Address",
+        "country": "Country",
+        "city": "City",
+        "zipcode": "Zipcode",
+        "address1": "Address 1",
+        "address2": "Address 2",
+        "website": "Website",
+        "notValidWebsite": "Please input a valid URL!",
+        "socialLinks": "Social links"
+      },
+      "securitySettings": {
+        "title":"Security settings"
+      },
+      "notifications": {
+        "title": "Notifications"
+      },
+      "payments": {
+        "title": "Payments"
+      }
+    }
   }
 }

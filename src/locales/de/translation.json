@@ -10,6 +10,7 @@
     "specifity": "DE!!!Specifity",
     "cancel": "DE!!!Cancel",
     "ok": "DE!!!Ok",
+    "save": "DE!!!Save",
     "oops": "DE!!!Oops!",
     "kg": "DE!!!kg",
     "tempDiagnosis": "DE!!!Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million.",
@@ -22,7 +23,8 @@
     "email": "DE!!!Email",
     "emailError": "DE!!!Please input users name or delete this field",
     "password": "DE!!!Password",
-    "passwordError": "DE!!!Wrong login or password"
+    "passwordError": "DE!!!Wrong login or password",
+    "back": "Back"
   },
   "header": {
     "search": "DE!!!Search",
@@ -143,5 +145,47 @@
     "description": "DE!!!Enter your email, we'll send you the reset link",
     "reset": "DE!!!Reset",
     "successReset": "DE!!!We've sent to your email address the reset link"
+  },
+  "profile": {
+    "title": "DE!!!Profile",
+    "fullness": "DE!!!fullness of your profile",
+    "nav": {
+      "personalInfo": {
+        "title": "DE!!!Personal info",
+        "firstName": "DE!!!First Name",
+        "lastName": "DE!!!Last Name",
+        "nickname": "DE!!!Nickname",
+        "sex": "DE!!!Sex",
+        "male": "DE!!!Male",
+        "female": "DE!!!Female",
+        "birthday": "DE!!!Birthday",
+        "language": "DE!!!Language",
+        "contactInfo": "DE!!!Contact Info",
+        "phone": "DE!!!Phone",
+        "wrongNumber": "DE!!!Wrong number",
+        "email": "DE!!!Email",
+        "notValidEmail": "DE!!!Please input a valid email address!",
+        "verified": "DE!!!Verified",
+        "notVerified": "DE!!!Not verified",
+        "address": "DE!!!Address",
+        "country": "DE!!!Country",
+        "city": "DE!!!City",
+        "zipcode": "DE!!!Zipcode",
+        "address1": "DE!!!Address 1",
+        "address2": "DE!!!Address 2",
+        "website": "DE!!!Website",
+        "notValidWebsite": "DE!!!Please input a valid URL!",
+        "socialLinks": "DE!!!Social links"
+      },
+      "securitySettings": {
+        "title": "DE!!!Security settings"
+      },
+      "notifications": {
+        "title": "DE!!!Notifications"
+      },
+      "payments": {
+        "title": "DE!!!Payments"
+      }
+    }
   }
 }

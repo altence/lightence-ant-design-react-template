@@ -40,10 +40,10 @@ export const Header: React.FC<HeaderProps> = ({ toggleSider }) => {
         </S.ButtonsWrapper>
       </S.TopWrapper>
 
-      <S.BottomWrapper>
+      {/* <S.BottomWrapper>
         <S.Title>{t('dashboard.title')}</S.Title>
         <ExportDropdown />
-      </S.BottomWrapper>
+      </S.BottomWrapper> */}
     </S.Wrapper>
   );
 };
