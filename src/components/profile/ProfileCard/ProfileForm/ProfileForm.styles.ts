@@ -1,5 +1,5 @@
 import { Typography, Form } from 'antd';
-import { hexToRGB } from 'src/helpers/hexToRGB';
+import { hexToRGB } from 'helpers/hexToRGB';
 import styled from 'styled-components';
 
 export const Title = styled(Typography.Text)`
@@ -25,7 +25,15 @@ export const FormItem = styled(Form.Item)`
     ${(props) => `background-color: ${hexToRGB(props.theme.colors.main.primary, 0.05)}`};
   }
 
-  & .ant-input-group-addon:last-of-type {
+  & .ant-input-group-addon + input + .ant-input-group-addon {
     background-color: transparent;
+  }
+
+  & .ant-input-affix-wrapper {
+    border-radius: ${(props) => props.theme.border.radius};
+  }
+
+  & div[role='alert'] {
+    margin: 0.5rem 0;
   }
 `;

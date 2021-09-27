@@ -10,6 +10,7 @@
     "specifity": "Specifity",
     "cancel": "Cancel",
     "save": "Save",
+    "confirm": "Confirm",
     "ok": "Ok",
     "oops": "Oops!",
     "kg": "kg",
@@ -66,7 +67,6 @@
       "upcomingTreatment": "upcoming treatment according to plan",
       "implementationTreatment": "implementation of the treatment plan",
       "successTreatment": "You've successfully confirmed the treatment.",
-      "confirm": "Confirm",
       "successQuestion": "Your question was sent to the doctor",
       "upcomingVisits": "Upcoming visits",
       "noUpcomingVisits": "There is no upcoming visit.",
@@ -178,7 +178,16 @@
         "socialLinks": "Social links"
       },
       "securitySettings": {
-        "title":"Security settings"
+        "title":"Security settings",
+        "changePassword": "Change Password",
+        "currentPassword": "Current Password",
+        "newPassword": "New Password",
+        "samePassword": "Your new password can't be same as previous password",
+        "confirmPassword": "Confirm Password",
+        "requiredPassword": "Please input your password!",
+        "dontMatchPassword": "The two passwords that you entered do not match",
+        "notValidPassword": "Your password must should be minimum eight characters and contain at least one uppercase letter, one lowercase letter and one number",
+        "twoFactorAuth": "Two–factor authentication"
       },
       "notifications": {
         "title": "Notifications"

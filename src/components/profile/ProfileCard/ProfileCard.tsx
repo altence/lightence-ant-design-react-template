@@ -4,9 +4,9 @@ import { useTranslation } from 'react-i18next';
 import { Card } from '../../common/Card/Card';
 import { ProfileInfo } from './ProfileInfo/ProfileInfo';
 import { ProfileNav } from './ProfileNav/ProfileNav';
-import { PageTitle } from 'src/components/common/PageTitle/PageTitle';
-import { ProfileForm } from './ProfileForm/ProfileForm';
-import { getUser, User } from 'src/api/users.api';
+import { PageTitle } from 'components/common/PageTitle/PageTitle';
+import { getUser, User } from 'api/users.api';
+import { ProfileFormNav } from './ProfileFormNav/ProfileFormNav';
 import * as S from './ProfileCard.styles';
 
 export const ProfileCard: React.FC = () => {
@@ -38,7 +38,7 @@ export const ProfileCard: React.FC = () => {
           <ProfileNav setCurrentMenu={setCurrentMenu} />
         </Card>
       ) : (
-        <ProfileForm menu={currentMenu} setCurrentMenu={setCurrentMenu} />
+        <ProfileFormNav menu={currentMenu} setCurrentMenu={setCurrentMenu} />
       )}
     </>
   ) : null;
