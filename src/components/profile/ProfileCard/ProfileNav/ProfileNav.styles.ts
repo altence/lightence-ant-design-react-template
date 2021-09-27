@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Button } from 'antd';
-import { hexToRGB } from 'src/helpers/hexToRGB';
+import { hexToRGB } from 'helpers/hexToRGB';
 
 interface BtnProps {
   color: string;

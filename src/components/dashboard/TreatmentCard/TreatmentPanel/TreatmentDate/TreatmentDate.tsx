@@ -30,7 +30,7 @@ export const TreatmentDate: React.FC<TreatmentDateProps> = ({ date }) => {
       <S.Text>08:00</S.Text>
       {date.isAfter(today) && (
         <S.Button size="middle" type="primary" onClick={handleClickBtn}>
-          {t('dashboard.treatmentPlan.confirm')}
+          {t('common.confirm')}
         </S.Button>
       )}
     </S.DateWrapper>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { profileNavData } from 'src/constants/profileNavData';
+import { profileNavData } from 'constants/profileNavData';
 import * as S from './ProfileNav.styles';
 
 interface ProfileNavProps {

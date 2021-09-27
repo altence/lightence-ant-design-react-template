@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { User } from 'src/api/users.api';
+import { User } from 'api/users.api';
 import * as S from './ProfileInfo.styles';
 
 interface ProfileInfoProps {

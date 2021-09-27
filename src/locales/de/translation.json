@@ -11,6 +11,7 @@
     "cancel": "DE!!!Cancel",
     "ok": "DE!!!Ok",
     "save": "DE!!!Save",
+    "confirm": "DE!!!Confirm",
     "oops": "DE!!!Oops!",
     "kg": "DE!!!kg",
     "tempDiagnosis": "DE!!!Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million.",
@@ -66,7 +67,6 @@
       "upcomingTreatment": "DE!!!upcoming treatment according to plan",
       "implementationTreatment": "DE!!!implementation of the treatment plan",
       "successTreatment": "DE!!!You've successfully confirmed the treatment.",
-      "confirm": "DE!!!Confirm",
       "successQuestion": "DE!!!Your question was sent to the doctor",
       "upcomingVisits": "DE!!!Upcoming visits",
       "noUpcomingVisits": "DE!!!There is no upcoming visit.",
@@ -178,7 +178,16 @@
         "socialLinks": "DE!!!Social links"
       },
       "securitySettings": {
-        "title": "DE!!!Security settings"
+        "title": "DE!!!Security settings",
+        "changePassword": "DE!!!Change Password",
+        "currentPassword": "DE!!!Current Password",
+        "newPassword": "DE!!!New Password",
+        "samePassword": "DE!!!Your new password can't be same as previous password",
+        "confirmPassword": "DE!!!Confirm Password",
+        "requiredPassword": "DE!!!Please input your password!",
+        "dontMatchPassword": "DE!!!The two passwords that you entered do not match",
+        "notValidPassword": "DE!!!Your password must should be minimum eight characters and contain at least one uppercase letter, one lowercase letter and one number",
+        "twoFactorAuth": "Two–factor authentication"
       },
       "notifications": {
         "title": "DE!!!Notifications"
