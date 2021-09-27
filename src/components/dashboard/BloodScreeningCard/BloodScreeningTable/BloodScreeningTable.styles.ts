@@ -48,7 +48,7 @@ export const Percentage = styled.div<PercentageProps>`
   width: 2rem;
   align-items: center;
   color: ${(props) =>
-    (props.isActive && props.isDowngrade && props.theme.colors.error) ||
+    (props.isActive && props.isDowngrade && props.theme.colors.additional) ||
     (props.isActive && props.theme.colors.success) ||
     props.theme.colors.basic};
 
@@ -56,7 +56,7 @@ export const Percentage = styled.div<PercentageProps>`
     margin-left: 0.2rem;
 
     color: ${(props) =>
-      (props.isActive && props.isDowngrade && props.theme.colors.error) ||
+      (props.isActive && props.isDowngrade && props.theme.colors.additional) ||
       (props.isActive && props.theme.colors.success) ||
       props.theme.colors.basic};
   }

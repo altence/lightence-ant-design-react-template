@@ -5,6 +5,7 @@ import { useMediaQuery } from 'react-responsive';
 import theme from '../../../styles/theme';
 import { getUser, User } from '../../../api/users.api';
 import * as S from '../Header.styles';
+import { Link } from 'react-router-dom';
 
 export const ProfileDropdown: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -21,7 +22,9 @@ export const ProfileDropdown: React.FC = () => {
     <Dropdown
       overlay={
         <S.Menu>
-          <S.DropdownContent>Temp item</S.DropdownContent>
+          <S.DropdownContent>
+            <Link to="/profile">Go to profile</Link>
+          </S.DropdownContent>
         </S.Menu>
       }
       trigger={['click']}
@@ -32,7 +35,7 @@ export const ProfileDropdown: React.FC = () => {
         ) : (
           <>
             <S.ProfileAvatar src={user.imgUrl} shape="circle" />
-            {isTablet && <S.Text>{user.name}</S.Text>}
+            {isTablet && <S.Text>{`${user.firstName} ${user.lastName[0]}`}</S.Text>}
           </>
         )}
 

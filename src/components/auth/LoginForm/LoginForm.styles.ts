@@ -47,7 +47,7 @@ export const FormItem = styled(Form.Item)`
     font-size: 0.68rem;
     top: 110%;
 
-    color: ${(props) => props.theme.colors.error};
+    color: ${(props) => props.theme.colors.additional};
   }
 `;
 
