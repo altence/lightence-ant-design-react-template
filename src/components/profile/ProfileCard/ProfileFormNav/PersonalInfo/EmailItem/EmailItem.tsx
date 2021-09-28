@@ -3,21 +3,28 @@ import { Input } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { FormItem } from '../../../ProfileForm/ProfileForm.styles';
 
-export const EmailItem: React.FC = () => {
+interface EmailItemProps {
+  required?: boolean;
+  onClick?: () => void;
+}
+
+export const EmailItem: React.FC<EmailItemProps> = ({ required, onClick }) => {
   const { t } = useTranslation();
 
   return (
     <FormItem
       name="email"
+      requiredMark={required && 'optional'}
       label={t('profile.nav.personalInfo.email')}
       rules={[
+        { required, message: t('common.requiredField') },
         {
           type: 'email',
           message: t('profile.nav.personalInfo.notValidEmail'),
         },
       ]}
     >
-      <Input />
+      <Input onClick={onClick} />
     </FormItem>
   );
 };
