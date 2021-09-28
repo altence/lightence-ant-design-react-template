@@ -4,16 +4,23 @@ import { isValidPhoneNumber } from 'react-phone-number-input';
 import { FormItem } from '../../../ProfileForm/ProfileForm.styles';
 import * as S from './PhoneItem.styles';
 
-export const PhoneItem: React.FC = () => {
+interface PhoneItemsProps {
+  required?: boolean;
+  onClick?: () => void;
+}
+
+export const PhoneItem: React.FC<PhoneItemsProps> = ({ required, onClick }) => {
   const [phone, setPhone] = useState<string>();
 
   const { t } = useTranslation();
 
   return (
     <FormItem
+      requiredMark={required && 'optional'}
       name="phone"
       label={t('profile.nav.personalInfo.phone')}
       rules={[
+        { required, message: t('common.requiredField') },
         () => ({
           validator(_, value) {
             if (!value || isValidPhoneNumber(phone)) {
@@ -24,7 +31,7 @@ export const PhoneItem: React.FC = () => {
         }),
       ]}
     >
-      <S.PhoneNumberInput value={phone} onChange={setPhone} />
+      <S.PhoneNumberInput value={phone} onChange={setPhone} onClick={onClick} />
     </FormItem>
   );
 };

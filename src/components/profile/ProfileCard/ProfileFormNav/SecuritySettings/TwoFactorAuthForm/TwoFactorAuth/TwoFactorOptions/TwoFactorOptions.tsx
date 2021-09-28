@@ -8,12 +8,12 @@ export const TwoFactorOptions: React.FC = () => {
   const [currentOption, setCurrentOption] = useState<number>(1);
 
   return (
-    <Radio.Group defaultValue={1} onChange={(event) => setCurrentOption(event.target.value)}>
+    <Radio.Group value={currentOption} defaultValue={1} onChange={(event) => setCurrentOption(event.target.value)}>
       <S.RadioBtn value={1} isActive={currentOption === 1}>
-        <PhoneItem />
+        <PhoneItem required={currentOption === 1} onClick={() => setCurrentOption(1)} />
       </S.RadioBtn>
       <S.RadioBtn value={2} isActive={currentOption === 2}>
-        <EmailItem />
+        <EmailItem required={currentOption === 2} onClick={() => setCurrentOption(2)} />
       </S.RadioBtn>
     </Radio.Group>
   );

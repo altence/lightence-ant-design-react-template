@@ -25,6 +25,7 @@
     "emailError": "Please input users name or delete this field",
     "password": "Password",
     "passwordError": "Wrong login or password",
+    "requiredField": "This field is required!",
     "back": "Back"
   },
   "header": {
@@ -187,7 +188,9 @@
         "requiredPassword": "Please input your password!",
         "dontMatchPassword": "The two passwords that you entered do not match",
         "notValidPassword": "Your password must should be minimum eight characters and contain at least one uppercase letter, one lowercase letter and one number",
-        "twoFactorAuth": "Two–factor authentication"
+        "twoFactorAuth": "Two–factor authentication",
+        "twoFactorAuthSuccess": "Two-factor authentication was succesfully added to your account",
+        "twoFactorAuthFail": "Please, fix all error fields before"
       },
       "notifications": {
         "title": "Notifications"
