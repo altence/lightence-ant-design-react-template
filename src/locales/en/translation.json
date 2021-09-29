@@ -193,7 +193,18 @@
         "twoFactorAuthFail": "Please, fix all error fields before"
       },
       "notifications": {
-        "title": "Notifications"
+        "title": "Notifications",
+        "settings": "Notifications settings",
+        "description": "Choose for which activities you want to get an email or push notification.",
+        "push": "Push",
+        "SMS": "SMS",
+        "activities": "Activities",
+        "directMessages": "Direct messages",
+        "mentions": "Mentions",
+        "reminders": "Reminders",
+        "allNews": "All news",
+        "importantNews": "Important news and updates",
+        "actionRequired": "Action required"
       },
       "payments": {
         "title": "Payments"
