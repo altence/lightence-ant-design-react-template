@@ -40,7 +40,9 @@ export const ProfileFormNav: React.FC<ProfileFormNavProps> = ({ menu, setCurrent
     }
   }
 
-  return (
+  return menu === 'payments' ? (
+    currentMenu
+  ) : (
     <Card padding="1.875rem 1rem">
       {menu === 'security' ? (
         currentMenu

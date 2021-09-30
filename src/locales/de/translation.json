@@ -207,7 +207,26 @@
         "actionRequired": "DE!!!Action required"
       },
       "payments": {
-        "title": "DE!!!Payments"
+        "title": "DE!!!Payments",
+        "paymentMethod": "DE!!!Payment Method",
+        "noHistory": "DE!!!There is no payment history at the moment",
+        "cardNumber": "DE!!!Card Number",
+        "cardholderName": "DE!!!Cardholder Name",
+        "expDate": "DE!!!Exp. Date",
+        "CVV": "DE!!!CVV",
+        "addNewCard": "DE!!!Add new card",
+        "cardTheme": "DE!!!Card Theme",
+        "paymentHistory": "DE!!!Payment history",
+        "date": "DE!!!Date",
+        "status": {
+          "title": "DE!!!Status",
+          "paid": "DE!!!Paid",
+          "scheduled": "DE!!!Scheduled",
+          "pending": "DE!!!Pending",
+          "failed": "DE!!!Failed"
+        },
+        "totalAmount": "DE!!!Total Amount",
+        "details": "DE!!!Details"
       }
     }
   }

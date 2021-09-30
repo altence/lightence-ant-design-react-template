@@ -207,7 +207,26 @@
         "actionRequired": "Action required"
       },
       "payments": {
-        "title": "Payments"
+        "title": "Payments",
+        "paymentMethod": "Payment Method",
+        "noHistory": "There is no payment history at the moment",
+        "cardNumber": "Card Number",
+        "cardholderName": "Cardholder Name",
+        "expDate": "Exp. Date",
+        "CVV": "CVV",
+        "addNewCard": "Add new card",
+        "cardTheme": "Card Theme",
+        "paymentHistory": "Payment history",
+        "date": "Date",
+        "status": {
+          "title": "Status",
+          "paid": "Paid",
+          "scheduled": "Scheduled",
+          "pending": "Pending",
+          "failed": "Failed"
+        },
+        "totalAmount": "Total Amount",
+        "details": "Details"
       }
     }
   }
