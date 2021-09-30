@@ -2,7 +2,8 @@ import React from 'react';
 import * as S from './LinkBtn.styles';
 
 interface LinkBtnProps {
-  [key: string]: string;
+  children: React.ReactNode;
+  [key: string]: React.ReactNode;
 }
 
 export const LinkBtn: React.FC<LinkBtnProps> = ({ children, ...props }) => {

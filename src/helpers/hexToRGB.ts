@@ -9,5 +9,3 @@ export const hexToRGB = (hex: string, alpha: string | number): string => {
     return 'rgb(' + r + ', ' + g + ', ' + b + ')';
   }
 };
-
-hexToRGB('#FF0000', 0.5);
