@@ -3,6 +3,8 @@ import LocalizedFormat from 'dayjs/plugin/localizedFormat';
 import localeData from 'dayjs/plugin/localeData';
 import isBetween from 'dayjs/plugin/isBetween';
 
+import 'dayjs/locale/de';
+
 dayjs.extend(LocalizedFormat);
 dayjs.extend(localeData);
 dayjs.extend(isBetween);
@@ -32,5 +34,9 @@ export class Dates {
     } else {
       return date.format(query);
     }
+  }
+
+  static setLocale(locale: string): void {
+    dayjs.locale(locale);
   }
 }
