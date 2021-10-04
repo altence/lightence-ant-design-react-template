@@ -16,7 +16,7 @@ export const ThemePicker: React.FC = () => {
   return (
     <S.SwitchWrapper>
       <Switch
-        defaultChecked={theme === 'dark'}
+        checked={theme === 'dark'}
         checkedChildren={t('common.darkTheme')}
         unCheckedChildren={t('common.lightTheme')}
         onChange={onChange}
