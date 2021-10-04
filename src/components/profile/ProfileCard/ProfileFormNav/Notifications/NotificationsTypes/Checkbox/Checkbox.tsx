@@ -13,7 +13,6 @@ export const Checkbox: React.FC<CheckboxProps> = ({ list, id, name, isCheck, set
   const handleClick = (e: any) => {
     const { id, checked } = e.target;
 
-    console.log(id);
     setIsCheck([...isCheck, id]);
     if (!checked) {
       setIsCheck(isCheck.filter((item: any) => item !== id));

@@ -10,6 +10,10 @@ interface ProfileFormProps {
 export const ProfileForm: React.FC<ProfileFormProps> = ({ menu, setCurrentMenu, children }) => {
   const [isFieldsChange, setFieldsChange] = useState(false);
 
+  const onCancel = () => {
+    setCurrentMenu('main');
+  };
+
   const onFinish = (values: []) => {
     console.log(values);
   };
@@ -17,7 +21,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({ menu, setCurrentMenu, 
   return (
     <Form name={menu} layout="vertical" onFinish={onFinish} onFieldsChange={() => setFieldsChange(true)}>
       {children}
-      {isFieldsChange && <ButtonsGroup setCurrentMenu={setCurrentMenu} />}
+      {isFieldsChange && <ButtonsGroup onCancel={onCancel} />}
     </Form>
   );
 };

@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Dates } from 'constants/Dates';
+import { Avatar } from 'antd';
+import { LinkBtn } from 'components/common/LinkBtn/LinkBtn';
 import { paymentStatuses } from 'constants/paymentStatuses';
 import { getCurrencyPrice } from 'helpers/getCurrencyPrice';
-import { Avatar } from 'antd';
+import { Dates } from 'constants/Dates';
 import * as S from './Payment.styles';
-import { LinkBtn } from 'components/common/LinkBtn/LinkBtn';
 
 interface PaymentProps {
   src: string;
@@ -23,7 +23,7 @@ export const Payment: React.FC<PaymentProps> = ({ src, seller, date, status, pri
     return paymentStatuses.find((item) => item.id === status);
   }, [status]);
 
-  return paymentStatuses ? (
+  return paymentStatus ? (
     <S.Wrapper>
       <S.Header>
         <S.AvatarWrapper>
@@ -38,7 +38,7 @@ export const Payment: React.FC<PaymentProps> = ({ src, seller, date, status, pri
         </S.Item>
         <S.Item>
           <S.Subtite>{t('profile.nav.payments.status.title')}</S.Subtite>
-          <S.Status color={paymentStatus?.color}>{t(paymentStatus!.name)}</S.Status>
+          <S.Status color={paymentStatus?.color}>{t(paymentStatus.name)}</S.Status>
         </S.Item>
         <S.Item>
           <S.Subtite>{t('profile.nav.payments.date')}</S.Subtite>
