@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Select } from 'antd';
 import { Country } from 'country-state-city';
 import { useTranslation } from 'react-i18next';
@@ -19,9 +19,12 @@ interface CountriesItemProps {
 export const CountriesItem: React.FC<CountriesItemProps> = ({ setCountry }) => {
   const { t } = useTranslation();
 
-  const handleSelectCountry = (value: string) => {
-    setCountry(value);
-  };
+  const handleSelectCountry = useCallback(
+    (value: string) => {
+      setCountry(value);
+    },
+    [setCountry],
+  );
 
   return (
     <FormItem name="countries" label={t('profile.nav.personalInfo.country')}>

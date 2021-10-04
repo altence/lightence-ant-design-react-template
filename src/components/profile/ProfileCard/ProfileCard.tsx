@@ -38,7 +38,7 @@ export const ProfileCard: React.FC = () => {
           <ProfileNav setCurrentMenu={setCurrentMenu} />
         </Card>
       ) : (
-        <ProfileFormNav menu={currentMenu} setCurrentMenu={setCurrentMenu} />
+        <ProfileFormNav menu={currentMenu} />
       )}
     </>
   ) : null;

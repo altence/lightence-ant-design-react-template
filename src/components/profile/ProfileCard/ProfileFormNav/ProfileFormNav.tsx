@@ -1,6 +1,4 @@
 import React from 'react';
-import { Card } from 'components/common/Card/Card.styles';
-import { ProfileForm } from './ProfileForm/ProfileForm';
 import { Notifications } from './nav/Notifications/Notifications';
 import { Payments } from './nav/Payments/Payments';
 import { PersonalInfo } from './nav/PersonalInfo/PersonalInfo';
@@ -8,10 +6,9 @@ import { SecuritySettings } from './nav/SecuritySettings/SecuritySettings';
 
 interface ProfileFormNavProps {
   menu: string;
-  setCurrentMenu: (state: string) => void;
 }
 
-export const ProfileFormNav: React.FC<ProfileFormNavProps> = ({ menu, setCurrentMenu }) => {
+export const ProfileFormNav: React.FC<ProfileFormNavProps> = ({ menu }) => {
   let currentMenu;
 
   switch (menu) {
@@ -40,17 +37,5 @@ export const ProfileFormNav: React.FC<ProfileFormNavProps> = ({ menu, setCurrent
     }
   }
 
-  return menu === 'payments' ? (
-    currentMenu
-  ) : (
-    <Card padding="1.875rem 1rem">
-      {menu === 'security' ? (
-        currentMenu
-      ) : (
-        <ProfileForm menu={menu} setCurrentMenu={setCurrentMenu}>
-          {currentMenu}
-        </ProfileForm>
-      )}
-    </Card>
-  );
+  return currentMenu;
 };

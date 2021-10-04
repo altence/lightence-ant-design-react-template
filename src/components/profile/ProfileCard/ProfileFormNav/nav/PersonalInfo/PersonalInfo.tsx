@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Card } from 'components/common/Card/Card';
+import { ProfileForm } from '../../ProfileForm/ProfileForm';
 import { FirstNameItem } from './FirstNameItem/FirstNameItem';
 import { LastNameItem } from './LastNameItem/LastNameItem';
 import { NicknameItem } from './NicknameItem/NicknameItem';
@@ -22,26 +24,28 @@ export const PersonalInfo: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <>
-      <S.Title>{t('profile.nav.personalInfo.title')}</S.Title>
-      <FirstNameItem />
-      <LastNameItem />
-      <NicknameItem />
-      <SexItem />
-      <BirthdayItem />
-      <LanguageItem />
-      <S.Title>{t('profile.nav.personalInfo.contactInfo')}</S.Title>
-      <PhoneItem />
-      <EmailItem />
-      <S.Title>{t('profile.nav.personalInfo.address')}</S.Title>
-      <CountriesItem setCountry={setSelectedCountry} />
-      <CitiesItem country={selectedCountry} />
-      <ZipcodeItem />
-      <AddressItem number={1} />
-      <AddressItem number={2} />
-      <S.Title>{t('profile.nav.personalInfo.address')}</S.Title>
-      <WebsiteItem />
-      <SocialLinksItem />
-    </>
+    <Card padding="1.875rem 1rem">
+      <ProfileForm name="info">
+        <S.Title>{t('profile.nav.personalInfo.title')}</S.Title>
+        <FirstNameItem />
+        <LastNameItem />
+        <NicknameItem />
+        <SexItem />
+        <BirthdayItem />
+        <LanguageItem />
+        <S.Title>{t('profile.nav.personalInfo.contactInfo')}</S.Title>
+        <PhoneItem />
+        <EmailItem />
+        <S.Title>{t('profile.nav.personalInfo.address')}</S.Title>
+        <CountriesItem setCountry={setSelectedCountry} />
+        <CitiesItem country={selectedCountry} />
+        <ZipcodeItem />
+        <AddressItem number={1} />
+        <AddressItem number={2} />
+        <S.Title>{t('profile.nav.personalInfo.address')}</S.Title>
+        <WebsiteItem />
+        <SocialLinksItem />
+      </ProfileForm>
+    </Card>
   );
 };

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Input } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { FormItem } from '../../../ProfileForm/ProfileForm.styles';
 import { FileTextOutlined } from '@ant-design/icons';
 import { websitePattern } from 'constants/patterns';
+import { FormItem } from '../../../ProfileForm/ProfileForm.styles';
 
 export const WebsiteItem: React.FC = () => {
   const { t } = useTranslation();
