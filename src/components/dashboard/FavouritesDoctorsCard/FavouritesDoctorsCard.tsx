@@ -11,7 +11,18 @@ export const FavouritesDoctorsCard: React.FC = () => {
 
   return (
     <Card id="fav-doctors" title={t('dashboard.favoriteDoctors.title')}>
-      <Slider>
+      <Slider
+        spaceBetween={10}
+        slidesPerView={3}
+        breakpoints={{
+          500: {
+            slidesPerView: 4,
+          },
+          768: {
+            slidesPerView: 5,
+          },
+        }}
+      >
         {doctorsData.map((doctor) => (
           <SwiperSlide key={doctor.id}>
             <DoctorCard

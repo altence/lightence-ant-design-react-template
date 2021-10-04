@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 import { Typography, Input as AntInput, Button } from 'antd';
-import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
-import generatePicker from 'antd/es/date-picker/generatePicker';
-import { AppDate } from '../../../constants/Dates';
-
-const DatePicker = generatePicker<AppDate>(dayjsGenerateConfig);
+import DatePicker from 'components/common/DatePicker/DatePicker';
 
 export const Dropdown = styled.div`
   padding: 1rem;

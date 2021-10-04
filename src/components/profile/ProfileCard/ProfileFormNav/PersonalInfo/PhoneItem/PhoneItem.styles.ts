@@ -2,7 +2,7 @@ import PhoneInput from 'react-phone-number-input/input';
 import styled from 'styled-components';
 
 export const PhoneNumberInput = styled(PhoneInput)`
-  height: 40px;
+  height: 50px;
   width: 100%;
   padding: 8px 11px;
   transition: all 0.3s;

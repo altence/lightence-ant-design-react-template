@@ -4,15 +4,15 @@ import { useTranslation } from 'react-i18next';
 import * as S from './ButtonsGroup.styles';
 
 interface ButtonsGroupProps {
-  setCurrentMenu: (state: string) => void;
+  onCancel: () => void;
 }
 
-export const ButtonsGroup: React.FC<ButtonsGroupProps> = ({ setCurrentMenu }) => {
+export const ButtonsGroup: React.FC<ButtonsGroupProps> = ({ onCancel }) => {
   const { t } = useTranslation();
 
   return (
     <S.Wrapper>
-      <Button type="ghost" onClick={() => setCurrentMenu('main')}>
+      <Button type="ghost" onClick={onCancel}>
         {t('common.cancel')}
       </Button>
       <Button htmlType="submit" type="primary">
