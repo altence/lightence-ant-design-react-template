@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Avatar } from 'antd';
 import { User } from 'api/users.api';
 import * as S from './ProfileInfo.styles';
 
@@ -15,9 +16,8 @@ export const ProfileInfo: React.FC<ProfileInfoProps> = ({ profileData }) => {
   return (
     <S.Wrapper>
       <S.ImgWrapper>
-        <S.AvatarImg shape="circle" src={profileData.imgUrl} alt="Profile" />
+        <Avatar shape="circle" src={profileData.imgUrl} alt="Profile" />
       </S.ImgWrapper>
-
       <S.Title>{`${profileData.firstName} ${profileData.lastName}`}</S.Title>
       <S.Subtitle>{profileData.userName}</S.Subtitle>
       <S.FullnessWrapper>

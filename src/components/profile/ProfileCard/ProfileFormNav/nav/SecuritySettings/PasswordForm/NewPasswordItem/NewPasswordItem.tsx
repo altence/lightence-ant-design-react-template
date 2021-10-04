@@ -1,8 +1,7 @@
 import React from 'react';
 import { Input } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { FormItem } from 'components/profile/ProfileCard/ProfileForm/ProfileForm.styles';
-import { passwordPattern } from 'constants/patterns';
+import { FormItem } from 'components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm.styles';
 
 export const NewPasswordItem: React.FC = () => {
   const { t } = useTranslation();

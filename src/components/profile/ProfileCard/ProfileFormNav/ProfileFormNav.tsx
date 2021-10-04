@@ -1,10 +1,10 @@
 import React from 'react';
 import { Card } from 'components/common/Card/Card.styles';
-import { ProfileForm } from '../ProfileForm/ProfileForm';
-import { Notifications } from './Notifications/Notifications';
-import { Payments } from './Payments/Payments';
-import { PersonalInfo } from './PersonalInfo/PersonalInfo';
-import { SecuritySettings } from './SecuritySettings/SecuritySettings';
+import { ProfileForm } from './ProfileForm/ProfileForm';
+import { Notifications } from './nav/Notifications/Notifications';
+import { Payments } from './nav/Payments/Payments';
+import { PersonalInfo } from './nav/PersonalInfo/PersonalInfo';
+import { SecuritySettings } from './nav/SecuritySettings/SecuritySettings';
 
 interface ProfileFormNavProps {
   menu: string;

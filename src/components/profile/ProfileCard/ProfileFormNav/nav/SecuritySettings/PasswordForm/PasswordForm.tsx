@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { Title } from 'components/profile/ProfileCard/ProfileForm/ProfileForm.styles';
+import { Title } from 'components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm.styles';
 import { CurrentPasswordItem } from './CurrentPasswordItem/CurrentPasswordItem';
 import { NewPasswordItem } from './NewPasswordItem/NewPasswordItem';
 import { ConfirmItemPassword } from './ConfirmPasswordItem/ConfirmPasswordItem';
