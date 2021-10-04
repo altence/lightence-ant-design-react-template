@@ -6,8 +6,6 @@ const currentNightMode = localStorage.getItem('nightMode') === 'true';
 const currentNightTimeJSON = localStorage.getItem('nightTime');
 const currentNightTime = currentNightTimeJSON ? JSON.parse(currentNightTimeJSON) : DEFAULT_NIGHT_MODE_INTERVAL;
 
-console.log(currentNightTime);
-
 interface UseNightModeReturnValue {
   isNightMode: boolean;
   setNightMode: (isNightMode: boolean) => void;
