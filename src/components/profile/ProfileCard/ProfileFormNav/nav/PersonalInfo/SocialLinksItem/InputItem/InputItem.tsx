@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Input } from 'antd';
-import { FormItem } from 'components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm.styles';
 import { LinkOutlined } from '@ant-design/icons';
+import { FormItem } from 'components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm.styles';
 
 interface InputItemProps {
   name: string;

@@ -191,7 +191,8 @@
         "notValidPassword": "Your password should be minimum eight characters and contain at least one uppercase letter, one lowercase letter and one number",
         "twoFactorAuth": "Two–factor authentication",
         "twoFactorAuthSuccess": "Two-factor authentication was succesfully added to your account",
-        "twoFactorAuthFail": "Please, fix all error fields before"
+        "twoFactorAuthFail": "Please, fix all error fields before",
+        "verify": "Verify"
       },
       "notifications": {
         "title": "Notifications",

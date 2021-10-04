@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Avatar, Typography } from 'antd';
+import { Typography } from 'antd';
 import { hexToRGB } from 'helpers/hexToRGB';
 
 interface FullnessLineProps {

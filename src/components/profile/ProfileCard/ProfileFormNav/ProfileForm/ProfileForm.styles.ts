@@ -22,7 +22,7 @@ export const FormItem = styled(Form.Item)`
 
     color: ${(props) => props.theme.colors.main.primary};
 
-    ${(props) => `background-color: ${hexToRGB(props.theme.colors.main.primary, 0.05)}`};
+    background-color: ${(props) => hexToRGB(props.theme.colors.main.primary, 0.05)};
   }
 
   & .ant-input-group-addon + input + .ant-input-group-addon {
