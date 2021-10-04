@@ -13,7 +13,7 @@ import { useNightMode } from './hooks/useNightMode';
 
 const App: React.FC = () => {
   const { isNightMode, setNightMode, nightTime, setNightTime } = useNightMode();
-  const [theme, setTheme] = useTheme(isNightMode);
+  const [theme, setTheme] = useTheme(isNightMode, nightTime);
 
   return (
     <>
