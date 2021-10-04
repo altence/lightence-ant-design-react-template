@@ -12,15 +12,15 @@ import { useTheme } from './hooks/useTheme';
 import { useNightMode } from './hooks/useNightMode';
 
 const App: React.FC = () => {
-  const [isNightMode, setNightMode] = useNightMode();
-  const { theme, setTheme } = useTheme(isNightMode);
+  const { isNightMode, setNightMode, nightTime, setNightTime } = useNightMode();
+  const [theme, setTheme] = useTheme(isNightMode);
 
   return (
     <>
       <GlobalStyle />
       <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
         <ThemeContext.Provider value={{ theme, setTheme }}>
-          <NightModeContext.Provider value={{ isNightMode, setNightMode }}>
+          <NightModeContext.Provider value={{ isNightMode, setNightMode, nightTime, setNightTime }}>
             <BrowserRouter>
               <Switch>
                 {routes.map((route, index) => (

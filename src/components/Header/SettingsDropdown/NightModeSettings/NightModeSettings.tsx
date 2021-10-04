@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { Switch } from 'antd';
-import { TimePicker } from '../ThemePicker/AutoThemePicker/TimePicker/TimePicker';
+import { TimeRangePicker } from '../../../common/pickers/TimeRangePicker';
 import { useTranslation } from 'react-i18next';
 import { NightModeContext } from '../../../../context/NightModeContext';
 
 export const NightModeSettings: React.FC = () => {
   const { t } = useTranslation();
-  const { isNightMode, setNightMode } = useContext(NightModeContext);
+  const { isNightMode, setNightMode, nightTime, setNightTime } = useContext(NightModeContext);
 
   return (
     <>
@@ -16,7 +16,7 @@ export const NightModeSettings: React.FC = () => {
         unCheckedChildren={t('header.nightModeOff')}
         onChange={setNightMode}
       />
-      {/*<TimePicker setNightTime={changeNightTime} />*/}
+      <TimeRangePicker timeRange={nightTime} setTimeRange={setNightTime} />
     </>
   );
 };
