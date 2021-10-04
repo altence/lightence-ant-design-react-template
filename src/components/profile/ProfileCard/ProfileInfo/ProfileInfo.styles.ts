@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Avatar, Typography } from 'antd';
+import { hexToRGB } from 'helpers/hexToRGB';
 
 interface FullnessLineProps {
   width: number;
@@ -13,12 +14,13 @@ export const Wrapper = styled.div`
 `;
 
 export const ImgWrapper = styled.div`
-  max-width: 6.9375rem;
+  width: 6.9375rem;
   margin: 0 auto 1.25rem auto;
   display: flex;
   justify-content: center;
-  background: ${(props) => props.theme.colors.main.angularGradient};
   border-radius: 50%;
+
+  background: ${(props) => props.theme.colors.main.angularGradient};
 
   & > span {
     margin: 5px;
@@ -26,8 +28,6 @@ export const ImgWrapper = styled.div`
     height: 100%;
   }
 `;
-
-export const AvatarImg = styled(Avatar)``;
 
 export const Title = styled(Typography.Text)`
   font-size: 1.125rem;
@@ -42,11 +42,10 @@ export const Subtitle = styled(Typography.Text)`
 
 export const FullnessWrapper = styled.div`
   border-radius: 50px;
-  opacity: 0.5;
   height: 1.875rem;
   margin-bottom: 0.625rem;
 
-  background-color: ${(props) => props.theme.colors.main.additional2};
+  background-color: ${(props) => hexToRGB(props.theme.colors.main.additional2, 0.5)};
 `;
 
 export const FullnessLine = styled.div<FullnessLineProps>`

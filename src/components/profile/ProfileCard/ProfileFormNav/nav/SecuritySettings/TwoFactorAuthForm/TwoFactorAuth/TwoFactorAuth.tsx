@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { Title } from 'components/profile/ProfileCard/ProfileForm/ProfileForm.styles';
+import { Title } from 'components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm.styles';
 import * as S from './TwoFactorAuth.styles';
 
 interface TwoFactorAuthProps {

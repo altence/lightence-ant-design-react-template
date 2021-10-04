@@ -5,7 +5,7 @@ import { CardNumberItem } from './CardNumberItem/CardNumberItem';
 import { CardholderItem } from './CardholderItem/CardholderItem';
 import { ExpDateItem } from './ExpDateItem/ExpDateItem';
 import { CVVItem } from './CVVItem/CVVItem';
-import { ButtonsGroup } from 'components/profile/ProfileCard/ProfileForm/ButtonsGroup/ButtonsGroup';
+import { ButtonsGroup } from 'components/profile/ProfileCard/ProfileFormNav/ProfileForm/ButtonsGroup/ButtonsGroup';
 import { CardThemeItem } from './CardThemeItem/CardThemeItem';
 import { cardThemes } from 'constants/cardThemes';
 import { CreditCard } from '../PaymentCard/PaymentCard';

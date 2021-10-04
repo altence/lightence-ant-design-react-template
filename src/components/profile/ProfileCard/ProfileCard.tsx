@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { LeftOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
+import { LeftOutlined } from '@ant-design/icons';
 import { Card } from '../../common/Card/Card';
 import { ProfileInfo } from './ProfileInfo/ProfileInfo';
 import { ProfileNav } from './ProfileNav/ProfileNav';
 import { PageTitle } from 'components/common/PageTitle/PageTitle';
-import { getUser, User } from 'api/users.api';
 import { ProfileFormNav } from './ProfileFormNav/ProfileFormNav';
+import { getUser, User } from 'api/users.api';
 import * as S from './ProfileCard.styles';
 
 export const ProfileCard: React.FC = () => {
@@ -14,11 +14,11 @@ export const ProfileCard: React.FC = () => {
 
   const [profileData, setProfileData] = useState<User>();
 
+  const { t } = useTranslation();
+
   useEffect(() => {
     getUser().then((res) => setProfileData(res));
   }, []);
-
-  const { t } = useTranslation();
 
   return profileData ? (
     <>

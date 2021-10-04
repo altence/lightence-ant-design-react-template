@@ -12,12 +12,19 @@ export const Wrapper = styled.div`
 `;
 
 export const Btn = styled(Button)<BtnProps>`
-  font-weight: 600;
+  display: flex;
+  align-items: center;
   height: unset;
   width: 100%;
   margin-bottom: 1.25rem;
-  display: flex;
-  align-items: center;
+
+  &:nth-last-of-type(1) {
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    background-color: ${(props) => hexToRGB(props.theme.colors.main.primary, 0.05)};
+  }
 
   & > span:first-of-type {
     font-size: 1.25rem;
@@ -27,14 +34,6 @@ export const Btn = styled(Button)<BtnProps>`
 
     color: ${(props) => props.theme.colors.main[props.color]};
 
-    ${(props) => `background-color: ${hexToRGB(props.theme.colors.main.primary, 0.05)}`};
-  }
-
-  &:nth-last-of-type(1) {
-    margin-bottom: 0;
-  }
-
-  &:hover {
-    ${(props) => `background-color: ${hexToRGB(props.theme.colors.main.primary, 0.05)}`};
+    background-color: ${(props) => hexToRGB(props.theme.colors.main.primary, 0.05)};
   }
 `;

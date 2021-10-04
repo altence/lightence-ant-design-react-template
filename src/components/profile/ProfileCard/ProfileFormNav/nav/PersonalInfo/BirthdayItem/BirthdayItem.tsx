@@ -1,6 +1,5 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-
 import { FormItem } from '../../../ProfileForm/ProfileForm.styles';
 import * as S from './BirthdayItem.styles';
 
