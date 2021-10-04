@@ -1,14 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface UseThemeReturnVal {
   theme: string;
   setTheme: (theme: string) => void;
-  isNightMode: boolean;
 }
 
 const selectedTheme = localStorage.getItem('theme');
 
-export const useTheme = (): UseThemeReturnVal => {
+export const useTheme = (isNightMode: boolean): UseThemeReturnVal => {
   const [theme, setTheme] = useState(selectedTheme || 'light');
 
   const selectTheme = (theme: string): void => {
@@ -16,7 +15,9 @@ export const useTheme = (): UseThemeReturnVal => {
     localStorage.setItem('theme', theme);
   };
 
-  const [isNightMode] = useState(false);
+  useEffect(() => {
+    selectTheme(isNightMode ? 'dark' : 'light');
+  }, [isNightMode]);
 
-  return { theme, setTheme: selectTheme, isNightMode };
+  return { theme, setTheme: selectTheme };
 };
