@@ -4,6 +4,7 @@ import { SettingOutlined } from '@ant-design/icons';
 import { LanguagePicker } from './LanguagePicker/LanguagePicker';
 import { ThemePicker } from './ThemePicker/ThemePicker';
 import * as S from '../Header.styles';
+import { NightModeSettings } from './NightModeSettings/NightModeSettings';
 
 export const SettingsDropdown: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ export const SettingsDropdown: React.FC = () => {
           <S.DropdownContent>
             <LanguagePicker />
             <ThemePicker />
+            <NightModeSettings />
           </S.DropdownContent>
         </S.Menu>
       }

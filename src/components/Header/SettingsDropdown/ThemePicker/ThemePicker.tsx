@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ThemeContext } from '../../../../context/ThemeContext';
 import { Switch } from 'antd';
-import { AutoThemePicker } from './AutoThemePicker/AutoThemePicker';
 import * as S from './ThemePicker.styles';
 
 export const ThemePicker: React.FC = () => {
@@ -22,7 +21,6 @@ export const ThemePicker: React.FC = () => {
         unCheckedChildren={t('common.lightTheme')}
         onChange={onChange}
       />
-      <AutoThemePicker />
     </S.SwitchWrapper>
   );
 };

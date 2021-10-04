@@ -29,8 +29,8 @@
     "searchTerm": "Enter your search term",
     "notFound": "Try to change your search query",
     "export": "Export",
-    "autoChangeOn": "Auto change enabled",
-    "autoChangeOff": "Auto change disalbed"
+    "nightModeOn": "Night Mode ON",
+    "nightModeOff": "Night Mode OFF"
   },
   "dashboard": {
     "title": "Dashboard",
