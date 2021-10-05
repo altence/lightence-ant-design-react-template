@@ -40,8 +40,4 @@ export class Dates {
       return date.format(query);
     }
   }
-
-  static setLocale(locale: string): void {
-    dayjs.locale(locale);
-  }
 }
