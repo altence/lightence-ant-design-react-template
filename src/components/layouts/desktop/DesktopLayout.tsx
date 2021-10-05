@@ -33,7 +33,6 @@ const LayoutStyled = styled(Layout)`
 
 const ContentLayoutStyled = styled(Layout)`
   margin-left: 60px;
-  background-color: ${(props) => props.theme.colors.basicLight};
 
   @media only screen and ${theme.media.xxl} {
     margin-left: unset;
