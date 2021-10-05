@@ -7,6 +7,7 @@ import MobileContent from './MobileContent';
 import MobileHeader from './MobileHeader';
 import { Header } from '../../Header/Header';
 import { Container } from '../../common/Container/Container';
+import bg from 'assets/images/bg.png';
 
 const MobileLayout: React.FC<LayoutProps> = ({ children, siderContent, logo }) => {
   const [siderCollapsed, setSiderCollapsed] = useState(true);
@@ -18,7 +19,7 @@ const MobileLayout: React.FC<LayoutProps> = ({ children, siderContent, logo }) =
       <MobileSider collapsed={siderCollapsed} toggleSider={toggleSider} siderCollapsed={siderCollapsed} logo={logo}>
         {siderContent}
       </MobileSider>
-      <Layout>
+      <LayoutStyled>
         <MobileHeader>
           <Container>
             <Header toggleSider={toggleSider} />
@@ -27,13 +28,15 @@ const MobileLayout: React.FC<LayoutProps> = ({ children, siderContent, logo }) =
         <MobileContent>
           <Container>{children}</Container>
         </MobileContent>
-      </Layout>
+      </LayoutStyled>
     </LayoutStyled>
   );
 };
 
 const LayoutStyled = styled(Layout)`
   min-height: 100vh;
+  background: url(${bg}) no-repeat;
+  background-size: auto 200px;
 `;
 
 export default MobileLayout;
