@@ -15,7 +15,7 @@ export const TwoFactorAuth: React.FC<TwoFactorAuthProps> = ({ setEnabled }) => {
     <>
       <S.Wrapper>
         <Title>{t('profile.nav.securitySettings.twoFactorAuth')}</Title>
-        <Switch onChange={(value) => setEnabled(value)} />
+        <Switch onChange={setEnabled} />
       </S.Wrapper>
     </>
   );
