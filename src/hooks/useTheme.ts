@@ -11,11 +11,21 @@ export const useTheme = (isNightMode: boolean, nightTime: number[]): [string, (t
     localStorage.setItem('theme', theme);
   };
 
-  useEffect(() => {
+  const checkNightMode = () => {
     if (isNightMode) {
       selectTheme(isNight(nightTime) ? 'dark' : 'light');
     }
+  };
+
+  useEffect(() => {
+    checkNightMode();
   }, [isNightMode, nightTime]);
+
+  useEffect(() => {
+    const id = setInterval(checkNightMode, 60 * 1000);
+
+    return () => clearInterval(id);
+  }, []);
 
   return [theme, selectTheme];
 };
