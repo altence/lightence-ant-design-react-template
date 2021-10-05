@@ -6,10 +6,10 @@ const { Header } = Layout;
 export default styled(Header)`
   background: transparent;
 
-  // TODO Check if we need this padding
+  // TODO Check if we need this padding, we can use antd default padding
   padding: ${(props) => `${props.theme.desktopLayout.paddingVertical} ${props.theme.desktopLayout.paddingHorizontal}`};
 
-  // TODO same
+  // TODO Check why we need this?
   line-height: ${(props) => props.theme.desktopLayout.headerLineHeight};
 
   margin-bottom: ${(props) =>

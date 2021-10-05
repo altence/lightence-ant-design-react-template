@@ -138,7 +138,7 @@ export const breakpoints = {
   xxl: 1920,
 };
 
-const getMedia = (breakpoint: number) => `min-width: ${breakpoint}px`;
+const getMedia = (breakpoint: number) => `(min-width: ${breakpoint}px)`;
 
 export const media = {
   xs: getMedia(breakpoints.xs),

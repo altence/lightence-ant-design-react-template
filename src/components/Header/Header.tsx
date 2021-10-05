@@ -2,7 +2,6 @@ import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Button } from 'antd';
 import { useTranslation } from 'react-i18next';
-
 import hamburgerIcon from '../../assets/icons/hamburger.svg';
 import theme from '../../styles/theme';
 import { SearchDropdown } from './SearchDropdown/SearchDropdown';
