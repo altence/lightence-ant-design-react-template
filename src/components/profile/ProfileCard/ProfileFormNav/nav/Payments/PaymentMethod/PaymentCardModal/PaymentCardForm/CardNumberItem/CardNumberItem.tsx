@@ -1,6 +1,6 @@
 import React from 'react';
-import { Input } from 'antd';
 import { useTranslation } from 'react-i18next';
+import MaskedInput from 'antd-mask-input';
 import { FormItem } from '../../../../../../ProfileForm/ProfileForm.styles';
 import { CardData } from '../../PaymentCardModal';
 
@@ -19,7 +19,13 @@ export const CardNumberItem: React.FC<CardData> = ({ disabled, handleInputChange
         },
       ]}
     >
-      <Input name="number" onChange={handleInputChange} onFocus={handleInputFocus} disabled={disabled} />
+      <MaskedInput
+        name="number"
+        mask="1111 1111 1111 1111"
+        onChange={handleInputChange}
+        onFocus={handleInputFocus}
+        disabled={disabled}
+      />
     </FormItem>
   );
 };
