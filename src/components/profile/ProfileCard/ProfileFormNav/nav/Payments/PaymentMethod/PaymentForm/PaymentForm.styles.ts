@@ -3,7 +3,9 @@ import { PaymentCard } from '../PaymentCard/PaymentCard';
 
 export const PayCard = styled(PaymentCard)`
   position: absolute;
-  bottom: 85%;
-  left: 50%;
-  transform: translateX(-50%);
+  top: -5rem;
+`;
+
+export const FormItemsWrapper = styled.div`
+  padding-top: 7.5rem;
 `;

@@ -1,10 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import MaskedInput from 'antd-mask-input';
-import { FormItem } from '../../../../../../ProfileForm/ProfileForm.styles';
-import { CardData } from '../../PaymentCardModal';
+import { FormItem } from 'components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm.styles';
+import { CardInputProps } from '../interfaces';
 
-export const CVVItem: React.FC<CardData> = ({ disabled, handleInputChange, handleInputFocus }) => {
+export const CVVItem: React.FC<CardInputProps> = ({ disabled, handleInputChange, handleInputFocus }) => {
   const { t } = useTranslation();
 
   return (

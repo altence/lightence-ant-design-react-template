@@ -1,10 +1,10 @@
 import React from 'react';
 import { Input } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { FormItem } from '../../../../../../ProfileForm/ProfileForm.styles';
-import { CardData } from '../../PaymentCardModal';
+import { FormItem } from 'components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm.styles';
+import { CardInputProps } from '../interfaces';
 
-export const CardholderItem: React.FC<CardData> = ({ disabled, handleInputChange, handleInputFocus }) => {
+export const CardholderItem: React.FC<CardInputProps> = ({ disabled, handleInputChange, handleInputFocus }) => {
   const { t } = useTranslation();
 
   return (
