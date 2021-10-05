@@ -18,10 +18,6 @@ export const ConfirmItemPassword: React.FC = () => {
           required: true,
           message: t('profile.nav.securitySettings.requiredPassword'),
         },
-        {
-          pattern: new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/),
-          message: t('profile.nav.securitySettings.notValidPassword'),
-        },
         ({ getFieldValue }) => ({
           validator(_, value) {
             if (!value || getFieldValue('newPassword') === value) {

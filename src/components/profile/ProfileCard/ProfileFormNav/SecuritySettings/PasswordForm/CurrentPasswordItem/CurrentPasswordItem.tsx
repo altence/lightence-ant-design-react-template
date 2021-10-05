@@ -11,15 +11,10 @@ export const CurrentPasswordItem: React.FC = () => {
       name="password"
       requiredMark="optional"
       label={t('profile.nav.securitySettings.currentPassword')}
-      hasFeedback
       rules={[
         {
           required: true,
           message: t('profile.nav.securitySettings.requiredPassword'),
-        },
-        {
-          pattern: new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/),
-          message: t('profile.nav.securitySettings.notValidPassword'),
         },
       ]}
     >
