@@ -2,6 +2,7 @@ import React from 'react';
 import { Input } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { FormItem } from 'components/profile/ProfileCard/ProfileForm/ProfileForm.styles';
+import { passwordPattern } from 'constants/patterns';
 
 export const NewPasswordItem: React.FC = () => {
   const { t } = useTranslation();
@@ -19,7 +20,7 @@ export const NewPasswordItem: React.FC = () => {
           message: t('profile.nav.securitySettings.requiredPassword'),
         },
         {
-          pattern: new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/),
+          pattern: passwordPattern,
           message: t('profile.nav.securitySettings.notValidPassword'),
         },
         ({ getFieldValue }) => ({
