@@ -13,13 +13,13 @@ import 'typeface-poppins';
 import 'typeface-montserrat';
 import { useTheme } from './hooks/useTheme';
 import { useNightMode } from './hooks/useNightMode';
-import { useLanguage } from './hooks/useLanguage';
+import { useTranslation } from 'react-i18next';
 
 const App: React.FC = () => {
   const { isNightMode, setNightMode, nightTime, setNightTime } = useNightMode();
   const [theme, setTheme] = useTheme(isNightMode, nightTime);
 
-  const currentLanguage = useLanguage();
+  const { i18n } = useTranslation();
 
   return (
     <>
@@ -27,7 +27,7 @@ const App: React.FC = () => {
       <ThemeProvider theme={theme === 'light' ? lightTheme : lightTheme}>
         <ThemeContext.Provider value={{ theme, setTheme }}>
           <NightModeContext.Provider value={{ isNightMode, setNightMode, nightTime, setNightTime }}>
-            <ConfigProvider locale={currentLanguage === 'en' ? enUS : deDe}>
+            <ConfigProvider locale={i18n.language === 'en' ? enUS : deDe}>
               <BrowserRouter>
                 <Switch>
                   {routes.map((route, index) => (
