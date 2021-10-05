@@ -4,8 +4,6 @@ import localeData from 'dayjs/plugin/localeData';
 import isBetween from 'dayjs/plugin/isBetween';
 import 'dayjs/locale/de';
 
-import 'dayjs/locale/de';
-
 dayjs.extend(LocalizedFormat);
 dayjs.extend(localeData);
 dayjs.extend(isBetween);
