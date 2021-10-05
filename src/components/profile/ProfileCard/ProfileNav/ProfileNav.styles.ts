@@ -16,11 +16,6 @@ export const Btn = styled(Button)<BtnProps>`
   align-items: center;
   height: unset;
   width: 100%;
-  margin-bottom: 1.25rem;
-
-  &:nth-last-of-type(1) {
-    margin-bottom: 0;
-  }
 
   &:hover {
     background-color: ${(props) => hexToRGB(props.theme.colors.main.primary, 0.05)};
