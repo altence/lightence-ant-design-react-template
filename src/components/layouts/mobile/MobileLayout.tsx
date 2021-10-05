@@ -37,6 +37,8 @@ const LayoutStyled = styled(Layout)`
   min-height: 100vh;
   background: url(${bg}) no-repeat;
   background-size: auto 200px;
+
+  background-color: ${(props) => props.theme.colors.back.lightGray};
 `;
 
 export default MobileLayout;
