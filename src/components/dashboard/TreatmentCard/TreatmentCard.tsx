@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Card } from '../../common/Card/Card';
 import { TreatmentHeader } from './TreatmentHeader/TreatmentHeader';
@@ -7,6 +7,7 @@ import { TreatmentPanel } from './TreatmentPanel/TreatmentPanel';
 import theme from '../../../styles/theme';
 import { AppDate, Dates } from '../../../constants/Dates';
 import * as S from './TreatmentCard.styles';
+import { useTranslation } from 'react-i18next';
 
 export interface TreatmentCardState {
   isDateClicked: boolean;
@@ -20,6 +21,12 @@ export const TreatmentCard: React.FC = () => {
     isDateClicked: false,
     date: Dates.getToday(),
   });
+
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    setDate({ ...selectedDate, date: selectedDate.date.locale(i18n.language) });
+  }, [i18n.language]);
 
   const handleDecreaseMonth = () => {
     setDate((prev) => {
