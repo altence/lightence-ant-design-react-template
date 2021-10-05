@@ -39,7 +39,8 @@ export const PaymentCardModal: React.FC<PaymentCardModalProps> = ({
 
   const handleCancel = useCallback(() => {
     setModalVisible(false);
-  }, [setModalVisible]);
+    setEditCard(null);
+  }, [setModalVisible, setEditCard, editCard]);
 
   return (
     <Modal visible={isModalVisible} footer={null} closable={false} onCancel={handleCancel}>

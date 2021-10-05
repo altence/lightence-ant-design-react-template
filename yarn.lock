@@ -2583,6 +2583,11 @@ ansi-styles@^4.0.0, ansi-styles@^4.1.0:
   dependencies:
     color-convert "^2.0.1"
 
+antd-mask-input@^0.1.15:
+  version "0.1.15"
+  resolved "https://registry.yarnpkg.com/antd-mask-input/-/antd-mask-input-0.1.15.tgz#7a2b5035dfa0fcb1ecb409c40181b31cff1f738d"
+  integrity sha512-PXSD/chUJySWam2jj/NW1LHF3X92rJGecjU1BGfbdfrMGabVTNRsjNhO+xEUpjdi5VR/E60WAmcIKGnRFj6H6w==
+
 antd@^4.16.3:
   version "4.16.3"
   resolved "https://registry.yarnpkg.com/antd/-/antd-4.16.3.tgz#9836613eaeabb55a0bcd4423551df699d65f67a8"

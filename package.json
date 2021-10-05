@@ -10,6 +10,7 @@
     "@types/react-credit-cards": "^0.8.1",
     "@types/react-phone-number-input": "^3.0.13",
     "antd": "^4.16.3",
+    "antd-mask-input": "^0.1.15",
     "country-state-city": "^3.0.1",
     "craco-antd": "^1.19.0",
     "dayjs": "^1.10.6",

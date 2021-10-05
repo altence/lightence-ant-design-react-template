@@ -65,7 +65,11 @@ export const PaymentCardForm: React.FC<PaymwentCardFormProps> = ({
   );
 
   const onCancel = useCallback(() => {
-    editCard && setEditCard(null);
+    if (editCard) {
+      setEditCard(null);
+      form.setFieldsValue(emptyCardState);
+      setCardData(() => emptyCardState);
+    }
 
     setModalVisible(false);
   }, [setModalVisible, editCard, setEditCard]);
