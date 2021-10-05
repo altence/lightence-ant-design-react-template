@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { SwiperSlide } from 'swiper/react';
 import { Button, Popconfirm } from 'antd';
@@ -20,9 +20,7 @@ export const PaymentMethod: React.FC = () => {
 
   const handleRemove = useCallback(
     (number: string) => () => {
-      setCards((prev) => {
-        return prev.filter((card) => card.number !== number);
-      });
+      setCards((prev) => prev.filter((card) => card.number !== number));
     },
     [setCards],
   );
@@ -37,28 +35,38 @@ export const PaymentMethod: React.FC = () => {
     [setEditCard, setModalVisible],
   );
 
+  const handleAdd = useCallback(() => {
+    setModalVisible(true);
+  }, [setModalVisible]);
+
+  const paymentCards = useMemo(
+    () =>
+      cards.map((card, index) => (
+        <SwiperSlide key={index}>
+          <PaymentCard cardData={card} background={card.theme || cardThemes[0].background}>
+            <S.BtnWrapper>
+              <Button type="link" icon={<EditOutlined />} onClick={handleEdit(card)} />
+              <Popconfirm title={t('common.deleteQuestion')} onConfirm={handleRemove(card.number)}>
+                <Button type="link" icon={<DeleteOutlined />} />
+              </Popconfirm>
+            </S.BtnWrapper>
+          </PaymentCard>
+        </SwiperSlide>
+      )),
+    [cards, cardThemes, handleEdit, handleRemove],
+  );
+
   return (
     <Card padding="1.875rem 1rem">
       <Title>{t('profile.nav.payments.paymentMethod')}</Title>
       {cards.length > 0 && (
         <S.SliderWrapper>
           <Slider spaceBetween={24} slidesPerView={1}>
-            {cards.map((card, index) => (
-              <SwiperSlide key={index}>
-                <PaymentCard cardData={card} background={card.theme || cardThemes[0].background}>
-                  <S.BtnWrapper>
-                    <Button type="link" icon={<EditOutlined />} onClick={handleEdit(card)} />
-                    <Popconfirm title={t('common.deleteQuestion')} onConfirm={handleRemove(card.number)}>
-                      <Button type="link" icon={<DeleteOutlined />} />
-                    </Popconfirm>
-                  </S.BtnWrapper>
-                </PaymentCard>
-              </SwiperSlide>
-            ))}
+            {paymentCards}
           </Slider>
         </S.SliderWrapper>
       )}
-      <S.AddBtn type="ghost" onClick={() => setModalVisible(true)}>
+      <S.AddBtn type="ghost" onClick={handleAdd}>
         {t('profile.nav.payments.addNewCard')}
       </S.AddBtn>
       <PaymentCardModal

@@ -33,6 +33,6 @@ export const Theme = styled.div<ThemeProps>`
 
   border-radius: ${(props) => props.theme.border.radius};
 
-  background: ${(props) => (props.background.includes('http') ? `url(${props.background})` : props.background)};
-  background-size: contain;
+  background: ${(props) => `url(${props.background})`};
+  background-size: cover;
 `;

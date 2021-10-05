@@ -1,7 +1,7 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { cardThemes } from 'constants/cardThemes';
-import { FormItem } from '../../../../../ProfileForm/ProfileForm.styles';
+import { FormItem } from '../../../../../../ProfileForm/ProfileForm.styles';
 import * as S from './CardThemeItem.styles';
 
 interface CardThemeItemProps {
@@ -21,15 +21,19 @@ export const CardThemeItem: React.FC<CardThemeItemProps> = ({ currentTheme, setC
     [setCurrentTheme, setFieldsChange, currentTheme],
   );
 
+  const themes = useMemo(
+    () =>
+      cardThemes.map((item) => (
+        <S.BackgroundWrapper key={item.id} isActive={currentTheme === item.background}>
+          <S.Theme background={item.background} onClick={handleChange(item)} />
+        </S.BackgroundWrapper>
+      )),
+    [currentTheme, handleChange, cardThemes],
+  );
+
   return (
     <FormItem label={t('profile.nav.payments.cardTheme')}>
-      <S.Wrapper>
-        {cardThemes.map((item) => (
-          <S.BackgroundWrapper key={item.id} isActive={currentTheme === item.background}>
-            <S.Theme background={item.background} onClick={handleChange(item)} />
-          </S.BackgroundWrapper>
-        ))}
-      </S.Wrapper>
+      <S.Wrapper>{themes}</S.Wrapper>
     </FormItem>
   );
 };

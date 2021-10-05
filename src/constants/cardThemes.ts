@@ -7,7 +7,7 @@ export const cardThemes: CardTheme[] = [
   {
     id: 1,
     background:
-      'https://res.cloudinary.com/lapkinthegod/image/upload/v1633102337/vivid-blurred-colorfxbul-wallpaper-background_1_1_fpxx1z.png',
+      'https://res.cloudinary.com/lapkinthegod/image/upload/v1633425628/horizontal-wide-red-pink-blue-blurred-background_136277-125_bk9drb.jpg',
   },
   {
     id: 2,

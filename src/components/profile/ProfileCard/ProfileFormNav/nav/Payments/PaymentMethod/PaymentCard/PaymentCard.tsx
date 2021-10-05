@@ -8,7 +8,7 @@ export interface CreditCard {
   expiry: string;
   name: string;
   number: string;
-  focused: any | undefined;
+  focused: 'name' | 'number' | 'expiry' | 'cvc';
   theme?: string;
 }
 
