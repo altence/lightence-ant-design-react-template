@@ -1,16 +1,16 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import MaskedInput from 'antd-mask-input';
-import { FormItem } from '../../../../../../ProfileForm/ProfileForm.styles';
-import { CardData } from '../../PaymentCardModal';
+import { FormItem } from 'components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm.styles';
+import { CardInputProps } from '../interfaces';
 
-export const ExpDateItem: React.FC<CardData> = ({ disabled, handleInputChange, handleInputFocus }) => {
+export const CardNumberItem: React.FC<CardInputProps> = ({ disabled, handleInputChange, handleInputFocus }) => {
   const { t } = useTranslation();
 
   return (
     <FormItem
-      name="expiry"
-      label={t('profile.nav.payments.expDate')}
+      name="number"
+      label={t('profile.nav.payments.cardNumber')}
       requiredMark="optional"
       rules={[
         {
@@ -20,8 +20,8 @@ export const ExpDateItem: React.FC<CardData> = ({ disabled, handleInputChange, h
       ]}
     >
       <MaskedInput
-        mask="11/11"
-        name="expiry"
+        name="number"
+        mask="1111 1111 1111 1111"
         onChange={handleInputChange}
         onFocus={handleInputFocus}
         disabled={disabled}

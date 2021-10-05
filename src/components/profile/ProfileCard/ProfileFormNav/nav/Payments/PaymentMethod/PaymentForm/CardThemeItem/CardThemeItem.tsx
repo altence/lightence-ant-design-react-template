@@ -1,34 +1,33 @@
 import React, { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { cardThemes } from 'constants/cardThemes';
-import { FormItem } from '../../../../../../ProfileForm/ProfileForm.styles';
+import { FormItem } from 'components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm.styles';
 import * as S from './CardThemeItem.styles';
+import { CreditCard } from '../interfaces';
 
 interface CardThemeItemProps {
-  currentTheme: string;
-  setCurrentTheme: (state: string) => void;
-  setFieldsChange: (state: boolean) => void;
+  cardData: CreditCard;
+  setCardData: (state: CreditCard) => void;
 }
 
-export const CardThemeItem: React.FC<CardThemeItemProps> = ({ currentTheme, setCurrentTheme, setFieldsChange }) => {
+export const CardThemeItem: React.FC<CardThemeItemProps> = ({ cardData, setCardData }) => {
   const { t } = useTranslation();
 
   const handleChange = useCallback(
     (item) => () => {
-      setCurrentTheme(item.background);
-      setFieldsChange(true);
+      setCardData({ ...cardData, background: item.background });
     },
-    [setCurrentTheme, setFieldsChange, currentTheme],
+    [setCardData, cardData],
   );
 
   const themes = useMemo(
     () =>
       cardThemes.map((item) => (
-        <S.BackgroundWrapper key={item.id} isActive={currentTheme === item.background}>
+        <S.BackgroundWrapper key={item.id} isActive={cardData.background === item.background}>
           <S.Theme background={item.background} onClick={handleChange(item)} />
         </S.BackgroundWrapper>
       )),
-    [currentTheme, handleChange, cardThemes],
+    [cardData, handleChange],
   );
 
   return (

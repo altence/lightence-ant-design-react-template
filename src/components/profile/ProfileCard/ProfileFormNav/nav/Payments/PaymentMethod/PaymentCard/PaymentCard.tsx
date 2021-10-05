@@ -1,25 +1,16 @@
 import React from 'react';
 import Cards from 'react-credit-cards';
 import 'react-credit-cards/es/styles-compiled.css';
+import { CreditCard } from '../PaymentForm/interfaces';
 import * as S from './PaymentCard.styles';
-
-export interface CreditCard {
-  cvc: string;
-  expiry: string;
-  name: string;
-  number: string;
-  focused: 'name' | 'number' | 'expiry' | 'cvc';
-  theme?: string;
-}
 
 interface PaymentCardProps {
   className?: string;
   cardData: CreditCard;
-  background: string;
 }
 
-export const PaymentCard: React.FC<PaymentCardProps> = ({ className, cardData, background, children }) => (
-  <S.Wrapper className={className} background={background}>
+export const PaymentCard: React.FC<PaymentCardProps> = ({ className, cardData, children }) => (
+  <S.Wrapper className={className} background={cardData.background}>
     <Cards {...cardData} />
     {children}
   </S.Wrapper>
