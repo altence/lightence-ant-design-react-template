@@ -2,8 +2,8 @@ import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Avatar } from 'antd';
 import { LinkBtn } from 'components/common/LinkBtn/LinkBtn';
-import { paymentStatuses } from 'constants/paymentStatuses';
 import { getCurrencyPrice } from 'helpers/getCurrencyPrice';
+import { paymentStatuses } from 'constants/paymentStatuses';
 import { Dates } from 'constants/Dates';
 import * as S from './Payment.styles';
 
@@ -19,12 +19,10 @@ interface PaymentProps {
 export const Payment: React.FC<PaymentProps> = ({ src, seller, date, status, price, currency }) => {
   const { t } = useTranslation();
 
-  const paymentStatus = useMemo(() => {
-    return paymentStatuses.find((item) => item.id === status);
-  }, [status]);
+  const paymentStatus = useMemo(() => paymentStatuses.find((item) => item.id === status), [status]);
 
   return paymentStatus ? (
-    <S.Wrapper>
+    <>
       <S.Header>
         <S.AvatarWrapper>
           <Avatar src={src} alt={seller} shape="circle" />
@@ -38,7 +36,7 @@ export const Payment: React.FC<PaymentProps> = ({ src, seller, date, status, pri
         </S.Item>
         <S.Item>
           <S.Subtite>{t('profile.nav.payments.status.title')}</S.Subtite>
-          <S.Status color={paymentStatus?.color}>{t(paymentStatus.name)}</S.Status>
+          <S.Status color={paymentStatus.color}>{t(paymentStatus.name)}</S.Status>
         </S.Item>
         <S.Item>
           <S.Subtite>{t('profile.nav.payments.date')}</S.Subtite>
@@ -48,6 +46,6 @@ export const Payment: React.FC<PaymentProps> = ({ src, seller, date, status, pri
       <S.DetailsWrapper>
         <LinkBtn>{t('profile.nav.payments.details')}</LinkBtn>
       </S.DetailsWrapper>
-    </S.Wrapper>
+    </>
   ) : null;
 };

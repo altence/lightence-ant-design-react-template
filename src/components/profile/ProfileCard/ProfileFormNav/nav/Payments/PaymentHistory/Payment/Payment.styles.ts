@@ -3,10 +3,8 @@ import { Typography } from 'antd';
 import { hexToRGB } from 'helpers/hexToRGB';
 
 interface StatusProps {
-  color: string | undefined;
+  color: string;
 }
-
-export const Wrapper = styled.div``;
 
 export const Header = styled.div`
   padding: 1.5rem 3.5rem;
@@ -17,7 +15,7 @@ export const Header = styled.div`
 `;
 
 export const AvatarWrapper = styled.div`
-  max-width: 2rem;
+  width: 2rem;
   margin-right: 1.25rem;
 `;
 
@@ -69,7 +67,7 @@ export const Status = styled.div<StatusProps>`
 
   color: ${(props) => props.theme.colors.text.secondary};
 
-  background-color: ${(props) => props.theme.colors.main[props.color || 'additional3']};
+  background-color: ${(props) => props.theme.colors.main[props.color]};
 
   border-radius: ${(props) => props.theme.border.radius};
 `;

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Input } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { FormItem } from '../../../../../ProfileForm/ProfileForm.styles';
-import { CardData } from '../PaymentCardModal';
+import { FormItem } from '../../../../../../ProfileForm/ProfileForm.styles';
+import { CardData } from '../../PaymentCardModal';
 
 export const CVVItem: React.FC<CardData> = ({ disabled, handleInputChange, handleInputFocus }) => {
   const { t } = useTranslation();
