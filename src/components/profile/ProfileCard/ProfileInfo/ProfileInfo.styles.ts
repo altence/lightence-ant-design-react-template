@@ -11,6 +11,10 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 2rem;
+
+  @media only screen and ${(props) => props.theme.media.md} {
+    margin-bottom: 0;
+  }
 `;
 
 export const ImgWrapper = styled.div`
@@ -24,8 +28,8 @@ export const ImgWrapper = styled.div`
 
   & > span {
     margin: 5px;
-    width: 100%;
-    height: 100%;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
   }
 `;
 
@@ -73,4 +77,8 @@ export const Text = styled(Typography.Text)`
   text-align: left;
 
   color: ${(props) => props.theme.colors.text.light};
+
+  @media only screen and ${(props) => props.theme.media.md} {
+    text-align: center;
+  }
 `;

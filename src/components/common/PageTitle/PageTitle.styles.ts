@@ -8,4 +8,9 @@ export const Text = styled(Typography.Text)`
   display: block;
 
   color: ${(props) => props.theme.colors.text.secondary};
+
+  @media only screen and ${(props) => props.theme.media.md} {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
 `;
