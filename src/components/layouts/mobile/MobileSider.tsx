@@ -35,7 +35,7 @@ const SiderStyled = styled(Sider)`
   position: fixed;
   z-index: 5;
   height: 100%;
-  color: #ffffff;
+  color: ${(props) => props.theme.colors.text.secondary};
 `;
 
 const SiderHeader = styled.div`
@@ -48,7 +48,7 @@ const SiderHeader = styled.div`
 `;
 
 const CloseIcon = styled(CloseOutlined)`
-  color: ${(props) => props.theme.colors.basic};
+  color: ${(props) => props.theme.colors.text.secondary};
 `;
 
 const SiderContent = styled.div`

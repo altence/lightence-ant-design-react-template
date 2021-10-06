@@ -8,6 +8,7 @@ import DesktopContent from './DesktopContent';
 import { Header } from '../../Header/Header';
 import theme from '../../../styles/theme';
 import { Container } from '../../common/Container/Container';
+import bg from 'assets/images/bg.png';
 
 const DesktopLayout: React.FC<LayoutProps> = ({ children, siderContent, logo }) => {
   return (
@@ -33,6 +34,11 @@ const LayoutStyled = styled(Layout)`
 
 const ContentLayoutStyled = styled(Layout)`
   margin-left: 60px;
+
+  background: url(${bg}) no-repeat;
+  background-size: auto 250px;
+
+  background-color: ${(props) => props.theme.colors.back.lightGray};
 
   @media only screen and ${theme.media.xxl} {
     margin-left: unset;

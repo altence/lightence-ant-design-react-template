@@ -162,6 +162,7 @@ export const mobileLayout = {
 const colors = {
   main: {
     primary: '#01509A',
+    primaryGradient: 'linear-gradient(261.31deg, #006CCF -29.57%, #00509A 121.11%)',
     secondary: '#35A0DC',
     additional: '#FF5252',
     additional2: '#FFB155',
@@ -177,11 +178,6 @@ const colors = {
   },
   back: {
     lightGray: '#F4F4F4',
-  },
-  buttons: {
-    primary: 'linear-gradient(261.31deg, #006CCF -29.57%, #00509A 121.11%)',
-    hover: '#0085FF',
-    disabled: '#C5D3E0',
   },
   border: {
     main: '#bec0c6',
