@@ -4,6 +4,7 @@ import { ButtonsGroup } from './ButtonsGroup/ButtonsGroup';
 import { useTranslation } from 'react-i18next';
 
 interface ProfileFormProps {
+  className?: string;
   form?: FormInstance;
   footer?: React.ReactNode;
   trigger?: React.ReactNode;
@@ -14,6 +15,7 @@ interface ProfileFormProps {
 }
 
 export const ProfileForm: React.FC<ProfileFormProps> = ({
+  className,
   form,
   footer,
   trigger,
@@ -55,6 +57,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
 
   return (
     <Form
+      className={className}
       form={form || formDefault}
       name={name}
       layout="vertical"

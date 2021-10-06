@@ -1,10 +1,10 @@
 import React, { useCallback, useState } from 'react';
-import { notification } from 'antd';
+import { Col, notification, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { LinkBtn } from 'components/common/LinkBtn/LinkBtn';
 import { TwoFactorAuth } from './TwoFactorAuth/TwoFactorAuth';
 import { TwoFactorOptions } from './TwoFactorAuth/TwoFactorOptions/TwoFactorOptions';
-import { ProfileForm } from '../../../ProfileForm/ProfileForm';
+import * as S from './TwoFactorAuthForm.styles';
 
 export const TwoFactorAuthForm: React.FC = () => {
   const [isEnabled, setEnabled] = useState(false);
@@ -20,13 +20,21 @@ export const TwoFactorAuthForm: React.FC = () => {
     <>
       <TwoFactorAuth setEnabled={setEnabled} />
       {isEnabled && (
-        <ProfileForm
+        <S.AuthForm
           name="twoFactorAuthForm"
           onFinish={onFinish}
-          footer={<LinkBtn htmlType="submit">{t('profile.nav.securitySettings.verify')}</LinkBtn>}
+          footer={
+            <Row align="bottom">
+              <Col span={24}>
+                <LinkBtn htmlType="submit">{t('profile.nav.securitySettings.verify')}</LinkBtn>
+              </Col>
+            </Row>
+          }
         >
-          <TwoFactorOptions />
-        </ProfileForm>
+          <Col xs={24} md={12}>
+            <TwoFactorOptions />
+          </Col>
+        </S.AuthForm>
       )}
     </>
   );

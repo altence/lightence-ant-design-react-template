@@ -18,6 +18,7 @@ import { WebsiteItem } from './WebsiteItem/WebsiteItem';
 import { SocialLinksItem } from './SocialLinksItem/SocialLinksItem';
 import * as S from '../../ProfileForm/ProfileForm.styles';
 import { Col, Row } from 'antd';
+import styled from 'styled-components';
 
 export const PersonalInfo: React.FC = () => {
   const [selectedCountry, setSelectedCountry] = useState<string>('BY');
