@@ -151,6 +151,7 @@
   "profile": {
     "title": "Profile",
     "fullness": "fullness of your profile",
+    "saved": "Your changes have been successfully saved!",
     "nav": {
       "personalInfo": {
         "title": "Personal info",
@@ -175,6 +176,7 @@
         "zipcode": "Zipcode",
         "address1": "Address 1",
         "address2": "Address 2",
+        "otherInfo": "Other info",
         "website": "Website",
         "notValidWebsite": "Please input a valid URL!",
         "socialLinks": "Social links"

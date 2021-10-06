@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Form, FormInstance, notification } from 'antd';
 import { ButtonsGroup } from './ButtonsGroup/ButtonsGroup';
+import { useTranslation } from 'react-i18next';
 
 interface ProfileFormProps {
   form?: FormInstance;
@@ -25,6 +26,8 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
   const [isFieldsChange, setFieldsChange] = useState(false);
   const [formDefault] = Form.useForm();
 
+  const { t } = useTranslation();
+
   const onCancelDefault = useCallback(() => {
     (form || formDefault).resetFields();
     setFieldsChange(false);
@@ -38,6 +41,8 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
 
   const onFinishDefault = useCallback((values: []) => {
     console.log(values);
+
+    notification.open({ message: t('profile.saved') });
   }, []);
 
   const onFieldsChange = useCallback(() => {

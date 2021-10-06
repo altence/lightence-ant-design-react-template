@@ -17,6 +17,7 @@ import { AddressItem } from './AddressItem/AddressItem';
 import { WebsiteItem } from './WebsiteItem/WebsiteItem';
 import { SocialLinksItem } from './SocialLinksItem/SocialLinksItem';
 import * as S from '../../ProfileForm/ProfileForm.styles';
+import { Col, Row } from 'antd';
 
 export const PersonalInfo: React.FC = () => {
   const [selectedCountry, setSelectedCountry] = useState<string>('BY');
@@ -26,25 +27,83 @@ export const PersonalInfo: React.FC = () => {
   return (
     <Card padding="1.875rem 1rem">
       <ProfileForm name="info">
-        <S.Title>{t('profile.nav.personalInfo.title')}</S.Title>
-        <FirstNameItem />
-        <LastNameItem />
-        <NicknameItem />
-        <SexItem />
-        <BirthdayItem />
-        <LanguageItem />
-        <S.Title>{t('profile.nav.personalInfo.contactInfo')}</S.Title>
-        <PhoneItem />
-        <EmailItem />
-        <S.Title>{t('profile.nav.personalInfo.address')}</S.Title>
-        <CountriesItem setCountry={setSelectedCountry} />
-        <CitiesItem country={selectedCountry} />
-        <ZipcodeItem />
-        <AddressItem number={1} />
-        <AddressItem number={2} />
-        <S.Title>{t('profile.nav.personalInfo.address')}</S.Title>
-        <WebsiteItem />
-        <SocialLinksItem />
+        <Row gutter={[20, 0]}>
+          <Col span={24}>
+            <S.Title>{t('profile.nav.personalInfo.title')}</S.Title>
+          </Col>
+
+          <Col xs={24} md={12}>
+            <FirstNameItem />
+          </Col>
+
+          <Col xs={24} md={12}>
+            <LastNameItem />
+          </Col>
+
+          <Col xs={24} md={12}>
+            <NicknameItem />
+          </Col>
+
+          <Col xs={24} md={12}>
+            <SexItem />
+          </Col>
+
+          <Col xs={24} md={12}>
+            <BirthdayItem />
+          </Col>
+
+          <Col xs={24} md={12}>
+            <LanguageItem />
+          </Col>
+
+          <Col span={24}>
+            <S.Title>{t('profile.nav.personalInfo.contactInfo')}</S.Title>
+          </Col>
+
+          <Col xs={24} md={12}>
+            <PhoneItem />
+          </Col>
+
+          <Col xs={24} md={12}>
+            <EmailItem />
+          </Col>
+
+          <Col span={24}>
+            <S.Title>{t('profile.nav.personalInfo.address')}</S.Title>
+          </Col>
+
+          <Col xs={24} md={12}>
+            <CountriesItem setCountry={setSelectedCountry} />
+          </Col>
+
+          <Col xs={24} md={12}>
+            <CitiesItem country={selectedCountry} />
+          </Col>
+
+          <Col xs={24} md={12}>
+            <AddressItem number={1} />
+          </Col>
+
+          <Col xs={24} md={12}>
+            <AddressItem number={2} />
+          </Col>
+
+          <Col xs={24} md={12}>
+            <ZipcodeItem />
+          </Col>
+
+          <Col span={24}>
+            <S.Title>{t('profile.nav.personalInfo.otherInfo')}</S.Title>
+          </Col>
+
+          <Col xs={24} md={12}>
+            <WebsiteItem />
+          </Col>
+
+          <Col span={24}>
+            <SocialLinksItem />
+          </Col>
+        </Row>
       </ProfileForm>
     </Card>
   );
