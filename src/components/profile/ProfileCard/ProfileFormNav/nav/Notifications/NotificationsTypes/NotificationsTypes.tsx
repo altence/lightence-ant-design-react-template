@@ -1,106 +1,80 @@
-import React, { useState } from 'react';
-import { HeadCheckbox } from './HeadCheckbox/HeadCheckbox';
-import { Checkbox } from './Checkbox/Checkbox';
-import { Table } from 'components/common/Table/Table';
+import React, { useCallback, useState } from 'react';
+import { Checkbox } from 'antd';
+import { useTranslation } from 'react-i18next';
+import { ProfileForm } from '../../../ProfileForm/ProfileForm';
+import { Option } from './interfaces';
+import { NotificationGroup } from './NotificationGroup/NotificationGroup';
+import * as S from './NotificationsTypes.styles';
 
 export const NotificationsTypes: React.FC = () => {
-  const [isCheck1, setIsCheck1] = useState<any>([]);
-  const [isCheck2, setIsCheck2] = useState<any>([]);
-  const [isCheck3, setIsCheck3] = useState<any>([]);
+  const { t } = useTranslation();
+  const [checkedElements, setCheckedElements] = useState({
+    1: [],
+    2: [],
+    3: [],
+  });
 
-  const data = [
+  const options: Option[] = [
     {
-      email: {
-        name: 'Test1',
-        id: 1,
-      },
-      sms: {
-        name: 'Test2',
-        id: 2,
-      },
-      push: {
-        name: 'Test3',
-        id: 3,
-      },
-      activities: {
-        name: 'Test4',
-        id: 4,
-      },
+      id: 1,
+      header: t('common.email'),
+      headerRender: (text, props) => <Checkbox {...props}>{text}</Checkbox>,
+      data: [
+        'emailMessages',
+        'emailMentions',
+        'emailReminders',
+        'emailAllNews',
+        'emailImportantNews',
+        'emailActionRequired',
+      ],
+      dataRender: (text) => <Checkbox value={text} />,
     },
     {
-      email: {
-        name: 'Test5',
-        id: 5,
-      },
-      sms: {
-        name: 'Test6',
-        id: 6,
-      },
-      push: {
-        name: 'Test7',
-        id: 7,
-      },
-      activities: {
-        name: 'Test8',
-        id: 8,
-      },
+      id: 2,
+      header: t('profile.nav.notifications.push'),
+      headerRender: (text, props) => <Checkbox {...props}>{text}</Checkbox>,
+      data: ['pushMessages', 'pushMentions', 'pushReminders', 'pushAllNews', 'pushImportantNews', 'pushActionRequired'],
+      dataRender: (text) => <Checkbox value={text} />,
     },
     {
-      email: {
-        name: 'Test9',
-        id: 9,
-      },
-      sms: {
-        name: 'Test10',
-        id: 10,
-      },
-      push: {
-        name: 'Test11',
-        id: 11,
-      },
-      activities: {
-        name: 'Test12',
-        id: 12,
-      },
+      id: 3,
+      header: t('profile.nav.notifications.SMS'),
+      headerRender: (text, props) => <Checkbox {...props}>{text}</Checkbox>,
+      data: ['smsMessages', 'smsMentions', 'smsReminders', 'smsAllNews', 'smsImportantNews', 'smsActionRequired'],
+      dataRender: (text) => <Checkbox value={text} />,
+    },
+    {
+      id: 4,
+      header: t('profile.nav.notifications.activities'),
+      data: [
+        t('profile.nav.notifications.directMessages'),
+        t('profile.nav.notifications.mentions'),
+        t('profile.nav.notifications.reminders'),
+        t('profile.nav.notifications.allNews'),
+        t('profile.nav.notifications.importantNews'),
+        t('profile.nav.notifications.actionRequired'),
+      ],
     },
   ];
 
-  const columns = [
-    {
-      id: 13,
-      name: 'Email',
-      field: 'email',
-      renderHead: (text: string, list: any, field: string) => (
-        <HeadCheckbox name={text} setIsCheck={setIsCheck1} list={list} field={field} />
-      ),
-      renderItems: (text: string, id: number, list: any) => (
-        <Checkbox name={text} list={list} id={id} isCheck={isCheck1} setIsCheck={setIsCheck1} />
-      ),
+  const handleCheck = useCallback(
+    (mode: number) => (list: any) => {
+      setCheckedElements({ ...checkedElements, [mode]: list });
     },
-    {
-      id: 14,
-      name: 'SMS',
-      field: 'sms',
-      renderHead: (text: string, list: any, field: string) => (
-        <HeadCheckbox name={text} setIsCheck={setIsCheck3} list={list} field={field} />
-      ),
-      renderItems: (text: string, id: number, list: any) => (
-        <Checkbox name={text} list={list} id={id} isCheck={isCheck3} setIsCheck={setIsCheck3} />
-      ),
-    },
-    {
-      id: 15,
-      name: 'Push',
-      field: 'push',
-      renderHead: (text: string, list: any, field: string) => (
-        <HeadCheckbox name={text} setIsCheck={setIsCheck2} list={list} field={field} />
-      ),
-      renderItems: (text: string, id: number, list: any) => (
-        <Checkbox name={text} list={list} id={id} isCheck={isCheck2} setIsCheck={setIsCheck2} />
-      ),
-    },
-    { id: 16, name: 'Activities', field: 'activities' },
-  ];
+    [checkedElements],
+  );
 
-  return <Table data={data} columns={columns} />;
+  const onFinish = useCallback(() => {
+    console.log(checkedElements);
+  }, [checkedElements]);
+
+  return (
+    <ProfileForm name="notifications" trigger={checkedElements} onFinish={onFinish}>
+      <S.Wrapper>
+        {options.map((item) => (
+          <NotificationGroup key={item.id} column={item} handleCheck={handleCheck(item.id)} />
+        ))}
+      </S.Wrapper>
+    </ProfileForm>
+  );
 };
