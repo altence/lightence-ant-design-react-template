@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { Radio } from 'antd';
+import { Col, Radio } from 'antd';
 import { EmailItem } from '../../../../PersonalInfo/EmailItem/EmailItem';
 import { PhoneItem } from '../../../../PersonalInfo/PhoneItem/PhoneItem';
 import * as S from './TwoFactorOptions.styles';
