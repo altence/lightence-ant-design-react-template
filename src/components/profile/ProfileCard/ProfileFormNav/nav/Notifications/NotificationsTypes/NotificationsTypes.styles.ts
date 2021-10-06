@@ -1,6 +1,9 @@
 import styled from 'styled-components';
-import { Typography } from 'antd';
 
-export const Text = styled(Typography.Text)`
-  font-weight: 600;
+export const Wrapper = styled.div`
+  display: flex;
+
+  & + div {
+    margin-top: 2rem;
+  }
 `;
