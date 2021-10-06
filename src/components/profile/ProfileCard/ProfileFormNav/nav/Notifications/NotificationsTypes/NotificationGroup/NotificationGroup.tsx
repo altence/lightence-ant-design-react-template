@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Checkbox } from 'antd';
 import { Option } from '../interfaces';
 import { CheckboxChangeEvent } from 'antd/lib/checkbox';
@@ -7,7 +7,7 @@ import * as S from './NotificationGroup.styles';
 
 interface NotificationGroupProps {
   column: Omit<Option, 'id'>;
-  handleCheck: any;
+  handleCheck: (list: CheckboxValueType[]) => void;
 }
 
 export const NotificationGroup: React.FC<NotificationGroupProps> = ({ column, handleCheck }) => {

@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { ProfileForm } from '../../../ProfileForm/ProfileForm';
 import { Option } from './interfaces';
 import { NotificationGroup } from './NotificationGroup/NotificationGroup';
+import { CheckboxValueType } from 'antd/lib/checkbox/Group';
 import * as S from './NotificationsTypes.styles';
 
 export const NotificationsTypes: React.FC = () => {
@@ -58,7 +59,7 @@ export const NotificationsTypes: React.FC = () => {
   ];
 
   const handleCheck = useCallback(
-    (mode: number) => (list: any) => {
+    (mode: number) => (list: CheckboxValueType[]) => {
       setCheckedElements({ ...checkedElements, [mode]: list });
     },
     [checkedElements],
