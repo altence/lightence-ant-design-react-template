@@ -11,6 +11,11 @@ export const Wrapper = styled.div`
 
   @media only screen and ${(props) => props.theme.media.md} {
     width: 50%;
+    margin-top: 1rem;
+
+    & + form {
+      margin-top: 2rem;
+    }
   }
 
   &:not(:last-child) {
