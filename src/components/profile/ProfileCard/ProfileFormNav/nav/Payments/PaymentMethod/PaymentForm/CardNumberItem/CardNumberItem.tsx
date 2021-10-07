@@ -20,6 +20,7 @@ export const CardNumberItem: React.FC<CardInputProps> = ({ disabled, handleInput
       ]}
     >
       <MaskedInput
+        placeholderChar=" "
         name="number"
         mask="1111 1111 1111 1111"
         onChange={handleInputChange}

@@ -6,6 +6,10 @@ export const Title = styled(Typography.Text)`
   font-weight: 700;
   font-size: 1rem;
   display: block;
+
+  @media only screen and ${(props) => props.theme.media.md} {
+    font-size: 1.125rem;
+  }
 `;
 
 export const FormItem = styled(Form.Item)`
