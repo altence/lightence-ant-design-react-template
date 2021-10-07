@@ -1,6 +1,7 @@
-import React, { useMemo } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Avatar } from 'antd';
+import { ThemeContext } from 'styled-components';
 import { LinkBtn } from 'components/common/LinkBtn/LinkBtn';
 import { getCurrencyPrice } from 'helpers/getCurrencyPrice';
 import { paymentStatuses } from 'constants/paymentStatuses';
@@ -19,6 +20,8 @@ interface PaymentProps {
 export const Payment: React.FC<PaymentProps> = ({ src, seller, date, status, price, currency }) => {
   const { t } = useTranslation();
 
+  const themeContext = useContext(ThemeContext);
+
   const paymentStatus = useMemo(() => paymentStatuses.find((item) => item.id === status), [status]);
 
   return paymentStatus ? (
@@ -31,15 +34,15 @@ export const Payment: React.FC<PaymentProps> = ({ src, seller, date, status, pri
       </S.Header>
       <S.ContentWrapper>
         <S.Item>
-          <S.Subtite>{t('profile.nav.payments.date')}</S.Subtite>
+          <S.Subtitle>{t('profile.nav.payments.date')}</S.Subtitle>
           <S.Text>{Dates.format(date, 'LL')}</S.Text>
         </S.Item>
         <S.Item>
-          <S.Subtite>{t('profile.nav.payments.status.title')}</S.Subtite>
-          <S.Status color={paymentStatus.color}>{t(paymentStatus.name)}</S.Status>
+          <S.Subtitle>{t('profile.nav.payments.status.title')}</S.Subtitle>
+          <S.Status color={themeContext.colors.main[paymentStatus.color]}>{t(paymentStatus.name)}</S.Status>
         </S.Item>
         <S.Item>
-          <S.Subtite>{t('profile.nav.payments.date')}</S.Subtite>
+          <S.Subtitle>{t('profile.nav.payments.date')}</S.Subtitle>
           <S.Text>{getCurrencyPrice(price, currency)}</S.Text>
         </S.Item>
       </S.ContentWrapper>

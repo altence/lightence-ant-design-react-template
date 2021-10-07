@@ -1,10 +1,6 @@
 import styled from 'styled-components';
-import { Typography } from 'antd';
+import { Tag, Typography } from 'antd';
 import { hexToRGB } from 'helpers/hexToRGB';
-
-interface StatusProps {
-  color: string;
-}
 
 export const Header = styled.div`
   padding: 1.5rem 3.5rem;
@@ -50,26 +46,21 @@ export const Item = styled.div`
   }
 `;
 
-export const Subtite = styled(Typography.Text)`
+export const Subtitle = styled(Typography.Text)`
   font-weight: 500;
   font-size: 0.75rem;
 
   color: ${(props) => props.theme.colors.main.primary};
 `;
 
-export const Status = styled.div<StatusProps>`
-  padding: 0.375rem 1.25rem;
+export const Status = styled(Tag)`
+  padding: 0.375rem 0;
   font-weight: 500;
   min-width: 7.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  color: ${(props) => props.theme.colors.text.secondary};
-
-  background-color: ${(props) => props.theme.colors.main[props.color]};
-
-  border-radius: ${(props) => props.theme.border.radius};
+  margin: 0;
 `;
 
 export const DetailsWrapper = styled.div`
