@@ -29,7 +29,9 @@ export const PersonalInfo: React.FC = () => {
       <ProfileForm name="info">
         <Row gutter={[20, 0]}>
           <Col span={24}>
-            <S.Title>{t('profile.nav.personalInfo.title')}</S.Title>
+            <S.FormItem>
+              <S.Title>{t('profile.nav.personalInfo.title')}</S.Title>
+            </S.FormItem>
           </Col>
 
           <Col xs={24} md={12}>
@@ -57,7 +59,9 @@ export const PersonalInfo: React.FC = () => {
           </Col>
 
           <Col span={24}>
-            <S.Title>{t('profile.nav.personalInfo.contactInfo')}</S.Title>
+            <S.FormItem>
+              <S.Title>{t('profile.nav.personalInfo.contactInfo')}</S.Title>
+            </S.FormItem>
           </Col>
 
           <Col xs={24} md={12}>
@@ -69,7 +73,9 @@ export const PersonalInfo: React.FC = () => {
           </Col>
 
           <Col span={24}>
-            <S.Title>{t('profile.nav.personalInfo.address')}</S.Title>
+            <S.FormItem>
+              <S.Title>{t('profile.nav.personalInfo.address')}</S.Title>
+            </S.FormItem>
           </Col>
 
           <Col xs={24} md={12}>
@@ -93,7 +99,9 @@ export const PersonalInfo: React.FC = () => {
           </Col>
 
           <Col span={24}>
-            <S.Title>{t('profile.nav.personalInfo.otherInfo')}</S.Title>
+            <S.FormItem>
+              <S.Title>{t('profile.nav.personalInfo.otherInfo')}</S.Title>
+            </S.FormItem>
           </Col>
 
           <Col xs={24} md={12}>

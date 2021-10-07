@@ -5,7 +5,6 @@ import styled from 'styled-components';
 export const Title = styled(Typography.Text)`
   font-weight: 700;
   font-size: 1rem;
-  margin: 1.25rem 0;
   display: block;
 `;
 
