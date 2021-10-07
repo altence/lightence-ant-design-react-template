@@ -69,7 +69,7 @@
       "upcomingTreatment": "DE!!!upcoming treatment according to plan",
       "implementationTreatment": "DE!!!implementation of the treatment plan",
       "successTreatment": "DE!!!You've successfully confirmed the treatment.",
-      "successQuestion": "DE!!!Your question was sent to the doctor",
+      "successQuestion": "DE!!!Your question has been sent to the doctor",
       "upcomingVisits": "DE!!!Upcoming visits",
       "noUpcomingVisits": "DE!!!There is no upcoming visit.",
       "noTreatments": "DE!!!There is no treatments at this day.",
@@ -192,7 +192,7 @@
         "dontMatchPassword": "DE!!!The two passwords that you entered do not match",
         "notValidPassword": "DE!!!Your password should be minimum eight characters and contain at least one uppercase letter, one lowercase letter and one number",
         "twoFactorAuth": "Two–factor authentication",
-        "twoFactorAuthSuccess": "Two-factor authentication was succesfully added to your account",
+        "twoFactorAuthSuccess": "Two-factor authentication has been succesfully added to your account",
         "twoFactorAuthFail": "Please, fix all error fields before",
         "verify": "Verify"
       },
