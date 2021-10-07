@@ -13,4 +13,9 @@ export const Text = styled(Typography.Text)`
     font-size: 1.5rem;
     margin-bottom: 1.25rem;
   }
+
+  @media only screen and ${(props) => props.theme.media.xl} {
+    font-size: 2.25rem;
+    margin-bottom: 1.625rem;
+  }
 `;

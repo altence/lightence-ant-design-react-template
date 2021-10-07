@@ -39,16 +39,18 @@ export const ProfileCard: React.FC = () => {
       {!isTablet &&
         (currentMenu === 'main' ? (
           <Card padding={30}>
-            <ProfileInfo profileData={profileData} />
-            <ProfileNav setCurrentMenu={setCurrentMenu} />
+            <S.Wrapper>
+              <ProfileInfo profileData={profileData} />
+              <ProfileNav setCurrentMenu={setCurrentMenu} />
+            </S.Wrapper>
           </Card>
         ) : (
           <ProfileFormNav menu={currentMenu} />
         ))}
 
       {isTablet && (
-        <Row gutter={[0, 30]}>
-          <Col span={24}>
+        <Row gutter={[20, 30]}>
+          <Col md={24} xl={8}>
             <Card padding={30}>
               <S.Wrapper>
                 <ProfileInfo profileData={profileData} />
@@ -57,7 +59,7 @@ export const ProfileCard: React.FC = () => {
             </Card>
           </Col>
 
-          <Col span={24}>
+          <Col md={24} xl={16}>
             <ProfileFormNav menu={currentMenu} />
           </Col>
         </Row>
