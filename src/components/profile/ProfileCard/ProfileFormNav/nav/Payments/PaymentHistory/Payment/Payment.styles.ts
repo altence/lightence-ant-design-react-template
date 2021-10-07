@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Tag, Typography } from 'antd';
+import { Typography } from 'antd';
 import { hexToRGB } from 'helpers/hexToRGB';
 
 export const Header = styled.div`
@@ -51,16 +51,6 @@ export const Subtitle = styled(Typography.Text)`
   font-size: 0.75rem;
 
   color: ${(props) => props.theme.colors.main.primary};
-`;
-
-export const Status = styled(Tag)`
-  padding: 0.375rem 0;
-  font-weight: 500;
-  min-width: 7.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
 `;
 
 export const DetailsWrapper = styled.div`

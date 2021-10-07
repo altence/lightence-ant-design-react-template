@@ -7,17 +7,18 @@ import { getCurrencyPrice } from 'helpers/getCurrencyPrice';
 import { paymentStatuses } from 'constants/paymentStatuses';
 import { Dates } from 'constants/Dates';
 import * as S from './Payment.styles';
+import { Status } from '../Status/Status';
 
 interface PaymentProps {
   src: string;
-  seller: string;
+  recepient: string;
   date: number;
   status: number;
   price: number;
   currency: string;
 }
 
-export const Payment: React.FC<PaymentProps> = ({ src, seller, date, status, price, currency }) => {
+export const Payment: React.FC<PaymentProps> = ({ src, recepient, date, status, price, currency }) => {
   const { t } = useTranslation();
 
   const themeContext = useContext(ThemeContext);
@@ -28,9 +29,9 @@ export const Payment: React.FC<PaymentProps> = ({ src, seller, date, status, pri
     <>
       <S.Header>
         <S.AvatarWrapper>
-          <Avatar src={src} alt={seller} shape="circle" />
+          <Avatar src={src} alt={recepient} shape="circle" />
         </S.AvatarWrapper>
-        <S.Text>{seller}</S.Text>
+        <S.Text>{recepient}</S.Text>
       </S.Header>
       <S.ContentWrapper>
         <S.Item>
@@ -39,7 +40,7 @@ export const Payment: React.FC<PaymentProps> = ({ src, seller, date, status, pri
         </S.Item>
         <S.Item>
           <S.Subtitle>{t('profile.nav.payments.status.title')}</S.Subtitle>
-          <S.Status color={themeContext.colors.main[paymentStatus.color]}>{t(paymentStatus.name)}</S.Status>
+          <Status color={themeContext.colors.main[paymentStatus.color]} text={t(paymentStatus.name)} />
         </S.Item>
         <S.Item>
           <S.Subtitle>{t('profile.nav.payments.date')}</S.Subtitle>

@@ -87,14 +87,26 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
     <ProfileForm form={form} name="paymentCard" trigger={cardData} onCancel={closeModal} onFinish={onFinish}>
       <S.PayCard cardData={cardData} />
       <S.FormItemsWrapper>
-        <CardNumberItem disabled={false} handleInputChange={handleInputChange} handleInputFocus={handleInputFocus} />
-        <CardholderItem disabled={false} handleInputChange={handleInputChange} handleInputFocus={handleInputFocus} />
+        <CardNumberItem
+          disabled={!!editCard}
+          handleInputChange={handleInputChange}
+          handleInputFocus={handleInputFocus}
+        />
+        <CardholderItem
+          disabled={!!editCard}
+          handleInputChange={handleInputChange}
+          handleInputFocus={handleInputFocus}
+        />
         <Row gutter={[20, 0]}>
           <Col span={12}>
-            <ExpDateItem disabled={false} handleInputChange={handleInputChange} handleInputFocus={handleInputFocus} />
+            <ExpDateItem
+              disabled={!!editCard}
+              handleInputChange={handleInputChange}
+              handleInputFocus={handleInputFocus}
+            />
           </Col>
           <Col span={12}>
-            <CVVItem disabled={false} handleInputChange={handleInputChange} handleInputFocus={handleInputFocus} />
+            <CVVItem disabled={!!editCard} handleInputChange={handleInputChange} handleInputFocus={handleInputFocus} />
           </Col>
         </Row>
         <CardThemeItem cardData={cardData} setCardData={setCardData} />

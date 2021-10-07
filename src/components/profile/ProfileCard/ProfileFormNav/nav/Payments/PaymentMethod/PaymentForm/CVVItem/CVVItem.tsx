@@ -19,7 +19,14 @@ export const CVVItem: React.FC<CardInputProps> = ({ disabled, handleInputChange,
         },
       ]}
     >
-      <MaskedInput mask="111" name="cvc" onChange={handleInputChange} onFocus={handleInputFocus} disabled={disabled} />
+      <MaskedInput
+        placeholderChar=" "
+        mask="111"
+        name="cvc"
+        onChange={handleInputChange}
+        onFocus={handleInputFocus}
+        disabled={disabled}
+      />
     </FormItem>
   );
 };

@@ -1,4 +1,4 @@
-interface PaymentStatus {
+export interface PaymentStatus {
   id: number;
   name: string;
   color: string;
