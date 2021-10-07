@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { Col, notification, Row } from 'antd';
+import { Col, notification, Row, Form } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { LinkBtn } from 'components/common/LinkBtn/LinkBtn';
 import { TwoFactorAuth } from './TwoFactorAuth/TwoFactorAuth';
@@ -8,6 +8,8 @@ import * as S from './TwoFactorAuthForm.styles';
 
 export const TwoFactorAuthForm: React.FC = () => {
   const [isEnabled, setEnabled] = useState(false);
+
+  const [form] = Form.useForm();
 
   const { t } = useTranslation();
 
@@ -21,6 +23,7 @@ export const TwoFactorAuthForm: React.FC = () => {
       <TwoFactorAuth setEnabled={setEnabled} />
       {isEnabled && (
         <S.AuthForm
+          form={form}
           name="twoFactorAuthForm"
           onFinish={onFinish}
           footer={
@@ -32,7 +35,7 @@ export const TwoFactorAuthForm: React.FC = () => {
           }
         >
           <Col xs={24} md={12}>
-            <TwoFactorOptions />
+            <TwoFactorOptions form={form} />
           </Col>
         </S.AuthForm>
       )}

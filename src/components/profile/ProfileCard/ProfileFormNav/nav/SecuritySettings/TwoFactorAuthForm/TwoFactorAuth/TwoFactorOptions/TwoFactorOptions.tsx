@@ -1,27 +1,40 @@
-import React, { useCallback, useState } from 'react';
-import { Col, Radio } from 'antd';
+import React, { useCallback, useEffect, useState } from 'react';
+import { Radio, FormInstance } from 'antd';
 import { EmailItem } from '../../../../PersonalInfo/EmailItem/EmailItem';
 import { PhoneItem } from '../../../../PersonalInfo/PhoneItem/PhoneItem';
 import * as S from './TwoFactorOptions.styles';
 
-export const TwoFactorOptions: React.FC = () => {
-  const [currentOption, setCurrentOption] = useState<number>(1);
+export const TwoFactorOptions: React.FC<{ form: FormInstance }> = ({ form }) => {
+  const [currentOption, setCurrentOption] = useState<string>('phone');
 
-  const onClickBtn = useCallback(
-    (mode: number) => () => {
+  const onChange = useCallback(
+    (event) => {
+      setCurrentOption(event.target.value);
+    },
+    [setCurrentOption],
+  );
+
+  const onClickInput = useCallback(
+    (mode: string) => () => {
       setCurrentOption(mode);
     },
     [setCurrentOption],
   );
 
+  useEffect(() => {
+    form.resetFields();
+  }, [currentOption]);
+
   return (
-    <Radio.Group value={currentOption} defaultValue={1} onChange={(event) => setCurrentOption(event.target.value)}>
-      <S.RadioBtn value={1} isActive={currentOption === 1}>
-        <PhoneItem required={currentOption === 1} onClick={onClickBtn(1)} />
-      </S.RadioBtn>
-      <S.RadioBtn value={2} isActive={currentOption === 2}>
-        <EmailItem required={currentOption === 2} onClick={onClickBtn(2)} />
-      </S.RadioBtn>
-    </Radio.Group>
+    <>
+      <Radio.Group value={currentOption} defaultValue={1} onChange={onChange}>
+        <S.RadioBtn value="phone" isActive={currentOption === 'phone'}>
+          <PhoneItem required={currentOption === 'phone'} onClick={onClickInput('phone')} />
+        </S.RadioBtn>
+        <S.RadioBtn value="email" isActive={currentOption === 'email'}>
+          <EmailItem required={currentOption === 'email'} onClick={onClickInput('email')} />
+        </S.RadioBtn>
+      </Radio.Group>
+    </>
   );
 };
