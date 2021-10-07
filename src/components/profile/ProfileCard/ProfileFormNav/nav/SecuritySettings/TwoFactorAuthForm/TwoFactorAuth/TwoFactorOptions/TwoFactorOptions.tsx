@@ -22,7 +22,10 @@ export const TwoFactorOptions: React.FC<{ form: FormInstance }> = ({ form }) => 
   );
 
   useEffect(() => {
-    form.resetFields();
+    form.setFieldsValue({
+      email: '',
+      phone: '',
+    });
   }, [currentOption]);
 
   return (
