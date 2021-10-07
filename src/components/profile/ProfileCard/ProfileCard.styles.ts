@@ -3,11 +3,35 @@ import { Button } from 'antd';
 
 export const Wrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   column-gap: 2rem;
 
   & > div {
-    width: 50%;
+    &:first-of-type {
+      margin-bottom: 2rem;
+    }
+  }
+
+  @media only screen and ${(props) => props.theme.media.md} {
+    flex-direction: row;
+
+    & > div {
+      &:first-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  @media only screen and ${(props) => props.theme.media.xl} {
+    flex-direction: column;
+
+    & > div {
+      width: unset;
+
+      &:first-of-type {
+        margin-bottom: 3rem;
+      }
+    }
   }
 `;
 

@@ -10,11 +10,6 @@ export const Wrapper = styled.div`
   text-align: center;
   display: flex;
   flex-direction: column;
-  margin-bottom: 2rem;
-
-  @media only screen and ${(props) => props.theme.media.md} {
-    margin-bottom: 0;
-  }
 `;
 
 export const ImgWrapper = styled.div`
@@ -26,10 +21,19 @@ export const ImgWrapper = styled.div`
 
   background: ${(props) => props.theme.colors.main.angularGradient};
 
+  @media only screen and ${(props) => props.theme.media.xl} {
+    width: 11.125rem;
+    margin: 0 auto 2rem auto;
+  }
+
   & > span {
     margin: 5px;
     width: calc(100% - 10px);
     height: calc(100% - 10px);
+
+    @media only screen and ${(props) => props.theme.media.xl} {
+      margin: 7px;
+    }
   }
 `;
 
@@ -37,11 +41,22 @@ export const Title = styled(Typography.Text)`
   font-size: 1.125rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
+
+  @media only screen and ${(props) => props.theme.media.xl} {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 export const Subtitle = styled(Typography.Text)`
   font-weight: 500;
   margin-bottom: 2rem;
+
+  @media only screen and ${(props) => props.theme.media.xl} {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+  }
 `;
 
 export const FullnessWrapper = styled.div`
@@ -50,6 +65,11 @@ export const FullnessWrapper = styled.div`
   margin-bottom: 0.625rem;
 
   background-color: ${(props) => hexToRGB(props.theme.colors.main.additional2, 0.5)};
+
+  @media only screen and ${(props) => props.theme.media.xl} {
+    height: 2.5rem;
+    margin-bottom: 1rem;
+  }
 `;
 
 export const FullnessLine = styled.div<FullnessLineProps>`
@@ -70,6 +90,12 @@ export const FullnessLine = styled.div<FullnessLineProps>`
   );
 
   color: ${(props) => props.theme.colors.text.secondary};
+
+  @media only screen and ${(props) => props.theme.media.xl} {
+    font-size: 1rem;
+    font-weight: 600;
+    padding-right: 0.875rem;
+  }
 `;
 
 export const Text = styled(Typography.Text)`
@@ -80,5 +106,10 @@ export const Text = styled(Typography.Text)`
 
   @media only screen and ${(props) => props.theme.media.md} {
     text-align: center;
+  }
+
+  @media only screen and ${(props) => props.theme.media.xl} {
+    font-size: 0.875rem;
+    text-align: left;
   }
 `;

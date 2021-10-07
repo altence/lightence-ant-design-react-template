@@ -9,12 +9,12 @@ interface BtnProps {
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  row-gap: 1.5rem;
 `;
 
 export const Btn = styled(Button)<BtnProps>`
   display: flex;
   align-items: center;
-  height: unset;
   width: 100%;
 
   &:hover {
