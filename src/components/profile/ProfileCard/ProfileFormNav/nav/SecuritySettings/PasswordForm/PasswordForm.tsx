@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ProfileForm } from '../../../ProfileForm/ProfileForm';
-import { Title } from 'components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm.styles';
+import { FormItem, Title } from 'components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm.styles';
 import { CurrentPasswordItem } from './CurrentPasswordItem/CurrentPasswordItem';
 import { NewPasswordItem } from './NewPasswordItem/NewPasswordItem';
 import { ConfirmItemPassword } from './ConfirmPasswordItem/ConfirmPasswordItem';
@@ -22,7 +22,9 @@ export const PasswordForm: React.FC = () => {
     >
       <Row gutter={[20, 0]}>
         <Col span={24}>
-          <Title>{t('profile.nav.securitySettings.changePassword')}</Title>
+          <FormItem>
+            <Title>{t('profile.nav.securitySettings.changePassword')}</Title>
+          </FormItem>
         </Col>
 
         <Col xs={24} md={12}>
