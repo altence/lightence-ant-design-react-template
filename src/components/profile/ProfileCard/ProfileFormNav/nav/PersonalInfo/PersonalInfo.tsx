@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Col, Row } from 'antd';
 import { Card } from 'components/common/Card/Card';
 import { ProfileForm } from '../../ProfileForm/ProfileForm';
 import { FirstNameItem } from './FirstNameItem/FirstNameItem';
@@ -17,8 +18,6 @@ import { AddressItem } from './AddressItem/AddressItem';
 import { WebsiteItem } from './WebsiteItem/WebsiteItem';
 import { SocialLinksItem } from './SocialLinksItem/SocialLinksItem';
 import * as S from '../../ProfileForm/ProfileForm.styles';
-import { Col, Row } from 'antd';
-import styled from 'styled-components';
 
 export const PersonalInfo: React.FC = () => {
   const [selectedCountry, setSelectedCountry] = useState<string>('BY');
