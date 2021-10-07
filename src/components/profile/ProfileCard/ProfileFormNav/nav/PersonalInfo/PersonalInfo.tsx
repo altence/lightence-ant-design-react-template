@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'antd';
 import { Card } from 'components/common/Card/Card';
+import { useMediaQuery } from 'react-responsive';
 import { ProfileForm } from '../../ProfileForm/ProfileForm';
 import { FirstNameItem } from './FirstNameItem/FirstNameItem';
 import { LastNameItem } from './LastNameItem/LastNameItem';
@@ -17,17 +18,21 @@ import { ZipcodeItem } from './ZipcodeItem/ZipcodeItem';
 import { AddressItem } from './AddressItem/AddressItem';
 import { WebsiteItem } from './WebsiteItem/WebsiteItem';
 import { SocialLinksItem } from './SocialLinksItem/SocialLinksItem';
+import theme from 'styles/theme';
 import * as S from '../../ProfileForm/ProfileForm.styles';
 
 export const PersonalInfo: React.FC = () => {
   const [selectedCountry, setSelectedCountry] = useState<string>('BY');
 
+  const isTablet = useMediaQuery({ query: theme.media.md });
+  const isDesktop = useMediaQuery({ query: theme.media.xl });
+
   const { t } = useTranslation();
 
   return (
-    <Card padding="1.875rem 1rem">
+    <Card padding={isDesktop ? '3.75rem 3.375rem' : (isTablet && '2.5rem 1.875rem') || '1.875rem 1rem'}>
       <ProfileForm name="info">
-        <Row gutter={[20, 0]}>
+        <Row gutter={{ xs: 10, md: 15, xl: 30 }}>
           <Col span={24}>
             <S.FormItem>
               <S.Title>{t('profile.nav.personalInfo.title')}</S.Title>

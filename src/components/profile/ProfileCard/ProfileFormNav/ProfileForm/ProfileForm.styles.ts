@@ -13,6 +13,10 @@ export const Title = styled(Typography.Text)`
 `;
 
 export const FormItem = styled(Form.Item)`
+  @media only screen and ${(props) => props.theme.media.xl} {
+    margin-bottom: 2rem;
+  }
+
   & label {
     font-weight: 500;
     font-size: 0.85rem;
