@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button } from 'antd';
+import { Button } from 'components/common/Button/Button';
 import { hexToRGB } from 'helpers/hexToRGB';
 
 interface BtnProps {
@@ -22,7 +22,6 @@ export const Btn = styled(Button)<BtnProps>`
   }
 
   & > span:first-of-type {
-    font-size: 1.25rem;
     padding: 0.625rem;
     border-radius: 10px;
     margin-right: 0.5rem;
