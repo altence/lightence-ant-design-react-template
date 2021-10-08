@@ -36,34 +36,27 @@ export const ProfileCard: React.FC = () => {
         )}
       </PageTitle>
 
-      {!isTablet &&
-        (currentMenu === 'main' ? (
+      <Row gutter={[30, 30]}>
+        <Col xs={24} md={24} xl={8}>
           <Card padding={30}>
-            <S.Wrapper>
-              <ProfileInfo profileData={profileData} />
-              <ProfileNav setCurrentMenu={setCurrentMenu} />
-            </S.Wrapper>
-          </Card>
-        ) : (
-          <ProfileFormNav menu={currentMenu} />
-        ))}
-
-      {isTablet && (
-        <Row gutter={[20, 30]}>
-          <Col md={24} xl={8}>
-            <Card padding={30}>
-              <S.Wrapper>
+            <Row gutter={[30, 30]}>
+              <Col xs={24} md={12} xl={24}>
                 <ProfileInfo profileData={profileData} />
-                <ProfileNav setCurrentMenu={setCurrentMenu} />
-              </S.Wrapper>
-            </Card>
-          </Col>
+              </Col>
 
+              <Col xs={24} md={12} xl={24}>
+                <ProfileNav setCurrentMenu={setCurrentMenu} />
+              </Col>
+            </Row>
+          </Card>
+        </Col>
+
+        {isTablet && (
           <Col md={24} xl={16}>
             <ProfileFormNav menu={currentMenu} />
           </Col>
-        </Row>
-      )}
+        )}
+      </Row>
     </>
   ) : null;
 };
