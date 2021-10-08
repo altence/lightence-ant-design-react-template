@@ -21,6 +21,7 @@ export const CVVItem: React.FC<CardInputProps> = ({ disabled, handleInputChange,
     >
       <MaskedInput
         placeholderChar=" "
+        placeholder="***"
         mask="111"
         name="cvc"
         onChange={handleInputChange}

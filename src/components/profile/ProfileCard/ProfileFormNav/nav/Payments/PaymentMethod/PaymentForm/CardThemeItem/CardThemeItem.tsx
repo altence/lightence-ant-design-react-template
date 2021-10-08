@@ -4,6 +4,7 @@ import { cardThemes } from 'constants/cardThemes';
 import { FormItem } from 'components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm.styles';
 import * as S from './CardThemeItem.styles';
 import { CreditCard } from '../interfaces';
+import { Col, Row } from 'antd';
 
 interface CardThemeItemProps {
   cardData: CreditCard;
@@ -23,16 +24,18 @@ export const CardThemeItem: React.FC<CardThemeItemProps> = ({ cardData, setCardD
   const themes = useMemo(
     () =>
       cardThemes.map((item) => (
-        <S.BackgroundWrapper key={item.id} isActive={cardData.background === item.background}>
-          <S.Theme background={item.background} onClick={handleChange(item)} />
-        </S.BackgroundWrapper>
+        <Col xs={8} md={4} key={item.id}>
+          <S.BackgroundWrapper background={item.background} isActive={cardData.background === item.background}>
+            <S.Theme onClick={handleChange(item)} />
+          </S.BackgroundWrapper>
+        </Col>
       )),
     [cardData, handleChange],
   );
 
   return (
     <FormItem label={t('profile.nav.payments.cardTheme')}>
-      <S.Wrapper>{themes}</S.Wrapper>
+      <Row gutter={[10, 10]}>{themes}</Row>
     </FormItem>
   );
 };

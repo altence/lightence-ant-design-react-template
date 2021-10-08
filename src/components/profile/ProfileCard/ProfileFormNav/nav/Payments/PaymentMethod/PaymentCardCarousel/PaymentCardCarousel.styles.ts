@@ -5,9 +5,11 @@ export const SliderWrapper = styled.div`
 `;
 
 export const BtnWrapper = styled.div`
+  display: flex;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: calc(50% - 4rem);
+  left: calc(50% + 6rem);
+  transform: translate(-50%, -50%);
 
   & > button {
     color: ${(props) => props.theme.colors.text.secondary};

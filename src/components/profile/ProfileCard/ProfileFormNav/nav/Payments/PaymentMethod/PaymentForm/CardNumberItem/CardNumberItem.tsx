@@ -21,6 +21,7 @@ export const CardNumberItem: React.FC<CardInputProps> = ({ disabled, handleInput
     >
       <MaskedInput
         placeholderChar=" "
+        placeholder={t('profile.nav.payments.yourCardNumber')}
         name="number"
         mask="1111 1111 1111 1111"
         onChange={handleInputChange}
