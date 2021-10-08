@@ -4,7 +4,7 @@ import { useMediaQuery } from 'react-responsive';
 import theme from 'styles/theme';
 
 interface InputProps extends AntInputProps {
-  className: string;
+  className?: string;
 }
 
 export const Input: React.FC<InputProps> = ({ className, children, ...props }) => {

@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { DatePicker } from './DatePicker';
+import { LocalizedDatePicker } from './LocalizedDatePicker';
 import { AppDate, Dates } from '../../../constants/Dates';
 
 const clearDate = Dates.getToday().hour(0).minute(0).second(0).millisecond(0);
@@ -23,7 +23,7 @@ export const TimeRangePicker: React.FC<TimePickerProps> = ({ timeRange, setTimeR
   };
 
   return (
-    <DatePicker.RangePicker
+    <LocalizedDatePicker.RangePicker
       value={[timeRangePrepared[0], timeRangePrepared[1]]}
       picker="time"
       format="HH:mm"

@@ -30,7 +30,7 @@ export const PersonalInfo: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <Card padding={isDesktop ? '3.75rem 3.375rem' : (isTablet && '2.5rem 1.875rem') || '1.875rem 1rem'}>
+    <Card padding={isDesktop ? [60, 54] : (isTablet && [40, 30]) || [30, 16]}>
       <ProfileForm name="info">
         <Row gutter={{ xs: 10, md: 15, xl: 30 }}>
           <Col span={24}>

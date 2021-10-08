@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { Select } from 'antd';
+import { Select, Option } from 'components/common/Select/Select';
 import { Country } from 'country-state-city';
 import { useTranslation } from 'react-i18next';
 import { FormItem } from '../../../ProfileForm/ProfileForm.styles';
@@ -7,9 +7,9 @@ import { FormItem } from '../../../ProfileForm/ProfileForm.styles';
 const countries = Country.getAllCountries();
 
 const selectOptions = countries.map((country) => (
-  <Select.Option key={country.isoCode} value={country.isoCode}>
+  <Option key={country.isoCode} value={country.isoCode}>
     {country.name}
-  </Select.Option>
+  </Option>
 ));
 
 interface CountriesItemProps {

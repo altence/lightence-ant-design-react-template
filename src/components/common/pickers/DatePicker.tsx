@@ -1,6 +1,14 @@
-import { Dayjs } from 'dayjs';
-import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
-import generatePicker from 'antd/es/date-picker/generatePicker';
-import 'antd/es/date-picker/style/index';
+import React from 'react';
+import { PickerProps } from 'antd/lib/date-picker/generatePicker';
+import { useMediaQuery } from 'react-responsive';
+import theme from 'styles/theme';
+import { LocalizedDatePicker } from './LocalizedDatePicker';
+import { AppDate } from 'constants/Dates';
 
-export const DatePicker = generatePicker<Dayjs>(dayjsGenerateConfig);
+type DatePickerProps = PickerProps<AppDate>;
+
+export const DatePicker: React.FC<DatePickerProps> = ({ className, ...props }) => {
+  const isTablet = useMediaQuery({ query: theme.media.md });
+
+  return <LocalizedDatePicker size={(isTablet && 'large') || 'middle'} className={className} {...props} />;
+};

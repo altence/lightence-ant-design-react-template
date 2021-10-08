@@ -6,7 +6,7 @@ import * as S from './Card.styles';
 
 export interface CardProps extends AntCardProps {
   className?: string;
-  padding?: string | number;
+  padding?: string | number | [number, number];
   children: React.ReactNode;
 }
 
