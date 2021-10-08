@@ -26,6 +26,7 @@ export const NotificationGroup: React.FC<NotificationGroupProps> = ({ column, ha
     setCheckedList(event.target.checked ? column.data : []);
     setIndeterminate(false);
     setCheckAll(event.target.checked);
+    handleCheck(event.target.checked ? column.data : []);
   };
 
   const props = {
