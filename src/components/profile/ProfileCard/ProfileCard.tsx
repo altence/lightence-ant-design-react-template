@@ -37,21 +37,23 @@ export const ProfileCard: React.FC = () => {
       </PageTitle>
 
       <Row gutter={[30, 30]}>
-        <Col xs={24} md={24} xl={8}>
-          <Card padding={30}>
-            <Row gutter={[30, 30]}>
-              <Col xs={24} md={12} xl={24}>
-                <ProfileInfo profileData={profileData} />
-              </Col>
+        {(isTablet || currentMenu === 'main') && (
+          <Col xs={24} md={24} xl={8}>
+            <Card padding={30}>
+              <Row gutter={[30, 30]}>
+                <Col xs={24} md={12} xl={24}>
+                  <ProfileInfo profileData={profileData} />
+                </Col>
 
-              <Col xs={24} md={12} xl={24}>
-                <ProfileNav setCurrentMenu={setCurrentMenu} />
-              </Col>
-            </Row>
-          </Card>
-        </Col>
+                <Col xs={24} md={12} xl={24}>
+                  <ProfileNav setCurrentMenu={setCurrentMenu} />
+                </Col>
+              </Row>
+            </Card>
+          </Col>
+        )}
 
-        {isTablet && (
+        {(isTablet || currentMenu !== 'main') && (
           <Col md={24} xl={16}>
             <ProfileFormNav menu={currentMenu} />
           </Col>
