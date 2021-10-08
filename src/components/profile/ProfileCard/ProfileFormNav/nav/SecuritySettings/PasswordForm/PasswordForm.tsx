@@ -1,10 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { ConfirmItemPassword } from './ConfirmPasswordItem/ConfirmPasswordItem';
 import { ProfileForm } from '../../../ProfileForm/ProfileForm';
 import { FormItem, Title } from 'components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm.styles';
 import { CurrentPasswordItem } from './CurrentPasswordItem/CurrentPasswordItem';
 import { NewPasswordItem } from './NewPasswordItem/NewPasswordItem';
-import { ConfirmItemPassword } from './ConfirmPasswordItem/ConfirmPasswordItem';
 import * as S from './PasswordForm.styles';
 import { Col, Row } from 'antd';
 
@@ -20,22 +20,22 @@ export const PasswordForm: React.FC = () => {
         </S.Btn>
       }
     >
-      <Row gutter={[20, 0]}>
+      <Row gutter={{ md: 15, xl: 30 }}>
         <Col span={24}>
           <FormItem>
             <Title>{t('profile.nav.securitySettings.changePassword')}</Title>
           </FormItem>
         </Col>
 
-        <Col xs={24} md={12}>
+        <Col xs={24} md={12} xl={24}>
           <CurrentPasswordItem />
         </Col>
 
-        <Col xs={24} md={12}>
+        <Col xs={24} md={12} xl={24}>
           <NewPasswordItem />
         </Col>
 
-        <Col xs={24} md={12}>
+        <Col xs={24} md={12} xl={24}>
           <ConfirmItemPassword />
         </Col>
       </Row>

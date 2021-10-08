@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Input } from 'components/common/Input/Input';
+import { Input } from 'components/common/inputs/Input/Input';
 import { LinkOutlined } from '@ant-design/icons';
 import { FormItem } from 'components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm.styles';
 

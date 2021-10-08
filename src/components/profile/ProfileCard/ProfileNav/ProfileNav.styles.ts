@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button } from 'components/common/Button/Button';
+import { Button } from 'components/common/buttons/Button/Button';
 import { hexToRGB } from 'helpers/hexToRGB';
 
 interface BtnProps {

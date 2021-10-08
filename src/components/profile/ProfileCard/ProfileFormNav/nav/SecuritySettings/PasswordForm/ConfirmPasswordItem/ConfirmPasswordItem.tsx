@@ -1,7 +1,7 @@
 import React from 'react';
-import { Input } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { FormItem } from 'components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm.styles';
+import { InputPassword } from 'components/common/inputs/InputPassword/InputPassword';
 
 export const ConfirmItemPassword: React.FC = () => {
   const { t } = useTranslation();
@@ -28,7 +28,7 @@ export const ConfirmItemPassword: React.FC = () => {
         }),
       ]}
     >
-      <Input.Password />
+      <InputPassword />
     </FormItem>
   );
 };

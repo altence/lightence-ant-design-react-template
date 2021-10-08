@@ -2,7 +2,7 @@ import React, { useContext, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Avatar } from 'antd';
 import { ThemeContext } from 'styled-components';
-import { LinkBtn } from 'components/common/LinkBtn/LinkBtn';
+import { LinkBtn } from 'components/common/buttons/LinkBtn/LinkBtn';
 import { getCurrencyPrice } from 'helpers/getCurrencyPrice';
 import { paymentStatuses } from 'constants/paymentStatuses';
 import { Dates } from 'constants/Dates';

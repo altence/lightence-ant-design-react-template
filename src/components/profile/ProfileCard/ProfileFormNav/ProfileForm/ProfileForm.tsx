@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Col, Form, FormInstance, notification, Row } from 'antd';
 import { ButtonsGroup } from './ButtonsGroup/ButtonsGroup';
 import { useTranslation } from 'react-i18next';
@@ -23,10 +23,8 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
   className,
   form,
   footer,
-  trigger,
   onCancel,
   onFinish,
-  onFinishFailed,
   name,
   children,
 }) => {
@@ -35,10 +33,27 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
 
   const { t } = useTranslation();
 
-  const onCancelDefault = useCallback(() => {
-    (form || formDefault).resetFields();
-    setFieldsChange(false);
+  const onFieldsChange = useCallback(() => {
+    setFieldsChange(true);
   }, [setFieldsChange]);
+
+  const onCancelDefault = useCallback(() => {
+    onCancel && onCancel();
+
+    setFieldsChange(false);
+    (form || formDefault).resetFields();
+  }, [onCancel, setFieldsChange]);
+
+  const onFinishDefault = useCallback(
+    (values) => {
+      onFinish && onFinish(values);
+
+      !onFinish && notification.open({ message: t('profile.saved') });
+
+      setFieldsChange(false);
+    },
+    [onFinish],
+  );
 
   const onFinishFailedDefault = useCallback(
     (error) =>
@@ -56,34 +71,18 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
     [],
   );
 
-  const onFinishDefault = useCallback((values: []) => {
-    console.log(values);
-
-    notification.open({ message: t('profile.saved') });
-
-    setFieldsChange(false);
-  }, []);
-
-  const onFieldsChange = useCallback(() => {
-    setFieldsChange(true);
-  }, [setFieldsChange]);
-
-  useEffect(() => {
-    trigger && setFieldsChange(true);
-  }, [trigger]);
-
   return (
     <Form
       className={className}
       form={form || formDefault}
       name={name}
       layout="vertical"
-      onFinish={onFinish || onFinishDefault}
-      onFinishFailed={onFinishFailed || onFinishFailedDefault}
+      onFinish={onFinishDefault}
+      onFinishFailed={onFinishFailedDefault}
       onFieldsChange={onFieldsChange}
     >
       {children}
-      {isFieldsChange && (footer || <ButtonsGroup onCancel={onCancel || onCancelDefault} />)}
+      {isFieldsChange && (footer || <ButtonsGroup onCancel={onCancelDefault} />)}
     </Form>
   );
 };

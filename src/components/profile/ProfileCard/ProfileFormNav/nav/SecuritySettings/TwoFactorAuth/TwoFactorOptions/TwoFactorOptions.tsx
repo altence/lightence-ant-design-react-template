@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Radio, FormInstance } from 'antd';
-import { EmailItem } from '../../../../PersonalInfo/EmailItem/EmailItem';
-import { PhoneItem } from '../../../../PersonalInfo/PhoneItem/PhoneItem';
+import { EmailItem } from '../../../PersonalInfo/EmailItem/EmailItem';
+import { PhoneItem } from '../../../PersonalInfo/PhoneItem/PhoneItem';
 import * as S from './TwoFactorOptions.styles';
 
 export const TwoFactorOptions: React.FC<{ form: FormInstance }> = ({ form }) => {
