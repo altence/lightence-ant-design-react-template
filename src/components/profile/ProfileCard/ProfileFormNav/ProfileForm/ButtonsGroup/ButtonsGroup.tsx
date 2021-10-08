@@ -4,14 +4,15 @@ import { useTranslation } from 'react-i18next';
 import * as S from './ButtonsGroup.styles';
 
 interface ButtonsGroupProps {
+  className?: string;
   onCancel: () => void;
 }
 
-export const ButtonsGroup: React.FC<ButtonsGroupProps> = ({ onCancel }) => {
+export const ButtonsGroup: React.FC<ButtonsGroupProps> = ({ className, onCancel }) => {
   const { t } = useTranslation();
 
   return (
-    <S.Wrapper>
+    <S.Wrapper className={className}>
       <Button type="ghost" onClick={onCancel}>
         {t('common.cancel')}
       </Button>
