@@ -1,5 +1,5 @@
 import React from 'react';
-import { Select } from 'antd';
+import { Select, Option } from 'components/common/Select/Select';
 import { useTranslation } from 'react-i18next';
 import { FormItem } from '../../../ProfileForm/ProfileForm.styles';
 
@@ -9,8 +9,8 @@ export const SexItem: React.FC = () => {
   return (
     <FormItem name="sex" label={t('profile.nav.personalInfo.sex')}>
       <Select showSearch filterOption={(input, option) => option?.children.toLowerCase().includes(input.toLowerCase())}>
-        <Select.Option value="male">{t('profile.nav.personalInfo.male')}</Select.Option>
-        <Select.Option value="female">{t('profile.nav.personalInfo.female')}</Select.Option>
+        <Option value="male">{t('profile.nav.personalInfo.male')}</Option>
+        <Option value="female">{t('profile.nav.personalInfo.female')}</Option>
       </Select>
     </FormItem>
   );

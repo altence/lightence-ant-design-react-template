@@ -15,6 +15,9 @@ export const Card = styled(AntCard)<CardProps>`
   & .ant-card-body {
     flex-grow: 1;
 
-    padding: ${(props) => (typeof props.padding === 'number' ? `${props.padding}px` : props.padding)};
+    padding: ${(props) =>
+      typeof props.padding === 'number'
+        ? `${props.padding}px`
+        : (Array.isArray(props.padding) && `${props.padding[0]}px ${props.padding[1]}px`) || props.padding};
   }
 `;

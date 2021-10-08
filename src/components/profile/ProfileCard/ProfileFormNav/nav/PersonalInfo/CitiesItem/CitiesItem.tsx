@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Select } from 'antd';
+import { Select, Option } from 'components/common/Select/Select';
 import { City } from 'country-state-city';
 import { useTranslation } from 'react-i18next';
 import { FormItem } from '../../../ProfileForm/ProfileForm.styles';
@@ -17,9 +17,9 @@ export const CitiesItem: React.FC<CitiesItemProps> = ({ country }) => {
     () =>
       cities &&
       cities.map((city) => (
-        <Select.Option key={`${city.name} ${city.stateCode}`} value={`${city.name} ${city.stateCode}`}>
+        <Option key={`${city.name} ${city.stateCode}`} value={`${city.name} ${city.stateCode}`}>
           {`${city.name} (${city.stateCode})`}
-        </Select.Option>
+        </Option>
       )),
     [cities],
   );
