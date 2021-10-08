@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input } from 'components/common/Input/Input';
+import { Input } from 'components/common/inputs/Input/Input';
 import { useTranslation } from 'react-i18next';
 import { FileTextOutlined } from '@ant-design/icons';
 import { websitePattern } from 'constants/patterns';

@@ -1,4 +1,4 @@
-import { Button } from 'antd';
+import { Button } from 'components/common/buttons/Button/Button';
 import styled from 'styled-components';
 
 export const Btn = styled(Button)`
@@ -7,5 +7,9 @@ export const Btn = styled(Button)`
 
   @media only screen and ${(props) => props.theme.media.md} {
     max-width: 10rem;
+  }
+
+  @media only screen and ${(props) => props.theme.media.xl} {
+    max-width: unset;
   }
 `;

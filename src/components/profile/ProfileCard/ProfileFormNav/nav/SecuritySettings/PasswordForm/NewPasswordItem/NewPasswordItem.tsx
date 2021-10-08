@@ -1,8 +1,8 @@
 import React from 'react';
-import { Input } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { FormItem } from 'components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm.styles';
 import { passwordPattern } from 'constants/patterns';
+import { InputPassword } from 'components/common/inputs/InputPassword/InputPassword';
 
 export const NewPasswordItem: React.FC = () => {
   const { t } = useTranslation();
@@ -33,7 +33,7 @@ export const NewPasswordItem: React.FC = () => {
         }),
       ]}
     >
-      <Input.Password />
+      <InputPassword />
     </FormItem>
   );
 };

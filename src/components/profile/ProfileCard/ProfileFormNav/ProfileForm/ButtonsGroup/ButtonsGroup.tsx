@@ -1,4 +1,4 @@
-import { Button } from 'components/common/Button/Button';
+import { Button } from 'components/common/buttons/Button/Button';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import * as S from './ButtonsGroup.styles';
