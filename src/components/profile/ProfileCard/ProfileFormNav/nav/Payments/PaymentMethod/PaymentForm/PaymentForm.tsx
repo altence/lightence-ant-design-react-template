@@ -84,7 +84,13 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
   }, [editCard, setCardData]);
 
   return (
-    <ProfileForm form={form} name="paymentCard" trigger={cardData} onCancel={closeModal} onFinish={onFinish}>
+    <ProfileForm
+      form={form}
+      name="paymentCard"
+      trigger={cardData}
+      onFinish={onFinish}
+      footer={<S.PaymentButtons onCancel={closeModal} />}
+    >
       <S.PayCard cardData={cardData} />
       <S.FormItemsWrapper>
         <CardNumberItem
