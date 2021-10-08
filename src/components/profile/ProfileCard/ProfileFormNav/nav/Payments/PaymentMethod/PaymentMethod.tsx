@@ -1,18 +1,15 @@
-import React, { useCallback, useState } from 'react';
-import { Modal, Form } from 'antd';
+import React, { useCallback, useMemo, useState } from 'react';
+import { Form } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useMediaQuery } from 'react-responsive';
-import { SwiperSlide } from 'swiper/react';
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { Card } from 'components/common/Card/Card';
+import { PaymentCardCarousel } from './PaymentCardCarousel/PaymentCardCarousel';
 import { FormItem, Title } from '../../../ProfileForm/ProfileForm.styles';
-import { PaymentForm } from './PaymentForm/PaymentForm';
 import { CreditCard } from './PaymentForm/interfaces';
-import { Slider } from 'components/common/Slider/Slider';
-import { PaymentCard } from './PaymentCard/PaymentCard';
 import { cardThemes } from 'constants/cardThemes';
 import theme from 'styles/theme';
 import * as S from './PaymentMethod.styles';
+import { PaymentModal } from './PaymentModal/PaymentModal';
 
 export const clearCardData: CreditCard = {
   name: '',
@@ -37,86 +34,34 @@ export const PaymentMethod: React.FC = () => {
     setModalVisible(true);
   }, [setModalVisible]);
 
-  const handleCloseModal = useCallback(() => {
-    setModalVisible(false);
-    form.setFieldsValue(clearCardData);
-    setCardData(clearCardData);
-    editCard && setEditCard(null);
-  }, [setModalVisible, setCardData, editCard, setEditCard]);
-
-  const handleRemoveCard = useCallback(
-    (number: string) => () => {
-      setCards((prev) => prev.filter((card) => card.number !== number));
-    },
-    [setCards],
-  );
-
-  const handleEditCard = useCallback(
-    (card: CreditCard) => () => {
-      setEditCard(card);
-      handleOpenModal();
-    },
-
-    [setEditCard, setModalVisible],
-  );
-
-  const paymentCards = useMemo(
-    () =>
-      cards.map((card, index) => (
-        <SwiperSlide key={index}>
-          <PaymentCard cardData={card}>
-            <S.BtnWrapper>
-              <Button type="link" icon={<EditOutlined />} onClick={handleEditCard(card)} />
-              <Popconfirm title={t('common.deleteQuestion')} onConfirm={handleRemoveCard(card.number)}>
-                <Button type="link" icon={<DeleteOutlined />} />
-              </Popconfirm>
-            </S.BtnWrapper>
-          </PaymentCard>
-        </SwiperSlide>
-      )),
-    [cards, handleRemoveCard, handleEditCard],
-  );
-
   const content = useMemo(
     () => (
       <S.Wrapper>
         <FormItem>
           <Title>{t('profile.nav.payments.paymentMethod')}</Title>
         </FormItem>
-        {paymentCards.length > 0 && (
-          <S.SliderWrapper>
-            <Slider spaceBetween={24} slidesPerView={(isTablet && cards.length > 1 && 2) || 1}>
-              {paymentCards}
-            </Slider>
-          </S.SliderWrapper>
-        )}
+        <PaymentCardCarousel
+          cards={cards}
+          setCards={setCards}
+          setEditCard={setEditCard}
+          handleOpenModal={handleOpenModal}
+        />
         <S.AddBtn type="ghost" onClick={handleOpenModal}>
           {t('profile.nav.payments.addNewCard')}
         </S.AddBtn>
-        <Modal visible={isModalVisible} onCancel={handleCloseModal} footer={null} closable={false}>
-          <PaymentForm
-            form={form}
-            cardData={cardData}
-            editCard={editCard}
-            setCardData={setCardData}
-            setCards={setCards}
-            closeModal={handleCloseModal}
-          />
-        </Modal>
+        <PaymentModal
+          isModalVisible={isModalVisible}
+          setModalVisible={setModalVisible}
+          form={form}
+          cardData={cardData}
+          editCard={editCard}
+          setEditCard={setEditCard}
+          setCardData={setCardData}
+          setCards={setCards}
+        />
       </S.Wrapper>
     ),
-    [
-      paymentCards,
-      isTablet,
-      cards,
-      handleOpenModal,
-      handleCloseModal,
-      setCardData,
-      setCards,
-      handleCloseModal,
-      isModalVisible,
-      cardData,
-    ],
+    [isTablet, cards, handleOpenModal, setCardData, setCards, isModalVisible, cardData],
   );
 
   return isTablet ? content : <Card padding="1.875rem 1rem">{content}</Card>;

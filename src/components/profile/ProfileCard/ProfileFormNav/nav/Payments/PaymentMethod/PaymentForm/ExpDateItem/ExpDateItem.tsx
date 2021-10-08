@@ -21,6 +21,7 @@ export const ExpDateItem: React.FC<CardInputProps> = ({ disabled, handleInputCha
     >
       <MaskedInput
         placeholderChar=" "
+        placeholder="MM/YY"
         mask="11/11"
         name="expiry"
         onChange={handleInputChange}

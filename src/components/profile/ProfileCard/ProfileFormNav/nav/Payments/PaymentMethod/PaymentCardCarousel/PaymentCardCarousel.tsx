@@ -1,11 +1,13 @@
 import React, { useCallback, useMemo } from 'react';
 import { Button, Popconfirm } from 'antd';
 import { SwiperSlide } from 'swiper/react';
+import { useMediaQuery } from 'react-responsive';
 import { useTranslation } from 'react-i18next';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { Slider } from 'components/common/Slider/Slider';
 import { PaymentCard } from '../PaymentCard/PaymentCard';
 import { CreditCard } from '../PaymentForm/interfaces';
+import theme from 'styles/theme';
 import * as S from './PaymentCardCarousel.styles';
 
 interface PaymentCardCarouselProps {
@@ -22,6 +24,8 @@ export const PaymentCardCarousel: React.FC<PaymentCardCarouselProps> = ({
   handleOpenModal,
 }) => {
   const { t } = useTranslation();
+
+  const isTablet = useMediaQuery({ query: theme.media.md });
 
   const handleRemoveCard = useCallback(
     (number: string) => () => {
@@ -53,12 +57,12 @@ export const PaymentCardCarousel: React.FC<PaymentCardCarouselProps> = ({
           </PaymentCard>
         </SwiperSlide>
       )),
-    [cards, handleRemoveCard],
+    [cards, handleRemoveCard, handleEditCard],
   );
 
   return paymentCards.length > 0 ? (
     <S.SliderWrapper>
-      <Slider spaceBetween={24} slidesPerView={1}>
+      <Slider spaceBetween={24} slidesPerView={(isTablet && cards.length > 1 && 2) || 1}>
         {paymentCards}
       </Slider>
     </S.SliderWrapper>

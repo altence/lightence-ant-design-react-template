@@ -19,7 +19,13 @@ export const CardholderItem: React.FC<CardInputProps> = ({ disabled, handleInput
         },
       ]}
     >
-      <Input name="name" onChange={handleInputChange} onFocus={handleInputFocus} disabled={disabled} />
+      <Input
+        name="name"
+        placeholder={t('profile.nav.payments.yourName')}
+        onChange={handleInputChange}
+        onFocus={handleInputFocus}
+        disabled={disabled}
+      />
     </FormItem>
   );
 };
