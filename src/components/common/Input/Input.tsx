@@ -1,9 +1,9 @@
 import React from 'react';
-import { Input as AntInput } from 'antd';
+import { Input as AntInput, InputProps as AntInputProps } from 'antd';
 import { useMediaQuery } from 'react-responsive';
 import theme from 'styles/theme';
 
-interface InputProps {
+interface InputProps extends AntInputProps {
   className: string;
 }
 
