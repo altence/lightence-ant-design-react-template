@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Col, Form, FormInstance, notification, Row } from 'antd';
 import { ButtonsGroup } from './ButtonsGroup/ButtonsGroup';
 import { useTranslation } from 'react-i18next';
@@ -10,9 +10,9 @@ interface Error {
 
 interface ProfileFormProps {
   className?: string;
+  trigger?: React.ReactNode;
   form?: FormInstance;
   footer?: React.ReactNode;
-  trigger?: React.ReactNode;
   onCancel?: () => void;
   onFinish?: (values: []) => void;
   onFinishFailed?: (error: ValidateErrorEntity<[]>) => void;
@@ -21,10 +21,12 @@ interface ProfileFormProps {
 
 export const ProfileForm: React.FC<ProfileFormProps> = ({
   className,
+  trigger,
   form,
   footer,
   onCancel,
   onFinish,
+  onFinishFailed,
   name,
   children,
 }) => {
@@ -52,11 +54,12 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
 
       setFieldsChange(false);
     },
-    [onFinish],
+    [onFinish, setFieldsChange],
   );
 
   const onFinishFailedDefault = useCallback(
     (error) =>
+      (onFinishFailed && onFinishFailed(error)) ||
       notification.open({
         message: (
           <Row gutter={[20, 20]}>
@@ -68,8 +71,12 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
           </Row>
         ),
       }),
-    [],
+    [onFinishFailed],
   );
+
+  useEffect(() => {
+    trigger && setFieldsChange(true);
+  }, [trigger]);
 
   return (
     <Form

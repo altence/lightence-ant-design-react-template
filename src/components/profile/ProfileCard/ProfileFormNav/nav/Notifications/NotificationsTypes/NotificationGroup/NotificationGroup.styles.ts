@@ -14,11 +14,21 @@ export const Col = styled.div`
   ${colStyles};
 
   border-bottom: ${(props) => `1px solid ${hexToRGB(props.theme.colors.main.primary, 0.3)}`};
+
+  @media only screen and ${(props) => props.theme.media.md} {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+
+  @media only screen and ${(props) => props.theme.media.xl} {
+    padding: 0.75rem;
+  }
 `;
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 
   .ant-checkbox-wrapper + .ant-checkbox-wrapper {
     margin-left: 0;
@@ -53,8 +63,17 @@ export const HeaderCol = styled(Col)`
     align-items: unset;
     padding-top: 1.25rem;
 
+    @media only screen and ${(props) => props.theme.media.md} {
+      flex-direction: row;
+      padding-top: 0;
+    }
+
     & > span {
       padding: 0.3125rem 0;
+
+      @media only screen and ${(props) => props.theme.media.md} {
+        padding: 0 0.3125rem;
+      }
     }
   }
 `;
