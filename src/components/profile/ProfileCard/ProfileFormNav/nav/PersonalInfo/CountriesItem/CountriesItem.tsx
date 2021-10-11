@@ -1,7 +1,8 @@
 import React, { useCallback } from 'react';
-import { Select, Option } from 'components/common/Select/Select';
 import { Country } from 'country-state-city';
 import { useTranslation } from 'react-i18next';
+import { GlobalOutlined } from '@ant-design/icons';
+import { Select, Option } from 'components/common/Select/Select';
 import { FormItem } from '../../../ProfileForm/ProfileForm.styles';
 
 const countries = Country.getAllCountries();
@@ -29,6 +30,7 @@ export const CountriesItem: React.FC<CountriesItemProps> = ({ setCountry }) => {
   return (
     <FormItem name="countries" label={t('profile.nav.personalInfo.country')}>
       <Select
+        suffixIcon={<GlobalOutlined />}
         showSearch
         filterOption={(input, option) => option?.children.toLowerCase().includes(input.toLowerCase())}
         onChange={handleSelectCountry}
