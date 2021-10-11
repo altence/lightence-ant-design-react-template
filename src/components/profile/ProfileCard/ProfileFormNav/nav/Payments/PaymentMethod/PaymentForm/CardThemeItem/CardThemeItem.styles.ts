@@ -13,6 +13,7 @@ export const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
   width: 3.125rem;
   height: 3.125rem;
   margin: 0 auto;
+  transition: all 0.5s ease;
 
   border-radius: ${(props) => props.theme.border.radius};
 
@@ -21,6 +22,13 @@ export const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
 
   & > div {
     background: ${(props) => `url(${props.background})`};
+    background-size: cover;
+  }
+
+  &:hover {
+    opacity: 0.7;
+
+    ${(props) => `background: url(${props.background})`};
     background-size: cover;
   }
 `;
