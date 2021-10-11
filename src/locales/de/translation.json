@@ -27,7 +27,8 @@
     "password": "DE!!!Password",
     "passwordError": "DE!!!Wrong login or password",
     "requiredField": "DE!!!This field is required!",
-    "back": "Back"
+    "back": "Back",
+    "copy": "DE!!!Copied to clipboard"
   },
   "header": {
     "search": "DE!!!Search",

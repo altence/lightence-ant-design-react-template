@@ -27,7 +27,8 @@
     "password": "Password",
     "passwordError": "Wrong login or password",
     "requiredField": "This field is required!",
-    "back": "Back"
+    "back": "Back",
+    "copy": "Copied to clipboard"
   },
   "header": {
     "search": "Search",
