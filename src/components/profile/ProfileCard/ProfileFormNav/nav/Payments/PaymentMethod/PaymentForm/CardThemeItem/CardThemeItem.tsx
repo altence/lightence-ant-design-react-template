@@ -26,7 +26,7 @@ export const CardThemeItem: React.FC<CardThemeItemProps> = ({ cardData, setCardD
       cardThemes.map((item) => (
         <Col xs={8} md={4} key={item.id}>
           <S.BackgroundWrapper background={item.background} isActive={cardData.background === item.background}>
-            <S.Theme onClick={handleChange(item)} />
+            <S.Theme tabIndex={0} onClick={handleChange(item)} />
           </S.BackgroundWrapper>
         </Col>
       )),
