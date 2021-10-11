@@ -19,7 +19,7 @@ export const WebsiteItem: React.FC = () => {
         },
       ]}
     >
-      <Input addonBefore={'https:'} addonAfter={<FileTextOutlined />} />
+      <Input addonBefore={'https://'} addonAfter={<FileTextOutlined />} />
     </FormItem>
   );
 };
