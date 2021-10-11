@@ -8,9 +8,10 @@ import * as S from './NotificationGroup.styles';
 interface NotificationGroupProps {
   column: Omit<Option, 'id'>;
   handleCheck: (list: CheckboxValueType[]) => void;
+  setTriggered: (state: boolean) => void;
 }
 
-export const NotificationGroup: React.FC<NotificationGroupProps> = ({ column, handleCheck }) => {
+export const NotificationGroup: React.FC<NotificationGroupProps> = ({ column, handleCheck, setTriggered }) => {
   const [checkedList, setCheckedList] = React.useState<CheckboxValueType[]>([]);
   const [indeterminate, setIndeterminate] = React.useState(false);
   const [checkAll, setCheckAll] = React.useState(false);
@@ -20,6 +21,7 @@ export const NotificationGroup: React.FC<NotificationGroupProps> = ({ column, ha
     setIndeterminate(!!list.length && list.length < column.data.length);
     setCheckAll(list.length === column.data.length);
     handleCheck(list);
+    setTriggered(true);
   };
 
   const onCheckAllChange = (event: CheckboxChangeEvent) => {
@@ -27,6 +29,7 @@ export const NotificationGroup: React.FC<NotificationGroupProps> = ({ column, ha
     setIndeterminate(false);
     setCheckAll(event.target.checked);
     handleCheck(event.target.checked ? column.data : []);
+    setTriggered(true);
   };
 
   const props = {

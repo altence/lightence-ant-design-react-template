@@ -15,6 +15,8 @@ export const NotificationsTypes: React.FC = () => {
     3: [],
   });
 
+  const [isTriggered, setTriggered] = useState(false);
+
   const options: Option[] = [
     {
       id: 1,
@@ -65,15 +67,26 @@ export const NotificationsTypes: React.FC = () => {
     [checkedElements],
   );
 
+  const onCancel = useCallback(() => {
+    setTriggered(false);
+  }, [setTriggered]);
+
   const onFinish = useCallback(() => {
     console.log(checkedElements);
-  }, [checkedElements]);
+
+    setTriggered(false);
+  }, [checkedElements, setTriggered]);
 
   return (
-    <ProfileForm name="notifications" trigger={checkedElements} onFinish={onFinish}>
+    <ProfileForm name="notifications" onCancel={onCancel} onFinish={onFinish} trigger={isTriggered}>
       <S.Wrapper>
         {options.map((item) => (
-          <NotificationGroup key={item.id} column={item} handleCheck={handleCheck(item.id)} />
+          <NotificationGroup
+            key={item.id}
+            column={item}
+            handleCheck={handleCheck(item.id)}
+            setTriggered={setTriggered}
+          />
         ))}
       </S.Wrapper>
     </ProfileForm>
