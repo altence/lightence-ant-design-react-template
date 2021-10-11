@@ -4,11 +4,13 @@ import { useTranslation } from 'react-i18next';
 import { GlobalOutlined } from '@ant-design/icons';
 import { Select, Option } from 'components/common/Select/Select';
 import { FormItem } from '../../../ProfileForm/ProfileForm.styles';
+import * as S from './CountriesItem.styles';
 
 const countries = Country.getAllCountries();
 
 const selectOptions = countries.map((country) => (
   <Option key={country.isoCode} value={country.isoCode}>
+    <S.CountryFlag countryCode={country.isoCode} svg />
     {country.name}
   </Option>
 ));
@@ -32,7 +34,7 @@ export const CountriesItem: React.FC<CountriesItemProps> = ({ setCountry }) => {
       <Select
         suffixIcon={<GlobalOutlined />}
         showSearch
-        filterOption={(input, option) => option?.children.toLowerCase().includes(input.toLowerCase())}
+        filterOption={(input, option) => option?.children[1].toLowerCase().includes(input.toLowerCase())}
         onChange={handleSelectCountry}
       >
         {selectOptions}

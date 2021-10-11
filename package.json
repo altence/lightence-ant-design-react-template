@@ -16,6 +16,7 @@
     "leaflet": "^1.7.1",
     "payment": "^2.4.6",
     "react": "^17.0.2",
+    "react-country-flag": "^2.3.1",
     "react-credit-cards": "^0.8.3",
     "react-dom": "^17.0.2",
     "react-i18next": "^11.11.4",
