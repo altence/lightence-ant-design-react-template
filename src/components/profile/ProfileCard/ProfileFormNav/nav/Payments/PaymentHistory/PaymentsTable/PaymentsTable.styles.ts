@@ -4,6 +4,8 @@ import { hexToRGB } from 'helpers/hexToRGB';
 
 export const PaymentHistoryTable = styled(Table)`
   .ant-table-thead > tr > th {
+    border-top: ${(props) => `1px solid ${hexToRGB(props.theme.colors.main.primary, 0.3)}`};
+
     border-bottom: ${(props) => `1px solid ${hexToRGB(props.theme.colors.main.primary, 0.3)}`};
 
     color: ${(props) => props.theme.colors.main.primary};

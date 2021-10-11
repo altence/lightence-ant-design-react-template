@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import MaskedInput from 'antd-mask-input';
+import { MaskedInput } from 'components/common/inputs/MaskedInput/MaskedInput';
 import { FormItem } from 'components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm.styles';
 import { CardInputProps } from '../interfaces';
 

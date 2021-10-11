@@ -8,10 +8,11 @@ import { Card } from 'components/common/Card/Card';
 
 export const Payments: React.FC = () => {
   const isTablet = useMediaQuery({ query: theme.media.md });
+  const isDesktop = useMediaQuery({ query: theme.media.xl });
 
   const content = useMemo(
     () => (
-      <Row gutter={[0, 20]}>
+      <Row gutter={[0, 30]}>
         <Col span={24}>
           <PaymentMethod />
         </Col>
@@ -23,5 +24,5 @@ export const Payments: React.FC = () => {
     [],
   );
 
-  return isTablet ? <Card padding="0">{content}</Card> : content;
+  return isTablet ? <Card padding={(isDesktop && [60, 54]) || '0'}>{content}</Card> : content;
 };
