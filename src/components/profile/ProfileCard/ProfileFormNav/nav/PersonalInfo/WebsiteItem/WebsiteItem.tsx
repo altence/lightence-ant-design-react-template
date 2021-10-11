@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { Input } from 'components/common/inputs/Input/Input';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'antd';
+import { Button, notification } from 'antd';
 import { FileTextOutlined } from '@ant-design/icons';
 import { websitePattern } from 'constants/patterns';
 import { FormItem } from '../../../ProfileForm/ProfileForm.styles';
@@ -14,7 +14,9 @@ export const WebsiteItem: React.FC = () => {
   const [website, setWebsite] = useState('');
 
   const handleOpen = useCallback(() => {
-    window.open(`${addonBefore}${website}`, '_blank')?.focus();
+    website
+      ? window.open(`${addonBefore}${website}`, '_blank')?.focus()
+      : notification.open({ message: t('profile.nav.personalInfo.notValidWebsite') });
   }, [website]);
 
   return (
