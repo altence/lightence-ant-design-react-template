@@ -1,19 +1,19 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Col, Row } from 'antd';
 import { ConfirmItemPassword } from './ConfirmPasswordItem/ConfirmPasswordItem';
 import { ProfileForm } from '../../../ProfileForm/ProfileForm';
 import { FormItem, Title } from 'components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm.styles';
 import { CurrentPasswordItem } from './CurrentPasswordItem/CurrentPasswordItem';
 import { NewPasswordItem } from './NewPasswordItem/NewPasswordItem';
 import * as S from './PasswordForm.styles';
-import { Col, Row } from 'antd';
 
 export const PasswordForm: React.FC = () => {
   const { t } = useTranslation();
 
   return (
     <ProfileForm
-      name="password"
+      name="newPassword"
       footer={
         <S.Btn type="primary" htmlType="submit">
           {t('common.confirm')}

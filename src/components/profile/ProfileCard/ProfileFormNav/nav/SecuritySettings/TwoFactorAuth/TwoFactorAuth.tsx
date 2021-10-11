@@ -22,7 +22,9 @@ export const TwoFactorAuth: React.FC = () => {
       form={form}
       name="twoFactorAuth"
       onFinish={onFinish}
-      footer={<LinkBtn htmlType="submit">{t('profile.nav.securitySettings.verify')}</LinkBtn>}
+      footer={
+        (isEnabled && <LinkBtn htmlType="submit">{t('profile.nav.securitySettings.verify')}</LinkBtn>) || <span />
+      }
     >
       <Row>
         <Col xs={24} md={12} xl={24}>
