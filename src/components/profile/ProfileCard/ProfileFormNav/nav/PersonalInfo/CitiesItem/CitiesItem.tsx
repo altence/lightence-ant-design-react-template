@@ -1,8 +1,9 @@
 import React, { useMemo } from 'react';
-import { Select, Option } from 'components/common/Select/Select';
 import { City } from 'country-state-city';
 import { useTranslation } from 'react-i18next';
+import { AimOutlined } from '@ant-design/icons';
 import { FormItem } from '../../../ProfileForm/ProfileForm.styles';
+import { Select, Option } from 'components/common/Select/Select';
 
 interface CitiesItemProps {
   country: string;
@@ -28,6 +29,7 @@ export const CitiesItem: React.FC<CitiesItemProps> = ({ country }) => {
     <FormItem name="country" label={t('profile.nav.personalInfo.city')}>
       {citiesOptions && (
         <Select
+          suffixIcon={<AimOutlined />}
           showSearch
           filterOption={(input, option) => option?.children.toLowerCase().includes(input.toLowerCase())}
         >
