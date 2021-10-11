@@ -1,5 +1,6 @@
 import React, { useCallback, useMemo } from 'react';
-import { Button, Popconfirm } from 'antd';
+import { Popconfirm } from 'antd';
+import { Button } from 'components/common/buttons/Button/Button';
 import { SwiperSlide } from 'swiper/react';
 import { useMediaQuery } from 'react-responsive';
 import { useTranslation } from 'react-i18next';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input } from 'antd';
+import { Input } from 'components/common/inputs/Input/Input';
 import { useTranslation } from 'react-i18next';
 import { FormItem } from 'components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm.styles';
 import { CardInputProps } from '../interfaces';
