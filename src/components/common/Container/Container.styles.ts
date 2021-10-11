@@ -13,7 +13,9 @@ export const Wrapper = styled.div`
     max-width: 1100px;
   }
 
-  @media only screen and ${(props) => props.theme.media.xxl} {
+  // TODO check if we need this
+
+  /* @media only screen and ${(props) => props.theme.media.xxl} {
     max-width: 1800px;
-  }
+  } */
 `;

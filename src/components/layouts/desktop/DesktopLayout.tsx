@@ -36,7 +36,7 @@ const ContentLayoutStyled = styled(Layout)`
   margin-left: 60px;
 
   background: url(${bg}) no-repeat;
-  background-size: auto 250px;
+  background-size: 100% 250px;
 
   background-color: ${(props) => props.theme.colors.back.lightGray};
 
