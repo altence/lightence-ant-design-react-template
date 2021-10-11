@@ -26,19 +26,11 @@ export const FormItem = styled(Form.Item)`
 
   & .ant-input-group-addon:first-of-type {
     font-weight: 600;
-    width: 4rem;
+    width: 5rem;
 
     color: ${(props) => props.theme.colors.main.primary};
 
     background-color: ${(props) => hexToRGB(props.theme.colors.main.primary, 0.05)};
-  }
-
-  & .ant-input-group-addon + input + .ant-input-group-addon {
-    background-color: transparent;
-  }
-
-  & .ant-input-affix-wrapper {
-    border-radius: ${(props) => props.theme.border.radius};
   }
 
   & div[role='alert'] {
