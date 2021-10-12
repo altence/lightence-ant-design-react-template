@@ -1,10 +1,10 @@
 import React, { useCallback, useState } from 'react';
-import { Input } from 'components/common/inputs/Input/Input';
 import { useTranslation } from 'react-i18next';
-import { Button, notification } from 'antd';
+import { Button, notification, Tooltip } from 'antd';
 import { FileTextOutlined } from '@ant-design/icons';
 import { websitePattern } from 'constants/patterns';
 import { FormItem } from '../../../ProfileForm/ProfileForm.styles';
+import { SuffixInput } from 'components/common/inputs/SuffixInput/SuffixInput';
 
 const addonBefore = 'https://';
 
@@ -30,11 +30,15 @@ export const WebsiteItem: React.FC = () => {
         },
       ]}
     >
-      <Input
-        value={website}
-        onChange={(event) => setWebsite(event.target.value)}
+      <SuffixInput
+        suffix={
+          <Tooltip title={t('common.openInNewTab')}>
+            <Button size="small" type="text" icon={<FileTextOutlined />} onClick={handleOpen} />
+          </Tooltip>
+        }
+        isVisibleSuffix={!!website}
         addonBefore={addonBefore}
-        suffix={<Button size="small" type="text" icon={<FileTextOutlined />} onClick={handleOpen} />}
+        onChange={(event) => setWebsite(event.target.value)}
       />
     </FormItem>
   );

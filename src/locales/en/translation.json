@@ -28,7 +28,9 @@
     "passwordError": "Wrong login or password",
     "requiredField": "This field is required!",
     "back": "Back",
-    "copy": "Copied to clipboard"
+    "copy": "Copy",
+    "openInNewTab": "Open in new tab",
+    "copied": "Copied to clipboard"
   },
   "header": {
     "search": "Search",

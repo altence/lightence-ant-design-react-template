@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Col, Form, FormInstance, notification, Row } from 'antd';
+import { Col, Form, FormInstance, FormProps, notification, Row } from 'antd';
 import { ButtonsGroup } from './ButtonsGroup/ButtonsGroup';
 import { useTranslation } from 'react-i18next';
 import { ValidateErrorEntity } from 'rc-field-form/lib/interface';
@@ -8,7 +8,7 @@ interface Error {
   errors: string;
 }
 
-interface ProfileFormProps {
+interface ProfileFormProps extends FormProps {
   className?: string;
   trigger?: React.ReactNode;
   form?: FormInstance;
@@ -29,6 +29,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
   onFinishFailed,
   name,
   children,
+  ...props
 }) => {
   const [isFieldsChange, setFieldsChange] = useState(false);
   const [formDefault] = Form.useForm();
@@ -87,6 +88,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
       onFinish={onFinishDefault}
       onFinishFailed={onFinishFailedDefault}
       onFieldsChange={onFieldsChange}
+      {...props}
     >
       {children}
       {isFieldsChange && (footer || <ButtonsGroup onCancel={onCancelDefault} />)}
