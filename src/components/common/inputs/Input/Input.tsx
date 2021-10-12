@@ -3,7 +3,7 @@ import { Input as AntInput, InputProps as AntInputProps } from 'antd';
 import { useMediaQuery } from 'react-responsive';
 import theme from 'styles/theme';
 
-interface InputProps extends AntInputProps {
+export interface InputProps extends AntInputProps {
   className?: string;
 }
 
