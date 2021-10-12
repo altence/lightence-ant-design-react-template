@@ -12,6 +12,7 @@
     "ok": "DE!!!Ok",
     "deleteQuestion": "DE!!!Are you sure you want to delete?",
     "save": "DE!!!Save",
+    "saved": "DE!!!Your changes have been successfully saved!",
     "confirm": "DE!!!Confirm",
     "oops": "DE!!!Oops!",
     "kg": "DE!!!kg",
@@ -154,7 +155,6 @@
   "profile": {
     "title": "DE!!!Profile",
     "fullness": "DE!!!fullness of your profile",
-    "saved": "DE!!!Your changes have been successfully saved!",
     "nav": {
       "personalInfo": {
         "title": "DE!!!Personal info",

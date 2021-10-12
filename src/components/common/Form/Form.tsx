@@ -57,7 +57,7 @@ export const Form: React.FC<FormProps> = ({
 
         setFieldsChange(false);
         setLoading(false);
-        notification.open({ message: t('profile.saved') });
+        notification.open({ message: t('common.saved') });
       }, 1500);
     },
     [onFinish, setFieldsChange],

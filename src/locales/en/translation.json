@@ -10,6 +10,7 @@
     "specifity": "Specifity",
     "cancel": "Cancel",
     "save": "Save",
+    "saved": "Your changes have been successfully saved!",
     "confirm": "Confirm",
     "ok": "Ok",
     "deleteQuestion": "Are you sure you want to delete?",
@@ -154,7 +155,6 @@
   "profile": {
     "title": "Profile",
     "fullness": "fullness of your profile",
-    "saved": "Your changes have been successfully saved!",
     "nav": {
       "personalInfo": {
         "title": "Personal info",
