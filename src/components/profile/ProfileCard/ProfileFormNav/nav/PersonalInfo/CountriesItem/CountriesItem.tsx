@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { Country } from 'country-state-city';
 import { useTranslation } from 'react-i18next';
 import { Select, Option } from 'components/common/Select/Select';
@@ -17,27 +17,12 @@ const selectOptions = countries.map((country) => (
   </Option>
 ));
 
-interface CountriesItemProps {
-  setCountry: (state: string) => void;
-}
-
-export const CountriesItem: React.FC<CountriesItemProps> = ({ setCountry }) => {
+export const CountriesItem: React.FC = () => {
   const { t } = useTranslation();
-
-  const handleSelectCountry = useCallback(
-    (value: string) => {
-      setCountry(value);
-    },
-    [setCountry],
-  );
 
   return (
     <FormItem name="country" label={t('profile.nav.personalInfo.country')}>
-      <Select
-        showSearch
-        filterOption={(input, option) => option?.value.toLowerCase().includes(input.toLowerCase())}
-        onChange={handleSelectCountry}
-      >
+      <Select showSearch filterOption={(input, option) => option?.value.toLowerCase().includes(input.toLowerCase())}>
         {selectOptions}
       </Select>
     </FormItem>

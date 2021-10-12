@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, notification, Tooltip } from 'antd';
 import { FileTextOutlined } from '@ant-design/icons';
@@ -8,10 +8,12 @@ import { SuffixInput } from 'components/common/inputs/SuffixInput/SuffixInput';
 
 const addonBefore = 'https://';
 
-export const WebsiteItem: React.FC = () => {
-  const { t } = useTranslation();
+interface WebsiteItemProps {
+  website: string | undefined;
+}
 
-  const [website, setWebsite] = useState('');
+export const WebsiteItem: React.FC<WebsiteItemProps> = ({ website }) => {
+  const { t } = useTranslation();
 
   const handleOpen = useCallback(() => {
     website
@@ -38,7 +40,6 @@ export const WebsiteItem: React.FC = () => {
         }
         isVisibleSuffix={!!website}
         addonBefore={addonBefore}
-        onChange={(event) => setWebsite(event.target.value)}
       />
     </FormItem>
   );
