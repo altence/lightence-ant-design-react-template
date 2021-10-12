@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'antd';
 import { useMediaQuery } from 'react-responsive';
 import { LeftOutlined } from '@ant-design/icons';
-import { Card } from '../../common/Card/Card';
 import { ProfileInfo } from './ProfileInfo/ProfileInfo';
 import { ProfileNav } from './ProfileNav/ProfileNav';
 import { PageTitle } from 'components/common/PageTitle/PageTitle';
