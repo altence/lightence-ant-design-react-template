@@ -45,7 +45,7 @@ export const ProfileCard: React.FC = () => {
                 </Col>
 
                 <Col xs={24} md={12} xl={24}>
-                  <ProfileNav setCurrentMenu={setCurrentMenu} />
+                  <ProfileNav menu={currentMenu} setCurrentMenu={setCurrentMenu} />
                 </Col>
               </Row>
             </S.CardProfile>
