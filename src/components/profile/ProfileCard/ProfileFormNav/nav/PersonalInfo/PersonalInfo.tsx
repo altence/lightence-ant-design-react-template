@@ -22,7 +22,7 @@ import theme from 'styles/theme';
 import * as S from '../../ProfileForm/ProfileForm.styles';
 
 export const PersonalInfo: React.FC = () => {
-  const [selectedCountry, setSelectedCountry] = useState<string>('BY');
+  const [selectedCountry, setSelectedCountry] = useState<string>('Belarus');
 
   const isTablet = useMediaQuery({ query: theme.media.md });
   const isDesktop = useMediaQuery({ query: theme.media.xl });

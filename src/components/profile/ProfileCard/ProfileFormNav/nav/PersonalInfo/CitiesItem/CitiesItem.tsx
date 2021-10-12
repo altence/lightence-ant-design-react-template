@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { City } from 'country-state-city';
+import { City, Country } from 'country-state-city';
 import { useTranslation } from 'react-i18next';
 import { FormItem } from '../../../ProfileForm/ProfileForm.styles';
 import { Select, Option } from 'components/common/Select/Select';
@@ -11,7 +11,9 @@ interface CitiesItemProps {
 export const CitiesItem: React.FC<CitiesItemProps> = ({ country }) => {
   const { t } = useTranslation();
 
-  const cities = useMemo(() => City.getCitiesOfCountry(country), [country]);
+  const countryISOCode = useMemo(() => Country.getAllCountries().find((cn) => cn.name === country)?.isoCode, [country]);
+
+  const cities = useMemo(() => countryISOCode && City.getCitiesOfCountry(countryISOCode), [countryISOCode]);
 
   const citiesOptions = useMemo(
     () =>
@@ -27,10 +29,7 @@ export const CitiesItem: React.FC<CitiesItemProps> = ({ country }) => {
   return (
     <FormItem name="country" label={t('profile.nav.personalInfo.city')}>
       {citiesOptions && (
-        <Select
-          showSearch
-          filterOption={(input, option) => option?.children.toLowerCase().includes(input.toLowerCase())}
-        >
+        <Select showSearch filterOption={(input, option) => option?.value.toLowerCase().includes(input.toLowerCase())}>
           {citiesOptions}
         </Select>
       )}
