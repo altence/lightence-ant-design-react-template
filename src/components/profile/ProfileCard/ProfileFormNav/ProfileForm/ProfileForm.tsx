@@ -12,7 +12,7 @@ interface ProfileFormProps extends FormProps {
   className?: string;
   trigger?: React.ReactNode;
   form?: FormInstance;
-  footer?: any;
+  footer?: (loading: boolean) => React.ReactNode;
   onCancel?: () => void;
   onFinish?: (values: []) => void;
   onFinishFailed?: (error: ValidateErrorEntity<[]>) => void;
