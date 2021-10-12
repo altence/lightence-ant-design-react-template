@@ -6,7 +6,7 @@ import { FormItem } from '../../../ProfileForm/ProfileForm.styles';
 import { IconWrapper } from 'components/common/Select/Select.styles';
 
 const languageOptions = languages.map((lang) => (
-  <Option key={lang.id} value={lang.value}>
+  <Option key={lang.id} value={lang.name}>
     <IconWrapper>
       <lang.icon />
       {lang.name}
@@ -19,10 +19,7 @@ export const LanguageItem: React.FC = () => {
 
   return (
     <FormItem name="language" label={t('profile.nav.personalInfo.language')}>
-      <Select
-        filterOption={(input, option) => option?.children.props.children[1].toLowerCase().includes(input.toLowerCase())}
-        showSearch
-      >
+      <Select filterOption={(input, option) => option?.value.toLowerCase().includes(input.toLowerCase())} showSearch>
         {languageOptions}
       </Select>
     </FormItem>

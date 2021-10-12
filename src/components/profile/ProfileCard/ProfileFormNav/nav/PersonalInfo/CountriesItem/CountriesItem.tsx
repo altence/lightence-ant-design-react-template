@@ -9,7 +9,7 @@ import ReactCountryFlag from 'react-country-flag';
 const countries = Country.getAllCountries();
 
 const selectOptions = countries.map((country) => (
-  <Option key={country.isoCode} value={country.isoCode}>
+  <Option key={country.name} value={country.name}>
     <IconWrapper>
       <ReactCountryFlag countryCode={country.isoCode} svg />
       {country.name}
@@ -35,7 +35,7 @@ export const CountriesItem: React.FC<CountriesItemProps> = ({ setCountry }) => {
     <FormItem name="countries" label={t('profile.nav.personalInfo.country')}>
       <Select
         showSearch
-        filterOption={(input, option) => option?.children.props.children[1].toLowerCase().includes(input.toLowerCase())}
+        filterOption={(input, option) => option?.value.toLowerCase().includes(input.toLowerCase())}
         onChange={handleSelectCountry}
       >
         {selectOptions}
