@@ -35,7 +35,7 @@ export const CountriesItem: React.FC<CountriesItemProps> = ({ setCountry }) => {
     <FormItem name="countries" label={t('profile.nav.personalInfo.country')}>
       <Select
         showSearch
-        filterOption={(input, option) => option?.children[1].toLowerCase().includes(input.toLowerCase())}
+        filterOption={(input, option) => option?.children.props.children[1].toLowerCase().includes(input.toLowerCase())}
         onChange={handleSelectCountry}
       >
         {selectOptions}

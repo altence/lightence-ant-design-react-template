@@ -19,7 +19,12 @@ export const LanguageItem: React.FC = () => {
 
   return (
     <FormItem name="language" label={t('profile.nav.personalInfo.language')}>
-      <Select>{languageOptions}</Select>
+      <Select
+        filterOption={(input, option) => option?.children.props.children[1].toLowerCase().includes(input.toLowerCase())}
+        showSearch
+      >
+        {languageOptions}
+      </Select>
     </FormItem>
   );
 };
