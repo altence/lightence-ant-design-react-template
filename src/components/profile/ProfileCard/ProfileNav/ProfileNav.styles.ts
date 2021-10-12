@@ -3,6 +3,7 @@ import { Button } from 'components/common/buttons/Button/Button';
 import { hexToRGB } from 'helpers/hexToRGB';
 
 interface BtnProps {
+  isActive: boolean;
   color: string;
 }
 
@@ -17,9 +18,7 @@ export const Btn = styled(Button)<BtnProps>`
   align-items: center;
   width: 100%;
 
-  &:hover {
-    background-color: ${(props) => hexToRGB(props.theme.colors.main.primary, 0.05)};
-  }
+  ${(props) => props.isActive && `background-color: ${hexToRGB(props.theme.colors.main.primary, 0.05)}`};
 
   & > span:first-of-type {
     padding: 0.625rem;
