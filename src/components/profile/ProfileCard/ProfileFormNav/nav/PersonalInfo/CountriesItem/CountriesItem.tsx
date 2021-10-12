@@ -32,7 +32,7 @@ export const CountriesItem: React.FC<CountriesItemProps> = ({ setCountry }) => {
   );
 
   return (
-    <FormItem name="countries" label={t('profile.nav.personalInfo.country')}>
+    <FormItem name="country" label={t('profile.nav.personalInfo.country')}>
       <Select
         showSearch
         filterOption={(input, option) => option?.value.toLowerCase().includes(input.toLowerCase())}
