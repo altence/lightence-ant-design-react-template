@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { Checkbox } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { ProfileForm } from '../../../ProfileForm/ProfileForm';
+import { Form } from '../../../../../../common/Form/Form';
 import { Option } from './interfaces';
 import { CheckboxColumn } from './CheckboxColumn/CheckboxColumn';
 import { CheckboxValueType } from 'antd/lib/checkbox/Group';
@@ -78,12 +78,12 @@ export const NotificationsTypes: React.FC = () => {
   }, [checkedElements, setTriggered]);
 
   return (
-    <ProfileForm name="notifications" onCancel={onCancel} onFinish={onFinish} trigger={isTriggered}>
+    <Form name="notifications" onCancel={onCancel} onFinish={onFinish} trigger={isTriggered}>
       <S.Wrapper>
         {options.map((item) => (
           <CheckboxColumn key={item.id} column={item} handleCheck={handleCheck(item.id)} setTriggered={setTriggered} />
         ))}
       </S.Wrapper>
-    </ProfileForm>
+    </Form>
   );
 };

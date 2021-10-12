@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { MaskedInput } from 'components/common/inputs/MaskedInput/MaskedInput';
-import { FormItem } from 'components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm.styles';
+import { FormItem } from 'components/common/Form/Form.styles';
 import { CardInputProps } from '../interfaces';
 
 export const ExpDateItem: React.FC<CardInputProps> = ({ disabled, handleInputChange, handleInputFocus }) => {

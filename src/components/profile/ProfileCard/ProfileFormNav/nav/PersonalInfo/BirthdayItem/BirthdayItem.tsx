@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { FormItem } from '../../../ProfileForm/ProfileForm.styles';
+import { FormItem } from '../../../../../../common/Form/Form.styles';
 import * as S from './BirthdayItem.styles';
 
 export const BirthdayItem: React.FC = () => {

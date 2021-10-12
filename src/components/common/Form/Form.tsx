@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Col, Form, FormInstance, FormProps, notification, Row } from 'antd';
+import { Col, Form as AntForm, FormInstance, FormProps as AntFormProps, notification, Row } from 'antd';
 import { ButtonsGroup } from './ButtonsGroup/ButtonsGroup';
 import { useTranslation } from 'react-i18next';
 import { ValidateErrorEntity } from 'rc-field-form/lib/interface';
@@ -8,7 +8,7 @@ interface Error {
   errors: string;
 }
 
-interface ProfileFormProps extends FormProps {
+interface FormProps extends AntFormProps {
   className?: string;
   trigger?: React.ReactNode;
   form?: FormInstance;
@@ -19,7 +19,7 @@ interface ProfileFormProps extends FormProps {
   name: string;
 }
 
-export const ProfileForm: React.FC<ProfileFormProps> = ({
+export const Form: React.FC<FormProps> = ({
   className,
   trigger,
   form,
@@ -32,7 +32,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
   ...props
 }) => {
   const [isFieldsChange, setFieldsChange] = useState(false);
-  const [formDefault] = Form.useForm();
+  const [formDefault] = AntForm.useForm();
   const [loading, setLoading] = useState(false);
 
   const { t } = useTranslation();

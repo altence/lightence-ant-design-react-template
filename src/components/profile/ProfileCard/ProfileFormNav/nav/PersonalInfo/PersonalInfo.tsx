@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Col, Row, Form } from 'antd';
+import { Col, Row, Form as AntForm } from 'antd';
 import { Card } from 'components/common/Card/Card';
 import { useMediaQuery } from 'react-responsive';
-import { ProfileForm } from '../../ProfileForm/ProfileForm';
+import { Form } from '../../../../../common/Form/Form';
 import { FirstNameItem } from './FirstNameItem/FirstNameItem';
 import { LastNameItem } from './LastNameItem/LastNameItem';
 import { NicknameItem } from './NicknameItem/NicknameItem';
@@ -19,7 +19,7 @@ import { AddressItem } from './AddressItem/AddressItem';
 import { WebsiteItem } from './WebsiteItem/WebsiteItem';
 import { SocialLinksItem } from './SocialLinksItem/SocialLinksItem';
 import theme from 'styles/theme';
-import * as S from '../../ProfileForm/ProfileForm.styles';
+import * as S from '../../../../../common/Form/Form.styles';
 
 export const PersonalInfo: React.FC = () => {
   const [formValues, setFormValues] = useState({
@@ -42,7 +42,7 @@ export const PersonalInfo: React.FC = () => {
     facebook: undefined,
   });
 
-  const [form] = Form.useForm();
+  const [form] = AntForm.useForm();
 
   const isTablet = useMediaQuery({ query: theme.media.md });
   const isDesktop = useMediaQuery({ query: theme.media.xl });
@@ -53,7 +53,7 @@ export const PersonalInfo: React.FC = () => {
 
   return (
     <Card padding={isDesktop ? [60, 54] : (isTablet && [40, 30]) || [30, 16]}>
-      <ProfileForm
+      <Form
         form={form}
         name="info"
         initialValues={formValues}
@@ -150,7 +150,7 @@ export const PersonalInfo: React.FC = () => {
             />
           </Col>
         </Row>
-      </ProfileForm>
+      </Form>
     </Card>
   );
 };

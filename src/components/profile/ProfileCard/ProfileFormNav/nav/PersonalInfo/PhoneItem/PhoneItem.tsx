@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { isValidPhoneNumber } from 'react-phone-number-input';
-import { FormItem } from '../../../ProfileForm/ProfileForm.styles';
+import { FormItem } from '../../../../../../common/Form/Form.styles';
 import * as S from './PhoneItem.styles';
 
 interface PhoneItemsProps {

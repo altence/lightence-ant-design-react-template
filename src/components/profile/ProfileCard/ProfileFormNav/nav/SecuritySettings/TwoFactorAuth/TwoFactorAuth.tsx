@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Col, Row, Form } from 'antd';
+import { Col, Row, Form as AntForm } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { ProfileForm } from '../../../ProfileForm/ProfileForm';
+import { Form } from '../../../../../../common/Form/Form';
 import { LinkBtn } from 'components/common/buttons/LinkBtn/LinkBtn';
 import { TwoFactorOptions } from './TwoFactorOptions/TwoFactorOptions';
 import { TwoFactorSwitch } from './TwoFactorSwitch/TwoFactorSwitch';
@@ -9,12 +9,12 @@ import { TwoFactorSwitch } from './TwoFactorSwitch/TwoFactorSwitch';
 export const TwoFactorAuth: React.FC = () => {
   const [isEnabled, setEnabled] = useState(false);
 
-  const [form] = Form.useForm();
+  const [form] = AntForm.useForm();
 
   const { t } = useTranslation();
 
   return (
-    <ProfileForm
+    <Form
       form={form}
       name="twoFactorAuth"
       footer={(loading) =>
@@ -36,6 +36,6 @@ export const TwoFactorAuth: React.FC = () => {
           </Col>
         )}
       </Row>
-    </ProfileForm>
+    </Form>
   );
 };

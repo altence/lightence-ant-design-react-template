@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import { Col, FormInstance, notification, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { ProfileForm } from 'components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm';
+import { Form } from 'components/common/Form/Form';
 import { CardNumberItem } from './CardNumberItem/CardNumberItem';
 import { CardholderItem } from './CardholderItem/CardholderItem';
 import { ExpDateItem } from './ExpDateItem/ExpDateItem';
@@ -84,7 +84,7 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
   }, [editCard, setCardData]);
 
   return (
-    <ProfileForm
+    <Form
       form={form}
       name="paymentCard"
       trigger={cardData}
@@ -117,6 +117,6 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
         </Row>
         <CardThemeItem cardData={cardData} setCardData={setCardData} />
       </S.FormItemsWrapper>
-    </ProfileForm>
+    </Form>
   );
 };
