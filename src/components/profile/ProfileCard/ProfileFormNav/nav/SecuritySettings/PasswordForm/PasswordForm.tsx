@@ -14,7 +14,7 @@ export const PasswordForm: React.FC = () => {
   return (
     <ProfileForm
       name="newPassword"
-      footer={(loading: boolean) => (
+      footer={(loading) => (
         <S.Btn loading={loading} type="primary" htmlType="submit">
           {t('common.confirm')}
         </S.Btn>

@@ -17,7 +17,7 @@ export const TwoFactorAuth: React.FC = () => {
     <ProfileForm
       form={form}
       name="twoFactorAuth"
-      footer={(loading: boolean) =>
+      footer={(loading) =>
         (isEnabled && (
           <LinkBtn loading={loading} htmlType="submit">
             {t('profile.nav.securitySettings.verify')}

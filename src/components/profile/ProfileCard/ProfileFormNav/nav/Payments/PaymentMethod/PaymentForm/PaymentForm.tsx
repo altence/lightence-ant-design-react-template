@@ -89,7 +89,7 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
       name="paymentCard"
       trigger={cardData}
       onFinish={onFinish}
-      footer={(loading: boolean) => <S.PaymentButtons loading={loading} onCancel={closeModal} />}
+      footer={(loading) => <S.PaymentButtons loading={loading} onCancel={closeModal} />}
     >
       <S.PayCard cardData={cardData} />
       <S.FormItemsWrapper>
