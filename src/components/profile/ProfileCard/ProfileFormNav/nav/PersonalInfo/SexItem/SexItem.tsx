@@ -10,7 +10,10 @@ export const SexItem: React.FC = () => {
 
   return (
     <FormItem name="sex" label={t('profile.nav.personalInfo.sex')}>
-      <Select showSearch filterOption={(input, option) => option?.children.toLowerCase().includes(input.toLowerCase())}>
+      <Select
+        showSearch
+        filterOption={(input, option) => option?.children.props.children[1].toLowerCase().includes(input.toLowerCase())}
+      >
         <Option value="male">
           <IconWrapper>
             <ManOutlined />
