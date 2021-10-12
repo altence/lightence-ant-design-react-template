@@ -22,7 +22,25 @@ import theme from 'styles/theme';
 import * as S from '../../ProfileForm/ProfileForm.styles';
 
 export const PersonalInfo: React.FC = () => {
-  const [selectedCountry, setSelectedCountry] = useState<string>('Belarus');
+  const [formValues, setFormValues] = useState({
+    firstName: undefined,
+    lastName: undefined,
+    nickName: undefined,
+    sex: undefined,
+    birthday: undefined,
+    language: undefined,
+    phone: undefined,
+    email: undefined,
+    country: 'Belarus',
+    city: undefined,
+    address1: undefined,
+    address2: undefined,
+    zipcode: undefined,
+    website: undefined,
+    twitter: undefined,
+    linkedin: undefined,
+    facebook: undefined,
+  });
 
   const isTablet = useMediaQuery({ query: theme.media.md });
   const isDesktop = useMediaQuery({ query: theme.media.xl });
@@ -31,7 +49,7 @@ export const PersonalInfo: React.FC = () => {
 
   return (
     <Card padding={isDesktop ? [60, 54] : (isTablet && [40, 30]) || [30, 16]}>
-      <ProfileForm name="info">
+      <ProfileForm name="info" initialValues={formValues} onValuesChange={(_, allFields) => setFormValues(allFields)}>
         <Row gutter={{ xs: 10, md: 15, xl: 30 }}>
           <Col span={24}>
             <S.FormItem>
@@ -84,11 +102,11 @@ export const PersonalInfo: React.FC = () => {
           </Col>
 
           <Col xs={24} md={12}>
-            <CountriesItem setCountry={setSelectedCountry} />
+            <CountriesItem />
           </Col>
 
           <Col xs={24} md={12}>
-            <CitiesItem country={selectedCountry} />
+            <CitiesItem country={formValues.country} />
           </Col>
 
           <Col xs={24} md={12}>
@@ -110,11 +128,17 @@ export const PersonalInfo: React.FC = () => {
           </Col>
 
           <Col xs={24} md={12}>
-            <WebsiteItem />
+            <WebsiteItem website={formValues.website} />
           </Col>
 
           <Col span={24}>
-            <SocialLinksItem />
+            <SocialLinksItem
+              socialLinks={{
+                twitter: formValues.twitter,
+                linkedin: formValues.linkedin,
+                facebook: formValues.facebook,
+              }}
+            />
           </Col>
         </Row>
       </ProfileForm>
