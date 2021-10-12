@@ -6,18 +6,19 @@ import * as S from './ButtonsGroup.styles';
 interface ButtonsGroupProps {
   className?: string;
   onCancel: () => void;
+  loading: boolean;
 }
 
-export const ButtonsGroup: React.FC<ButtonsGroupProps> = ({ className, onCancel }) => {
+export const ButtonsGroup: React.FC<ButtonsGroupProps> = ({ className, onCancel, loading }) => {
   const { t } = useTranslation();
 
   return (
     <S.Wrapper className={className}>
-      <Button type="ghost" onClick={onCancel}>
+      <Button loading={loading} type="ghost" onClick={onCancel}>
         {t('common.cancel')}
       </Button>
 
-      <Button htmlType="submit" type="primary">
+      <Button loading={loading} htmlType="submit" type="primary">
         {t('common.save')}
       </Button>
     </S.Wrapper>

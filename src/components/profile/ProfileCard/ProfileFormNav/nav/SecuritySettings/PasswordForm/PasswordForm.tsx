@@ -14,11 +14,11 @@ export const PasswordForm: React.FC = () => {
   return (
     <ProfileForm
       name="newPassword"
-      footer={
-        <S.Btn type="primary" htmlType="submit">
+      footer={(loading: boolean) => (
+        <S.Btn loading={loading} type="primary" htmlType="submit">
           {t('common.confirm')}
         </S.Btn>
-      }
+      )}
     >
       <Row gutter={{ md: 15, xl: 30 }}>
         <Col span={24}>

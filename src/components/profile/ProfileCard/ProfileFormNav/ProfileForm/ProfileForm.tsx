@@ -12,7 +12,7 @@ interface ProfileFormProps extends FormProps {
   className?: string;
   trigger?: React.ReactNode;
   form?: FormInstance;
-  footer?: React.ReactNode;
+  footer?: any;
   onCancel?: () => void;
   onFinish?: (values: []) => void;
   onFinishFailed?: (error: ValidateErrorEntity<[]>) => void;
@@ -33,6 +33,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
 }) => {
   const [isFieldsChange, setFieldsChange] = useState(false);
   const [formDefault] = Form.useForm();
+  const [loading, setLoading] = useState(false);
 
   const { t } = useTranslation();
 
@@ -45,15 +46,19 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
 
     setFieldsChange(false);
     (form || formDefault).resetFields();
-  }, [onCancel, setFieldsChange]);
+  }, [onCancel, setFieldsChange, form]);
 
   const onFinishDefault = useCallback(
     (values) => {
-      onFinish && onFinish(values);
+      setLoading(true);
 
-      !onFinish && notification.open({ message: t('profile.saved') });
+      setTimeout(() => {
+        onFinish && onFinish(values);
 
-      setFieldsChange(false);
+        setFieldsChange(false);
+        setLoading(false);
+        notification.open({ message: t('profile.saved') });
+      }, 1500);
     },
     [onFinish, setFieldsChange],
   );
@@ -91,7 +96,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
       {...props}
     >
       {children}
-      {isFieldsChange && (footer || <ButtonsGroup onCancel={onCancelDefault} />)}
+      {isFieldsChange && (footer ? footer(loading) : <ButtonsGroup loading={loading} onCancel={onCancelDefault} />)}
     </Form>
   );
 };
