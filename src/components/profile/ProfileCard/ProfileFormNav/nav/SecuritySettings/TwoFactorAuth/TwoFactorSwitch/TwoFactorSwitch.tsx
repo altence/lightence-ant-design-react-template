@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Row, Switch } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { FormItem, Title } from 'components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm.styles';
+import { FormItem, Title } from 'components/common/Form/Form.styles';
 
 interface TwoFactorSwitchProps {
   setEnabled: (state: boolean) => void;

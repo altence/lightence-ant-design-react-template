@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input } from 'components/common/inputs/Input/Input';
 import { useTranslation } from 'react-i18next';
-import { FormItem } from '../../../ProfileForm/ProfileForm.styles';
+import { FormItem } from '../../../../../../common/Form/Form.styles';
 
 interface EmailItemProps {
   required?: boolean;

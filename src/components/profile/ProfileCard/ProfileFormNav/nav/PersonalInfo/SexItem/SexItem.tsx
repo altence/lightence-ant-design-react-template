@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Select, Option } from 'components/common/Select/Select';
-import { FormItem } from '../../../ProfileForm/ProfileForm.styles';
 import { ManOutlined, WomanOutlined } from '@ant-design/icons';
+import { Select, Option } from 'components/common/Select/Select';
+import { FormItem } from 'components/common/Form/Form.styles';
 import { IconWrapper } from 'components/common/Select/Select.styles';
 
 export const SexItem: React.FC = () => {

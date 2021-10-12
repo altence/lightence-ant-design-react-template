@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useMediaQuery } from 'react-responsive';
 import { Card } from 'components/common/Card/Card';
 import { PaymentCardCarousel } from './PaymentCardCarousel/PaymentCardCarousel';
-import { FormItem, Title } from '../../../ProfileForm/ProfileForm.styles';
+import { FormItem, Title } from '../../../../../../common/Form/Form.styles';
 import { CreditCard } from './PaymentForm/interfaces';
 import { cardThemes } from 'constants/cardThemes';
 import theme from 'styles/theme';

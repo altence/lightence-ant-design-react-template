@@ -1,10 +1,10 @@
 import React from 'react';
 import { Country } from 'country-state-city';
 import { useTranslation } from 'react-i18next';
+import ReactCountryFlag from 'react-country-flag';
 import { Select, Option } from 'components/common/Select/Select';
 import { IconWrapper } from 'components/common/Select/Select.styles';
-import { FormItem } from '../../../ProfileForm/ProfileForm.styles';
-import ReactCountryFlag from 'react-country-flag';
+import { FormItem } from 'components/common/Form/Form.styles';
 
 const countries = Country.getAllCountries();
 

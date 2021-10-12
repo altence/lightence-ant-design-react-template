@@ -2,8 +2,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'antd';
 import { ConfirmItemPassword } from './ConfirmPasswordItem/ConfirmPasswordItem';
-import { ProfileForm } from '../../../ProfileForm/ProfileForm';
-import { FormItem, Title } from 'components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm.styles';
+import { Form } from '../../../../../../common/Form/Form';
+import { FormItem, Title } from 'components/common/Form/Form.styles';
 import { CurrentPasswordItem } from './CurrentPasswordItem/CurrentPasswordItem';
 import { NewPasswordItem } from './NewPasswordItem/NewPasswordItem';
 import * as S from './PasswordForm.styles';
@@ -12,7 +12,7 @@ export const PasswordForm: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <ProfileForm
+    <Form
       name="newPassword"
       footer={(loading) => (
         <S.Btn loading={loading} type="primary" htmlType="submit">
@@ -39,6 +39,6 @@ export const PasswordForm: React.FC = () => {
           <ConfirmItemPassword />
         </Col>
       </Row>
-    </ProfileForm>
+    </Form>
   );
 };

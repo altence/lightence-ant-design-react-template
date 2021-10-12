@@ -1,10 +1,10 @@
 import React, { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { cardThemes } from 'constants/cardThemes';
-import { FormItem } from 'components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm.styles';
-import * as S from './CardThemeItem.styles';
-import { CreditCard } from '../interfaces';
 import { Col, Row } from 'antd';
+import { FormItem } from 'components/common/Form/Form.styles';
+import { cardThemes } from 'constants/cardThemes';
+import { CreditCard } from '../interfaces';
+import * as S from './CardThemeItem.styles';
 
 interface CardThemeItemProps {
   cardData: CreditCard;

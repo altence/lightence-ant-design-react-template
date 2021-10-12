@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Card } from 'components/common/Card/Card';
 import { Payment } from './Payment/Payment';
 import { getPaymentHistory, Payment as IPayment } from 'api/paymentHistory.api';
-import { FormItem, Title } from '../../../ProfileForm/ProfileForm.styles';
+import { FormItem, Title } from '../../../../../../common/Form/Form.styles';
 import * as S from './PaymentHistory.styles';
 import { useMediaQuery } from 'react-responsive';
 import theme from 'styles/theme';
