@@ -27,8 +27,10 @@
     "password": "DE!!!Password",
     "passwordError": "DE!!!Wrong login or password",
     "requiredField": "DE!!!This field is required!",
-    "back": "Back",
-    "copy": "DE!!!Copied to clipboard"
+    "back": "DE!!!Back",
+    "copy": "DE!!!Copy",
+    "openInNewTab": "DE!!!Open in new tab",
+    "copied": "DE!!!Copied to clipboard"
   },
   "header": {
     "search": "DE!!!Search",
@@ -192,10 +194,10 @@
         "requiredPassword": "DE!!!Please input your password!",
         "dontMatchPassword": "DE!!!The two passwords that you entered do not match",
         "notValidPassword": "DE!!!Your password should be minimum eight characters and contain at least one uppercase letter, one lowercase letter and one number",
-        "twoFactorAuth": "Two–factor authentication",
-        "twoFactorAuthSuccess": "Two-factor authentication has been succesfully added to your account",
-        "twoFactorAuthFail": "Please, fix all error fields before",
-        "verify": "Verify"
+        "twoFactorAuth": "DE!!!Two–factor authentication",
+        "twoFactorAuthSuccess": "DE!!!Two-factor authentication has been succesfully added to your account",
+        "twoFactorAuthFail": "DE!!!Please, fix all error fields before",
+        "verify": "DE!!!Verify"
       },
       "notifications": {
         "title": "DE!!!Notifications",
