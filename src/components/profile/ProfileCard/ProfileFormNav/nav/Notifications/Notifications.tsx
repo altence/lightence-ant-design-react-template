@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { Card } from 'components/common/Card/Card';
 import { NotificationsTypes } from './NotificationsTypes/NotificationsTypes';
 import { FormItem, Title } from '../../../../../common/Form/Form.styles';
-import * as S from './Notifications.styles';
 import { useMediaQuery } from 'react-responsive';
 import theme from 'styles/theme';
+import * as S from './Notifications.styles';
 
 export const Notifications: React.FC = () => {
   const { t } = useTranslation();
