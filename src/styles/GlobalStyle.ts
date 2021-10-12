@@ -8,8 +8,6 @@ export default createGlobalStyle`
     padding: 0;
   }
 
-
-
   .range-picker {
     & .ant-picker-panels {
       @media only screen and ${theme.media.xs} and (max-width: ${theme.breakpoints.md - 1}px) {
@@ -18,4 +16,5 @@ export default createGlobalStyle`
       }
     }
   }
+
 `;
