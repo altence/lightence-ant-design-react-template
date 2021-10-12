@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Col, Row } from 'antd';
+import { Col, Row, Form } from 'antd';
 import { Card } from 'components/common/Card/Card';
 import { useMediaQuery } from 'react-responsive';
 import { ProfileForm } from '../../ProfileForm/ProfileForm';
@@ -42,14 +42,23 @@ export const PersonalInfo: React.FC = () => {
     facebook: undefined,
   });
 
+  const [form] = Form.useForm();
+
   const isTablet = useMediaQuery({ query: theme.media.md });
   const isDesktop = useMediaQuery({ query: theme.media.xl });
 
   const { t } = useTranslation();
 
+  console.log(formValues);
+
   return (
     <Card padding={isDesktop ? [60, 54] : (isTablet && [40, 30]) || [30, 16]}>
-      <ProfileForm name="info" initialValues={formValues} onValuesChange={(_, allFields) => setFormValues(allFields)}>
+      <ProfileForm
+        form={form}
+        name="info"
+        initialValues={formValues}
+        onValuesChange={(_, allFields) => setFormValues(allFields)}
+      >
         <Row gutter={{ xs: 10, md: 15, xl: 30 }}>
           <Col span={24}>
             <S.FormItem>

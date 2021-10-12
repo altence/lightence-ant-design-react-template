@@ -1,9 +1,9 @@
+import { ButtonProps } from 'antd';
 import React from 'react';
 import * as S from './LinkBtn.styles';
 
-interface LinkBtnProps {
+interface LinkBtnProps extends ButtonProps {
   children: React.ReactNode;
-  [key: string]: React.ReactNode;
 }
 
 export const LinkBtn: React.FC<LinkBtnProps> = ({ children, ...props }) => {

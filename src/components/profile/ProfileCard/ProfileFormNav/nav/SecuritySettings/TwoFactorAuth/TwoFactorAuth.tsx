@@ -1,5 +1,5 @@
-import React, { useCallback, useState } from 'react';
-import { Col, Row, Form, notification } from 'antd';
+import React, { useState } from 'react';
+import { Col, Row, Form } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { ProfileForm } from '../../../ProfileForm/ProfileForm';
 import { LinkBtn } from 'components/common/buttons/LinkBtn/LinkBtn';
@@ -13,17 +13,16 @@ export const TwoFactorAuth: React.FC = () => {
 
   const { t } = useTranslation();
 
-  const onFinish = useCallback(() => {
-    notification.open({ message: t('profile.nav.securitySettings.twoFactorAuthSuccess') });
-  }, []);
-
   return (
     <ProfileForm
       form={form}
       name="twoFactorAuth"
-      onFinish={onFinish}
-      footer={
-        (isEnabled && <LinkBtn htmlType="submit">{t('profile.nav.securitySettings.verify')}</LinkBtn>) || <span />
+      footer={(loading: boolean) =>
+        (isEnabled && (
+          <LinkBtn loading={loading} htmlType="submit">
+            {t('profile.nav.securitySettings.verify')}
+          </LinkBtn>
+        )) || <span />
       }
     >
       <Row>
