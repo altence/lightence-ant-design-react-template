@@ -9,3 +9,8 @@ export const SelectStyled = styled(Select)`
     top: 50%;
   }
 `;
+
+export const IconWrapper = styled.div`
+  display: inline-block;
+  margin-right: 0.5rem;
+`;
