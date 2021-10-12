@@ -11,6 +11,7 @@ export const SelectStyled = styled(Select)`
 `;
 
 export const IconWrapper = styled.div`
-  display: inline-block;
-  margin-right: 0.5rem;
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
 `;
