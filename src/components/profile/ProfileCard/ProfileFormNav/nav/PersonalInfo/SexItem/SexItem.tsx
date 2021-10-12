@@ -14,14 +14,14 @@ export const SexItem: React.FC = () => {
         <Option value="male">
           <IconWrapper>
             <ManOutlined />
+            {t('profile.nav.personalInfo.male')}
           </IconWrapper>
-          {t('profile.nav.personalInfo.male')}
         </Option>
         <Option value="female">
           <IconWrapper>
             <WomanOutlined />
+            {t('profile.nav.personalInfo.female')}
           </IconWrapper>
-          {t('profile.nav.personalInfo.female')}
         </Option>
       </Select>
     </FormItem>

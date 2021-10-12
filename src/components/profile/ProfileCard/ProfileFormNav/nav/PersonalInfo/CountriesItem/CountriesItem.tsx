@@ -12,8 +12,8 @@ const selectOptions = countries.map((country) => (
   <Option key={country.isoCode} value={country.isoCode}>
     <IconWrapper>
       <ReactCountryFlag countryCode={country.isoCode} svg />
+      {country.name}
     </IconWrapper>
-    {country.name}
   </Option>
 ));
 
