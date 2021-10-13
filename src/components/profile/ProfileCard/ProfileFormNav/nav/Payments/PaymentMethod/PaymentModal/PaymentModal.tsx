@@ -1,10 +1,9 @@
 import React, { useCallback } from 'react';
-import { FormInstance, Modal } from 'antd';
+import { FormInstance } from 'antd';
+import { Modal } from 'components/common/Modal/Modal';
 import { CreditCard } from '../PaymentForm/interfaces';
 import { PaymentForm } from '../PaymentForm/PaymentForm';
 import { clearCardData } from '../PaymentMethod';
-import { useMediaQuery } from 'react-responsive';
-import theme from 'styles/theme';
 
 interface PaymentModalProps {
   isModalVisible: boolean;
@@ -27,8 +26,6 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
   setCardData,
   setCards,
 }) => {
-  const isTablet = useMediaQuery({ query: theme.media.md });
-
   const handleCloseModal = useCallback(() => {
     setModalVisible(false);
     form.setFieldsValue(clearCardData);
@@ -37,13 +34,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
   }, [setModalVisible, setCardData, editCard, setEditCard]);
 
   return (
-    <Modal
-      visible={isModalVisible}
-      onCancel={handleCloseModal}
-      footer={null}
-      closable={false}
-      {...(isTablet && { width: 400 })}
-    >
+    <Modal size="small" visible={isModalVisible} onCancel={handleCloseModal} footer={null} closable={false}>
       <PaymentForm
         form={form}
         cardData={cardData}
