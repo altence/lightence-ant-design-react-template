@@ -33,17 +33,6 @@ export const FormItem = styled(Form.Item)`
     @media only screen and ${(props) => props.theme.media.md} {
       width: 5.5rem;
     }
-
-    & .ant-btn {
-      height: unset;
-      width: unset;
-      line-height: 1;
-      padding: 0;
-
-      &:hover {
-        color: ${(props) => props.theme.colors.main.primary};
-      }
-    }
   }
 
   & .ant-input-suffix {
@@ -71,7 +60,18 @@ export const FormItem = styled(Form.Item)`
     top: 50%;
   }
 
-  &.ant-form-item-has-error .ant-input-group-addon .ant-btn {
-    color: ${(props) => props.theme.colors.main.additional};
+  & .ant-input-group-addon {
+    @media only screen and ${(props) => props.theme.media.md} {
+      font-size: 1.125rem;
+    }
+
+    & > .anticon,
+    & > svg {
+      font-size: 1.25rem;
+
+      @media only screen and ${(props) => props.theme.media.md} {
+        font-size: 1.5rem;
+      }
+    }
   }
 `;

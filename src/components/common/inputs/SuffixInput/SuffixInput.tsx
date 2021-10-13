@@ -2,7 +2,7 @@ import React from 'react';
 import { Input, InputProps } from '../Input/Input';
 import * as S from './SuffixInput.styles';
 
-interface SuffixInputProps extends InputProps {
+export interface SuffixInputProps extends InputProps {
   suffix: React.ReactNode;
   isVisibleSuffix?: boolean;
 }
