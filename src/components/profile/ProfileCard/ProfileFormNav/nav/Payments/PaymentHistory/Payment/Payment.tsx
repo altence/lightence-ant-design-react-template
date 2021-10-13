@@ -11,14 +11,14 @@ import { Status } from '../Status/Status';
 
 interface PaymentProps {
   src: string;
-  recepient: string;
+  recipient: string;
   date: number;
   status: number;
   price: number;
   currency: string;
 }
 
-export const Payment: React.FC<PaymentProps> = ({ src, recepient, date, status, price, currency }) => {
+export const Payment: React.FC<PaymentProps> = ({ src, recipient, date, status, price, currency }) => {
   const { t } = useTranslation();
 
   const themeContext = useContext(ThemeContext);
@@ -29,9 +29,9 @@ export const Payment: React.FC<PaymentProps> = ({ src, recepient, date, status, 
     <>
       <S.Header>
         <S.AvatarWrapper>
-          <Avatar src={src} alt={recepient} shape="circle" />
+          <Avatar src={src} alt={recipient} shape="circle" />
         </S.AvatarWrapper>
-        <S.Text>{recepient}</S.Text>
+        <S.Text>{recipient}</S.Text>
       </S.Header>
       <S.ContentWrapper>
         <S.Item>

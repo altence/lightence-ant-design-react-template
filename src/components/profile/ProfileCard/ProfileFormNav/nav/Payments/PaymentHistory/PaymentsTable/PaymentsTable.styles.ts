@@ -23,7 +23,7 @@ export const PaymentHistoryTable = styled(Table)`
   }
 `;
 
-export const RecepientWrapper = styled.div`
+export const RecipientWrapper = styled.div`
   display: flex;
   align-items: center;
 

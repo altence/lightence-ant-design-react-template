@@ -10,14 +10,14 @@ import { getCurrencyPrice } from 'helpers/getCurrencyPrice';
 import { Payment } from 'api/paymentHistory.api';
 import * as S from './PaymentsTable.styles';
 
-interface Recepient {
+interface Recipient {
   name: string;
   img: string;
 }
 
 interface Status {
   key: number;
-  recepient: Recepient;
+  recipient: Recipient;
   date: number;
   status: PaymentStatus | undefined;
   totalAmount: string;
@@ -35,14 +35,14 @@ export const PaymentsTable: React.FC<PaymentsTableProps> = ({ payments }) => {
   const columns: ColumnType<any>[] = useMemo(() => {
     return [
       {
-        title: t('profile.nav.payments.recepient'),
-        dataIndex: 'recepient',
-        key: 'recepient',
-        render: (recepient: Recepient) => (
-          <S.RecepientWrapper>
-            <Avatar src={recepient.img} alt={recepient.name} />
-            {recepient.name}
-          </S.RecepientWrapper>
+        title: t('profile.nav.payments.recipient'),
+        dataIndex: 'recipient',
+        key: 'recipient',
+        render: (recipient: Recipient) => (
+          <S.RecipientWrapper>
+            <Avatar src={recipient.img} alt={recipient.name} />
+            {recipient.name}
+          </S.RecipientWrapper>
         ),
         align: 'center',
       },
@@ -77,8 +77,8 @@ export const PaymentsTable: React.FC<PaymentsTableProps> = ({ payments }) => {
       payments.map((payment, index) => {
         return {
           key: index,
-          recepient: {
-            name: payment.recepient,
+          recipient: {
+            name: payment.recipient,
             img: payment.imgUrl,
           },
           date: payment.date,

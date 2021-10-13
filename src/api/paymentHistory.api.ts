@@ -1,6 +1,6 @@
 export interface Payment {
   id: number;
-  recepient: string;
+  recipient: string;
   date: number;
   status: number;
   amount: number;
@@ -14,7 +14,7 @@ export const getPaymentHistory = (): Promise<Payment[]> => {
       res([
         {
           id: 1,
-          recepient: 'IBM Transactions',
+          recipient: 'IBM Transactions',
           date: 1626037200000,
           status: 1,
           amount: 500,
@@ -23,7 +23,7 @@ export const getPaymentHistory = (): Promise<Payment[]> => {
         },
         {
           id: 2,
-          recepient: 'Citigroup',
+          recipient: 'Citigroup',
           date: 1630443600000,
           status: 2,
           amount: 40,
@@ -32,7 +32,7 @@ export const getPaymentHistory = (): Promise<Payment[]> => {
         },
         {
           id: 3,
-          recepient: 'Netflix',
+          recipient: 'Netflix',
           date: 1628370000000,
           status: 3,
           amount: 1200,
@@ -41,7 +41,7 @@ export const getPaymentHistory = (): Promise<Payment[]> => {
         },
         {
           id: 4,
-          recepient: 'IBM Transactions',
+          recipient: 'IBM Transactions',
           date: 1622667600000,
           status: 4,
           amount: 190,

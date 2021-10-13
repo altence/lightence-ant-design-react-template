@@ -22,7 +22,7 @@ export const PaymentHistory: React.FC = () => {
         <Payment
           key={item.id}
           src={item.imgUrl}
-          recepient={item.recepient}
+          recipient={item.recipient}
           date={item.date}
           status={item.status}
           price={item.amount}
