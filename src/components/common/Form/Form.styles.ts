@@ -24,9 +24,9 @@ export const FormItem = styled(Form.Item)`
     color: ${(props) => props.theme.colors.main.primary};
   }
 
-  & .ant-input-group-addon:first-of-type {
+  & .ant-input-group-addon {
     font-weight: 600;
-    width: 5rem;
+    width: 4.75rem;
 
     color: ${(props) => props.theme.colors.main.primary};
 
