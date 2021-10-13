@@ -24,16 +24,54 @@ export const FormItem = styled(Form.Item)`
     color: ${(props) => props.theme.colors.main.primary};
   }
 
-  & .ant-input-group-addon:first-of-type {
+  & .ant-input-group-addon {
     font-weight: 600;
-    width: 5rem;
+    width: 4.75rem;
 
     color: ${(props) => props.theme.colors.main.primary};
 
-    background-color: ${(props) => hexToRGB(props.theme.colors.main.primary, 0.05)};
+    @media only screen and ${(props) => props.theme.media.md} {
+      width: 5.5rem;
+    }
+
+    & .ant-btn {
+      height: unset;
+      width: unset;
+      line-height: 1;
+      padding: 0;
+
+      &:hover {
+        color: ${(props) => props.theme.colors.main.primary};
+      }
+    }
+  }
+
+  & .ant-input-suffix {
+    & button,
+    & a {
+      padding: 0;
+      width: unset;
+      height: unset;
+      line-height: 1;
+    }
   }
 
   & div[role='alert'] {
     margin: 0.5rem 0;
+  }
+
+  & .ant-picker-suffix {
+    font-size: 1rem;
+  }
+
+  & .ant-select-arrow {
+    font-size: 1rem;
+    width: unset;
+    height: unset;
+    top: 50%;
+  }
+
+  &.ant-form-item-has-error .ant-input-group-addon .ant-btn {
+    color: ${(props) => props.theme.colors.main.additional};
   }
 `;
