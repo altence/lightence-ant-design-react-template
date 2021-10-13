@@ -1,7 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { Button, Tooltip } from 'antd';
+import React, { useCallback } from 'react';
+import { notification, Tooltip } from 'antd';
+import { Button } from 'components/common/buttons/Button/Button';
 import { useTranslation } from 'react-i18next';
-import { LinkOutlined } from '@ant-design/icons';
+import { CopyOutlined } from '@ant-design/icons';
 import { FormItem } from 'components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm.styles';
 import { SuffixInput } from 'components/common/inputs/SuffixInput/SuffixInput';
 
@@ -12,30 +13,23 @@ interface InputItemProps {
 }
 
 export const InputItem: React.FC<InputItemProps> = ({ value, name, Addon }) => {
-  const [isCopied, setCopied] = useState(false);
-
   const { t } = useTranslation();
 
   const handleCopy = useCallback(() => {
     if (value) {
-      setCopied(true);
-
-      navigator.clipboard.writeText(value);
+      navigator.clipboard.writeText(value).then(() => {
+        notification.open({ message: t('common.copied') });
+      });
     }
-  }, [value, setCopied]);
-
-  useEffect(() => {
-    setCopied(false);
   }, [value]);
 
   return (
     <FormItem name={name}>
       <SuffixInput
-        addonBefore={<Addon />}
-        isVisibleSuffix={!!value}
+        addonBefore={<Button type="link" icon={<Addon />} />}
         suffix={
-          <Tooltip title={isCopied ? t('common.copied') : t('common.copy')}>
-            <Button type="text" size="small" icon={<LinkOutlined />} onClick={handleCopy} />
+          <Tooltip title={t('common.copy')}>
+            <Button disabled={!value} type="text" icon={<CopyOutlined />} onClick={handleCopy} />
           </Tooltip>
         }
       />
