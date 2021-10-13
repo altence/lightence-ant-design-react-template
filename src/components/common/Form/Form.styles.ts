@@ -36,6 +36,8 @@ export const FormItem = styled(Form.Item)`
   }
 
   & .ant-input-suffix {
+    margin: 0 0.5rem;
+
     & button,
     & a {
       padding: 0;
@@ -73,5 +75,19 @@ export const FormItem = styled(Form.Item)`
         font-size: 1.5rem;
       }
     }
+  }
+
+  &.ant-form-item-has-error .ant-input,
+  &.ant-form-item-has-error .ant-input-affix-wrapper,
+  &.ant-form-item-has-error .ant-input:hover,
+  &.ant-form-item-has-error .ant-input-affix-wrapper:hover {
+    border-color: ${(props) => props.theme.colors.main.additional};
+  }
+
+  &.ant-form-item-has-success.ant-form-item-has-feedback .ant-input,
+  &.ant-form-item-has-success.ant-form-item-has-feedback .ant-input-affix-wrapper,
+  &.ant-form-item-has-success.ant-form-item-has-feedback .ant-input:hover,
+  &.ant-form-item-has-success.ant-form-item-has-feedback .ant-input-affix-wrapper:hover {
+    border-color: ${(props) => props.theme.colors.main.additional3};
   }
 `;
