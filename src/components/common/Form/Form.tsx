@@ -85,7 +85,7 @@ export const Form: React.FC<FormProps> = ({
   }, [trigger]);
 
   return (
-    <Form
+    <AntForm
       className={className}
       form={form || formDefault}
       name={name}
@@ -97,6 +97,6 @@ export const Form: React.FC<FormProps> = ({
     >
       {children}
       {isFieldsChange && (footer ? footer(loading) : <ButtonsGroup loading={loading} onCancel={onCancelDefault} />)}
-    </Form>
+    </AntForm>
   );
 };
