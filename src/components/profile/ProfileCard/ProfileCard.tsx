@@ -13,6 +13,7 @@ import * as S from './ProfileCard.styles';
 
 export const ProfileCard: React.FC = () => {
   const isTablet = useMediaQuery({ query: theme.media.md });
+  const isDesktop = useMediaQuery({ query: theme.media.xl });
 
   const [currentMenu, setCurrentMenu] = useState((isTablet && 'info') || 'main');
   const [profileData, setProfileData] = useState<User>();
@@ -38,7 +39,7 @@ export const ProfileCard: React.FC = () => {
       <Row gutter={[30, 30]}>
         {(isTablet || currentMenu === 'main') && (
           <Col xs={24} md={24} xl={8}>
-            <S.CardProfile>
+            <S.CardProfile padding={(isDesktop && [60, 34]) || 30}>
               <Row gutter={[30, 30]}>
                 <Col xs={24} md={12} xl={24}>
                   <ProfileInfo profileData={profileData} />
