@@ -2,7 +2,6 @@ import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row, Form as AntForm } from 'antd';
 import { Card } from 'components/common/Card/Card';
-import { useMediaQuery } from 'react-responsive';
 import { Form } from '../../../../../common/Form/Form';
 import { FirstNameItem } from './FirstNameItem/FirstNameItem';
 import { LastNameItem } from './LastNameItem/LastNameItem';
@@ -45,15 +44,12 @@ export const PersonalInfo: React.FC = () => {
 
   const [form] = AntForm.useForm();
 
-  const isTablet = useMediaQuery({ query: theme.media.md });
-  const isDesktop = useMediaQuery({ query: theme.media.xl });
-
   const { t } = useTranslation();
 
   const onFinish = useCallback(async (values) => updateUser(values), []);
 
   return (
-    <Card padding={isDesktop ? [60, 54] : (isTablet && [40, 30]) || [30, 16]}>
+    <Card>
       <Form
         form={form}
         name="info"
