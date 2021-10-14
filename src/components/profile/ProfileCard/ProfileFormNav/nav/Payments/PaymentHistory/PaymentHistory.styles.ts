@@ -18,9 +18,7 @@ export const ContentWrapper = styled.div<ContentWrapperProps>`
   }
 
   @media only screen and ${(props) => props.theme.media.xl} {
-    ${(props) =>
-      !props.isEmptyHistory &&
-      `margin: 0 -${defaultPaddings.desktop[1]}px -${defaultPaddings.desktop[0]}px -${defaultPaddings.desktop[1]}px`};
+    margin: 0;
   }
 `;
 

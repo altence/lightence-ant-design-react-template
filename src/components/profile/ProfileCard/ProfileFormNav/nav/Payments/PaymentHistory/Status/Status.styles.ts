@@ -9,4 +9,8 @@ export const StatusTag = styled(Tag)`
   align-items: center;
   justify-content: center;
   margin: 0;
+
+  @media only screen and ${(props) => props.theme.media.xl} {
+    min-width: 6.5rem;
+  }
 `;
