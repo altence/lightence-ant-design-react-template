@@ -1,13 +1,13 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useMediaQuery } from 'react-responsive';
 import { Card } from 'components/common/Card/Card';
 import { Payment } from './Payment/Payment';
+import { PaymentsTable } from './PaymentsTable/PaymentsTable';
 import { getPaymentHistory, Payment as IPayment } from 'api/paymentHistory.api';
 import { FormItem, Title } from '../../../../../../common/Form/Form.styles';
-import * as S from './PaymentHistory.styles';
-import { useMediaQuery } from 'react-responsive';
 import theme from 'styles/theme';
-import { PaymentsTable } from './PaymentsTable/PaymentsTable';
+import * as S from './PaymentHistory.styles';
 
 export const PaymentHistory: React.FC = () => {
   const [history, setHistory] = useState<IPayment[]>([]);
@@ -39,18 +39,18 @@ export const PaymentHistory: React.FC = () => {
   const content = useMemo(
     () => (
       <>
-        <S.TitleWrapper>
-          <FormItem>
-            <Title>{t('profile.nav.payments.paymentHistory')}</Title>
-          </FormItem>
-        </S.TitleWrapper>
-        {!isTablet && (history.length > 0 ? payments : <S.Text>{t('profile.nav.payments.noHistory')}</S.Text>)}
+        <FormItem>
+          <Title>{t('profile.nav.payments.paymentHistory')}</Title>
+        </FormItem>
+        <S.ContentWrapper isEmptyHistory={history.length === 0}>
+          {!isTablet && (history.length > 0 ? payments : <S.Text>{t('profile.nav.payments.noHistory')}</S.Text>)}
 
-        {isTablet && <PaymentsTable payments={history} />}
+          {isTablet && <PaymentsTable payments={history} />}
+        </S.ContentWrapper>
       </>
     ),
     [isTablet, history, payments],
   );
 
-  return isTablet ? content : <Card padding="1.75rem 0 0 0">{content}</Card>;
+  return isTablet ? content : <Card>{content}</Card>;
 };

@@ -3,6 +3,7 @@ import { CardProps as AntCardProps } from 'antd';
 import { useMediaQuery } from 'react-responsive';
 import theme from '../../../styles/theme';
 import * as S from './Card.styles';
+import { defaultPaddings } from 'constants/defaultPaddings';
 
 export interface CardProps extends AntCardProps {
   className?: string;
@@ -11,6 +12,8 @@ export interface CardProps extends AntCardProps {
 }
 
 export const Card: React.FC<CardProps> = ({ className, padding, children, ...props }) => {
+  const isTablet = useMediaQuery({ query: theme.media.md });
+  const isDesktop = useMediaQuery({ query: theme.media.xl });
   const isBigScreen = useMediaQuery({ query: theme.media.xxl });
 
   return (
@@ -18,7 +21,12 @@ export const Card: React.FC<CardProps> = ({ className, padding, children, ...pro
       size={(isBigScreen && 'default') || 'small'}
       className={className}
       bordered={false}
-      padding={padding}
+      padding={
+        padding ||
+        (isDesktop && defaultPaddings.desktop) ||
+        (isTablet && defaultPaddings.tablet) ||
+        defaultPaddings.mobile
+      }
       {...props}
     >
       {children}

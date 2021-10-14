@@ -64,5 +64,5 @@ export const PaymentMethod: React.FC = () => {
     [isTablet, cards, handleOpenModal, setCardData, setCards, isModalVisible, cardData],
   );
 
-  return isTablet ? content : <Card padding="1.875rem 1rem">{content}</Card>;
+  return isTablet ? content : <Card>{content}</Card>;
 };

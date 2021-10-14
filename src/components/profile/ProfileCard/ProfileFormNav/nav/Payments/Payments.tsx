@@ -3,12 +3,11 @@ import { Col, Row } from 'antd';
 import { PaymentHistory } from './PaymentHistory/PaymentHistory';
 import { PaymentMethod } from './PaymentMethod/PaymentMethod';
 import { useMediaQuery } from 'react-responsive';
-import theme from 'styles/theme';
 import { Card } from 'components/common/Card/Card';
+import theme from 'styles/theme';
 
 export const Payments: React.FC = () => {
   const isTablet = useMediaQuery({ query: theme.media.md });
-  const isDesktop = useMediaQuery({ query: theme.media.xl });
 
   const content = useMemo(
     () => (
@@ -24,5 +23,5 @@ export const Payments: React.FC = () => {
     [],
   );
 
-  return isTablet ? <Card padding={(isDesktop && [60, 54]) || '0'}>{content}</Card> : content;
+  return isTablet ? <Card>{content}</Card> : content;
 };
