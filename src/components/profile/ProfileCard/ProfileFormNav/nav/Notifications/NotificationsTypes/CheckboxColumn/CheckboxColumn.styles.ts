@@ -4,10 +4,11 @@ import { hexToRGB } from 'helpers/hexToRGB';
 const colStyles = {
   height: '75px',
   minWidth: '50px',
+  fontWeight: 600,
+  padding: '0.3125rem',
   display: 'flex',
   alignItems: 'center',
-  padding: '0.3125rem',
-  fontWeight: 600,
+  justifyContent: 'center',
 };
 
 export const Col = styled.div`
@@ -16,6 +17,7 @@ export const Col = styled.div`
   border-bottom: ${(props) => `1px solid ${hexToRGB(props.theme.colors.main.primary, 0.3)}`};
 
   @media only screen and ${(props) => props.theme.media.md} {
+    justify-content: unset;
     font-size: 1rem;
     padding: 0.5rem;
   }
@@ -30,22 +32,20 @@ export const Wrapper = styled.div`
   flex-direction: column;
   flex-grow: 1;
 
-  .ant-checkbox-wrapper + .ant-checkbox-wrapper {
-    margin-left: 0;
-  }
-
-  .ant-checkbox-wrapper {
+  & .ant-checkbox-wrapper {
     color: inherit;
     font: inherit;
-
-    & > span {
-      padding: 0;
-    }
 
     & > .ant-checkbox > .ant-checkbox-inner {
       border-radius: 3px;
 
       border-color: ${(props) => props.theme.colors.main.primary};
+    }
+  }
+
+  &:last-of-type {
+    ${Col} {
+      justify-content: unset;
     }
   }
 `;
@@ -59,21 +59,8 @@ export const HeaderCol = styled(Col)`
   color: ${(props) => props.theme.colors.main.primary};
 
   & .ant-checkbox-wrapper {
-    flex-direction: column;
-    align-items: unset;
-    padding-top: 1.25rem;
-
-    @media only screen and ${(props) => props.theme.media.md} {
-      flex-direction: row;
-      padding-top: 0;
-    }
-
-    & > span {
-      padding: 0.3125rem 0;
-
-      @media only screen and ${(props) => props.theme.media.md} {
-        padding: 0 0.3125rem;
-      }
-    }
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+    justify-content: center;
   }
 `;
