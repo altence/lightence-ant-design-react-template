@@ -12,11 +12,14 @@ export const Wrapper = styled.div<PaymentCardProps>`
   }
 
   & > .rccs > .rccs__card {
-    & > .rccs__card--front {
-      & > .rccs__issuer {
-        left: 0;
-        right: unset;
-      }
+    & .rccs__card--front,
+    & .rccs__card--back {
+      box-shadow: none;
+    }
+
+    & > .rccs__card--front .rccs__issuer {
+      left: 0;
+      right: unset;
     }
 
     & > div {
@@ -26,12 +29,10 @@ export const Wrapper = styled.div<PaymentCardProps>`
         display: none;
       }
 
-      & > div {
-        &:first-of-type {
-          background: ${(props) => `url(${props.background})`};
-          background-size: cover;
-          transition: all 0.5s ease;
-        }
+      & > div:first-of-type {
+        background: ${(props) => `url(${props.background})`};
+        background-size: cover;
+        transition: all 0.5s ease;
       }
     }
   }
