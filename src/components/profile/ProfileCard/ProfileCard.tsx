@@ -39,7 +39,7 @@ export const ProfileCard: React.FC = () => {
       <Row gutter={[30, 30]}>
         {(isTablet || currentMenu === 'main') && (
           <Col xs={24} md={24} xl={8}>
-            <S.CardProfile padding={(isDesktop && [60, 34]) || 30}>
+            <S.CardProfile>
               <Row gutter={[30, 30]}>
                 <Col xs={24} md={12} xl={24}>
                   <ProfileInfo profileData={profileData} />
