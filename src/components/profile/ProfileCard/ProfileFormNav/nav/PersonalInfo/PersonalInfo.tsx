@@ -18,7 +18,6 @@ import { AddressItem } from './AddressItem/AddressItem';
 import { WebsiteItem } from './WebsiteItem/WebsiteItem';
 import { SocialLinksItem } from './SocialLinksItem/SocialLinksItem';
 import { updateUser } from 'api/users.api';
-import theme from 'styles/theme';
 import * as S from '../../../../../common/Form/Form.styles';
 
 const initialPersonalInfoValues = {
