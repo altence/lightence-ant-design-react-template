@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Col, Row, Form as AntForm } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { Form } from '../../../../../../common/Form/Form';
@@ -13,6 +13,12 @@ export const TwoFactorAuth: React.FC = () => {
 
   const { t } = useTranslation();
 
+  const onFinish = useCallback(async (values) => {
+    const data = await values;
+
+    return data;
+  }, []);
+
   return (
     <Form
       form={form}
@@ -24,6 +30,7 @@ export const TwoFactorAuth: React.FC = () => {
           </LinkBtn>
         )) || <span />
       }
+      onFinish={onFinish}
     >
       <Row>
         <Col xs={24} md={12} xl={24}>

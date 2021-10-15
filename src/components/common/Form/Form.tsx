@@ -14,8 +14,8 @@ interface FormProps extends AntFormProps {
   form?: FormInstance;
   footer?: (loading: boolean) => React.ReactNode;
   onCancel?: () => void;
-  onFinish?: (values: []) => void;
-  onFinishFailed?: (error: ValidateErrorEntity<[]>) => void;
+  onFinish: (values: []) => Promise<any>;
+  onFinishFailed?: (error: ValidateErrorEntity<[]>) => Promise<any>;
   name: string;
 }
 
@@ -48,36 +48,46 @@ export const Form: React.FC<FormProps> = ({
     (form || formDefault).resetFields();
   }, [onCancel, setFieldsChange, form]);
 
+  const setFinished = useCallback(() => {
+    setFieldsChange(false);
+    setLoading(false);
+    notification.open({ message: t('common.saved') });
+  }, [setFieldsChange, setLoading]);
+
   const onFinishDefault = useCallback(
     (values) => {
       setLoading(true);
 
-      setTimeout(() => {
-        onFinish && onFinish(values);
-
-        setFieldsChange(false);
-        setLoading(false);
-        notification.open({ message: t('common.saved') });
-      }, 1500);
+      onFinish(values).then(() => setFinished());
     },
-    [onFinish, setFieldsChange],
+    [onFinish, setLoading],
   );
 
+  const showErrorsDefault = useCallback((error) => {
+    setLoading(false);
+
+    notification.open({
+      message: (
+        <Row gutter={[20, 20]}>
+          {error.errorFields.map((item: Error, index: number) => (
+            <Col key={index} span={24}>
+              {item.errors}
+            </Col>
+          ))}
+        </Row>
+      ),
+    });
+  }, []);
+
   const onFinishFailedDefault = useCallback(
-    (error) =>
-      (onFinishFailed && onFinishFailed(error)) ||
-      notification.open({
-        message: (
-          <Row gutter={[20, 20]}>
-            {error.errorFields.map((item: Error, index: number) => (
-              <Col key={index} span={24}>
-                {item.errors}
-              </Col>
-            ))}
-          </Row>
-        ),
-      }),
-    [onFinishFailed],
+    (error) => {
+      setLoading(true);
+
+      onFinishFailed
+        ? onFinishFailed(error).then(() => notification.open({ message: t('common.formError') }))
+        : showErrorsDefault(error);
+    },
+    [onFinishFailed, showErrorsDefault],
   );
 
   useEffect(() => {

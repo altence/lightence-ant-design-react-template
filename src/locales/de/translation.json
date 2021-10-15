@@ -31,7 +31,8 @@
     "back": "DE!!!Back",
     "copy": "DE!!!Copy",
     "openInNewTab": "DE!!!Open in new tab",
-    "copied": "DE!!!Copied to clipboard"
+    "copied": "DE!!!Copied to clipboard",
+    "formError": "DE!!!An error was occured"
   },
   "header": {
     "search": "DE!!!Search",

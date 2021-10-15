@@ -47,8 +47,8 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
   );
 
   const onFinish = useCallback(
-    (values) => {
-      const data = { ...values, background: cardData.background };
+    async (values) => {
+      const data = await { ...values, background: cardData.background };
 
       setCards((prev) => {
         if (editCard) {

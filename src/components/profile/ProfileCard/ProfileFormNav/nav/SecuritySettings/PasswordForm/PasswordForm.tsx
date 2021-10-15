@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'antd';
 import { ConfirmItemPassword } from './ConfirmPasswordItem/ConfirmPasswordItem';
@@ -11,6 +11,12 @@ import * as S from './PasswordForm.styles';
 export const PasswordForm: React.FC = () => {
   const { t } = useTranslation();
 
+  const onFinish = useCallback(async (values) => {
+    const data = await values;
+
+    return data;
+  }, []);
+
   return (
     <Form
       name="newPassword"
@@ -19,6 +25,7 @@ export const PasswordForm: React.FC = () => {
           {t('common.confirm')}
         </S.Btn>
       )}
+      onFinish={onFinish}
     >
       <Row gutter={{ md: 15, xl: 30 }}>
         <Col span={24}>
