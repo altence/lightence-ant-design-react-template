@@ -64,17 +64,15 @@ export const PaymentCardCarousel: React.FC<PaymentCardCarouselProps> = ({
     [cards, handleRemoveCard, handleEditCard],
   );
 
-  const slidesLayout = (slides: number) => {
-    if (isTablet) {
-      return slides > 2 ? 2.1 : 1;
-    } else {
-      return slides > 1 ? 1.2 : 1;
-    }
-  };
+  const mobileLayout = (length: number) => (length > 1 ? 1.2 : 1);
+  const tabletLayout = (length: number) => (length > 2 ? 2.2 : length === 2 ? 2 : 1);
 
   return paymentCards.length > 0 ? (
     <S.SliderWrapper length={paymentCards.length}>
-      <Slider spaceBetween={24} slidesPerView={(isTablet && cards.length > 1 && 2) || 1}>
+      <Slider
+        spaceBetween={24}
+        slidesPerView={(isTablet && tabletLayout(paymentCards.length)) || mobileLayout(paymentCards.length)}
+      >
         {paymentCards}
       </Slider>
     </S.SliderWrapper>
