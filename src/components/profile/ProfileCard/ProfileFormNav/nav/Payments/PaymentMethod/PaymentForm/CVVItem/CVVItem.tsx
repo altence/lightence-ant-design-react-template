@@ -4,7 +4,7 @@ import { MaskedInput } from 'components/common/inputs/MaskedInput/MaskedInput';
 import { FormItem } from 'components/common/Form/Form.styles';
 import { CardInputProps } from '../interfaces';
 
-export const CVVItem: React.FC<CardInputProps> = ({ disabled, handleInputChange, handleInputFocus }) => {
+export const CVVItem: React.FC<CardInputProps> = ({ disabled, handleInputFocus }) => {
   const { t } = useTranslation();
 
   return (
@@ -24,7 +24,6 @@ export const CVVItem: React.FC<CardInputProps> = ({ disabled, handleInputChange,
         placeholder="***"
         mask="111"
         name="cvc"
-        onChange={handleInputChange}
         onFocus={handleInputFocus}
         disabled={disabled}
       />

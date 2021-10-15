@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo } from 'react';
-import { Popconfirm } from 'antd';
+import { FormInstance, Popconfirm } from 'antd';
 import { Button } from 'components/common/buttons/Button/Button';
 import { SwiperSlide } from 'swiper/react';
 import { useMediaQuery } from 'react-responsive';
@@ -15,14 +15,16 @@ import { removeCreditCard } from 'api/users.api';
 interface PaymentCardCarouselProps {
   cards: CreditCard[];
   setCards: (func: (state: CreditCard[]) => CreditCard[]) => void;
-  setEditCard: (state: CreditCard) => void;
+  setCardData: (state: CreditCard) => void;
   handleOpenModal: () => void;
+  form: FormInstance;
 }
 
 export const PaymentCardCarousel: React.FC<PaymentCardCarouselProps> = ({
+  form,
   cards,
   setCards,
-  setEditCard,
+  setCardData,
   handleOpenModal,
 }) => {
   const { t } = useTranslation();
@@ -40,11 +42,13 @@ export const PaymentCardCarousel: React.FC<PaymentCardCarouselProps> = ({
 
   const handleEditCard = useCallback(
     (card: CreditCard) => () => {
-      setEditCard(card);
+      const editCard = { ...card, isEdit: true };
+      setCardData(editCard);
+      form.setFieldsValue(editCard);
       handleOpenModal();
     },
 
-    [setEditCard, handleOpenModal],
+    [handleOpenModal, setCardData],
   );
 
   const paymentCards = useMemo(
@@ -64,8 +68,8 @@ export const PaymentCardCarousel: React.FC<PaymentCardCarouselProps> = ({
     [cards, handleRemoveCard, handleEditCard],
   );
 
-  const mobileLayout = (length: number) => (length > 1 ? 1.2 : 1);
-  const tabletLayout = (length: number) => (length > 2 ? 2.2 : length === 2 ? 2 : 1);
+  const mobileLayout = useMemo(() => (length: number) => length > 1 ? 1.2 : 1, []);
+  const tabletLayout = useMemo(() => (length: number) => length > 2 ? 2.2 : length === 2 ? 2 : 1, []);
 
   return paymentCards.length > 0 ? (
     <S.SliderWrapper length={paymentCards.length}>

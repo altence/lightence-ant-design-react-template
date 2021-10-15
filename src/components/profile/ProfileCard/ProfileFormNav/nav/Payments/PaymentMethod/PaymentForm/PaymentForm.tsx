@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback } from 'react';
 import { Col, FormInstance, notification, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { Form } from 'components/common/Form/Form';
@@ -8,26 +8,19 @@ import { ExpDateItem } from './ExpDateItem/ExpDateItem';
 import { CVVItem } from './CVVItem/CVVItem';
 import { CardThemeItem } from './CardThemeItem/CardThemeItem';
 import { CreditCard } from './interfaces';
+import { clearCardData } from '../PaymentMethod';
 import * as S from './PaymentForm.styles';
 import { addCreditCard, updateCreditCard } from 'api/users.api';
 
 interface PaymentFormProps {
   form: FormInstance;
   cardData: CreditCard;
-  editCard: CreditCard | null;
   setCardData: (state: CreditCard) => void;
   setCards: (func: (state: CreditCard[]) => CreditCard[]) => void;
   closeModal: () => void;
 }
 
-export const PaymentForm: React.FC<PaymentFormProps> = ({
-  form,
-  cardData,
-  editCard,
-  setCardData,
-  setCards,
-  closeModal,
-}) => {
+export const PaymentForm: React.FC<PaymentFormProps> = ({ form, cardData, setCardData, setCards, closeModal }) => {
   const { t } = useTranslation();
 
   const handleInputFocus = useCallback(
@@ -40,21 +33,14 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
     [setCardData, cardData],
   );
 
-  const handleInputChange = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      setCardData({ ...cardData, [event.target.name]: event.target.value });
-    },
-    [setCardData, cardData],
-  );
-
   const onFinish = useCallback(
     async (values) => {
       const card = { ...values, background: cardData.background };
 
       let data: CreditCard;
 
-      if (editCard) {
-        data = await updateCreditCard(editCard);
+      if (card.isEdit) {
+        data = await updateCreditCard(card);
 
         setCards((prev) => {
           const editCardIndex = prev.indexOf(data);
@@ -82,15 +68,8 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
         });
       }
     },
-    [setCards, cardData, editCard, closeModal],
+    [setCards, cardData, closeModal],
   );
-
-  useEffect(() => {
-    if (editCard) {
-      form.setFieldsValue(editCard);
-      setCardData(editCard);
-    }
-  }, [editCard, setCardData]);
 
   return (
     <Form
@@ -99,29 +78,23 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
       trigger={cardData}
       onFinish={onFinish}
       footer={(loading) => <S.PaymentButtons loading={loading} onCancel={closeModal} />}
+      initialValues={clearCardData}
+      onValuesChange={(field) => {
+        const values = Object.entries(field)[0];
+
+        setCardData({ ...cardData, [values[0]]: values[1] });
+      }}
     >
       <S.PayCard cardData={cardData} />
       <S.FormItemsWrapper>
-        <CardNumberItem
-          disabled={!!editCard}
-          handleInputChange={handleInputChange}
-          handleInputFocus={handleInputFocus}
-        />
-        <CardholderItem
-          disabled={!!editCard}
-          handleInputChange={handleInputChange}
-          handleInputFocus={handleInputFocus}
-        />
+        <CardNumberItem disabled={!!cardData.isEdit} handleInputFocus={handleInputFocus} />
+        <CardholderItem disabled={!!cardData.isEdit} handleInputFocus={handleInputFocus} />
         <Row gutter={[20, 0]}>
           <Col span={12}>
-            <ExpDateItem
-              disabled={!!editCard}
-              handleInputChange={handleInputChange}
-              handleInputFocus={handleInputFocus}
-            />
+            <ExpDateItem disabled={!!cardData.isEdit} handleInputFocus={handleInputFocus} />
           </Col>
           <Col span={12}>
-            <CVVItem disabled={!!editCard} handleInputChange={handleInputChange} handleInputFocus={handleInputFocus} />
+            <CVVItem disabled={!!cardData.isEdit} handleInputFocus={handleInputFocus} />
           </Col>
         </Row>
         <CardThemeItem cardData={cardData} setCardData={setCardData} />

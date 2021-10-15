@@ -4,7 +4,7 @@ import { MaskedInput } from 'components/common/inputs/MaskedInput/MaskedInput';
 import { FormItem } from 'components/common/Form/Form.styles';
 import { CardInputProps } from '../interfaces';
 
-export const ExpDateItem: React.FC<CardInputProps> = ({ disabled, handleInputChange, handleInputFocus }) => {
+export const ExpDateItem: React.FC<CardInputProps> = ({ disabled, handleInputFocus }) => {
   const { t } = useTranslation();
 
   return (
@@ -24,7 +24,6 @@ export const ExpDateItem: React.FC<CardInputProps> = ({ disabled, handleInputCha
         placeholder="MM/YY"
         mask="11/11"
         name="expiry"
-        onChange={handleInputChange}
         onFocus={handleInputFocus}
         disabled={disabled}
       />
