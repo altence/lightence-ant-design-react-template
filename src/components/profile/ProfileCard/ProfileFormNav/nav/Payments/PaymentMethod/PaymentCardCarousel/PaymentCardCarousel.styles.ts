@@ -10,8 +10,12 @@ export const SliderWrapper = styled.div<SliderWrapperProps>`
   & .rccs {
     width: 100%;
 
+    height: ${(props) => props.length && props.length > 1 && '150px'};
+
     & .rccs__card {
       width: 100%;
+
+      height: ${(props) => props.length && props.length > 1 && '150px'};
     }
   }
 
@@ -34,8 +38,12 @@ export const SliderWrapper = styled.div<SliderWrapperProps>`
     & .rccs {
       width: ${(props) => (props.length && props.length > 1 ? '100%' : '290px')};
 
+      height: ${(props) => props.length && props.length > 2 && '150px'};
+
       & .rccs__card {
         width: ${(props) => (props.length && props.length > 1 ? '100%' : '290px')};
+
+        height: ${(props) => props.length && props.length > 2 && '150px'};
       }
     }
   }
@@ -51,31 +59,3 @@ export const BtnWrapper = styled.div`
     color: ${(props) => props.theme.colors.text.secondary};
   }
 `;
-
-/* & .rccs {
-    ${(props) =>
-    props.length &&
-    props.length > 1 &&
-    css`
-      width: 100%;
-      height: 150px;
-    `};
-
-    @media only screen and ${(props) => props.theme.media.md} {
-      width: 290px;
-    }
-
-    & > .rccs__card {
-      ${(props) =>
-    props.length &&
-    props.length > 1 &&
-    css`
-      width: 100%;
-      height: 150px;
-    `};
-
-      @media only screen and ${(props) => props.theme.media.md} {
-        width: 290px;
-      }
-    }
-  } */
