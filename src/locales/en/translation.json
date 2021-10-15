@@ -31,7 +31,8 @@
     "back": "Back",
     "copy": "Copy",
     "openInNewTab": "Open in new tab",
-    "copied": "Copied to clipboard"
+    "copied": "Copied to clipboard",
+    "formError": "An error was occured"
   },
   "header": {
     "search": "Search",

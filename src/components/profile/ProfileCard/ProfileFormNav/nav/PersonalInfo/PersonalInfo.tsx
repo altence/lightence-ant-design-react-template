@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row, Form as AntForm } from 'antd';
 import { Card } from 'components/common/Card/Card';
@@ -49,7 +49,11 @@ export const PersonalInfo: React.FC = () => {
 
   const { t } = useTranslation();
 
-  console.log(formValues);
+  const onFinish = useCallback(async (values) => {
+    const data = await values;
+
+    return data;
+  }, []);
 
   return (
     <Card padding={isDesktop ? [60, 54] : (isTablet && [40, 30]) || [30, 16]}>
@@ -58,6 +62,7 @@ export const PersonalInfo: React.FC = () => {
         name="info"
         initialValues={formValues}
         onValuesChange={(_, allFields) => setFormValues(allFields)}
+        onFinish={onFinish}
       >
         <Row gutter={{ xs: 10, md: 15, xl: 30 }}>
           <Col span={24}>

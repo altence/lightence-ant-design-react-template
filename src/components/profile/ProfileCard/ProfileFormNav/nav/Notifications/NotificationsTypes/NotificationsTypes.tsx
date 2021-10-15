@@ -71,11 +71,9 @@ export const NotificationsTypes: React.FC = () => {
     setTriggered(false);
   }, [setTriggered]);
 
-  const onFinish = useCallback(() => {
-    console.log(checkedElements);
-
+  const onFinish = useCallback(async () => {
     setTriggered(false);
-  }, [checkedElements, setTriggered]);
+  }, [setTriggered]);
 
   return (
     <Form name="notifications" onCancel={onCancel} onFinish={onFinish} trigger={isTriggered}>
