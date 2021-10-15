@@ -4,7 +4,7 @@ import { MaskedInput } from 'components/common/inputs/MaskedInput/MaskedInput';
 import { FormItem } from 'components/common/Form/Form.styles';
 import { CardInputProps } from '../interfaces';
 
-export const CardNumberItem: React.FC<CardInputProps> = ({ disabled, handleInputChange, handleInputFocus }) => {
+export const CardNumberItem: React.FC<CardInputProps> = ({ disabled, handleInputFocus }) => {
   const { t } = useTranslation();
 
   return (
@@ -24,7 +24,6 @@ export const CardNumberItem: React.FC<CardInputProps> = ({ disabled, handleInput
         placeholder={t('profile.nav.payments.yourCardNumber')}
         name="number"
         mask="1111 1111 1111 1111"
-        onChange={handleInputChange}
         onFocus={handleInputFocus}
         disabled={disabled}
       />

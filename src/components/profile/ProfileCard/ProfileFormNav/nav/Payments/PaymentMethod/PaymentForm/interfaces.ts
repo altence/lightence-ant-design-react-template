@@ -5,10 +5,10 @@ export interface CreditCard {
   number: string;
   focused: any;
   background: string;
+  isEdit: boolean;
 }
 
 export interface CardInputProps {
   disabled: boolean;
-  handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleInputFocus: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }

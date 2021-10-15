@@ -18,6 +18,7 @@ export const clearCardData: CreditCard = {
   number: '',
   focused: '',
   background: cardThemes[0].background,
+  isEdit: false,
 };
 
 export const PaymentMethod: React.FC = () => {
@@ -25,7 +26,6 @@ export const PaymentMethod: React.FC = () => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [cardData, setCardData] = useState<CreditCard>(clearCardData);
   const [cards, setCards] = useState<CreditCard[]>([]);
-  const [editCard, setEditCard] = useState<CreditCard | null>(null);
   const [form] = Form.useForm();
 
   const isTablet = useMediaQuery({ query: theme.media.md });
@@ -41,10 +41,11 @@ export const PaymentMethod: React.FC = () => {
           <Title>{t('profile.nav.payments.paymentMethod')}</Title>
         </FormItem>
         <PaymentCardCarousel
+          form={form}
           cards={cards}
           setCards={setCards}
-          setEditCard={setEditCard}
           handleOpenModal={handleOpenModal}
+          setCardData={setCardData}
         />
         <S.AddBtn type="ghost" onClick={handleOpenModal}>
           {t('profile.nav.payments.addNewCard')}
@@ -54,8 +55,6 @@ export const PaymentMethod: React.FC = () => {
           setModalVisible={setModalVisible}
           form={form}
           cardData={cardData}
-          editCard={editCard}
-          setEditCard={setEditCard}
           setCardData={setCardData}
           setCards={setCards}
         />

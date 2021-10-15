@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { FormItem } from 'components/common/Form/Form.styles';
 import { CardInputProps } from '../interfaces';
 
-export const CardholderItem: React.FC<CardInputProps> = ({ disabled, handleInputChange, handleInputFocus }) => {
+export const CardholderItem: React.FC<CardInputProps> = ({ disabled, handleInputFocus }) => {
   const { t } = useTranslation();
 
   return (
@@ -22,7 +22,6 @@ export const CardholderItem: React.FC<CardInputProps> = ({ disabled, handleInput
       <Input
         name="name"
         placeholder={t('profile.nav.payments.yourName')}
-        onChange={handleInputChange}
         onFocus={handleInputFocus}
         disabled={disabled}
       />

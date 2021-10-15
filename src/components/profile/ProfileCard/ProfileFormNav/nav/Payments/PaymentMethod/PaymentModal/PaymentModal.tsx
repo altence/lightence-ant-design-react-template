@@ -10,8 +10,6 @@ interface PaymentModalProps {
   setModalVisible: (state: boolean) => void;
   form: FormInstance;
   cardData: CreditCard;
-  editCard: CreditCard | null;
-  setEditCard: (state: null) => void;
   setCardData: (state: CreditCard) => void;
   setCards: (func: (state: CreditCard[]) => CreditCard[]) => void;
 }
@@ -21,8 +19,6 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
   setModalVisible,
   form,
   cardData,
-  editCard,
-  setEditCard,
   setCardData,
   setCards,
 }) => {
@@ -30,15 +26,13 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
     setModalVisible(false);
     form.setFieldsValue(clearCardData);
     setCardData(clearCardData);
-    editCard && setEditCard(null);
-  }, [setModalVisible, setCardData, editCard, setEditCard]);
+  }, [setModalVisible, setCardData]);
 
   return (
     <Modal size="small" visible={isModalVisible} onCancel={handleCloseModal} footer={null} closable={false}>
       <PaymentForm
         form={form}
         cardData={cardData}
-        editCard={editCard}
         setCardData={setCardData}
         setCards={setCards}
         closeModal={handleCloseModal}
