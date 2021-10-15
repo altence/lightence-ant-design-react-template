@@ -5,7 +5,7 @@ import { FormItem } from 'components/common/Form/Form.styles';
 import { Select, Option } from 'components/common/Select/Select';
 
 interface CitiesItemProps {
-  country: string;
+  country: string | undefined;
 }
 
 export const CitiesItem: React.FC<CitiesItemProps> = ({ country }) => {
@@ -28,11 +28,9 @@ export const CitiesItem: React.FC<CitiesItemProps> = ({ country }) => {
 
   return (
     <FormItem name="city" label={t('profile.nav.personalInfo.city')}>
-      {citiesOptions && (
-        <Select showSearch filterOption={(input, option) => option?.value.toLowerCase().includes(input.toLowerCase())}>
-          {citiesOptions}
-        </Select>
-      )}
+      <Select showSearch filterOption={(input, option) => option?.value.toLowerCase().includes(input.toLowerCase())}>
+        {citiesOptions}
+      </Select>
     </FormItem>
   );
 };

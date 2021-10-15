@@ -21,26 +21,28 @@ import { updateUser } from 'api/users.api';
 import theme from 'styles/theme';
 import * as S from '../../../../../common/Form/Form.styles';
 
+const initialPersonalInfoValues = {
+  firstName: '',
+  lastName: '',
+  nickName: '',
+  sex: undefined,
+  birthday: undefined,
+  language: undefined,
+  phone: '',
+  email: '',
+  country: undefined,
+  city: undefined,
+  address1: '',
+  address2: '',
+  zipcode: '',
+  website: '',
+  twitter: '',
+  linkedin: '',
+  facebook: '',
+};
+
 export const PersonalInfo: React.FC = () => {
-  const [formValues, setFormValues] = useState({
-    firstName: undefined,
-    lastName: undefined,
-    nickName: undefined,
-    sex: undefined,
-    birthday: undefined,
-    language: undefined,
-    phone: undefined,
-    email: undefined,
-    country: 'Belarus',
-    city: undefined,
-    address1: undefined,
-    address2: undefined,
-    zipcode: undefined,
-    website: undefined,
-    twitter: undefined,
-    linkedin: undefined,
-    facebook: undefined,
-  });
+  const [formValues, setFormValues] = useState(initialPersonalInfoValues);
 
   const [form] = AntForm.useForm();
 
@@ -48,13 +50,22 @@ export const PersonalInfo: React.FC = () => {
 
   const onFinish = useCallback(async (values) => updateUser(values), []);
 
+  const onCancel = useCallback(() => {
+    setFormValues(initialPersonalInfoValues);
+  }, [setFormValues]);
+
   return (
     <Card>
       <Form
         form={form}
         name="info"
-        initialValues={formValues}
-        onValuesChange={(_, allFields) => setFormValues(allFields)}
+        initialValues={initialPersonalInfoValues}
+        onValuesChange={(field) => {
+          const values = Object.entries(field)[0];
+
+          setFormValues({ ...formValues, [values[0]]: values[1] });
+        }}
+        onCancel={onCancel}
         onFinish={onFinish}
       >
         <Row gutter={{ xs: 10, md: 15, xl: 30 }}>
