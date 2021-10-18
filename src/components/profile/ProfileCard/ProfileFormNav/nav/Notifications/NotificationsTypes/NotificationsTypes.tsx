@@ -81,9 +81,7 @@ export const NotificationsTypes: React.FC = () => {
   const onFinish = useCallback(async () => {
     setTriggered(false);
 
-    const data = await updateNotifications(checkedElements);
-
-    return data;
+    return await updateNotifications(checkedElements);
   }, [setTriggered, checkedElements]);
 
   return (
