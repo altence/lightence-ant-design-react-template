@@ -8,8 +8,8 @@ import { FormItem, Title } from '../../../../../../common/Form/Form.styles';
 import { CreditCard } from './PaymentForm/interfaces';
 import { cardThemes } from 'constants/cardThemes';
 import theme from 'styles/theme';
-import * as S from './PaymentMethod.styles';
 import { PaymentModal } from './PaymentModal/PaymentModal';
+import * as S from './PaymentMethod.styles';
 
 export const clearCardData: CreditCard = {
   name: '',
@@ -63,9 +63,8 @@ export const PaymentMethod: React.FC = () => {
       isEdit: false,
     },
   ]);
-  const [form] = Form.useForm();
 
-  console.log(cards);
+  const [form] = Form.useForm();
 
   const isTablet = useMediaQuery({ query: theme.media.md });
 
