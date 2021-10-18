@@ -9,6 +9,7 @@ import { CVVItem } from './CVVItem/CVVItem';
 import { CardThemeItem } from './CardThemeItem/CardThemeItem';
 import { CreditCard } from './interfaces';
 import * as S from './PaymentForm.styles';
+import { addCreditCard, updateCreditCard } from 'api/users.api';
 
 interface PaymentFormProps {
   form: FormInstance;
@@ -50,9 +51,13 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
     async (values) => {
       const card = { ...values, background: cardData.background };
 
-      setCards((prev) => {
-        if (editCard) {
-          const editCardIndex = prev.indexOf(editCard);
+      let data: CreditCard;
+
+      if (editCard) {
+        data = await updateCreditCard(editCard);
+
+        setCards((prev) => {
+          const editCardIndex = prev.indexOf(data);
           const prevCopy = [...prev];
 
           prevCopy.splice(editCardIndex, 1, card);
@@ -60,18 +65,22 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
           closeModal();
 
           return prevCopy;
-        }
+        });
+      } else {
+        data = await addCreditCard(card);
 
-        if (prev.find((card) => card.number === card.number && card.name === card.name)) {
-          notification.open({ message: t('profile.nav.payments.sameCard') });
+        setCards((prev) => {
+          if (prev.find((stateCard) => data.number === stateCard.number && data.name === stateCard.name)) {
+            notification.open({ message: t('profile.nav.payments.sameCard') });
 
-          return [...prev];
-        }
+            return [...prev];
+          }
 
-        closeModal();
+          closeModal();
 
-        return [...prev, card];
-      });
+          return [...prev, card];
+        });
+      }
     },
     [setCards, cardData, editCard, closeModal],
   );
