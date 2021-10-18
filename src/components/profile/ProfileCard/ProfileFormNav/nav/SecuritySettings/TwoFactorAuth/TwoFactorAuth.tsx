@@ -14,7 +14,7 @@ export const TwoFactorAuth: React.FC = () => {
 
   const { t } = useTranslation();
 
-  const onFinish = useCallback(async (values) => await update2FA(values), []);
+  const onFinish = useCallback(async (values) => update2FA(values), []);
 
   return (
     <Form
