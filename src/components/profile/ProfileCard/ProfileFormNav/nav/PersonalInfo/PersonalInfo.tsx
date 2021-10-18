@@ -18,9 +18,9 @@ import { ZipcodeItem } from './ZipcodeItem/ZipcodeItem';
 import { AddressItem } from './AddressItem/AddressItem';
 import { WebsiteItem } from './WebsiteItem/WebsiteItem';
 import { SocialLinksItem } from './SocialLinksItem/SocialLinksItem';
+import { updateUser } from 'api/users.api';
 import theme from 'styles/theme';
 import * as S from '../../../../../common/Form/Form.styles';
-import { getData } from 'api/data.api';
 
 export const PersonalInfo: React.FC = () => {
   const [formValues, setFormValues] = useState({
@@ -51,7 +51,7 @@ export const PersonalInfo: React.FC = () => {
   const { t } = useTranslation();
 
   const onFinish = useCallback(async (values) => {
-    const data = await getData(values);
+    const data = await updateUser(values);
 
     return data;
   }, []);

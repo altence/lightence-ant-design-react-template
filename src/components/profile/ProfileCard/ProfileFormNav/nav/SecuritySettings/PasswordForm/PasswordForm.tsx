@@ -6,14 +6,16 @@ import { Form } from '../../../../../../common/Form/Form';
 import { FormItem, Title } from 'components/common/Form/Form.styles';
 import { CurrentPasswordItem } from './CurrentPasswordItem/CurrentPasswordItem';
 import { NewPasswordItem } from './NewPasswordItem/NewPasswordItem';
+import { updatePassword } from 'api/users.api';
 import * as S from './PasswordForm.styles';
-import { getData } from 'api/data.api';
 
 export const PasswordForm: React.FC = () => {
   const { t } = useTranslation();
 
   const onFinish = useCallback(async (values) => {
-    const data = await getData(values);
+    const data = await updatePassword(values);
+
+    console.log(values);
 
     return data;
   }, []);
