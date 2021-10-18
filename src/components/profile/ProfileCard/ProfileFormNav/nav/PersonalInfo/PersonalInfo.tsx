@@ -20,6 +20,7 @@ import { WebsiteItem } from './WebsiteItem/WebsiteItem';
 import { SocialLinksItem } from './SocialLinksItem/SocialLinksItem';
 import theme from 'styles/theme';
 import * as S from '../../../../../common/Form/Form.styles';
+import { getData } from 'api/data.api';
 
 export const PersonalInfo: React.FC = () => {
   const [formValues, setFormValues] = useState({
@@ -50,7 +51,7 @@ export const PersonalInfo: React.FC = () => {
   const { t } = useTranslation();
 
   const onFinish = useCallback(async (values) => {
-    const data = await values;
+    const data = await getData(values);
 
     return data;
   }, []);
