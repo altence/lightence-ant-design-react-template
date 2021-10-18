@@ -50,11 +50,7 @@ export const PersonalInfo: React.FC = () => {
 
   const { t } = useTranslation();
 
-  const onFinish = useCallback(async (values) => {
-    const data = await updateUser(values);
-
-    return data;
-  }, []);
+  const onFinish = useCallback(async (values) => await updateUser(values), []);
 
   return (
     <Card padding={isDesktop ? [60, 54] : (isTablet && [40, 30]) || [30, 16]}>

@@ -12,13 +12,7 @@ import * as S from './PasswordForm.styles';
 export const PasswordForm: React.FC = () => {
   const { t } = useTranslation();
 
-  const onFinish = useCallback(async (values) => {
-    const data = await updatePassword(values);
-
-    console.log(values);
-
-    return data;
-  }, []);
+  const onFinish = useCallback(async (values) => await updatePassword(values), []);
 
   return (
     <Form

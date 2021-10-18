@@ -105,10 +105,10 @@ export const updateCreditCard = (creditCard: CreditCard): Promise<CreditCard> =>
   });
 };
 
-export const removeCreditCard = (creditCard: CreditCard): Promise<CreditCard> => {
+export const removeCreditCard = (id: string): Promise<string> => {
   return new Promise((res) => {
     setTimeout(() => {
-      res(creditCard);
+      res(id);
     }, 1000);
   });
 };

@@ -10,6 +10,7 @@ import { PaymentCard } from '../PaymentCard/PaymentCard';
 import { CreditCard } from '../PaymentForm/interfaces';
 import theme from 'styles/theme';
 import * as S from './PaymentCardCarousel.styles';
+import { removeCreditCard } from 'api/users.api';
 
 interface PaymentCardCarouselProps {
   cards: CreditCard[];
@@ -29,8 +30,10 @@ export const PaymentCardCarousel: React.FC<PaymentCardCarouselProps> = ({
   const isTablet = useMediaQuery({ query: theme.media.md });
 
   const handleRemoveCard = useCallback(
-    (number: string) => () => {
+    (number: string) => async () => {
       setCards((prev) => prev.filter((card) => card.number !== number));
+
+      return await removeCreditCard(number);
     },
     [setCards],
   );
