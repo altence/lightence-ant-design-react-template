@@ -4,5 +4,5 @@ import { Layout } from 'antd';
 const { Content } = Layout;
 
 export default styled(Content)`
-  padding: ${(props) => `${props.theme.desktopLayout.paddingVertical} 0`};
+  padding: 0.75rem 1rem;
 `;

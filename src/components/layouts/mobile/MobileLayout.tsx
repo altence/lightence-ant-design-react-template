@@ -6,7 +6,6 @@ import { LayoutProps } from '../interfaces';
 import MobileContent from './MobileContent';
 import MobileHeader from './MobileHeader';
 import { Header } from '../../Header/Header';
-import { Container } from '../../common/Container/Container';
 import bg from 'assets/images/bg.png';
 
 const MobileLayout: React.FC<LayoutProps> = ({ children, siderContent, logo }) => {
@@ -21,13 +20,9 @@ const MobileLayout: React.FC<LayoutProps> = ({ children, siderContent, logo }) =
       </MobileSider>
       <LayoutStyled>
         <MobileHeader>
-          <Container>
-            <Header toggleSider={toggleSider} />
-          </Container>
+          <Header toggleSider={toggleSider} />
         </MobileHeader>
-        <MobileContent>
-          <Container>{children}</Container>
-        </MobileContent>
+        <MobileContent>{children}</MobileContent>
       </LayoutStyled>
     </LayoutStyled>
   );
