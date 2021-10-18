@@ -6,10 +6,17 @@ import { Option } from './interfaces';
 import { CheckboxColumn } from './CheckboxColumn/CheckboxColumn';
 import { CheckboxValueType } from 'antd/lib/checkbox/Group';
 import * as S from './NotificationsTypes.styles';
+import { updateNotifications } from 'api/users.api';
+
+interface Notifications {
+  1: string[];
+  2: string[];
+  3: string[];
+}
 
 export const NotificationsTypes: React.FC = () => {
   const { t } = useTranslation();
-  const [checkedElements, setCheckedElements] = useState({
+  const [checkedElements, setCheckedElements] = useState<Notifications>({
     1: [],
     2: [],
     3: [],
@@ -73,7 +80,11 @@ export const NotificationsTypes: React.FC = () => {
 
   const onFinish = useCallback(async () => {
     setTriggered(false);
-  }, [setTriggered]);
+
+    const data = await updateNotifications(checkedElements);
+
+    return data;
+  }, [setTriggered, checkedElements]);
 
   return (
     <Form name="notifications" onCancel={onCancel} onFinish={onFinish} trigger={isTriggered}>
