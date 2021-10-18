@@ -48,21 +48,21 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
 
   const onFinish = useCallback(
     async (values) => {
-      const data = await { ...values, background: cardData.background };
+      const card = { ...values, background: cardData.background };
 
       setCards((prev) => {
         if (editCard) {
           const editCardIndex = prev.indexOf(editCard);
           const prevCopy = [...prev];
 
-          prevCopy.splice(editCardIndex, 1, data);
+          prevCopy.splice(editCardIndex, 1, card);
 
           closeModal();
 
           return prevCopy;
         }
 
-        if (prev.find((card) => card.number === data.number && card.name === data.name)) {
+        if (prev.find((card) => card.number === card.number && card.name === card.name)) {
           notification.open({ message: t('profile.nav.payments.sameCard') });
 
           return [...prev];
@@ -70,7 +70,7 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
 
         closeModal();
 
-        return [...prev, data];
+        return [...prev, card];
       });
     },
     [setCards, cardData, editCard, closeModal],

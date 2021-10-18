@@ -7,12 +7,13 @@ import { FormItem, Title } from 'components/common/Form/Form.styles';
 import { CurrentPasswordItem } from './CurrentPasswordItem/CurrentPasswordItem';
 import { NewPasswordItem } from './NewPasswordItem/NewPasswordItem';
 import * as S from './PasswordForm.styles';
+import { getData } from 'api/data.api';
 
 export const PasswordForm: React.FC = () => {
   const { t } = useTranslation();
 
   const onFinish = useCallback(async (values) => {
-    const data = await values;
+    const data = await getData(values);
 
     return data;
   }, []);

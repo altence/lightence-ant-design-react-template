@@ -5,6 +5,7 @@ import { Form } from '../../../../../../common/Form/Form';
 import { LinkBtn } from 'components/common/buttons/LinkBtn/LinkBtn';
 import { TwoFactorOptions } from './TwoFactorOptions/TwoFactorOptions';
 import { TwoFactorSwitch } from './TwoFactorSwitch/TwoFactorSwitch';
+import { getData } from 'api/data.api';
 
 export const TwoFactorAuth: React.FC = () => {
   const [isEnabled, setEnabled] = useState(false);
@@ -14,7 +15,7 @@ export const TwoFactorAuth: React.FC = () => {
   const { t } = useTranslation();
 
   const onFinish = useCallback(async (values) => {
-    const data = await values;
+    const data = await getData(values);
 
     return data;
   }, []);
