@@ -13,7 +13,6 @@ import * as S from './ProfileCard.styles';
 
 export const ProfileCard: React.FC = () => {
   const isTablet = useMediaQuery({ query: theme.media.md });
-  const isDesktop = useMediaQuery({ query: theme.media.xl });
 
   const [currentMenu, setCurrentMenu] = useState((isTablet && 'info') || 'main');
   const [profileData, setProfileData] = useState<User>();

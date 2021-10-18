@@ -39,8 +39,8 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({ form, cardData, setCar
 
       let data: CreditCard;
 
-      if (card.isEdit) {
-        data = await updateCreditCard(card);
+      if (cardData.isEdit) {
+        data = await updateCreditCard(cardData);
 
         setCards((prev) => {
           const editCardIndex = prev.indexOf(data);
