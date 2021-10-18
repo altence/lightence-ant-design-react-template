@@ -53,7 +53,7 @@ export const ProfileCard: React.FC = () => {
         )}
 
         {(isTablet || currentMenu !== 'main') && (
-          <Col md={24} xl={16}>
+          <Col xs={24} md={24} xl={16}>
             <ProfileFormNav menu={currentMenu} />
           </Col>
         )}

@@ -2,15 +2,13 @@ import React, { useCallback, useMemo } from 'react';
 import { FormInstance, Popconfirm } from 'antd';
 import { Button } from 'components/common/buttons/Button/Button';
 import { SwiperSlide } from 'swiper/react';
-import { useMediaQuery } from 'react-responsive';
 import { useTranslation } from 'react-i18next';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { Slider } from 'components/common/Slider/Slider';
 import { PaymentCard } from '../PaymentCard/PaymentCard';
 import { CreditCard } from '../PaymentForm/interfaces';
-import theme from 'styles/theme';
-import * as S from './PaymentCardCarousel.styles';
 import { removeCreditCard } from 'api/users.api';
+import * as S from './PaymentCardCarousel.styles';
 
 interface PaymentCardCarouselProps {
   cards: CreditCard[];
@@ -28,8 +26,6 @@ export const PaymentCardCarousel: React.FC<PaymentCardCarouselProps> = ({
   handleOpenModal,
 }) => {
   const { t } = useTranslation();
-
-  const isTablet = useMediaQuery({ query: theme.media.md });
 
   const handleRemoveCard = useCallback(
     (number: string) => async () => {
@@ -68,17 +64,36 @@ export const PaymentCardCarousel: React.FC<PaymentCardCarouselProps> = ({
     [cards, handleRemoveCard, handleEditCard],
   );
 
-  const mobileLayout = useMemo(() => (length: number) => length > 1 ? 1.2 : 1, []);
-  const tabletLayout = useMemo(() => (length: number) => length > 2 ? 2.2 : length === 2 ? 2 : 1, []);
+  const layout = useMemo(
+    () => (slidesPerView: number) => paymentCards.length > slidesPerView ? slidesPerView + 0.2 : slidesPerView,
+    [paymentCards],
+  );
 
-  return paymentCards.length > 0 ? (
+  return (
     <S.SliderWrapper length={paymentCards.length}>
       <Slider
-        spaceBetween={24}
-        slidesPerView={(isTablet && tabletLayout(paymentCards.length)) || mobileLayout(paymentCards.length)}
+        spaceBetween={10}
+        slidesPerView={layout(1)}
+        breakpoints={{
+          650: {
+            slidesPerView: layout(2),
+          },
+          1000: {
+            slidesPerView: layout(3),
+          },
+          1280: {
+            slidesPerView: layout(2),
+          },
+          1500: {
+            slidesPerView: layout(3),
+          },
+          1920: {
+            slidesPerView: layout(4),
+          },
+        }}
       >
         {paymentCards}
       </Slider>
     </S.SliderWrapper>
-  ) : null;
+  );
 };

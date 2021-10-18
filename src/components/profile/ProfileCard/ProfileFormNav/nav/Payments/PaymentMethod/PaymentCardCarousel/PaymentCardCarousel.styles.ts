@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 interface SliderWrapperProps {
   length: number | undefined;
@@ -7,44 +7,23 @@ interface SliderWrapperProps {
 export const SliderWrapper = styled.div<SliderWrapperProps>`
   margin-bottom: 1.5rem;
 
+  & .swiper-slide {
+    display: flex;
+  }
+
+  & .swiper-slide > div {
+    position: relative;
+  }
+
   & .rccs {
     width: 100%;
-
-    height: ${(props) => props.length && props.length > 1 && '150px'};
+    min-width: 240px;
+    height: 150px;
 
     & .rccs__card {
       width: 100%;
-
-      height: ${(props) => props.length && props.length > 1 && '150px'};
-    }
-  }
-
-  @media only screen and ${(props) => props.theme.media.md} {
-    ${(props) =>
-      props.length &&
-      props.length === 1 &&
-      css`
-        & .swiper-slide {
-          display: flex;
-          justify-content: center;
-
-          & > div {
-            display: inline-block;
-            position: relative;
-          }
-        }
-      `}
-
-    & .rccs {
-      width: ${(props) => (props.length && props.length > 1 ? '100%' : '290px')};
-
-      height: ${(props) => props.length && props.length > 2 && '150px'};
-
-      & .rccs__card {
-        width: ${(props) => (props.length && props.length > 1 ? '100%' : '290px')};
-
-        height: ${(props) => props.length && props.length > 2 && '150px'};
-      }
+      min-width: 240px;
+      height: 150px;
     }
   }
 `;
