@@ -33,7 +33,7 @@ export const PaymentCardCarousel: React.FC<PaymentCardCarouselProps> = ({
     (number: string) => async () => {
       setCards((prev) => prev.filter((card) => card.number !== number));
 
-      return await removeCreditCard(number);
+      return removeCreditCard(number);
     },
     [setCards],
   );
