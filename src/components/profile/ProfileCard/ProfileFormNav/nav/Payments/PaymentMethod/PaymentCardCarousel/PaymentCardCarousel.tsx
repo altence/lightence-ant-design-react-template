@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { FormInstance, Popconfirm } from 'antd';
 import { Button } from 'components/common/buttons/Button/Button';
 import { SwiperSlide } from 'swiper/react';
@@ -69,10 +69,12 @@ export const PaymentCardCarousel: React.FC<PaymentCardCarouselProps> = ({
     [paymentCards],
   );
 
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   return (
-    <S.SliderWrapper length={paymentCards.length}>
+    <S.SliderWrapper length={paymentCards.length} currentSlide={currentSlide + 1}>
       <Slider
-        spaceBetween={10}
+        spaceBetween={16}
         slidesPerView={layout(1)}
         breakpoints={{
           650: {
@@ -91,6 +93,7 @@ export const PaymentCardCarousel: React.FC<PaymentCardCarouselProps> = ({
             slidesPerView: layout(4),
           },
         }}
+        setCurrentIndex={(index) => setCurrentSlide(index)}
       >
         {paymentCards}
       </Slider>

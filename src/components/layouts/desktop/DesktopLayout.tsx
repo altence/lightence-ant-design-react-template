@@ -25,6 +25,8 @@ const DesktopLayout: React.FC<LayoutProps> = ({ children, siderContent, logo }) 
 
 const LayoutStyled = styled(Layout)`
   min-height: 100vh;
+  max-width: 1920px;
+  margin: 0 auto;
 `;
 
 const ContentLayoutStyled = styled(Layout)`

@@ -38,10 +38,10 @@ export const PaymentMethod: React.FC = () => {
     {
       name: 'Walker Alan',
       cvc: '179',
-      expiry: '5/23',
+      expiry: '05/23',
       number: '5245 0017 2000 0164',
       focused: '',
-      background: cardThemes[0].background,
+      background: cardThemes[3].background,
       isEdit: false,
     },
     {
@@ -50,7 +50,7 @@ export const PaymentMethod: React.FC = () => {
       expiry: '12/22',
       number: '4255 1000 2046 8006',
       focused: '',
-      background: cardThemes[0].background,
+      background: cardThemes[5].background,
       isEdit: false,
     },
     {
@@ -59,7 +59,7 @@ export const PaymentMethod: React.FC = () => {
       expiry: '09/24',
       number: '5205 0024 2535 5235',
       focused: '',
-      background: cardThemes[0].background,
+      background: cardThemes[4].background,
       isEdit: false,
     },
   ]);
