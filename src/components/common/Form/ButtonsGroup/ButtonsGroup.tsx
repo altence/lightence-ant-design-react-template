@@ -14,7 +14,7 @@ export const ButtonsGroup: React.FC<ButtonsGroupProps> = ({ className, onCancel,
 
   return (
     <S.Wrapper className={className}>
-      <Button loading={loading} type="ghost" onClick={onCancel}>
+      <Button type="ghost" onClick={onCancel}>
         {t('common.cancel')}
       </Button>
 
