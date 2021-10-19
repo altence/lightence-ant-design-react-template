@@ -18,8 +18,9 @@ export const Wrapper = styled.div<PaymentCardProps>`
     }
 
     & > .rccs__card--front .rccs__issuer {
-      left: 0;
       right: unset;
+      left: 25px;
+      background-position: left;
     }
 
     & > div {
