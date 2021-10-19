@@ -10,6 +10,8 @@ export const PaymentHistoryTable = styled(Table)`
 
     color: ${(props) => props.theme.colors.main.primary};
 
+    text-align: center;
+
     &::before {
       display: none;
     }
@@ -26,8 +28,9 @@ export const PaymentHistoryTable = styled(Table)`
 export const RecipientWrapper = styled.div`
   display: flex;
   align-items: center;
+  text-align: left;
 
   & > span:first-of-type {
-    margin-right: 0.625rem;
+    margin-right: 0.5rem;
   }
 `;
