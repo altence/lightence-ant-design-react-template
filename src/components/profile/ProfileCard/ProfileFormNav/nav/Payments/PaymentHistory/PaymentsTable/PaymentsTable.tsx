@@ -9,6 +9,7 @@ import { paymentStatuses, PaymentStatus } from 'constants/paymentStatuses';
 import { getCurrencyPrice } from 'helpers/getCurrencyPrice';
 import { Payment } from 'api/paymentHistory.api';
 import * as S from './PaymentsTable.styles';
+import { LinkBtn } from 'components/common/buttons/LinkBtn/LinkBtn';
 
 interface Recipient {
   name: string;
@@ -51,8 +52,8 @@ export const PaymentsTable: React.FC<PaymentsTableProps> = ({ payments }) => {
         dataIndex: 'date',
         key: 'date',
         render: (text: string) => Dates.format(text, 'LL'),
-        align: 'center',
         sorter: (a, b) => a.date - b.date,
+        align: 'center',
       },
       {
         title: t('profile.nav.payments.status.title'),
@@ -69,6 +70,13 @@ export const PaymentsTable: React.FC<PaymentsTableProps> = ({ payments }) => {
         key: 'totalAmount',
         align: 'center',
       },
+      {
+        title: '',
+        dataIndex: 'details',
+        key: 'details',
+        align: 'center',
+        render: () => <LinkBtn>{t('profile.nav.payments.details')}</LinkBtn>,
+      },
     ];
   }, []);
 
@@ -84,6 +92,7 @@ export const PaymentsTable: React.FC<PaymentsTableProps> = ({ payments }) => {
           date: payment.date,
           status: paymentStatuses.find((status) => status.id === payment.status),
           totalAmount: getCurrencyPrice(payment.amount, payment.currency),
+          details: payment,
         };
       }),
     [payments],
