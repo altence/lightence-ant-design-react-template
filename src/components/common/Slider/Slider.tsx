@@ -10,6 +10,7 @@ interface SliderProps {
   spaceBetween: number;
   slidesPerView: number;
   navigation?: boolean;
+  setCurrentIndex?: (index: number) => void;
   breakpoints?: {
     [key: number]: {
       [key: string]: number;
@@ -23,6 +24,7 @@ export const Slider: React.FC<SliderProps> = ({
   slidesPerView,
   breakpoints,
   navigation = false,
+  setCurrentIndex,
   children,
 }) => {
   return (
@@ -31,6 +33,7 @@ export const Slider: React.FC<SliderProps> = ({
       spaceBetween={spaceBetween}
       slidesPerView={slidesPerView}
       breakpoints={breakpoints}
+      {...(setCurrentIndex && { onSlideChange: (swiper) => setCurrentIndex(swiper.activeIndex) })}
     >
       {children}
     </S.Slider>
