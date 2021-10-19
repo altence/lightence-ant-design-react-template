@@ -1,5 +1,5 @@
 import React from 'react';
-import SwiperCore, { Navigation } from 'swiper';
+import SwiperCore, { Navigation, Swiper } from 'swiper';
 import 'swiper/swiper.less';
 import 'swiper/components/navigation/navigation.less';
 import * as S from './Slider.styles';
@@ -10,7 +10,7 @@ interface SliderProps {
   spaceBetween: number;
   slidesPerView: number;
   navigation?: boolean;
-  setCurrentIndex?: (index: number) => void;
+  onSlideChange?: (swiper: Swiper) => void;
   breakpoints?: {
     [key: number]: {
       [key: string]: number;
@@ -24,7 +24,7 @@ export const Slider: React.FC<SliderProps> = ({
   slidesPerView,
   breakpoints,
   navigation = false,
-  setCurrentIndex,
+  onSlideChange,
   children,
 }) => {
   return (
@@ -33,7 +33,7 @@ export const Slider: React.FC<SliderProps> = ({
       spaceBetween={spaceBetween}
       slidesPerView={slidesPerView}
       breakpoints={breakpoints}
-      {...(setCurrentIndex && { onSlideChange: (swiper) => setCurrentIndex(swiper.activeIndex) })}
+      onSlideChange={onSlideChange}
     >
       {children}
     </S.Slider>

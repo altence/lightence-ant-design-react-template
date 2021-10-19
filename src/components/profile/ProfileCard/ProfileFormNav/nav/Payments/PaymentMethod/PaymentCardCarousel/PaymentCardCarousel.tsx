@@ -27,6 +27,8 @@ export const PaymentCardCarousel: React.FC<PaymentCardCarouselProps> = ({
 }) => {
   const { t } = useTranslation();
 
+  const [isCarouselEnd, setCarouselEnd] = useState(false);
+
   const handleRemoveCard = useCallback(
     (number: string) => async () => {
       setCards((prev) => prev.filter((card) => card.number !== number));
@@ -65,35 +67,61 @@ export const PaymentCardCarousel: React.FC<PaymentCardCarouselProps> = ({
   );
 
   const layout = useMemo(
-    () => (slidesPerView: number) => paymentCards.length > slidesPerView ? slidesPerView + 0.2 : slidesPerView,
+    () => (slidesPerView: number, value: number) =>
+      paymentCards.length > slidesPerView ? slidesPerView + value : slidesPerView,
     [paymentCards],
   );
 
-  const [currentSlide, setCurrentSlide] = useState(0);
-
   return (
-    <S.SliderWrapper length={paymentCards.length} currentSlide={currentSlide + 1}>
+    <S.SliderWrapper length={paymentCards.length} isEnd={isCarouselEnd}>
       <Slider
         spaceBetween={16}
-        slidesPerView={layout(1)}
+        slidesPerView={layout(1, 0.1)}
         breakpoints={{
-          650: {
-            slidesPerView: layout(2),
+          400: {
+            slidesPerView: layout(1, 0.2),
+          },
+          450: {
+            slidesPerView: layout(1, 0.4),
+          },
+          500: {
+            slidesPerView: layout(1, 0.5),
+          },
+          630: {
+            slidesPerView: layout(2, 0.1),
+          },
+          768: {
+            slidesPerView: layout(1, 0.5),
+          },
+          900: {
+            slidesPerView: layout(2, 0.1),
           },
           1000: {
-            slidesPerView: layout(3),
+            slidesPerView: layout(2, 0.3),
+          },
+          1100: {
+            slidesPerView: layout(2, 0.5),
+          },
+          1250: {
+            slidesPerView: layout(3, 0.1),
           },
           1280: {
-            slidesPerView: layout(2),
+            slidesPerView: layout(1, 0.5),
+          },
+          1330: {
+            slidesPerView: layout(2, 0.1),
           },
           1500: {
-            slidesPerView: layout(3),
+            slidesPerView: layout(2, 0.4),
+          },
+          1700: {
+            slidesPerView: layout(2, 0.5),
           },
           1920: {
-            slidesPerView: layout(4),
+            slidesPerView: layout(3, 0.1),
           },
         }}
-        setCurrentIndex={(index) => setCurrentSlide(index)}
+        onSlideChange={(swiper) => setCarouselEnd(swiper.isEnd)}
       >
         {paymentCards}
       </Slider>
