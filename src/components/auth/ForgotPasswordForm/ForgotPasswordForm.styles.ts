@@ -26,7 +26,6 @@ export const Wrapper = styled.div`
 export const Title = styled(Typography.Text)`
   display: block;
   font-size: 1.12rem;
-  font-weight: 500;
   margin-bottom: 0.5rem;
 
   @media only screen and ${theme.media.xl} {

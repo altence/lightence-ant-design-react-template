@@ -8,6 +8,10 @@ export default createGlobalStyle`
     padding: 0;
   }
 
+  body {
+    font-weight: 500;
+  }
+
   .range-picker {
     & .ant-picker-panels {
       @media only screen and ${theme.media.xs} and (max-width: ${theme.breakpoints.md - 1}px) {

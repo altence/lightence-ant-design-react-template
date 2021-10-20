@@ -49,7 +49,6 @@ export const Title = styled(Typography.Text)`
 `;
 
 export const Subtitle = styled(Typography.Text)`
-  font-weight: 500;
   margin-bottom: 2rem;
 
   @media only screen and ${(props) => props.theme.media.xl} {
@@ -79,7 +78,6 @@ export const FullnessLine = styled.div<FullnessLineProps>`
   height: 100%;
   padding-right: 0.625rem;
   border-radius: 50px;
-  font-weight: 500;
 
   width: ${(props) => props.width}%;
 
