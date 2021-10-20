@@ -89,7 +89,6 @@ export const InfoHeader = styled.div`
 `;
 
 export const Title = styled.span<ItemProps>`
-  font-weight: 500;
   font-size: 0.75rem;
 
   color: ${(props) => props.isActive && props.theme.colors.primary};

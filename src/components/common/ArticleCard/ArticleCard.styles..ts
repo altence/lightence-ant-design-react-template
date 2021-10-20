@@ -139,7 +139,6 @@ export const InfoHeader = styled.div`
 `;
 
 export const Title = styled(Typography.Text)`
-  font-weight: 500;
   font-size: 0.75rem;
   width: 60%;
 

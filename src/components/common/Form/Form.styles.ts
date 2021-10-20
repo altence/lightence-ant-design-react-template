@@ -17,7 +17,6 @@ export const FormItem = styled(Form.Item)`
   }
 
   & label {
-    font-weight: 500;
     font-size: 0.85rem;
 
     color: ${(props) => props.theme.colors.main.primary};

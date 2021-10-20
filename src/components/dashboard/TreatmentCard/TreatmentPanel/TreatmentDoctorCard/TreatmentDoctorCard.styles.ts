@@ -27,7 +27,6 @@ export const Title = styled(Typography.Text)`
 `;
 
 export const Text = styled(Typography.Text)`
-  font-weight: 500;
   font-size: 0.625rem;
 
   @media only screen and ${theme.media.xxl} {

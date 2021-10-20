@@ -34,7 +34,6 @@ export const Wrapper = styled.div<CollapseProps>`
 `;
 
 export const Text = styled(Typography.Text)`
-  font-weight: 500;
   font-size: 0.625rem;
   white-space: nowrap;
 
