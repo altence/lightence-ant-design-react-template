@@ -19,7 +19,7 @@ export const LoginForm: React.FC = () => {
   return (
     <S.Wrapper>
       <Form layout="vertical" onFinish={handleSubmit}>
-        <S.Title>{t('login.title')}</S.Title>
+        <S.Title>{t('common.login')}</S.Title>
         <S.FormItem name="email" rules={[{ required: true, message: t('common.emailError') }]}>
           <S.Input placeholder={t('common.email')} />
         </S.FormItem>
@@ -38,7 +38,7 @@ export const LoginForm: React.FC = () => {
         </S.ActionsWrapper>
         <Form.Item noStyle>
           <S.SubmitButton type="primary" htmlType="submit">
-            {t('login.title')}
+            {t('common.login')}
           </S.SubmitButton>
         </Form.Item>
         <S.SignupWrapper>
