@@ -1,32 +1,44 @@
-import React from 'react';
-import { Button } from 'antd';
-import { CloseOutlined, ExclamationOutlined, FormOutlined, LoginOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
+import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Menu } from './Menu/Menu';
+import { navigation } from 'constants/navigation';
+import { notificationsSeverities } from 'constants/notificationsSeverities';
 import * as S from './SiderContent.styles';
 
 const SiderContent: React.FC = () => {
+  const { t } = useTranslation();
+
+  const notificationSeverity = useMemo(
+    () => (id: number) => notificationsSeverities.find((nf) => nf.id === id)?.name,
+    [],
+  );
+
   return (
-    <S.Menu>
-      <S.MenuItem key="1" icon={<CloseOutlined />}>
-        <Link to="/404">
-          <Button type="link">Error 404</Button>
-        </Link>
-      </S.MenuItem>
-      <S.MenuItem key="2" icon={<ExclamationOutlined />}>
-        <Link to="/500">
-          <Button type="link">Error 500</Button>
-        </Link>
-      </S.MenuItem>
-      <S.MenuItem key="3" icon={<FormOutlined />}>
-        <Link to="/feed">
-          <Button type="link">Feed</Button>
-        </Link>
-      </S.MenuItem>
-      <S.MenuItem key="4" icon={<LoginOutlined />}>
-        <Link to="/login">
-          <Button type="link">Login</Button>
-        </Link>
-      </S.MenuItem>
+    <S.Menu mode="inline">
+      {navigation.map((nav, index) =>
+        nav.url ? (
+          <Menu
+            key={index}
+            icon={<nav.icon />}
+            href={nav.url}
+            name={t(nav.name)}
+            notificationsCount={nav.meta?.notifications.count}
+            {...(nav.meta && { notificationsSeverity: notificationSeverity(nav.meta.notifications.severity) })}
+          />
+        ) : (
+          <S.Submenu key={index} title={t(nav.name)} icon={<nav.icon />}>
+            {nav.menus?.map((menu, index) => (
+              <Menu
+                key={index}
+                name={t(menu.name)}
+                href={menu.url}
+                notificationsSeverity={notificationSeverity(menu.meta.notifications.severity)}
+                notificationsCount={menu.meta.notifications.count}
+              />
+            ))}
+          </S.Submenu>
+        ),
+      )}
     </S.Menu>
   );
 };

@@ -15,15 +15,15 @@ const MobileLayout: React.FC<LayoutProps> = ({ children, siderContent, logo }) =
 
   return (
     <LayoutStyled>
-      <MobileSider collapsed={siderCollapsed} toggleSider={toggleSider} siderCollapsed={siderCollapsed} logo={logo}>
-        {siderContent}
-      </MobileSider>
       <LayoutStyled>
         <MobileHeader>
           <Header toggleSider={toggleSider} />
         </MobileHeader>
         <MobileContent>{children}</MobileContent>
       </LayoutStyled>
+      <MobileSider collapsed={siderCollapsed} toggleSider={toggleSider} siderCollapsed={siderCollapsed} logo={logo}>
+        {siderContent}
+      </MobileSider>
     </LayoutStyled>
   );
 };
