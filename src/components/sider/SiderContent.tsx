@@ -1,9 +1,13 @@
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Menu } from './Menu/Menu';
+import { Menu } from 'antd';
+import { SiderMenuLink } from './SiderMenuLink/SiderMenuLink';
 import { navigation } from 'constants/navigation';
 import { notificationsSeverities } from 'constants/notificationsSeverities';
 import * as S from './SiderContent.styles';
+import { nanoid } from 'nanoid';
+
+const SubMenu = Menu.SubMenu;
 
 const SiderContent: React.FC = () => {
   const { t } = useTranslation();
@@ -13,12 +17,12 @@ const SiderContent: React.FC = () => {
     [],
   );
 
-  return (
-    <S.Menu mode="inline">
-      {navigation.map((nav, index) =>
+  const navMenu = useMemo(
+    () =>
+      navigation.map((nav) =>
         nav.url ? (
-          <Menu
-            key={index}
+          <SiderMenuLink
+            key={nanoid()}
             icon={<nav.icon />}
             href={nav.url}
             name={t(nav.name)}
@@ -26,21 +30,23 @@ const SiderContent: React.FC = () => {
             {...(nav.meta && { notificationsSeverity: notificationSeverity(nav.meta.notifications.severity) })}
           />
         ) : (
-          <S.Submenu key={index} title={t(nav.name)} icon={<nav.icon />}>
-            {nav.menus?.map((menu, index) => (
-              <Menu
-                key={index}
+          <SubMenu key={nanoid()} title={t(nav.name)} icon={<nav.icon />}>
+            {nav.menus?.map((menu) => (
+              <SiderMenuLink
+                key={nanoid()}
                 name={t(menu.name)}
                 href={menu.url}
                 notificationsSeverity={notificationSeverity(menu.meta.notifications.severity)}
                 notificationsCount={menu.meta.notifications.count}
               />
             ))}
-          </S.Submenu>
+          </SubMenu>
         ),
-      )}
-    </S.Menu>
+      ),
+    [notificationSeverity],
   );
+
+  return <S.Menu mode="inline">{navMenu}</S.Menu>;
 };
 
 export default SiderContent;

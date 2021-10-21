@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import {
   CompassOutlined,
   FormOutlined,
@@ -7,14 +8,12 @@ import {
   TableOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import { LoginForm } from 'components/auth/LoginForm/LoginForm';
 import { TreatmentCalendar } from 'components/dashboard/TreatmentCard/TreatmentCalendar/TreatmentCalendar';
 import { NewsFeed } from 'components/NewsFeed/NewsFeed';
 import Error404 from 'pages/Error404';
 import Error500 from 'pages/Error500';
 import Login from 'pages/Login';
 import Profile from 'pages/Profile';
-import { FC } from 'react';
 
 interface MenuItem {
   name: string;
@@ -128,18 +127,6 @@ export const navigation: NavItem[] = [
           },
         },
       },
-      {
-        name: 'common.inputCodePage',
-        title: 'Input 6 digit code page',
-        url: '/input-code',
-        component: undefined,
-        meta: {
-          notifications: {
-            count: 0,
-            severity: 0,
-          },
-        },
-      },
     ],
     icon: UserOutlined,
   },
@@ -160,21 +147,9 @@ export const navigation: NavItem[] = [
         },
       },
       {
-        name: 'common.login',
-        title: 'Login',
-        url: '/forms/#login',
-        component: LoginForm,
-        meta: {
-          notifications: {
-            count: 0,
-            severity: 0,
-          },
-        },
-      },
-      {
-        name: 'common.signUp',
-        title: 'Sign up',
-        url: '/forms/#signup',
+        name: 'common.inputCode',
+        title: 'Input 6 digit code',
+        url: '/forms/#input-code',
         component: undefined,
         meta: {
           notifications: {
