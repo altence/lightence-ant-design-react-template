@@ -18,7 +18,6 @@ export const Wrapper = styled.div<CollapseProps>`
   top: 1px;
   left: 0;
   height: 100%;
-  z-index: 2;
   box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.07);
   transition: all 0.3s ease;
 
