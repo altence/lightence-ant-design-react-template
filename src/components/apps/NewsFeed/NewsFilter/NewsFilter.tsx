@@ -1,9 +1,9 @@
 import React, { ReactNode, useMemo, useState } from 'react';
 import { Dropdown, Menu } from 'antd';
 import { useTranslation } from 'react-i18next';
-import useDebounce from '../../../hooks/useDebounce';
-import { AppDate, Dates } from '../../../constants/Dates';
-import { Post } from '../../../api/news.api';
+import useDebounce from '../../../../hooks/useDebounce';
+import { AppDate, Dates } from '../../../../constants/Dates';
+import { Post } from '../../../../api/news.api';
 import * as S from './NewsFilter.styles';
 
 interface NewsFilterProps {

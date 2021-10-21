@@ -8,18 +8,26 @@ import {
   TableOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import { TreatmentCalendar } from 'components/dashboard/TreatmentCard/TreatmentCalendar/TreatmentCalendar';
-import { NewsFeed } from 'components/NewsFeed/NewsFeed';
 import Error404 from 'pages/Error404';
 import Error500 from 'pages/Error500';
 import Login from 'pages/Login';
 import Profile from 'pages/Profile';
+import SignUp from 'pages/SignUp';
+import Lock from 'pages/Lock';
+import DataTables from 'pages/DataTables';
+import Charts from 'pages/Charts';
+import Maps from 'pages/Maps';
+import Maintenance from 'pages/Maintenance';
+import NewsFeedPage from 'pages/NewsFeedPage';
+import KanbanPage from 'pages/KanbanPage';
+import PaymentPage from 'pages/PaymentPage';
+import InputCodePage from 'pages/InputCodePage';
 
 interface MenuItem {
   name: string;
   title: string;
   url: string;
-  component: FC<any> | undefined;
+  component: FC<any>;
   meta: {
     notifications: {
       count: number;
@@ -51,8 +59,8 @@ export const navigation: NavItem[] = [
       {
         name: 'common.feed',
         title: 'Feed',
-        url: '/apps/#feed',
-        component: NewsFeed,
+        url: '/feed',
+        component: NewsFeedPage,
         meta: {
           notifications: {
             count: 1,
@@ -63,24 +71,12 @@ export const navigation: NavItem[] = [
       {
         name: 'common.kanban',
         title: 'Kanban',
-        url: '/apps/#kanban',
-        component: undefined,
-        meta: {
-          notifications: {
-            count: 0,
-            severity: 0,
-          },
-        },
-      },
-      {
-        name: 'common.calendar',
-        title: 'Calendar',
-        url: '/apps/#calendar',
-        component: TreatmentCalendar,
+        url: '/kanban',
+        component: KanbanPage,
         meta: {
           notifications: {
             count: 2,
-            severity: 1,
+            severity: 3,
           },
         },
       },
@@ -107,7 +103,7 @@ export const navigation: NavItem[] = [
         name: 'common.signUpPage',
         title: 'Sign up page',
         url: '/signup',
-        component: undefined,
+        component: SignUp,
         meta: {
           notifications: {
             count: 0,
@@ -119,7 +115,7 @@ export const navigation: NavItem[] = [
         name: 'common.lockPage',
         title: 'Lock page',
         url: '/lock',
-        component: undefined,
+        component: Lock,
         meta: {
           notifications: {
             count: 0,
@@ -137,8 +133,8 @@ export const navigation: NavItem[] = [
       {
         name: 'common.payment',
         title: 'Payment',
-        url: '/forms/#payment',
-        component: undefined,
+        url: '/payment',
+        component: PaymentPage,
         meta: {
           notifications: {
             count: 0,
@@ -149,8 +145,8 @@ export const navigation: NavItem[] = [
       {
         name: 'common.inputCode',
         title: 'Input 6 digit code',
-        url: '/forms/#input-code',
-        component: undefined,
+        url: '/input-code',
+        component: InputCodePage,
         meta: {
           notifications: {
             count: 0,
@@ -165,7 +161,7 @@ export const navigation: NavItem[] = [
     name: 'common.dataTables',
     title: 'Data tables',
     url: '/data-tables',
-    component: undefined,
+    component: DataTables,
     meta: {
       notifications: {
         count: 0,
@@ -178,7 +174,7 @@ export const navigation: NavItem[] = [
     name: 'common.charts',
     title: 'Charts',
     url: '/charts',
-    component: undefined,
+    component: Charts,
     meta: {
       notifications: {
         count: 0,
@@ -191,7 +187,7 @@ export const navigation: NavItem[] = [
     name: 'common.maps',
     title: 'Maps',
     url: '/maps',
-    component: undefined,
+    component: Maps,
     meta: {
       notifications: {
         count: 0,
@@ -244,7 +240,7 @@ export const navigation: NavItem[] = [
         name: 'common.maintenance',
         title: 'Maintenance',
         url: '/maintenance',
-        component: undefined,
+        component: Maintenance,
         meta: {
           notifications: {
             count: 0,
