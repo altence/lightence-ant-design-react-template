@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import {
   CompassOutlined,
+  DashboardOutlined,
   FormOutlined,
   HomeOutlined,
   LayoutOutlined,
@@ -22,6 +23,7 @@ import NewsFeedPage from 'pages/NewsFeedPage';
 import KanbanPage from 'pages/KanbanPage';
 import PaymentPage from 'pages/PaymentPage';
 import InputCodePage from 'pages/InputCodePage';
+import Dashboard from 'pages/Dashboard';
 
 interface MenuItem {
   name: string;
@@ -52,6 +54,19 @@ export interface NavItem {
 }
 
 export const navigation: NavItem[] = [
+  {
+    name: 'common.dashboard',
+    title: 'Dashboard',
+    url: '/',
+    component: Dashboard,
+    meta: {
+      notifications: {
+        count: 4,
+        severity: 1,
+      },
+    },
+    icon: DashboardOutlined,
+  },
   {
     name: 'common.apps',
     title: 'Apps',

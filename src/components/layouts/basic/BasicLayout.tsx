@@ -16,7 +16,7 @@ const BasicLayout: React.FC<LayoutProps> = ({ children, siderContent }) => {
   return (
     <LayoutMaster>
       <BasicSider isCollapsed={siderCollapsed} toggleSider={toggleSider}>
-        {siderContent}
+        {siderContent(toggleSider)}
       </BasicSider>
       <LayoutMain>
         <BasicHeader>

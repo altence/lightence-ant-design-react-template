@@ -1,5 +1,6 @@
 {
   "common": {
+    "dashboard": "DE!!!Dashboard",
     "apps": "DE!!!Apps",
     "auth": "DE!!!Auth",
     "forms": "DE!!!Forms",
@@ -58,7 +59,6 @@
     "nightModeOff": "DE!!!Night Mode OFF"
   },
   "dashboard": {
-    "title": "DE!!!Dashboard",
     "protein": "DE!!!Protein",
     "fat": "DE!!!Fat",
     "bones": "DE!!!Bones",
