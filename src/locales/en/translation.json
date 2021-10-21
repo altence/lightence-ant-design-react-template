@@ -1,5 +1,6 @@
 {
   "common": {
+    "dashboard": "Dashboard",
     "apps": "Apps",
     "auth": "Auth",
     "forms": "Forms",
@@ -58,7 +59,6 @@
     "nightModeOff": "Night Mode OFF"
   },
   "dashboard": {
-    "title": "Dashboard",
     "protein": "Protein",
     "fat": "Fat",
     "bones": "Bones",

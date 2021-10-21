@@ -10,4 +10,12 @@ export const Menu = styled(AntMenu)`
     white-space: unset !important;
     line-height: 1.515;
   }
+
+  & .ant-menu-item.ant-menu-item-selected {
+    background-color: transparent;
+
+    &::after {
+      display: none;
+    }
+  }
 `;

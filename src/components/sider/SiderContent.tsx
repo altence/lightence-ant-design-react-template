@@ -1,15 +1,19 @@
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Menu } from 'antd';
+import { nanoid } from 'nanoid';
 import { SiderMenuLink } from './SiderMenuLink/SiderMenuLink';
 import { navigation } from 'constants/navigation';
 import { notificationsSeverities } from 'constants/notificationsSeverities';
 import * as S from './SiderContent.styles';
-import { nanoid } from 'nanoid';
 
 const SubMenu = Menu.SubMenu;
 
-const SiderContent: React.FC = () => {
+interface SiderContentProps {
+  toggleSider: () => void;
+}
+
+const SiderContent: React.FC<SiderContentProps> = ({ toggleSider }) => {
   const { t } = useTranslation();
 
   const notificationSeverity = useMemo(
@@ -46,7 +50,11 @@ const SiderContent: React.FC = () => {
     [notificationSeverity],
   );
 
-  return <S.Menu mode="inline">{navMenu}</S.Menu>;
+  return (
+    <S.Menu mode="inline" onClick={toggleSider}>
+      {navMenu}
+    </S.Menu>
+  );
 };
 
 export default SiderContent;
