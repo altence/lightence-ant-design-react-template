@@ -18,6 +18,10 @@ export const RemoveCard = styled(MinusCircleOutlined)`
   position: absolute;
 `;
 
+export const TagInputWrapper = styled.div`
+  border-bottom: 1px solid #eee;
+`;
+
 export const AddBtn = styled(Btn)`
   color: ${(props) => hexToRGB(props.theme.colors.text.main, 0.3)};
 `;

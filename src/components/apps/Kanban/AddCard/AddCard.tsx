@@ -34,14 +34,14 @@ export const AddCard: React.FC<AddCardProps> = ({ onAdd, onCancel }) => {
       >
         <CardHeader>
           <FormItem name="title">
-            <Input placeholder="title" />
+            <Input placeholder="title" bordered={false} />
           </FormItem>
           <FormItem name="label">
-            <Input placeholder="label" />
+            <Input placeholder="label" bordered={false} />
           </FormItem>
         </CardHeader>
         <FormItem name="description">
-          <Input placeholder="description" />
+          <Input placeholder="description" bordered={false} />
         </FormItem>
         <S.TagWrapper>
           <AntForm.List name="tags">
@@ -49,15 +49,17 @@ export const AddCard: React.FC<AddCardProps> = ({ onAdd, onCancel }) => {
               <>
                 {fields.map((field) => (
                   <FormItem key={field.key}>
-                    <FormItem {...field}>
-                      <Input placeholder="tag title/tag background" />
-                    </FormItem>
+                    <S.TagInputWrapper>
+                      <FormItem {...field}>
+                        <Input placeholder="tag title/tag background" bordered={false} />
+                      </FormItem>
+                    </S.TagInputWrapper>
                     <S.RemoveCard onClick={() => remove(field.name)} />
                   </FormItem>
                 ))}
                 <FormItem>
-                  <S.AddBtn size="small" type="text" onClick={() => add()}>
-                    add tag
+                  <S.AddBtn size="middle" type="text" onClick={() => add()}>
+                    +tag
                   </S.AddBtn>
                 </FormItem>
               </>
