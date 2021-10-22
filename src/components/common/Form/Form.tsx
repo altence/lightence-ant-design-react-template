@@ -8,11 +8,11 @@ interface Error {
   errors: string;
 }
 
-interface FormProps extends AntFormProps {
+export interface FormProps extends AntFormProps {
   className?: string;
   trigger?: React.ReactNode;
   form?: FormInstance;
-  footer?: (loading: boolean) => React.ReactNode;
+  footer?: (loading: boolean, onCancel: () => void) => React.ReactNode;
   onCancel?: () => void;
   onFinish: (values: []) => Promise<any>;
   onFinishFailed?: (error: ValidateErrorEntity<[]>) => Promise<any>;
@@ -106,7 +106,8 @@ export const Form: React.FC<FormProps> = ({
       {...props}
     >
       {children}
-      {isFieldsChange && (footer ? footer(loading) : <ButtonsGroup loading={loading} onCancel={onCancelDefault} />)}
+      {isFieldsChange &&
+        (footer ? footer(loading, onCancelDefault) : <ButtonsGroup loading={loading} onCancel={onCancelDefault} />)}
     </AntForm>
   );
 };
