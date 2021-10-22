@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row, Form as AntForm } from 'antd';
+import { ProfileForm } from '../../ProfileForm/ProfileForm';
 import { Card } from 'components/common/Card/Card';
-import { Form } from '../../../../../common/Form/Form';
 import { FirstNameItem } from './FirstNameItem/FirstNameItem';
 import { LastNameItem } from './LastNameItem/LastNameItem';
 import { NicknameItem } from './NicknameItem/NicknameItem';
@@ -55,7 +55,7 @@ export const PersonalInfo: React.FC = () => {
 
   return (
     <Card>
-      <Form
+      <ProfileForm
         form={form}
         name="info"
         initialValues={initialPersonalInfoValues}
@@ -158,7 +158,7 @@ export const PersonalInfo: React.FC = () => {
             />
           </Col>
         </Row>
-      </Form>
+      </ProfileForm>
     </Card>
   );
 };

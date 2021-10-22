@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { Col, Row, Form as AntForm } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { Form } from '../../../../../../common/Form/Form';
+import { ProfileForm } from '../../../ProfileForm/ProfileForm';
 import { LinkBtn } from 'components/common/buttons/LinkBtn/LinkBtn';
 import { TwoFactorOptions } from './TwoFactorOptions/TwoFactorOptions';
 import { TwoFactorSwitch } from './TwoFactorSwitch/TwoFactorSwitch';
@@ -17,7 +17,7 @@ export const TwoFactorAuth: React.FC = () => {
   const onFinish = useCallback(async (values) => update2FA(values), []);
 
   return (
-    <Form
+    <ProfileForm
       form={form}
       name="twoFactorAuth"
       footer={(loading) =>
@@ -40,6 +40,6 @@ export const TwoFactorAuth: React.FC = () => {
           </Col>
         )}
       </Row>
-    </Form>
+    </ProfileForm>
   );
 };

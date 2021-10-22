@@ -48,7 +48,8 @@
     "copy": "Copy",
     "openInNewTab": "Open in new tab",
     "copied": "Copied to clipboard",
-    "formError": "An error was occured"
+    "formError": "An error was occured",
+    "info": "Information"
   },
   "header": {
     "search": "Search",
@@ -254,5 +255,15 @@
         "details": "Details"
       }
     }
+  },
+  "kanban": {
+    "nutriton": "Nutriton Medications",
+    "pain": "Pain Medications",
+    "seizure": "Seizure & Behaviour Medications",
+    "reaction": "Reaction Medications",
+    "anesthetic": "Anesthetic & Sedation Medications",
+    "cardiac": "Cardiac Medications",
+    "tension": "Tension Medications",
+    "other": "Other Medications and IVs"
   }
 }

@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'antd';
+import { ProfileForm } from '../../../ProfileForm/ProfileForm';
 import { ConfirmItemPassword } from './ConfirmPasswordItem/ConfirmPasswordItem';
-import { Form } from '../../../../../../common/Form/Form';
 import { FormItem, Title } from 'components/common/Form/Form.styles';
 import { CurrentPasswordItem } from './CurrentPasswordItem/CurrentPasswordItem';
 import { NewPasswordItem } from './NewPasswordItem/NewPasswordItem';
@@ -15,7 +15,7 @@ export const PasswordForm: React.FC = () => {
   const onFinish = useCallback(async (values) => updatePassword(values), []);
 
   return (
-    <Form
+    <ProfileForm
       name="newPassword"
       footer={(loading) => (
         <S.Btn loading={loading} type="primary" htmlType="submit">
@@ -43,6 +43,6 @@ export const PasswordForm: React.FC = () => {
           <ConfirmItemPassword />
         </Col>
       </Row>
-    </Form>
+    </ProfileForm>
   );
 };

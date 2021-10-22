@@ -48,7 +48,8 @@
     "copy": "DE!!!Copy",
     "openInNewTab": "DE!!!Open in new tab",
     "copied": "DE!!!Copied to clipboard",
-    "formError": "DE!!!An error was occured"
+    "formError": "DE!!!An error was occured",
+    "info": "DE!!!Information"
   },
   "header": {
     "search": "DE!!!Search",
@@ -254,5 +255,15 @@
         "details": "DE!!!Details"
       }
     }
+  },
+  "kanban": {
+    "nutriton": "DE!!!Nutriton Medications",
+    "pain": "DE!!!Pain Medications",
+    "seizure": "DE!!!Seizure & Behaviour Medications",
+    "reaction": "DE!!!Reaction Medications",
+    "anesthetic": "DE!!!Anesthetic & Sedation Medications",
+    "cardiac": "DE!!!Cardiac Medications",
+    "tension": "DE!!!Tension Medications",
+    "other": "DE!!!Other Medications and IVs"
   }
 }
