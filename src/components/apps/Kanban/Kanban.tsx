@@ -3,7 +3,7 @@ import { AddCard } from './AddCard/AddCard';
 import { Card } from './Card/Card';
 import * as S from './Kanban.styles';
 
-const tags = {
+export const tags = {
   intravenous: {
     title: 'Intravenous',
     bgcolor: 'green',
@@ -14,7 +14,7 @@ const tags = {
   },
   intramuscular: {
     title: 'Intramuscular',
-    bgcolor: 'yellow',
+    bgcolor: 'gray',
   },
   other: {
     title: 'Other Administation Route',
@@ -203,13 +203,5 @@ const data = {
 };
 
 export const Kanban: React.FC = () => {
-  return (
-    <S.Kanban
-      components={{ Card, NewCardForm: AddCard }}
-      editable
-      laneDraggable
-      data={data}
-      tagStyle={{ padding: '0.2rem', fontWeight: '600' }}
-    />
-  );
+  return <S.Kanban components={{ Card, NewCardForm: AddCard }} editable laneDraggable data={data} />;
 };

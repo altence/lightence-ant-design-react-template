@@ -10,6 +10,7 @@ import {
 import InlineInput from 'react-trello/dist/widgets/InlineInput';
 import Tag from 'react-trello/dist/components/Card/Tag';
 import DeleteButton from 'react-trello/dist/widgets/DeleteButton';
+import { CardState } from '../interfaces';
 
 interface CardProps {
   showDeleteButton: boolean;
@@ -17,7 +18,7 @@ interface CardProps {
   tagStyle: CSSStyleSheet;
   onClick: () => void;
   onDelete: () => void;
-  onChange: (card: any) => void;
+  onChange: (card: CardState) => void;
   className: string;
   id: string | number;
   title: string;
@@ -50,7 +51,7 @@ export const Card: React.FC<CardProps> = ({
     event.stopPropagation();
   };
 
-  const updateCard = (card: any) => {
+  const updateCard = (card: CardState) => {
     onChange({ ...card, id });
   };
 
@@ -61,6 +62,7 @@ export const Card: React.FC<CardProps> = ({
           <CardTitle draggable={cardDraggable}>
             {editable ? (
               <InlineInput
+                name="title"
                 value={title}
                 border
                 placeholder="title"

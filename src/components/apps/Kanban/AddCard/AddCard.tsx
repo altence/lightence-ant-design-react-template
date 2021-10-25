@@ -1,11 +1,28 @@
-import React from 'react';
-import { CardHeader, CardWrapper } from 'react-trello/dist/styles/Base';
-import { Input, Form as AntForm } from 'antd';
+import React, { useState } from 'react';
+import { CardWrapper } from 'react-trello/dist/styles/Base';
+import { Input } from 'antd';
 import { Form } from 'components/common/Form/Form';
 import { FormItem } from 'components/common/Form/Form.styles';
-import { CardState } from '../interfaces';
-import * as S from './AddCard.styles';
+import { CardState, Tag } from '../interfaces';
 import { ButtonsGroup } from 'components/common/Form/ButtonsGroup/ButtonsGroup';
+import { TagDropdown } from './TagDropdown/TagDropdown';
+import { addCard } from 'api/kanban.api';
+import { useTranslation } from 'react-i18next';
+
+const formItems = [
+  {
+    title: 'kanban.title',
+    name: 'title',
+  },
+  {
+    title: 'kanban.label',
+    name: 'label',
+  },
+  {
+    title: 'kanban.description',
+    name: 'description',
+  },
+];
 
 interface AddCardProps {
   onAdd: (state: CardState) => void;
@@ -13,14 +30,16 @@ interface AddCardProps {
 }
 
 export const AddCard: React.FC<AddCardProps> = ({ onAdd, onCancel }) => {
-  const onFinish = async (values: any) => {
-    const tags = values.tags?.map((tag: string) => {
-      const tagValues = tag.split('/');
+  const [selectedTags, setSelectedTags] = useState<Tag[]>([]);
 
-      return { title: tagValues[0], bgcolor: tagValues[1] };
-    });
+  const { t } = useTranslation();
 
-    onAdd({ ...values, tags });
+  const onFinish = async (values: []) => {
+    const tags = selectedTags;
+
+    const card = await addCard({ ...values, tags });
+
+    onAdd(card);
   };
 
   return (
@@ -32,40 +51,14 @@ export const AddCard: React.FC<AddCardProps> = ({ onAdd, onCancel }) => {
         footer={(loading, onCancel) => <ButtonsGroup size="middle" loading={loading} onCancel={onCancel} />}
         trigger
       >
-        <CardHeader>
-          <FormItem name="title">
-            <Input placeholder="title" bordered={false} />
+        {formItems.map((item, index) => (
+          <FormItem key={index} name={item.name}>
+            <Input placeholder={t(item.title)} bordered={false} />
           </FormItem>
-          <FormItem name="label">
-            <Input placeholder="label" bordered={false} />
-          </FormItem>
-        </CardHeader>
-        <FormItem name="description">
-          <Input placeholder="description" bordered={false} />
+        ))}
+        <FormItem>
+          <TagDropdown selectedTags={selectedTags} setSelectedTags={setSelectedTags} />
         </FormItem>
-        <S.TagWrapper>
-          <AntForm.List name="tags">
-            {(fields, { add, remove }) => (
-              <>
-                {fields.map((field) => (
-                  <FormItem key={field.key}>
-                    <S.TagInputWrapper>
-                      <FormItem {...field}>
-                        <Input placeholder="tag title/tag background" bordered={false} />
-                      </FormItem>
-                    </S.TagInputWrapper>
-                    <S.RemoveCard onClick={() => remove(field.name)} />
-                  </FormItem>
-                ))}
-                <FormItem>
-                  <S.AddBtn size="middle" type="text" onClick={() => add()}>
-                    +tag
-                  </S.AddBtn>
-                </FormItem>
-              </>
-            )}
-          </AntForm.List>
-        </S.TagWrapper>
       </Form>
     </CardWrapper>
   );
