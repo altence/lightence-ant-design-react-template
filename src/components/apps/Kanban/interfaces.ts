@@ -1,6 +1,12 @@
 export interface CardState {
-  title: string;
-  label: string;
-  description: string;
+  id?: number | string;
+  title?: string;
+  label?: string;
+  description?: string;
   tags?: { title: string; bgcolor: string }[];
+}
+
+export interface Tag {
+  title: string;
+  bgcolor: string;
 }
