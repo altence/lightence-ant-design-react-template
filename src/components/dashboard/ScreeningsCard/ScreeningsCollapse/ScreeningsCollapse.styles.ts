@@ -113,7 +113,7 @@ export const ListItem = styled.li<ListProps>`
     justify-content: space-between;
     align-items: center;
 
-    color: ${(props) => (props.isDowngrade && props.theme.colors.additional) || props.theme.colors.success};
+    color: ${(props) => (props.isDowngrade && props.theme.colors.main.error) || props.theme.colors.main.success};
   }
 
   & ${Avatar} {

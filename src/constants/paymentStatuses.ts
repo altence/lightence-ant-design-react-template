@@ -13,16 +13,16 @@ export const paymentStatuses: PaymentStatus[] = [
   {
     id: 2,
     name: 'profile.nav.payments.status.scheduled',
-    color: 'additional3',
+    color: 'success',
   },
   {
     id: 3,
     name: 'profile.nav.payments.status.pending',
-    color: 'additional2',
+    color: 'warning',
   },
   {
     id: 4,
     name: 'profile.nav.payments.status.failed',
-    color: 'additional',
+    color: 'error',
   },
 ];

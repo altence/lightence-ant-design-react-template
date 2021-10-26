@@ -63,7 +63,7 @@ export const FullnessWrapper = styled.div`
   height: 1.875rem;
   margin-bottom: 0.625rem;
 
-  background-color: ${(props) => hexToRGB(props.theme.colors.main.additional2, 0.5)};
+  background-color: ${(props) => hexToRGB(props.theme.colors.main.warning, 0.5)};
 
   @media only screen and ${(props) => props.theme.media.xl} {
     height: 2.5rem;
@@ -83,8 +83,8 @@ export const FullnessLine = styled.div<FullnessLineProps>`
 
   background: linear-gradient(
     90deg,
-    ${(props) => props.theme.colors.main.additional2} 0%,
-    ${(props) => props.theme.colors.main.additional} 100%
+    ${(props) => props.theme.colors.main.warning} 0%,
+    ${(props) => props.theme.colors.main.error} 100%
   );
 
   color: ${(props) => props.theme.colors.text.secondary};
