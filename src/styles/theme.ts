@@ -150,8 +150,8 @@ export const media = {
 };
 
 const commonColors = {
-  white: '#fff',
-  black: '#000',
+  white: '#ffffff',
+  black: '#000000',
   green: '#008000',
   orange: '#FFA500',
   gray: '#808080',
