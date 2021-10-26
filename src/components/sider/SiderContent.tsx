@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Menu } from 'antd';
-import { nanoid } from 'nanoid';
 import { SiderMenuLink } from './SiderMenuLink/SiderMenuLink';
 import { navigation } from 'constants/navigation';
 import { notificationsSeverities } from 'constants/notificationsSeverities';
@@ -23,22 +22,22 @@ const SiderContent: React.FC<SiderContentProps> = ({ toggleSider }) => {
 
   const navMenu = useMemo(
     () =>
-      navigation.map((nav) =>
-        nav.url ? (
+      navigation.map((nav, index) =>
+        !nav.menus && nav.url ? (
           <SiderMenuLink
-            key={nanoid()}
+            key={index}
             icon={<nav.icon />}
             href={nav.url}
-            name={t(nav.name)}
+            name={t(nav.title)}
             notificationsCount={nav.meta?.notifications.count}
             {...(nav.meta && { notificationsSeverity: notificationSeverity(nav.meta.notifications.severity) })}
           />
         ) : (
-          <SubMenu key={nanoid()} title={t(nav.name)} icon={<nav.icon />}>
-            {nav.menus?.map((menu) => (
+          <SubMenu key={index} title={t(nav.title)} icon={<nav.icon />}>
+            {nav.menus?.map((menu, index) => (
               <SiderMenuLink
-                key={nanoid()}
-                name={t(menu.name)}
+                key={`${nav.name}${index}`}
+                name={t(menu.title)}
                 href={menu.url}
                 notificationsSeverity={notificationSeverity(menu.meta.notifications.severity)}
                 notificationsCount={menu.meta.notifications.count}
