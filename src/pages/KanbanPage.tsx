@@ -1,8 +1,6 @@
 import React from 'react';
-import MainLayout from 'components/layouts/MainLayout';
+import { Kanban } from 'components/apps/Kanban/Kanban';
 
-const KanbanPage: React.FC = () => {
-  return <MainLayout>Kanban</MainLayout>;
-};
+const KanbanPage: React.FC = () => <Kanban />;
 
 export default KanbanPage;

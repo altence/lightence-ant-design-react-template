@@ -1,7 +1,7 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
-import MainLayout from '../components/layouts/MainLayout';
 import { Col, Row } from 'antd';
+import { useTranslation } from 'react-i18next';
 import { MapCard } from '../components/dashboard/MapCard/MapCard';
 import { ScreeningsCard } from '../components/dashboard/ScreeningsCard/ScreeningsCard';
 import { ActivityCard } from '../components/dashboard/ActivityCard/ActivityCard';
@@ -12,17 +12,21 @@ import { FavouritesDoctorsCard } from '../components/dashboard/FavouritesDoctors
 import { PatientResultsCard } from '../components/dashboard/PatientResultsCard/PatientResultsCard';
 import { BloodScreeningCard } from '../components/dashboard/BloodScreeningCard/BloodScreeningCard';
 import { PiecesOfAdviceCard } from '../components/dashboard/PiecesOfAdviceCard/PiecesOfAdviceCard';
+import { PageTitle } from 'components/common/PageTitle/PageTitle';
 import { StatisticsCard } from '../components/dashboard/StatisticsCard/StatisticsCard';
 import { statisticsData } from '../constants/statisticsData';
 import theme from '../styles/theme';
 
 const Dashboard: React.FC = () => {
+  const { t } = useTranslation();
+
   const isMobile = useMediaQuery({ query: theme.media.xs });
   const isTablet = useMediaQuery({ query: theme.media.md });
   const isDesktop = useMediaQuery({ query: theme.media.xl });
 
   return (
-    <MainLayout>
+    <>
+      <PageTitle>{t('common.dashboard')}</PageTitle>
       <Row justify="space-between" gutter={[10, 10]}>
         {isMobile && !isTablet && (
           <>
@@ -119,7 +123,7 @@ const Dashboard: React.FC = () => {
           <PiecesOfAdviceCard />
         </Col>
       </Row>
-    </MainLayout>
+    </>
   );
 };
 
