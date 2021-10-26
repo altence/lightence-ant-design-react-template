@@ -1,4 +1,3 @@
-import { hexToRGB } from 'helpers/hexToRGB';
 import styled from 'styled-components';
 
 interface ColorWrapperProps {
@@ -19,9 +18,7 @@ export const ColorWrapper = styled.div<ColorWrapperProps>`
 
   border-radius: ${(props) => props.theme.border.radius};
 
-  color: ${(props) =>
-    (props.isActive && hexToRGB(props.theme.colors.text.secondary, 1)) ||
-    hexToRGB(props.theme.colors.text.secondary, 0)};
+  color: ${(props) => (props.isActive && props.theme.colors.text.secondary) || 'transparent'};
 
   ${(props) => props.color && `background-color: ${props.color}`};
 `;
