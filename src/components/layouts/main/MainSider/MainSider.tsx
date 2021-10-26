@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'antd';
-import { RightOutlined } from '@ant-design/icons';
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import Overlay from '../../../common/Overlay';
 import { useResponsive } from 'hooks/useResponsive';
 import * as S from './MainSider.styles';
@@ -28,7 +28,7 @@ const MainSider: React.FC<MainSiderProps> = ({ children, toggleSider, isCollapse
             <S.CollapseWrapper isCollapsed={isCollapsed}>
               <Button
                 type="text"
-                icon={<RightOutlined rotate={(tabletOnly && isCollapsed && 180) || 0} />}
+                icon={<RightOutlined rotate={(tabletOnly && !isCollapsed && 180) || 0} />}
                 onClick={toggleSider}
               />
             </S.CollapseWrapper>
