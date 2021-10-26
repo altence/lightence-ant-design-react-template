@@ -29,20 +29,19 @@ export const Sider = styled(Layout.Sider)`
 export const CollapseWrapper = styled.div<CollapseProps>`
   padding: 1rem 0.5rem;
   margin-bottom: 2rem;
-
-  height: ${(props) => props.theme.desktopLayout.headerLineHeight};
+  min-height: 3.75rem;
 
   & > button {
     @media only screen and ${(props) => props.theme.media.md} {
       position: absolute;
-      transform: translateX(50%);
-      right: 50%;
       transition: all 0.3s ease;
+      right: 0;
 
       ${(props) =>
-        !props.isCollapsed &&
+        props.isCollapsed &&
         css`
-          right: 1.35rem;
+          transform: translateX(50%);
+          right: 50%;
         `};
     }
 
@@ -62,7 +61,7 @@ export const SiderContent = styled.div`
   padding: 0.75rem 1rem;
 
   @media only screen and ${(props) => props.theme.media.md} {
-    padding: ${(props) => props.theme.desktopLayout.paddingVertical} 0;
+    padding: 1.5rem 0;
   }
 
   @media only screen and ${(props) => props.theme.media.xl} {

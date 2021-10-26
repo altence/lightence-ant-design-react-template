@@ -147,18 +147,6 @@ export const media = {
   xxl: getMedia(breakpoints.xxl),
 };
 
-export const desktopLayout = {
-  paddingVertical: '1.25rem',
-  paddingHorizontal: '1.5rem',
-  headerLineHeight: '2rem',
-  headerHeight: '14.5rem',
-  contentOffset: '12rem',
-};
-
-export const mobileLayout = {
-  headerHeight: '10rem',
-};
-
 const colors = {
   main: {
     primary: '#01509A',
@@ -191,8 +179,6 @@ const theme = {
   },
   breakpoints,
   media,
-  desktopLayout,
-  mobileLayout,
 };
 
 // export const darkTheme = {
