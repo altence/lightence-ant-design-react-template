@@ -145,8 +145,8 @@
     "notFound": "DE!!!Sorry, page not found!",
     "comeBack": "DE!!!Come back"
   },
-  "error500": {
-    "serverError": "DE!!!Internal server error",
+  "serverError": {
+    "main": "DE!!!Internal server error",
     "tryAgain": "DE!!!Try again"
   },
   "newsFeed": {

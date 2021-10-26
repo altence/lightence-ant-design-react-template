@@ -15,10 +15,7 @@ interface SiderContentProps {
 const SiderContent: React.FC<SiderContentProps> = ({ toggleSider }) => {
   const { t } = useTranslation();
 
-  const notificationSeverity = useMemo(
-    () => (id: number) => notificationsSeverities.find((nf) => nf.id === id)?.name,
-    [],
-  );
+  const getNotificationSeverity = (id: number) => notificationsSeverities.find((nf) => nf.id === id)?.name;
 
   const navMenu = useMemo(
     () =>
@@ -30,7 +27,7 @@ const SiderContent: React.FC<SiderContentProps> = ({ toggleSider }) => {
             href={nav.url}
             name={t(nav.title)}
             notificationsCount={nav.meta?.notifications.count}
-            {...(nav.meta && { notificationsSeverity: notificationSeverity(nav.meta.notifications.severity) })}
+            {...(nav.meta && { notificationsSeverity: getNotificationSeverity(nav.meta.notifications.severity) })}
           />
         ) : (
           <SubMenu key={index} title={t(nav.title)} icon={<nav.icon />}>
@@ -39,14 +36,14 @@ const SiderContent: React.FC<SiderContentProps> = ({ toggleSider }) => {
                 key={`${nav.name}${index}`}
                 name={t(menu.title)}
                 href={menu.url}
-                notificationsSeverity={notificationSeverity(menu.meta.notifications.severity)}
+                notificationsSeverity={getNotificationSeverity(menu.meta.notifications.severity)}
                 notificationsCount={menu.meta.notifications.count}
               />
             ))}
           </SubMenu>
         ),
       ),
-    [notificationSeverity],
+    [getNotificationSeverity],
   );
 
   return (

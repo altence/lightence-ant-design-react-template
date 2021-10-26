@@ -145,8 +145,8 @@
     "notFound": "Sorry, page not found!",
     "comeBack": "Come back"
   },
-  "error500": {
-    "serverError": "Internal server error",
+  "serverError": {
+    "main": "Internal server error",
     "tryAgain": "Try again"
   },
   "newsFeed": {

@@ -1,6 +1,6 @@
 import Dashboard from '../pages/Dashboard';
 import Error404 from '../pages/Error404';
-import Error500 from '../pages/Error500';
+import ServerError from '../pages/ServerError';
 import NewsFeedPage from '../pages/NewsFeedPage';
 import ForgotPassword from '../pages/ForgotPassword';
 import Login from '../pages/Login';
@@ -60,7 +60,7 @@ export const routes = [
       },
       {
         path: '/500',
-        component: Error500,
+        component: ServerError,
       },
       {
         path: '/maintenance',

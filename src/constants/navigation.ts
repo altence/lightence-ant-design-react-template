@@ -10,7 +10,7 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 import Error404 from 'pages/Error404';
-import Error500 from 'pages/Error500';
+import ServerError from 'pages/ServerError';
 import Login from 'pages/Login';
 import Profile from 'pages/Profile';
 import SignUp from 'pages/SignUp';
@@ -231,7 +231,7 @@ export const navigation: NavItem[] = [
         name: 'Server Error',
         title: 'common.serverError',
         url: '/500',
-        component: Error500,
+        component: ServerError,
         meta: {
           notifications: {
             count: 0,
