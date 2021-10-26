@@ -12,7 +12,6 @@ export const ActivityChart: React.FC = () => {
   const { isTablet, isDesktop, isBigScreen } = useResponsive();
 
   const option = {
-    color: themeContext.colors.chartsPrimaryGradient,
     grid: {
       top: (isDesktop && 40) || 30,
       right: (isDesktop && 20) || 10,
@@ -30,7 +29,7 @@ export const ActivityChart: React.FC = () => {
       data: days,
       position: 'top',
       axisLabel: {
-        color: themeContext.colors.primary,
+        color: themeContext.colors.main.primary,
         fontWeight: 500,
         fontSize: (isBigScreen && 14) || (isDesktop && 12) || 10,
       },
@@ -41,7 +40,7 @@ export const ActivityChart: React.FC = () => {
       max: 110,
       interval: 10,
       axisLabel: {
-        color: themeContext.colors.basic,
+        color: themeContext.colors.text.light,
         fontWeight: 500,
         fontSize: (isDesktop && 12) || 10,
       },

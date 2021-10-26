@@ -10,7 +10,7 @@ export const LayoutMain = styled(Layout)`
   background: url(${bg}) no-repeat;
   background-size: auto 200px;
 
-  background-color: ${(props) => props.theme.colors.back.lightGray};
+  background-color: ${(props) => props.theme.colors.main.secondaryBackground};
 
   @media only screen and ${(props) => props.theme.media.md} {
     margin-left: 60px;
@@ -18,7 +18,7 @@ export const LayoutMain = styled(Layout)`
     background: url(${bg}) no-repeat;
     background-size: 100% 250px;
 
-    background-color: ${(props) => props.theme.colors.back.lightGray};
+    background-color: ${(props) => props.theme.colors.main.secondaryBackground};
   }
 
   @media only screen and ${(props) => props.theme.media.xl} {

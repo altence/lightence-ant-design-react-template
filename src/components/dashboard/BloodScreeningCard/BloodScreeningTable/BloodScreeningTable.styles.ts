@@ -30,7 +30,7 @@ export const Table = styled(AntTable)`
 `;
 
 export const Text = styled.span<TextProps>`
-  color: ${(props) => (props.isActive && props.theme.colors.basicDark) || props.theme.colors.basic};
+  color: ${(props) => (props.isActive && props.theme.colors.text.main) || props.theme.colors.text.light};
 `;
 
 export const PercentageWrapper = styled.div`
@@ -50,7 +50,7 @@ export const Percentage = styled.div<PercentageProps>`
   color: ${(props) =>
     (props.isActive && props.isDowngrade && props.theme.colors.main.error) ||
     (props.isActive && props.theme.colors.main.success) ||
-    props.theme.colors.basic};
+    props.theme.colors.text.light};
 
   & ${Text} {
     margin-left: 0.2rem;
@@ -58,6 +58,6 @@ export const Percentage = styled.div<PercentageProps>`
     color: ${(props) =>
       (props.isActive && props.isDowngrade && props.theme.colors.main.error) ||
       (props.isActive && props.theme.colors.main.success) ||
-      props.theme.colors.basic};
+      props.theme.colors.text.light};
   }
 `;

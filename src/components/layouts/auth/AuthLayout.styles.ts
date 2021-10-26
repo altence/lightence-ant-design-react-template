@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Typography } from 'antd';
 import loginBackground from '../../../assets/images/login-bg.jpg';
 import theme from '../../../styles/theme';
+import { hexToRGB } from 'helpers/hexToRGB';
 
 export const Wrapper = styled.div`
   font-family: Poppins, sans-serif;
@@ -36,7 +37,7 @@ export const Title = styled(Typography.Text)`
   font-size: 2.25rem;
   font-weight: 700;
 
-  color: ${(props) => props.theme.colors.secondary};
+  color: ${(props) => props.theme.colors.text.secondary};
 
   @media only screen and ${theme.media.md} {
     font-size: 4rem;
@@ -52,7 +53,7 @@ export const Subtitle = styled(Typography.Text)`
   font-weight: 300;
   margin-bottom: 4.5rem;
 
-  color: ${(props) => props.theme.colors.secondary};
+  color: ${(props) => props.theme.colors.text.secondary};
 
   @media only screen and ${theme.media.md} {
     font-size: 2.25rem;
@@ -79,9 +80,9 @@ export const Copyright = styled(Typography.Text)`
   white-space: nowrap;
   font-size: 0.625rem;
 
-  color: ${(props) => props.theme.colors.secondaryAlpha};
+  color: ${(props) => hexToRGB(props.theme.colors.text.secondary, 0.7)};
 
   @media only screen and ${theme.media.xl} {
-    color: ${(props) => props.theme.colors.basic};
+    color: ${(props) => props.theme.colors.text.light};
   }
 `;

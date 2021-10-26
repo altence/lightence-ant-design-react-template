@@ -1,7 +1,7 @@
 export interface PaymentStatus {
   id: number;
   name: string;
-  color: string;
+  color: 'secondary' | 'success' | 'warning' | 'error';
 }
 
 export const paymentStatuses: PaymentStatus[] = [

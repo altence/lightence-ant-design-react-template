@@ -9,7 +9,7 @@ interface ItemProps {
 export const Wrapper = styled.div`
   overflow: hidden;
 
-  background-color: ${(props) => props.theme.colors.secondary};
+  background-color: ${(props) => props.theme.colors.main.mainBackground};
 `;
 
 export const Item = styled.div`
@@ -40,9 +40,9 @@ export const IconWrapper = styled.div<ItemProps>`
   flex-shrink: 0;
   margin-right: 0.75rem;
 
-  background-color: ${(props) => (props.isActive && props.theme.colors.primary) || props.theme.colors.basicLight};
+  background-color: ${(props) => (props.isActive && props.theme.colors.main.primary) || props.theme.colors.text.light};
 
-  color: ${(props) => (props.isActive && props.theme.colors.secondary) || props.theme.colors.primary};
+  color: ${(props) => (props.isActive && props.theme.colors.text.secondary) || props.theme.colors.main.primary};
 
   @media only screen and ${theme.media.xxl} {
     width: 3.12rem;
@@ -60,7 +60,7 @@ export const IconWrapper = styled.div<ItemProps>`
     width: 1px;
     height: 100%;
 
-    background-color: ${(props) => props.theme.colors.basic};
+    background-color: ${(props) => props.theme.colors.text.light};
 
     @media only screen and ${theme.media.xxl} {
       top: 120%;
@@ -91,7 +91,7 @@ export const InfoHeader = styled.div`
 export const Title = styled.span<ItemProps>`
   font-size: 0.75rem;
 
-  color: ${(props) => props.isActive && props.theme.colors.primary};
+  color: ${(props) => props.isActive && props.theme.colors.main.primary};
 
   @media only screen and ${theme.media.xxl} {
     font-size: 1rem;

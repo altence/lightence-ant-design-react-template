@@ -23,20 +23,20 @@ export const StatisticsCard: React.FC<StatisticsCardProps> = ({
     <S.CardWrapper id={title.toLowerCase().replaceAll(' ', '-')}>
       <S.Line color={color} />
       <Card>
-        <S.Wrapper>
-          <S.Icon color={themeContext.colors[color]} component={icon} />
+        {/* <S.Wrapper>
+          <S.Icon color={themeContext.colors.main[color]} component={icon} />
           <StatisticsChart
-            color={themeContext.colors[color]}
-            chartColor={themeContext.colors[chartColor]}
+            color={themeContext.colors.main[color]}
+            chartColor={themeContext.colors.main[chartColor]}
             value={value}
           />
           <StatisticsInfo
-            color={themeContext.colors[color]}
+            color={themeContext.colors.main[color]}
             title={title}
             percent={percent}
             isDowngrade={isDowngrade}
           />
-        </S.Wrapper>
+        </S.Wrapper> */}
       </Card>
     </S.CardWrapper>
   );

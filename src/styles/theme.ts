@@ -131,6 +131,8 @@
 //   ]),
 // };
 
+import { DefaultTheme } from 'styled-components';
+
 export const breakpoints = {
   xs: 360,
   md: 768,
@@ -147,6 +149,19 @@ export const media = {
   xxl: getMedia(breakpoints.xxl),
 };
 
+const commonColors = {
+  white: '#fff',
+  black: '#000',
+  green: '#008000',
+  orange: '#FFA500',
+  gray: '#808080',
+  violet: '#EE82EE',
+  lightgreen: '#90EE90',
+  pink: '#FFC0CB',
+  blue: '#0000FF',
+  skyblue: '#87CEEB',
+};
+
 const colors = {
   main: {
     primary: '#01509A',
@@ -157,22 +172,22 @@ const colors = {
     success: '#57D682',
     angularGradient:
       'conic-gradient(from -35.18deg at 50% 50%, #006CCF -154.36deg, #FF5252 24.13deg, #FFB155 118.76deg, #006CCF 205.64deg, #FF5252 384.13deg)',
+    mainBackground: commonColors.white,
+    secondaryBackground: '#F4F4F4',
   },
   text: {
     main: '#404040',
     light: '#9A9B9F',
     superLight: '#BEC0C6',
-    secondary: '#ffffff',
-  },
-  back: {
-    lightGray: '#F4F4F4',
+    secondary: commonColors.white,
   },
   border: {
     main: '#bec0c6',
   },
 };
 
-const theme = {
+const theme: DefaultTheme = {
+  commonColors,
   colors,
   border: {
     radius: '7px',

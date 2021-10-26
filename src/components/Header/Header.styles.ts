@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Typography, Badge as AntBadge, Avatar, Spin as AntSpin, Menu as AntMenu } from 'antd';
 import theme from '../../styles/theme';
+import { hexToRGB } from 'helpers/hexToRGB';
 
 export const Wrapper = styled.div`
   line-height: initial;
@@ -37,11 +38,11 @@ export const DropdownContent = styled.div`
   padding: 0.5rem;
   font-size: 0.625rem;
 
-  background: ${(props) => props.theme.colors.primaryAccent};
+  background: ${(props) => hexToRGB(props.theme.colors.main.primary, 0.7)};
 
   border-radius: ${(props) => props.theme.border.radius};
 
-  color: ${(props) => props.theme.colors.secondary};
+  color: ${(props) => props.theme.colors.text.secondary};
 
   @media only screen and ${theme.media.xxl} {
     font-size: 0.75rem;
@@ -61,7 +62,7 @@ export const DropdownHeader = styled.div`
 
   border-radius: ${(props) => props.theme.border.radius};
 
-  color: ${(props) => props.theme.colors.secondary};
+  color: ${(props) => props.theme.colors.text.secondary};
 
   @media only screen and ${theme.media.md} {
     margin: 0 0.5rem;
@@ -81,12 +82,12 @@ export const SearchDropdownHeader = styled(DropdownHeader)`
     & > input {
       margin: 0 0.5rem;
 
-      color: ${(props) => props.theme.colors.secondary};
+      color: ${(props) => props.theme.colors.text.secondary};
 
       &::placeholder {
         opacity: 0.4;
 
-        color: ${(props) => props.theme.colors.secondary};
+        color: ${(props) => props.theme.colors.text.secondary};
       }
     }
 
@@ -99,7 +100,7 @@ export const SearchDropdownHeader = styled(DropdownHeader)`
 `;
 
 export const Text = styled(Typography.Text)`
-  color: ${(props) => props.theme.colors.secondary};
+  color: ${(props) => props.theme.colors.text.secondary};
 `;
 
 export const ProfileAvatar = styled(Avatar)`
@@ -145,7 +146,7 @@ export const Title = styled(Typography.Text)`
   font-weight: 700;
   font-size: 1.12rem;
 
-  color: ${(props) => props.theme.colors.secondary};
+  color: ${(props) => props.theme.colors.text.secondary};
 
   @media only screen and ${theme.media.md} {
     font-size: 1.5rem;

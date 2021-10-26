@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/ban-types */
-declare module 'react-country-flag';
 
 declare class ReactTrelloBoard<CardMetaData> extends React.Component<ReactTrello.BoardProps<CardMetaData>> {}
 

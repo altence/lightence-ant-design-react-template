@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   align-items: center;
   padding: 3.75rem 1.25rem;
 
-  background-color: ${(props) => props.theme.colors.secondary};
+  background-color: ${(props) => props.theme.colors.main.mainBackground};
 
   @media only screen and ${theme.media.md} {
     padding: 2.5rem 6.25rem 6.25rem;
@@ -45,7 +45,7 @@ export const Title = styled(Typography.Text)`
   font-weight: 600;
   margin-bottom: 1rem;
 
-  color: ${(props) => props.theme.colors.basicDark};
+  color: ${(props) => props.theme.colors.text.main};
 
   @media only screen and ${theme.media.md} {
     font-size: 3rem;

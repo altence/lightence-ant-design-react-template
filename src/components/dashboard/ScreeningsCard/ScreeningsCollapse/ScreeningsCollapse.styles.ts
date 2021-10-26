@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Button, Typography, Avatar as AntAvatar } from 'antd';
 import theme from '../../../../styles/theme';
+import { hexToRGB } from 'helpers/hexToRGB';
 
 interface CollapseProps {
   isCollapsed: boolean;
@@ -23,7 +24,7 @@ export const Wrapper = styled.div<CollapseProps>`
 
   width: ${(props) => (props.isCollapsed && '3rem') || '12rem'};
 
-  background-color: ${(props) => props.theme.colors.secondary};
+  background-color: ${(props) => props.theme.colors.main.mainBackground};
 
   @media only screen and ${theme.media.xxl} {
     padding: 1.25rem;
@@ -131,8 +132,8 @@ export const ListItem = styled.li<ListProps>`
       border-radius: ${(props) => props.theme.border.radius};
 
       ${(props) =>
-        (props.isFirstActive && `border: 2px solid ${props.theme.colors.primary}`) ||
-        (props.isSecondActive && `border: 2px solid ${props.theme.colors.errorLight}`)};
+        (props.isFirstActive && `border: 2px solid ${props.theme.colors.main.primary}`) ||
+        (props.isSecondActive && `border: 2px solid ${hexToRGB(props.theme.colors.main.error, 0.7)}`)};
     }
   }
 `;

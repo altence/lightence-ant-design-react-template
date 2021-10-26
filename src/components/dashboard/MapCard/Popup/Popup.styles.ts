@@ -58,7 +58,7 @@ export const Item = styled.div`
 export const Title = styled(Typography.Text)`
   margin-right: 0.625rem;
 
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.main.primary};
 `;
 
 export const Rating = styled(Rate)`

@@ -18,7 +18,6 @@ export const StatisticsChart: React.FC<StatisticsChartProps> = ({ value, chartCo
   const { t } = useTranslation();
 
   const option = {
-    color: [chartColor, themeContext.colors.basicLight],
     series: [
       {
         type: 'pie',

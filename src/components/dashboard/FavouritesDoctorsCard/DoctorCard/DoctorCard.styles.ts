@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Avatar as AntAvatar, Typography, Rate } from 'antd';
 import theme from '../../../../styles/theme';
+import { hexToRGB } from 'helpers/hexToRGB';
 
 export const Wrapper = styled.div`
   margin: 0 auto;
@@ -11,14 +12,14 @@ export const Wrapper = styled.div`
 
   border-radius: ${(props) => props.theme.border.radius};
 
-  background-color: ${(props) => props.theme.colors.secondary};
+  background-color: ${(props) => props.theme.colors.main.mainBackground};
 
   @media only screen and ${theme.media.xxl} {
     max-width: 9.5rem;
   }
 
   &:hover {
-    background-color: ${(props) => props.theme.colors.primaryLight};
+    background-color: ${(props) => hexToRGB(props.theme.colors.main.primary, 0.7)};
   }
 `;
 
@@ -26,7 +27,7 @@ export const Title = styled(Typography.Text)`
   display: block;
   font-size: 0.625rem;
 
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.main.primary};
 
   @media only screen and ${theme.media.xxl} {
     font-size: 0.75rem;

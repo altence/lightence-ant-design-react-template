@@ -3,6 +3,7 @@ import { useMediaQuery } from 'react-responsive';
 import { Chart } from '../../../common/Chart/Chart';
 import { getMarkAreaData } from '../../../../helpers/getMarkAreaData';
 import { ThemeContext } from 'styled-components';
+import { hexToRGB } from 'helpers/hexToRGB';
 
 const xAxisData = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
@@ -48,11 +49,10 @@ export const ScreeningsChart: React.FC = () => {
         showSymbol: false,
         lineStyle: {
           width: 2,
-          color: themeContext.colors.error,
+          color: themeContext.colors.main.error,
         },
         areaStyle: {
           opacity: 1,
-          color: themeContext.colors.chartsErrorGradient,
         },
         emphasis: {
           focus: 'series',
@@ -60,7 +60,7 @@ export const ScreeningsChart: React.FC = () => {
         data: [28, 32, 39, 41, 38, 40, 45, 49, 50, 48],
         markArea: {
           itemStyle: {
-            color: themeContext.colors.primaryAlpha,
+            color: hexToRGB(themeContext.colors.main.primary, 0.7),
           },
           data: getMarkAreaData(xAxisData),
         },
@@ -71,12 +71,11 @@ export const ScreeningsChart: React.FC = () => {
         smooth: true,
         lineStyle: {
           width: 2,
-          color: themeContext.colors.primary,
+          color: themeContext.colors.main.primary,
         },
         showSymbol: false,
         areaStyle: {
           opacity: 1,
-          color: themeContext.colors.chartsPrimaryLightGradient,
         },
         emphasis: {
           focus: 'series',

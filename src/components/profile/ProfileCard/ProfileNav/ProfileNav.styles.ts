@@ -4,7 +4,7 @@ import { hexToRGB } from 'helpers/hexToRGB';
 
 interface BtnProps {
   isActive: boolean;
-  color: string;
+  color: 'primary' | 'error' | 'warning' | 'success';
 }
 
 export const Wrapper = styled.div`

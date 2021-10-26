@@ -20,12 +20,12 @@ export const ResultsWrapper = styled.div`
 
     border-radius: ${(props) => props.theme.border.radius};
 
-    background-color: ${(props) => props.theme.colors.primary};
+    background-color: ${(props) => props.theme.colors.main.primary};
 
     &-thumb {
       border-radius: ${(props) => props.theme.border.radius};
 
-      background-color: ${(props) => props.theme.colors.secondary};
+      background-color: ${(props) => props.theme.colors.main.mainBackground};
     }
   }
 

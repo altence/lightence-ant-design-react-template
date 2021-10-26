@@ -30,7 +30,7 @@ export const Notification = styled(Badge)`
 export const Bell = styled(BellOutlined)`
   font-size: 1.2rem;
 
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.main.primary};
 
   @media only screen and ${theme.media.xxl} {
     font-size: 1.6rem;
@@ -42,7 +42,7 @@ export const Title = styled(Typography.Text)`
   font-size: 2.8rem;
   line-height: initial;
 
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.main.primary};
 
   @media only screen and ${theme.media.md} {
     font-size: 3.1rem;
@@ -56,7 +56,7 @@ export const Subtitle = styled(Typography.Text)`
   margin-bottom: 0.875rem;
   line-height: initial;
 
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.main.primary};
 
   @media only screen and ${theme.media.md} {
     font-size: 1.3rem;
@@ -71,7 +71,7 @@ export const Subtitle = styled(Typography.Text)`
     width: 100%;
     height: 1px;
 
-    background-color: ${(props) => props.theme.colors.basicLight};
+    background-color: ${(props) => props.theme.commonColors.gray}; // TODO check
   }
 `;
 

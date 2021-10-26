@@ -13,7 +13,7 @@ export const TitleHeader = styled.div`
   box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.07);
   cursor: pointer;
 
-  background-color: ${(props) => props.theme.colors.secondary};
+  background-color: ${(props) => props.theme.colors.main.mainBackground};
 
   border-radius: ${(props) => props.theme.border.radius};
 `;

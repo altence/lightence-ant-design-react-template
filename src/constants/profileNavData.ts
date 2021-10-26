@@ -1,6 +1,15 @@
 import { BellOutlined, DollarOutlined, SecurityScanOutlined, UserOutlined } from '@ant-design/icons';
+import { FC } from 'react';
 
-export const profileNavData = [
+interface ProfileNavItem {
+  id: number;
+  name: string;
+  Icon: FC;
+  color: 'primary' | 'error' | 'warning' | 'success';
+  href: string;
+}
+
+export const profileNavData: ProfileNavItem[] = [
   {
     id: 1,
     name: 'profile.nav.personalInfo.title',
