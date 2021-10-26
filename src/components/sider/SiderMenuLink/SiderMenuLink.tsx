@@ -1,8 +1,7 @@
 import React from 'react';
-import { MenuItemProps, Menu } from 'antd';
+import { MenuItemProps, Menu, Row, Col } from 'antd';
 import { Link } from 'react-router-dom';
 import { Badge, BadgeType } from 'components/common/Badge/Badge';
-import * as S from './SiderMenuLink.styles';
 
 interface SiderMenuLinkProps extends MenuItemProps {
   href: string;
@@ -21,10 +20,14 @@ export const SiderMenuLink: React.FC<SiderMenuLinkProps> = ({
 }) => {
   return (
     <Menu.Item icon={icon} {...props}>
-      <S.MenuContentWrapper>
-        <Link to={href}>{name}</Link>
-        <Badge severity={notificationsSeverity} count={notificationsCount} />
-      </S.MenuContentWrapper>
+      <Row justify="space-between" align="middle">
+        <Col>
+          <Link to={href}>{name}</Link>
+        </Col>
+        <Col>
+          <Badge severity={notificationsSeverity} count={notificationsCount} />
+        </Col>
+      </Row>
     </Menu.Item>
   );
 };

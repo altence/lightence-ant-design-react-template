@@ -55,8 +55,8 @@ export interface NavItem {
 
 export const navigation: NavItem[] = [
   {
-    name: 'common.dashboard',
-    title: 'Dashboard',
+    name: 'Dashboard',
+    title: 'common.dashboard',
     url: '/',
     component: Dashboard,
     meta: {
@@ -68,12 +68,12 @@ export const navigation: NavItem[] = [
     icon: DashboardOutlined,
   },
   {
-    name: 'common.apps',
-    title: 'Apps',
+    name: 'Apps',
+    title: 'common.apps',
     menus: [
       {
-        name: 'common.feed',
-        title: 'Feed',
+        name: 'Feed',
+        title: 'common.feed',
         url: '/feed',
         component: NewsFeedPage,
         meta: {
@@ -84,8 +84,8 @@ export const navigation: NavItem[] = [
         },
       },
       {
-        name: 'common.kanban',
-        title: 'Kanban',
+        name: 'Kanban',
+        title: 'common.kanban',
         url: '/kanban',
         component: KanbanPage,
         meta: {
@@ -99,12 +99,12 @@ export const navigation: NavItem[] = [
     icon: HomeOutlined,
   },
   {
-    name: 'common.auth',
-    title: 'Auth',
+    name: 'Auth',
+    title: 'common.auth',
     menus: [
       {
-        name: 'common.loginPage',
-        title: 'Login page',
+        name: 'Login page',
+        title: 'common.loginPage',
         url: '/login',
         component: Login,
         meta: {
@@ -115,8 +115,8 @@ export const navigation: NavItem[] = [
         },
       },
       {
-        name: 'common.signUpPage',
-        title: 'Sign up page',
+        name: 'Sign up page',
+        title: 'common.signUpPage',
         url: '/signup',
         component: SignUp,
         meta: {
@@ -127,8 +127,8 @@ export const navigation: NavItem[] = [
         },
       },
       {
-        name: 'common.lockPage',
-        title: 'Lock page',
+        name: 'Lock page',
+        title: 'common.lockPage',
         url: '/lock',
         component: Lock,
         meta: {
@@ -142,12 +142,12 @@ export const navigation: NavItem[] = [
     icon: UserOutlined,
   },
   {
-    name: 'common.forms',
-    title: 'Forms',
+    name: 'Forms',
+    title: 'common.forms',
     menus: [
       {
-        name: 'common.payment',
-        title: 'Payment',
+        name: 'Payment',
+        title: 'common.payment',
         url: '/payment',
         component: PaymentPage,
         meta: {
@@ -158,8 +158,8 @@ export const navigation: NavItem[] = [
         },
       },
       {
-        name: 'common.inputCode',
-        title: 'Input 6 digit code',
+        name: 'Input 6 digit code',
+        title: 'common.inputCode',
         url: '/input-code',
         component: InputCodePage,
         meta: {
@@ -173,8 +173,8 @@ export const navigation: NavItem[] = [
     icon: FormOutlined,
   },
   {
-    name: 'common.dataTables',
-    title: 'Data tables',
+    name: 'Data tables',
+    title: 'common.dataTables',
     url: '/data-tables',
     component: DataTables,
     meta: {
@@ -186,8 +186,8 @@ export const navigation: NavItem[] = [
     icon: TableOutlined,
   },
   {
-    name: 'common.charts',
-    title: 'Charts',
+    name: 'Charts',
+    title: 'common.charts',
     url: '/charts',
     component: Charts,
     meta: {
@@ -199,8 +199,8 @@ export const navigation: NavItem[] = [
     icon: LineChartOutlined,
   },
   {
-    name: 'common.maps',
-    title: 'Maps',
+    name: 'Maps',
+    title: 'common.maps',
     url: '/maps',
     component: Maps,
     meta: {
@@ -212,12 +212,12 @@ export const navigation: NavItem[] = [
     icon: CompassOutlined,
   },
   {
-    name: 'common.pages',
-    title: 'Pages',
+    name: 'Pages',
+    title: 'common.pages',
     menus: [
       {
-        name: 'common.profilePage',
-        title: 'Profile Page',
+        name: 'Profile Page',
+        title: 'common.profilePage',
         url: '/profile',
         component: Profile,
         meta: {
@@ -228,8 +228,8 @@ export const navigation: NavItem[] = [
         },
       },
       {
-        name: 'common.serverError',
-        title: 'Server Error',
+        name: 'Server Error',
+        title: 'common.serverError',
         url: '/500',
         component: Error500,
         meta: {
@@ -240,8 +240,8 @@ export const navigation: NavItem[] = [
         },
       },
       {
-        name: 'common.clientError',
-        title: 'Client Error',
+        name: 'Client Error',
+        title: 'common.clientError',
         url: '/404',
         component: Error404,
         meta: {
@@ -252,8 +252,8 @@ export const navigation: NavItem[] = [
         },
       },
       {
-        name: 'common.maintenance',
-        title: 'Maintenance',
+        name: 'Maintenance',
+        title: 'common.maintenance',
         url: '/maintenance',
         component: Maintenance,
         meta: {
