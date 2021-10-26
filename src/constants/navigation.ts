@@ -9,21 +9,21 @@ import {
   TableOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import Error404 from 'pages/Error404';
-import ServerError from 'pages/ServerError';
-import Login from 'pages/Login';
-import Profile from 'pages/Profile';
-import SignUp from 'pages/SignUp';
-import Lock from 'pages/Lock';
-import DataTables from 'pages/DataTables';
-import Charts from 'pages/Charts';
-import Maps from 'pages/Maps';
-import Maintenance from 'pages/Maintenance';
+import Error404Page from 'pages/Error404Page';
+import ServerErrorPage from 'pages/ServerErrorPage';
+import ProfilePage from 'pages/ProfilePage';
+import SignUpPage from 'pages/SignUpPage';
+import LockPage from 'pages/LockPage';
+import DataTablesPage from 'pages/DataTablesPage';
+import ChartsPage from 'pages/ChartsPage';
+import MapsPage from 'pages/MapsPage';
+import MaintenancePage from 'pages/MaintenancePage';
 import NewsFeedPage from 'pages/NewsFeedPage';
 import KanbanPage from 'pages/KanbanPage';
 import PaymentPage from 'pages/PaymentPage';
 import InputCodePage from 'pages/InputCodePage';
-import Dashboard from 'pages/Dashboard';
+import DashboardPage from 'pages/DashboardPage';
+import LoginPage from 'pages/LoginPage';
 
 interface MenuItem {
   name: string;
@@ -58,7 +58,7 @@ export const navigation: NavItem[] = [
     name: 'Dashboard',
     title: 'common.dashboard',
     url: '/',
-    component: Dashboard,
+    component: DashboardPage,
     meta: {
       notifications: {
         count: 4,
@@ -106,7 +106,7 @@ export const navigation: NavItem[] = [
         name: 'Login page',
         title: 'common.loginPage',
         url: '/login',
-        component: Login,
+        component: LoginPage,
         meta: {
           notifications: {
             count: 0,
@@ -118,7 +118,7 @@ export const navigation: NavItem[] = [
         name: 'Sign up page',
         title: 'common.signUpPage',
         url: '/signup',
-        component: SignUp,
+        component: SignUpPage,
         meta: {
           notifications: {
             count: 0,
@@ -130,7 +130,7 @@ export const navigation: NavItem[] = [
         name: 'Lock page',
         title: 'common.lockPage',
         url: '/lock',
-        component: Lock,
+        component: LockPage,
         meta: {
           notifications: {
             count: 0,
@@ -176,7 +176,7 @@ export const navigation: NavItem[] = [
     name: 'Data tables',
     title: 'common.dataTables',
     url: '/data-tables',
-    component: DataTables,
+    component: DataTablesPage,
     meta: {
       notifications: {
         count: 0,
@@ -189,7 +189,7 @@ export const navigation: NavItem[] = [
     name: 'Charts',
     title: 'common.charts',
     url: '/charts',
-    component: Charts,
+    component: ChartsPage,
     meta: {
       notifications: {
         count: 0,
@@ -202,7 +202,7 @@ export const navigation: NavItem[] = [
     name: 'Maps',
     title: 'common.maps',
     url: '/maps',
-    component: Maps,
+    component: MapsPage,
     meta: {
       notifications: {
         count: 0,
@@ -219,7 +219,7 @@ export const navigation: NavItem[] = [
         name: 'Profile Page',
         title: 'common.profilePage',
         url: '/profile',
-        component: Profile,
+        component: ProfilePage,
         meta: {
           notifications: {
             count: 0,
@@ -231,7 +231,7 @@ export const navigation: NavItem[] = [
         name: 'Server Error',
         title: 'common.serverError',
         url: '/500',
-        component: ServerError,
+        component: ServerErrorPage,
         meta: {
           notifications: {
             count: 0,
@@ -243,7 +243,7 @@ export const navigation: NavItem[] = [
         name: 'Client Error',
         title: 'common.clientError',
         url: '/404',
-        component: Error404,
+        component: Error404Page,
         meta: {
           notifications: {
             count: 0,
@@ -255,7 +255,7 @@ export const navigation: NavItem[] = [
         name: 'Maintenance',
         title: 'common.maintenance',
         url: '/maintenance',
-        component: Maintenance,
+        component: MaintenancePage,
         meta: {
           notifications: {
             count: 0,

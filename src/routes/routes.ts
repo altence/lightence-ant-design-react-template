@@ -1,19 +1,19 @@
-import Dashboard from '../pages/Dashboard';
-import Error404 from '../pages/Error404';
-import ServerError from '../pages/ServerError';
+import DashboardPage from '../pages/DashboardPage';
+import Error404Page from '../pages/Error404Page';
+import ServerErrorPage from '../pages/ServerErrorPage';
 import NewsFeedPage from '../pages/NewsFeedPage';
-import ForgotPassword from '../pages/ForgotPassword';
-import Login from '../pages/Login';
-import Profile from '../pages/Profile';
+import ForgotPasswordPage from '../pages/ForgotPasswordPage';
+import LoginPage from '../pages/LoginPage';
+import ProfilePage from '../pages/ProfilePage';
 import KanbanPage from 'pages/KanbanPage';
-import SignUp from 'pages/SignUp';
-import Lock from 'pages/Lock';
+import SignUpPage from 'pages/SignUpPage';
+import LockPage from 'pages/LockPage';
 import PaymentPage from 'pages/PaymentPage';
 import InputCodePage from 'pages/InputCodePage';
-import DataTables from 'pages/DataTables';
-import Charts from 'pages/Charts';
-import Maps from 'pages/Maps';
-import Maintenance from 'pages/Maintenance';
+import DataTablesPage from 'pages/DataTablesPage';
+import ChartsPage from 'pages/ChartsPage';
+import MapsPage from 'pages/MapsPage';
+import MaintenancePage from 'pages/MaintenancePage';
 import MainLayout from 'components/layouts/main/MainLayout/MainLayout';
 import AuthLayout from 'components/layouts/auth/AuthLayout';
 
@@ -24,7 +24,7 @@ export const routes = [
       {
         exact: true,
         path: '/',
-        component: Dashboard,
+        component: DashboardPage,
       },
       {
         path: '/feed',
@@ -44,27 +44,27 @@ export const routes = [
       },
       {
         path: '/data-tables',
-        component: DataTables,
+        component: DataTablesPage,
       },
       {
         path: '/charts',
-        component: Charts,
+        component: ChartsPage,
       },
       {
         path: '/maps',
-        component: Maps,
+        component: MapsPage,
       },
       {
         path: '/profile',
-        component: Profile,
+        component: ProfilePage,
       },
       {
         path: '/500',
-        component: ServerError,
+        component: ServerErrorPage,
       },
       {
         path: '/maintenance',
-        component: Maintenance,
+        component: MaintenancePage,
       },
     ],
   },
@@ -73,22 +73,22 @@ export const routes = [
     subRoutes: [
       {
         path: '/login',
-        component: Login,
+        component: LoginPage,
         exact: true,
       },
       {
         path: '/signup',
-        component: SignUp,
+        component: SignUpPage,
         exact: true,
       },
       {
         path: '/lock',
-        component: Lock,
+        component: LockPage,
         exact: true,
       },
       {
         path: '/forgot-password',
-        component: ForgotPassword,
+        component: ForgotPasswordPage,
         exact: true,
       },
     ],
@@ -98,7 +98,7 @@ export const routes = [
     subRoutes: [
       {
         path: '*',
-        component: Error404,
+        component: Error404Page,
       },
     ],
   },

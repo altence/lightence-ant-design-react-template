@@ -16,7 +16,7 @@ import { StatisticsCard } from '../components/dashboard/StatisticsCard/Statistic
 import { statisticsData } from '../constants/statisticsData';
 import { useResponsive } from 'hooks/useResponsive';
 
-const Dashboard: React.FC = () => {
+const DashboardPage: React.FC = () => {
   const { t } = useTranslation();
 
   const { mobileOnly, tabletOnly, isTablet, isDesktop } = useResponsive();
@@ -124,4 +124,4 @@ const Dashboard: React.FC = () => {
   );
 };
 
-export default Dashboard;
+export default DashboardPage;

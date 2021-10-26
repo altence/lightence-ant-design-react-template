@@ -4,7 +4,7 @@ import { LineChart } from 'components/charts/LineChart/LineChart';
 import { PieChart } from 'components/charts/PieChart/PieChart';
 import React from 'react';
 
-const Charts: React.FC = () => {
+const ChartsPage: React.FC = () => {
   return (
     <Row>
       <Col span={24}>
@@ -20,4 +20,4 @@ const Charts: React.FC = () => {
   );
 };
 
-export default Charts;
+export default ChartsPage;

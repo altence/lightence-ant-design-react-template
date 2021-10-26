@@ -1,6 +1,6 @@
 import React from 'react';
 import { LoginForm } from '../components/auth/LoginForm/LoginForm';
 
-const Login: React.FC = () => <LoginForm />;
+const LoginPage: React.FC = () => <LoginForm />;
 
-export default Login;
+export default LoginPage;
