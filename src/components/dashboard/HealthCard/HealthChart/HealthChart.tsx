@@ -5,14 +5,12 @@ import { ThemeContext } from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import { Chart } from '../../../common/Chart/Chart';
 import { pieChartData } from '../../../../constants/healthChartData';
+import { useResponsive } from 'hooks/useResponsive';
 
 export const HealthChart: React.FC = () => {
   const themeContext = useContext(ThemeContext);
 
-  const isMobile = useMediaQuery({ query: themeContext.media.xs });
-  const isTablet = useMediaQuery({ query: themeContext.media.md });
-  const isDesktop = useMediaQuery({ query: themeContext.media.xl });
-  const isBigScreen = useMediaQuery({ query: themeContext.media.xxl });
+  const { isMobile, isTablet, isDesktop, isBigScreen } = useResponsive();
 
   const { t } = useTranslation();
 

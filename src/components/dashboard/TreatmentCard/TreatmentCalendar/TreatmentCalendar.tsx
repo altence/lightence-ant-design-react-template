@@ -1,11 +1,10 @@
 import React from 'react';
-import { TreatmentCardState } from '../TreatmentCard';
-import { AppDate } from '../../../../constants/Dates';
-import * as S from './TreatmentCalendar.styles';
-import { LeftOutlined, RightOutlined } from '@ant-design/icons';
-import { useMediaQuery } from 'react-responsive';
 import { useTranslation } from 'react-i18next';
-import theme from '../../../../styles/theme';
+import { TreatmentCardState } from '../TreatmentCard';
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import { AppDate } from '../../../../constants/Dates';
+import { useResponsive } from 'hooks/useResponsive';
+import * as S from './TreatmentCalendar.styles';
 
 export interface TreatmentCalendarProps {
   date: TreatmentCardState;
@@ -20,7 +19,7 @@ export const TreatmentCalendar: React.FC<TreatmentCalendarProps> = ({
   handleDecrease,
   handleIncrease,
 }) => {
-  const isTablet = useMediaQuery({ query: theme.media.md });
+  const { mobileOnly } = useResponsive();
 
   const { t } = useTranslation();
 
@@ -30,7 +29,7 @@ export const TreatmentCalendar: React.FC<TreatmentCalendarProps> = ({
 
   return (
     <S.Wrapper>
-      {!isTablet && (
+      {mobileOnly && (
         <>
           <S.ButtonLeft onClick={handleDecrease}>
             <LeftOutlined />

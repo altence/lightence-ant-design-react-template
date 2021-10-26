@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useMediaQuery } from 'react-responsive';
+import { useTranslation } from 'react-i18next';
+import { useResponsive } from 'hooks/useResponsive';
 import { Card } from '../../common/Card/Card';
 import { TreatmentHeader } from './TreatmentHeader/TreatmentHeader';
 import { TreatmentCalendar } from './TreatmentCalendar/TreatmentCalendar';
 import { TreatmentPanel } from './TreatmentPanel/TreatmentPanel';
-import theme from '../../../styles/theme';
 import { AppDate, Dates } from '../../../constants/Dates';
 import * as S from './TreatmentCard.styles';
-import { useTranslation } from 'react-i18next';
 
 export interface TreatmentCardState {
   isDateClicked: boolean;
@@ -15,7 +14,7 @@ export interface TreatmentCardState {
 }
 
 export const TreatmentCard: React.FC = () => {
-  const isTablet = useMediaQuery({ query: theme.media.md });
+  const { isTablet } = useResponsive();
 
   const [selectedDate, setDate] = useState<TreatmentCardState>({
     isDateClicked: false,

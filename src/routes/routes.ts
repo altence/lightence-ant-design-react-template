@@ -14,7 +14,7 @@ import DataTables from 'pages/DataTables';
 import Charts from 'pages/Charts';
 import Maps from 'pages/Maps';
 import Maintenance from 'pages/Maintenance';
-import MainLayout from 'components/layouts/MainLayout';
+import MainLayout from 'components/layouts/main/MainLayout/MainLayout';
 import AuthLayout from 'components/layouts/auth/AuthLayout';
 
 export const routes = [

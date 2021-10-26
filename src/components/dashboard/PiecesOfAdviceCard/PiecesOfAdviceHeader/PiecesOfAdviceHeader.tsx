@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { useMediaQuery } from 'react-responsive';
 import { useTranslation } from 'react-i18next';
 import { AdviceListBtn } from '../AdviceBtnList/AdviceBtnList';
 import { AdviceTileBtn } from '../AdviceBtnTile/AdviceBtnTile';
-import theme from '../../../../styles/theme';
+import { useResponsive } from 'hooks/useResponsive';
 import * as S from './PiecesOfAdviceHeader.styles';
 
 export const PiecesOfAdviceHeader: React.FC = () => {
   const [isActive, setActive] = useState('tile');
 
-  const isTablet = useMediaQuery({ query: theme.media.md });
+  const { isTablet } = useResponsive();
 
   const { t } = useTranslation();
 

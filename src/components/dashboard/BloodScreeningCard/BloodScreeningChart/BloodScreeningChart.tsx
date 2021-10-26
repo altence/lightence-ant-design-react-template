@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { EChartsInstance } from 'echarts-for-react';
 import { ThemeContext } from 'styled-components';
-import { useMediaQuery } from 'react-responsive';
 import { Chart } from '../../../common/Chart/Chart';
 import { Dates } from '../../../../constants/Dates';
 import { Cell } from '../BloodScreeningTable/BloodScreeningTable';
+import { useResponsive } from 'hooks/useResponsive';
 
 interface BloodScreeningChartsProps {
   activeItem: Cell;
@@ -13,8 +13,7 @@ interface BloodScreeningChartsProps {
 export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ activeItem }) => {
   const themeContext = useContext(ThemeContext);
 
-  const isTablet = useMediaQuery({ query: themeContext.media.md });
-  const isBigScreen = useMediaQuery({ query: themeContext.media.xxl });
+  const { isTablet, isBigScreen } = useResponsive();
 
   const months = Dates.getMonths();
 

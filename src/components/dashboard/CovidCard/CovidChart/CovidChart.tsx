@@ -1,15 +1,15 @@
 import React, { useContext } from 'react';
-import { useMediaQuery } from 'react-responsive';
 import { Chart } from '../../../common/Chart/Chart';
 import { getMarkAreaData } from '../../../../helpers/getMarkAreaData';
 import { ThemeContext } from 'styled-components';
+import { useResponsive } from 'hooks/useResponsive';
 
 const xAxisData = Array.from({ length: 30 }, (_, i) => i + 1);
 
 export const CovidChart: React.FC = () => {
   const themeContext = useContext(ThemeContext);
 
-  const isTablet = useMediaQuery({ query: themeContext.media.md });
+  const { isTablet } = useResponsive();
 
   const option = {
     color: themeContext.colors.chartsPrimaryGradient,

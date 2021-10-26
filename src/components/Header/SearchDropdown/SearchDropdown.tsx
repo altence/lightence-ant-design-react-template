@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { Button, Dropdown, Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import { useMediaQuery } from 'react-responsive';
 import { useTranslation } from 'react-i18next';
 import { SearchOverlay } from './SearchOverlay/SearchOverlay';
 import filterIcon from '../../../assets/icons/filter.svg';
-import theme from '../../../styles/theme';
+import { useResponsive } from 'hooks/useResponsive';
 import * as S from '../Header.styles';
 
 const filter = <img src={filterIcon} alt="Toggle filter" />;
@@ -17,7 +16,7 @@ export const SearchDropdown: React.FC = () => {
 
   const { t } = useTranslation();
 
-  const isTablet = useMediaQuery({ query: theme.media.md });
+  const { isTablet } = useResponsive();
 
   const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);

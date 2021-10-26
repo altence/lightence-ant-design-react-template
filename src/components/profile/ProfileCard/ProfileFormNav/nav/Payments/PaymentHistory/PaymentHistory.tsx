@@ -1,18 +1,17 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useMediaQuery } from 'react-responsive';
 import { Card } from 'components/common/Card/Card';
 import { Payment } from './Payment/Payment';
 import { PaymentsTable } from './PaymentsTable/PaymentsTable';
 import { getPaymentHistory, Payment as IPayment } from 'api/paymentHistory.api';
 import { FormItem, Title } from '../../../../../../common/Form/Form.styles';
-import theme from 'styles/theme';
+import { useResponsive } from 'hooks/useResponsive';
 import * as S from './PaymentHistory.styles';
 
 export const PaymentHistory: React.FC = () => {
   const [history, setHistory] = useState<IPayment[]>([]);
 
-  const isTablet = useMediaQuery({ query: theme.media.md });
+  const { mobileOnly, isTablet } = useResponsive();
 
   const { t } = useTranslation();
 
@@ -43,13 +42,13 @@ export const PaymentHistory: React.FC = () => {
           <Title>{t('profile.nav.payments.paymentHistory')}</Title>
         </FormItem>
         <S.ContentWrapper isEmptyHistory={history.length === 0}>
-          {!isTablet && (history.length > 0 ? payments : <S.Text>{t('profile.nav.payments.noHistory')}</S.Text>)}
+          {mobileOnly && (history.length > 0 ? payments : <S.Text>{t('profile.nav.payments.noHistory')}</S.Text>)}
 
           {isTablet && <PaymentsTable payments={history} />}
         </S.ContentWrapper>
       </>
     ),
-    [isTablet, history, payments],
+    [isTablet, history, payments, mobileOnly],
   );
 
   return isTablet ? content : <Card>{content}</Card>;

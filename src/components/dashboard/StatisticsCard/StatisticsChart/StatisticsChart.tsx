@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { useMediaQuery } from 'react-responsive';
 import { ThemeContext } from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import { Chart } from '../../../common/Chart/Chart';
+import { useResponsive } from 'hooks/useResponsive';
 
 interface StatisticsChartProps {
   value: number;
@@ -13,9 +13,7 @@ interface StatisticsChartProps {
 export const StatisticsChart: React.FC<StatisticsChartProps> = ({ value, chartColor, color }) => {
   const themeContext = useContext(ThemeContext);
 
-  const isTablet = useMediaQuery({ query: themeContext.media.md });
-  const isDesktop = useMediaQuery({ query: themeContext.media.xl });
-  const isBigScreen = useMediaQuery({ query: themeContext.media.xxl });
+  const { isTablet, isDesktop, isBigScreen, tabletOnly } = useResponsive();
 
   const { t } = useTranslation();
 
@@ -48,7 +46,7 @@ export const StatisticsChart: React.FC<StatisticsChartProps> = ({ value, chartCo
   return (
     <Chart
       option={option}
-      width={(isTablet && !isDesktop && '100%') || '50%'}
+      width={(tabletOnly && '100%') || '50%'}
       height={(isBigScreen && '120px') || (isTablet && '70px') || '60px'}
     />
   );

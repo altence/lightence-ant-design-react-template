@@ -2,12 +2,11 @@ import React, { useMemo } from 'react';
 import { Col, Row } from 'antd';
 import { PaymentHistory } from './PaymentHistory/PaymentHistory';
 import { PaymentMethod } from './PaymentMethod/PaymentMethod';
-import { useMediaQuery } from 'react-responsive';
 import { Card } from 'components/common/Card/Card';
-import theme from 'styles/theme';
+import { useResponsive } from 'hooks/useResponsive';
 
 export const Payments: React.FC = () => {
-  const isTablet = useMediaQuery({ query: theme.media.md });
+  const { isTablet } = useResponsive();
 
   const content = useMemo(
     () => (
