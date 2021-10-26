@@ -1,8 +1,7 @@
-import MainLayout from 'components/layouts/MainLayout';
 import React from 'react';
 
 const DataTables: React.FC = () => {
-  return <MainLayout>Data tables page</MainLayout>;
+  return <>Data tables page</>;
 };
 
 export default DataTables;

@@ -14,102 +14,92 @@ import DataTables from 'pages/DataTables';
 import Charts from 'pages/Charts';
 import Maps from 'pages/Maps';
 import Maintenance from 'pages/Maintenance';
+import MainLayout from 'components/layouts/MainLayout';
+import AuthLayout from 'components/layouts/auth/AuthLayout';
 
 export const routes = [
   {
-    path: '/',
-    guarded: true,
-    exact: true,
-    component: Dashboard,
+    layout: MainLayout,
+    subRoutes: [
+      {
+        exact: true,
+        path: '/',
+        component: Dashboard,
+      },
+      {
+        path: '/feed',
+        component: NewsFeedPage,
+      },
+      {
+        path: '/kanban',
+        component: KanbanPage,
+      },
+      {
+        path: '/payment',
+        component: PaymentPage,
+      },
+      {
+        path: '/input-code',
+        component: InputCodePage,
+      },
+      {
+        path: '/data-tables',
+        component: DataTables,
+      },
+      {
+        path: '/charts',
+        component: Charts,
+      },
+      {
+        path: '/maps',
+        component: Maps,
+      },
+      {
+        path: '/profile',
+        component: Profile,
+      },
+      {
+        path: '/500',
+        component: Error500,
+      },
+      {
+        path: '/maintenance',
+        component: Maintenance,
+      },
+    ],
   },
   {
-    path: '/login',
-    guarded: false,
-    exact: false,
-    component: Login,
+    layout: AuthLayout,
+    subRoutes: [
+      {
+        path: '/login',
+        component: Login,
+        exact: true,
+      },
+      {
+        path: '/signup',
+        component: SignUp,
+        exact: true,
+      },
+      {
+        path: '/lock',
+        component: Lock,
+        exact: true,
+      },
+      {
+        path: '/forgot-password',
+        component: ForgotPassword,
+        exact: true,
+      },
+    ],
   },
   {
-    path: '/signup',
-    guarded: false,
-    exact: false,
-    component: SignUp,
-  },
-  {
-    path: '/lock',
-    guarded: false,
-    exact: false,
-    component: Lock,
-  },
-  {
-    path: '/forgot-password',
-    guarded: false,
-    exact: false,
-    component: ForgotPassword,
-  },
-  {
-    path: '/feed',
-    guarded: false,
-    exact: false,
-    component: NewsFeedPage,
-  },
-  {
-    path: '/kanban',
-    guarded: false,
-    exact: false,
-    component: KanbanPage,
-  },
-  {
-    path: '/payment',
-    guarded: false,
-    exact: false,
-    component: PaymentPage,
-  },
-  {
-    path: '/input-code',
-    guarded: false,
-    exact: false,
-    component: InputCodePage,
-  },
-  {
-    path: '/data-tables',
-    guarded: false,
-    exact: false,
-    component: DataTables,
-  },
-  {
-    path: '/charts',
-    guarded: false,
-    exact: false,
-    component: Charts,
-  },
-  {
-    path: '/maps',
-    guarded: false,
-    exact: false,
-    component: Maps,
-  },
-  {
-    path: '/profile',
-    guarded: false,
-    exact: false,
-    component: Profile,
-  },
-  {
-    path: '/500',
-    guarded: false,
-    exact: false,
-    component: Error500,
-  },
-  {
-    path: '/maintenance',
-    guarded: false,
-    exact: false,
-    component: Maintenance,
-  },
-  {
-    path: '',
-    guarded: false,
-    exact: false,
-    component: Error404,
+    layout: MainLayout,
+    subRoutes: [
+      {
+        path: '*',
+        component: Error404,
+      },
+    ],
   },
 ];

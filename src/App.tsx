@@ -31,7 +31,17 @@ const App: React.FC = () => {
               <BrowserRouter>
                 <Switch>
                   {routes.map((route, index) => (
-                    <Route {...route} key={index} />
+                    <Route
+                      key={index}
+                      exact={route.subRoutes.some((r) => r.exact)}
+                      path={route.subRoutes.map((r) => r.path)}
+                    >
+                      <route.layout>
+                        {route.subRoutes.map((subRoute, index) => (
+                          <Route key={index} {...subRoute} />
+                        ))}
+                      </route.layout>
+                    </Route>
                   ))}
                 </Switch>
               </BrowserRouter>
