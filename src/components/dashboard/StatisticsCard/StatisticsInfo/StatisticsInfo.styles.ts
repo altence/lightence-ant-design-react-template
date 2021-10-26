@@ -62,10 +62,10 @@ export const Percentage = styled.div<PercentageProps>`
   display: flex;
   align-items: center;
 
-  color: ${(props) => (props.isDowngrade && props.theme.colors.additional) || props.theme.colors.success};
+  color: ${(props) => (props.isDowngrade && props.theme.colors.main.error) || props.theme.colors.main.success};
 
   & ${Text} {
-    color: ${(props) => (props.isDowngrade && props.theme.colors.additional) || props.theme.colors.success};
+    color: ${(props) => (props.isDowngrade && props.theme.colors.main.error) || props.theme.colors.main.success};
   }
 
   @media only screen and ${theme.media.md} {

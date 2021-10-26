@@ -164,9 +164,9 @@ const colors = {
     primary: '#01509A',
     primaryGradient: 'linear-gradient(261.31deg, #006CCF -29.57%, #00509A 121.11%)',
     secondary: '#35A0DC',
-    additional: '#FF5252',
-    additional2: '#FFB155',
-    additional3: '#57D682',
+    error: '#FF5252',
+    warning: '#FFB155',
+    success: '#57D682',
     angularGradient:
       'conic-gradient(from -35.18deg at 50% 50%, #006CCF -154.36deg, #FF5252 24.13deg, #FFB155 118.76deg, #006CCF 205.64deg, #FF5252 384.13deg)',
   },

@@ -48,16 +48,16 @@ export const Percentage = styled.div<PercentageProps>`
   width: 2rem;
   align-items: center;
   color: ${(props) =>
-    (props.isActive && props.isDowngrade && props.theme.colors.additional) ||
-    (props.isActive && props.theme.colors.success) ||
+    (props.isActive && props.isDowngrade && props.theme.colors.main.error) ||
+    (props.isActive && props.theme.colors.main.success) ||
     props.theme.colors.basic};
 
   & ${Text} {
     margin-left: 0.2rem;
 
     color: ${(props) =>
-      (props.isActive && props.isDowngrade && props.theme.colors.additional) ||
-      (props.isActive && props.theme.colors.success) ||
+      (props.isActive && props.isDowngrade && props.theme.colors.main.error) ||
+      (props.isActive && props.theme.colors.main.success) ||
       props.theme.colors.basic};
   }
 `;

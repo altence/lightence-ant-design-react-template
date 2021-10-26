@@ -79,13 +79,13 @@ export const FormItem = styled(Form.Item)`
   &.ant-form-item-has-error .ant-input-affix-wrapper,
   &.ant-form-item-has-error .ant-input:hover,
   &.ant-form-item-has-error .ant-input-affix-wrapper:hover {
-    border-color: ${(props) => props.theme.colors.main.additional};
+    border-color: ${(props) => props.theme.colors.main.error};
   }
 
   &.ant-form-item-has-success.ant-form-item-has-feedback .ant-input,
   &.ant-form-item-has-success.ant-form-item-has-feedback .ant-input-affix-wrapper,
   &.ant-form-item-has-success.ant-form-item-has-feedback .ant-input:hover,
   &.ant-form-item-has-success.ant-form-item-has-feedback .ant-input-affix-wrapper:hover {
-    border-color: ${(props) => props.theme.colors.main.additional3};
+    border-color: ${(props) => props.theme.colors.main.success};
   }
 `;
