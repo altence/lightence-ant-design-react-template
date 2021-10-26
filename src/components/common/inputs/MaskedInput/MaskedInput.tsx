@@ -1,8 +1,7 @@
 import React from 'react';
 import { MaskedInput as AntMaskedInput } from 'antd-mask-input';
 import { InputProps } from 'antd';
-import { useMediaQuery } from 'react-responsive';
-import theme from 'styles/theme';
+import { useResponsive } from 'hooks/useResponsive';
 
 interface MaskedInputProps extends InputProps {
   mask: string;
@@ -11,7 +10,7 @@ interface MaskedInputProps extends InputProps {
 }
 
 export const MaskedInput: React.FC<MaskedInputProps> = ({ mask, placeholderChar, value, ...props }) => {
-  const isTablet = useMediaQuery({ query: theme.media.md });
+  const { isTablet } = useResponsive();
 
   return (
     <AntMaskedInput

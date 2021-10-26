@@ -1,5 +1,4 @@
 import React from 'react';
-import { useMediaQuery } from 'react-responsive';
 import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { MapCard } from '../components/dashboard/MapCard/MapCard';
@@ -15,20 +14,18 @@ import { PiecesOfAdviceCard } from '../components/dashboard/PiecesOfAdviceCard/P
 import { PageTitle } from 'components/common/PageTitle/PageTitle';
 import { StatisticsCard } from '../components/dashboard/StatisticsCard/StatisticsCard';
 import { statisticsData } from '../constants/statisticsData';
-import theme from '../styles/theme';
+import { useResponsive } from 'hooks/useResponsive';
 
 const Dashboard: React.FC = () => {
   const { t } = useTranslation();
 
-  const isMobile = useMediaQuery({ query: theme.media.xs });
-  const isTablet = useMediaQuery({ query: theme.media.md });
-  const isDesktop = useMediaQuery({ query: theme.media.xl });
+  const { mobileOnly, tabletOnly, isTablet, isDesktop } = useResponsive();
 
   return (
     <>
       <PageTitle>{t('common.dashboard')}</PageTitle>
       <Row justify="space-between" gutter={[10, 10]}>
-        {isMobile && !isTablet && (
+        {mobileOnly && (
           <>
             {statisticsData.map((st) => (
               <Col key={st.id} xs={12}>
@@ -83,7 +80,7 @@ const Dashboard: React.FC = () => {
           </>
         )}
 
-        {isTablet && !isDesktop && (
+        {tabletOnly && (
           <Col order={3} md={12} xl={9}>
             <MapCard />
           </Col>
@@ -105,7 +102,7 @@ const Dashboard: React.FC = () => {
           <PatientResultsCard />
         </Col>
 
-        {isMobile && !isTablet && (
+        {mobileOnly && (
           <Col xs={24}>
             <BloodScreeningCard />
           </Col>

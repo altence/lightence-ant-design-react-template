@@ -3,12 +3,11 @@ import { useMediaQuery } from 'react-responsive';
 import { Button } from 'antd';
 import { useTranslation } from 'react-i18next';
 import hamburgerIcon from '../../assets/icons/hamburger.svg';
-import theme from '../../styles/theme';
 import { SearchDropdown } from './SearchDropdown/SearchDropdown';
 import { ProfileDropdown } from './ProfileDropdown/ProfileDropdown';
 import { NotificationDropdown } from './NotificationDropdown/NotificationDropdown';
 import { SettingsDropdown } from './SettingsDropdown/SettingsDropdown';
-import { ExportDropdown } from './ExportDropdown/ExportDropdown';
+import { useResponsive } from 'hooks/useResponsive';
 import * as S from './Header.styles';
 
 const hamburger = <img src={hamburgerIcon} alt="Toggle Sider" />;
@@ -18,13 +17,13 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ toggleSider }) => {
-  const isTablet = useMediaQuery({ query: theme.media.md });
+  const { mobileOnly } = useResponsive();
   const { t } = useTranslation();
 
   return (
     <S.Wrapper>
       <S.TopWrapper>
-        {!isTablet && (
+        {mobileOnly && (
           <S.MenuWrapper>
             <Button size="small" type="text" icon={hamburger} onClick={toggleSider} />
           </S.MenuWrapper>

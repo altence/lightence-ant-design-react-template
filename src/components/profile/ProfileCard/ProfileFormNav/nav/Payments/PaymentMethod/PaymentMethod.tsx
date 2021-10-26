@@ -1,14 +1,13 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import { Form } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { useMediaQuery } from 'react-responsive';
 import { Card } from 'components/common/Card/Card';
 import { PaymentCardCarousel } from './PaymentCardCarousel/PaymentCardCarousel';
 import { FormItem, Title } from '../../../../../../common/Form/Form.styles';
 import { CreditCard } from './PaymentForm/interfaces';
 import { cardThemes } from 'constants/cardThemes';
-import theme from 'styles/theme';
 import { PaymentModal } from './PaymentModal/PaymentModal';
+import { useResponsive } from 'hooks/useResponsive';
 import * as S from './PaymentMethod.styles';
 
 export const clearCardData: CreditCard = {
@@ -66,7 +65,7 @@ export const PaymentMethod: React.FC = () => {
 
   const [form] = Form.useForm();
 
-  const isTablet = useMediaQuery({ query: theme.media.md });
+  const { isTablet } = useResponsive();
 
   const handleOpenModal = useCallback(() => {
     setModalVisible(true);

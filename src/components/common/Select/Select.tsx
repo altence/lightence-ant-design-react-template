@@ -1,7 +1,6 @@
 import React from 'react';
 import { Select as AntSelect, SelectProps as AntSelectProps } from 'antd';
-import { useMediaQuery } from 'react-responsive';
-import theme from 'styles/theme';
+import { useResponsive } from 'hooks/useResponsive';
 
 export const { Option } = AntSelect;
 
@@ -10,7 +9,7 @@ interface SelectProps extends AntSelectProps<any> {
 }
 
 export const Select: React.FC<SelectProps> = ({ className, children, ...props }) => {
-  const isTablet = useMediaQuery({ query: theme.media.md });
+  const { isTablet } = useResponsive();
 
   return (
     <AntSelect size={(isTablet && 'large') || 'middle'} className={className} {...props}>
