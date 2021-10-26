@@ -18,7 +18,6 @@ export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ activ
   const months = Dates.getMonths();
 
   const option = {
-    color: (isTablet && themeContext.colors.chartsErrorGradient) || themeContext.colors.error,
     grid: {
       top: '30%',
       bottom: 0,
@@ -54,7 +53,7 @@ export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ activ
         },
         lineStyle: {
           width: 2,
-          color: themeContext.colors.error,
+          color: themeContext.colors.main.error,
         },
       },
     ],

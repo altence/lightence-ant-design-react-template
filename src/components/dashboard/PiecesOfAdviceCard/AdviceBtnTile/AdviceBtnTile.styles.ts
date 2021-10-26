@@ -15,7 +15,7 @@ export const Tile = styled.div<BtnProps>`
   width: 0.375rem;
   height: 0.375rem;
 
-  background-color: ${(props) => props.theme.colors.primary};
+  background-color: ${(props) => props.theme.colors.main.primary};
 
   ${(props) => !props.isActive && 'opacity: 0.4'};
 

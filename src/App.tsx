@@ -24,7 +24,7 @@ const App: React.FC = () => {
   return (
     <>
       <GlobalStyle />
-      <ThemeProvider theme={theme === 'light' && lightTheme}>
+      <ThemeProvider theme={lightTheme}>
         <ThemeContext.Provider value={{ theme, setTheme }}>
           <NightModeContext.Provider value={{ isNightMode, setNightMode, nightTime, setNightTime }}>
             <ConfigProvider locale={i18n.language === 'en' ? enUS : deDe}>

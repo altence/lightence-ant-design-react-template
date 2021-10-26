@@ -7,7 +7,7 @@ export const Header = styled.div`
   display: flex;
   align-items: center;
 
-  background-color: ${(props) => props.theme.colors.back.lightGray};
+  background-color: ${(props) => props.theme.colors.main.secondaryBackground};
 `;
 
 export const AvatarWrapper = styled.div`

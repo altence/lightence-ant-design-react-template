@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 `;
 
 export const CalendarBtn = styled(AntButton)`
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.main.primary};
 `;
 
 export const MonthSwitch = styled.div`

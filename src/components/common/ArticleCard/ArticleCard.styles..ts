@@ -16,14 +16,14 @@ export const BtnMore = styled(Button)`
   transition: all 0.3s ease;
   pointer-events: none;
 
-  color: ${(props) => props.theme.colors.secondary};
+  color: ${(props) => props.theme.colors.text.secondary};
 
   @media only screen and ${theme.media.xxl} {
     padding: 0.875rem 4.875rem;
   }
 
   &:hover {
-    background-color: ${(props) => props.theme.colors.secondary};
+    background-color: ${(props) => props.theme.colors.main.mainBackground};
   }
 `;
 
@@ -38,10 +38,10 @@ export const Keywords = styled(Input)`
   opacity: 0;
   transition: all 0.3s ease;
 
-  color: ${(props) => props.theme.colors.secondary};
+  color: ${(props) => props.theme.colors.text.secondary};
 
   &::placeholder {
-    color: ${(props) => props.theme.colors.secondary};
+    color: ${(props) => props.theme.colors.text.secondary};
   }
 `;
 
@@ -52,8 +52,6 @@ export const Wrapper = styled.div`
   width: 100%;
 
   border-radius: ${(props) => props.theme.border.radius};
-
-  background-color: ${(props) => props.theme.colors.basicLight};
 
   @media only screen and ${theme.media.md} {
     width: calc(50% - 0.3125rem);
@@ -82,7 +80,7 @@ export const Wrapper = styled.div`
 
     border-radius: ${(props) => props.theme.border.radius};
 
-    background: ${(props) => props.theme.colors.primaryGradient};
+    background: ${(props) => props.theme.colors.main.primaryGradient};
   }
 
   &:hover {
@@ -142,7 +140,7 @@ export const Title = styled(Typography.Text)`
   font-size: 0.75rem;
   width: 60%;
 
-  color: ${(props) => props.theme.colors.basicDark};
+  color: ${(props) => props.theme.colors.text.main};
 
   @media only screen and ${theme.media.xxl} {
     font-size: 1rem;

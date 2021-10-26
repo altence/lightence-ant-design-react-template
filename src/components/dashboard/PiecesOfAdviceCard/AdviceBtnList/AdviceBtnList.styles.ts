@@ -12,7 +12,7 @@ export const Line = styled.div<BtnProps>`
   margin-bottom: 0.125rem;
   flex-shrink: 0;
 
-  background-color: ${(props) => props.theme.colors.primary};
+  background-color: ${(props) => props.theme.colors.main.primary};
 
   ${(props) => !props.isActive && 'opacity: 0.4'};
 

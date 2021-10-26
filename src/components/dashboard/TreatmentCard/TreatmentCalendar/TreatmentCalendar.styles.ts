@@ -14,7 +14,7 @@ interface LegendProps {
 export const Wrapper = styled.div`
   position: relative;
 
-  background-color: ${(props) => props.theme.colors.secondary};
+  background-color: ${(props) => props.theme.colors.main.mainBackground};
 
   @media only screen and ${theme.media.md} {
     width: calc(45% - 0.25rem);
@@ -31,7 +31,7 @@ export const ButtonLeft = styled.button`
   transform: translateY(-50%);
   z-index: 2;
 
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.main.primary};
 `;
 
 export const ButtonRight = styled(ButtonLeft)`
@@ -52,7 +52,7 @@ export const Calendar = styled(AntCalendar)`
     font-weight: 500;
     font-size: 0.75rem;
 
-    color: ${(props) => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.main.primary};
 
     @media only screen and ${theme.media.xxl} {
       font-size: 0.875rem;
@@ -112,7 +112,7 @@ export const LegendIcon = styled.div<LegendProps>`
   flex-shrink: 0;
   margin-right: 0.2rem;
 
-  background-color: ${(props) => (props.isPrimary && props.theme.colors.primary) || props.theme.colors.basic};
+  background-color: ${(props) => (props.isPrimary && props.theme.colors.main.primary) || props.theme.colors.text.light};
 
   @media only screen and ${theme.media.xxl} {
     width: 1rem;

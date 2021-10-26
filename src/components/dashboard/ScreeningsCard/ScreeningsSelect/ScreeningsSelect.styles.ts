@@ -10,10 +10,10 @@ export const Select = styled(AntSelect)`
 
   border-radius: ${(props) => props.theme.border.radius};
 
-  background-color: ${(props) => props.theme.colors.secondary};
+  background-color: ${(props) => props.theme.colors.main.mainBackground};
 
   & .ant-select-selection-placeholder {
-    color: ${(props) => props.theme.colors.basicDark};
+    color: ${(props) => props.theme.colors.text.main};
   }
 
   @media only screen and ${theme.media.md} {

@@ -1,19 +1,20 @@
 import styled from 'styled-components';
 import { Button, Typography, Input as AntInput, Form, Checkbox } from 'antd';
 import theme from '../../../styles/theme';
+import { hexToRGB } from 'helpers/hexToRGB';
 
 export const Wrapper = styled.div`
   padding: 1.875rem 1.875rem 5.5rem 1.875rem;
   width: 20.5rem;
 
-  background-color: ${(props) => props.theme.colors.secondary};
+  background-color: ${(props) => props.theme.colors.main.mainBackground};
 
   border-radius: ${(props) => props.theme.border.radius};
 
   @media only screen and ${theme.media.md} {
     padding: 1.25rem 2rem 0.75rem 2rem;
 
-    background-color: ${(props) => props.theme.colors.secondaryAlpha};
+    background-color: ${(props) => hexToRGB(props.theme.colors.main.mainBackground, 0.7)};
   }
 
   @media only screen and ${theme.media.xl} {
@@ -52,8 +53,6 @@ export const FormItem = styled(Form.Item)`
 
 export const Input = styled(AntInput)`
   font-size: 0.75rem;
-
-  background-color: ${(props) => props.theme.colors.basicLight};
 `;
 
 export const ActionsWrapper = styled.div`
@@ -74,7 +73,7 @@ export const CheckBox = styled(Checkbox)`
 export const Text = styled(Typography.Text)`
   font-size: 0.68rem;
 
-  color: ${(props) => props.theme.colors.basicMurky};
+  color: ${(props) => props.theme.colors.text.light};
 `;
 
 export const SubmitButton = styled(Button)`
@@ -90,5 +89,5 @@ export const SignupWrapper = styled.div`
 export const SignupText = styled(Typography.Text)`
   text-decoration: underline;
 
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.main.primary};
 `;

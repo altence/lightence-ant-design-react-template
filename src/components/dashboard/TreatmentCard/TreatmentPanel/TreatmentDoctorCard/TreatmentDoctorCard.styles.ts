@@ -19,7 +19,7 @@ export const Title = styled(Typography.Text)`
   font-size: 0.625rem;
   display: block;
 
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.main.primary};
 
   @media only screen and ${theme.media.xxl} {
     font-size: 0.75rem;
@@ -88,7 +88,7 @@ export const DiagnosisWrapper = styled.div`
       height: 1px;
       width: 100%;
 
-      background-color: ${(props) => props.theme.colors.basicLight};
+      background-color: ${(props) => props.theme.commonColors.gray}; // TODO check
     }
   }
 `;

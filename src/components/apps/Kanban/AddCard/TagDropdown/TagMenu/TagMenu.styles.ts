@@ -15,7 +15,7 @@ export const TagMenu = styled(Menu)`
 
   border-radius: ${(props) => props.theme.border.radius};
 
-  background-color: ${(props) => props.theme.colors.text.secondary};
+  background-color: ${(props) => props.theme.colors.main.mainBackground};
   box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.07) !important;
 `;
 

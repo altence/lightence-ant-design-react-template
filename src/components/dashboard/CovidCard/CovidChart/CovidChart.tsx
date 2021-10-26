@@ -3,6 +3,7 @@ import { Chart } from '../../../common/Chart/Chart';
 import { getMarkAreaData } from '../../../../helpers/getMarkAreaData';
 import { ThemeContext } from 'styled-components';
 import { useResponsive } from 'hooks/useResponsive';
+import { hexToRGB } from 'helpers/hexToRGB';
 
 const xAxisData = Array.from({ length: 30 }, (_, i) => i + 1);
 
@@ -12,7 +13,6 @@ export const CovidChart: React.FC = () => {
   const { isTablet } = useResponsive();
 
   const option = {
-    color: themeContext.colors.chartsPrimaryGradient,
     grid: {
       top: 0,
       left: 0,
@@ -39,7 +39,7 @@ export const CovidChart: React.FC = () => {
         areaStyle: {},
         markArea: {
           itemStyle: {
-            color: themeContext.colors.primaryAlpha,
+            color: hexToRGB(themeContext.colors.main.primary, 0.7),
           },
           data: getMarkAreaData(xAxisData),
         },

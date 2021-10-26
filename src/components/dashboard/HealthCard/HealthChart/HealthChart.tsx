@@ -23,12 +23,6 @@ export const HealthChart: React.FC = () => {
   });
 
   const option = {
-    color: [
-      themeContext.colors.chartsErrorGradient,
-      themeContext.colors.chartsAccentGradient,
-      themeContext.colors.chartsPrimaryGradient,
-      themeContext.colors.basicLight,
-    ],
     tooltip: {
       trigger: 'item',
     },
@@ -82,16 +76,16 @@ export const HealthChart: React.FC = () => {
           formatter: (label: EChartsOption) => {
             return `${label.value} ${t('dashboard.health.percent')}`;
           },
-          backgroundColor: themeContext.colors.secondary,
-          color: themeContext.colors.primary,
+          backgroundColor: themeContext.colors.main.mainBackground,
+          color: themeContext.colors.main.primary,
           fontSize: (isBigScreen && 18) || 12,
         },
         data,
         emphasis: {
           label: {
             show: true,
-            backgroundColor: themeContext.colors.secondary,
-            color: themeContext.colors.primary,
+            backgroundColor: themeContext.colors.main.mainBackground,
+            color: themeContext.colors.main.primary,
           },
         },
       },

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Typography } from 'antd';
 import { Card as CardStyled } from '../../common/Card/Card';
 import theme from '../../../styles/theme';
+import { hexToRGB } from 'helpers/hexToRGB';
 
 export const Card = styled(CardStyled)`
   & .ant-card-body {
@@ -19,9 +20,9 @@ export const Badge = styled(Typography.Text)`
 
   border-radius: ${(props) => props.theme.border.radius};
 
-  background-color: ${(props) => props.theme.colors.primaryLight};
+  background-color: ${(props) => hexToRGB(props.theme.colors.main.primary, 0.7)};
 
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.main.primary};
 
   @media only screen and ${theme.media.md} {
     display: none;

@@ -38,7 +38,7 @@ export const Theme = styled.div`
   height: calc(100% - 0.4rem);
   margin: 0.2rem;
 
-  border: 5px solid ${(props) => props.theme.colors.text.secondary};
+  border: 5px solid ${(props) => props.theme.colors.main.mainBackground};
 
   border-radius: ${(props) => props.theme.border.radius};
 `;
