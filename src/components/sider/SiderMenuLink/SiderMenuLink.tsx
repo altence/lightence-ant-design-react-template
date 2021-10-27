@@ -20,8 +20,8 @@ export const SiderMenuLink: React.FC<SiderMenuLinkProps> = ({
 }) => {
   return (
     <Menu.Item icon={icon} {...props}>
-      <Row justify="space-between" align="middle">
-        <Col>
+      <Row gutter={[20, 20]} justify="space-between" align="middle">
+        <Col flex={1}>
           <Link to={href}>{name}</Link>
         </Col>
         <Col>
