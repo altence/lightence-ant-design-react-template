@@ -38,7 +38,7 @@ export const Menu = styled(AntMenu)`
   }
 
   &:not(.ant-menu-horizontal) .ant-menu-item-selected {
-    background: ${(props) => props.theme.colors.main.primaryGradient};
+    background: transparent;
 
     &::after {
       display: none;
@@ -58,7 +58,7 @@ export const Submenu = styled(AntMenu.SubMenu)<MenuItemProps>`
     props.isActive &&
     css`
       &:not(.ant-menu-submenu-open) {
-        background: ${(props) => props.theme.colors.main.primaryGradient};
+        background: ${(props) => props.theme.colors.main.primaryGradient} !important;
       }
     `}
 `;

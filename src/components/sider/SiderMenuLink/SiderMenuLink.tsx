@@ -21,8 +21,8 @@ export const SiderMenuLink: React.FC<SiderMenuLinkProps> = ({
   isActive,
   ...props
 }) => (
-  <Link to={href}>
-    <S.MenuItem icon={icon} {...props} isActive={isActive}>
+  <S.MenuItem icon={icon} {...props} isActive={isActive}>
+    <Link to={href}>
       <Row gutter={[20, 20]} justify="space-between" align="middle">
         <Col flex={1}>{name}</Col>
         {!!notificationsCount && (
@@ -31,6 +31,6 @@ export const SiderMenuLink: React.FC<SiderMenuLinkProps> = ({
           </Col>
         )}
       </Row>
-    </S.MenuItem>
-  </Link>
+    </Link>
+  </S.MenuItem>
 );
