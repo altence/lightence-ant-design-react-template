@@ -1,0 +1,21 @@
+import React from 'react';
+import { LatLngExpression } from 'leaflet';
+import { GeoJSON, ZoomControl } from 'react-leaflet';
+import { MapContainerProps } from 'react-leaflet/types/MapContainer';
+
+import geoData from '../../../assets/map-data/countries.geo.json';
+import { FeatureCollection } from 'geojson';
+
+import * as S from './CountryMap.styles';
+
+export const CountryMap: React.FC<MapContainerProps> = ({ children, ...props }) => {
+  const MAP_CENTER: LatLngExpression = [46.946251, -41.274886];
+
+  return (
+    <S.Map center={MAP_CENTER} zoom={2} zoomControl={false} minZoom={1} maxZoom={10} {...props}>
+      <GeoJSON data={geoData as FeatureCollection} />
+      <ZoomControl position="bottomleft" />
+      {children}
+    </S.Map>
+  );
+};

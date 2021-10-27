@@ -194,6 +194,7 @@ const colors = {
   border: {
     main: '#bec0c6',
   },
+  mapGradient: 'linear-gradient(to right, rgba(64, 224, 208, 0.3), rgba(255, 140, 0, 0.3), rgba(255, 0, 128, 0.3))',
 };
 
 const theme: DefaultTheme = {

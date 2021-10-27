@@ -1,12 +1,11 @@
 import React from 'react';
 import { Card } from '../../common/Card/Card';
-import { Map } from './Map/Map';
-import { MapHeader } from './MapHeader/MapHeader';
+import { DoctorsMap } from './DoctorsMap/DoctorsMap';
 
 export const MapCard: React.FC = () => {
   return (
-    <Card id="map" title={<MapHeader />} padding={0}>
-      <Map />
+    <Card id="map" padding={0}>
+      <DoctorsMap />
     </Card>
   );
 };
