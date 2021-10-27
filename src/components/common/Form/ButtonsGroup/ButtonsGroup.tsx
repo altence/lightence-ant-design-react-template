@@ -1,8 +1,7 @@
+import React from 'react';
 import { Col, Row } from 'antd';
 import { ButtonType } from 'antd/es/button';
 import { ButtonSize } from 'antd/lib/button';
-import { Button } from 'components/common/buttons/Button/Button';
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import * as S from './ButtonsGroup.styles';
 

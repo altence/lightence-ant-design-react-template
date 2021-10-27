@@ -10,7 +10,7 @@ import {
 import InlineInput from 'react-trello/dist/widgets/InlineInput';
 import Tag from 'react-trello/dist/components/Card/Tag';
 import DeleteButton from 'react-trello/dist/widgets/DeleteButton';
-import { CardState } from '../interfaces';
+import { CardState, Tag as ITag } from '../interfaces';
 
 interface CardProps {
   showDeleteButton: boolean;
@@ -24,10 +24,9 @@ interface CardProps {
   title: string;
   label: string;
   description: string;
-  tags: { title: string; color: string; bgcolor: string }[];
+  tags: ITag[];
   cardDraggable: boolean;
   editable: boolean;
-  t: () => void;
 }
 
 export const Card: React.FC<CardProps> = ({

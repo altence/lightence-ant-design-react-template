@@ -1,40 +1,43 @@
 import React from 'react';
 import { AddCard } from './AddCard/AddCard';
 import { Card } from './Card/Card';
+import theme from 'styles/theme';
 import * as S from './Kanban.styles';
+
+const { green, orange, gray, violet, lightgreen, pink, blue, skyblue } = theme.commonColors;
 
 export const tags = {
   intravenous: {
     title: 'Intravenous',
-    bgcolor: 'green',
+    bgcolor: green,
   },
   oral: {
     title: 'Oral',
-    bgcolor: 'orange',
+    bgcolor: orange,
   },
   intramuscular: {
     title: 'Intramuscular',
-    bgcolor: 'gray',
+    bgcolor: gray,
   },
   other: {
     title: 'Other Administation Route',
-    bgcolor: 'violet',
+    bgcolor: violet,
   },
   licensedEMTP: {
     title: 'Licensed for EMT-P',
-    bgcolor: 'lightgreen',
+    bgcolor: lightgreen,
   },
   licensedCCEMTP: {
     title: 'Licensed for CCEMT-P',
-    bgcolor: 'pink',
+    bgcolor: pink,
   },
   licensedNONEMT: {
     title: 'Licensed for NON-EMT Care',
-    bgcolor: 'blue',
+    bgcolor: blue,
   },
   licensedEMTB: {
     title: 'Licensed for EMT-B',
-    bgcolor: 'skyblue',
+    bgcolor: skyblue,
   },
 };
 
@@ -202,6 +205,12 @@ const data = {
   ],
 };
 
-export const Kanban: React.FC = () => {
-  return <S.Kanban components={{ Card, NewCardForm: AddCard }} editable laneDraggable data={data} />;
-};
+export const Kanban: React.FC = () => (
+  <S.Kanban
+    components={{ Card, NewCardForm: AddCard }}
+    editable
+    laneDraggable
+    data={data}
+    tagStyle={{ border: `1px solid ${theme.colors.border.main}` }}
+  />
+);

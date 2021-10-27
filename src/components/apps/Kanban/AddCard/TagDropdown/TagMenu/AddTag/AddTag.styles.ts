@@ -6,19 +6,26 @@ interface ColorWrapperProps {
 }
 
 export const ColorWrapper = styled.div<ColorWrapperProps>`
-  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 3.25rem;
   height: 1.75rem;
   font-weight: 700;
   font-size: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.5s ease;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  border: ${(props) => `1px solid ${props.theme.colors.border.main}`};
 
   border-radius: ${(props) => props.theme.border.radius};
 
-  color: ${(props) => (props.isActive && props.theme.colors.text.secondary) || 'transparent'};
+  color: ${(props) =>
+    (props.isActive &&
+      (props.color === props.theme.commonColors.white
+        ? props.theme.colors.text.main
+        : props.theme.colors.text.secondary)) ||
+    'transparent'};
 
-  ${(props) => props.color && `background-color: ${props.color}`};
+  background-color: ${(props) => props.color};
 `;
