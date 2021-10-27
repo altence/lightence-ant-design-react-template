@@ -6,7 +6,7 @@ import { Btn } from '../../AddCard.styles';
 import { AddTag } from './AddTag/AddTag';
 import { tags as initialTags } from '../../../Kanban';
 import * as S from './TagMenu.styles';
-import { Col, Row } from 'antd';
+import { Col, Popconfirm, Row } from 'antd';
 
 interface TagMenuProps {
   selectedTags: Tag[];
@@ -50,7 +50,9 @@ export const TagMenu: React.FC<TagMenuProps> = ({ selectedTags, setSelectedTags 
           >
             <Col>{tag.title}</Col>
             <Col>
-              <DeleteOutlined onClick={() => removeTag(tag)} />
+              <Popconfirm title={t('common.deleteQuestion')} onConfirm={() => removeTag(tag)}>
+                <DeleteOutlined />
+              </Popconfirm>
             </Col>
           </S.Tag>
         </Col>
