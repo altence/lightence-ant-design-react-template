@@ -51,5 +51,13 @@ declare module 'styled-components' {
       xl: string;
       xxl: string;
     };
+    mobileLayout: {
+      paddingVertical: string;
+      paddingHorizontal: string;
+    };
+    desktopLayout: {
+      paddingVertical: string;
+      paddingHorizontal: string;
+    };
   }
 }
