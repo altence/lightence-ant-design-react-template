@@ -1,63 +1,68 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Menu, Typography } from 'antd';
 
-interface ControlsWrapperProps {
+interface CheckWrapperProps {
   isActive: boolean;
 }
 
-interface TagWrapperProps {
-  color: string;
+interface TagProps {
+  isActive: boolean;
+  color?: string;
 }
 
 export const TagMenu = styled(Menu)`
-  padding: 1rem;
   max-width: 300px;
+  box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.07) !important;
+  line-height: 1.5715;
+
+  padding: ${(props) => props.theme.mobileLayout.paddingHorizontal};
 
   border-radius: ${(props) => props.theme.border.radius};
-
-  background-color: ${(props) => props.theme.colors.main.mainBackground};
-  box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.07) !important;
 `;
 
 export const Title = styled(Typography.Text)`
   font-size: 1rem;
 `;
 
-export const TagWrapper = styled.div`
-  margin: 2rem 0 1rem 0;
-  display: flex;
-  flex-direction: column;
-  row-gap: 0.5rem;
-
-  & span[role='img'] {
-    color: ${(props) => props.theme.colors.text.main};
-  }
-`;
-
-export const Tag = styled.div<TagWrapperProps>`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+export const Tag = styled.div<TagProps>`
   cursor: pointer;
-  column-gap: 0.5rem;
   padding: 0 0.5rem;
   min-height: 2rem;
+  transition: all 0.3s ease;
 
   border-radius: ${(props) => props.theme.border.radius};
 
+  border: ${(props) => `1px solid ${props.theme.colors.border.main}`};
+
   background-color: ${(props) => props.color};
 
-  color: ${(props) => (props.color && props.theme.colors.text.secondary) || props.theme.colors.text.main};
+  color: ${(props) =>
+    (props.color && props.color !== props.theme.commonColors.white && props.theme.colors.text.secondary) ||
+    props.theme.colors.text.main};
+
+  ${(props) =>
+    props.isActive &&
+    css`
+      box-shadow: 0 0 0 4px rgb(0 89 171 / 50%);
+
+      border-color: ${(props) => props.theme.colors.main.primary};
+    `}
+
+  & span[role='img'] {
+    padding: 0.25rem;
+
+    border: ${(props) => `1px solid ${props.theme.colors.border.main}`};
+
+    color: ${(props) => props.theme.colors.text.main};
+
+    background-color: ${(props) => props.theme.colors.main.mainBackground};
+
+    border-radius: ${(props) => props.theme.border.radius};
+  }
 `;
 
-export const ControlsWrapper = styled.div<ControlsWrapperProps>`
-  display: flex;
-  align-items: center;
-  column-gap: 0.5rem;
+export const CheckWrapper = styled.div<CheckWrapperProps>`
+  transition: all 0.3s ease;
 
-  & > div {
-    transition: all 0.5s ease;
-
-    opacity: ${(props) => (props.isActive && '1') || '0'};
-  }
+  opacity: ${(props) => (props.isActive && '1') || '0'};
 `;
