@@ -1,13 +1,15 @@
 import React from 'react';
-import { MenuItemProps, Menu, Row, Col } from 'antd';
+import { MenuItemProps, Row, Col } from 'antd';
 import { Link } from 'react-router-dom';
 import { Badge, BadgeType } from 'components/common/Badge/Badge';
+import * as S from './SiderMenuLink.styles';
 
 interface SiderMenuLinkProps extends MenuItemProps {
   href: string;
   name: string;
   notificationsCount?: number;
   notificationsSeverity?: BadgeType;
+  isActive: boolean;
 }
 
 export const SiderMenuLink: React.FC<SiderMenuLinkProps> = ({
@@ -16,18 +18,19 @@ export const SiderMenuLink: React.FC<SiderMenuLinkProps> = ({
   name,
   notificationsCount,
   notificationsSeverity,
+  isActive,
   ...props
-}) => {
-  return (
-    <Menu.Item icon={icon} {...props}>
+}) => (
+  <Link to={href}>
+    <S.MenuItem icon={icon} {...props} isActive={isActive}>
       <Row gutter={[20, 20]} justify="space-between" align="middle">
-        <Col flex={1}>
-          <Link to={href}>{name}</Link>
-        </Col>
-        <Col>
-          <Badge severity={notificationsSeverity} count={notificationsCount} />
-        </Col>
+        <Col flex={1}>{name}</Col>
+        {!!notificationsCount && (
+          <Col>
+            <Badge severity={notificationsSeverity} count={notificationsCount} />
+          </Col>
+        )}
       </Row>
-    </Menu.Item>
-  );
-};
+    </S.MenuItem>
+  </Link>
+);

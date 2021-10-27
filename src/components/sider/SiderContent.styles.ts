@@ -1,5 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Menu as AntMenu } from 'antd';
+import { MenuItemProps } from './interfaces';
 
 export const Menu = styled(AntMenu)`
   background: transparent;
@@ -31,12 +32,12 @@ export const Menu = styled(AntMenu)`
   & .ant-menu-submenu:hover > .ant-menu-submenu-title > .ant-menu-submenu-arrow,
   & .ant-menu-submenu:hover span[role='img'],
   & .ant-menu-item-selected a,
-  & .ant-menu-item-selected a:hover {
+  & .ant-menu-item-selected a:hover,
+  & .ant-menu-item a:hover {
     color: ${(props) => props.theme.colors.text.secondary};
   }
 
-  &:not(.ant-menu-horizontal) .ant-menu-item-selected,
-  .ant-menu-submenu-selected {
+  &:not(.ant-menu-horizontal) .ant-menu-item-selected {
     background: ${(props) => props.theme.colors.main.primaryGradient};
 
     &::after {
@@ -50,4 +51,14 @@ export const Menu = styled(AntMenu)`
 
     color: ${(props) => props.theme.colors.text.secondary};
   }
+`;
+
+export const Submenu = styled(AntMenu.SubMenu)<MenuItemProps>`
+  ${(props) =>
+    props.isActive &&
+    css`
+      &:not(.ant-menu-submenu-open) {
+        background: ${(props) => props.theme.colors.main.primaryGradient};
+      }
+    `}
 `;
