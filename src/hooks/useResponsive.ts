@@ -17,10 +17,10 @@ export const useResponsive = (): ResponsiveReturnValues => {
   const isBigScreen = useMediaQuery({ query: theme.media.xxl });
 
   const mobileOnly = useMediaQuery({
-    query: `(min-width: ${theme.breakpoints.xs - 1}px) and (max-width: ${theme.breakpoints.md - 1}px)`,
+    query: `(min-width: ${theme.breakpoints.xs}px) and (max-width: ${theme.breakpoints.md - 0.02}px)`,
   });
   const tabletOnly = useMediaQuery({
-    query: `(min-width: ${theme.breakpoints.md - 1}px) and (max-width: ${theme.breakpoints.xl - 1}px)`,
+    query: `(min-width: ${theme.breakpoints.md}px) and (max-width: ${theme.breakpoints.xl - 0.02}px)`,
   });
 
   return {
