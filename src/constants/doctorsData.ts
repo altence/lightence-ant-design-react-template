@@ -13,6 +13,7 @@ export interface Doctor {
   imgUrl: string;
 }
 
+// TODO change image. Find new images and add them locally
 export const doctorsData: Doctor[] = [
   {
     id: 1,
@@ -23,8 +24,8 @@ export const doctorsData: Doctor[] = [
     lastDiagnosis: 1,
     nextVisit: null,
     gps: {
-      latitude: 42.341798,
-      longitude: -83.070841,
+      latitude: 51.505,
+      longitude: -0.09,
     },
     imgUrl:
       'https://res.cloudinary.com/lapkinthegod/image/upload/v1629187274/happy-young-male-doctor-using-tablet-computer_zjnbab.jpg',
@@ -38,8 +39,8 @@ export const doctorsData: Doctor[] = [
     lastDiagnosis: 2,
     nextVisit: 1629838800000,
     gps: {
-      latitude: 42.362096,
-      longitude: -83.039921,
+      latitude: 40.73061,
+      longitude: -73.935242,
     },
     imgUrl:
       'https://res.cloudinary.com/lapkinthegod/image/upload/v1629187274/doctor-using-tablet-computer-isolated-white-wall_jmtkgi.jpg',
@@ -53,8 +54,8 @@ export const doctorsData: Doctor[] = [
     lastDiagnosis: 3,
     nextVisit: null,
     gps: {
-      latitude: 42.355246,
-      longitude: -83.023087,
+      latitude: -99.133209,
+      longitude: 19.432608,
     },
     imgUrl:
       'https://res.cloudinary.com/lapkinthegod/image/upload/v1629187273/portrait-successful-mid-adult-doctor-with-crossed-arms_kp1eyf.jpg',
@@ -68,8 +69,8 @@ export const doctorsData: Doctor[] = [
     lastDiagnosis: 4,
     nextVisit: 1630098000000,
     gps: {
-      latitude: 42.328601,
-      longitude: -83.049541,
+      latitude: 35.652832,
+      longitude: 139.839478,
     },
     imgUrl:
       'https://res.cloudinary.com/lapkinthegod/image/upload/v1629187274/smile-happiness-nurse-medical-arab-strong_kqz3iv.jpg',
@@ -83,8 +84,8 @@ export const doctorsData: Doctor[] = [
     lastDiagnosis: 5,
     nextVisit: null,
     gps: {
-      latitude: 42.321493,
-      longitude: -83.097294,
+      latitude: 52.520008,
+      longitude: 13.404954,
     },
     imgUrl:
       'https://res.cloudinary.com/lapkinthegod/image/upload/v1629187273/hospital-healthcare-workers-covid-19-treatment-concept-young-doctor-scrubs-making-daily-errands-clinic-listening-patient-symptoms-look-camera-professional-physician-curing-diseases_a5tou4.jpg',
@@ -98,8 +99,8 @@ export const doctorsData: Doctor[] = [
     lastDiagnosis: 6,
     nextVisit: 1630270800000,
     gps: {
-      latitude: 42.324032,
-      longitude: -83.071872,
+      latitude: -26.195246,
+      longitude: 28.034088,
     },
     imgUrl:
       'https://res.cloudinary.com/lapkinthegod/image/upload/v1629187274/studio-shot-attractive-middle-aged-blonde-woman-physician-with-stethoscope-around-her-neck-posing-isolated-with-pen-clipboard-making-medical-records-prescribing-treatment-patient_l8ygoh.jpg',
@@ -113,8 +114,38 @@ export const doctorsData: Doctor[] = [
     lastDiagnosis: 7,
     nextVisit: null,
     gps: {
-      latitude: 42.316416,
-      longitude: -83.08527,
+      latitude: -22.908333,
+      longitude: -43.196388,
+    },
+    imgUrl:
+      'https://res.cloudinary.com/lapkinthegod/image/upload/v1629187274/young-male-doctor-white-uniform_x7dcrs.jpg',
+  },
+  {
+    id: 8,
+    name: 'Test',
+    specifity: 7,
+    rating: 4,
+    lastVisit: 1627765200000,
+    lastDiagnosis: 7,
+    nextVisit: null,
+    gps: {
+      latitude: 49.895077,
+      longitude: -97.138451,
+    },
+    imgUrl:
+      'https://res.cloudinary.com/lapkinthegod/image/upload/v1629187274/young-male-doctor-white-uniform_x7dcrs.jpg',
+  },
+  {
+    id: 9,
+    name: 'Test',
+    specifity: 7,
+    rating: 4,
+    lastVisit: 1627765200000,
+    lastDiagnosis: 7,
+    nextVisit: null,
+    gps: {
+      latitude: 31.628674,
+      longitude: -7.992047,
     },
     imgUrl:
       'https://res.cloudinary.com/lapkinthegod/image/upload/v1629187274/young-male-doctor-white-uniform_x7dcrs.jpg',

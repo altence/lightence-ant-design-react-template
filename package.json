@@ -21,7 +21,7 @@
     "react-dom": "^17.0.2",
     "react-i18next": "^11.11.4",
     "react-infinite-scroll-component": "^6.1.0",
-    "react-leaflet": "^3.2.0",
+    "react-leaflet": "^3.2.2",
     "react-phone-number-input": "^3.1.27",
     "react-responsive": "^8.2.0",
     "react-router-dom": "^5.2.0",

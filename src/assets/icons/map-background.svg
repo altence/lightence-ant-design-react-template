@@ -1,0 +1,29 @@
+<svg>
+    <defs>
+        <pattern
+                id="map-background"
+                x="0"
+                y="0"
+                width="10"
+                height="10"
+                patternUnits="userSpaceOnUse"
+                patternContentUnits="userSpaceOnUse"
+        >
+            <circle id="pattern-circle" cx="5" cy="5" r="2"/>
+        </pattern>
+    </defs>
+
+    <defs>
+        <pattern
+                id="map-background-hovered"
+                x="0"
+                y="0"
+                width="10"
+                height="10"
+                patternUnits="userSpaceOnUse"
+                patternContentUnits="userSpaceOnUse"
+        >
+            <circle id="pattern-circle-hovered" cx="5" cy="5" r="2"/>
+        </pattern>
+    </defs>
+</svg>

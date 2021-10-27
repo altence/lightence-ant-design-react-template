@@ -19,10 +19,9 @@ export const Card: React.FC<CardProps> = ({ className, padding, children, ...pro
       className={className}
       bordered={false}
       padding={
-        padding ||
-        (isDesktop && defaultPaddings.desktop) ||
-        (isTablet && defaultPaddings.tablet) ||
-        defaultPaddings.mobile
+        padding === 0
+          ? 0
+          : (isDesktop && defaultPaddings.desktop) || (isTablet && defaultPaddings.tablet) || defaultPaddings.mobile
       }
       {...props}
     >
