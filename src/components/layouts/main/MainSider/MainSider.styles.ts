@@ -58,13 +58,7 @@ export const CollapseWrapper = styled.div<CollapseProps>`
 `;
 
 export const SiderContent = styled.div`
-  padding: 0.75rem 1rem;
-
-  @media only screen and ${(props) => props.theme.media.md} {
-    padding: 1.5rem 0;
-  }
-
   @media only screen and ${(props) => props.theme.media.xl} {
-    padding: 6.25rem 0;
+    padding-top: 6.25rem;
   }
 `;

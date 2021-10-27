@@ -133,6 +133,16 @@
 
 import { DefaultTheme } from 'styled-components';
 
+export const mobileLayout = {
+  paddingVertical: '0.75rem',
+  paddingHorizontal: '1rem',
+};
+
+export const desktopLayout = {
+  paddingVertical: '1.25rem',
+  paddingHorizontal: '1.5rem',
+};
+
 export const breakpoints = {
   xs: 360,
   md: 768,
@@ -194,6 +204,8 @@ const theme: DefaultTheme = {
   },
   breakpoints,
   media,
+  mobileLayout,
+  desktopLayout,
 };
 
 // export const darkTheme = {
