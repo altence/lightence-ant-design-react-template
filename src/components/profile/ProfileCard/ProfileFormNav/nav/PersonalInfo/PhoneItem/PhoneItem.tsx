@@ -10,7 +10,7 @@ interface PhoneItemsProps {
 }
 
 export const PhoneItem: React.FC<PhoneItemsProps> = ({ required, onClick }) => {
-  const [phone, setPhone] = useState<string>();
+  const [phone, setPhone] = useState<string>('');
 
   const { t } = useTranslation();
 
