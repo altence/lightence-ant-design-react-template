@@ -2,7 +2,6 @@ import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { profileNavData } from 'constants/profileNavData';
 import * as S from './ProfileNav.styles';
-import { Button } from 'components/common/buttons/Button/Button';
 
 interface ProfileNavProps {
   menu: string;
@@ -33,10 +32,6 @@ export const ProfileNav: React.FC<ProfileNavProps> = ({ menu, setCurrentMenu }) 
           {t(item.name)}
         </S.Btn>
       ))}
-      <Button type="primary">test</Button>
-      <Button type="ghost">test</Button>
-      <Button type="link">test</Button>
-      <Button type="default">test</Button>
     </S.Wrapper>
   );
 };
