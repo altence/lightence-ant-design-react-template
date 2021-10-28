@@ -4,6 +4,20 @@ import { Chart } from 'components/common/Chart/Chart';
 import { useTranslation } from 'react-i18next';
 import { ThemeContext } from 'styled-components';
 
+const run = (data: number[]) => {
+  const newData = [...data];
+
+  for (let i = 0; i < data.length; ++i) {
+    if (Math.random() > 0.9) {
+      newData[i] += Math.round(Math.random() * 2000);
+    } else {
+      newData[i] += Math.round(Math.random() * 200);
+    }
+  }
+
+  return newData;
+};
+
 export const BarChart: React.FC = () => {
   const [data, setData] = useState<number[]>([100, 10, 200, 110, 140]);
 
@@ -44,25 +58,7 @@ export const BarChart: React.FC = () => {
     animationEasingUpdate: 'linear',
   };
 
-  const run = (data: number[]) => {
-    const newData = [...data];
-
-    for (let i = 0; i < data.length; ++i) {
-      if (Math.random() > 0.9) {
-        newData[i] += Math.round(Math.random() * 2000);
-      } else {
-        newData[i] += Math.round(Math.random() * 200);
-      }
-    }
-
-    return newData;
-  };
-
   useEffect(() => {
-    setInterval(() => {
-      setInterval(() => run(data));
-    }, 0);
-
     setInterval(() => {
       setData(() => run(data));
     }, 1000 * 3);

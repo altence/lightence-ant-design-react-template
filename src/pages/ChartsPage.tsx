@@ -4,7 +4,7 @@ import { LineChart } from 'components/charts/LineChart/LineChart';
 import { PieChart } from 'components/charts/PieChart/PieChart';
 import { RadarChart } from 'components/charts/RadarChart/RadarChart';
 import { ScatterChart } from 'components/charts/ScatterChart/ScatterChart';
-import { SunburstChart } from 'components/charts/SunburstChart/SunburstChart';
+import { BoxplotChart } from 'components/charts/BoxplotChart/BoxplotChart';
 import React from 'react';
 
 const ChartsPage: React.FC = () => {
@@ -20,7 +20,7 @@ const ChartsPage: React.FC = () => {
         <PieChart />
       </Col>
       <Col xs={24} md={12}>
-        <SunburstChart />
+        <BoxplotChart />
       </Col>
       <Col xs={24} md={12}>
         <ScatterChart />

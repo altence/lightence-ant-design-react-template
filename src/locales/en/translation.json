@@ -269,7 +269,7 @@
     "line": "Line chart",
     "bar": "Bar chart",
     "pie": "Pie chart",
-    "sunburst": "Sunburst chart",
+    "boxplot": "Boxplot chart",
     "scatter": "Scatter chart",
     "radar": "Radar chart"
   }
