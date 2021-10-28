@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'antd';
-import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import { RightOutlined } from '@ant-design/icons';
 import Overlay from '../../../common/Overlay';
 import { useResponsive } from 'hooks/useResponsive';
 import * as S from './MainSider.styles';
