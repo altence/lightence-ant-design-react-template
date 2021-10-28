@@ -5,6 +5,7 @@ export const Text = styled(Typography.Title)`
   &.ant-typography {
     font-weight: 600;
     font-size: 0.875rem;
+    margin-bottom: 0;
 
     color: ${(props) => props.theme.colors.text.main};
 
