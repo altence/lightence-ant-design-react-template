@@ -1,86 +1,54 @@
 import { Card } from 'components/common/Card/Card';
 import { Chart } from 'components/common/Chart/Chart';
-import React from 'react';
+import { hexToRGB } from 'helpers/hexToRGB';
+import { useResponsive } from 'hooks/useResponsive';
+import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
+import { ThemeContext } from 'styled-components';
 
 export const PieChart: React.FC = () => {
+  const { t } = useTranslation();
+
+  const { isTablet } = useResponsive();
+
+  const radiusLayout = (isTablet && '70%') || '50%';
+
+  const theme = useContext(ThemeContext);
+
   const option = {
-    title: {
-      top: 30,
-      text: 'Nightingale Chart',
-      left: 'center',
+    legend: {
+      orient: 'vertical',
+      left: 'left',
+      show: isTablet,
     },
     tooltip: {
       trigger: 'item',
-      formatter: '{a} <br/>{b} : {c} ({d}%)',
-    },
-    legend: {
-      left: 'center',
-      top: 'bottom',
-      data: ['rose1', 'rose2', 'rose3', 'rose4', 'rose5', 'rose6', 'rose7', 'rose8'],
-    },
-    toolbox: {
-      show: true,
-      feature: {
-        mark: { show: true },
-        dataView: { show: true, readOnly: false },
-        restore: { show: true },
-        saveAsImage: { show: true },
-      },
     },
     series: [
       {
-        name: 'Radius Mode',
+        name: 'Access From',
         type: 'pie',
-        radius: [5, 35],
-        center: ['25%', '75%'],
-        roseType: 'radius',
-        itemStyle: {
-          borderRadius: 5,
-        },
-        label: {
-          show: false,
-        },
+        radius: radiusLayout,
+        data: [
+          { value: 1048, name: 'Search Engine' },
+          { value: 735, name: 'Direct' },
+          { value: 580, name: 'Email' },
+          { value: 484, name: 'Union Ads' },
+          { value: 300, name: 'Video Ads' },
+        ],
         emphasis: {
-          label: {
-            show: true,
+          itemStyle: {
+            shadowBlur: 10,
+            shadowOffsetX: 0,
+            shadowColor: hexToRGB(theme.commonColors.black, 0.5),
           },
         },
-        data: [
-          { value: 40, name: 'rose 1' },
-          { value: 33, name: 'rose 2' },
-          { value: 28, name: 'rose 3' },
-          { value: 22, name: 'rose 4' },
-          { value: 20, name: 'rose 5' },
-          { value: 15, name: 'rose 6' },
-          { value: 12, name: 'rose 7' },
-          { value: 10, name: 'rose 8' },
-        ],
-      },
-      {
-        name: 'Area Mode',
-        type: 'pie',
-        radius: [5, 35],
-        center: ['75%', '75%'],
-        roseType: 'area',
-        itemStyle: {
-          borderRadius: 5,
-        },
-        data: [
-          { value: 30, name: 'rose 1' },
-          { value: 28, name: 'rose 2' },
-          { value: 26, name: 'rose 3' },
-          { value: 24, name: 'rose 4' },
-          { value: 22, name: 'rose 5' },
-          { value: 20, name: 'rose 6' },
-          { value: 18, name: 'rose 7' },
-          { value: 16, name: 'rose 8' },
-        ],
       },
     ],
   };
 
   return (
-    <Card title="Pie chart">
+    <Card title={t('charts.pie')}>
       <Chart option={option} />
     </Card>
   );

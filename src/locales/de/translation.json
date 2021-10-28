@@ -264,5 +264,13 @@
     "tags": "DE!!!Tags",
     "addTags": "DE!!!Add tags",
     "sameTag": "DE!!!You can't add the same tag!"
+  },
+  "charts": {
+    "line": "DE!!!Line chart",
+    "bar": "DE!!!Bar chart",
+    "pie": "DE!!!Pie chart",
+    "sunburst": "DE!!!Sunburst chart",
+    "scatter": "DE!!!Scatter chart",
+    "radar": "DE!!!Radar chart"
   }
 }
