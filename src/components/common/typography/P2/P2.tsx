@@ -1,8 +1,8 @@
 import React from 'react';
-import { TypographyProps } from 'antd';
+import { ParagraphProps } from 'antd/lib/typography/Paragraph';
 import * as S from './P2.styles';
 
-interface P2Props extends TypographyProps {
+interface P2Props extends ParagraphProps {
   className?: string;
 }
 
