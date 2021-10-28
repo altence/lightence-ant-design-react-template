@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Card } from 'components/common/Card/Card';
 import { Chart } from 'components/common/Chart/Chart';
 import { Dates } from 'constants/Dates';
+import { ThemeContext } from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 export const LineChart: React.FC = () => {
   const days = Dates.getDays();
 
+  const theme = useContext(ThemeContext);
+
+  const { t } = useTranslation();
+
   const option = {
+    color: [theme.colors.main.primary, theme.colors.main.error, theme.colors.main.success],
     tooltip: {
       trigger: 'axis',
     },
@@ -14,9 +21,9 @@ export const LineChart: React.FC = () => {
       data: ['Step Start', 'Step Middle', 'Step End'],
     },
     grid: {
-      left: '3%',
-      right: '4%',
-      bottom: '3%',
+      left: 0,
+      right: 0,
+      bottom: 0,
       containLabel: true,
     },
     toolbox: {
@@ -54,7 +61,7 @@ export const LineChart: React.FC = () => {
   };
 
   return (
-    <Card title="Line chart">
+    <Card title={t('charts.line')}>
       <Chart option={option} />
     </Card>
   );

@@ -1,11 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Card } from 'components/common/Card/Card';
 import { Chart } from 'components/common/Chart/Chart';
+import { useTranslation } from 'react-i18next';
+import { ThemeContext } from 'styled-components';
 
 export const BarChart: React.FC = () => {
   const [data, setData] = useState<number[]>([100, 10, 200, 110, 140]);
 
+  const { t } = useTranslation();
+
+  const theme = useContext(ThemeContext);
+
   const option = {
+    color: theme.colors.main.warning,
+    grid: {
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0,
+      containLabel: true,
+    },
     xAxis: {
       max: 'dataMax',
     },
@@ -15,7 +29,6 @@ export const BarChart: React.FC = () => {
       inverse: true,
       animationDuration: 300,
       animationDurationUpdate: 300,
-      max: 2,
     },
     series: [
       {
@@ -23,11 +36,6 @@ export const BarChart: React.FC = () => {
         name: 'X',
         type: 'bar',
         data: data,
-        label: {
-          show: true,
-          position: 'right',
-          valueAnimation: true,
-        },
       },
     ],
     animationDuration: 0,
@@ -36,21 +44,27 @@ export const BarChart: React.FC = () => {
     animationEasingUpdate: 'linear',
   };
 
+  const run = (data: number[]) => {
+    const newData = [...data];
+
+    for (let i = 0; i < data.length; ++i) {
+      if (Math.random() > 0.9) {
+        newData[i] += Math.round(Math.random() * 2000);
+      } else {
+        newData[i] += Math.round(Math.random() * 200);
+      }
+    }
+
+    return newData;
+  };
+
   useEffect(() => {
     setInterval(() => {
-      setData(() => {
-        const newData = [...data];
+      setInterval(() => run(data));
+    }, 0);
 
-        for (let i = 0; i < data.length; ++i) {
-          if (Math.random() > 0.9) {
-            newData[i] += Math.round(Math.random() * 2000);
-          } else {
-            newData[i] += Math.round(Math.random() * 200);
-          }
-        }
-
-        return newData;
-      });
+    setInterval(() => {
+      setData(() => run(data));
     }, 1000 * 3);
   }, []);
 
@@ -60,5 +74,5 @@ export const BarChart: React.FC = () => {
     setChart(<Chart option={option} />);
   }, [data]);
 
-  return <Card title="Bar chart">{chart}</Card>;
+  return <Card title={t('charts.bar')}>{chart}</Card>;
 };
