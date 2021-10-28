@@ -4,6 +4,46 @@ import { Chart } from 'components/common/Chart/Chart';
 import { ThemeContext } from 'styled-components';
 import { useTranslation } from 'react-i18next';
 
+const data = [
+  [10.0, 8.04],
+  [8.0, 6.95],
+  [13.0, 7.58],
+  [9.0, 8.81],
+  [11.0, 8.33],
+  [14.0, 9.96],
+  [6.0, 7.24],
+  [4.0, 4.26],
+  [12.0, 10.84],
+  [7.0, 4.82],
+  [5.0, 5.68],
+];
+
+const markLineOpt = {
+  animation: false,
+  label: {
+    formatter: 'y = 0.5 * x + 3',
+    align: 'right',
+  },
+  lineStyle: {
+    type: 'solid',
+  },
+  tooltip: {
+    formatter: 'y = 0.5 * x + 3',
+  },
+  data: [
+    [
+      {
+        coord: [0, 3],
+        symbol: 'none',
+      },
+      {
+        coord: [20, 13],
+        symbol: 'none',
+      },
+    ],
+  ],
+};
+
 export const ScatterChart: React.FC = () => {
   const theme = useContext(ThemeContext);
 
@@ -18,36 +58,18 @@ export const ScatterChart: React.FC = () => {
       left: 10,
       containLabel: true,
     },
-    xAxis: {},
-    yAxis: {},
+    tooltip: {
+      formatter: 'Group {a}: ({c})',
+    },
+    xAxis: [{ gridIndex: 0, min: 0, max: 20 }],
+    yAxis: [{ gridIndex: 0, min: 0, max: 15 }],
     series: [
       {
-        symbolSize: 20,
-        data: [
-          [10.0, 8.04],
-          [8.07, 6.95],
-          [13.0, 7.58],
-          [9.05, 8.81],
-          [11.0, 8.33],
-          [14.0, 7.66],
-          [13.4, 6.81],
-          [10.0, 6.33],
-          [14.0, 8.96],
-          [12.5, 6.82],
-          [9.15, 7.2],
-          [11.5, 7.2],
-          [3.03, 4.23],
-          [12.2, 7.83],
-          [2.02, 4.47],
-          [1.05, 3.33],
-          [4.05, 4.96],
-          [6.03, 7.24],
-          [12.0, 6.26],
-          [12.0, 8.84],
-          [7.08, 5.82],
-          [5.02, 5.68],
-        ],
         type: 'scatter',
+        xAxisIndex: 0,
+        yAxisIndex: 0,
+        data: data,
+        markLine: markLineOpt,
       },
     ],
   };

@@ -1,10 +1,10 @@
+import React, { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
+import { useTranslation } from 'react-i18next';
 import { Card } from 'components/common/Card/Card';
 import { Chart } from 'components/common/Chart/Chart';
 import { hexToRGB } from 'helpers/hexToRGB';
 import { useResponsive } from 'hooks/useResponsive';
-import React, { useContext } from 'react';
-import { useTranslation } from 'react-i18next';
-import { ThemeContext } from 'styled-components';
 
 export const PieChart: React.FC = () => {
   const { t } = useTranslation();
@@ -13,11 +13,11 @@ export const PieChart: React.FC = () => {
 
   const theme = useContext(ThemeContext);
 
-  const radiusValue = isBigScreen ? '80%' : isDesktop ? '70%' : isTablet ? '50%' : isMobile ? '60%' : '60%';
+  const radiusValue = isBigScreen ? '75%' : isDesktop ? '70%' : isTablet ? '50%' : isMobile ? '60%' : '60%';
 
   const chartPosition = [
     'center',
-    isBigScreen ? '55%' : isDesktop ? '65%' : isTablet ? '75%' : isMobile ? '70%' : '70%',
+    isBigScreen ? '60%' : isDesktop ? '65%' : isTablet ? '65%' : isMobile ? '70%' : '70%',
   ];
 
   const option = {
