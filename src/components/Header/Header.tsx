@@ -1,6 +1,5 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { Button } from 'antd';
 import { useTranslation } from 'react-i18next';
 import hamburgerIcon from '../../assets/icons/hamburger.svg';
 import { SearchDropdown } from './SearchDropdown/SearchDropdown';
@@ -9,6 +8,7 @@ import { NotificationDropdown } from './NotificationDropdown/NotificationDropdow
 import { SettingsDropdown } from './SettingsDropdown/SettingsDropdown';
 import { useResponsive } from 'hooks/useResponsive';
 import * as S from './Header.styles';
+import { Button } from 'components/common/buttons/Button/Button';
 
 const hamburger = <img src={hamburgerIcon} alt="Toggle Sider" />;
 
@@ -25,7 +25,7 @@ export const Header: React.FC<HeaderProps> = ({ toggleSider }) => {
       <S.TopWrapper>
         {mobileOnly && (
           <S.MenuWrapper>
-            <Button size="small" type="text" icon={hamburger} onClick={toggleSider} />
+            <Button type="text" size="small" icon={hamburger} onClick={toggleSider} />
           </S.MenuWrapper>
         )}
 

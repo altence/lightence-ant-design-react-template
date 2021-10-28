@@ -2,12 +2,12 @@ import React, { useContext, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Avatar } from 'antd';
 import { ThemeContext } from 'styled-components';
-import { LinkBtn } from 'components/common/buttons/LinkBtn/LinkBtn';
 import { getCurrencyPrice } from 'helpers/getCurrencyPrice';
 import { paymentStatuses } from 'constants/paymentStatuses';
 import { Dates } from 'constants/Dates';
-import * as S from './Payment.styles';
 import { Status } from '../Status/Status';
+import * as S from './Payment.styles';
+import { Button } from 'components/common/buttons/Button/Button';
 
 interface PaymentProps {
   src: string;
@@ -48,7 +48,7 @@ export const Payment: React.FC<PaymentProps> = ({ src, recipient, date, status, 
         </S.Item>
       </S.ContentWrapper>
       <S.DetailsWrapper>
-        <LinkBtn>{t('profile.nav.payments.details')}</LinkBtn>
+        <Button type="link">{t('profile.nav.payments.details')}</Button>
       </S.DetailsWrapper>
     </>
   ) : null;

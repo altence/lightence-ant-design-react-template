@@ -2,10 +2,10 @@ import React, { useCallback, useState } from 'react';
 import { Col, Row, Form as AntForm } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { ProfileForm } from '../../../ProfileForm/ProfileForm';
-import { LinkBtn } from 'components/common/buttons/LinkBtn/LinkBtn';
 import { TwoFactorOptions } from './TwoFactorOptions/TwoFactorOptions';
 import { TwoFactorSwitch } from './TwoFactorSwitch/TwoFactorSwitch';
 import { update2FA } from 'api/users.api';
+import { Button } from 'components/common/buttons/Button/Button';
 
 export const TwoFactorAuth: React.FC = () => {
   const [isEnabled, setEnabled] = useState(false);
@@ -22,9 +22,9 @@ export const TwoFactorAuth: React.FC = () => {
       name="twoFactorAuth"
       footer={(loading) =>
         (isEnabled && (
-          <LinkBtn loading={loading} htmlType="submit">
+          <Button type="link" loading={loading} htmlType="submit">
             {t('profile.nav.securitySettings.verify')}
-          </LinkBtn>
+          </Button>
         )) || <span />
       }
       onFinish={onFinish}
