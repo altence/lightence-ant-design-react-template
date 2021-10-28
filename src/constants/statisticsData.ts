@@ -11,8 +11,8 @@ export interface Statistic {
   percent: number;
   icon: React.FC;
   isDowngrade: boolean;
-  color: string;
-  chartColor: string;
+  color: 'primary' | 'error' | 'warning' | 'success';
+  chartColor: 'primary' | 'error' | 'warning' | 'success';
 }
 
 export const statisticsData: Statistic[] = [
@@ -24,7 +24,7 @@ export const statisticsData: Statistic[] = [
     icon: ProteinIcon,
     isDowngrade: false,
     color: 'primary',
-    chartColor: 'chartsPrimaryGradient',
+    chartColor: 'primary',
   },
   {
     id: 2,
@@ -34,7 +34,7 @@ export const statisticsData: Statistic[] = [
     icon: FatIcon,
     isDowngrade: true,
     color: 'error',
-    chartColor: 'chartsErrorGradient',
+    chartColor: 'error',
   },
   {
     id: 3,
@@ -43,8 +43,8 @@ export const statisticsData: Statistic[] = [
     percent: 34,
     icon: BonesIcon,
     isDowngrade: false,
-    color: 'primaryAccent',
-    chartColor: 'chartsPrimaryLightGradient',
+    color: 'warning',
+    chartColor: 'warning',
   },
   {
     id: 4,
@@ -53,7 +53,7 @@ export const statisticsData: Statistic[] = [
     percent: 21,
     icon: WaterBalanceIcon,
     isDowngrade: false,
-    color: 'accent',
-    chartColor: 'chartsAccentGradient',
+    color: 'success',
+    chartColor: 'success',
   },
 ];
