@@ -5,6 +5,7 @@ import MainSider from '../MainSider/MainSider';
 import MainContent from '../MainContent/MainContent';
 import * as S from './MainLayout.styles';
 import SiderContent from 'components/sider/SiderContent';
+import { MainHeader } from '../MainHeader/MainHeader';
 
 const MainLayout: React.FC = ({ children }) => {
   const [siderCollapsed, setSiderCollapsed] = useState(true);
@@ -17,9 +18,9 @@ const MainLayout: React.FC = ({ children }) => {
         <SiderContent toggleSider={toggleSider} />
       </MainSider>
       <S.LayoutMain>
-        <Layout.Header>
+        <MainHeader>
           <Header toggleSider={toggleSider} />
-        </Layout.Header>
+        </MainHeader>
         <MainContent>{children}</MainContent>
       </S.LayoutMain>
     </S.LayoutMaster>
