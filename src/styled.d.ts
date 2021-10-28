@@ -35,6 +35,7 @@ declare module 'styled-components' {
       border: {
         main: string;
       };
+      mapGradient: string;
     };
     border: {
       radius: string;
