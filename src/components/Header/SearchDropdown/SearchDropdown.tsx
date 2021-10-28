@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { SearchOverlay } from './SearchOverlay/SearchOverlay';
 import filterIcon from '../../../assets/icons/filter.svg';
 import { useResponsive } from 'hooks/useResponsive';
-import * as S from '../Header.styles';
+import { DropdownHeader, DropdownMenu } from '../Header.styles';
 
 const filter = <img src={filterIcon} alt="Toggle filter" />;
 
@@ -33,33 +33,39 @@ export const SearchDropdown: React.FC = () => {
   };
 
   return (
-    <Dropdown
-      onVisibleChange={(visible) => setOverlayActive(visible)}
-      overlay={
-        <S.Menu>
-          <S.DropdownContent>
-            <SearchOverlay value={query} isFilterActive={isFilterActive} />
-          </S.DropdownContent>
-        </S.Menu>
-      }
-      trigger={['click']}
-    >
-      <S.SearchDropdownHeader>
+    <Dropdown trigger={['click']} overlay={<SearchOverlay value="1" isFilterActive={false} />}>
+      <DropdownHeader>
         <SearchOutlined />
-        {isTablet && (
-          <>
-            <Input
-              size="small"
-              bordered={false}
-              placeholder={t('header.search')}
-              value={query}
-              onChange={handleChangeInput}
-              onClick={handleClickInput}
-            />
-            <Button size="small" type="text" icon={filter} onClick={handleFilter} />
-          </>
-        )}
-      </S.SearchDropdownHeader>
+      </DropdownHeader>
     </Dropdown>
   );
 };
+
+// <Dropdown
+//   onVisibleChange={(visible) => setOverlayActive(visible)}
+//   overlay={
+//     <S.Menu>
+//       <S.DropdownContent>
+//         <SearchOverlay value={query} isFilterActive={isFilterActive} />
+//       </S.DropdownContent>
+//     </S.Menu>
+//   }
+//   trigger={['click']}
+// >
+//   <S.SearchDropdownHeader>
+//     <SearchOutlined />
+//     {isTablet && (
+//       <>
+//         <Input
+//           size="small"
+//           bordered={false}
+//           placeholder={t('header.search')}
+//           value={query}
+//           onChange={handleChangeInput}
+//           onClick={handleClickInput}
+//         />
+//         <Button size="small" type="text" icon={filter} onClick={handleFilter} />
+//       </>
+//     )}
+//   </S.SearchDropdownHeader>
+// </Dropdown>

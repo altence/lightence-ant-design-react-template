@@ -58,7 +58,8 @@
     "notFound": "DE!!!Try to change your search query",
     "export": "DE!!!Export",
     "nightModeOn": "DE!!!Night Mode ON",
-    "nightModeOff": "DE!!!Night Mode OFF"
+    "nightModeOff": "DE!!!Night Mode OFF",
+    "logout": "DE!!!Logout"
   },
   "dashboard": {
     "protein": "DE!!!Protein",

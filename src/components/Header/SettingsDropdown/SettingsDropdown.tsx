@@ -1,28 +1,15 @@
 import React from 'react';
 import { Dropdown } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
-import { LanguagePicker } from './LanguagePicker/LanguagePicker';
-import { ThemePicker } from './ThemePicker/ThemePicker';
-import * as S from '../Header.styles';
-import { NightModeSettings } from './NightModeSettings/NightModeSettings';
+import { SettingsOverlay } from './SettingsOverlay/SettingsOverlay';
+import { DropdownHeader } from '../Header.styles';
 
 export const SettingsDropdown: React.FC = () => {
   return (
-    <Dropdown
-      overlay={
-        <S.Menu>
-          <S.DropdownContent>
-            <LanguagePicker />
-            <ThemePicker />
-            <NightModeSettings />
-          </S.DropdownContent>
-        </S.Menu>
-      }
-      trigger={['click']}
-    >
-      <S.DropdownHeader>
+    <Dropdown overlay={<SettingsOverlay />} trigger={['click']}>
+      <DropdownHeader>
         <SettingOutlined />
-      </S.DropdownHeader>
+      </DropdownHeader>
     </Dropdown>
   );
 };
