@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Dropdown } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
+import { Col, Dropdown, Row } from 'antd';
 import { useMediaQuery } from 'react-responsive';
-import theme from '../../../styles/theme';
+import { H6 } from 'components/common/typography/H6/H6';
+import { ProfileOverlay } from './ProfileOverlay/ProfileOverlay';
 import { getUser, User } from '../../../api/users.api';
-import * as S from '../Header.styles';
-import { Link } from 'react-router-dom';
+import theme from '../../../styles/theme';
+import * as S from './ProfileDropdown.styles';
 
 export const ProfileDropdown: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -18,29 +18,21 @@ export const ProfileDropdown: React.FC = () => {
     });
   }, []);
 
-  return (
-    <Dropdown
-      overlay={
-        <S.Menu>
-          <S.DropdownContent>
-            <Link to="/profile">Go to profile</Link>
-          </S.DropdownContent>
-        </S.Menu>
-      }
-      trigger={['click']}
-    >
-      <S.ProfileDropdownHeader>
-        {!user ? (
-          <S.Spin />
-        ) : (
-          <>
-            <S.ProfileAvatar src={user.imgUrl} shape="circle" />
-            {isTablet && <S.Text>{`${user.firstName} ${user.lastName[0]}`}</S.Text>}
-          </>
+  return user ? (
+    <Dropdown overlay={<ProfileOverlay />} trigger={['click']}>
+      <S.ProfileDropdownHeader as={Row} gutter={[10, 10]} align="middle">
+        <Col>
+          <S.AvatarImg src={user.imgUrl} alt="User" shape="circle" />
+        </Col>
+        {isTablet && (
+          <Col>
+            <H6>{`${user.firstName} ${user.lastName[0]}`}</H6>
+          </Col>
         )}
-
-        <DownOutlined />
+        <Col>
+          <S.DownArrow />
+        </Col>
       </S.ProfileDropdownHeader>
     </Dropdown>
-  );
+  ) : null;
 };

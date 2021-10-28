@@ -1,16 +1,11 @@
 import React from 'react';
-import { useMediaQuery } from 'react-responsive';
-import { useTranslation } from 'react-i18next';
-import hamburgerIcon from '../../assets/icons/hamburger.svg';
+import { Col, Row } from 'antd';
 import { SearchDropdown } from './SearchDropdown/SearchDropdown';
 import { ProfileDropdown } from './ProfileDropdown/ProfileDropdown';
 import { NotificationDropdown } from './NotificationDropdown/NotificationDropdown';
 import { SettingsDropdown } from './SettingsDropdown/SettingsDropdown';
+import { Burger } from 'components/common/Burger/Burger';
 import { useResponsive } from 'hooks/useResponsive';
-import * as S from './Header.styles';
-import { Button } from 'components/common/buttons/Button/Button';
-
-const hamburger = <img src={hamburgerIcon} alt="Toggle Sider" />;
 
 interface HeaderProps {
   toggleSider?: () => void;
@@ -18,30 +13,35 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ toggleSider }) => {
   const { mobileOnly } = useResponsive();
-  const { t } = useTranslation();
 
   return (
-    <S.Wrapper>
-      <S.TopWrapper>
-        {mobileOnly && (
-          <S.MenuWrapper>
-            <Button type="text" size="small" icon={hamburger} onClick={toggleSider} />
-          </S.MenuWrapper>
-        )}
+    <Row gutter={[20, 20]} align="middle" justify="space-between">
+      <Col>
+        <Row gutter={[30, 30]} align="middle">
+          <Col>
+            <ProfileDropdown />
+          </Col>
+          <Col>
+            <Row gutter={[30, 30]} align="middle">
+              <Col>
+                <NotificationDropdown />
+              </Col>
+              <Col>
+                <SearchDropdown />
+              </Col>
+              <Col>
+                <SettingsDropdown />
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      </Col>
 
-        <SearchDropdown />
-
-        <S.ButtonsWrapper>
-          <ProfileDropdown />
-          <NotificationDropdown />
-          <SettingsDropdown />
-        </S.ButtonsWrapper>
-      </S.TopWrapper>
-
-      {/* <S.BottomWrapper>
-        <S.Title>{t('dashboard.title')}</S.Title>
-        <ExportDropdown />
-      </S.BottomWrapper> */}
-    </S.Wrapper>
+      {mobileOnly && (
+        <Col>
+          <Burger onClick={toggleSider} />
+        </Col>
+      )}
+    </Row>
   );
 };

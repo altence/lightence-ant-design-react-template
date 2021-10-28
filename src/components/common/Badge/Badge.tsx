@@ -6,9 +6,11 @@ export type BadgeType = 'warning' | 'error' | 'success' | 'default' | undefined;
 
 interface BadgeProps extends AntBadgeProps {
   className?: string;
-  severity: BadgeType;
+  severity?: BadgeType;
 }
 
-export const Badge: React.FC<BadgeProps> = ({ className, severity, ...props }) => (
-  <S.Badge className={className} severity={severity} {...props} />
+export const Badge: React.FC<BadgeProps> = ({ className, severity, children, ...props }) => (
+  <S.Badge className={className} severity={severity} {...props}>
+    {children}
+  </S.Badge>
 );
