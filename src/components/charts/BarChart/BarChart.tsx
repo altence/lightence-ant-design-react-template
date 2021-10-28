@@ -12,7 +12,7 @@ export const BarChart: React.FC = () => {
   const theme = useContext(ThemeContext);
 
   const option = {
-    color: theme.colors.main.warning,
+    color: theme.colors.main.secondary,
     grid: {
       top: 0,
       right: 0,

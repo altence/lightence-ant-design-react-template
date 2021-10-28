@@ -9,18 +9,26 @@ import { ThemeContext } from 'styled-components';
 export const PieChart: React.FC = () => {
   const { t } = useTranslation();
 
-  const { isTablet } = useResponsive();
-
-  const radiusLayout = (isTablet && '70%') || '50%';
+  const { isMobile, isTablet, isDesktop, isBigScreen } = useResponsive();
 
   const theme = useContext(ThemeContext);
 
+  const radiusValue = isBigScreen ? '80%' : isDesktop ? '70%' : isTablet ? '50%' : isMobile ? '60%' : '60%';
+
+  const chartPosition = [
+    'center',
+    isBigScreen ? '55%' : isDesktop ? '65%' : isTablet ? '75%' : isMobile ? '70%' : '70%',
+  ];
+
   const option = {
-    legend: {
-      orient: 'vertical',
-      left: 'left',
-      show: isTablet,
-    },
+    color: [
+      theme.colors.main.primary,
+      theme.colors.main.success,
+      theme.colors.main.error,
+      theme.colors.main.warning,
+      theme.colors.main.secondary,
+    ],
+    legend: { orient: 'horizontal', top: 'top' },
     tooltip: {
       trigger: 'item',
     },
@@ -28,7 +36,8 @@ export const PieChart: React.FC = () => {
       {
         name: 'Access From',
         type: 'pie',
-        radius: radiusLayout,
+        center: chartPosition,
+        radius: radiusValue,
         data: [
           { value: 1048, name: 'Search Engine' },
           { value: 735, name: 'Direct' },
