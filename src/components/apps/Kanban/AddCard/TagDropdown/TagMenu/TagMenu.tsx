@@ -1,12 +1,14 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Col, Popconfirm, Row } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import { Tag } from 'components/apps/Kanban/interfaces';
-import { Btn } from '../../AddCard.styles';
 import { AddTag } from './AddTag/AddTag';
-import { tags as initialTags } from '../../../Kanban';
+import { kanbanTags } from 'constants/kanbanTags';
+import { Btn } from '../../AddCard.styles';
 import * as S from './TagMenu.styles';
-import { Col, Popconfirm, Row } from 'antd';
+
+const initialTags = Object.values(kanbanTags);
 
 interface TagMenuProps {
   selectedTags: Tag[];
@@ -15,7 +17,7 @@ interface TagMenuProps {
 
 export const TagMenu: React.FC<TagMenuProps> = ({ selectedTags, setSelectedTags }) => {
   const [isMain, setMain] = useState(true);
-  const [tags, setTags] = useState<Tag[]>(Object.values(initialTags));
+  const [tags, setTags] = useState<Tag[]>(initialTags);
 
   const { t } = useTranslation();
 

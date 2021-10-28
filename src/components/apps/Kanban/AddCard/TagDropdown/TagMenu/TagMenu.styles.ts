@@ -1,10 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Menu, Typography } from 'antd';
 
-interface CheckWrapperProps {
-  isActive: boolean;
-}
-
 interface TagProps {
   isActive: boolean;
   color?: string;
@@ -59,10 +55,4 @@ export const Tag = styled.div<TagProps>`
 
     border-radius: ${(props) => props.theme.border.radius};
   }
-`;
-
-export const CheckWrapper = styled.div<CheckWrapperProps>`
-  transition: all 0.3s ease;
-
-  opacity: ${(props) => (props.isActive && '1') || '0'};
 `;

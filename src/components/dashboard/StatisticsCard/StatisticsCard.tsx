@@ -23,7 +23,7 @@ export const StatisticsCard: React.FC<StatisticsCardProps> = ({
     <S.CardWrapper id={title.toLowerCase().replaceAll(' ', '-')}>
       <S.Line color={color} />
       <Card>
-        {/* <S.Wrapper>
+        <S.Wrapper>
           <S.Icon color={themeContext.colors.main[color]} component={icon} />
           <StatisticsChart
             color={themeContext.colors.main[color]}
@@ -36,7 +36,7 @@ export const StatisticsCard: React.FC<StatisticsCardProps> = ({
             percent={percent}
             isDowngrade={isDowngrade}
           />
-        </S.Wrapper> */}
+        </S.Wrapper>
       </Card>
     </S.CardWrapper>
   );
