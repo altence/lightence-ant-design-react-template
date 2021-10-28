@@ -1,8 +1,8 @@
 import React from 'react';
-import { TypographyProps } from 'antd';
+import { TitleProps } from 'antd/lib/typography/Title';
 import * as S from './H2.styles';
 
-interface H2Props extends TypographyProps {
+interface H2Props extends TitleProps {
   className?: string;
 }
 
