@@ -9,7 +9,7 @@ import { paymentStatuses, PaymentStatus } from 'constants/paymentStatuses';
 import { getCurrencyPrice } from 'helpers/getCurrencyPrice';
 import { Payment } from 'api/paymentHistory.api';
 import * as S from './PaymentsTable.styles';
-import { LinkBtn } from 'components/common/buttons/LinkBtn/LinkBtn';
+import { Button } from 'components/common/buttons/Button/Button';
 
 interface Recipient {
   name: string;
@@ -75,7 +75,7 @@ export const PaymentsTable: React.FC<PaymentsTableProps> = ({ payments }) => {
         dataIndex: 'details',
         key: 'details',
         align: 'center',
-        render: () => <LinkBtn>{t('profile.nav.payments.details')}</LinkBtn>,
+        render: () => <Button type="link">{t('profile.nav.payments.details')}</Button>,
       },
     ];
   }, []);

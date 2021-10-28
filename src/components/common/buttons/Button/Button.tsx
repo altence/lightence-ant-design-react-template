@@ -1,17 +1,20 @@
 import React from 'react';
-import { Button as AntButton, ButtonProps as AntButtonProps } from 'antd';
+import { ButtonProps as AntButtonProps } from 'antd';
 import { useResponsive } from 'hooks/useResponsive';
+import * as S from './Button.styles';
+import { ButtonType } from 'antd/lib/button';
 
-interface ButtonProps extends AntButtonProps {
+export interface ButtonProps extends AntButtonProps {
   className?: string;
+  type: ButtonType;
 }
 
-export const Button: React.FC<ButtonProps> = ({ className, children, ...props }) => {
+export const Button: React.FC<ButtonProps> = ({ className, type = 'ghost', children, ...props }) => {
   const { isTablet } = useResponsive();
 
   return (
-    <AntButton size={(isTablet && 'large') || 'middle'} className={className} {...props}>
+    <S.Button type={type} size={(isTablet && 'large') || 'middle'} className={className} {...props}>
       {children}
-    </AntButton>
+    </S.Button>
   );
 };

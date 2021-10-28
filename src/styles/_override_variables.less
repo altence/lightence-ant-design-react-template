@@ -14,8 +14,8 @@
 @font-size-lg: @font-size-base + 2px;
 @font-size-sm: @font-size-base - 2px;
 
-@height-base: 45px;
-@height-lg: 55px;
+@height-base: 50px;
+@height-lg: @height-base;
 
 @border-radius-base: 7px;
 @border-color-base: #bec0c6;
@@ -30,10 +30,10 @@
 @screen-xl: 1280px;
 
 // Card
-@card-head-color: @primary-color;
-@card-head-padding: 16px;
-@card-head-padding-sm: 10px;
-@card-padding-base: 20px;
+@card-head-color: @text-color;
+@card-head-padding: 20px;
+@card-head-padding-sm: 15px;
+@card-padding-base: 15px;
 
 // Table
 @table-border-radius-base: 0;
@@ -44,12 +44,10 @@
 // Button
 @btn-font-weight: 600;
 
-@btn-primary-bg: linear-gradient(261.31deg, #006ccf -29.57%, #00509a 121.11%);
-
 @btn-ghost-color: @primary-color;
 @btn-ghost-border: @primary-color;
 
-@btn-text-hover-bg: rgba(1, 80, 154, 0.05);
+@btn-font-size-sm: @font-size-lg;
 
 // Select
 @select-item-selected-font-weight: 500;
@@ -60,14 +58,12 @@
 
 // Form
 @form-item-margin-bottom: 16px;
-@form-item-label-font-size: @font-size-sm;
-@form-item-label-height: unset;
+@form-item-label-font-size: @font-size-base;
 
 // Select
 @select-single-item-height-lg: @height-lg;
 
 // Menu
-
 @menu-item-height: @height-base;
 @menu-icon-margin-right: 16px;
 @menu-icon-size: 20px;

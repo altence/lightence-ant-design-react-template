@@ -176,7 +176,7 @@ const colors = {
   main: {
     primary: '#01509A',
     primaryGradient: 'linear-gradient(261.31deg, #006CCF -29.57%, #00509A 121.11%)',
-    secondary: '#35A0DC',
+    secondary: '#0085FF',
     error: '#FF5252',
     warning: '#FFB155',
     success: '#57D682',
