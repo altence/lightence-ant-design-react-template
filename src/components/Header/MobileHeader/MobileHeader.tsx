@@ -7,10 +7,10 @@ import { SearchDropdown } from '../dropdowns/SearchDropdown/SearchDropdown';
 import { SettingsDropdown } from '../dropdowns/SettingsDropdown/SettingsDropdown';
 
 interface MobileHeaderProps {
-  toggleSlider: () => void;
+  toggleSider: () => void;
 }
 
-export const MobileHeader: React.FC<MobileHeaderProps> = ({ toggleSlider }) => {
+export const MobileHeader: React.FC<MobileHeaderProps> = ({ toggleSider }) => {
   return (
     <Row justify="space-between" align="middle">
       <Col>
@@ -38,7 +38,7 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({ toggleSlider }) => {
       </Col>
 
       <Col>
-        <Burger onClick={toggleSlider} />
+        <Burger onClick={toggleSider} />
       </Col>
     </Row>
   );
