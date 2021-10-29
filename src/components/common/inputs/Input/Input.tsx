@@ -6,7 +6,7 @@ export interface InputProps extends AntInputProps {
 }
 
 export const Input: React.FC<InputProps> = ({ className, children, ...props }) => (
-  <AntInput size="large" className={className} {...props}>
+  <AntInput className={className} {...props}>
     {children}
   </AntInput>
 );
