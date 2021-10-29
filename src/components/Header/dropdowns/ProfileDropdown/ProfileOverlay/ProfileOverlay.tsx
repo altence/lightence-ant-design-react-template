@@ -3,7 +3,7 @@ import { Menu } from 'antd';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { DropdownMenu } from 'components/Header/Header.styles';
-import { H3 } from 'components/common/typography/H3/H3';
+import * as S from './ProfileOverlay.styles';
 
 export const ProfileOverlay: React.FC = () => {
   const { t } = useTranslation();
@@ -11,14 +11,14 @@ export const ProfileOverlay: React.FC = () => {
   return (
     <DropdownMenu>
       <Menu.Item>
-        <H3>
+        <S.Text>
           <Link to="/profile">{t('profile.title')}</Link>
-        </H3>
+        </S.Text>
       </Menu.Item>
       <Menu.Item>
-        <H3>
+        <S.Text>
           <Link to="/logout">{t('header.logout')}</Link>
-        </H3>
+        </S.Text>
       </Menu.Item>
     </DropdownMenu>
   );
