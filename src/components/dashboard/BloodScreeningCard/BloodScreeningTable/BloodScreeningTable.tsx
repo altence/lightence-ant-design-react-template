@@ -7,6 +7,7 @@ import * as S from './BloodScreeningTable.styles';
 
 interface BloodScreeningTableProps {
   activeItem: Cell;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   setActiveItem: (cell: any) => void;
 }
 

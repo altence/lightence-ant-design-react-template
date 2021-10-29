@@ -4,7 +4,7 @@ import { useResponsive } from 'hooks/useResponsive';
 
 export const { Option } = AntSelect;
 
-interface SelectProps extends AntSelectProps<any> {
+interface SelectProps extends AntSelectProps<string> {
   className?: string;
 }
 

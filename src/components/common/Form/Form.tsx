@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useCallback, useEffect, useState } from 'react';
 import { Col, Form as AntForm, FormInstance, FormProps as AntFormProps, notification, Row } from 'antd';
 import { ButtonsGroup } from './ButtonsGroup/ButtonsGroup';
@@ -14,8 +15,8 @@ export interface FormProps extends AntFormProps {
   form?: FormInstance;
   footer?: (loading: boolean, onCancel: () => void) => React.ReactNode;
   onCancel?: () => void;
-  onFinish: (values: []) => Promise<any>;
-  onFinishFailed?: (error: ValidateErrorEntity<[]>) => Promise<any>;
+  onFinish: (values: any) => Promise<any>;
+  onFinishFailed?: <T>(error: ValidateErrorEntity<[]>) => Promise<T>;
   name: string;
 }
 

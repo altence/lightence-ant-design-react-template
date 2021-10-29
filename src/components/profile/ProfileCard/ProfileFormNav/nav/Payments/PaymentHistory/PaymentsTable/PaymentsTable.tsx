@@ -33,6 +33,7 @@ export const PaymentsTable: React.FC<PaymentsTableProps> = ({ payments }) => {
 
   const themeContext = useContext(ThemeContext);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const columns: ColumnType<any>[] = useMemo(() => {
     return [
       {

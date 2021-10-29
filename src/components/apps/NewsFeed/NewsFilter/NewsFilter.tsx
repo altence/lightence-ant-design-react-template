@@ -72,6 +72,7 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, children }) => {
               <S.RangePicker
                 dropdownClassName="range-picker"
                 value={dates}
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 onChange={(dates: any) => setDates([dates[0], dates[1]])}
               />
               <S.Btn onClick={handleClickReset}>{t('newsFeed.reset')}</S.Btn>

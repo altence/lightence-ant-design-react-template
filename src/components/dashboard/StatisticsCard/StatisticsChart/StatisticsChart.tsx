@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Chart } from '../../../common/Chart/Chart';
 import { useResponsive } from 'hooks/useResponsive';
@@ -11,13 +10,12 @@ interface StatisticsChartProps {
 }
 
 export const StatisticsChart: React.FC<StatisticsChartProps> = ({ value, chartColor, color }) => {
-  const themeContext = useContext(ThemeContext);
-
-  const { isTablet, isDesktop, isBigScreen, tabletOnly } = useResponsive();
+  const { isTablet, isBigScreen, tabletOnly } = useResponsive();
 
   const { t } = useTranslation();
 
   const option = {
+    color: chartColor,
     series: [
       {
         type: 'pie',
