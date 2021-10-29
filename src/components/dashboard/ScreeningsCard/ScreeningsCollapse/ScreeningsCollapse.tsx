@@ -1,9 +1,13 @@
 import React, { useMemo, useState } from 'react';
 import { ArrowLeftOutlined, ArrowRightOutlined, CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
-import { doctorsData } from '../../../../constants/doctorsData';
+import { Doctor, doctorsData } from '../../../../constants/doctorsData';
 import * as S from './ScreeningsCollapse.styles';
 
+interface Friend extends Doctor {
+  isDowngrade: boolean;
+  value: number;
+}
 interface ScreeningsItemState {
   firstItem: number;
   secondItem: number;
@@ -44,23 +48,27 @@ export const ScreeningsCollapse: React.FC = () => {
   };
 
   const data = useMemo(() => {
-    const result = [];
+    const result: Friend[] = [];
 
-    for (let i = 0; i <= doctorsData.length && i < 6; i++) {
-      if (i === 1 || i === 5) {
+    doctorsData.every((el, index) => {
+      if (index === 6) return false;
+
+      if (index === 1 || index === 5) {
         result.push({
+          ...el,
           isDowngrade: true,
           value: Math.floor(1 + Math.random() * 99),
-          ...doctorsData[i],
         });
       } else {
         result.push({
+          ...el,
           isDowngrade: false,
           value: Math.floor(1 + Math.random() * 99),
-          ...doctorsData[i],
         });
       }
-    }
+
+      return true;
+    });
 
     return result;
   }, [doctorsData]);

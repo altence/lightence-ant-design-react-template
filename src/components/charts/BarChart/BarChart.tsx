@@ -4,19 +4,10 @@ import { Chart } from 'components/common/Chart/Chart';
 import { useTranslation } from 'react-i18next';
 import { ThemeContext } from 'styled-components';
 
-const run = (data: number[]) => {
-  const newData = [...data];
-
-  for (let i = 0; i < data.length; ++i) {
-    if (Math.random() > 0.9) {
-      newData[i] += Math.round(Math.random() * 2000);
-    } else {
-      newData[i] += Math.round(Math.random() * 200);
-    }
-  }
-
-  return newData;
-};
+const run = (data: number[]) =>
+  data.map((el) =>
+    Math.random() > 0.9 ? el + Math.round(Math.random() * 2000) : el + Math.round(Math.random() * 200),
+  );
 
 export const BarChart: React.FC = () => {
   const [data, setData] = useState<number[]>([100, 10, 200, 110, 140]);
