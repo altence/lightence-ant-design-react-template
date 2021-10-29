@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { Layout } from 'antd';
 import { Header } from '../../../Header/Header';
 import MainSider from '../MainSider/MainSider';
 import MainContent from '../MainContent/MainContent';
-import * as S from './MainLayout.styles';
 import SiderContent from 'components/sider/SiderContent';
 import { MainHeader } from '../MainHeader/MainHeader';
+import * as S from './MainLayout.styles';
 
 const MainLayout: React.FC = ({ children }) => {
   const [siderCollapsed, setSiderCollapsed] = useState(true);

@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { useMediaQuery } from 'react-responsive';
 import { EChartsOption } from 'echarts';
 import { ThemeContext } from 'styled-components';
 import { useTranslation } from 'react-i18next';
