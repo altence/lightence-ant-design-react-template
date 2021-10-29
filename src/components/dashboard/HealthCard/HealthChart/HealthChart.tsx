@@ -52,13 +52,7 @@ export const HealthChart: React.FC = () => {
         },
       },
       formatter: (name: string) => {
-        let target;
-
-        for (let i = 0; i < data.length; i++) {
-          if (data[i].name === name) {
-            target = data[i].description;
-          }
-        }
+        const target = data.find((el) => el.name === name)?.description;
 
         return `{a|${name}}\n\n{b|${target}}`;
       },

@@ -20,15 +20,7 @@ export const RadarChart: React.FC = () => {
     legend: {
       type: 'scroll',
       bottom: 0,
-      data: (function () {
-        const list = [];
-
-        for (let i = 1; i <= 28; i++) {
-          list.push(i + 2000 + '');
-        }
-
-        return list;
-      })(),
+      data: Array.from({ length: 29 }, (_, i) => `${2000 + i}`),
     },
     visualMap: {
       top: 'middle',
@@ -47,32 +39,26 @@ export const RadarChart: React.FC = () => {
       radius: radiusValue,
       center: chartPosition,
     },
-    series: (function () {
-      const series = [];
-
-      for (let i = 1; i <= 28; i++) {
-        series.push({
-          type: 'radar',
-          symbol: 'none',
-          lineStyle: {
-            width: 1,
+    series: Array.from({ length: 29 }, (_, i) => {
+      return {
+        type: 'radar',
+        symbol: 'none',
+        lineStyle: {
+          width: 1,
+        },
+        emphasis: {
+          areaStyle: {
+            color: 'rgba(0,250,0,0.3)',
           },
-          emphasis: {
-            areaStyle: {
-              color: 'rgba(0,250,0,0.3)',
-            },
+        },
+        data: [
+          {
+            value: [(40 - i) * 10, (38 - i) * 4 + 60, i * 5 + 10, i * 9, (i * i) / 2],
+            name: i + 2000 + '',
           },
-          data: [
-            {
-              value: [(40 - i) * 10, (38 - i) * 4 + 60, i * 5 + 10, i * 9, (i * i) / 2],
-              name: i + 2000 + '',
-            },
-          ],
-        });
-      }
-
-      return series;
-    })(),
+        ],
+      };
+    }),
   };
 
   return (

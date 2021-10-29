@@ -2,21 +2,12 @@ type MarkArea = {
   xAxis: number;
 };
 
-export const getMarkAreaData = (data: string[] | number[]): MarkArea[][] => {
-  const result = [];
-
-  for (let i = 1; i <= data.length; i++) {
-    result.push([
-      {
-        xAxis: i,
-      },
-      {
-        xAxis: i + 1,
-      },
-    ]);
-
-    i++;
-  }
-
-  return result;
-};
+export const getMarkAreaData = (data: string[] | number[]): MarkArea[][] =>
+  data.map((el, index) => [
+    {
+      xAxis: 2 * index,
+    },
+    {
+      xAxis: 2 * index + 1,
+    },
+  ]);
