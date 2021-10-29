@@ -1,10 +1,10 @@
 import React from 'react';
 import { Col, Row } from 'antd';
 import { Burger } from 'components/common/Burger/Burger';
-import { NotificationDropdown } from '../NotificationDropdown/NotificationDropdown';
-import { ProfileDropdown } from '../ProfileDropdown/ProfileDropdown';
-import { SearchDropdown } from '../SearchDropdown/SearchDropdown';
-import { SettingsDropdown } from '../SettingsDropdown/SettingsDropdown';
+import { NotificationDropdown } from '../dropdowns/NotificationDropdown/NotificationDropdown';
+import { ProfileDropdown } from '../dropdowns/ProfileDropdown/ProfileDropdown';
+import { SearchDropdown } from '../dropdowns/SearchDropdown/SearchDropdown';
+import { SettingsDropdown } from '../dropdowns/SettingsDropdown/SettingsDropdown';
 
 interface MobileHeaderProps {
   toggleSlider: () => void;

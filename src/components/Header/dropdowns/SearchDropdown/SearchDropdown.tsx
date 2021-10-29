@@ -4,7 +4,7 @@ import { ControlOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { SearchOverlay } from './SearchOverlay/SearchOverlay';
 import { useResponsive } from 'hooks/useResponsive';
-import { DropdownHeader } from '../Header.styles';
+import { DropdownHeader } from '../../Header.styles';
 import * as S from './SearchDropdown.styles';
 
 export const SearchDropdown: React.FC = () => {

@@ -3,8 +3,8 @@ import { Col, Dropdown, Row } from 'antd';
 import { useMediaQuery } from 'react-responsive';
 import { H6 } from 'components/common/typography/H6/H6';
 import { ProfileOverlay } from './ProfileOverlay/ProfileOverlay';
-import { getUser, User } from '../../../api/users.api';
-import theme from '../../../styles/theme';
+import { getUser, User } from 'api/users.api';
+import theme from 'styles/theme';
 import * as S from './ProfileDropdown.styles';
 
 export const ProfileDropdown: React.FC = () => {

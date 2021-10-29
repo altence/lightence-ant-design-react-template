@@ -1,6 +1,6 @@
 import React from 'react';
 import { Checkbox } from './Checkbox/Checkbox';
-import { filterData } from '../../../../../constants/filterData';
+import { filterData } from 'constants/filterData';
 import * as S from './SearchFilter.styles';
 
 interface SearchFilterProps {

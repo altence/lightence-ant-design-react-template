@@ -1,8 +1,8 @@
 import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import useDebounce from '../../../../hooks/useDebounce';
+import useDebounce from 'hooks/useDebounce';
 import { SearchFilter } from './SearchFilter/SearchFilter';
-import { Component, componentsData } from '../../../../constants/componentsData';
+import { Component, componentsData } from 'constants/componentsData';
 import * as S from './SearchOverlay.styles';
 
 interface SearchOverlayProps {
