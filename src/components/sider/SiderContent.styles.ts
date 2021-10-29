@@ -53,7 +53,9 @@ export const Menu = styled(AntMenu)`
   }
 `;
 
-export const Submenu = styled(AntMenu.SubMenu)<MenuItemProps>`
+export const Submenu = styled(AntMenu.SubMenu).withConfig({
+  shouldForwardProp: (prop) => !['isActive'].includes(prop),
+})<MenuItemProps>`
   ${(props) =>
     props.isActive &&
     css`

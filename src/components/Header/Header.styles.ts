@@ -14,5 +14,9 @@ export const DropdownHeader = styled.div`
     font-size: 1.25rem;
 
     color: ${(props) => props.theme.colors.text.secondary};
+
+    @media only screen and ${(props) => props.theme.media.md} {
+      font-size: 1.625rem;
+    }
   }
 `;
