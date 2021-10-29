@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { Menu } from 'antd';
 
 export const DropdownMenu = styled(Menu)`
+  box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.07) !important;
+
   border-radius: ${(props) => props.theme.border.radius};
 `;
 
