@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Button, Typography } from 'antd';
-import theme from '../../../../styles/theme';
+import theme from 'styles/theme';
 
 export const Wrapper = styled.div`
   display: flex;

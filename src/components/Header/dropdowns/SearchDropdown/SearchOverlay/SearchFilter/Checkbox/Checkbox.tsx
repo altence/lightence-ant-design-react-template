@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { camelize } from '../../../../../../helpers/camelize';
+import { camelize } from 'helpers/camelize';
 import * as S from './Checkbox.styles';
 
 interface CheckboxProps {

@@ -1,7 +1,7 @@
 import { DownOutlined } from '@ant-design/icons';
 import { Avatar } from 'antd';
 import styled from 'styled-components';
-import { DropdownHeader } from '../Header.styles';
+import { DropdownHeader } from '../../Header.styles';
 
 export const ProfileDropdownHeader = styled(DropdownHeader)`
   cursor: pointer;
