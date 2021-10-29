@@ -6,7 +6,7 @@ interface InputPasswordProps extends AntInputProps {
 }
 
 export const InputPassword: React.FC<InputPasswordProps> = ({ className, children, ...props }) => (
-  <AntInput.Password size="large" className={className} {...props}>
+  <AntInput.Password className={className} {...props}>
     {children}
   </AntInput.Password>
 );

@@ -9,5 +9,5 @@ interface MaskedInputProps extends InputProps {
 }
 
 export const MaskedInput: React.FC<MaskedInputProps> = ({ mask, placeholderChar, value, ...props }) => (
-  <AntMaskedInput size="large" mask={mask} placeholderChar={placeholderChar} value={value} {...props} />
+  <AntMaskedInput mask={mask} placeholderChar={placeholderChar} value={value} {...props} />
 );

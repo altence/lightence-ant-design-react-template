@@ -9,7 +9,7 @@ export interface ButtonProps extends AntButtonProps {
 }
 
 export const Button: React.FC<ButtonProps> = ({ className, type = 'ghost', children, ...props }) => (
-  <S.Button size="large" type={type} className={className} {...props}>
+  <S.Button type={type} className={className} {...props}>
     {children}
   </S.Button>
 );
