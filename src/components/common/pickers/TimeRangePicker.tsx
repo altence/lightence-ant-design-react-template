@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { LocalizedDatePicker } from './LocalizedDatePicker';
-import { AppDate, Dates } from '../../../constants/Dates';
+import { AppDate, Dates } from 'constants/Dates';
 
 const clearDate = Dates.getToday().hour(0).minute(0).second(0).millisecond(0);
 const clearDateMs = +clearDate;

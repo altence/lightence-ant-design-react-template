@@ -1,7 +1,7 @@
 import React from 'react';
 import { Radio, RadioChangeEvent } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { Dates } from '../../../../constants/Dates';
+import { Dates } from 'constants/Dates';
 
 export const LanguagePicker: React.FC = () => {
   const { i18n } = useTranslation();

@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { Switch } from 'antd';
-import { TimeRangePicker } from '../../../common/pickers/TimeRangePicker';
+import { TimeRangePicker } from 'components/common/pickers/TimeRangePicker';
 import { useTranslation } from 'react-i18next';
-import { NightModeContext } from '../../../../context/NightModeContext';
+import { NightModeContext } from 'context/NightModeContext';
 
 export const NightModeSettings: React.FC = () => {
   const { t } = useTranslation();
