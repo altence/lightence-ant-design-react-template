@@ -14,6 +14,7 @@ import 'typeface-montserrat';
 import { useTheme } from './hooks/useTheme';
 import { useNightMode } from './hooks/useNightMode';
 import { useTranslation } from 'react-i18next';
+import { darkTheme } from 'styles/darkTheme';
 
 const App: React.FC = () => {
   const { isNightMode, setNightMode, nightTime, setNightTime } = useNightMode();
@@ -24,7 +25,7 @@ const App: React.FC = () => {
   return (
     <>
       <GlobalStyle />
-      <ThemeProvider theme={lightTheme}>
+      <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
         <ThemeContext.Provider value={{ theme, setTheme }}>
           <NightModeContext.Provider value={{ isNightMode, setNightMode, nightTime, setNightTime }}>
             <ConfigProvider locale={i18n.language === 'en' ? enUS : deDe}>

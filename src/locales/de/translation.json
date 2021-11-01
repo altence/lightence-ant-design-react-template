@@ -36,8 +36,6 @@
     "loading": "DE!!!Loading...",
     "moreDetails": "DE!!!More details",
     "keywords": "DE!!!Any keywords?",
-    "lightTheme": "DE!!!Light theme",
-    "darkTheme": "DE!!!Dark theme",
     "success": "DE!!!Success",
     "email": "DE!!!Email",
     "emailError": "DE!!!Please input users name or delete this field",
@@ -56,10 +54,16 @@
     "search": "DE!!!Search",
     "searchTerm": "DE!!!Enter your search term",
     "notFound": "DE!!!Try to change your search query",
-    "export": "DE!!!Export",
-    "nightModeOn": "DE!!!Night Mode ON",
-    "nightModeOff": "DE!!!Night Mode OFF",
-    "logout": "DE!!!Logout"
+    "logout": "DE!!!Logout",
+    "changeLanguage": "DE!!!Change language",
+    "changeTheme": "DE!!!Change theme",
+    "nightMode": {
+      "title": "DE!!!Nightmode",
+      "from": "DE!!!From",
+      "to": "DE!!!To"
+    },
+    "lightTheme": "DE!!!Light",
+    "darkTheme": "DE!!!Dark"
   },
   "dashboard": {
     "protein": "DE!!!Protein",
