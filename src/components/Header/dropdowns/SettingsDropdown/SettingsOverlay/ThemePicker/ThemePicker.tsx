@@ -1,26 +1,26 @@
 import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ThemeContext } from 'context/ThemeContext';
-import { Switch } from 'antd';
-import * as S from './ThemePicker.styles';
+import { Radio, RadioChangeEvent, Space } from 'antd';
+import { RadioBtn } from '../SettingsOverlay.styles';
 
 export const ThemePicker: React.FC = () => {
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme: currentTheme, setTheme } = useContext(ThemeContext);
 
-  const onChange = (value: boolean) => {
-    setTheme(value ? 'dark' : 'light');
+  const onChange = (event: RadioChangeEvent) => {
+    const theme = event.target.value;
+
+    setTheme(theme === 'dark' ? 'dark' : 'light');
   };
 
   const { t } = useTranslation();
 
   return (
-    <S.SwitchWrapper>
-      <Switch
-        checked={theme === 'dark'}
-        checkedChildren={t('common.darkTheme')}
-        unCheckedChildren={t('common.lightTheme')}
-        onChange={onChange}
-      />
-    </S.SwitchWrapper>
+    <Radio.Group defaultValue={currentTheme} onChange={onChange}>
+      <Space direction="vertical">
+        <RadioBtn value="light">{t('header.lightTheme')}</RadioBtn>
+        <RadioBtn value="dark">{t('header.darkTheme')}</RadioBtn>
+      </Space>
+    </Radio.Group>
   );
 };
