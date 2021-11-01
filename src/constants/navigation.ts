@@ -25,7 +25,25 @@ import PaymentPage from 'pages/PaymentPage';
 import InputCodePage from 'pages/InputCodePage';
 import DashboardPage from 'pages/DashboardPage';
 import LoginPage from 'pages/LoginPage';
-import { RoutesEnum } from 'routes/routes';
+
+export const enum RoutesEnum {
+  DASHBOARD_PAGE = '/',
+  FEED_PAGE = '/feed',
+  KANBAN_PAGE = '/kanban',
+  PAYMENT_PAGE = '/payment',
+  INPUT_CODE_PAGE = '/input-code',
+  DATA_TABLES_PAGE = '/data-tables',
+  CHARTS_PAGE = '/charts',
+  MAPS_PAGE = '/maps',
+  PROFILE_PAGE = '/profile',
+  SERVER_ERROR_PAGE = '/500',
+  MAINTENANCE_PAGE = '/maintenance',
+  LOGIN_PAGE = '/login',
+  SIGNUP_PAGE = '/signup',
+  LOCK_PAGE = '/lock',
+  FORGOT_PASSWORD_PAGE = '/forgot-password',
+  ERROR404_PAGE = '*',
+}
 
 interface MenuItem {
   name: string;

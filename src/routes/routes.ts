@@ -16,25 +16,7 @@ import MapsPage from 'pages/MapsPage';
 import MaintenancePage from 'pages/MaintenancePage';
 import MainLayout from 'components/layouts/main/MainLayout/MainLayout';
 import AuthLayout from 'components/layouts/auth/AuthLayout';
-
-export enum RoutesEnum {
-  DASHBOARD_PAGE = '/',
-  FEED_PAGE = '/feed',
-  KANBAN_PAGE = '/kanban',
-  PAYMENT_PAGE = '/payment',
-  INPUT_CODE_PAGE = '/input-code',
-  DATA_TABLES_PAGE = '/data-tables',
-  CHARTS_PAGE = '/charts',
-  MAPS_PAGE = '/maps',
-  PROFILE_PAGE = '/profile',
-  SERVER_ERROR_PAGE = '/500',
-  MAINTENANCE_PAGE = '/maintenance',
-  LOGIN_PAGE = '/login',
-  SIGNUP_PAGE = '/signup',
-  LOCK_PAGE = '/lock',
-  FORGOT_PASSWORD_PAGE = '/forgot-password',
-  ERROR404_PAGE = '*',
-}
+import { RoutesEnum } from 'constants/navigation';
 
 export const routes = [
   {
