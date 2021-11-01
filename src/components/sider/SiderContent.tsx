@@ -56,7 +56,7 @@ const SiderContent: React.FC<SiderContentProps> = ({ toggleSider }) => {
   );
 
   return (
-    <S.Menu mode="inline" onClick={toggleSider}>
+    <S.Menu mode="inline" onClick={toggleSider} selectable={false}>
       {navMenu}
     </S.Menu>
   );

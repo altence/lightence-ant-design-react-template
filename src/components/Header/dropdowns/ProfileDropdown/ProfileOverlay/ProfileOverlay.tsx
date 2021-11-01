@@ -8,7 +8,7 @@ export const ProfileOverlay: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <S.ProfileDropdownOverlay>
+    <S.ProfileDropdownOverlay selectable={false}>
       <Menu.Item>
         <S.Text>
           <Link to="/profile">{t('profile.title')}</Link>
