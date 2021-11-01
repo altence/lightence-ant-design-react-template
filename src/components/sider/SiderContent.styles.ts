@@ -37,14 +37,6 @@ export const Menu = styled(AntMenu)`
     color: ${(props) => props.theme.colors.text.secondary};
   }
 
-  &:not(.ant-menu-horizontal) .ant-menu-item-selected {
-    background: transparent;
-
-    &::after {
-      display: none;
-    }
-  }
-
   & a {
     width: 100%;
     display: block;
