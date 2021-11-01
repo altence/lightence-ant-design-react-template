@@ -25,6 +25,7 @@ import PaymentPage from 'pages/PaymentPage';
 import InputCodePage from 'pages/InputCodePage';
 import DashboardPage from 'pages/DashboardPage';
 import LoginPage from 'pages/LoginPage';
+import { RoutesEnum } from 'routes/routes';
 
 interface MenuItem {
   name: string;
@@ -58,7 +59,7 @@ export const navigation: NavItem[] = [
   {
     name: 'Dashboard',
     title: 'common.dashboard',
-    url: '/',
+    url: RoutesEnum.DASHBOARD_PAGE,
     component: DashboardPage,
     meta: {
       notifications: {
@@ -75,7 +76,7 @@ export const navigation: NavItem[] = [
       {
         name: 'Feed',
         title: 'common.feed',
-        url: '/feed',
+        url: RoutesEnum.FEED_PAGE,
         component: NewsFeedPage,
         meta: {
           notifications: {
@@ -87,7 +88,7 @@ export const navigation: NavItem[] = [
       {
         name: 'Kanban',
         title: 'common.kanban',
-        url: '/kanban',
+        url: RoutesEnum.KANBAN_PAGE,
         component: KanbanPage,
         meta: {
           notifications: {
@@ -106,7 +107,7 @@ export const navigation: NavItem[] = [
       {
         name: 'Login page',
         title: 'common.loginPage',
-        url: '/login',
+        url: RoutesEnum.LOGIN_PAGE,
         component: LoginPage,
         meta: {
           notifications: {
@@ -118,7 +119,7 @@ export const navigation: NavItem[] = [
       {
         name: 'Sign up page',
         title: 'common.signUpPage',
-        url: '/signup',
+        url: RoutesEnum.SIGNUP_PAGE,
         component: SignUpPage,
         meta: {
           notifications: {
@@ -130,7 +131,7 @@ export const navigation: NavItem[] = [
       {
         name: 'Lock page',
         title: 'common.lockPage',
-        url: '/lock',
+        url: RoutesEnum.LOCK_PAGE,
         component: LockPage,
         meta: {
           notifications: {
@@ -149,7 +150,7 @@ export const navigation: NavItem[] = [
       {
         name: 'Payment',
         title: 'common.payment',
-        url: '/payment',
+        url: RoutesEnum.PAYMENT_PAGE,
         component: PaymentPage,
         meta: {
           notifications: {
@@ -161,7 +162,7 @@ export const navigation: NavItem[] = [
       {
         name: 'Input 6 digit code',
         title: 'common.inputCode',
-        url: '/input-code',
+        url: RoutesEnum.INPUT_CODE_PAGE,
         component: InputCodePage,
         meta: {
           notifications: {
@@ -176,7 +177,7 @@ export const navigation: NavItem[] = [
   {
     name: 'Data tables',
     title: 'common.dataTables',
-    url: '/data-tables',
+    url: RoutesEnum.DATA_TABLES_PAGE,
     component: DataTablesPage,
     meta: {
       notifications: {
@@ -189,7 +190,7 @@ export const navigation: NavItem[] = [
   {
     name: 'Charts',
     title: 'common.charts',
-    url: '/charts',
+    url: RoutesEnum.CHARTS_PAGE,
     component: ChartsPage,
     meta: {
       notifications: {
@@ -202,7 +203,7 @@ export const navigation: NavItem[] = [
   {
     name: 'Maps',
     title: 'common.maps',
-    url: '/maps',
+    url: RoutesEnum.CHARTS_PAGE,
     component: MapsPage,
     meta: {
       notifications: {
@@ -219,7 +220,7 @@ export const navigation: NavItem[] = [
       {
         name: 'Profile Page',
         title: 'common.profilePage',
-        url: '/profile',
+        url: RoutesEnum.PROFILE_PAGE,
         component: ProfilePage,
         meta: {
           notifications: {
@@ -231,7 +232,7 @@ export const navigation: NavItem[] = [
       {
         name: 'Server Error',
         title: 'common.serverError',
-        url: '/500',
+        url: RoutesEnum.SERVER_ERROR_PAGE,
         component: ServerErrorPage,
         meta: {
           notifications: {
@@ -243,7 +244,7 @@ export const navigation: NavItem[] = [
       {
         name: 'Client Error',
         title: 'common.clientError',
-        url: '/404',
+        url: RoutesEnum.ERROR404_PAGE,
         component: Error404Page,
         meta: {
           notifications: {
@@ -255,7 +256,7 @@ export const navigation: NavItem[] = [
       {
         name: 'Maintenance',
         title: 'common.maintenance',
-        url: '/maintenance',
+        url: RoutesEnum.MAINTENANCE_PAGE,
         component: MaintenancePage,
         meta: {
           notifications: {

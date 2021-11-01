@@ -17,53 +17,72 @@ import MaintenancePage from 'pages/MaintenancePage';
 import MainLayout from 'components/layouts/main/MainLayout/MainLayout';
 import AuthLayout from 'components/layouts/auth/AuthLayout';
 
+export enum RoutesEnum {
+  DASHBOARD_PAGE = '/',
+  FEED_PAGE = '/feed',
+  KANBAN_PAGE = '/kanban',
+  PAYMENT_PAGE = '/payment',
+  INPUT_CODE_PAGE = '/input-code',
+  DATA_TABLES_PAGE = '/data-tables',
+  CHARTS_PAGE = '/charts',
+  MAPS_PAGE = '/maps',
+  PROFILE_PAGE = '/profile',
+  SERVER_ERROR_PAGE = '/500',
+  MAINTENANCE_PAGE = '/maintenance',
+  LOGIN_PAGE = '/login',
+  SIGNUP_PAGE = '/signup',
+  LOCK_PAGE = '/lock',
+  FORGOT_PASSWORD_PAGE = '/forgot-password',
+  ERROR404_PAGE = '*',
+}
+
 export const routes = [
   {
     layout: MainLayout,
     subRoutes: [
       {
         exact: true,
-        path: '/',
+        path: RoutesEnum.DASHBOARD_PAGE,
         component: DashboardPage,
       },
       {
-        path: '/feed',
+        path: RoutesEnum.FEED_PAGE,
         component: NewsFeedPage,
       },
       {
-        path: '/kanban',
+        path: RoutesEnum.KANBAN_PAGE,
         component: KanbanPage,
       },
       {
-        path: '/payment',
+        path: RoutesEnum.PAYMENT_PAGE,
         component: PaymentPage,
       },
       {
-        path: '/input-code',
+        path: RoutesEnum.INPUT_CODE_PAGE,
         component: InputCodePage,
       },
       {
-        path: '/data-tables',
+        path: RoutesEnum.DATA_TABLES_PAGE,
         component: DataTablesPage,
       },
       {
-        path: '/charts',
+        path: RoutesEnum.CHARTS_PAGE,
         component: ChartsPage,
       },
       {
-        path: '/maps',
+        path: RoutesEnum.MAPS_PAGE,
         component: MapsPage,
       },
       {
-        path: '/profile',
+        path: RoutesEnum.PROFILE_PAGE,
         component: ProfilePage,
       },
       {
-        path: '/500',
+        path: RoutesEnum.SERVER_ERROR_PAGE,
         component: ServerErrorPage,
       },
       {
-        path: '/maintenance',
+        path: RoutesEnum.MAINTENANCE_PAGE,
         component: MaintenancePage,
       },
     ],
@@ -72,22 +91,22 @@ export const routes = [
     layout: AuthLayout,
     subRoutes: [
       {
-        path: '/login',
+        path: RoutesEnum.LOGIN_PAGE,
         component: LoginPage,
         exact: true,
       },
       {
-        path: '/signup',
+        path: RoutesEnum.SIGNUP_PAGE,
         component: SignUpPage,
         exact: true,
       },
       {
-        path: '/lock',
+        path: RoutesEnum.LOCK_PAGE,
         component: LockPage,
         exact: true,
       },
       {
-        path: '/forgot-password',
+        path: RoutesEnum.FORGOT_PASSWORD_PAGE,
         component: ForgotPasswordPage,
         exact: true,
       },
@@ -97,7 +116,7 @@ export const routes = [
     layout: MainLayout,
     subRoutes: [
       {
-        path: '*',
+        path: RoutesEnum.ERROR404_PAGE,
         component: Error404Page,
       },
     ],
