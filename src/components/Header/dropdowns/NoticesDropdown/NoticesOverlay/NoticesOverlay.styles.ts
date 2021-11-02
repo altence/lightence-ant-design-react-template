@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Divider, Row } from 'antd';
+import { Divider, Row, Typography } from 'antd';
 import { DropdownMenu } from 'components/Header/Header.styles';
 import { Button } from 'components/common/buttons/Button/Button';
 
@@ -31,4 +31,9 @@ export const LinkBtn = styled(Button)`
 
 export const Btn = styled(Button)`
   width: 100%;
+`;
+
+export const Text = styled(Typography.Text)`
+  display: block;
+  text-align: center;
 `;

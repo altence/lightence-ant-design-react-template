@@ -12,9 +12,10 @@ import * as S from './NoticesOverlay.styles';
 
 interface NoticesOverlayProps {
   notices: NoticeType[];
+  setNotices: (state: NoticeType[]) => void;
 }
 
-export const NoticesOverlay: React.FC<NoticesOverlayProps> = ({ notices }) => {
+export const NoticesOverlay: React.FC<NoticesOverlayProps> = ({ notices, setNotices }) => {
   const { t } = useTranslation();
 
   const noticesList = useMemo(
@@ -49,15 +50,23 @@ export const NoticesOverlay: React.FC<NoticesOverlayProps> = ({ notices }) => {
     <S.NoticesOverlayMenu mode="inline">
       <S.MenuRow gutter={[20, 20]}>
         <Col span={24}>
-          <Space direction="vertical" size={10} split={<S.SplitDivider />}>
-            {noticesList}
-          </Space>
+          {notices.length > 0 ? (
+            <Space direction="vertical" size={10} split={<S.SplitDivider />}>
+              {noticesList}
+            </Space>
+          ) : (
+            <S.Text>{t('header.notices.noNotices')}</S.Text>
+          )}
         </Col>
         <Col span={24}>
           <Row gutter={[10, 10]}>
-            <Col span={24}>
-              <S.Btn type="ghost">{t('header.notices.readAll')}</S.Btn>
-            </Col>
+            {notices.length > 0 && (
+              <Col span={24}>
+                <S.Btn type="ghost" onClick={() => setNotices([])}>
+                  {t('header.notices.readAll')}
+                </S.Btn>
+              </Col>
+            )}
             <Col span={24}>
               <S.Btn type="link">
                 <Link to={RoutesEnum.DASHBOARD_PAGE}>{t('header.notices.viewAll')}</Link>
