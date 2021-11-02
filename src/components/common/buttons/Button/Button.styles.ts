@@ -28,7 +28,8 @@ export const Button = styled(AntButton)<BtnProps>`
   ${(props) =>
     props.type === 'link' &&
     css`
-      & span {
+      & span,
+      a {
         text-decoration: underline;
       }
 
