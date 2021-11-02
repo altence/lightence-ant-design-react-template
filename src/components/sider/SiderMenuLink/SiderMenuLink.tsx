@@ -1,14 +1,15 @@
 import React from 'react';
 import { MenuItemProps, Row, Col } from 'antd';
 import { Link } from 'react-router-dom';
-import { Badge, BadgeType } from 'components/common/Badge/Badge';
+import { Badge } from 'components/common/Badge/Badge';
+import { NoticeType } from 'components/common/Notice/Notice';
 import * as S from './SiderMenuLink.styles';
 
 interface SiderMenuLinkProps extends MenuItemProps {
   href: string;
   name: string;
   notificationsCount?: number;
-  notificationsSeverity?: BadgeType;
+  notificationsSeverity?: NoticeType;
   isActive: boolean;
 }
 

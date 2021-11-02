@@ -1,9 +1,9 @@
 import { Badge as AntBadge } from 'antd';
 import styled from 'styled-components';
-import { BadgeType } from './Badge';
+import { NoticeType } from '../Notice/Notice';
 
 interface BadgeProps {
-  severity: BadgeType;
+  severity?: NoticeType;
 }
 
 export const Badge = styled(AntBadge)<BadgeProps>`
@@ -12,7 +12,7 @@ export const Badge = styled(AntBadge)<BadgeProps>`
       (props.severity === 'error' && props.theme.colors.main.error) ||
       (props.severity === 'warning' && props.theme.colors.main.warning) ||
       (props.severity === 'success' && props.theme.colors.main.success) ||
-      (props.severity === 'default' && props.theme.colors.main.primary) ||
+      (props.severity === 'info' && props.theme.colors.main.primary) ||
       props.theme.colors.main.primary};
   }
 `;
