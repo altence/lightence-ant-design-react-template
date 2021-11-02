@@ -7,5 +7,7 @@ export const Header = styled(Layout.Header)`
   @media only screen and ${(props) => props.theme.media.md} {
     padding: ${(props) =>
       `${props.theme.desktopLayout.paddingVertical} ${props.theme.desktopLayout.paddingHorizontal}`};
+
+    height: 6.25rem;
   }
 `;
