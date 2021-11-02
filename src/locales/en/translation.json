@@ -63,7 +63,15 @@
       "to": "To"
     },
     "lightTheme": "Light",
-    "darkTheme": "Dark"
+    "darkTheme": "Dark",
+    "notices": {
+      "loginAttempt": "There was an attempt to log in to your account from another device",
+      "successPayment": "Your payment was successfully made",
+      "serverError": "The server is not responding, try again later",
+      "mention": "mentioned you in <0>{{place}}</0>",
+      "viewAll": "View all",
+      "readAll": "Mark all as read"
+    }
   },
   "dashboard": {
     "protein": "Protein",

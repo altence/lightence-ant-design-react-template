@@ -63,7 +63,15 @@
       "to": "DE!!!To"
     },
     "lightTheme": "DE!!!Light",
-    "darkTheme": "DE!!!Dark"
+    "darkTheme": "DE!!!Dark",
+    "notices": {
+      "loginAttempt": "DE!!!There was an attempt to log in to your account from another device",
+      "successPayment": "DE!!!Your payment was successfully made",
+      "serverError": "DE!!!The server is not responding, try again later",
+      "mention": "DE!!!mentioned you in <0>{{place}}</0>",
+      "viewAll": "DE!!!View all",
+      "readAll": "DE!!!Mark all as read"
+    }
   },
   "dashboard": {
     "protein": "DE!!!Protein",
