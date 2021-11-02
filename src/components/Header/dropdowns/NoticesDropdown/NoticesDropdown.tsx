@@ -14,7 +14,7 @@ export const NoticesDropdown: React.FC = () => {
   }, []);
 
   return (
-    <Dropdown trigger={['click']} overlay={<NoticesOverlay notices={notices} />}>
+    <Dropdown trigger={['click']} overlay={<NoticesOverlay notices={notices} setNotices={setNotices} />}>
       <DropdownHeader>
         <Badge dot>
           <BellOutlined />

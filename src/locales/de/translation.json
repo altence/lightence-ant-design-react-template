@@ -70,7 +70,8 @@
       "serverError": "DE!!!The server is not responding, try again later",
       "mention": "DE!!!mentioned you in <0>{{place}}</0>",
       "viewAll": "DE!!!View all",
-      "readAll": "DE!!!Mark all as read"
+      "readAll": "DE!!!Mark all as read",
+      "noNotices": "DE!!!No notices yet"
     }
   },
   "dashboard": {

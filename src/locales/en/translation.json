@@ -70,7 +70,8 @@
       "serverError": "The server is not responding, try again later",
       "mention": "mentioned you in <0>{{place}}</0>",
       "viewAll": "View all",
-      "readAll": "Mark all as read"
+      "readAll": "Mark all as read",
+      "noNotices": "No notices yet"
     }
   },
   "dashboard": {
