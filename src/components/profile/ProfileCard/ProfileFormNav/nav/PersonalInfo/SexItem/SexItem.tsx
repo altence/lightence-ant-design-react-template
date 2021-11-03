@@ -1,9 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ManOutlined, WomanOutlined } from '@ant-design/icons';
+import { Space } from 'antd';
 import { Select, Option } from 'components/common/Select/Select';
 import { FormItem } from 'components/common/Form/Form.styles';
-import { IconWrapper } from 'components/common/Select/Select.styles';
 
 export const SexItem: React.FC = () => {
   const { t } = useTranslation();
@@ -12,16 +12,16 @@ export const SexItem: React.FC = () => {
     <FormItem name="sex" label={t('profile.nav.personalInfo.sex')}>
       <Select showSearch filterOption={(input, option) => option?.value.toLowerCase().includes(input.toLowerCase())}>
         <Option value="male">
-          <IconWrapper>
+          <Space align="center">
             <ManOutlined />
             {t('profile.nav.personalInfo.male')}
-          </IconWrapper>
+          </Space>
         </Option>
         <Option value="female">
-          <IconWrapper>
+          <Space align="center">
             <WomanOutlined />
             {t('profile.nav.personalInfo.female')}
-          </IconWrapper>
+          </Space>
         </Option>
       </Select>
     </FormItem>

@@ -3,14 +3,15 @@ import { Select, Option } from 'components/common/Select/Select';
 import { useTranslation } from 'react-i18next';
 import { languages } from 'constants/languages';
 import { FormItem } from 'components/common/Form/Form.styles';
-import { IconWrapper } from 'components/common/Select/Select.styles';
+import { Space } from 'antd';
+import ReactCountryFlag from 'react-country-flag';
 
 const languageOptions = languages.map((lang) => (
   <Option key={lang.id} value={lang.name}>
-    <IconWrapper>
-      <lang.icon />
+    <Space align="center">
+      <ReactCountryFlag svg countryCode={lang.countryCode} />
       {lang.name}
-    </IconWrapper>
+    </Space>
   </Option>
 ));
 

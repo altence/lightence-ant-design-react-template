@@ -3,17 +3,17 @@ import { Country } from 'country-state-city';
 import { useTranslation } from 'react-i18next';
 import ReactCountryFlag from 'react-country-flag';
 import { Select, Option } from 'components/common/Select/Select';
-import { IconWrapper } from 'components/common/Select/Select.styles';
 import { FormItem } from 'components/common/Form/Form.styles';
+import { Space } from 'antd';
 
 const countries = Country.getAllCountries();
 
 const selectOptions = countries.map((country) => (
   <Option key={country.name} value={country.name}>
-    <IconWrapper>
+    <Space align="center">
       <ReactCountryFlag countryCode={country.isoCode} svg />
       {country.name}
-    </IconWrapper>
+    </Space>
   </Option>
 ));
 
