@@ -5,7 +5,7 @@ import { Col, Row, Space } from 'antd';
 import { Link } from 'react-router-dom';
 import { Notification } from 'components/common/Notification/Notification';
 import { capitalize } from 'utils/utils';
-import { Mention, Notification as NotificationType } from 'constants/notificationsData';
+import { Mention, Notification as NotificationType } from 'api/notifications.api';
 import { notificationsSeverities } from 'constants/notificationsSeverities';
 import { RoutesEnum } from 'constants/navigation';
 import * as S from './NotificationsOverlay.styles';
