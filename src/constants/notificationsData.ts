@@ -12,24 +12,24 @@ export interface Mention extends Message {
   href: string;
 }
 
-export type Notice = Mention | Message;
+export type Notification = Mention | Message;
 
-export const noticesData: Notice[] = [
+export const notificationsData: Notification[] = [
   {
     id: 2,
-    description: 'header.notices.loginAttempt',
+    description: 'header.notifications.loginAttempt',
   },
   {
     id: 1,
-    description: 'header.notices.successPayment',
+    description: 'header.notifications.successPayment',
   },
   {
     id: 3,
-    description: 'header.notices.serverError',
+    description: 'header.notifications.serverError',
   },
   {
     id: 4,
-    description: 'header.notices.mention',
+    description: 'header.notifications.mention',
     userName: 'Steve Manson',
     userIcon:
       'https://res.cloudinary.com/lapkinthegod/image/upload/v1629187274/young-male-doctor-white-uniform_x7dcrs.jpg',

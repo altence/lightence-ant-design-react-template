@@ -1,12 +1,12 @@
 import { Avatar, Space, Typography } from 'antd';
 import styled from 'styled-components';
-import { NoticeType } from './Notice';
+import { NotificationType } from './Notification';
 
 interface SpacewWrapperProps {
-  type: NoticeType;
+  type: NotificationType;
 }
 
-export const NoticeIcon = styled(Avatar)``;
+export const NotificationIcon = styled(Avatar)``;
 
 export const Title = styled(Typography.Text)`
   font-size: 0.875rem;

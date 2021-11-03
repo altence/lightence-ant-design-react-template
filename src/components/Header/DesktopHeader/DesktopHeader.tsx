@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'antd';
-import { NoticesDropdown } from '../dropdowns/NoticesDropdown/NoticesDropdown';
+import { NotificationsDropdown } from '../dropdowns/NotificationsDropdown/NotificationsDropdown';
 import { ProfileDropdown } from '../dropdowns/ProfileDropdown/ProfileDropdown';
 import { SearchDropdown } from '../dropdowns/SearchDropdown/SearchDropdown';
 import { SettingsDropdown } from '../dropdowns/SettingsDropdown/SettingsDropdown';
@@ -15,7 +15,7 @@ export const DesktopHeader: React.FC = () => {
       <Col>
         <Row gutter={[30, 30]} align="middle">
           <Col>
-            <NoticesDropdown />
+            <NotificationsDropdown />
           </Col>
 
           <Col>

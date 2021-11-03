@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import { SiderMenuLink } from './SiderMenuLink/SiderMenuLink';
 import { navigation } from 'constants/navigation';
-import { noticesSeverities } from 'constants/noticesSeverities';
+import { notificationsSeverities } from 'constants/notificationsSeverities';
 import * as S from './SiderContent.styles';
 
 interface SiderContentProps {
@@ -15,7 +15,7 @@ const SiderContent: React.FC<SiderContentProps> = ({ toggleSider }) => {
 
   const location = useLocation();
 
-  const getNoticeSeverity = (id: number) => noticesSeverities.find((nf) => nf.id === id)?.name;
+  const getNotificationSeverity = (id: number) => notificationsSeverities.find((nf) => nf.id === id)?.name;
 
   const navMenu = useMemo(
     () =>
@@ -28,7 +28,7 @@ const SiderContent: React.FC<SiderContentProps> = ({ toggleSider }) => {
             name={t(nav.title)}
             isActive={nav.url === location.pathname}
             {...(nav.meta && {
-              notificationsSeverity: getNoticeSeverity(nav.meta.notifications.severity),
+              notificationsSeverity: getNotificationSeverity(nav.meta.notifications.severity),
               notificationsCount: nav.meta?.notifications.count,
             })}
           />
@@ -44,7 +44,7 @@ const SiderContent: React.FC<SiderContentProps> = ({ toggleSider }) => {
                 key={`${nav.name}${index}`}
                 name={t(menu.title)}
                 href={menu.url}
-                notificationsSeverity={getNoticeSeverity(menu.meta.notifications.severity)}
+                notificationsSeverity={getNotificationSeverity(menu.meta.notifications.severity)}
                 notificationsCount={menu.meta.notifications.count}
                 isActive={menu.url === location.pathname}
               />
@@ -52,7 +52,7 @@ const SiderContent: React.FC<SiderContentProps> = ({ toggleSider }) => {
           </S.Submenu>
         ),
       ),
-    [getNoticeSeverity],
+    [getNotificationSeverity],
   );
 
   return (

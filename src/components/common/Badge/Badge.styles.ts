@@ -1,9 +1,9 @@
 import { Badge as AntBadge } from 'antd';
 import styled from 'styled-components';
-import { NoticeType } from '../Notice/Notice';
+import { NotificationType } from '../Notification/Notification';
 
 interface BadgeProps {
-  severity?: NoticeType;
+  severity?: NotificationType;
 }
 
 export const Badge = styled(AntBadge)<BadgeProps>`
