@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { Typography } from 'antd';
-import loginBackground from '../../../assets/images/login-bg.jpg';
-import theme from '../../../styles/theme';
-import { hexToRGB } from 'helpers/hexToRGB';
+import loginBackground from 'assets/images/login-bg.jpg';
+import theme from 'styles/theme';
+import { hexToRGB } from 'utils/utils';
 
 export const Wrapper = styled.div`
   font-family: Poppins, sans-serif;

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Col, Row, Space } from 'antd';
 import { Link } from 'react-router-dom';
 import { Notification } from 'components/common/Notification/Notification';
-import { getWordFromBigLetter } from 'helpers/getWordFromBigLetter';
+import { capitalize } from 'utils/utils';
 import { Mention, Notification as NotificationType } from 'constants/notificationsData';
 import { notificationsSeverities } from 'constants/notificationsSeverities';
 import { RoutesEnum } from 'constants/navigation';
@@ -27,7 +27,7 @@ export const NotificationsOverlay: React.FC<NotificationsOverlayProps> = ({ noti
           <Notification
             key={index}
             type={type || 'warning'}
-            title={getWordFromBigLetter(type || 'warning')}
+            title={capitalize(type || 'warning')}
             description={t(notification.description)}
             {...(type === 'mention' && {
               mentionIconSrc: (notification as Mention).userIcon,

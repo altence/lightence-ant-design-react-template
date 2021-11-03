@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Table } from 'antd';
-import { hexToRGB } from 'helpers/hexToRGB';
+import { hexToRGB } from 'utils/utils';
 
 export const PaymentHistoryTable = styled(Table)`
   .ant-table-thead > tr > th {

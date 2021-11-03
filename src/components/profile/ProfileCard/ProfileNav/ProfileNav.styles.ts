@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Button } from 'components/common/buttons/Button/Button';
-import { hexToRGB } from 'helpers/hexToRGB';
+import { hexToRGB } from 'utils/utils';
 
 interface BtnProps {
   isActive: boolean;

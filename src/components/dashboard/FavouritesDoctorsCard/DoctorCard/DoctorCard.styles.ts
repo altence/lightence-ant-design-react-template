@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Avatar as AntAvatar, Typography, Rate } from 'antd';
-import theme from '../../../../styles/theme';
-import { hexToRGB } from 'helpers/hexToRGB';
+import theme from 'styles/theme';
+import { hexToRGB } from 'utils/utils';
 
 export const Wrapper = styled.div`
   margin: 0 auto;

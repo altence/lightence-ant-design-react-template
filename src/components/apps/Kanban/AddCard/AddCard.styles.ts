@@ -1,5 +1,5 @@
 import { Button } from 'antd';
-import { hexToRGB } from 'helpers/hexToRGB';
+import { hexToRGB } from 'utils/utils';
 import styled from 'styled-components';
 
 export const Btn = styled(Button)`

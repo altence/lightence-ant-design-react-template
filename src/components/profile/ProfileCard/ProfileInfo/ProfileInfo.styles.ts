@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Typography } from 'antd';
-import { hexToRGB } from 'helpers/hexToRGB';
+import { hexToRGB } from 'utils/utils';
 
 interface FullnessLineProps {
   width: number;

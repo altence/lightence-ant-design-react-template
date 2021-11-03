@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BloodScreeningChart } from './BloodScreeningChart/BloodScreeningChart';
 import { Cell, BloodScreeningTable } from './BloodScreeningTable/BloodScreeningTable';
-import { camelize } from '../../../helpers/camelize';
+import { camelize } from 'utils/utils';
 import { useResponsive } from 'hooks/useResponsive';
 import * as S from './BloodScreeningCard.styles';
 

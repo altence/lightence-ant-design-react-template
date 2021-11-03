@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { hexToRGB } from 'helpers/hexToRGB';
+import { hexToRGB } from 'utils/utils';
 
 const colStyles = {
   height: '75px',

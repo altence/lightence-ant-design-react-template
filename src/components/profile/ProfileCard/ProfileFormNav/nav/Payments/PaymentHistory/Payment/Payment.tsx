@@ -2,7 +2,7 @@ import React, { useContext, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Avatar } from 'antd';
 import { ThemeContext } from 'styled-components';
-import { getCurrencyPrice } from 'helpers/getCurrencyPrice';
+import { getCurrencyPrice } from 'utils/utils';
 import { paymentStatuses } from 'constants/paymentStatuses';
 import { Dates } from 'constants/Dates';
 import { Status } from '../Status/Status';

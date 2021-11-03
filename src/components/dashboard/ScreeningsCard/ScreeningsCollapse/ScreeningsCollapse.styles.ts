@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Button, Typography, Avatar as AntAvatar } from 'antd';
-import theme from '../../../../styles/theme';
-import { hexToRGB } from 'helpers/hexToRGB';
+import theme from 'styles/theme';
+import { hexToRGB } from 'utils/utils';
 
 interface CollapseProps {
   isCollapsed: boolean;

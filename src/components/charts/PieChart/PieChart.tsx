@@ -3,7 +3,7 @@ import { ThemeContext } from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import { Card } from 'components/common/Card/Card';
 import { Chart } from 'components/common/Chart/Chart';
-import { hexToRGB } from 'helpers/hexToRGB';
+import { hexToRGB } from 'utils/utils';
 import { useResponsive } from 'hooks/useResponsive';
 
 export const PieChart: React.FC = () => {

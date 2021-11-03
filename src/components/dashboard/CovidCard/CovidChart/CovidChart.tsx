@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { Chart } from '../../../common/Chart/Chart';
-import { getMarkAreaData } from '../../../../helpers/getMarkAreaData';
+import { Chart } from 'components/common/Chart/Chart';
+import { getMarkAreaData } from 'utils/utils';
 import { ThemeContext } from 'styled-components';
 import { useResponsive } from 'hooks/useResponsive';
-import { hexToRGB } from 'helpers/hexToRGB';
+import { hexToRGB } from 'utils/utils';
 
 const xAxisData = Array.from({ length: 30 }, (_, i) => i + 1);
 
