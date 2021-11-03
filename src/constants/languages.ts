@@ -1,21 +1,18 @@
-import { GermanyFlag } from 'components/common/icons/GermanyFlag';
-import { UKFlag } from 'components/common/icons/UKFlag';
-
 interface Language {
   id: number;
   name: string;
-  icon: React.FC;
+  countryCode: string;
 }
 
 export const languages: Language[] = [
   {
     id: 1,
     name: 'English',
-    icon: UKFlag,
+    countryCode: 'GB',
   },
   {
     id: 2,
     name: 'Deutsch',
-    icon: GermanyFlag,
+    countryCode: 'DE',
   },
 ];
