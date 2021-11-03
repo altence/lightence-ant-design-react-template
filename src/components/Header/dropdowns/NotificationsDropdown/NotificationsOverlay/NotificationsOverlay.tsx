@@ -3,39 +3,39 @@ import { Trans } from 'react-i18next';
 import { useTranslation } from 'react-i18next';
 import { Col, Row, Space } from 'antd';
 import { Link } from 'react-router-dom';
-import { Notice } from 'components/common/Notice/Notice';
+import { Notification } from 'components/common/Notification/Notification';
 import { getWordFromBigLetter } from 'helpers/getWordFromBigLetter';
-import { Mention, Notice as NoticeType } from 'constants/noticesData';
-import { noticesSeverities } from 'constants/noticesSeverities';
+import { Mention, Notification as NotificationType } from 'constants/notificationsData';
+import { notificationsSeverities } from 'constants/notificationsSeverities';
 import { RoutesEnum } from 'constants/navigation';
-import * as S from './NoticesOverlay.styles';
+import * as S from './NotificationsOverlay.styles';
 
-interface NoticesOverlayProps {
-  notices: NoticeType[];
-  setNotices: (state: NoticeType[]) => void;
+interface NotificationsOverlayProps {
+  notifications: NotificationType[];
+  setNotifications: (state: NotificationType[]) => void;
 }
 
-export const NoticesOverlay: React.FC<NoticesOverlayProps> = ({ notices, setNotices }) => {
+export const NotificationsOverlay: React.FC<NotificationsOverlayProps> = ({ notifications, setNotifications }) => {
   const { t } = useTranslation();
 
   const noticesList = useMemo(
     () =>
-      notices.map((notice, index) => {
-        const type = noticesSeverities.find((dbSeverity) => dbSeverity.id === notice.id)?.name;
+      notifications.map((notification, index) => {
+        const type = notificationsSeverities.find((dbSeverity) => dbSeverity.id === notification.id)?.name;
 
         return (
-          <Notice
+          <Notification
             key={index}
             type={type || 'warning'}
             title={getWordFromBigLetter(type || 'warning')}
-            description={t(notice.description)}
+            description={t(notification.description)}
             {...(type === 'mention' && {
-              mentionIcon: (notice as Mention).userIcon,
-              title: (notice as Mention).userName,
+              mentionIconSrc: (notification as Mention).userIcon,
+              title: (notification as Mention).userName,
               description: (
-                <Trans i18nKey={(notice as Mention).description}>
-                  <S.LinkBtn type="link" href={(notice as Mention).href}>
-                    {{ place: t((notice as Mention).place) }}
+                <Trans i18nKey={(notification as Mention).description}>
+                  <S.LinkBtn type="link" href={(notification as Mention).href}>
+                    {{ place: t((notification as Mention).place) }}
                   </S.LinkBtn>
                 </Trans>
               ),
@@ -43,14 +43,14 @@ export const NoticesOverlay: React.FC<NoticesOverlayProps> = ({ notices, setNoti
           />
         );
       }),
-    [notices],
+    [notifications],
   );
 
   return (
     <S.NoticesOverlayMenu mode="inline">
       <S.MenuRow gutter={[20, 20]}>
         <Col span={24}>
-          {notices.length > 0 ? (
+          {notifications.length > 0 ? (
             <Space direction="vertical" size={10} split={<S.SplitDivider />}>
               {noticesList}
             </Space>
@@ -60,9 +60,9 @@ export const NoticesOverlay: React.FC<NoticesOverlayProps> = ({ notices, setNoti
         </Col>
         <Col span={24}>
           <Row gutter={[10, 10]}>
-            {notices.length > 0 && (
+            {notifications.length > 0 && (
               <Col span={24}>
-                <S.Btn type="ghost" onClick={() => setNotices([])}>
+                <S.Btn type="ghost" onClick={() => setNotifications([])}>
                   {t('header.notices.readAll')}
                 </S.Btn>
               </Col>

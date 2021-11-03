@@ -1,11 +1,11 @@
-import { NoticeType } from 'components/common/Notice/Notice';
+import { NotificationType } from 'components/common/Notification/Notification';
 
-interface NoticeSeverity {
+interface NotificationSeverity {
   id: number;
-  name: NoticeType;
+  name: NotificationType;
 }
 
-export const noticesSeverities: NoticeSeverity[] = [
+export const notificationsSeverities: NotificationSeverity[] = [
   {
     id: 0,
     name: 'info',
