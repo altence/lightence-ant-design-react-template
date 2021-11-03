@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { Chart } from '../../../common/Chart/Chart';
-import { getMarkAreaData } from '../../../../helpers/getMarkAreaData';
+import { Chart } from 'components/common/Chart/Chart';
+import { getMarkAreaData } from 'utils/utils';
 import { ThemeContext } from 'styled-components';
-import { hexToRGB } from 'helpers/hexToRGB';
+import { hexToRGB } from 'utils/utils';
 
 const xAxisData = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 

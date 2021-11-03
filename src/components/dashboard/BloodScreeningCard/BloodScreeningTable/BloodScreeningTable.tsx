@@ -1,7 +1,7 @@
 import React from 'react';
 import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
-import { camelize } from '../../../../helpers/camelize';
+import { camelize } from 'utils/utils';
 import { useResponsive } from 'hooks/useResponsive';
 import * as S from './BloodScreeningTable.styles';
 

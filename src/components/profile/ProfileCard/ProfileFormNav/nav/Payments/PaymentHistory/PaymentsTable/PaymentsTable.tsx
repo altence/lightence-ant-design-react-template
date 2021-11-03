@@ -6,7 +6,7 @@ import { ColumnType } from 'antd/lib/table';
 import { Dates } from 'constants/Dates';
 import { Status } from '../Status/Status';
 import { paymentStatuses, PaymentStatus } from 'constants/paymentStatuses';
-import { getCurrencyPrice } from 'helpers/getCurrencyPrice';
+import { getCurrencyPrice } from 'utils/utils';
 import { Payment } from 'api/paymentHistory.api';
 import * as S from './PaymentsTable.styles';
 import { Button } from 'components/common/buttons/Button/Button';

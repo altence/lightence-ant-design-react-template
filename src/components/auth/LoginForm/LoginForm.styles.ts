@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Button, Typography, Input as AntInput, Form, Checkbox } from 'antd';
-import theme from '../../../styles/theme';
-import { hexToRGB } from 'helpers/hexToRGB';
+import theme from 'styles/theme';
+import { hexToRGB } from 'utils/utils';
 
 export const Wrapper = styled.div`
   padding: 1.875rem 1.875rem 5.5rem 1.875rem;

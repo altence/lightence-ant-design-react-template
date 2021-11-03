@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { Typography } from 'antd';
 import { Card as CardStyled } from '../../common/Card/Card';
-import theme from '../../../styles/theme';
-import { hexToRGB } from 'helpers/hexToRGB';
+import theme from 'styles/theme';
+import { hexToRGB } from 'utils/utils';
 
 export const Card = styled(CardStyled)`
   & .ant-card-body {
