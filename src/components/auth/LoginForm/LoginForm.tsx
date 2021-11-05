@@ -1,18 +1,18 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Form } from 'antd';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import * as S from './LoginForm.styles';
 
 export const LoginForm: React.FC = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const { t } = useTranslation();
 
   const handleSubmit = () => {
     setTimeout(() => {
-      history.push('/');
+      navigate('/');
     }, 1000);
   };
 

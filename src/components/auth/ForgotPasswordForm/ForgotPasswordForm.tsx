@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Form, notification } from 'antd';
 import { useTranslation } from 'react-i18next';
 import * as S from './ForgotPasswordForm.styles';
@@ -7,7 +7,7 @@ import * as S from './ForgotPasswordForm.styles';
 export const ForgotPasswordForm: React.FC = () => {
   const { t } = useTranslation();
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleSubmit = () => {
     notification.open({
@@ -16,7 +16,7 @@ export const ForgotPasswordForm: React.FC = () => {
     });
 
     setTimeout(() => {
-      history.push('/');
+      navigate('/');
     }, 1000);
   };
 
