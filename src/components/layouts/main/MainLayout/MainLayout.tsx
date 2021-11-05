@@ -5,8 +5,9 @@ import MainContent from '../MainContent/MainContent';
 import SiderContent from 'components/sider/SiderContent';
 import { MainHeader } from '../MainHeader/MainHeader';
 import * as S from './MainLayout.styles';
+import { Outlet } from 'react-router-dom';
 
-const MainLayout: React.FC = ({ children }) => {
+const MainLayout: React.FC = () => {
   const [siderCollapsed, setSiderCollapsed] = useState(true);
 
   const toggleSider = () => setSiderCollapsed(!siderCollapsed);
@@ -20,7 +21,9 @@ const MainLayout: React.FC = ({ children }) => {
         <MainHeader>
           <Header toggleSider={toggleSider} />
         </MainHeader>
-        <MainContent>{children}</MainContent>
+        <MainContent>
+          <Outlet />
+        </MainContent>
       </S.LayoutMain>
     </S.LayoutMaster>
   );

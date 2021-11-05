@@ -1,9 +1,10 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { Outlet } from 'react-router-dom';
 import theme from '../../../styles/theme';
 import * as S from './AuthLayout.styles';
 
-const AuthLayout: React.FC = ({ children }) => {
+const AuthLayout: React.FC = () => {
   const isDesktop = useMediaQuery({
     query: theme.media.xl,
   });
@@ -14,13 +15,13 @@ const AuthLayout: React.FC = ({ children }) => {
         <S.LoginWrapper>
           <S.Title>Altence</S.Title>
           <S.Subtitle>Masakra</S.Subtitle>
-          {!isDesktop && children}
+          {!isDesktop && <Outlet />}
         </S.LoginWrapper>
         {!isDesktop && <S.Copyright>2021 &copy; Altence. All Rights Reserved</S.Copyright>}
       </S.BackgroundWrapper>
       {isDesktop && (
         <S.FormWrapper>
-          {children}
+          <Outlet />
           <S.Copyright>2021 &copy; Altence. All Rights Reserved</S.Copyright>
         </S.FormWrapper>
       )}
