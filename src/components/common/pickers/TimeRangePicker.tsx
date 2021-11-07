@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { LocalizedDatePicker } from './LocalizedDatePicker';
+import { DayjsDatePicker } from './DayjsDatePicker';
 import { AppDate, Dates } from 'constants/Dates';
 import { notification } from 'antd';
 import { useTranslation } from 'react-i18next';
@@ -29,7 +29,7 @@ export const TimeRangePicker: React.FC<TimePickerProps> = ({ timeRange, setTimeR
   };
 
   return (
-    <LocalizedDatePicker.RangePicker
+    <DayjsDatePicker.RangePicker
       value={[timeRangePrepared[0], timeRangePrepared[1]]}
       picker="time"
       format="HH:mm"
