@@ -7,13 +7,13 @@ import * as S from './SearchOverlay.styles';
 
 interface SearchOverlayProps {
   data: CategoryComponents[] | null;
-  isFilterActive: boolean;
+  isFilterVisible: boolean;
 }
 
-export const SearchOverlay: React.FC<SearchOverlayProps> = ({ data, isFilterActive }) => {
+export const SearchOverlay: React.FC<SearchOverlayProps> = ({ data, isFilterVisible }) => {
   return (
     <S.Menu>
-      <SearchFilter data={data} isFilterActive={isFilterActive}>
+      <SearchFilter data={data} isVisible={isFilterVisible}>
         {(filteredResults) => (filteredResults.length > 0 ? <SearchResults results={filteredResults} /> : <NotFound />)}
       </SearchFilter>
     </S.Menu>

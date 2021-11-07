@@ -7,11 +7,11 @@ import * as S from './SearchFilter.styles';
 
 interface SearchFilterProps {
   data: CategoryComponents[] | null;
-  isFilterActive: boolean;
+  isVisible: boolean;
   children: (filteredResults: CategoryComponents[]) => React.ReactNode;
 }
 
-export const SearchFilter: React.FC<SearchFilterProps> = ({ data, isFilterActive, children }) => {
+export const SearchFilter: React.FC<SearchFilterProps> = ({ data, isVisible, children }) => {
   const [selectedFilter, setSelectedFilter] = useState<CategoryType[]>([]);
   const [filteredResults, setFilteredResults] = useState<CategoryComponents[] | null>(data);
 
@@ -20,7 +20,7 @@ export const SearchFilter: React.FC<SearchFilterProps> = ({ data, isFilterActive
   const filterElements = useMemo(
     () =>
       categoriesList.map((filter, index) => (
-        <Col span={index === 1 || index === 4 ? 9 : 7} key={filter.name}>
+        <Col xs={index === 1 || index === 4 ? 9 : 7} md={12} xxl={index === 1 || index === 4 ? 9 : 7} key={filter.name}>
           <S.CheckBox value={filter.name}>{t(filter.title)}</S.CheckBox>
         </Col>
       )),
@@ -47,15 +47,13 @@ export const SearchFilter: React.FC<SearchFilterProps> = ({ data, isFilterActive
 
   return (
     <>
-      {isFilterActive && (
-        <S.FilterWrapper>
-          <Row justify="center">
-            <Checkbox.Group onChange={(checkedValues) => setSelectedFilter(checkedValues as CategoryType[])}>
-              <Row gutter={[5, 5]}>{filterElements}</Row>
-            </Checkbox.Group>
-          </Row>
-        </S.FilterWrapper>
-      )}
+      <S.FilterWrapper isVisible={isVisible}>
+        <Row justify="center">
+          <Checkbox.Group onChange={(checkedValues) => setSelectedFilter(checkedValues as CategoryType[])}>
+            <Row gutter={[5, 5]}>{filterElements}</Row>
+          </Checkbox.Group>
+        </Row>
+      </S.FilterWrapper>
 
       {filteredResults && children(filteredResults)}
     </>
