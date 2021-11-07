@@ -9,6 +9,10 @@ export const SearchResultsWrapper = styled.div`
       padding-bottom: 6px;
 
       color: ${(props) => props.theme.colors.main.primary};
+
+      @media only screen and ${(props) => props.theme.media.md} {
+        font-size: 0.875rem;
+      }
     }
 
     & .ant-list-items {

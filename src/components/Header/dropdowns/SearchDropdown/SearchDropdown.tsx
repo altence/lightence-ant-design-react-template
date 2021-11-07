@@ -22,31 +22,29 @@ export const SearchDropdown: React.FC<SearchOverlayProps> = ({
   isOverlayVisible,
   setOverlayVisible,
 }) => {
-  const [isFilterActive, setFilterActive] = useState(false);
+  const [isFilterVisible, setFilterActive] = useState(false);
 
   const { t } = useTranslation();
 
   useEffect(() => {
-    !!query || isFilterActive ? setOverlayVisible(true) : setOverlayVisible(false);
-  }, [query, isFilterActive, setOverlayVisible]);
+    setOverlayVisible(!!query || isFilterVisible);
+  }, [query, isFilterVisible, setOverlayVisible]);
 
   return (
     <>
       <Dropdown
-        trigger={['click']}
+        {...(!!data && { trigger: ['click'], onVisibleChange: setOverlayVisible })}
         overlayClassName="search-dropdown"
-        overlay={<SearchOverlay data={data} isFilterActive={isFilterActive} />}
+        overlay={<SearchOverlay data={data} isFilterVisible={isFilterVisible} />}
         visible={isOverlayVisible}
-        onVisibleChange={setOverlayVisible}
       >
         <DropdownHeader>
           <InputSearch
             value={query}
             placeholder={t('header.search')}
             filter={
-              <Btn size="small" type="text" icon={<FilterIcon />} onClick={() => setFilterActive(!isFilterActive)} />
+              <Btn size="small" type="text" icon={<FilterIcon />} onClick={() => setFilterActive(!isFilterVisible)} />
             }
-            onClick={(event) => !data && event.stopPropagation()}
             onChange={(event) => setQuery(event.target.value)}
           />
         </DropdownHeader>

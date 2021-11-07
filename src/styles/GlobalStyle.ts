@@ -26,5 +26,9 @@ export default createGlobalStyle`
       width: calc(100vw - 16px);
     max-width: 600px;
     }
+
+    @media only screen and ${theme.media.md} {
+      max-width: 323px;
+    }
   }
 `;
