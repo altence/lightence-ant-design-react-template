@@ -1,55 +1,56 @@
-import React, { useState } from 'react';
-import { Dropdown } from 'antd';
-import { ControlOutlined } from '@ant-design/icons';
-import { useTranslation } from 'react-i18next';
+import React, { useEffect, useState } from 'react';
+import { FilterIcon } from 'components/common/icons/FilterIcon';
 import { SearchOverlay } from './SearchOverlay/SearchOverlay';
-import { useResponsive } from 'hooks/useResponsive';
-import { DropdownHeader } from '../../Header.styles';
-import * as S from './SearchDropdown.styles';
+import { Dropdown } from 'antd';
+import { DropdownHeader } from 'components/Header/Header.styles';
+import { CategoryComponents } from 'components/Header/HeaderSearch/HeaderSearch';
+import { Btn, InputSearch } from '../../HeaderSearch/HeaderSearch.styles';
+import { useTranslation } from 'react-i18next';
 
-export const SearchDropdown: React.FC = () => {
-  const [query, setQuery] = useState('');
-  const [isOverlayActive, setOverlayActive] = useState(false);
+interface SearchOverlayProps {
+  query: string;
+  setQuery: (query: string) => void;
+  data: CategoryComponents[] | null;
+  isOverlayVisible: boolean;
+  setOverlayVisible: (state: boolean) => void;
+}
+
+export const SearchDropdown: React.FC<SearchOverlayProps> = ({
+  query,
+  setQuery,
+  data,
+  isOverlayVisible,
+  setOverlayVisible,
+}) => {
   const [isFilterActive, setFilterActive] = useState(false);
 
   const { t } = useTranslation();
 
-  const { mobileOnly, isTablet } = useResponsive();
-
-  const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(event.target.value);
-  };
-
-  const handleClickInput = (event: React.MouseEvent<HTMLInputElement>) => {
-    isOverlayActive && event.stopPropagation();
-  };
-
-  const handleFilter = (event: React.MouseEvent<HTMLButtonElement>) => {
-    isOverlayActive && event.stopPropagation();
-
-    setFilterActive(!isFilterActive);
-  };
+  useEffect(() => {
+    !!query || isFilterActive ? setOverlayVisible(true) : setOverlayVisible(false);
+  }, [query, isFilterActive, setOverlayVisible]);
 
   return (
-    <Dropdown
-      onVisibleChange={(visible) => setOverlayActive(visible)}
-      trigger={['click']}
-      overlay={<SearchOverlay value={query} isFilterActive={isFilterActive} />}
-    >
-      <DropdownHeader>
-        {mobileOnly && <S.SearchIcon />}
-
-        {isTablet && (
-          <S.SearchInput
+    <>
+      <Dropdown
+        trigger={['click']}
+        overlayClassName="search-dropdown"
+        overlay={<SearchOverlay data={data} isFilterActive={isFilterActive} />}
+        visible={isOverlayVisible}
+        onVisibleChange={setOverlayVisible}
+      >
+        <DropdownHeader>
+          <InputSearch
             value={query}
-            prefix={<S.SearchIcon />}
             placeholder={t('header.search')}
-            onChange={handleChangeInput}
-            onClick={handleClickInput}
-            suffix={<ControlOutlined onClick={handleFilter} />}
+            filter={
+              <Btn size="small" type="text" icon={<FilterIcon />} onClick={() => setFilterActive(!isFilterActive)} />
+            }
+            onClick={(event) => !data && event.stopPropagation()}
+            onChange={(event) => setQuery(event.target.value)}
           />
-        )}
-      </DropdownHeader>
-    </Dropdown>
+        </DropdownHeader>
+      </Dropdown>
+    </>
   );
 };

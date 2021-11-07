@@ -1,23 +1,63 @@
-import React from 'react';
-import { Checkbox } from './Checkbox/Checkbox';
-import { filterData } from 'constants/filterData';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Checkbox, Col, Row } from 'antd';
+import { categoriesList, CategoryType } from 'constants/categoriesList';
+import { CategoryComponents } from 'components/Header/HeaderSearch/HeaderSearch';
 import * as S from './SearchFilter.styles';
 
 interface SearchFilterProps {
-  category: string;
-  setCategory: (func: (state: string) => string) => void;
+  data: CategoryComponents[] | null;
+  isFilterActive: boolean;
+  children: (filteredResults: CategoryComponents[]) => React.ReactNode;
 }
 
-export const SearchFilter: React.FC<SearchFilterProps> = ({ category, setCategory }) => {
+export const SearchFilter: React.FC<SearchFilterProps> = ({ data, isFilterActive, children }) => {
+  const [selectedFilter, setSelectedFilter] = useState<CategoryType[]>([]);
+  const [filteredResults, setFilteredResults] = useState<CategoryComponents[] | null>(data);
+
+  const { t } = useTranslation();
+
+  const filterElements = useMemo(
+    () =>
+      categoriesList.map((filter, index) => (
+        <Col span={index === 1 || index === 4 ? 9 : 7} key={filter.name}>
+          <S.CheckBox value={filter.name}>{t(filter.title)}</S.CheckBox>
+        </Col>
+      )),
+    [],
+  );
+
+  useEffect(() => {
+    if (selectedFilter.length > 0) {
+      if (data) {
+        const results = data.filter((component) => selectedFilter.some((filter) => filter === component.category));
+
+        setFilteredResults(results.length > 0 ? results : []);
+      } else {
+        setFilteredResults([]);
+      }
+    } else {
+      if (data) {
+        setFilteredResults(data);
+      } else {
+        setFilteredResults(null);
+      }
+    }
+  }, [data, selectedFilter]);
+
   return (
-    <S.FilterWrapper>
-      <S.List>
-        {filterData.map((item) => (
-          <S.ListItem key={item.id}>
-            <Checkbox category={category} setCategory={setCategory} name={item.name} />
-          </S.ListItem>
-        ))}
-      </S.List>
-    </S.FilterWrapper>
+    <>
+      {isFilterActive && (
+        <S.FilterWrapper>
+          <Row justify="center">
+            <Checkbox.Group onChange={(checkedValues) => setSelectedFilter(checkedValues as CategoryType[])}>
+              <Row gutter={[5, 5]}>{filterElements}</Row>
+            </Checkbox.Group>
+          </Row>
+        </S.FilterWrapper>
+      )}
+
+      {filteredResults && children(filteredResults)}
+    </>
   );
 };

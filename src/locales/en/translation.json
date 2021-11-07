@@ -48,12 +48,11 @@
     "copied": "Copied to clipboard",
     "formError": "An error was occured",
     "info": "Information",
-    "name": "Name"
+    "name": "Name",
+    "notFound": "Sorry, there’s nothing found"
   },
   "header": {
     "search": "Search",
-    "searchTerm": "Enter your search term",
-    "notFound": "Try to change your search query",
     "logout": "Logout",
     "changeLanguage": "Change language",
     "changeTheme": "Change theme",
@@ -217,7 +216,7 @@
         "socialLinks": "Social links"
       },
       "securitySettings": {
-        "title":"Security settings",
+        "title": "Security settings",
         "changePassword": "Change Password",
         "currentPassword": "Current Password",
         "newPassword": "New Password",

@@ -1,6 +1,6 @@
 import React from 'react';
-import { DesktopHeader } from './DesktopHeader/DesktopHeader';
-import { MobileHeader } from './MobileHeader/MobileHeader';
+import { DesktopHeader } from './layouts/DesktopHeader';
+import { MobileHeader } from './layouts/MobileHeader';
 import { useResponsive } from 'hooks/useResponsive';
 
 interface HeaderProps {

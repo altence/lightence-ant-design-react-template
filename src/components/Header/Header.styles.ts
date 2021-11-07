@@ -47,5 +47,3 @@ export const DropdownCollapse = styled(Collapse)`
     }
   }
 `;
-
-export const DropdownMenuItem = styled(Menu.Item)``;
