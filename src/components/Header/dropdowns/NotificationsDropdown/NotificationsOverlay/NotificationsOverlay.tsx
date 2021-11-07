@@ -63,13 +63,13 @@ export const NotificationsOverlay: React.FC<NotificationsOverlayProps> = ({ noti
             {notifications.length > 0 && (
               <Col span={24}>
                 <S.Btn type="ghost" onClick={() => setNotifications([])}>
-                  {t('header.notices.readAll')}
+                  {t('header.notifications.readAll')}
                 </S.Btn>
               </Col>
             )}
             <Col span={24}>
               <S.Btn type="link">
-                <Link to={RoutesEnum.DASHBOARD_PAGE}>{t('header.notices.viewAll')}</Link>
+                <Link to={RoutesEnum.DASHBOARD_PAGE}>{t('header.notifications.viewAll')}</Link>
               </S.Btn>
             </Col>
           </Row>
