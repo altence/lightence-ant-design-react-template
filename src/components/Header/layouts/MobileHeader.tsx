@@ -3,7 +3,7 @@ import { Col, Row } from 'antd';
 import { Burger } from 'components/common/Burger/Burger';
 import { NotificationsDropdown } from '../dropdowns/NotificationsDropdown/NotificationsDropdown';
 import { ProfileDropdown } from '../dropdowns/ProfileDropdown/ProfileDropdown';
-import { SearchDropdown } from '../dropdowns/SearchDropdown/SearchDropdown';
+import { HeaderSearch } from '../HeaderSearch/HeaderSearch';
 import { SettingsDropdown } from '../dropdowns/SettingsDropdown/SettingsDropdown';
 
 interface MobileHeaderProps {
@@ -26,7 +26,7 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({ toggleSider }) => {
               </Col>
 
               <Col>
-                <SearchDropdown />
+                <HeaderSearch />
               </Col>
 
               <Col>

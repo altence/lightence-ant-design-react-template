@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Typography, Input as AntInput, Button } from 'antd';
-import { LocalizedDatePicker } from 'components/common/pickers/LocalizedDatePicker';
+import { DayjsDatePicker } from 'components/common/pickers/DayjsDatePicker';
 
 export const Dropdown = styled.div`
   padding: 1rem;
@@ -28,7 +28,7 @@ export const Input = styled(AntInput)`
   margin-bottom: 0.875rem;
 `;
 
-export const RangePicker = styled(LocalizedDatePicker.RangePicker)`
+export const RangePicker = styled(DayjsDatePicker.RangePicker)`
   width: 100%;
   margin-bottom: 0.875rem;
 `;

@@ -7,7 +7,7 @@ interface CollapseProps {
 
 export const Sider = styled(Layout.Sider)`
   position: fixed;
-  overflow: scroll;
+  overflow-y: auto;
   right: 0;
   z-index: 5;
   height: 100%;

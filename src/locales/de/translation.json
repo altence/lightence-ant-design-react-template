@@ -48,12 +48,11 @@
     "copied": "DE!!!Copied to clipboard",
     "formError": "DE!!!An error was occured",
     "info": "DE!!!Information",
-    "name": "DE!!!Name"
+    "name": "DE!!!Name",
+    "notFound": "DE!!!Sorry, there’s nothing found"
   },
   "header": {
-    "search": "DE!!!Search",
-    "searchTerm": "DE!!!Enter your search term",
-    "notFound": "DE!!!Try to change your search query",
+    "search": "Search",
     "logout": "DE!!!Logout",
     "changeLanguage": "DE!!!Change language",
     "changeTheme": "DE!!!Change theme",

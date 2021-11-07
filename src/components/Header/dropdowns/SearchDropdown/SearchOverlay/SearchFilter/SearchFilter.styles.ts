@@ -1,22 +1,12 @@
+import { Checkbox } from 'antd';
 import styled from 'styled-components';
-import theme from 'styles/theme';
 
 export const FilterWrapper = styled.div`
-  display: flex;
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
 `;
 
-export const List = styled.ul`
-  list-style-type: none;
-`;
-
-export const ListItem = styled.li`
-  margin-bottom: 0.2rem;
-
-  &:nth-last-of-type(1) {
-    margin-bottom: 0;
-  }
-
-  @media only screen and ${theme.media.xxl} {
-    margin-bottom: 0.375rem;
-  }
+export const CheckBox = styled(Checkbox)`
+  font-size: 0.75rem;
 `;

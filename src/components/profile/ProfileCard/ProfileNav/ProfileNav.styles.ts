@@ -13,10 +13,16 @@ export const Wrapper = styled.div`
   row-gap: 1.5rem;
 `;
 
-export const Btn = styled(Button)<BtnProps>`
+export const Btn = styled(Button).withConfig({
+  shouldForwardProp: (prop) => !['isActive'].includes(prop),
+})<BtnProps>`
   display: flex;
   align-items: center;
   width: 100%;
+
+  &:hover {
+    background-color: ${(props) => hexToRGB(props.theme.colors.main.primary, 0.05)};
+  }
 
   ${(props) => props.isActive && `background-color: ${hexToRGB(props.theme.colors.main.primary, 0.05)}`};
 
