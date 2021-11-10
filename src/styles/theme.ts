@@ -39,6 +39,17 @@ const commonColors = {
   skyblue: '#87CEEB',
 };
 
+const commonFontSizes = {
+  xxs: '0.75rem',
+  xs: '0.875rem',
+  md: '1rem',
+  lg: '1.125rem',
+  xl: '1.25rem',
+  xxl: '1.5rem',
+  xxxl: '2rem',
+  xxxxl: '3rem',
+};
+
 const colors = {
   main: {
     primary: '#01509A',
@@ -75,6 +86,7 @@ const theme: DefaultTheme = {
   media,
   mobileLayout,
   desktopLayout,
+  commonFontSizes,
 };
 
 export default theme;

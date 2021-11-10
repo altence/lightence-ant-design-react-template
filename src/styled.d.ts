@@ -61,5 +61,15 @@ declare module 'styled-components' {
       paddingVertical: string;
       paddingHorizontal: string;
     };
+    commonFontSizes: {
+      xxs: string;
+      xs: string;
+      md: string;
+      lg: string;
+      xl: string;
+      xxl: string;
+      xxxl: string;
+      xxxxl: string;
+    };
   }
 }
