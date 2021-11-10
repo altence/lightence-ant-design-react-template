@@ -113,6 +113,7 @@ declare namespace ReactTrello {
       AddCardLink?: React.Element;
       NewCardForm?: React.Element;
       Card?: React.Element;
+      LaneHeader?: React.Element;
     };
 
     addCardLink?: React.Element;
@@ -194,6 +195,8 @@ declare module 'react-trello/dist/widgets/InlineInput';
 declare module 'react-trello/dist/widgets/DeleteButton';
 
 declare module 'react-trello/dist/components/Card/Tag';
+
+declare module 'react-trello/dist/components/Lane/LaneHeader/LaneMenu';
 
 declare module 'react-trello/dist/styles/Elements';
 
