@@ -23,7 +23,6 @@ export const Kanban: React.FC = () => {
         borderRadius: theme.border.radius,
         backgroundColor: theme.commonColors.white,
         padding: `1.25rem 1rem`,
-        filter: 'drop-shadow(0 4px 40px rgba(0, 0, 0, 0.07))',
         marginBottom: '1rem',
       }}
     />

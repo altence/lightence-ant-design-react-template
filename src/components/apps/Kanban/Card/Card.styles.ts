@@ -4,6 +4,7 @@ import {
   CardTitle as Title,
   CardHeader as Header,
   Detail,
+  MovableCardWrapper,
 } from 'react-trello/dist/styles/Base';
 import InlineInput from 'react-trello/dist/widgets/InlineInput';
 import { ReactComponent as ArrowDownIcon } from '../../../../assets/icons/arrow-down.svg';
@@ -23,6 +24,14 @@ export const ThreeDotsWrapper = styled.span`
 
 export const ArrowDown = styled(ArrowDownIcon)<ArrowDownProps>`
   transform: ${(props) => `rotate(${props.isExpanded ? 0 : 180}deg)`};
+`;
+
+export const Card = styled.div`
+  position: relative;
+`;
+
+export const CardWrapper = styled(MovableCardWrapper)`
+  filter: drop-shadow(0 4px 40px rgba(0, 0, 0, 0.07));
 `;
 
 export const CardRightContent = styled(RightContent)`
