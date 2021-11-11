@@ -5,6 +5,7 @@ import { Card } from './Card/Card';
 import { LaneHeader } from './LaneHeader/LaneHeader';
 import { kanbanData } from 'constants/kanbanData';
 import * as S from './Kanban.styles';
+import './Kanban.less';
 
 export const Kanban: React.FC = () => {
   const theme = useContext(ThemeContext);
