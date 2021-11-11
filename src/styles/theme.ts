@@ -70,6 +70,7 @@ const theme: DefaultTheme = {
   border: {
     radius: '7px',
   },
+  boxShadow: '0px 4px 40px rgba(0, 0, 0, 0.07)',
   breakpoints,
   media,
   mobileLayout,
