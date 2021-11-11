@@ -20,6 +20,31 @@ interface TagProps {
   backgroundColor: string;
 }
 
+export const ParticipantsWrapper = styled.div`
+  margin-top: 1.5625rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
+export const ParticipantRow = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const ParticipantAvatar = styled.img`
+  height: 1.5625rem;
+  width: 1.5625rem;
+  border-radius: 50%;
+`;
+
+export const ParticipantName = styled.div`
+  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  color: ${(props) => props.theme.colors.text.main};
+  margin-left: 0.625rem;
+  margin-right: 0.625rem;
+`;
+
 export const PopoverCheckbox = styled(Checkbox)`
   & .ant-checkbox .ant-checkbox-inner {
     border-radius: 3px;
@@ -62,6 +87,12 @@ export const RemoveTag = styled(RemoveTagIcon)`
   stroke: ${(props) => props.theme.colors.main.primary};
   width: 0.875rem;
   height: 0.875rem;
+`;
+
+export const RemoveParticipant = styled(RemoveTagIcon)`
+  stroke: ${(props) => props.theme.colors.text.light};
+  width: 0.5rem;
+  height: 0.5rem;
 `;
 
 export const ArrowDown = styled(ArrowDownIcon)<ArrowDownProps>`
