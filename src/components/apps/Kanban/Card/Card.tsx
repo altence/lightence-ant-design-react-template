@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MovableCardWrapper, Detail, Footer } from 'react-trello/dist/styles/Base';
+import { MovableCardWrapper, Footer } from 'react-trello/dist/styles/Base';
 import Tag from 'react-trello/dist/components/Card/Tag';
 import { CardState, Tag as ITag } from '../interfaces';
 import { ReactComponent as ThreeDots } from '../../../../assets/icons/three-dots.svg';
@@ -100,7 +100,7 @@ export const Card: React.FC<CardProps> = ({
       )}
       {isExpanded && (
         <>
-          <Detail>
+          <S.CardDetails>
             {editable ? (
               <S.Input
                 value={description}
@@ -112,7 +112,7 @@ export const Card: React.FC<CardProps> = ({
             ) : (
               description
             )}
-          </Detail>
+          </S.CardDetails>
           {tags && tags.length > 0 && (
             <Footer>
               {tags.map((tag) => (
