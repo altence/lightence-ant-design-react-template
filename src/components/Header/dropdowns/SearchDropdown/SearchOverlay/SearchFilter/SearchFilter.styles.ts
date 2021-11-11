@@ -5,6 +5,18 @@ interface FilterWrapperProps {
   isVisible: boolean;
 }
 
+export const CategoriesWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  max-height: 4rem;
+  gap: 0.35rem 2rem;
+
+  & .ant-checkbox-wrapper {
+    margin: 0;
+  }
+`;
+
 export const FilterWrapper = styled.div<FilterWrapperProps>`
   ${(props) =>
     !props.isVisible &&

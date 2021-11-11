@@ -11,20 +11,20 @@ export const categoriesList: Category[] = [
     title: 'common.apps',
   },
   {
-    name: 'forms',
-    title: 'common.forms',
-  },
-  {
-    name: 'charts',
-    title: 'common.charts',
-  },
-  {
     name: 'auth',
     title: 'common.auth',
   },
   {
+    name: 'forms',
+    title: 'common.forms',
+  },
+  {
     name: 'data tables',
     title: 'common.dataTables',
+  },
+  {
+    name: 'charts',
+    title: 'common.charts',
   },
   {
     name: 'maps',

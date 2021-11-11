@@ -36,7 +36,7 @@ export const SearchDropdown: React.FC<SearchOverlayProps> = ({
   return (
     <>
       <Dropdown
-        {...(!!data && { trigger: ['click'], onVisibleChange: setOverlayVisible })}
+        {...((!!data || isFilterVisible) && { trigger: ['click'], onVisibleChange: setOverlayVisible })}
         overlayClassName="search-dropdown"
         overlay={<SearchOverlay data={data} isFilterVisible={isFilterVisible} />}
         visible={isOverlayVisible}
