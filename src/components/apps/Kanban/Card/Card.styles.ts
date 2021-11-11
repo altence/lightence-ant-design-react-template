@@ -85,7 +85,7 @@ export const Card = styled.div`
 `;
 
 export const CardWrapper = styled(MovableCardWrapper)`
-  filter: drop-shadow(0 4px 40px rgba(0, 0, 0, 0.07));
+  filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.07));
 `;
 
 export const CardRightContent = styled(RightContent)`
