@@ -18,6 +18,13 @@ export const Kanban: React.FC = () => {
       data={kanbanData}
       tagStyle={{ border: `1px solid ${theme.colors.border.main}` }}
       laneStyle={{ background: 'transparent' }}
+      cardStyle={{
+        borderRadius: theme.border.radius,
+        backgroundColor: theme.commonColors.white,
+        padding: `1.25rem 1rem 1.5625rem 1rem`,
+        filter: 'drop-shadow(0 4px 40px rgba(0, 0, 0, 0.07))',
+        marginBottom: '1rem',
+      }}
     />
   );
 };
