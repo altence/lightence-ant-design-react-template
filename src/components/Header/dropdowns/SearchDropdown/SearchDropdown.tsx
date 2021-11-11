@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FilterIcon } from 'components/common/icons/FilterIcon';
 import { SearchOverlay } from './SearchOverlay/SearchOverlay';
 import { Dropdown } from 'antd';
@@ -30,6 +30,9 @@ export const SearchDropdown: React.FC<SearchOverlayProps> = ({
     setOverlayVisible(!!query || isFilterVisible);
   }, [query, isFilterVisible, setOverlayVisible]);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const ref = useRef<any>(null);
+
   return (
     <>
       <Dropdown
@@ -37,6 +40,7 @@ export const SearchDropdown: React.FC<SearchOverlayProps> = ({
         overlayClassName="search-dropdown"
         overlay={<SearchOverlay data={data} isFilterVisible={isFilterVisible} />}
         visible={isOverlayVisible}
+        getPopupContainer={() => ref.current}
       >
         <DropdownHeader>
           <InputSearch
@@ -47,6 +51,7 @@ export const SearchDropdown: React.FC<SearchOverlayProps> = ({
             }
             onChange={(event) => setQuery(event.target.value)}
           />
+          <div ref={ref}></div>
         </DropdownHeader>
       </Dropdown>
     </>
