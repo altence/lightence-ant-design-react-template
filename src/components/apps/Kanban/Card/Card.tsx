@@ -6,7 +6,7 @@ import { ReactComponent as TagPlus } from '../../../../assets/icons/tag-plus.svg
 import StubAvatar from '../../../../assets/images/stub-avatar.png';
 import { kanbanTags } from 'constants/kanbanTags';
 import * as S from './Card.styles';
-
+import { Dropdown } from 'antd';
 interface CardProps {
   style: CSSStyleSheet;
   tagStyle: CSSStyleSheet;
@@ -83,15 +83,10 @@ export const Card: React.FC<CardProps> = ({
   editable,
 }) => {
   const [isExpanded, setIsExpanded] = useState(true);
-  const [isShowEditPopover, setIsShowEditPopover] = useState(false);
   const [isShowEditTagPopover, setIsShowEditTagPopover] = useState(false);
 
   const onArrowPress = () => {
     setIsExpanded(!isExpanded);
-  };
-
-  const onThreeDotsPress = () => {
-    setIsShowEditPopover(!isShowEditPopover);
   };
 
   const onDeleteCard = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -144,9 +139,15 @@ export const Card: React.FC<CardProps> = ({
               <S.ArrowDownWrapper onClick={onArrowPress}>
                 <S.ArrowDown isExpanded={isExpanded} />
               </S.ArrowDownWrapper>
-              <S.ThreeDotsWrapper onClick={onThreeDotsPress}>
-                <ThreeDots />
-              </S.ThreeDotsWrapper>
+              <Dropdown
+                overlay={<EditPopover onDelete={onDeleteCard} onArchive={onDeleteCard} />}
+                placement="bottomRight"
+                trigger={['click']}
+              >
+                <S.ThreeDotsWrapper>
+                  <ThreeDots />
+                </S.ThreeDotsWrapper>
+              </Dropdown>
             </S.CardRightContent>
           </S.CardHeader>
         )}
@@ -171,9 +172,22 @@ export const Card: React.FC<CardProps> = ({
                 tags.map((tag) => (
                   <Tag key={tag.title} {...tag} tagStyle={tagStyle} removeTag={() => removeTag(tag)} />
                 ))}
-              <S.TagPlusWrapper onClick={() => setIsShowEditTagPopover(!isShowEditTagPopover)}>
-                <TagPlus />
-              </S.TagPlusWrapper>
+              <Dropdown
+                placement="bottomLeft"
+                trigger={['click']}
+                visible={isShowEditTagPopover}
+                overlay={
+                  <EditTagPopover
+                    tags={tags}
+                    updateTag={updateTag}
+                    hidePopover={() => setIsShowEditTagPopover(false)}
+                  />
+                }
+              >
+                <S.TagPlusWrapper onClick={() => setIsShowEditTagPopover(!isShowEditTagPopover)}>
+                  <TagPlus />
+                </S.TagPlusWrapper>
+              </Dropdown>
             </S.CardFooter>
             {participants?.length && (
               <S.ParticipantsWrapper>
@@ -189,10 +203,6 @@ export const Card: React.FC<CardProps> = ({
           </>
         )}
       </S.CardWrapper>
-      {isShowEditPopover && <EditPopover onDelete={onDeleteCard} onArchive={onDeleteCard} />}
-      {isShowEditTagPopover && (
-        <EditTagPopover tags={tags} updateTag={updateTag} hidePopover={() => setIsShowEditTagPopover(false)} />
-      )}
     </S.Card>
   );
 };

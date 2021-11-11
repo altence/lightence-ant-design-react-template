@@ -152,10 +152,7 @@ export const Input = styled(InlineInput)`
 
 export const EditPopover = styled.div`
   display: flex;
-  position: absolute;
-  right: 2px;
   background: ${(props) => props.theme.commonColors.white};
-  top: 2.7rem;
   flex-direction: column;
   border-radius: 0.625rem;
   padding: 1rem;
@@ -164,10 +161,9 @@ export const EditPopover = styled.div`
 `;
 
 export const EditTagPopover = styled(EditPopover)`
-  top: 6rem;
   padding: 1.25rem 1.5625rem;
   max-width: 14.375rem;
-  left: 0;
+  min-width: 14.375rem;
   gap: 0.625rem;
 `;
 
@@ -178,6 +174,7 @@ export const EditTagPopoverLine = styled.span`
     padding-bottom: 0px;
   }
   align-items: center;
+  cursor: pointer;
 `;
 
 export const EditPopoverLine = styled.span`
@@ -189,6 +186,7 @@ export const EditPopoverLine = styled.span`
     padding-bottom: 0px;
   }
   color: ${(props) => props.theme.colors.text.main};
+  cursor: pointer;
 `;
 
 export const TagPlusWrapper = styled.span`
