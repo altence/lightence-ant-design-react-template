@@ -9,10 +9,38 @@ import {
 } from 'react-trello/dist/styles/Base';
 import InlineInput from 'react-trello/dist/widgets/InlineInput';
 import { ReactComponent as ArrowDownIcon } from '../../../../assets/icons/arrow-down.svg';
+import { ReactComponent as RemoveTagIcon } from '../../../../assets/icons/close.svg';
+import { Checkbox } from 'antd';
 
 interface ArrowDownProps {
   isExpanded: boolean;
 }
+
+interface TagProps {
+  backgroundColor: string;
+}
+
+export const PopoverCheckbox = styled(Checkbox)`
+  & .ant-checkbox .ant-checkbox-inner {
+    border-radius: 3px;
+    height: 1.375rem;
+    width: 1.375rem;
+    border-color: ${(props) => props.theme.colors.main.primary};
+  }
+  & .ant-checkbox-checked .ant-checkbox-inner::after {
+    left: 0.375rem;
+  }
+`;
+
+export const TagWrapper = styled.span<TagProps>`
+  height: 1.875rem;
+  background-color: ${(props) => `${props.backgroundColor}`};
+  padding: 0.3125rem 0.625rem;
+  color: ${(props) => props.theme.commonColors.white};
+  border-radius: 0.5rem;
+  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  margin-left: 1rem;
+`;
 
 export const ArrowDownWrapper = styled.span`
   padding-right: 1.25rem;
@@ -21,6 +49,19 @@ export const ArrowDownWrapper = styled.span`
 
 export const ThreeDotsWrapper = styled.span`
   width: 1.5rem;
+`;
+
+export const RemoveTagWrapper = styled.div`
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  cursor: pointer;
+`;
+
+export const RemoveTag = styled(RemoveTagIcon)`
+  stroke: ${(props) => props.theme.colors.main.primary};
+  width: 0.875rem;
+  height: 0.875rem;
 `;
 
 export const ArrowDown = styled(ArrowDownIcon)<ArrowDownProps>`
@@ -89,6 +130,23 @@ export const EditPopover = styled.div`
   padding: 1rem;
   z-index: 1;
   filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.2));
+`;
+
+export const EditTagPopover = styled(EditPopover)`
+  top: 6rem;
+  padding: 1.25rem 1.5625rem;
+  max-width: 14.375rem;
+  left: 0;
+  gap: 0.625rem;
+`;
+
+export const EditTagPopoverLine = styled.span`
+  line-height: 1.25rem;
+  display: flex;
+  &:last-child {
+    padding-bottom: 0px;
+  }
+  align-items: center;
 `;
 
 export const EditPopoverLine = styled.span`

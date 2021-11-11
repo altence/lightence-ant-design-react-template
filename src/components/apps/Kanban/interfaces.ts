@@ -1,7 +1,7 @@
 export interface Tag {
   id: string;
   title: string;
-  bgcolor?: string;
+  bgcolor: string;
 }
 
 export interface CardState {

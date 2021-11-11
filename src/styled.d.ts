@@ -13,6 +13,7 @@ declare module 'styled-components' {
       pink: string;
       blue: string;
       skyblue: string;
+      red: string;
     };
     colors: {
       main: {
