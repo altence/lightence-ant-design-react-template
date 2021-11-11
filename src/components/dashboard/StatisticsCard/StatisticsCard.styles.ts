@@ -1,43 +1,22 @@
 import styled from 'styled-components';
 import { default as AntIcon } from '@ant-design/icons';
-import theme from '../../../styles/theme';
+import theme from 'styles/theme';
+import { Title, Text } from './StatisticsInfo/StatisticsInfo.styles';
+import { ValueText, UnitText } from './StatisticsProgress/StatisticsProgress.styles';
+import { StatisticColor } from 'constants/config/statistics';
+import { DashboardCard } from '../DashboardCard/DashboardCard';
+import { Row } from 'antd';
 
 interface StatisticsProps {
-  color: string;
+  color: StatisticColor;
 }
 
-export const CardWrapper = styled.div`
-  position: relative;
-  height: 100%;
+export const StatisticsRow = styled(Row)`
+  max-width: 8rem;
 `;
 
-export const Wrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
-  align-items: center;
-`;
-
-export const Line = styled.div<StatisticsProps>`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 7px;
-  height: 100%;
-  z-index: 2;
-
-  border-radius: ${(props) => `${props.theme.border.radius} 0 0 ${props.theme.border.radius}`};
-
-  background-color: ${(props) => props.color};
-`;
-
-export const Icon = styled(AntIcon)<StatisticsProps>`
-  position: absolute;
-  top: 0;
-  right: 0;
+export const Icon = styled(AntIcon)`
   font-size: 1rem;
-
-  color: ${(props) => props.color};
 
   @media only screen and ${theme.media.md} {
     font-size: 0.8rem;
@@ -49,5 +28,18 @@ export const Icon = styled(AntIcon)<StatisticsProps>`
 
   @media only screen and ${theme.media.xxl} {
     font-size: 2rem;
+  }
+`;
+
+export const StatisticCard = styled(DashboardCard)<StatisticsProps>`
+  border: 1px solid ${(props) => props.color};
+
+  & .ant-card-body {
+    display: flex;
+    justify-content: center;
+  }
+
+  & ${Icon}, ${Title}, ${Text}, ${ValueText}, ${UnitText} {
+    color: ${(props) => props.color};
   }
 `;

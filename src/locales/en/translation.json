@@ -77,7 +77,7 @@
     "protein": "Protein",
     "fat": "Fat",
     "bones": "Bones",
-    "waterBalance": "Water balance",
+    "water": "Water",
     "map": {
       "title": "Map",
       "polyclinic": "Polyclinic"

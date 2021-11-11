@@ -1,25 +1,28 @@
 import React from 'react';
+import { Space } from 'antd';
 import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
-import { useTranslation } from 'react-i18next';
 import * as S from './StatisticsInfo.styles';
 
 interface StatisticsInfoProps {
-  title: string;
-  percent: number;
-  isDowngrade?: boolean;
-  color: string;
+  name: string;
+  value: number;
+  prevValue: number;
 }
 
-export const StatisticsInfo: React.FC<StatisticsInfoProps> = ({ title, percent, isDowngrade = false, color }) => {
-  const { t } = useTranslation();
+export const StatisticsInfo: React.FC<StatisticsInfoProps> = ({ name, value, prevValue }) => {
+  const expression =
+    value > prevValue ? ((value - prevValue) / prevValue) * 100 : ((prevValue - value) / prevValue) * 100;
 
   return (
-    <S.Wrapper>
-      <S.Title color={color}>{t(title)}</S.Title>
-      <S.Percentage isDowngrade={isDowngrade}>
-        {(!isDowngrade && <CaretUpOutlined />) || <CaretDownOutlined />}
-        <S.Text>{percent}%</S.Text>
-      </S.Percentage>
-    </S.Wrapper>
+    <Space direction="vertical" size={0}>
+      <S.Title>{name}</S.Title>
+
+      {prevValue && (
+        <S.Text>
+          {value > prevValue ? <CaretUpOutlined /> : <CaretDownOutlined />}
+          {expression.toFixed(0)}%
+        </S.Text>
+      )}
+    </Space>
   );
 };
