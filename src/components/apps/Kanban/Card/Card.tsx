@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
-import { Tag } from '../Tag/Tag';
 import { CardState, Tag as ITag, Participant as IParticipant } from '../interfaces';
 import { ReactComponent as ThreeDots } from '../../../../assets/icons/three-dots.svg';
-import { ReactComponent as TagPlus } from '../../../../assets/icons/tag-plus.svg';
-import { kanbanTags } from 'constants/kanbanTags';
 import * as S from './Card.styles';
 import { Dropdown } from 'antd';
-import { useTranslation } from 'react-i18next';
 import { ParticipantsDropdown } from '../AddCard/ParticipantsDropdown/ParticipantsDropdown';
+import { TagDropdown } from '../AddCard/TagDropdown/TagDropdown';
 interface CardProps {
   style: CSSStyleSheet;
   onClick: () => void;
@@ -28,42 +25,12 @@ interface EditPopoverProps {
   onArchive: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-interface EditTagProps {
-  tags: ITag[];
-  updateTag: (tag: ITag) => void;
-  hidePopover: () => void;
-}
-
 const EditPopover: React.FC<EditPopoverProps> = ({ onDelete, onArchive }) => {
   return (
     <S.EditPopover>
       <S.EditPopoverLine onClick={onDelete}>Delete</S.EditPopoverLine>
       <S.EditPopoverLine onClick={onArchive}>Archivate</S.EditPopoverLine>
     </S.EditPopover>
-  );
-};
-
-const EditTagPopover: React.FC<EditTagProps> = ({ tags, updateTag, hidePopover }) => {
-  const kanbanTagData = Object.values(kanbanTags);
-  const tagsIds = tags?.length ? tags.map((item) => item.id) : [];
-  return (
-    <S.EditTagPopover>
-      {kanbanTagData.map((tag: ITag) => (
-        <S.EditTagPopoverLine
-          key={tag.id}
-          onClick={(e) => {
-            updateTag(tag);
-            e.stopPropagation();
-          }}
-        >
-          <S.PopoverCheckbox checked={tagsIds.includes(tag.id)} />
-          <S.TagWrapper backgroundColor={tag.bgcolor}>#{tag.title}</S.TagWrapper>
-        </S.EditTagPopoverLine>
-      ))}
-      <S.RemoveTagWrapper onClick={hidePopover}>
-        <S.RemoveTag />
-      </S.RemoveTagWrapper>
-    </S.EditTagPopover>
   );
 };
 
@@ -81,9 +48,7 @@ export const Card: React.FC<CardProps> = ({
   cardDraggable,
   editable,
 }) => {
-  const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(true);
-  const [isShowEditTagPopover, setIsShowEditTagPopover] = useState(false);
 
   const onArrowPress = () => {
     setIsExpanded(!isExpanded);
@@ -94,18 +59,8 @@ export const Card: React.FC<CardProps> = ({
     event.stopPropagation();
   };
 
-  const removeTag = (tag: ITag) => {
-    updateCard({ tags: tags.filter((item) => item.id !== tag.id) });
-  };
-
-  const updateTag = (tag: ITag) => {
-    const isExist = tags?.find((item) => item.id === tag.id);
-
-    if (isExist) {
-      removeTag(tag);
-    } else {
-      updateCard({ tags: [...tags, tag] });
-    }
+  const updateTags = (tags: ITag[]) => {
+    updateCard({ tags });
   };
 
   const updateParticipants = (participants: IParticipant[]) => {
@@ -167,31 +122,7 @@ export const Card: React.FC<CardProps> = ({
               )}
             </S.CardDetails>
             <S.CardFooter>
-              {tags &&
-                tags.length > 0 &&
-                tags.map((tag) => <Tag key={tag.id} {...tag} removeTag={() => removeTag(tag)} />)}
-              <Dropdown
-                placement="bottomLeft"
-                trigger={['click']}
-                visible={isShowEditTagPopover}
-                overlay={
-                  <EditTagPopover
-                    tags={tags}
-                    updateTag={updateTag}
-                    hidePopover={() => setIsShowEditTagPopover(false)}
-                  />
-                }
-              >
-                {tags && tags.length > 0 ? (
-                  <S.TagPlusWrapper onClick={() => setIsShowEditTagPopover(!isShowEditTagPopover)}>
-                    <TagPlus />
-                  </S.TagPlusWrapper>
-                ) : (
-                  <S.AddTag onClick={() => setIsShowEditTagPopover(!isShowEditTagPopover)}>
-                    {t('kanban.addTag')}
-                  </S.AddTag>
-                )}
-              </Dropdown>
+              <TagDropdown selectedTags={tags} setSelectedTags={updateTags} />
             </S.CardFooter>
 
             <S.ParticipantsWrapper>
