@@ -1,6 +1,5 @@
 import React from 'react';
 import InlineInput from 'react-trello/dist/widgets/InlineInput';
-import LaneMenu from 'react-trello/dist/components/Lane/LaneHeader/LaneMenu';
 import * as S from './LaneHeader.styles';
 import { CardState } from '../interfaces';
 
@@ -21,8 +20,6 @@ interface LaneHeaderProps {
 
 export const LaneHeader: React.FC<LaneHeaderProps> = ({
   updateTitle,
-  canAddLanes = false,
-  onDelete,
   onDoubleClick,
   editLaneTitle = false,
   title,
@@ -44,7 +41,6 @@ export const LaneHeader: React.FC<LaneHeaderProps> = ({
           </>
         )}
       </S.Title>
-      {canAddLanes && <LaneMenu onDelete={onDelete} />}
     </S.Header>
   );
 };
