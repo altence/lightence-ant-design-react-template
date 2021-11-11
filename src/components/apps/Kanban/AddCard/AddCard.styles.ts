@@ -3,6 +3,11 @@ import { hexToRGB } from 'utils/utils';
 import styled from 'styled-components';
 import { FormItem } from 'components/common/Form/Form.styles';
 import { CardWrapper as Card } from 'react-trello/dist/styles/Base';
+import { ButtonsGroup } from 'components/common/Form/ButtonsGroup/ButtonsGroup';
+
+export const FooterButtons = styled(ButtonsGroup)`
+  margin-top: 1rem;
+`;
 
 export const Btn = styled(Button)`
   width: 100%;

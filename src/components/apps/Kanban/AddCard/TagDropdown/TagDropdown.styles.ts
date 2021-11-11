@@ -69,6 +69,8 @@ export const TagsWrapper = styled.div`
   flex-wrap: wrap;
   gap: 0.625px;
   margin-bottom: 1rem;
+  min-height: 1.25rem;
+  align-items: center;
 `;
 
 export const AddTag = styled.span`

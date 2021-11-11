@@ -38,6 +38,7 @@ export const PopoverCheckbox = styled(Checkbox)`
   & .ant-checkbox-checked .ant-checkbox-inner::after {
     left: 0.375rem;
   }
+  margin-right: 0.75rem;
 `;
 
 export const ParticipantWrapper = styled.span<TagProps>`
@@ -48,6 +49,7 @@ export const ParticipantWrapper = styled.span<TagProps>`
   border-radius: 0.5rem;
   font-size: ${(props) => props.theme.commonFontSizes.xs};
   margin-left: 1rem;
+  min-height: 1.25rem;
 `;
 
 export const RemoveParticipantWrapper = styled.div`
@@ -71,8 +73,6 @@ export const AddParticipant = styled.span`
 `;
 
 export const ParticipantsWrapper = styled.div`
-  margin-top: 1rem;
-  margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -87,7 +87,6 @@ export const ParticipantAvatar = styled.img`
   height: 1.5625rem;
   width: 1.5625rem;
   border-radius: 50%;
-  margin-left: 12px;
 `;
 
 export const ParticipantName = styled.div`
