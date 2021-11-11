@@ -21,7 +21,6 @@ interface TagProps {
 }
 
 export const ParticipantsWrapper = styled.div`
-  margin-top: 1.5625rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;

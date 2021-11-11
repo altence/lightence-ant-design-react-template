@@ -67,9 +67,15 @@ export const RemoveTag = styled(RemoveTagIcon)`
 export const TagsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 0.625px;
+  gap: 0.625rem;
   margin-bottom: 1rem;
   min-height: 1.25rem;
+  align-items: center;
+`;
+
+export const TagPlusWrapper = styled.span`
+  display: flex;
+  height: 1.875rem;
   align-items: center;
 `;
 

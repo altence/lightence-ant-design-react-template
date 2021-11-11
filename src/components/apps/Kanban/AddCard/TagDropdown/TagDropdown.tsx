@@ -5,6 +5,7 @@ import { Tag as ITag } from '../../interfaces';
 import { kanbanTags } from 'constants/kanbanTags';
 import * as S from './TagDropdown.styles';
 import { Tag } from '../../Tag/Tag';
+import { ReactComponent as TagPlus } from '../../../../../assets/icons/tag-plus.svg';
 
 interface TagDropdownProps {
   selectedTags: ITag[];
@@ -55,6 +56,9 @@ export const TagDropdown: React.FC<TagDropdownProps> = ({ selectedTags, setSelec
           {selectedTags.map((tag) => (
             <Tag key={tag.id} {...tag} removeTag={() => onTagClick(tag)} />
           ))}
+          <S.TagPlusWrapper>
+            <TagPlus />
+          </S.TagPlusWrapper>
         </S.TagsWrapper>
       ) : (
         <S.TagsWrapper>
