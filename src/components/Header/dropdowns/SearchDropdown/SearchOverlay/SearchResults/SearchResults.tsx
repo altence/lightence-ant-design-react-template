@@ -3,6 +3,7 @@ import { List } from 'antd';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { CategoryComponents } from 'components/Header/HeaderSearch/HeaderSearch';
+import { camelize } from 'utils/utils';
 import * as S from './SearchResults.styles';
 
 interface SearchResultsProps {
@@ -18,7 +19,7 @@ export const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
         <List
           key={result.category}
           split={false}
-          header={t(`common.${result.category}`)}
+          header={t(`common.${camelize(result.category)}`)}
           dataSource={result.components}
           renderItem={(item) => (
             <List.Item>
