@@ -9,7 +9,6 @@ import * as S from './Card.styles';
 import { Dropdown } from 'antd';
 interface CardProps {
   style: CSSStyleSheet;
-  tagStyle: CSSStyleSheet;
   onClick: () => void;
   onDelete: () => void;
   onChange: (card: CardState) => void;
@@ -69,7 +68,6 @@ const EditTagPopover: React.FC<EditTagProps> = ({ tags, updateTag, hidePopover }
 
 export const Card: React.FC<CardProps> = ({
   style,
-  tagStyle,
   onClick,
   onDelete,
   onChange,
@@ -169,9 +167,7 @@ export const Card: React.FC<CardProps> = ({
             <S.CardFooter>
               {tags &&
                 tags.length > 0 &&
-                tags.map((tag) => (
-                  <Tag key={tag.title} {...tag} tagStyle={tagStyle} removeTag={() => removeTag(tag)} />
-                ))}
+                tags.map((tag) => <Tag key={tag.id} {...tag} removeTag={() => removeTag(tag)} />)}
               <Dropdown
                 placement="bottomLeft"
                 trigger={['click']}

@@ -275,7 +275,8 @@
     "label": "Label",
     "description": "Description",
     "tags": "Tags",
-    "addTags": "Add tags",
+    "addTag": "Add tag",
+    "addParticipant": "Set assignee",
     "sameTag": "You can't add the same tag!"
   },
   "charts": {
