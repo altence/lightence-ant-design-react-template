@@ -1,5 +1,10 @@
 import styled from 'styled-components';
-import { CardRightContent as RightContent } from 'react-trello/dist/styles/Base';
+import {
+  CardRightContent as RightContent,
+  CardTitle as Title,
+  CardHeader as Header,
+} from 'react-trello/dist/styles/Base';
+import InlineInput from 'react-trello/dist/widgets/InlineInput';
 import { ReactComponent as ArrowDownIcon } from '../../../../assets/icons/arrow-down.svg';
 
 interface ArrowDownProps {
@@ -22,6 +27,25 @@ export const ArrowDown = styled(ArrowDownIcon)<ArrowDownProps>`
 export const CardRightContent = styled(RightContent)`
   display: flex;
   justify-content: flex-end;
+  padding-right: 0;
+`;
+
+export const CardTitle = styled(Title)`
+  font-size: ${(props) => props.theme.commonFontSizes.md};
+  line-height: 1.375rem;
+  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+  color: ${(props) => props.theme.colors.text.main};
+  margin-left: -0.5rem;
+`;
+
+export const CardHeader = styled(Header)`
+  border-bottom: none;
+  margin-bottom: 1rem;
+  padding-bottom: 0;
+`;
+
+export const Input = styled(InlineInput)`
+  padding: 0;
 `;
 
 export const EditPopover = styled.div`
