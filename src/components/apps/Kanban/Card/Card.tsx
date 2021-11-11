@@ -3,6 +3,7 @@ import { Tag } from '../Tag/Tag';
 import { CardState, Tag as ITag } from '../interfaces';
 import { ReactComponent as ThreeDots } from '../../../../assets/icons/three-dots.svg';
 import { ReactComponent as TagPlus } from '../../../../assets/icons/tag-plus.svg';
+import { kanbanTags } from 'constants/kanbanTags';
 import * as S from './Card.styles';
 
 interface CardProps {
@@ -25,12 +26,42 @@ interface EditPopoverProps {
   onArchive: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
+interface EditTagProps {
+  tags: ITag[];
+  updateTag: (tag: ITag) => void;
+  hidePopover: () => void;
+}
+
 const EditPopover: React.FC<EditPopoverProps> = ({ onDelete, onArchive }) => {
   return (
     <S.EditPopover>
       <S.EditPopoverLine onClick={onDelete}>Delete</S.EditPopoverLine>
       <S.EditPopoverLine onClick={onArchive}>Archivate</S.EditPopoverLine>
     </S.EditPopover>
+  );
+};
+
+const EditTagPopover: React.FC<EditTagProps> = ({ tags, updateTag, hidePopover }) => {
+  const kanbanTagData = Object.values(kanbanTags);
+  const tagsIds = tags?.length ? tags.map((item) => item.id) : [];
+  return (
+    <S.EditTagPopover>
+      {kanbanTagData.map((tag: ITag) => (
+        <S.EditTagPopoverLine
+          key={tag.id}
+          onClick={(e) => {
+            updateTag(tag);
+            e.stopPropagation();
+          }}
+        >
+          <S.PopoverCheckbox checked={tagsIds.includes(tag.id)} />
+          <S.TagWrapper backgroundColor={tag.bgcolor}>#{tag.title}</S.TagWrapper>
+        </S.EditTagPopoverLine>
+      ))}
+      <S.RemoveTagWrapper onClick={hidePopover}>
+        <S.RemoveTag />
+      </S.RemoveTagWrapper>
+    </S.EditTagPopover>
   );
 };
 
@@ -44,12 +75,13 @@ export const Card: React.FC<CardProps> = ({
   id,
   title,
   description,
-  tags,
+  tags = [],
   cardDraggable,
   editable,
 }) => {
   const [isExpanded, setIsExpanded] = useState(true);
   const [isShowEditPopover, setIsShowEditPopover] = useState(false);
+  const [isShowEditTagPopover, setIsShowEditTagPopover] = useState(false);
 
   const onArrowPress = () => {
     setIsExpanded(!isExpanded);
@@ -66,6 +98,16 @@ export const Card: React.FC<CardProps> = ({
 
   const removeTag = (tag: ITag) => {
     updateCard({ tags: tags.filter((item) => item.id !== tag.id) });
+  };
+
+  const updateTag = (tag: ITag) => {
+    const isExist = tags?.find((item) => item.id === tag.id);
+
+    if (isExist) {
+      removeTag(tag);
+    } else {
+      updateCard({ tags: [...tags, tag] });
+    }
   };
 
   const updateCard = (card: CardState) => {
@@ -122,7 +164,7 @@ export const Card: React.FC<CardProps> = ({
                 tags.map((tag) => (
                   <Tag key={tag.title} {...tag} tagStyle={tagStyle} removeTag={() => removeTag(tag)} />
                 ))}
-              <S.TagPlusWrapper>
+              <S.TagPlusWrapper onClick={() => setIsShowEditTagPopover(!isShowEditTagPopover)}>
                 <TagPlus />
               </S.TagPlusWrapper>
             </S.CardFooter>
@@ -130,6 +172,9 @@ export const Card: React.FC<CardProps> = ({
         )}
       </S.CardWrapper>
       {isShowEditPopover && <EditPopover onDelete={onDeleteCard} onArchive={onDeleteCard} />}
+      {isShowEditTagPopover && (
+        <EditTagPopover tags={tags} updateTag={updateTag} hidePopover={() => setIsShowEditTagPopover(false)} />
+      )}
     </S.Card>
   );
 };

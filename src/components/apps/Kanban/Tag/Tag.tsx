@@ -1,6 +1,5 @@
 import React from 'react';
 import { TagSpan } from 'react-trello/dist/styles/Base';
-import { ReactComponent as RemoveTag } from '../../../../assets/icons/close.svg';
 import * as S from './Tag.styles';
 
 interface TagProps {
@@ -17,7 +16,7 @@ export const Tag: React.FC<TagProps> = ({ title, color, bgcolor, tagStyle, remov
     <TagSpan style={style} {...otherProps}>
       #{title}
       <S.RemoveTagWrapper onClick={removeTag}>
-        <RemoveTag />
+        <S.RemoveTagIcon />
       </S.RemoveTagWrapper>
     </TagSpan>
   );
