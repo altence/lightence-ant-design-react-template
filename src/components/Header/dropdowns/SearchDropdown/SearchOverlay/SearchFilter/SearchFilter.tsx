@@ -28,20 +28,14 @@ export const SearchFilter: React.FC<SearchFilterProps> = ({ data, isVisible, chi
   );
 
   useEffect(() => {
-    if (selectedFilter.length > 0) {
-      if (data) {
-        const results = data.filter((component) => selectedFilter.some((filter) => filter === component.category));
-
-        setFilteredResults(results.length > 0 ? results : []);
+    if (data) {
+      if (selectedFilter.length > 0) {
+        setFilteredResults(data.filter((component) => selectedFilter.some((filter) => filter === component.category)));
       } else {
-        setFilteredResults([]);
+        setFilteredResults(data);
       }
     } else {
-      if (data) {
-        setFilteredResults(data);
-      } else {
-        setFilteredResults(null);
-      }
+      setFilteredResults(null);
     }
   }, [data, selectedFilter]);
 
