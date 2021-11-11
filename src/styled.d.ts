@@ -40,6 +40,7 @@ declare module 'styled-components' {
     border: {
       radius: string;
     };
+    boxShadow: string;
     breakpoints: {
       xs: number;
       md: number;
