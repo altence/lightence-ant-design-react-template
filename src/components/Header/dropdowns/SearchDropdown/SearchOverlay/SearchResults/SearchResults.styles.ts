@@ -1,3 +1,4 @@
+import { Typography } from 'antd';
 import styled from 'styled-components';
 
 export const SearchResultsWrapper = styled.div`
@@ -17,10 +18,14 @@ export const SearchResultsWrapper = styled.div`
 
     & .ant-list-items {
       padding-left: 0.5rem;
-
-      & a {
-        color: ${(props) => props.theme.colors.text.main};
-      }
     }
+  }
+`;
+
+export const Text = styled(Typography.Text)`
+  color: ${(props) => props.theme.colors.text.main};
+
+  &:hover {
+    text-decoration: underline;
   }
 `;

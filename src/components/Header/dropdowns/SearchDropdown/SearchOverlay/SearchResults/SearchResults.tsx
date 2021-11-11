@@ -22,9 +22,11 @@ export const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
           header={t(`common.${camelize(result.category)}`)}
           dataSource={result.components}
           renderItem={(item) => (
-            <List.Item>
-              <Link to={item.url}>{item.name}</Link>
-            </List.Item>
+            <Link to={item.url}>
+              <List.Item>
+                <S.Text>{item.name}</S.Text>
+              </List.Item>
+            </Link>
           )}
         />
       )),
