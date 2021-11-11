@@ -276,6 +276,7 @@
     "description": "DE!!!Description",
     "tags": "DE!!!Tags",
     "addTags": "DE!!!Add tags",
+    "addParticipant": "DE!!!Set assignee",
     "sameTag": "DE!!!You can't add the same tag!"
   },
   "charts": {

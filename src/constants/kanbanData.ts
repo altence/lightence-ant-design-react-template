@@ -1,18 +1,8 @@
 import { kanbanTags } from './kanbanTags';
+import { kanbanPeople } from './kanbanPeople';
 
 const { high, medium, low, ui, dev } = kanbanTags;
-
-const Anna = {
-  id: 'Anna',
-  name: 'Anna',
-  avatar: '',
-};
-
-const Pavel = {
-  id: 'Pavel',
-  name: 'Pavel',
-  avatar: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1629465123/Ellipse_59_vls5ji.jpg',
-};
+const { anna, pavel } = kanbanPeople;
 
 export const kanbanData = {
   lanes: [
@@ -20,12 +10,12 @@ export const kanbanData = {
       id: 'info',
       title: 'Information',
       cards: [
-        { id: 'altence', title: 'Altence', description: 'Licensed Medications', participants: [Anna, Pavel] },
+        { id: 'altence', title: 'Altence', description: 'Licensed Medications', participants: [anna, pavel] },
         {
           id: 'warning',
           title: 'Warning',
           description: 'Do NOT utilize any medication that is out of your scope of practice.',
-          participants: [Anna, Pavel],
+          participants: [anna, pavel],
         },
       ],
     },
@@ -38,14 +28,14 @@ export const kanbanData = {
           title: 'Dextrose (D50)',
           description: 'Dextrose (D50)',
           tags: [high, dev],
-          participants: [Anna],
+          participants: [anna],
         },
         {
           id: 'glucagon',
           title: 'Glucagon',
           description: 'Glucagon',
           tags: [high, dev],
-          participants: [Anna, Pavel],
+          participants: [anna, pavel],
         },
         {
           id: 'dextroseInWater',
@@ -70,7 +60,7 @@ export const kanbanData = {
           title: 'Acetaminophen',
           description: 'Acetaminophen (Tylenol)',
           tags: [medium, dev, ui],
-          participants: [Pavel],
+          participants: [pavel],
         },
         {
           id: 'morphine',

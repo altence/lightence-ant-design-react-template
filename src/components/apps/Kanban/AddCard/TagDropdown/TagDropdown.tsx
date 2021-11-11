@@ -1,25 +1,66 @@
 import React from 'react';
 import { Dropdown } from 'antd';
-import { TagsBtn } from '../AddCard.styles';
-import { TagMenu } from './TagMenu/TagMenu';
 import { useTranslation } from 'react-i18next';
-import { Tag } from '../../interfaces';
+import { Tag as ITag } from '../../interfaces';
+import { kanbanTags } from 'constants/kanbanTags';
+import * as S from './TagDropdown.styles';
+import { Tag } from '../../Tag/Tag';
 
 interface TagDropdownProps {
-  selectedTags: Tag[];
-  setSelectedTags: (func: (state: Tag[]) => Tag[]) => void;
+  selectedTags: ITag[];
+  setSelectedTags: (state: ITag[]) => void;
 }
 
 export const TagDropdown: React.FC<TagDropdownProps> = ({ selectedTags, setSelectedTags }) => {
   const { t } = useTranslation();
+  const kanbanTagData = Object.values(kanbanTags);
+  const selectedTagsIds = selectedTags.map((item) => item.id);
+
+  const onTagClick = (tag: ITag) => {
+    const isExist = selectedTagsIds.includes(tag.id);
+
+    if (isExist) {
+      setSelectedTags(selectedTags.filter((item) => item.id !== tag.id));
+    } else {
+      setSelectedTags([...selectedTags, tag]);
+    }
+  };
 
   return (
     <Dropdown
-      placement="topRight"
+      placement="bottomCenter"
       trigger={['click']}
-      overlay={<TagMenu selectedTags={selectedTags} setSelectedTags={setSelectedTags} />}
+      overlay={
+        <S.EditTagPopover>
+          {kanbanTagData.map((tag: ITag) => (
+            <S.EditTagPopoverLine
+              key={tag.id}
+              onClick={(e) => {
+                onTagClick(tag);
+                e.stopPropagation();
+              }}
+            >
+              <S.PopoverCheckbox checked={selectedTagsIds.includes(tag.id)} />
+              <S.TagWrapper backgroundColor={tag.bgcolor}>#{tag.title}</S.TagWrapper>
+            </S.EditTagPopoverLine>
+          ))}
+          <S.RemoveTagWrapper>
+            <S.RemoveTag />
+          </S.RemoveTagWrapper>
+        </S.EditTagPopover>
+      }
     >
-      <TagsBtn type="text">{t('kanban.tags')}</TagsBtn>
+      {selectedTags && selectedTags.length > 0 ? (
+        <S.TagsWrapper>
+          {selectedTags.map((tag) => (
+            <Tag key={tag.id} {...tag} removeTag={() => onTagClick(tag)} />
+          ))}
+        </S.TagsWrapper>
+      ) : (
+        <S.TagsWrapper>
+          <S.AddTag>{t('kanban.addTag')}</S.AddTag>
+        </S.TagsWrapper>
+      )}
     </Dropdown>
   );
 };

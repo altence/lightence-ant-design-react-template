@@ -1,22 +1,18 @@
 import React, { useMemo, useState } from 'react';
-import { CardWrapper } from 'react-trello/dist/styles/Base';
 import { Input } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { Form } from 'components/common/Form/Form';
-import { FormItem } from 'components/common/Form/Form.styles';
-import { CardState, Tag } from '../interfaces';
+import { CardState, Tag, Participant } from '../interfaces';
 import { ButtonsGroup } from 'components/common/Form/ButtonsGroup/ButtonsGroup';
 import { TagDropdown } from './TagDropdown/TagDropdown';
 import { addCard } from 'api/kanban.api';
+import * as S from './AddCard.styles';
+import { ParticipantsDropdown } from './ParticipantsDropdown/ParticipantsDropdown';
 
 const formInputs = [
   {
     title: 'kanban.title',
     name: 'title',
-  },
-  {
-    title: 'kanban.label',
-    name: 'label',
   },
   {
     title: 'kanban.description',
@@ -31,13 +27,12 @@ interface AddCardProps {
 
 export const AddCard: React.FC<AddCardProps> = ({ onAdd, onCancel }) => {
   const [selectedTags, setSelectedTags] = useState<Tag[]>([]);
+  const [selectedParticipants, setSelectedParticipants] = useState<Participant[]>([]);
 
   const { t } = useTranslation();
 
   const onFinish = async (values: []) => {
-    const tags = selectedTags;
-
-    const card = await addCard({ ...values, tags });
+    const card = await addCard({ ...values, tags: selectedTags, participants: selectedParticipants });
 
     onAdd(card);
   };
@@ -45,15 +40,15 @@ export const AddCard: React.FC<AddCardProps> = ({ onAdd, onCancel }) => {
   const formItems = useMemo(
     () =>
       formInputs.map((item, index) => (
-        <FormItem key={index} name={item.name}>
+        <S.FormInput key={index} name={item.name}>
           <Input placeholder={t(item.title)} bordered={false} />
-        </FormItem>
+        </S.FormInput>
       )),
     [],
   );
 
   return (
-    <CardWrapper>
+    <S.CardWrapper>
       <Form
         name="addCard"
         onFinish={onFinish}
@@ -62,10 +57,13 @@ export const AddCard: React.FC<AddCardProps> = ({ onAdd, onCancel }) => {
         trigger
       >
         {formItems}
-        <FormItem>
-          <TagDropdown selectedTags={selectedTags} setSelectedTags={setSelectedTags} />
-        </FormItem>
+
+        <TagDropdown selectedTags={selectedTags} setSelectedTags={setSelectedTags} />
+        <ParticipantsDropdown
+          selectedParticipants={selectedParticipants}
+          setSelectedParticipants={setSelectedParticipants}
+        />
       </Form>
-    </CardWrapper>
+    </S.CardWrapper>
   );
 };
