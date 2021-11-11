@@ -1,43 +1,46 @@
 import React, { useContext } from 'react';
-import { Card } from '../../common/Card/Card';
-import { StatisticsChart } from './StatisticsChart/StatisticsChart';
-import { StatisticsInfo } from './StatisticsInfo/StatisticsInfo';
-import { Statistic } from '../../../constants/statisticsData';
-import * as S from './StatisticsCard.styles';
+import { useTranslation } from 'react-i18next';
 import { ThemeContext } from 'styled-components';
+import { Col, Row } from 'antd';
+import { StatisticsInfo } from './StatisticsInfo/StatisticsInfo';
+import { StatisticsProgress } from './StatisticsProgress/StatisticsProgress';
+import * as S from './StatisticsCard.styles';
+import { StatisticColor } from 'constants/config/statistics';
+import { useResponsive } from 'hooks/useResponsive';
 
-type StatisticsCardProps = Omit<Statistic, 'id'>;
+interface StatisticsCardProps {
+  name: string;
+  value: number;
+  prevValue: number;
+  color: StatisticColor;
+  unit: 'kg';
+  Icon: React.FC;
+}
 
-export const StatisticsCard: React.FC<StatisticsCardProps> = ({
-  value,
-  percent,
-  icon,
-  name: title,
-  isDowngrade,
-  color,
-  chartColor,
-}) => {
-  const themeContext = useContext(ThemeContext);
+export const StatisticsCard: React.FC<StatisticsCardProps> = ({ name, value, prevValue, color, unit, Icon }) => {
+  const theme = useContext(ThemeContext);
+
+  const { t } = useTranslation();
 
   return (
-    <S.CardWrapper id={title.toLowerCase().replaceAll(' ', '-')}>
-      <S.Line color={color} />
-      <Card>
-        <S.Wrapper>
-          <S.Icon color={themeContext.colors.main[color]} component={icon} />
-          <StatisticsChart
-            color={themeContext.colors.main[color]}
-            chartColor={themeContext.colors.main[chartColor]}
-            value={value}
-          />
-          <StatisticsInfo
-            color={themeContext.colors.main[color]}
-            title={title}
-            percent={percent}
-            isDowngrade={isDowngrade}
-          />
-        </S.Wrapper>
-      </Card>
-    </S.CardWrapper>
+    <S.StatisticCard id={name.toLowerCase().replaceAll(' ', '-')} color={theme.colors.main[color] as StatisticColor}>
+      <Row wrap={false} gutter={[5, 0]}>
+        <Col>
+          <S.Icon component={Icon} />
+        </Col>
+
+        <Col flex={1}>
+          <S.StatisticsRow justify="space-between" align="middle" wrap={false} gutter={[5, 0]}>
+            <Col>
+              <StatisticsInfo name={t(name)} value={value} prevValue={prevValue} />
+            </Col>
+
+            <Col>
+              <StatisticsProgress color={theme.colors.main[color] as StatisticColor} unit={unit} value={value} />
+            </Col>
+          </S.StatisticsRow>
+        </Col>
+      </Row>
+    </S.StatisticCard>
   );
 };

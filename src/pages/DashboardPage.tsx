@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { MapCard } from '../components/dashboard/MapCard/MapCard';
@@ -13,29 +13,38 @@ import { BloodScreeningCard } from '../components/dashboard/BloodScreeningCard/B
 import { PiecesOfAdviceCard } from '../components/dashboard/PiecesOfAdviceCard/PiecesOfAdviceCard';
 import { PageTitle } from 'components/common/PageTitle/PageTitle';
 import { StatisticsCard } from '../components/dashboard/StatisticsCard/StatisticsCard';
-import { statisticsData } from '../constants/statisticsData';
 import { useResponsive } from 'hooks/useResponsive';
+import { getStatistics, Statistic } from 'api/statistics.api';
+import { statistics as configStatistics } from 'constants/config/statistics';
 
 const DashboardPage: React.FC = () => {
   const { t } = useTranslation();
+  const [statistics, setStatistics] = useState<Statistic[]>([]);
+
+  useEffect(() => {
+    getStatistics().then((res) => setStatistics(res));
+  }, []);
 
   const { isTablet, isDesktop } = useResponsive();
 
   const statisticsCards = useMemo(
     () =>
-      statisticsData.map((st, index) => (
-        <Col key={st.id} xs={12} md={index === statisticsData.length - 1 ? 0 : 8} order={(isTablet && index + 1) || 0}>
-          <StatisticsCard
-            name={st.name}
-            icon={st.icon}
-            value={st.value}
-            percent={st.percent}
-            isDowngrade={st.isDowngrade}
-            color={st.color}
-            chartColor={st.chartColor}
-          />
-        </Col>
-      )),
+      statistics.map((st, index) => {
+        const currentStatistic = configStatistics.find((el) => el.id === st.id);
+
+        return currentStatistic ? (
+          <Col key={st.id} xs={12} md={8} order={(isTablet && index + 1) || 0}>
+            <StatisticsCard
+              name={currentStatistic.name}
+              value={st.value}
+              prevValue={st.prevValue}
+              color={currentStatistic.color}
+              unit={st.unit}
+              Icon={currentStatistic.Icon}
+            />
+          </Col>
+        ) : null;
+      }),
     [],
   );
 
