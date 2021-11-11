@@ -17,13 +17,24 @@ export const Kanban: React.FC = () => {
       editable
       laneDraggable
       data={kanbanData}
-      tagStyle={{ border: `1px solid ${theme.colors.border.main}` }}
+      tagStyle={{
+        height: '1.875rem',
+        borderRadius: '0.5rem',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: '0.3125rem 0.625rem',
+        margin: '0px',
+        fontSize: theme.commonFontSizes.xs,
+      }}
       laneStyle={{ background: 'transparent' }}
       cardStyle={{
         borderRadius: theme.border.radius,
         backgroundColor: theme.commonColors.white,
         padding: `1.25rem 1rem`,
         marginBottom: '1rem',
+        minWidth: '15.9375rem',
+        maxWidth: '15.9375rem',
       }}
     />
   );

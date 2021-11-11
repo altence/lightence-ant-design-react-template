@@ -5,6 +5,7 @@ import {
   CardHeader as Header,
   Detail,
   MovableCardWrapper,
+  Footer,
 } from 'react-trello/dist/styles/Base';
 import InlineInput from 'react-trello/dist/widgets/InlineInput';
 import { ReactComponent as ArrowDownIcon } from '../../../../assets/icons/arrow-down.svg';
@@ -62,6 +63,15 @@ export const CardDetails = styled(Detail)`
   color: ${(props) => props.theme.colors.text.main};
   margin-left: -0.5rem;
   margin-top: 1rem;
+  display: flex;
+`;
+
+export const CardFooter = styled(Footer)`
+  display: flex;
+  border: none;
+  padding-top: 1rem;
+  gap: 10px;
+  justify-content: flex-start;
 `;
 
 export const Input = styled(InlineInput)`
@@ -90,4 +100,10 @@ export const EditPopoverLine = styled.span`
     padding-bottom: 0px;
   }
   color: ${(props) => props.theme.colors.text.main};
+`;
+
+export const TagPlusWrapper = styled.span`
+  display: flex;
+  height: 1.875rem;
+  align-items: center;
 `;

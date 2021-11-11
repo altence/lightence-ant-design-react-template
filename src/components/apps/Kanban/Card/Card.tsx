@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Footer } from 'react-trello/dist/styles/Base';
-import Tag from 'react-trello/dist/components/Card/Tag';
+import { Tag } from '../Tag/Tag';
 import { CardState, Tag as ITag } from '../interfaces';
 import { ReactComponent as ThreeDots } from '../../../../assets/icons/three-dots.svg';
+import { ReactComponent as TagPlus } from '../../../../assets/icons/tag-plus.svg';
 import * as S from './Card.styles';
 
 interface CardProps {
@@ -64,6 +64,10 @@ export const Card: React.FC<CardProps> = ({
     event.stopPropagation();
   };
 
+  const removeTag = (tag: ITag) => {
+    updateCard({ tags: tags.filter((item) => item.id !== tag.id) });
+  };
+
   const updateCard = (card: CardState) => {
     onChange({ ...card, id });
   };
@@ -112,13 +116,16 @@ export const Card: React.FC<CardProps> = ({
                 description
               )}
             </S.CardDetails>
-            {tags && tags.length > 0 && (
-              <Footer>
-                {tags.map((tag) => (
-                  <Tag key={tag.title} {...tag} tagStyle={tagStyle} />
+            <S.CardFooter>
+              {tags &&
+                tags.length > 0 &&
+                tags.map((tag) => (
+                  <Tag key={tag.title} {...tag} tagStyle={tagStyle} removeTag={() => removeTag(tag)} />
                 ))}
-              </Footer>
-            )}
+              <S.TagPlusWrapper>
+                <TagPlus />
+              </S.TagPlusWrapper>
+            </S.CardFooter>
           </>
         )}
       </S.CardWrapper>
