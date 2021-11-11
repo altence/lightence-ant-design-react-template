@@ -28,8 +28,8 @@ export const componentsData: Component[] = [
     keywords: ['bones', 'charts', 'statistics'],
   },
   {
-    name: 'Water balance',
-    url: `${RoutesEnum.DASHBOARD_PAGE}#water-balance`,
+    name: 'Water',
+    url: `${RoutesEnum.DASHBOARD_PAGE}#water`,
     categories: ['charts'],
     keywords: ['water', 'balance', 'statistics', 'charts'],
   },

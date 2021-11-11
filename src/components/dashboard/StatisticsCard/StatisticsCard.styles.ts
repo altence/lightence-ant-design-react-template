@@ -5,24 +5,15 @@ import { Title, Text } from './StatisticsInfo/StatisticsInfo.styles';
 import { ValueText, UnitText } from './StatisticsProgress/StatisticsProgress.styles';
 import { StatisticColor } from 'constants/config/statistics';
 import { DashboardCard } from '../DashboardCard/DashboardCard';
-import { Row } from 'antd';
 
 interface StatisticsProps {
   color: StatisticColor;
 }
 
-export const StatisticsRow = styled(Row)`
-  max-width: 8rem;
-`;
-
 export const Icon = styled(AntIcon)`
-  font-size: 1rem;
+  font-size: 0.8rem;
 
   @media only screen and ${theme.media.md} {
-    font-size: 0.8rem;
-  }
-
-  @media only screen and ${theme.media.xl} {
     font-size: 1.5rem;
   }
 
@@ -32,12 +23,9 @@ export const Icon = styled(AntIcon)`
 `;
 
 export const StatisticCard = styled(DashboardCard)<StatisticsProps>`
-  border: 1px solid ${(props) => props.color};
+  line-height: 1;
 
-  & .ant-card-body {
-    display: flex;
-    justify-content: center;
-  }
+  border: 1px solid ${(props) => props.color};
 
   & ${Icon}, ${Title}, ${Text}, ${ValueText}, ${UnitText} {
     color: ${(props) => props.color};
