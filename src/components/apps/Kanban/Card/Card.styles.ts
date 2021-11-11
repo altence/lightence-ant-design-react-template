@@ -3,6 +3,7 @@ import {
   CardRightContent as RightContent,
   CardTitle as Title,
   CardHeader as Header,
+  Detail,
 } from 'react-trello/dist/styles/Base';
 import InlineInput from 'react-trello/dist/widgets/InlineInput';
 import { ReactComponent as ArrowDownIcon } from '../../../../assets/icons/arrow-down.svg';
@@ -28,6 +29,7 @@ export const CardRightContent = styled(RightContent)`
   display: flex;
   justify-content: flex-end;
   padding-right: 0;
+  align-items: center;
 `;
 
 export const CardTitle = styled(Title)`
@@ -36,12 +38,21 @@ export const CardTitle = styled(Title)`
   font-weight: ${(props) => props.theme.commonFontWeight.semibold};
   color: ${(props) => props.theme.colors.text.main};
   margin-left: -0.5rem;
+  display: flex;
 `;
 
 export const CardHeader = styled(Header)`
   border-bottom: none;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   padding-bottom: 0;
+`;
+
+export const CardDetails = styled(Detail)`
+  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  font-weight: ${(props) => props.theme.commonFontWeight.medium};
+  color: ${(props) => props.theme.colors.text.main};
+  margin-left: -0.5rem;
+  margin-top: 1rem;
 `;
 
 export const Input = styled(InlineInput)`
@@ -53,7 +64,7 @@ export const EditPopover = styled.div`
   position: absolute;
   right: 2px;
   background: ${(props) => props.theme.commonColors.white};
-  top: 1.875rem;
+  top: 2.7rem;
   flex-direction: column;
   border-radius: 0.625rem;
   padding: 1rem;
