@@ -114,6 +114,7 @@ declare namespace ReactTrello {
       NewCardForm?: React.Element;
       Card?: React.Element;
       LaneHeader?: React.Element;
+      AddCardLink?: React.Element;
     };
 
     addCardLink?: React.Element;

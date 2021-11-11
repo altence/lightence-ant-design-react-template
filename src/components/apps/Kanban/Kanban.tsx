@@ -3,6 +3,7 @@ import { ThemeContext } from 'styled-components';
 import { AddCard } from './AddCard/AddCard';
 import { Card } from './Card/Card';
 import { LaneHeader } from './LaneHeader/LaneHeader';
+import { AddCardLink } from './AddCardLink/AddCardLink';
 import { kanbanData } from 'constants/kanbanData';
 import * as S from './Kanban.styles';
 import './Kanban.less';
@@ -12,7 +13,7 @@ export const Kanban: React.FC = () => {
 
   return (
     <S.Kanban
-      components={{ Card, NewCardForm: AddCard, LaneHeader }}
+      components={{ Card, NewCardForm: AddCard, LaneHeader, AddCardLink }}
       editable
       laneDraggable
       data={kanbanData}
