@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { MovableCardWrapper, CardHeader, CardTitle, Detail, Footer } from 'react-trello/dist/styles/Base';
-import InlineInput from 'react-trello/dist/widgets/InlineInput';
+import { MovableCardWrapper, Detail, Footer } from 'react-trello/dist/styles/Base';
 import Tag from 'react-trello/dist/components/Card/Tag';
 import { CardState, Tag as ITag } from '../interfaces';
 import { ReactComponent as ThreeDots } from '../../../../assets/icons/three-dots.svg';
@@ -72,10 +71,10 @@ export const Card: React.FC<CardProps> = ({
   return (
     <MovableCardWrapper data-id={id} onClick={onClick} style={style} className={className}>
       {title && (
-        <CardHeader>
-          <CardTitle draggable={cardDraggable}>
+        <S.CardHeader>
+          <S.CardTitle draggable={cardDraggable}>
             {editable ? (
-              <InlineInput
+              <S.Input
                 name="title"
                 value={title}
                 border
@@ -86,7 +85,7 @@ export const Card: React.FC<CardProps> = ({
             ) : (
               title
             )}
-          </CardTitle>
+          </S.CardTitle>
           <S.CardRightContent>
             <S.ArrowDownWrapper onClick={onArrowPress}>
               <S.ArrowDown isExpanded={isExpanded} />
@@ -97,13 +96,13 @@ export const Card: React.FC<CardProps> = ({
 
             {isShowEditPopover && <EditPopover onDelete={onDeleteCard} onArchive={onDeleteCard} />}
           </S.CardRightContent>
-        </CardHeader>
+        </S.CardHeader>
       )}
       {isExpanded && (
         <>
           <Detail>
             {editable ? (
-              <InlineInput
+              <S.Input
                 value={description}
                 border
                 placeholder="description"

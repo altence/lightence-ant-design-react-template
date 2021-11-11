@@ -71,5 +71,16 @@ declare module 'styled-components' {
       xxxl: string;
       xxxxl: string;
     };
+    commonFontWeight: {
+      thin: string;
+      extraLight: string;
+      light: string;
+      normal: string;
+      medium: string;
+      semibold: string;
+      bold: string;
+      extraBold: string;
+      black: string;
+    };
   }
 }
