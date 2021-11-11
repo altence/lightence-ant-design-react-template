@@ -3,7 +3,6 @@ import { Input } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { Form } from 'components/common/Form/Form';
 import { CardState, Tag, Participant } from '../interfaces';
-import { ButtonsGroup } from 'components/common/Form/ButtonsGroup/ButtonsGroup';
 import { TagDropdown } from './TagDropdown/TagDropdown';
 import { addCard } from 'api/kanban.api';
 import * as S from './AddCard.styles';
@@ -53,7 +52,7 @@ export const AddCard: React.FC<AddCardProps> = ({ onAdd, onCancel }) => {
         name="addCard"
         onFinish={onFinish}
         onCancel={onCancel}
-        footer={(loading, onCancel) => <ButtonsGroup size="middle" loading={loading} onCancel={onCancel} />}
+        footer={(loading, onCancel) => <S.FooterButtons size="middle" loading={loading} onCancel={onCancel} />}
         trigger
       >
         {formItems}

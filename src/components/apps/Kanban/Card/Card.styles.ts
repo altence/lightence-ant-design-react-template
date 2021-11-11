@@ -27,24 +27,6 @@ export const ParticipantsWrapper = styled.div`
   gap: 1rem;
 `;
 
-export const ParticipantRow = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-export const ParticipantAvatar = styled.img`
-  height: 1.5625rem;
-  width: 1.5625rem;
-  border-radius: 50%;
-`;
-
-export const ParticipantName = styled.div`
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
-  color: ${(props) => props.theme.colors.text.main};
-  margin-left: 0.625rem;
-  margin-right: 0.625rem;
-`;
-
 export const PopoverCheckbox = styled(Checkbox)`
   & .ant-checkbox .ant-checkbox-inner {
     border-radius: 3px;
@@ -193,4 +175,11 @@ export const TagPlusWrapper = styled.span`
   display: flex;
   height: 1.875rem;
   align-items: center;
+`;
+
+export const AddTag = styled.span`
+  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  line-height: 1.25rem;
+  text-decoration: underline;
+  color: ${(props) => props.theme.colors.text.light};
 `;

@@ -3,10 +3,11 @@ import { Tag } from '../Tag/Tag';
 import { CardState, Tag as ITag, Participant as IParticipant } from '../interfaces';
 import { ReactComponent as ThreeDots } from '../../../../assets/icons/three-dots.svg';
 import { ReactComponent as TagPlus } from '../../../../assets/icons/tag-plus.svg';
-import StubAvatar from '../../../../assets/images/stub-avatar.png';
 import { kanbanTags } from 'constants/kanbanTags';
 import * as S from './Card.styles';
 import { Dropdown } from 'antd';
+import { useTranslation } from 'react-i18next';
+import { ParticipantsDropdown } from '../AddCard/ParticipantsDropdown/ParticipantsDropdown';
 interface CardProps {
   style: CSSStyleSheet;
   onClick: () => void;
@@ -80,6 +81,7 @@ export const Card: React.FC<CardProps> = ({
   cardDraggable,
   editable,
 }) => {
+  const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(true);
   const [isShowEditTagPopover, setIsShowEditTagPopover] = useState(false);
 
@@ -106,8 +108,8 @@ export const Card: React.FC<CardProps> = ({
     }
   };
 
-  const removeParticipant = (participant: IParticipant) => {
-    updateCard({ participants: participants.filter((item) => item.id !== participant.id) });
+  const updateParticipants = (participants: IParticipant[]) => {
+    updateCard({ participants });
   };
 
   const updateCard = (card: CardState) => {
@@ -180,22 +182,21 @@ export const Card: React.FC<CardProps> = ({
                   />
                 }
               >
-                <S.TagPlusWrapper onClick={() => setIsShowEditTagPopover(!isShowEditTagPopover)}>
-                  <TagPlus />
-                </S.TagPlusWrapper>
+                {tags && tags.length > 0 ? (
+                  <S.TagPlusWrapper onClick={() => setIsShowEditTagPopover(!isShowEditTagPopover)}>
+                    <TagPlus />
+                  </S.TagPlusWrapper>
+                ) : (
+                  <S.AddTag onClick={() => setIsShowEditTagPopover(!isShowEditTagPopover)}>
+                    {t('kanban.addTag')}
+                  </S.AddTag>
+                )}
               </Dropdown>
             </S.CardFooter>
-            {participants?.length && (
-              <S.ParticipantsWrapper>
-                {participants.map((item) => (
-                  <S.ParticipantRow key={item.id}>
-                    <S.ParticipantAvatar src={item.avatar ? item.avatar : StubAvatar} />
-                    <S.ParticipantName>{item.name}</S.ParticipantName>
-                    <S.RemoveParticipant onClick={() => removeParticipant(item)} />
-                  </S.ParticipantRow>
-                ))}
-              </S.ParticipantsWrapper>
-            )}
+
+            <S.ParticipantsWrapper>
+              <ParticipantsDropdown selectedParticipants={participants} setSelectedParticipants={updateParticipants} />
+            </S.ParticipantsWrapper>
           </>
         )}
       </S.CardWrapper>
