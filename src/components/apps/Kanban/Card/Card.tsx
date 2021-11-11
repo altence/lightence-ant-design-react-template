@@ -1,19 +1,12 @@
-import React from 'react';
-import {
-  MovableCardWrapper,
-  CardHeader,
-  CardRightContent,
-  CardTitle,
-  Detail,
-  Footer,
-} from 'react-trello/dist/styles/Base';
+import React, { useState } from 'react';
+import { MovableCardWrapper, CardHeader, CardTitle, Detail, Footer } from 'react-trello/dist/styles/Base';
 import InlineInput from 'react-trello/dist/widgets/InlineInput';
 import Tag from 'react-trello/dist/components/Card/Tag';
-import DeleteButton from 'react-trello/dist/widgets/DeleteButton';
 import { CardState, Tag as ITag } from '../interfaces';
+import { ReactComponent as ThreeDots } from '../../../../assets/icons/three-dots.svg';
+import * as S from './Card.styles';
 
 interface CardProps {
-  showDeleteButton: boolean;
   style: CSSStyleSheet;
   tagStyle: CSSStyleSheet;
   onClick: () => void;
@@ -22,15 +15,27 @@ interface CardProps {
   className: string;
   id: string | number;
   title: string;
-  label: string;
   description: string;
   tags: ITag[];
   cardDraggable: boolean;
   editable: boolean;
 }
 
+interface EditPopoverProps {
+  onDelete: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onArchive: (event: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+const EditPopover: React.FC<EditPopoverProps> = ({ onDelete, onArchive }) => {
+  return (
+    <S.EditPopover>
+      <S.EditPopoverLine onClick={onDelete}>Delete</S.EditPopoverLine>
+      <S.EditPopoverLine onClick={onArchive}>Archivate</S.EditPopoverLine>
+    </S.EditPopover>
+  );
+};
+
 export const Card: React.FC<CardProps> = ({
-  showDeleteButton,
   style,
   tagStyle,
   onClick,
@@ -39,13 +44,23 @@ export const Card: React.FC<CardProps> = ({
   className,
   id,
   title,
-  label,
   description,
   tags,
   cardDraggable,
   editable,
 }) => {
-  const onDeleteCard = (event: MouseEvent) => {
+  const [isExpanded, setIsExpanded] = useState(true);
+  const [isShowEditPopover, setIsShowEditPopover] = useState(false);
+
+  const onArrowPress = () => {
+    setIsExpanded(!isExpanded);
+  };
+
+  const onThreeDotsPress = () => {
+    setIsShowEditPopover(!isShowEditPopover);
+  };
+
+  const onDeleteCard = (event: React.MouseEvent<HTMLButtonElement>) => {
     onDelete();
     event.stopPropagation();
   };
@@ -72,42 +87,41 @@ export const Card: React.FC<CardProps> = ({
               title
             )}
           </CardTitle>
-          <CardRightContent>
-            {editable ? (
-              <InlineInput
-                value={label}
-                border
-                placeholder="label"
-                resize="vertical"
-                onSave={(value: string) => updateCard({ label: value })}
-              />
-            ) : (
-              label
-            )}
-          </CardRightContent>
-          {showDeleteButton && <DeleteButton onClick={onDeleteCard} />}
+          <S.CardRightContent>
+            <S.ArrowDownWrapper onClick={onArrowPress}>
+              <S.ArrowDown isExpanded={isExpanded} />
+            </S.ArrowDownWrapper>
+            <S.ThreeDotsWrapper onClick={onThreeDotsPress}>
+              <ThreeDots />
+            </S.ThreeDotsWrapper>
+
+            {isShowEditPopover && <EditPopover onDelete={onDeleteCard} onArchive={onDeleteCard} />}
+          </S.CardRightContent>
         </CardHeader>
       )}
-      {!title && showDeleteButton && <DeleteButton onClick={onDeleteCard} />}
-      <Detail>
-        {editable ? (
-          <InlineInput
-            value={description}
-            border
-            placeholder="description"
-            resize="vertical"
-            onSave={(value: string) => updateCard({ description: value })}
-          />
-        ) : (
-          description
-        )}
-      </Detail>
-      {tags && tags.length > 0 && (
-        <Footer>
-          {tags.map((tag) => (
-            <Tag key={tag.title} {...tag} tagStyle={tagStyle} />
-          ))}
-        </Footer>
+      {isExpanded && (
+        <>
+          <Detail>
+            {editable ? (
+              <InlineInput
+                value={description}
+                border
+                placeholder="description"
+                resize="vertical"
+                onSave={(value: string) => updateCard({ description: value })}
+              />
+            ) : (
+              description
+            )}
+          </Detail>
+          {tags && tags.length > 0 && (
+            <Footer>
+              {tags.map((tag) => (
+                <Tag key={tag.title} {...tag} tagStyle={tagStyle} />
+              ))}
+            </Footer>
+          )}
+        </>
       )}
     </MovableCardWrapper>
   );
