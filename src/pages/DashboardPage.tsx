@@ -33,7 +33,7 @@ const DashboardPage: React.FC = () => {
         const currentStatistic = configStatistics.find((el) => el.id === st.id);
 
         return currentStatistic ? (
-          <Col key={st.id} xs={12} md={8} order={(isTablet && index + 1) || 0}>
+          <Col key={st.id} xs={12} md={index === statistics.length - 1 ? 0 : 8} order={(isTablet && index + 1) || 0}>
             <StatisticsCard
               name={currentStatistic.name}
               value={st.value}
@@ -45,7 +45,7 @@ const DashboardPage: React.FC = () => {
           </Col>
         ) : null;
       }),
-    [],
+    [statistics, isTablet],
   );
 
   const desktopLayout = (
