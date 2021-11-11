@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MovableCardWrapper, Footer } from 'react-trello/dist/styles/Base';
+import { Footer } from 'react-trello/dist/styles/Base';
 import Tag from 'react-trello/dist/components/Card/Tag';
 import { CardState, Tag as ITag } from '../interfaces';
 import { ReactComponent as ThreeDots } from '../../../../assets/icons/three-dots.svg';
@@ -69,59 +69,60 @@ export const Card: React.FC<CardProps> = ({
   };
 
   return (
-    <MovableCardWrapper data-id={id} onClick={onClick} style={style} className={className}>
-      {title && (
-        <S.CardHeader>
-          <S.CardTitle draggable={cardDraggable}>
-            {editable ? (
-              <S.Input
-                name="title"
-                value={title}
-                border
-                placeholder="title"
-                resize="vertical"
-                onSave={(value: string) => updateCard({ title: value })}
-              />
-            ) : (
-              title
+    <S.Card>
+      <S.CardWrapper data-id={id} onClick={onClick} style={style} className={className}>
+        {title && (
+          <S.CardHeader>
+            <S.CardTitle draggable={cardDraggable}>
+              {editable ? (
+                <S.Input
+                  name="title"
+                  value={title}
+                  border
+                  placeholder="title"
+                  resize="vertical"
+                  onSave={(value: string) => updateCard({ title: value })}
+                />
+              ) : (
+                title
+              )}
+            </S.CardTitle>
+            <S.CardRightContent>
+              <S.ArrowDownWrapper onClick={onArrowPress}>
+                <S.ArrowDown isExpanded={isExpanded} />
+              </S.ArrowDownWrapper>
+              <S.ThreeDotsWrapper onClick={onThreeDotsPress}>
+                <ThreeDots />
+              </S.ThreeDotsWrapper>
+            </S.CardRightContent>
+          </S.CardHeader>
+        )}
+        {isExpanded && (
+          <>
+            <S.CardDetails>
+              {editable ? (
+                <S.Input
+                  value={description}
+                  border
+                  placeholder="description"
+                  resize="vertical"
+                  onSave={(value: string) => updateCard({ description: value })}
+                />
+              ) : (
+                description
+              )}
+            </S.CardDetails>
+            {tags && tags.length > 0 && (
+              <Footer>
+                {tags.map((tag) => (
+                  <Tag key={tag.title} {...tag} tagStyle={tagStyle} />
+                ))}
+              </Footer>
             )}
-          </S.CardTitle>
-          <S.CardRightContent>
-            <S.ArrowDownWrapper onClick={onArrowPress}>
-              <S.ArrowDown isExpanded={isExpanded} />
-            </S.ArrowDownWrapper>
-            <S.ThreeDotsWrapper onClick={onThreeDotsPress}>
-              <ThreeDots />
-            </S.ThreeDotsWrapper>
-
-            {isShowEditPopover && <EditPopover onDelete={onDeleteCard} onArchive={onDeleteCard} />}
-          </S.CardRightContent>
-        </S.CardHeader>
-      )}
-      {isExpanded && (
-        <>
-          <S.CardDetails>
-            {editable ? (
-              <S.Input
-                value={description}
-                border
-                placeholder="description"
-                resize="vertical"
-                onSave={(value: string) => updateCard({ description: value })}
-              />
-            ) : (
-              description
-            )}
-          </S.CardDetails>
-          {tags && tags.length > 0 && (
-            <Footer>
-              {tags.map((tag) => (
-                <Tag key={tag.title} {...tag} tagStyle={tagStyle} />
-              ))}
-            </Footer>
-          )}
-        </>
-      )}
-    </MovableCardWrapper>
+          </>
+        )}
+      </S.CardWrapper>
+      {isShowEditPopover && <EditPopover onDelete={onDeleteCard} onArchive={onDeleteCard} />}
+    </S.Card>
   );
 };
