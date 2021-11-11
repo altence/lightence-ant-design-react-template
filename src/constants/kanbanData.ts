@@ -2,17 +2,30 @@ import { kanbanTags } from './kanbanTags';
 
 const { high, medium, low, ui, dev } = kanbanTags;
 
+const Anna = {
+  id: 'Anna',
+  name: 'Anna',
+  avatar: '',
+};
+
+const Pavel = {
+  id: 'Pavel',
+  name: 'Pavel',
+  avatar: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1629465123/Ellipse_59_vls5ji.jpg',
+};
+
 export const kanbanData = {
   lanes: [
     {
       id: 'info',
       title: 'Information',
       cards: [
-        { id: 'altence', title: 'Altence', description: 'Licensed Medications' },
+        { id: 'altence', title: 'Altence', description: 'Licensed Medications', participants: [Anna, Pavel] },
         {
           id: 'warning',
           title: 'Warning',
           description: 'Do NOT utilize any medication that is out of your scope of practice.',
+          participants: [Anna, Pavel],
         },
       ],
     },
@@ -25,12 +38,14 @@ export const kanbanData = {
           title: 'Dextrose (D50)',
           description: 'Dextrose (D50)',
           tags: [high, dev],
+          participants: [Anna],
         },
         {
           id: 'glucagon',
           title: 'Glucagon',
           description: 'Glucagon',
           tags: [high, dev],
+          participants: [Anna, Pavel],
         },
         {
           id: 'dextroseInWater',
@@ -55,6 +70,7 @@ export const kanbanData = {
           title: 'Acetaminophen',
           description: 'Acetaminophen (Tylenol)',
           tags: [medium, dev, ui],
+          participants: [Pavel],
         },
         {
           id: 'morphine',

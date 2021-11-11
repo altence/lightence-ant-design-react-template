@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Tag } from '../Tag/Tag';
-import { CardState, Tag as ITag } from '../interfaces';
+import { CardState, Tag as ITag, Participant as IParticipant } from '../interfaces';
 import { ReactComponent as ThreeDots } from '../../../../assets/icons/three-dots.svg';
 import { ReactComponent as TagPlus } from '../../../../assets/icons/tag-plus.svg';
+import StubAvatar from '../../../../assets/images/stub-avatar.png';
 import { kanbanTags } from 'constants/kanbanTags';
 import * as S from './Card.styles';
 
@@ -17,6 +18,7 @@ interface CardProps {
   title: string;
   description: string;
   tags: ITag[];
+  participants: IParticipant[];
   cardDraggable: boolean;
   editable: boolean;
 }
@@ -76,6 +78,7 @@ export const Card: React.FC<CardProps> = ({
   title,
   description,
   tags = [],
+  participants = [],
   cardDraggable,
   editable,
 }) => {
@@ -108,6 +111,10 @@ export const Card: React.FC<CardProps> = ({
     } else {
       updateCard({ tags: [...tags, tag] });
     }
+  };
+
+  const removeParticipant = (participant: IParticipant) => {
+    updateCard({ participants: participants.filter((item) => item.id !== participant.id) });
   };
 
   const updateCard = (card: CardState) => {
@@ -168,6 +175,17 @@ export const Card: React.FC<CardProps> = ({
                 <TagPlus />
               </S.TagPlusWrapper>
             </S.CardFooter>
+            {participants?.length && (
+              <S.ParticipantsWrapper>
+                {participants.map((item) => (
+                  <S.ParticipantRow key={item.id}>
+                    <S.ParticipantAvatar src={item.avatar ? item.avatar : StubAvatar} />
+                    <S.ParticipantName>{item.name}</S.ParticipantName>
+                    <S.RemoveParticipant onClick={() => removeParticipant(item)} />
+                  </S.ParticipantRow>
+                ))}
+              </S.ParticipantsWrapper>
+            )}
           </>
         )}
       </S.CardWrapper>
