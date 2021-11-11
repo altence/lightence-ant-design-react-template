@@ -53,6 +53,10 @@ declare namespace ReactTrello {
      */
     laneDraggable?: boolean;
     /**
+     * Set to false to disable lane dragging. Default: true
+     */
+    canAddLanes?: boolean;
+    /**
      * Set to false to disable card dragging. Default: true
      */
     cardDraggable?: boolean;
@@ -115,6 +119,7 @@ declare namespace ReactTrello {
       Card?: React.Element;
       LaneHeader?: React.Element;
       AddCardLink?: React.Element;
+      NewLaneSection?: React.Element;
     };
 
     addCardLink?: React.Element;
