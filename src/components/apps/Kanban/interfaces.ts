@@ -1,4 +1,5 @@
 export interface Tag {
+  id: string;
   title: string;
   bgcolor?: string;
 }
