@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { ArticleCard } from '../ArticleCard/ArticleCard';
+import { FeedCard } from '../FeedCard/FeedCard';
 import * as S from './Feed.styles';
 
 interface FeedCard {
@@ -26,13 +26,14 @@ export const Feed: React.FC<FeedProps> = ({ cards, next, hasMore }) => {
     <InfiniteScroll dataLength={cards.length} next={next} hasMore={hasMore} loader={<h4>{t('common.loading')}</h4>}>
       <S.NewsWrapper>
         {cards.map((post, index) => (
-          <ArticleCard
+          <FeedCard
             key={index}
             title={post.title}
             description={post.text}
             date={post.date}
             imgUrl={post.img}
             author={post.author}
+            avatar={post.avatarUrl}
             keywords
           />
         ))}

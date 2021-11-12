@@ -84,8 +84,7 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, children }) => {
           <S.Title>{t('newsFeed.filter')}</S.Title>
         </S.TitleHeader>
       </Dropdown>
-
-      {children({ filteredNews: filteredNews || news })}
+      <S.NewsWrapper>{children({ filteredNews: filteredNews || news })}</S.NewsWrapper>
     </>
   );
 };

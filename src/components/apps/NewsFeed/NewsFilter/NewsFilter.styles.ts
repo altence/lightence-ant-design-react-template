@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Typography, Input as AntInput, Button } from 'antd';
 import { DayjsDatePicker } from 'components/common/pickers/DayjsDatePicker';
+import theme from '../../../../styles/theme';
 
 export const Dropdown = styled.div`
   padding: 1rem;
@@ -35,4 +36,18 @@ export const RangePicker = styled(DayjsDatePicker.RangePicker)`
 
 export const Btn = styled(Button)`
   display: block;
+`;
+
+export const NewsWrapper = styled.div`
+  @media only screen and ${theme.media.md} {
+    width: calc(100% - 21.25rem);
+  }
+
+  @media only screen and ${theme.media.xl} {
+    width: calc(100% - 21.25rem);
+  }
+
+  @media only screen and ${theme.media.xxl} {
+    width: calc(100% - 21.25rem);
+  }
 `;

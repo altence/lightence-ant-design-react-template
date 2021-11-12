@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Card } from '../../common/Card/Card';
 import { NewsFilter } from './NewsFilter/NewsFilter';
 import { getNews, Post } from '../../../api/news.api';
 import { Feed } from '../../common/Feed/Feed';
@@ -17,10 +16,8 @@ export const NewsFeed: React.FC = () => {
   };
 
   return (
-    <Card>
-      <NewsFilter news={news}>
-        {({ filteredNews }) => <Feed cards={filteredNews} next={next} hasMore={hasMore} />}
-      </NewsFilter>
-    </Card>
+    <NewsFilter news={news}>
+      {({ filteredNews }) => <Feed cards={filteredNews} next={next} hasMore={hasMore} />}
+    </NewsFilter>
   );
 };
