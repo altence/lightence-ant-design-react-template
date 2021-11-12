@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router';
+import { useLocation } from 'react-router';
 import { SearchDropdown } from '../dropdowns/SearchDropdown/SearchDropdown';
 import { useResponsive } from 'hooks/useResponsive';
 import { componentsData, Component } from 'constants/componentsData';
@@ -14,7 +14,7 @@ export interface CategoryComponents {
 export const HeaderSearch: React.FC = () => {
   const { mobileOnly, isTablet } = useResponsive();
 
-  const history = useHistory();
+  const { pathname } = useLocation();
 
   const [query, setQuery] = useState('');
   const [components] = useState<Component[]>(componentsData);
@@ -33,13 +33,9 @@ export const HeaderSearch: React.FC = () => {
     : null;
 
   useEffect(() => {
-    const unlisten = history.listen(() => {
-      setModalVisible(false);
-      setOverlayVisible(false);
-    });
-
-    return unlisten;
-  }, []);
+    setModalVisible(false);
+    setOverlayVisible(false);
+  }, [pathname]);
 
   return (
     <>
