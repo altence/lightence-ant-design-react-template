@@ -100,7 +100,7 @@ export const EditPopoverLine = styled.span`
   padding-bottom: 0.625rem;
   display: flex;
   &:last-child {
-    padding-bottom: 0px;
+    padding-bottom: 0;
   }
   color: ${(props) => props.theme.colors.text.main};
   cursor: pointer;

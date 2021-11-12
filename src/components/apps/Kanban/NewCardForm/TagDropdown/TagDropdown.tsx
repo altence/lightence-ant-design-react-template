@@ -42,7 +42,7 @@ export const TagDropdown: React.FC<TagDropdownProps> = ({ selectedTags, setSelec
               }}
             >
               <S.PopoverCheckbox checked={selectedTagsIds.includes(tag.id)} />
-              <S.TagWrapper backgroundColor={tag.bgcolor}>#{tag.title}</S.TagWrapper>
+              <S.TagWrapper backgroundColor={tag.bgColor}>#{tag.title}</S.TagWrapper>
             </S.EditTagPopoverLine>
           ))}
           <S.RemoveTagWrapper>
