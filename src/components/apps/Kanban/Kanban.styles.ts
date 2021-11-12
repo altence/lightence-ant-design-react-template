@@ -7,15 +7,15 @@ export const Kanban = styled(Board)`
   margin: ${(props) => `0 -${props.theme.mobileLayout.paddingHorizontal}`};
 
   & ::-webkit-scrollbar {
-    width: 16px;
+    width: 1rem;
   }
   & ::-webkit-scrollbar-track {
     background-color: transparent;
   }
   & ::-webkit-scrollbar-thumb {
     background-color: #e0e0e0;
-    border-radius: 20px;
-    border: 6px solid transparent;
+    border-radius: 1.25rem;
+    border: 0.375rem solid transparent;
     background-clip: content-box;
   }
 

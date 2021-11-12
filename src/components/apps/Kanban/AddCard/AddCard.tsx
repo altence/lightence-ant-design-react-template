@@ -56,7 +56,6 @@ export const AddCard: React.FC<AddCardProps> = ({ onAdd, onCancel }) => {
         trigger
       >
         {formItems}
-
         <TagDropdown selectedTags={selectedTags} setSelectedTags={setSelectedTags} />
         <ParticipantsDropdown
           selectedParticipants={selectedParticipants}

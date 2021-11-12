@@ -13,7 +13,6 @@ export interface Participant {
 export interface CardState {
   id?: number | string;
   title?: string;
-  label?: string;
   description?: string;
   tags?: Tag[];
   participants?: Participant[];

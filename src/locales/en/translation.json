@@ -277,7 +277,8 @@
     "tags": "Tags",
     "addTag": "Add tag",
     "addParticipant": "Set assignee",
-    "sameTag": "You can't add the same tag!"
+    "sameTag": "You can't add the same tag!",
+    "createColumn": "Create new column"
   },
   "charts": {
     "line": "Line chart",

@@ -9,43 +9,15 @@ import {
 } from 'react-trello/dist/styles/Base';
 import InlineInput from 'react-trello/dist/widgets/InlineInput';
 import { ReactComponent as ArrowDownIcon } from '../../../../assets/icons/arrow-down.svg';
-import { ReactComponent as RemoveTagIcon } from '../../../../assets/icons/close.svg';
-import { Checkbox } from 'antd';
 
 interface ArrowDownProps {
   isExpanded: boolean;
-}
-
-interface TagProps {
-  backgroundColor: string;
 }
 
 export const ParticipantsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-`;
-
-export const PopoverCheckbox = styled(Checkbox)`
-  & .ant-checkbox .ant-checkbox-inner {
-    border-radius: 3px;
-    height: 1.375rem;
-    width: 1.375rem;
-    border-color: ${(props) => props.theme.colors.main.primary};
-  }
-  & .ant-checkbox-checked .ant-checkbox-inner::after {
-    left: 0.375rem;
-  }
-`;
-
-export const TagWrapper = styled.span<TagProps>`
-  height: 1.875rem;
-  background-color: ${(props) => `${props.backgroundColor}`};
-  padding: 0.3125rem 0.625rem;
-  color: ${(props) => props.theme.commonColors.white};
-  border-radius: 0.5rem;
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
-  margin-left: 1rem;
 `;
 
 export const ArrowDownWrapper = styled.span`
@@ -55,25 +27,6 @@ export const ArrowDownWrapper = styled.span`
 
 export const ThreeDotsWrapper = styled.span`
   width: 1.5rem;
-`;
-
-export const RemoveTagWrapper = styled.div`
-  position: absolute;
-  right: 1rem;
-  top: 1rem;
-  cursor: pointer;
-`;
-
-export const RemoveTag = styled(RemoveTagIcon)`
-  stroke: ${(props) => props.theme.colors.main.primary};
-  width: 0.875rem;
-  height: 0.875rem;
-`;
-
-export const RemoveParticipant = styled(RemoveTagIcon)`
-  stroke: ${(props) => props.theme.colors.text.light};
-  width: 0.5rem;
-  height: 0.5rem;
 `;
 
 export const ArrowDown = styled(ArrowDownIcon)<ArrowDownProps>`
@@ -141,23 +94,6 @@ export const EditPopover = styled.div`
   filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.2));
 `;
 
-export const EditTagPopover = styled(EditPopover)`
-  padding: 1.25rem 1.5625rem;
-  max-width: 14.375rem;
-  min-width: 14.375rem;
-  gap: 0.625rem;
-`;
-
-export const EditTagPopoverLine = styled.span`
-  line-height: 1.25rem;
-  display: flex;
-  &:last-child {
-    padding-bottom: 0px;
-  }
-  align-items: center;
-  cursor: pointer;
-`;
-
 export const EditPopoverLine = styled.span`
   font-size: ${(props) => props.theme.commonFontSizes.xs};
   line-height: 1.25rem;
@@ -168,17 +104,4 @@ export const EditPopoverLine = styled.span`
   }
   color: ${(props) => props.theme.colors.text.main};
   cursor: pointer;
-`;
-
-export const TagPlusWrapper = styled.span`
-  display: flex;
-  height: 1.875rem;
-  align-items: center;
-`;
-
-export const AddTag = styled.span`
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
-  line-height: 1.25rem;
-  text-decoration: underline;
-  color: ${(props) => props.theme.colors.text.light};
 `;
