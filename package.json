@@ -5,6 +5,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
     "@craco/craco": "^6.1.2",
+    "@types/uuid": "^8.3.1",
     "antd": "^4.16.3",
     "antd-mask-input": "^0.1.15",
     "country-state-city": "^3.0.1",
@@ -32,6 +33,7 @@
     "typeface-montserrat": "^1.1.13",
     "typeface-poppins": "^1.1.13",
     "typescript": "^4.1.2",
+    "uuid": "^8.3.2",
     "web-vitals": "^1.0.1",
     "workbox-background-sync": "^5.1.3",
     "workbox-broadcast-update": "^5.1.3",
