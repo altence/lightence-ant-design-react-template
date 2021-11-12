@@ -7,7 +7,6 @@ import { AddCardLink } from './AddCardLink/AddCardLink';
 import { NewLaneSection } from './NewLaneSection/NewLaneSection';
 import { kanbanData } from 'constants/kanbanData';
 import * as S from './Kanban.styles';
-import './Kanban.less';
 
 export const Kanban: React.FC = () => {
   const theme = useContext(ThemeContext);

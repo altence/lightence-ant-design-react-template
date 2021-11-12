@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import InlineInput from 'react-trello/dist/widgets/InlineInput';
 import * as S from './LaneHeader.styles';
 import { CardState } from '../interfaces';
@@ -6,15 +6,10 @@ import { CardState } from '../interfaces';
 interface LaneHeaderProps {
   updateTitle: () => void;
   editLaneTitle: boolean;
-  canAddLanes: boolean;
   laneDraggable: boolean;
   style: CSSStyleSheet;
-  label: string;
   title: string;
-  onDelete: () => void;
   onDoubleClick: () => void;
-  titleStyle: CSSStyleSheet;
-  labelStyle: CSSStyleSheet;
   cards: Array<CardState>;
 }
 
@@ -27,7 +22,7 @@ export const LaneHeader: React.FC<LaneHeaderProps> = ({
   style,
   cards,
 }) => {
-  const numberOfCards = cards?.length ? `${cards.length}` : '';
+  const numberOfCards = useMemo(() => (cards?.length ? `${cards.length}` : ''), [cards?.length]);
   return (
     <S.Header onDoubleClick={onDoubleClick} editLaneTitle={editLaneTitle} style={style}>
       <S.Title draggable={laneDraggable}>

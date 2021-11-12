@@ -277,7 +277,8 @@
     "tags": "DE!!!Tags",
     "addTags": "DE!!!Add tags",
     "addParticipant": "DE!!!Set assignee",
-    "sameTag": "DE!!!You can't add the same tag!"
+    "sameTag": "DE!!!You can't add the same tag!",
+    "createColumn": "DE!!!Create new column"
   },
   "charts": {
     "line": "DE!!!Line chart",
