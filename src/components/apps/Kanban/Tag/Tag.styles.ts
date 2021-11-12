@@ -4,6 +4,8 @@ import { TagSpan } from 'react-trello/dist/styles/Base';
 
 export const RemoveTagWrapper = styled.span`
   padding-left: 0.3125rem;
+  display: flex;
+  align-items: center;
 `;
 
 export const RemoveTagIcon = styled(RemoveTag)`
