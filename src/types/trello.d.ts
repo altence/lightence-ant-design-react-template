@@ -1,5 +1,9 @@
 /* eslint-disable @typescript-eslint/ban-types */
 
+/*
+  Types for react-trello (https://gist.github.com/G-Rath/b9331e480aff4c613294b0c2682bf034)
+*/
+
 declare class ReactTrelloBoard<CardMetaData> extends React.Component<ReactTrello.BoardProps<CardMetaData>> {}
 
 declare namespace ReactTrello {

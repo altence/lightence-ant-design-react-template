@@ -138,7 +138,7 @@ export const kanbanData = {
           id: 'albuterol',
           title: 'Nebulized Albuterol',
           description: 'Nebulized Albuterol',
-          tags: [ui, dev, ui],
+          tags: [ui, dev],
         },
         {
           id: 'soluMedrol',
