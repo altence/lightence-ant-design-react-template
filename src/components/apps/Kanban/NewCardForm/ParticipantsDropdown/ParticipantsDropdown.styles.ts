@@ -2,10 +2,6 @@ import styled from 'styled-components';
 import { ReactComponent as CloseIcon } from '../../../../../assets/icons/close.svg';
 import { Checkbox } from 'antd';
 
-interface TagProps {
-  backgroundColor: string;
-}
-
 export const EditParticipantPopover = styled.div`
   padding: 1.25rem 1rem;
   max-width: 14.375rem;
@@ -16,16 +12,6 @@ export const EditParticipantPopover = styled.div`
   border-radius: 0.625rem;
   z-index: 1;
   filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.2));
-`;
-
-export const EditParticipantPopoverLine = styled.span`
-  line-height: 1.25rem;
-  display: flex;
-  &:last-child {
-    padding-bottom: 0px;
-  }
-  align-items: center;
-  cursor: pointer;
 `;
 
 export const PopoverCheckbox = styled(Checkbox)`
@@ -39,17 +25,6 @@ export const PopoverCheckbox = styled(Checkbox)`
     left: 0.375rem;
   }
   margin-right: 0.75rem;
-`;
-
-export const ParticipantWrapper = styled.span<TagProps>`
-  height: 1.875rem;
-  background-color: ${(props) => `${props.backgroundColor}`};
-  padding: 0.3125rem 0.625rem;
-  color: ${(props) => props.theme.commonColors.white};
-  border-radius: 0.5rem;
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
-  margin-left: 1rem;
-  min-height: 1.25rem;
 `;
 
 export const RemoveParticipantWrapper = styled.div`

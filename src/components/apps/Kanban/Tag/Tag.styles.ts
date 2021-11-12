@@ -19,6 +19,6 @@ export const TagWrapper = styled(TagSpan)`
   justify-content: center;
   align-items: center;
   padding: 0.3125rem 0.625rem;
-  margin: 0px;
-  font-size: theme.commonFontSizes.xs;
+  margin: 0;
+  font-size: ${(props) => props.theme.commonFontSizes.xs};
 `;

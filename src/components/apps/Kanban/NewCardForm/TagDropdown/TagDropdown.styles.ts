@@ -23,7 +23,7 @@ export const EditTagPopoverLine = styled.span`
   line-height: 1.25rem;
   display: flex;
   &:last-child {
-    padding-bottom: 0px;
+    padding-bottom: 0;
   }
   align-items: center;
   cursor: pointer;

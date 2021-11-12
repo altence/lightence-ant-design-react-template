@@ -6,26 +6,26 @@ export const kanbanTags = {
   high: {
     id: 'high',
     title: 'high',
-    bgcolor: red,
+    bgColor: red,
   },
   medium: {
     id: 'medium',
     title: 'medium',
-    bgcolor: orange,
+    bgColor: orange,
   },
   low: {
     id: 'low',
     title: 'low',
-    bgcolor: lightgreen,
+    bgColor: lightgreen,
   },
   ui: {
     id: 'ui',
     title: 'ui',
-    bgcolor: skyblue,
+    bgColor: skyblue,
   },
   dev: {
     id: 'dev',
     title: 'dev',
-    bgcolor: skyblue,
+    bgColor: skyblue,
   },
 };
