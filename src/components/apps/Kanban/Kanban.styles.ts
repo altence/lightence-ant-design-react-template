@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Kanban = styled(Board)`
   background: transparent;
-
+  height: calc(100vh - 6.25rem);
   margin: ${(props) => `0 -${props.theme.mobileLayout.paddingHorizontal}`};
 
   & ::-webkit-scrollbar {
