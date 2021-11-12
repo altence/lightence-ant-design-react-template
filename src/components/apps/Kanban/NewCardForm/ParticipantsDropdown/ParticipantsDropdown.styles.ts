@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ReactComponent as CloseIcon } from '../../../../../assets/icons/close.svg';
+import { CloseOutlined } from '@ant-design/icons';
 import { Checkbox } from 'antd';
 
 export const EditParticipantPopover = styled.div`
@@ -34,8 +34,8 @@ export const RemoveParticipantWrapper = styled.div`
   cursor: pointer;
 `;
 
-export const ClosePopover = styled(CloseIcon)`
-  stroke: ${(props) => props.theme.colors.main.primary};
+export const ClosePopover = styled(CloseOutlined)`
+  color: ${(props) => props.theme.colors.main.primary};
   width: 0.875rem;
   height: 0.875rem;
 `;
@@ -71,8 +71,7 @@ export const ParticipantName = styled.div`
   margin-right: 0.625rem;
 `;
 
-export const RemoveParticipant = styled(CloseIcon)`
-  stroke: ${(props) => props.theme.colors.text.light};
-  width: 0.5rem;
-  height: 0.5rem;
+export const RemoveParticipant = styled(CloseOutlined)`
+  color: ${(props) => props.theme.colors.text.light};
+  font-size: ${(props) => props.theme.commonFontSizes.xxs};
 `;

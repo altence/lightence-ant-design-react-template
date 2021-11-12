@@ -8,11 +8,6 @@ import {
   Footer,
 } from 'react-trello/dist/styles/Base';
 import InlineInput from 'react-trello/dist/widgets/InlineInput';
-import { ReactComponent as ArrowDownIcon } from '../../../../assets/icons/arrow-down.svg';
-
-interface ArrowDownProps {
-  isExpanded: boolean;
-}
 
 export const ParticipantsWrapper = styled.div`
   display: flex;
@@ -23,14 +18,12 @@ export const ParticipantsWrapper = styled.div`
 export const ArrowDownWrapper = styled.span`
   padding-right: 1.25rem;
   width: 1.5rem;
+  font-size: ${(props) => props.theme.commonFontSizes.md};
 `;
 
 export const ThreeDotsWrapper = styled.span`
   width: 1.5rem;
-`;
-
-export const ArrowDown = styled(ArrowDownIcon)<ArrowDownProps>`
-  transform: ${(props) => `rotate(${props.isExpanded ? 0 : 180}deg)`};
+  font-size: ${(props) => props.theme.commonFontSizes.xl};
 `;
 
 export const Card = styled.div`
@@ -61,6 +54,9 @@ export const CardHeader = styled(Header)`
   border-bottom: none;
   margin-bottom: 0;
   padding-bottom: 0;
+  height: 1.375rem;
+  display: flex;
+  align-items: center;
 `;
 
 export const CardDetails = styled(Detail)`
@@ -76,7 +72,7 @@ export const CardFooter = styled(Footer)`
   display: flex;
   border: none;
   padding-top: 1rem;
-  gap: 10px;
+  gap: 0.625rem;
   justify-content: flex-start;
 `;
 

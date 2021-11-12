@@ -30,14 +30,15 @@ const commonColors = {
   white: '#ffffff',
   black: '#000000',
   green: '#008000',
-  orange: '#FFB155',
+  orange: '#ffb155',
   gray: '#808080',
-  violet: '#EE82EE',
-  lightgreen: '#89DCA0',
-  pink: '#FFC0CB',
-  blue: '#0000FF',
-  skyblue: '#35A0DC',
-  red: '#FF5252',
+  lightgrey: '#c5d3e0',
+  violet: '#ee82ee',
+  lightgreen: '#89dca0',
+  pink: '#ffc0cb',
+  blue: '#0000ff',
+  skyblue: '#35a0dc',
+  red: '#ff5252',
 };
 
 const commonFontSizes = {

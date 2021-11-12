@@ -12,7 +12,7 @@ export const NewLaneSection: React.FC<NewLaneSectionProps> = ({ onClick }) => {
   return (
     <S.NewLaneSection onClick={onClick}>
       <S.CreateNewColumn>
-        <S.Plus>+</S.Plus>
+        <S.PlusIcon />
         {t('kanban.createColumn')}
       </S.CreateNewColumn>
       <S.NewLaneImage src={NewLaneImage} />

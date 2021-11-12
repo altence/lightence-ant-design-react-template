@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ReactComponent as RemoveTagIcon } from '../../../../../assets/icons/close.svg';
+import { CloseOutlined } from '@ant-design/icons';
 import { Checkbox } from 'antd';
 
 interface TagProps {
@@ -58,8 +58,8 @@ export const RemoveTagWrapper = styled.div`
   cursor: pointer;
 `;
 
-export const RemoveTag = styled(RemoveTagIcon)`
-  stroke: ${(props) => props.theme.colors.main.primary};
+export const RemoveTag = styled(CloseOutlined)`
+  color: ${(props) => props.theme.colors.main.primary};
   width: 0.875rem;
   height: 0.875rem;
 `;
@@ -77,6 +77,8 @@ export const TagPlusWrapper = styled.span`
   display: flex;
   height: 1.875rem;
   align-items: center;
+  color: ${(props) => props.theme.commonColors.lightgrey};
+  font-size: ${(props) => props.theme.commonFontSizes.xxl};
 `;
 
 export const AddTag = styled.span`

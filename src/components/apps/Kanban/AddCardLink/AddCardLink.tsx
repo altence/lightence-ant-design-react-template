@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as PlusIcon } from '../../../../assets/icons/plus.svg';
+import { PlusOutlined } from '@ant-design/icons';
 import * as S from './AddCardLink.styles';
 
 interface AddCardLinkProps {
@@ -9,7 +9,7 @@ interface AddCardLinkProps {
 export const AddCardLink: React.FC<AddCardLinkProps> = ({ onClick }) => {
   return (
     <S.AddCardWrapper onClick={onClick}>
-      <PlusIcon />
+      <PlusOutlined />
     </S.AddCardWrapper>
   );
 };
