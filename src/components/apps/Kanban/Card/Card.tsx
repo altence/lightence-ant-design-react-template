@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CardState, Tag as ITag, Participant as IParticipant } from '../interfaces';
-import { ReactComponent as ThreeDots } from '../../../../assets/icons/three-dots.svg';
+import { MoreOutlined, UpOutlined, DownOutlined } from '@ant-design/icons';
 import * as S from './Card.styles';
 import { Dropdown } from 'antd';
 import { ParticipantsDropdown } from '../NewCardForm/ParticipantsDropdown/ParticipantsDropdown';
@@ -94,7 +94,7 @@ export const Card: React.FC<CardProps> = ({
           </S.CardTitle>
           <S.CardRightContent>
             <S.ArrowDownWrapper onClick={onArrowPress}>
-              <S.ArrowDown isExpanded={isExpanded} />
+              {isExpanded ? <UpOutlined /> : <DownOutlined />}
             </S.ArrowDownWrapper>
             <Dropdown
               overlay={<EditPopover onDelete={onDeleteCard} onArchive={onDeleteCard} />}
@@ -102,7 +102,7 @@ export const Card: React.FC<CardProps> = ({
               trigger={['click']}
             >
               <S.ThreeDotsWrapper>
-                <ThreeDots />
+                <MoreOutlined />
               </S.ThreeDotsWrapper>
             </Dropdown>
           </S.CardRightContent>
