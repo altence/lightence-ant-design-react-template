@@ -6,7 +6,6 @@ import { CardState } from '../interfaces';
 interface LaneHeaderProps {
   updateTitle: () => void;
   editLaneTitle: boolean;
-  laneDraggable: boolean;
   style: CSSStyleSheet;
   title: string;
   onDoubleClick: () => void;
@@ -18,14 +17,13 @@ export const LaneHeader: React.FC<LaneHeaderProps> = ({
   onDoubleClick,
   editLaneTitle = false,
   title,
-  laneDraggable,
   style,
   cards,
 }) => {
   const numberOfCards = useMemo(() => (cards?.length ? `${cards.length}` : ''), [cards?.length]);
   return (
     <S.Header onDoubleClick={onDoubleClick} editLaneTitle={editLaneTitle} style={style}>
-      <S.Title draggable={laneDraggable}>
+      <S.Title>
         {editLaneTitle ? (
           <InlineInput value={title} border placeholder={title} resize="vertical" onSave={updateTitle} />
         ) : (

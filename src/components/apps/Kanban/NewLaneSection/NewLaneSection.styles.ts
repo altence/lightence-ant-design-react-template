@@ -20,6 +20,7 @@ export const CreateNewColumn = styled.div`
   color: ${(props) => props.theme.colors.text.secondary};
   display: flex;
   align-items: center;
+  cursor: pointer;
 `;
 
 export const NewLaneImage = styled.img`
