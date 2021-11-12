@@ -5,7 +5,7 @@ import { Form } from 'components/common/Form/Form';
 import { CardState, Tag, Participant } from '../interfaces';
 import { TagDropdown } from './TagDropdown/TagDropdown';
 import { addCard } from 'api/kanban.api';
-import * as S from './AddCard.styles';
+import * as S from './NewCardForm.styles';
 import { ParticipantsDropdown } from './ParticipantsDropdown/ParticipantsDropdown';
 
 const formInputs = [
@@ -19,12 +19,12 @@ const formInputs = [
   },
 ];
 
-interface AddCardProps {
+interface NewCardFormProps {
   onAdd: (state: CardState) => void;
   onCancel: () => void;
 }
 
-export const AddCard: React.FC<AddCardProps> = ({ onAdd, onCancel }) => {
+export const NewCardForm: React.FC<NewCardFormProps> = ({ onAdd, onCancel }) => {
   const [selectedTags, setSelectedTags] = useState<Tag[]>([]);
   const [selectedParticipants, setSelectedParticipants] = useState<Participant[]>([]);
 

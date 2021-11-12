@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import { AddCard } from './AddCard/AddCard';
+import { NewCardForm } from './NewCardForm/NewCardForm';
 import { Card } from './Card/Card';
 import { LaneHeader } from './LaneHeader/LaneHeader';
 import { AddCardLink } from './AddCardLink/AddCardLink';
@@ -13,7 +13,7 @@ export const Kanban: React.FC = () => {
 
   return (
     <S.Kanban
-      components={{ Card, NewCardForm: AddCard, LaneHeader, AddCardLink, NewLaneSection }}
+      components={{ Card, NewCardForm, LaneHeader, AddCardLink, NewLaneSection }}
       editable
       laneDraggable
       canAddLanes

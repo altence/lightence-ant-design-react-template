@@ -3,8 +3,8 @@ import { CardState, Tag as ITag, Participant as IParticipant } from '../interfac
 import { ReactComponent as ThreeDots } from '../../../../assets/icons/three-dots.svg';
 import * as S from './Card.styles';
 import { Dropdown } from 'antd';
-import { ParticipantsDropdown } from '../AddCard/ParticipantsDropdown/ParticipantsDropdown';
-import { TagDropdown } from '../AddCard/TagDropdown/TagDropdown';
+import { ParticipantsDropdown } from '../NewCardForm/ParticipantsDropdown/ParticipantsDropdown';
+import { TagDropdown } from '../NewCardForm/TagDropdown/TagDropdown';
 import { useTranslation } from 'react-i18next';
 
 interface CardProps {
