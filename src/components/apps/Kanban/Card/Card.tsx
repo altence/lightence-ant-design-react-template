@@ -6,6 +6,7 @@ import { Dropdown } from 'antd';
 import { ParticipantsDropdown } from '../NewCardForm/ParticipantsDropdown/ParticipantsDropdown';
 import { TagDropdown } from '../NewCardForm/TagDropdown/TagDropdown';
 import { useTranslation } from 'react-i18next';
+import InlineInput from 'react-trello/dist/widgets/InlineInput';
 
 interface CardProps {
   style: CSSStyleSheet;
@@ -84,17 +85,13 @@ export const Card: React.FC<CardProps> = ({
             <S.CardHeader>
               <S.CardTitle draggable={cardDraggable}>
                 {editable ? (
-                  <S.Input
+                  <InlineInput
                     name="title"
                     value={title}
                     border
                     placeholder={t('kanban.title')}
                     resize="vertical"
                     onSave={(value: string) => updateCard({ title: value })}
-                    onFocus={(e: MouseEvent) => {
-                      console.log('SDSD');
-                      e.stopPropagation();
-                    }}
                   />
                 ) : (
                   title
@@ -119,7 +116,7 @@ export const Card: React.FC<CardProps> = ({
         >
           <S.CardDetails>
             {editable ? (
-              <S.Input
+              <InlineInput
                 value={description}
                 border
                 placeholder={t('kanban.description')}
