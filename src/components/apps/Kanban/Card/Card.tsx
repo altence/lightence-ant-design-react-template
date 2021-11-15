@@ -77,7 +77,7 @@ export const Card: React.FC<CardProps> = ({
 
   return (
     <S.CardWrapper data-id={id} onClick={onClick} style={style} className={className}>
-      <S.CollapseCard onChange={onArrowPress} bordered={false} ghost>
+      <S.CollapseCard onChange={onArrowPress} bordered={false}>
         <S.CardContent
           showArrow={false}
           key="1"

@@ -23,7 +23,7 @@ export const NewLaneForm: React.FC<NewLaneFormProps> = ({ onAdd, onCancel }) => 
       name="addCard"
       onFinish={handleSubmit}
       onCancel={onCancel}
-      footer={(loading, onCancel) => <S.FooterButtons size="middle" loading={loading} onCancel={onCancel} />}
+      footer={(loading, onCancel) => <S.FooterButtons size="small" loading={loading} onCancel={onCancel} />}
       trigger
     >
       <S.FormInput name={'title'}>
