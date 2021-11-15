@@ -11,15 +11,15 @@ interface MainSiderProps {
 }
 
 const MainSider: React.FC<MainSiderProps> = ({ children, toggleSider, isCollapsed, ...props }) => {
-  const { isTablet, isDesktop, mobileOnly, tabletOnly } = useResponsive();
+  const { isDesktop, mobileOnly, tabletOnly } = useResponsive();
 
   return (
     <>
       <S.Sider
         trigger={null}
-        collapsed={!isDesktop && isCollapsed}
-        collapsedWidth={(isTablet && 60) || 0}
-        collapsible={true}
+        collapsed={isCollapsed}
+        collapsedWidth={tabletOnly ? 60 : 0}
+        collapsible={mobileOnly && tabletOnly}
         width={260}
         {...props}
       >
