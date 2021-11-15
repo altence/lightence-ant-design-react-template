@@ -75,64 +75,66 @@ export const Card: React.FC<CardProps> = ({
   };
 
   return (
-    <S.Card>
-      <S.CardWrapper data-id={id} onClick={onClick} style={style} className={className}>
-        <S.CardHeader>
-          <S.CardTitle draggable={cardDraggable}>
+    <S.CardWrapper data-id={id} onClick={onClick} style={style} className={className}>
+      <S.CollapseCard>
+        <S.CardContent
+          showArrow={false}
+          key="1"
+          header={
+            <S.CardHeader>
+              <S.CardTitle draggable={cardDraggable}>
+                {editable ? (
+                  <S.Input
+                    name="title"
+                    value={title}
+                    border
+                    placeholder={t('kanban.title')}
+                    resize="vertical"
+                    onSave={(value: string) => updateCard({ title: value })}
+                  />
+                ) : (
+                  title
+                )}
+              </S.CardTitle>
+              <S.CardRightContent>
+                <S.ArrowDownWrapper onClick={onArrowPress}>
+                  {isExpanded ? <UpOutlined /> : <DownOutlined />}
+                </S.ArrowDownWrapper>
+                <Dropdown
+                  overlay={<EditPopover onDelete={onDeleteCard} onArchive={onDeleteCard} />}
+                  placement="bottomRight"
+                  trigger={['click']}
+                >
+                  <S.ThreeDotsWrapper>
+                    <MoreOutlined />
+                  </S.ThreeDotsWrapper>
+                </Dropdown>
+              </S.CardRightContent>
+            </S.CardHeader>
+          }
+        >
+          <S.CardDetails>
             {editable ? (
               <S.Input
-                name="title"
-                value={title}
+                value={description}
                 border
-                placeholder={t('kanban.title')}
+                placeholder={t('kanban.description')}
                 resize="vertical"
-                onSave={(value: string) => updateCard({ title: value })}
+                onSave={(value: string) => updateCard({ description: value })}
               />
             ) : (
-              title
+              description
             )}
-          </S.CardTitle>
-          <S.CardRightContent>
-            <S.ArrowDownWrapper onClick={onArrowPress}>
-              {isExpanded ? <UpOutlined /> : <DownOutlined />}
-            </S.ArrowDownWrapper>
-            <Dropdown
-              overlay={<EditPopover onDelete={onDeleteCard} onArchive={onDeleteCard} />}
-              placement="bottomRight"
-              trigger={['click']}
-            >
-              <S.ThreeDotsWrapper>
-                <MoreOutlined />
-              </S.ThreeDotsWrapper>
-            </Dropdown>
-          </S.CardRightContent>
-        </S.CardHeader>
+          </S.CardDetails>
+          <S.CardFooter>
+            <TagDropdown selectedTags={tags} setSelectedTags={updateTags} />
+          </S.CardFooter>
 
-        {isExpanded && (
-          <>
-            <S.CardDetails>
-              {editable ? (
-                <S.Input
-                  value={description}
-                  border
-                  placeholder={t('kanban.description')}
-                  resize="vertical"
-                  onSave={(value: string) => updateCard({ description: value })}
-                />
-              ) : (
-                description
-              )}
-            </S.CardDetails>
-            <S.CardFooter>
-              <TagDropdown selectedTags={tags} setSelectedTags={updateTags} />
-            </S.CardFooter>
-
-            <S.ParticipantsWrapper>
-              <ParticipantsDropdown selectedParticipants={participants} setSelectedParticipants={updateParticipants} />
-            </S.ParticipantsWrapper>
-          </>
-        )}
-      </S.CardWrapper>
-    </S.Card>
+          <S.ParticipantsWrapper>
+            <ParticipantsDropdown selectedParticipants={participants} setSelectedParticipants={updateParticipants} />
+          </S.ParticipantsWrapper>
+        </S.CardContent>
+      </S.CollapseCard>
+    </S.CardWrapper>
   );
 };
