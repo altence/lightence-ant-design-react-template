@@ -17,6 +17,7 @@ import MaintenancePage from '../../pages/MaintenancePage';
 import SignUpPage from '../../pages/SignUpPage';
 import LockPage from '../../pages/LockPage';
 import ForgotPasswordPage from '../../pages/ForgotPasswordPage';
+import Error404Page from '../../pages/Error404Page';
 
 /*TODO check for lazy loading and add if lack*/
 export const AppRouter: React.FC = () => {
@@ -40,6 +41,7 @@ export const AppRouter: React.FC = () => {
           <Route path="profile" element={<ProfilePage />} />
           <Route path="server-error" element={<ServerErrorPage />} />
           <Route path="maintenance" element={<MaintenancePage />} />
+          <Route path="404" element={<Error404Page />} />
         </Route>
         <Route path="/auth" element={<AuthLayout />}>
           <Route path="login" element={<LoginPage />} />
