@@ -6,7 +6,7 @@ import { ButtonsGroup } from 'components/common/Form/ButtonsGroup/ButtonsGroup';
 export const Form = styled(CommonForm)`
   width: 15.9375rem;
   border-radius: ${(props) => props.theme.border.radius};
-  background-color: ${(props) => props.theme.commonColors.white};
+  background-color: ${(props) => props.theme.colors.main.mainBackground};
   padding: 1.25rem 1rem;
 `;
 

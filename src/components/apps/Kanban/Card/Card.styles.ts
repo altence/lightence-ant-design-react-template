@@ -82,7 +82,7 @@ export const Input = styled(InlineInput)`
 
 export const EditPopover = styled.div`
   display: flex;
-  background: ${(props) => props.theme.commonColors.white};
+  background: ${(props) => props.theme.colors.main.mainBackground};
   flex-direction: column;
   border-radius: 0.625rem;
   padding: 1rem;

@@ -12,7 +12,7 @@ export const EditTagPopover = styled.div`
   min-width: 14.375rem;
   gap: 0.625rem;
   display: flex;
-  background: ${(props) => props.theme.commonColors.white};
+  background: ${(props) => props.theme.colors.main.mainBackground};
   flex-direction: column;
   border-radius: 0.625rem;
   z-index: 1;
@@ -45,7 +45,7 @@ export const TagWrapper = styled.span<TagProps>`
   height: 1.875rem;
   background-color: ${(props) => `${props.backgroundColor}`};
   padding: 0.3125rem 0.625rem;
-  color: ${(props) => props.theme.commonColors.white};
+  color: ${(props) => props.theme.colors.text.secondary};
   border-radius: 0.5rem;
   font-size: ${(props) => props.theme.commonFontSizes.xs};
   margin-left: 1rem;
