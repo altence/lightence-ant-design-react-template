@@ -8,25 +8,22 @@ import {
   Footer,
 } from 'react-trello/dist/styles/Base';
 import InlineInput from 'react-trello/dist/widgets/InlineInput';
-
+import { ReactComponent as ArrowDown } from 'assets/icons/arrow-down.svg';
 import { Collapse } from 'antd';
 
 const { Panel } = Collapse;
 
+interface ArrowDownIcon {
+  isExpanded: boolean;
+}
+
 export const CardContent = styled(Panel)`
-  & .ant-collapse-content {
-    border: none;
-  }
   & .ant-collapse-content .ant-collapse-content-box {
     padding: 0;
   }
 `;
 
 export const CollapseCard = styled(Collapse)`
-  background: transparent;
-  border: none;
-  border-radius: 0;
-
   & .ant-collapse-item {
     border: none;
   }
@@ -44,7 +41,10 @@ export const ParticipantsWrapper = styled.div`
 export const ArrowDownWrapper = styled.span`
   padding-right: 1.25rem;
   width: 1.5rem;
-  font-size: ${(props) => props.theme.commonFontSizes.md};
+`;
+
+export const ArrowDownIcon = styled(ArrowDown)<ArrowDownIcon>`
+  transform: ${(props) => `rotate(${props.isExpanded ? 180 : 0}deg)`};
 `;
 
 export const ThreeDotsWrapper = styled.span`
