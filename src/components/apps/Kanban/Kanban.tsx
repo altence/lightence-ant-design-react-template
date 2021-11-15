@@ -19,7 +19,7 @@ export const Kanban: React.FC = () => {
       laneDraggable
       canAddLanes
       data={kanbanData}
-      laneStyle={{ background: 'transparent', maxHeight: '87vh' }}
+      laneStyle={{ background: 'transparent', maxHeight: '85.5vh', paddingBottom: '10px' }}
       cardStyle={{
         borderRadius: theme.border.radius,
         backgroundColor: theme.colors.main.mainBackground,
