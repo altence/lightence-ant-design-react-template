@@ -7,7 +7,7 @@ export const EditParticipantPopover = styled.div`
   max-width: 14.375rem;
   gap: 0.625rem;
   display: flex;
-  background: ${(props) => props.theme.commonColors.white};
+  background: ${(props) => props.theme.colors.main.mainBackground};
   flex-direction: column;
   border-radius: 0.625rem;
   z-index: 1;

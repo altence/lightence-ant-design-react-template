@@ -10,7 +10,7 @@ export const RemoveTagWrapper = styled.span`
 `;
 
 export const RemoveTagIcon = styled(CloseOutlined)`
-  color: ${(props) => props.theme.commonColors.white};
+  color: ${(props) => props.theme.colors.main.mainBackground};
   font-size: ${(props) => props.theme.commonFontSizes.xxs};
 `;
 

@@ -22,7 +22,7 @@ export const Kanban: React.FC = () => {
       laneStyle={{ background: 'transparent', maxHeight: '87vh' }}
       cardStyle={{
         borderRadius: theme.border.radius,
-        backgroundColor: theme.commonColors.white,
+        backgroundColor: theme.colors.main.mainBackground,
         padding: `1.25rem 1rem`,
         marginBottom: '1rem',
         minWidth: '15.9375rem',
