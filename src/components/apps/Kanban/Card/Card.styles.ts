@@ -23,10 +23,15 @@ export const CardContent = styled(Panel)`
 `;
 
 export const CollapseCard = styled(Collapse)`
+  background: transparent;
   & .ant-collapse-item {
     border: none;
   }
   & .ant-collapse-item.ant-collapse-no-arrow > .ant-collapse-header {
+    padding: 0;
+  }
+
+  & .ant-collapse-item > .ant-collapse-content > .ant-collapse-content-box {
     padding: 0;
   }
 `;
