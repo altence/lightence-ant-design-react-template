@@ -25,10 +25,15 @@ export const AppRouter: React.FC = () => {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<DashboardPage />} />
-          <Route path="feed" element={<NewsFeedPage />} />
-          <Route path="kanban" element={<KanbanPage />} />
-          <Route path="payment" element={<PaymentPage />} />
-          <Route path="security-code" element={<InputCodePage />} />
+          <Route path="apps">
+            <Route path="feed" element={<NewsFeedPage />} />
+            <Route path="kanban" element={<KanbanPage />} />
+          </Route>
+
+          <Route path="forms">
+            <Route path="payment" element={<PaymentPage />} />
+            <Route path="security-code" element={<InputCodePage />} />
+          </Route>
           <Route path="data-tables" element={<DataTablesPage />} />
           <Route path="charts" element={<ChartsPage />} />
           <Route path="maps" element={<MapsPage />} />

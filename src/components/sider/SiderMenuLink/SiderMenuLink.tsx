@@ -7,7 +7,7 @@ import * as S from './SiderMenuLink.styles';
 
 interface SiderMenuLinkProps extends MenuItemProps {
   href: string;
-  name: string;
+  title: string;
   notificationsCount?: number;
   notificationsSeverity?: NotificationType;
   isActive: boolean;
@@ -16,7 +16,7 @@ interface SiderMenuLinkProps extends MenuItemProps {
 export const SiderMenuLink: React.FC<SiderMenuLinkProps> = ({
   icon,
   href,
-  name,
+  title,
   notificationsCount,
   notificationsSeverity,
   isActive,
@@ -25,8 +25,8 @@ export const SiderMenuLink: React.FC<SiderMenuLinkProps> = ({
   <S.MenuItem icon={icon} {...props} isActive={isActive}>
     <Link to={href}>
       <Row gutter={[20, 20]} justify="space-between" align="middle">
-        <Col flex={1}>{name}</Col>
-        {!!notificationsCount && (
+        <Col flex={1}>{title}</Col>
+        {notificationsCount && (
           <Col>
             <Badge severity={notificationsSeverity} count={notificationsCount} />
           </Col>
