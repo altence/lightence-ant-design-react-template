@@ -26,7 +26,7 @@ const SiderContent: React.FC<SiderContentProps> = ({ toggleSider }) => {
           >
             {nav.children.map((childNav, index) => (
               <SiderMenuLink
-                key={index}
+                key={nav.title + index}
                 href={childNav.url || ''}
                 title={t(childNav.title)}
                 isActive={childNav.url === location.pathname}
