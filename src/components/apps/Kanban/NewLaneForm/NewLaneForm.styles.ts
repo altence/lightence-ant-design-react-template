@@ -12,6 +12,7 @@ export const Form = styled(CommonForm)`
 
 export const FooterButtons = styled(ButtonsGroup)`
   margin-top: 1rem;
+  margin-bottom: 0.625rem;
 `;
 
 export const FormInput = styled(FormItem)`
