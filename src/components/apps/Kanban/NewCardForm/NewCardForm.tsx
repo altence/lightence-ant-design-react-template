@@ -1,5 +1,5 @@
-import React, { useMemo, useState } from 'react';
-import { Input } from 'antd';
+import React, { useMemo, useState, useRef } from 'react';
+import { Input, Form as AntdForm } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { Form } from 'components/common/Form/Form';
 import { CardState, Tag, Participant } from '../interfaces';
@@ -7,6 +7,7 @@ import { TagDropdown } from './TagDropdown/TagDropdown';
 import { addCard } from 'api/kanban.api';
 import * as S from './NewCardForm.styles';
 import { ParticipantsDropdown } from './ParticipantsDropdown/ParticipantsDropdown';
+import { useOnClickOutside } from 'hooks/useOnClickOutside';
 
 const formInputs = [
   {
@@ -27,13 +28,24 @@ interface NewCardFormProps {
 export const NewCardForm: React.FC<NewCardFormProps> = ({ onAdd, onCancel }) => {
   const [selectedTags, setSelectedTags] = useState<Tag[]>([]);
   const [selectedParticipants, setSelectedParticipants] = useState<Participant[]>([]);
+  const [isFormReady, setIsFromReady] = useState(false);
+  const [form] = AntdForm.useForm();
+  const wrapperRef = useRef(null);
+
+  useOnClickOutside(wrapperRef, () => {
+    if (!isFormReady) {
+      setIsFromReady(true);
+      const values = form.getFieldsValue();
+      onFinish(values);
+    }
+  });
 
   const { t } = useTranslation();
 
-  const onFinish = async (values: []) => {
-    const card = await addCard({ ...values, tags: selectedTags, participants: selectedParticipants });
-
+  const onFinish = async (values: { title?: string; description?: string }) => {
+    const card = Object.assign(values, { tags: selectedTags, participants: selectedParticipants });
     onAdd(card);
+    await addCard(card);
   };
 
   const formItems = useMemo(
@@ -47,14 +59,8 @@ export const NewCardForm: React.FC<NewCardFormProps> = ({ onAdd, onCancel }) => 
   );
 
   return (
-    <S.CardWrapper>
-      <Form
-        name="addCard"
-        onFinish={onFinish}
-        onCancel={onCancel}
-        footer={(loading, onCancel) => <S.FooterButtons size="middle" loading={loading} onCancel={onCancel} />}
-        trigger
-      >
+    <S.CardWrapper ref={wrapperRef}>
+      <Form form={form} name="addCard" onFinish={onFinish} onCancel={onCancel} trigger footer={() => <></>}>
         {formItems}
         <TagDropdown selectedTags={selectedTags} setSelectedTags={setSelectedTags} />
         <ParticipantsDropdown
