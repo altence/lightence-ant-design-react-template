@@ -9,6 +9,32 @@ import {
 } from 'react-trello/dist/styles/Base';
 import InlineInput from 'react-trello/dist/widgets/InlineInput';
 
+import { Collapse } from 'antd';
+
+const { Panel } = Collapse;
+
+export const CardContent = styled(Panel)`
+  & .ant-collapse-content {
+    border: none;
+  }
+  & .ant-collapse-content .ant-collapse-content-box {
+    padding: 0;
+  }
+`;
+
+export const CollapseCard = styled(Collapse)`
+  background: transparent;
+  border: none;
+  border-radius: 0;
+
+  & .ant-collapse-item {
+    border: none;
+  }
+  & .ant-collapse-item.ant-collapse-no-arrow > .ant-collapse-header {
+    padding: 0;
+  }
+`;
+
 export const ParticipantsWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -26,12 +52,9 @@ export const ThreeDotsWrapper = styled.span`
   font-size: ${(props) => props.theme.commonFontSizes.xl};
 `;
 
-export const Card = styled.div`
-  position: relative;
-`;
-
 export const CardWrapper = styled(MovableCardWrapper)`
   filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.07));
+  position: relative;
 `;
 
 export const CardRightContent = styled(RightContent)`
