@@ -5,5 +5,5 @@ import { MenuItemProps } from '../interfaces';
 export const MenuItem = styled(Menu.Item).withConfig({
   shouldForwardProp: (prop) => !['isActive'].includes(prop),
 })<MenuItemProps>`
-  ${(props) => props.isActive && `background: ${props.theme.colors.main.primaryGradient} !important`}
+  ${(props) => props.isActive && `background: ${props.theme.colors.main.primaryShade}`}
 `;
