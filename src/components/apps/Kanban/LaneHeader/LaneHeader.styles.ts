@@ -11,6 +11,7 @@ export const Title = styled.div`
   font-size: ${(props) => props.theme.commonFontSizes.lg};
   overflow: hidden;
   text-overflow: ellipsis;
+  font-weight: ${(props) => props.theme.commonFontWeight.bold};
 `;
 
 export const Dot = styled.span`

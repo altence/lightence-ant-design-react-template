@@ -7,7 +7,6 @@ import {
   MovableCardWrapper,
   Footer,
 } from 'react-trello/dist/styles/Base';
-import InlineInput from 'react-trello/dist/widgets/InlineInput';
 import { ReactComponent as ArrowDown } from 'assets/icons/arrow-down.svg';
 import { Collapse } from 'antd';
 
@@ -97,10 +96,6 @@ export const CardFooter = styled(Footer)`
   padding-top: 1rem;
   gap: 0.625rem;
   justify-content: flex-start;
-`;
-
-export const Input = styled(InlineInput)`
-  padding: 0;
 `;
 
 export const EditPopover = styled.div`
