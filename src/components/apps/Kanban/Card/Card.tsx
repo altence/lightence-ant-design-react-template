@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CardState, Tag as ITag, Participant as IParticipant } from '../interfaces';
-import { MoreOutlined, UpOutlined, DownOutlined } from '@ant-design/icons';
+import { MoreOutlined } from '@ant-design/icons';
 import * as S from './Card.styles';
 import { Dropdown } from 'antd';
 import { ParticipantsDropdown } from '../NewCardForm/ParticipantsDropdown/ParticipantsDropdown';
@@ -76,7 +76,7 @@ export const Card: React.FC<CardProps> = ({
 
   return (
     <S.CardWrapper data-id={id} onClick={onClick} style={style} className={className}>
-      <S.CollapseCard>
+      <S.CollapseCard onChange={onArrowPress} bordered={false} ghost>
         <S.CardContent
           showArrow={false}
           key="1"
@@ -91,14 +91,18 @@ export const Card: React.FC<CardProps> = ({
                     placeholder={t('kanban.title')}
                     resize="vertical"
                     onSave={(value: string) => updateCard({ title: value })}
+                    onFocus={(e: MouseEvent) => {
+                      console.log('SDSD');
+                      e.stopPropagation();
+                    }}
                   />
                 ) : (
                   title
                 )}
               </S.CardTitle>
               <S.CardRightContent>
-                <S.ArrowDownWrapper onClick={onArrowPress}>
-                  {isExpanded ? <UpOutlined /> : <DownOutlined />}
+                <S.ArrowDownWrapper>
+                  <S.ArrowDownIcon isExpanded={isExpanded} />
                 </S.ArrowDownWrapper>
                 <Dropdown
                   overlay={<EditPopover onDelete={onDeleteCard} onArchive={onDeleteCard} />}
