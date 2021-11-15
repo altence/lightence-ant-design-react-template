@@ -1,0 +1,21 @@
+diff --git a/node_modules/react-trello/dist/widgets/InlineInput.js b/node_modules/react-trello/dist/widgets/InlineInput.js
+index e37e137..e4301bf 100644
+--- a/node_modules/react-trello/dist/widgets/InlineInput.js
++++ b/node_modules/react-trello/dist/widgets/InlineInput.js
+@@ -77,6 +77,7 @@ class InlineInputController extends _react.default.Component {
+           border = _this$props.border,
+           value = _this$props.value,
+           placeholder = _this$props.placeholder;
++
+     return _react.default.createElement(_Base.InlineInput, {
+       ref: this.setRef,
+       border: border,
+@@ -84,7 +85,7 @@ class InlineInputController extends _react.default.Component {
+       onFocus: this.onFocus,
+       onBlur: this.onBlur,
+       onKeyDown: this.onKeyDown,
+-      placeholder: value.length == 0 ? undefined : placeholder,
++      placeholder: placeholder,
+       defaultValue: value,
+       autoComplete: "off",
+       autoCorrect: "off",
