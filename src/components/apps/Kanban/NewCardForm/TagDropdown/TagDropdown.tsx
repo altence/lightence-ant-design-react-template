@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Tag as ITag } from '../../interfaces';
 import { kanbanTags } from 'constants/kanbanTags';
 import * as S from './TagDropdown.styles';
-import { Tag } from '../../Tag/Tag';
+import { Tag } from 'components/common/Tag/Tag';
 import { PlusCircleFilled } from '@ant-design/icons';
 
 interface TagDropdownProps {
