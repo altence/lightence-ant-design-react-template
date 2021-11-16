@@ -103,7 +103,7 @@ export const Card: React.FC<CardProps> = ({
               </S.CardTitle>
               <S.CardRightContent>
                 <S.ArrowDownWrapper>
-                  <S.ArrowDownIcon isExpanded={isExpanded} />
+                  <S.ArrowDownIcon expanded={isExpanded ? 1 : 0} />
                 </S.ArrowDownWrapper>
                 <Dropdown
                   overlay={<EditPopover onDelete={onDeleteCard} onArchive={onDeleteCard} />}

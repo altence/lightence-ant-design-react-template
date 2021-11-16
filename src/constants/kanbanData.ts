@@ -12,7 +12,7 @@ export const kanbanData = {
       cards: [
         {
           id: '11',
-          title: 'Scale marketing',
+          title: 'Marketing',
           description:
             'Nam augue nibh, lobortis quis velit quis, pretium ultricies ante. Aenean nisi nibh, ornare id augue id, pharetra feugiat orci.',
           tags: [high],
