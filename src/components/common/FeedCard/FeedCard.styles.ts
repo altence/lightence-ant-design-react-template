@@ -165,3 +165,10 @@ export const Description = styled.div`
     font-size: 1rem;
   }
 `;
+
+export const TagsWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  padding: 0 1.25rem 1.25rem;
+`;

@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { FeedCard } from '../FeedCard/FeedCard';
+import { ITag } from '../Tag/Tag';
 import * as S from './Feed.styles';
 
 interface FeedCard {
@@ -11,6 +12,7 @@ interface FeedCard {
   date: number;
   text: string;
   img: string;
+  tags: ITag[];
 }
 
 export interface FeedProps {
@@ -34,6 +36,7 @@ export const Feed: React.FC<FeedProps> = ({ cards, next, hasMore }) => {
             imgUrl={post.img}
             author={post.author}
             avatar={post.avatarUrl}
+            tags={post.tags}
             keywords
           />
         ))}
