@@ -1,3 +1,6 @@
+import { newsTags } from 'constants/newsTags';
+import { ITag } from 'components/common/Tag/Tag';
+
 export interface Post {
   avatarUrl: string;
   author: string;
@@ -5,7 +8,10 @@ export interface Post {
   date: number;
   text: string;
   img: string;
+  tags: Array<ITag>;
 }
+
+const { arts, music, health } = newsTags;
 
 export const getNews = (): Promise<Post[]> => {
   return new Promise((res) => {
@@ -18,6 +24,7 @@ export const getNews = (): Promise<Post[]> => {
           date: 1576789200000,
           text: 'Look at my new book',
           img: 'https://149359143.v2.pressablecdn.com/wp-content/uploads/2009/12/Sherlock_Holmes_Museum.jpg',
+          tags: [arts],
         },
         {
           avatarUrl: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
@@ -26,6 +33,7 @@ export const getNews = (): Promise<Post[]> => {
           date: 1575925200000,
           text: 'Look at my new book',
           img: 'https://149359143.v2.pressablecdn.com/wp-content/uploads/2009/12/Sherlock_Holmes_Museum.jpg',
+          tags: [arts, music],
         },
         {
           avatarUrl: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
@@ -34,6 +42,7 @@ export const getNews = (): Promise<Post[]> => {
           date: 1575147600000,
           text: 'Look at my new book',
           img: 'https://149359143.v2.pressablecdn.com/wp-content/uploads/2009/12/Sherlock_Holmes_Museum.jpg',
+          tags: [health],
         },
         {
           avatarUrl: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
@@ -42,6 +51,7 @@ export const getNews = (): Promise<Post[]> => {
           date: 1572555600000,
           text: 'Look at my new book',
           img: 'https://149359143.v2.pressablecdn.com/wp-content/uploads/2009/12/Sherlock_Holmes_Museum.jpg',
+          tags: [music],
         },
         {
           avatarUrl: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
@@ -50,6 +60,7 @@ export const getNews = (): Promise<Post[]> => {
           date: 1569877200000,
           text: 'Look at my new book',
           img: 'https://149359143.v2.pressablecdn.com/wp-content/uploads/2009/12/Sherlock_Holmes_Museum.jpg',
+          tags: [arts],
         },
         {
           avatarUrl: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
@@ -58,6 +69,7 @@ export const getNews = (): Promise<Post[]> => {
           date: 1567285200000,
           text: 'Look at my new book',
           img: 'https://149359143.v2.pressablecdn.com/wp-content/uploads/2009/12/Sherlock_Holmes_Museum.jpg',
+          tags: [arts],
         },
         {
           avatarUrl: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
@@ -66,6 +78,7 @@ export const getNews = (): Promise<Post[]> => {
           date: 1564606800000,
           text: 'Look at my new book',
           img: 'https://149359143.v2.pressablecdn.com/wp-content/uploads/2009/12/Sherlock_Holmes_Museum.jpg',
+          tags: [arts],
         },
         {
           avatarUrl: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
@@ -74,6 +87,7 @@ export const getNews = (): Promise<Post[]> => {
           date: 1561928400000,
           text: 'Look at my new book',
           img: 'https://149359143.v2.pressablecdn.com/wp-content/uploads/2009/12/Sherlock_Holmes_Museum.jpg',
+          tags: [arts, music],
         },
         {
           avatarUrl: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
@@ -82,6 +96,7 @@ export const getNews = (): Promise<Post[]> => {
           date: 1559336400000,
           text: 'Look at my new book',
           img: 'https://149359143.v2.pressablecdn.com/wp-content/uploads/2009/12/Sherlock_Holmes_Museum.jpg',
+          tags: [arts, music],
         },
         {
           avatarUrl: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
@@ -90,6 +105,7 @@ export const getNews = (): Promise<Post[]> => {
           date: 1556658000000,
           text: 'Look at my new book',
           img: 'https://149359143.v2.pressablecdn.com/wp-content/uploads/2009/12/Sherlock_Holmes_Museum.jpg',
+          tags: [arts, music],
         },
         {
           avatarUrl: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
@@ -98,6 +114,7 @@ export const getNews = (): Promise<Post[]> => {
           date: 1554066000000,
           text: 'Look at my new book',
           img: 'https://149359143.v2.pressablecdn.com/wp-content/uploads/2009/12/Sherlock_Holmes_Museum.jpg',
+          tags: [arts, music],
         },
         {
           avatarUrl: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
@@ -106,6 +123,7 @@ export const getNews = (): Promise<Post[]> => {
           date: 1551387600000,
           text: 'Look at my new book',
           img: 'https://149359143.v2.pressablecdn.com/wp-content/uploads/2009/12/Sherlock_Holmes_Museum.jpg',
+          tags: [music],
         },
         {
           avatarUrl: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
@@ -114,6 +132,7 @@ export const getNews = (): Promise<Post[]> => {
           date: 1548968400000,
           text: 'Look at my new book',
           img: 'https://149359143.v2.pressablecdn.com/wp-content/uploads/2009/12/Sherlock_Holmes_Museum.jpg',
+          tags: [music],
         },
         {
           avatarUrl: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
@@ -122,6 +141,7 @@ export const getNews = (): Promise<Post[]> => {
           date: 1546290000000,
           text: 'Look at my new book',
           img: 'https://149359143.v2.pressablecdn.com/wp-content/uploads/2009/12/Sherlock_Holmes_Museum.jpg',
+          tags: [music],
         },
       ]);
     }, 1000);
