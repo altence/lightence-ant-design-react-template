@@ -4,7 +4,7 @@ import theme from 'styles/theme';
 import { Title, Text } from './StatisticsInfo/StatisticsInfo.styles';
 import { ValueText, UnitText } from './StatisticsProgress/StatisticsProgress.styles';
 import { StatisticColor } from 'constants/config/statistics';
-import { DashboardCard } from '../DashboardCard/DashboardCard';
+import { DashboardCard } from '../../DashboardCard/DashboardCard';
 
 interface StatisticsProps {
   color: StatisticColor;

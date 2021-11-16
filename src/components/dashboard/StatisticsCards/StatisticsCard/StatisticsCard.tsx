@@ -32,7 +32,7 @@ export const StatisticsCard: React.FC<StatisticsCardProps> = ({ name, value, pre
         </Col>
 
         <Col flex={1}>
-          <Row justify="space-between" align="middle" wrap={false} gutter={[5, 0]}>
+          <Row justify="space-between" align="middle" wrap={false}>
             <Col>
               <StatisticsInfo name={t(name)} value={value} prevValue={prevValue} />
             </Col>

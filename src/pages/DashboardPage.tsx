@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React from 'react';
 import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { MapCard } from '../components/dashboard/MapCard/MapCard';
@@ -12,47 +12,19 @@ import { PatientResultsCard } from '../components/dashboard/PatientResultsCard/P
 import { BloodScreeningCard } from '../components/dashboard/BloodScreeningCard/BloodScreeningCard';
 import { PiecesOfAdviceCard } from '../components/dashboard/PiecesOfAdviceCard/PiecesOfAdviceCard';
 import { PageTitle } from 'components/common/PageTitle/PageTitle';
-import { StatisticsCard } from '../components/dashboard/StatisticsCard/StatisticsCard';
 import { useResponsive } from 'hooks/useResponsive';
-import { getStatistics, Statistic } from 'api/statistics.api';
-import { statistics as configStatistics } from 'constants/config/statistics';
+import { StatisticsCards } from 'components/dashboard/StatisticsCards/StatisticsCards';
 
 const DashboardPage: React.FC = () => {
   const { t } = useTranslation();
-  const [statistics, setStatistics] = useState<Statistic[]>([]);
-
-  useEffect(() => {
-    getStatistics().then((res) => setStatistics(res));
-  }, []);
 
   const { isTablet, isDesktop } = useResponsive();
-
-  const statisticsCards = useMemo(
-    () =>
-      statistics.map((st, index) => {
-        const currentStatistic = configStatistics.find((el) => el.id === st.id);
-
-        return currentStatistic ? (
-          <Col key={st.id} xs={12} md={index === statistics.length - 1 ? 0 : 8} order={(isTablet && index + 1) || 0}>
-            <StatisticsCard
-              name={currentStatistic.name}
-              value={st.value}
-              prevValue={st.prevValue}
-              color={currentStatistic.color}
-              unit={st.unit}
-              Icon={currentStatistic.Icon}
-            />
-          </Col>
-        ) : null;
-      }),
-    [statistics, isTablet],
-  );
 
   const desktopLayout = (
     <>
       <Col span={14}>
         <Row gutter={[10, 10]}>
-          {statisticsCards}
+          <StatisticsCards />
 
           <Col span={24} order={5}>
             <MapCard />
@@ -100,7 +72,7 @@ const DashboardPage: React.FC = () => {
 
   const mobileAndTabletLayout = (
     <>
-      {statisticsCards}
+      <StatisticsCards />
 
       <Col xs={24} md={12} order={(isTablet && 5) || 0}>
         <ScreeningsCard />

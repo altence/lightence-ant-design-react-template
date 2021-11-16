@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Space } from 'antd';
 import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
 import * as S from './StatisticsInfo.styles';
@@ -10,8 +10,7 @@ interface StatisticsInfoProps {
 }
 
 export const StatisticsInfo: React.FC<StatisticsInfoProps> = ({ name, value, prevValue }) => {
-  const expression =
-    value > prevValue ? ((value - prevValue) / prevValue) * 100 : ((prevValue - value) / prevValue) * 100;
+  const expression = useMemo(() => (Math.abs(value - prevValue) / prevValue) * 100, [value, prevValue]);
 
   return (
     <Space direction="vertical" size={0}>
