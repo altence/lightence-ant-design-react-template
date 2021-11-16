@@ -1,16 +1,17 @@
 import React from 'react';
 import { Col, Row } from 'antd';
-import { Burger } from 'components/common/Burger/Burger';
 import { NotificationsDropdown } from '../dropdowns/NotificationsDropdown/NotificationsDropdown';
 import { ProfileDropdown } from '../dropdowns/ProfileDropdown/ProfileDropdown';
 import { HeaderSearch } from '../HeaderSearch/HeaderSearch';
 import { SettingsDropdown } from '../dropdowns/SettingsDropdown/SettingsDropdown';
+import * as S from '../Header.styles';
 
 interface MobileHeaderProps {
   toggleSider: () => void;
+  isSiderOpened: boolean;
 }
 
-export const MobileHeader: React.FC<MobileHeaderProps> = ({ toggleSider }) => {
+export const MobileHeader: React.FC<MobileHeaderProps> = ({ toggleSider, isSiderOpened }) => {
   return (
     <Row justify="space-between" align="middle">
       <Col>
@@ -37,9 +38,9 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({ toggleSider }) => {
         </Row>
       </Col>
 
-      <Col>
-        <Burger onClick={toggleSider} />
-      </Col>
+      <S.BurgerCol>
+        <S.MobileBurger onClick={toggleSider} isCross={isSiderOpened} />
+      </S.BurgerCol>
     </Row>
   );
 };

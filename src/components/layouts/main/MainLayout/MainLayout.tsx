@@ -19,7 +19,7 @@ const MainLayout: React.FC = () => {
       </MainSider>
       <S.LayoutMain>
         <MainHeader>
-          <Header toggleSider={toggleSider} />
+          <Header toggleSider={toggleSider} isSiderOpened={!siderCollapsed} />
         </MainHeader>
         <MainContent>
           <Outlet />
