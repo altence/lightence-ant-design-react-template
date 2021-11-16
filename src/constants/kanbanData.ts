@@ -10,11 +10,18 @@ export const kanbanData = {
       id: 'info',
       title: 'Information',
       cards: [
-        { id: 'altence', title: 'Altence', description: 'Licensed Medications', participants: [anna, pavel] },
+        {
+          id: 'altence',
+          title: 'Altence',
+          description: 'Licensed Medications',
+          tags: [high, dev],
+          participants: [anna, pavel],
+        },
         {
           id: 'warning',
           title: 'Warning',
           description: 'Do NOT utilize any medication that is out of your scope of practice.',
+          tags: [high, dev],
           participants: [anna, pavel],
         },
       ],

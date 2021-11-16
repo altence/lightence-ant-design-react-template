@@ -83,7 +83,7 @@ export const TagPlusWrapper = styled.span`
 
 export const AddTag = styled.span`
   font-size: ${(props) => props.theme.commonFontSizes.xs};
-  line-height: 1.25px;
+  line-height: 1.25rem;
   text-decoration: underline;
   color: ${(props) => props.theme.colors.text.light};
 `;

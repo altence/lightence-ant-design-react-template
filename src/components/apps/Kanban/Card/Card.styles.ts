@@ -9,6 +9,7 @@ import {
 } from 'react-trello/dist/styles/Base';
 import { ReactComponent as ArrowDown } from 'assets/icons/arrow-down.svg';
 import { Collapse } from 'antd';
+import InlineInput from 'react-trello/dist/widgets/InlineInput';
 
 const { Panel } = Collapse;
 
@@ -123,4 +124,10 @@ export const EditPopoverLine = styled.span`
   }
   color: ${(props) => props.theme.colors.text.main};
   cursor: pointer;
+`;
+
+export const Input = styled(InlineInput)`
+  && {
+    max-height: 28.125rem;
+  }
 `;
