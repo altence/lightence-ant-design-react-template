@@ -104,6 +104,18 @@ export const Image = styled(AntImage)`
   width: 100%;
   height: 100%;
   max-height: 22.375rem;
+
+  @media only screen and ${theme.media.xs} {
+    max-height: 11.625rem;
+  }
+
+  @media only screen and ${theme.media.md} {
+    max-height: 12.5rem;
+  }
+
+  @media only screen and ${theme.media.xl} {
+    max-height: 22.375rem;
+  }
 `;
 
 export const Author = styled.div`
