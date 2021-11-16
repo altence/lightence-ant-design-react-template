@@ -5,6 +5,25 @@ import theme from '../../../../styles/theme';
 import { SearchOutlined, PlusCircleFilled, CloseOutlined } from '@ant-design/icons';
 import { Checkbox } from 'antd';
 
+export const TitleWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const FilterButton = styled.div`
+  height: 50px;
+  width: 98px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: ${(props) => props.theme.colors.main.mainBackground};
+  border-radius: 7px;
+  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+  line-height: 1.25rem;
+`;
+
 export const DateLabels = styled.div`
   display: flex;
   justify-content: space-between;
@@ -64,6 +83,10 @@ export const Title = styled.div`
   font-size: ${(props) => props.theme.commonFontSizes.xxl};
   font-weight: ${(props) => props.theme.commonFontWeight.bold};
   color: ${(props) => props.theme.colors.text.secondary};
+
+  @media only screen and ${theme.media.xs} {
+    margin-top: 0;
+  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -77,9 +100,7 @@ export const TitleHeader = styled.div`
   margin-bottom: 1.25rem;
   box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.07);
   cursor: pointer;
-
   background-color: ${(props) => props.theme.colors.main.mainBackground};
-
   border-radius: ${(props) => props.theme.border.radius};
 `;
 
@@ -102,6 +123,12 @@ export const Btn = styled(Button)`
 `;
 
 export const NewsWrapper = styled.div`
+  max-width: 50rem;
+
+  @media only screen and ${theme.media.xs} {
+    width: 100%;
+  }
+
   @media only screen and ${theme.media.md} {
     width: calc(100% - 21.25rem);
   }
