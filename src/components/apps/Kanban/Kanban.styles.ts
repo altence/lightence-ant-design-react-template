@@ -13,7 +13,7 @@ export const Kanban = styled(Board)`
     background-color: transparent;
   }
   & ::-webkit-scrollbar-thumb {
-    background-color: #e0e0e0;
+    background-color: ${(props) => props.theme.commonColors.lightgrey};
     border-radius: 1.25rem;
     border: 0.375rem solid transparent;
     background-clip: content-box;

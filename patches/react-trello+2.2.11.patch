@@ -1,16 +1,92 @@
+diff --git a/node_modules/react-trello/dist/controllers/BoardContainer.js b/node_modules/react-trello/dist/controllers/BoardContainer.js
+index 2173f22..9ca1122 100644
+--- a/node_modules/react-trello/dist/controllers/BoardContainer.js
++++ b/node_modules/react-trello/dist/controllers/BoardContainer.js
+@@ -162,20 +162,20 @@ class BoardContainer extends _react.Component {
+     }
+   }
+ 
+-  UNSAFE_componentWillReceiveProps(nextProps) {
+-    // nextProps.data changes when external Board input props change and nextProps.reducerData changes due to event bus or UI changes
+-    const _this$props4 = this.props,
++  componentDidUpdate(prevProps) {
++    // this.props.data changes when external Board input props change and this.props.reducerData changes due to event bus or UI changes
++    const _this$props4 = prevProps,
+           data = _this$props4.data,
+           reducerData = _this$props4.reducerData,
+           onDataChange = _this$props4.onDataChange;
+ 
+-    if (nextProps.reducerData && !(0, _isEqual.default)(reducerData, nextProps.reducerData)) {
+-      onDataChange(nextProps.reducerData);
++    if (this.props.reducerData && !(0, _isEqual.default)(reducerData, this.props.reducerData)) {
++      onDataChange(this.props.reducerData);
+     }
+ 
+-    if (nextProps.data && !(0, _isEqual.default)(nextProps.data, data)) {
+-      this.props.actions.loadBoard(nextProps.data);
+-      onDataChange(nextProps.data);
++    if (this.props.data && !(0, _isEqual.default)(this.props.data, data)) {
++      this.props.actions.loadBoard(this.props.data);
++      onDataChange(this.props.data);
+     }
+   }
+ 
+diff --git a/node_modules/react-trello/dist/controllers/Lane.js b/node_modules/react-trello/dist/controllers/Lane.js
+index 51cf13f..6263c71 100644
+--- a/node_modules/react-trello/dist/controllers/Lane.js
++++ b/node_modules/react-trello/dist/controllers/Lane.js
+@@ -283,10 +283,10 @@ class Lane extends _react.Component {
+     });
+   }
+ 
+-  UNSAFE_componentWillReceiveProps(nextProps) {
+-    if (!(0, _isEqual.default)(this.props.cards, nextProps.cards)) {
++  componentDidUpdate(prevProps) {
++    if (!(0, _isEqual.default)(prevProps.cards, this.props.cards)) {
+       this.setState({
+-        currentPage: nextProps.currentPage
++        currentPage: this.props.currentPage
+       });
+     }
+   }
 diff --git a/node_modules/react-trello/dist/widgets/InlineInput.js b/node_modules/react-trello/dist/widgets/InlineInput.js
-index e37e137..e4301bf 100644
+index e37e137..7e96fdb 100644
 --- a/node_modules/react-trello/dist/widgets/InlineInput.js
 +++ b/node_modules/react-trello/dist/widgets/InlineInput.js
-@@ -77,6 +77,7 @@ class InlineInputController extends _react.default.Component {
+@@ -20,7 +20,9 @@ var _autosize = _interopRequireDefault(require("autosize"));
+ class InlineInputController extends _react.default.Component {
+   constructor(...args) {
+     super(...args);
+-    (0, _defineProperty2.default)(this, "onFocus", e => e.target.select());
++    (0, _defineProperty2.default)(this, "onFocus", e => {
++      e.target.select();
++    });
+     (0, _defineProperty2.default)(this, "onMouseDown", e => {
+       if (document.activeElement != e.target) {
+         e.preventDefault();
+@@ -67,8 +69,8 @@ class InlineInputController extends _react.default.Component {
+     });
+   }
+ 
+-  UNSAFE_componentWillReceiveProps(nextProps) {
+-    this.setValue(nextProps.value);
++  componentDidUpdate() {
++    this.setValue(this.props.value);
+   }
+ 
+   render() {
+@@ -76,7 +78,9 @@ class InlineInputController extends _react.default.Component {
+           autoFocus = _this$props.autoFocus,
            border = _this$props.border,
            value = _this$props.value,
-           placeholder = _this$props.placeholder;
+-          placeholder = _this$props.placeholder;
++          placeholder = _this$props.placeholder,
++          className = _this$props.className;
 +
      return _react.default.createElement(_Base.InlineInput, {
        ref: this.setRef,
        border: border,
-@@ -84,7 +85,7 @@ class InlineInputController extends _react.default.Component {
+@@ -84,7 +88,7 @@ class InlineInputController extends _react.default.Component {
        onFocus: this.onFocus,
        onBlur: this.onBlur,
        onKeyDown: this.onKeyDown,
@@ -19,3 +95,13 @@ index e37e137..e4301bf 100644
        defaultValue: value,
        autoComplete: "off",
        autoCorrect: "off",
+@@ -92,7 +96,8 @@ class InlineInputController extends _react.default.Component {
+       spellCheck: "false",
+       dataGramm: "false",
+       rows: 1,
+-      autoFocus: autoFocus
++      autoFocus: autoFocus,
++      className: className
+     });
+   }
+ 
