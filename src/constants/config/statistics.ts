@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import { BonesIcon } from 'components/dashboard/StatisticsCard/icons/BonesIcon';
-import { FatIcon } from 'components/dashboard/StatisticsCard/icons/FatIcon';
-import { ProteinIcon } from 'components/dashboard/StatisticsCard/icons/ProteinIcon';
-import { WaterBalanceIcon } from 'components/dashboard/StatisticsCard/icons/WaterBalanceIcon';
+import { BonesIcon } from 'components/dashboard/StatisticsCards/StatisticsCard/icons/BonesIcon';
+import { FatIcon } from 'components/dashboard/StatisticsCards/StatisticsCard/icons/FatIcon';
+import { ProteinIcon } from 'components/dashboard/StatisticsCards/StatisticsCard/icons/ProteinIcon';
+import { WaterBalanceIcon } from 'components/dashboard/StatisticsCards/StatisticsCard/icons/WaterBalanceIcon';
 
 export type StatisticColor = 'primary' | 'error' | 'secondary' | 'warning';
 
