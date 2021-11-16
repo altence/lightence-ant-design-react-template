@@ -169,7 +169,8 @@
     "authorSearch": "Author",
     "titleSearch": "Title",
     "apply": "Apply",
-    "reset": "Reset"
+    "reset": "Reset",
+    "feed": "Feed"
   },
   "login": {
     "title": "Login",

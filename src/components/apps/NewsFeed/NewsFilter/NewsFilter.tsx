@@ -1,4 +1,4 @@
-import React, { ReactNode, useState, useEffect } from 'react';
+import React, { ReactNode, useState, useEffect, useCallback, useMemo } from 'react';
 import { RangeValue } from 'rc-picker/lib/interface.d';
 import { useTranslation } from 'react-i18next';
 import { AppDate, Dates } from '../../../../constants/Dates';
@@ -48,7 +48,7 @@ const Filter: React.FC<Filter> = ({
   const { mobileOnly } = useResponsive();
   return (
     <S.FilterWrapper>
-      {!mobileOnly && <S.FilterTitle>Filter</S.FilterTitle>}
+      {!mobileOnly && <S.FilterTitle>{t('newsFeed.filter')}</S.FilterTitle>}
       <S.InputWrapper>
         <S.SearchIcon />
         <S.Input
@@ -131,17 +131,20 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
   const { t } = useTranslation();
 
   const newsTagData = Object.values(newsTags || defaultTags);
-  const selectedTagsIds = selectedTags.map((item) => item.id);
+  const selectedTagsIds = useMemo(() => selectedTags.map((item) => item.id), [selectedTags]);
 
-  const onTagClick = (tag: ITag) => {
-    const isExist = selectedTagsIds.includes(tag.id);
+  const onTagClick = useCallback(
+    (tag: ITag) => {
+      const isExist = selectedTagsIds.includes(tag.id);
 
-    if (isExist) {
-      setSelectedTags(selectedTags.filter((item) => item.id !== tag.id));
-    } else {
-      setSelectedTags([...selectedTags, tag]);
-    }
-  };
+      if (isExist) {
+        setSelectedTags(selectedTags.filter((item) => item.id !== tag.id));
+      } else {
+        setSelectedTags([...selectedTags, tag]);
+      }
+    },
+    [selectedTags, setSelectedTags],
+  );
 
   useEffect(() => {
     if (!author && !title && !dates[0]) {
@@ -149,7 +152,7 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
     }
   }, [news.length, title, author, dates]);
 
-  const filterNews = () => {
+  const filterNews = useCallback(() => {
     if (author || title || dates.length || selectedTags.length) {
       const filteredNews = news.filter((post) => {
         const postAuthor = post.author.toLowerCase();
@@ -174,18 +177,19 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
     } else {
       setFilteredNews(news);
     }
-  };
+  }, [news, author, title, dates, selectedTags]);
 
-  const handleClickReset = () => {
+  const handleClickReset = useCallback(() => {
     setAuthor('');
     setTitle('');
     setDates([null, null]);
     setSelectedTags([]);
-  };
+  }, [setAuthor, setTitle, setDates, setSelectedTags]);
+
   return (
     <>
       <S.TitleWrapper>
-        <S.Title>Feed</S.Title>
+        <S.Title>{t('newsFeed.feed')}</S.Title>
         {mobileOnly && (
           <Dropdown
             placement="bottomLeft"
@@ -207,7 +211,7 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
               />
             }
           >
-            <S.FilterButton>Filter</S.FilterButton>
+            <S.FilterButton>{t('newsFeed.filter')}</S.FilterButton>
           </Dropdown>
         )}
       </S.TitleWrapper>

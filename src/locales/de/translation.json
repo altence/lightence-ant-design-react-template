@@ -168,7 +168,9 @@
     "filter": "DE!!!Filter",
     "authorSearch": "DE!!!Search by author",
     "titleSearch": "DE!!!Search by title",
-    "reset": "DE!!!Reset filter"
+    "apply": "DE!!!Apply",
+    "reset": "DE!!!Reset filter",
+    "feed": "DE!!!Feed"
   },
   "login": {
     "title": "DE!!!Login",
