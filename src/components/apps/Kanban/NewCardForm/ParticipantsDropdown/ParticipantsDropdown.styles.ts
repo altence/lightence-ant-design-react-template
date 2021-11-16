@@ -42,7 +42,7 @@ export const ClosePopover = styled(CloseOutlined)`
 
 export const AddParticipant = styled.span`
   font-size: ${(props) => props.theme.commonFontSizes.xs};
-  line-height: 20px;
+  line-height: 1.25rem;
   text-decoration: underline;
   color: ${(props) => props.theme.colors.text.light};
 `;

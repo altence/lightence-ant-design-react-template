@@ -6,7 +6,6 @@ import { Dropdown } from 'antd';
 import { ParticipantsDropdown } from '../NewCardForm/ParticipantsDropdown/ParticipantsDropdown';
 import { TagDropdown } from '../NewCardForm/TagDropdown/TagDropdown';
 import { useTranslation } from 'react-i18next';
-import InlineInput from 'react-trello/dist/widgets/InlineInput';
 
 interface CardProps {
   style: CSSStyleSheet;
@@ -77,15 +76,20 @@ export const Card: React.FC<CardProps> = ({
 
   return (
     <S.CardWrapper data-id={id} onClick={onClick} style={style} className={className}>
-      <S.CollapseCard onChange={onArrowPress} bordered={false}>
+      <S.CollapseCard onChange={onArrowPress} bordered={false} defaultActiveKey={['1']}>
         <S.CardContent
           showArrow={false}
           key="1"
           header={
             <S.CardHeader>
-              <S.CardTitle draggable={cardDraggable}>
+              <S.CardTitle
+                draggable={cardDraggable}
+                onClick={(e: MouseEvent) => {
+                  e.stopPropagation();
+                }}
+              >
                 {editable ? (
-                  <InlineInput
+                  <S.Input
                     name="title"
                     value={title}
                     border
@@ -106,7 +110,11 @@ export const Card: React.FC<CardProps> = ({
                   placement="bottomRight"
                   trigger={['click']}
                 >
-                  <S.ThreeDotsWrapper>
+                  <S.ThreeDotsWrapper
+                    onClick={(e) => {
+                      e.stopPropagation();
+                    }}
+                  >
                     <MoreOutlined />
                   </S.ThreeDotsWrapper>
                 </Dropdown>
@@ -116,7 +124,7 @@ export const Card: React.FC<CardProps> = ({
         >
           <S.CardDetails>
             {editable ? (
-              <InlineInput
+              <S.Input
                 value={description}
                 border
                 placeholder={t('kanban.description')}
