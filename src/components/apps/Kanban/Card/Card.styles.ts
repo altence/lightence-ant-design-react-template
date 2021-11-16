@@ -49,12 +49,16 @@ export const ArrowDownWrapper = styled.span`
 `;
 
 export const ArrowDownIcon = styled(ArrowDown)<ArrowDownIcon>`
-  transform: ${(props) => `rotate(${props.isExpanded ? 180 : 0}deg)`};
+  transform: ${(props) => `rotate(${props.isExpanded ? 0 : 180}deg)`};
 `;
 
 export const ThreeDotsWrapper = styled.span`
   width: 1.5rem;
   font-size: ${(props) => props.theme.commonFontSizes.xl};
+  height: 1.375rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const CardWrapper = styled(MovableCardWrapper)`
@@ -82,7 +86,7 @@ export const CardHeader = styled(Header)`
   border-bottom: none;
   margin-bottom: 0;
   padding-bottom: 0;
-  height: 1.375rem;
+  min-height: 1.375rem;
   display: flex;
   align-items: center;
 `;
