@@ -12,13 +12,13 @@ export const TitleWrapper = styled.div`
 `;
 
 export const FilterButton = styled.div`
-  height: 50px;
-  width: 98px;
+  height: 3.125rem;
+  width: 6.125rem;
   display: flex;
   justify-content: center;
   align-items: center;
   background: ${(props) => props.theme.colors.main.mainBackground};
-  border-radius: 7px;
+  border-radius: ${(props) => props.theme.border.radius};
   font-size: ${(props) => props.theme.commonFontSizes.xs};
   font-weight: ${(props) => props.theme.commonFontWeight.semibold};
   line-height: 1.25rem;
