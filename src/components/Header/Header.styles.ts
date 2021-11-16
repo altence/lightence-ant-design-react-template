@@ -1,10 +1,11 @@
 import styled from 'styled-components';
-import { Collapse, Menu } from 'antd';
+import { Col, Collapse, Menu } from 'antd';
+import { BurgerIcon } from '../common/Burger/BurgerIcon';
 
 export const DropdownMenu = styled(Menu)`
   background-color: ${(props) => props.theme.colors.main.mainBackground};
 
-  box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.07) !important;
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.07) !important;
 
   border-radius: ${(props) => props.theme.border.radius};
 
@@ -46,4 +47,15 @@ export const DropdownCollapse = styled(Collapse)`
       display: none;
     }
   }
+`;
+
+export const BurgerCol = styled(Col)`
+  z-index: 999;
+  display: flex;
+`;
+
+export const MobileBurger = styled(BurgerIcon)`
+  width: 1.75rem;
+  height: 1.75rem;
+  color: ${(props) => props.theme.commonColors.white};
 `;
