@@ -1,5 +1,4 @@
 import { DownOutlined } from '@ant-design/icons';
-import { Avatar } from 'antd';
 import styled from 'styled-components';
 import { DropdownHeader } from '../../Header.styles';
 
@@ -11,13 +10,6 @@ export const ProfileDropdownHeader = styled(DropdownHeader)`
     padding: 0.3125rem 0.2rem;
 
     background-color: ${(props) => props.theme.colors.main.secondaryBackground};
-  }
-`;
-
-export const AvatarImg = styled(Avatar)`
-  @media only screen and ${(props) => props.theme.media.md} {
-    width: 2.3125rem;
-    height: 2.3125rem;
   }
 `;
 
