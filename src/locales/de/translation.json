@@ -16,8 +16,8 @@
     "forgotPass": "DE!!!Forgot Password",
     "securityCode": "DE!!!Security Code",
     "payment": "DE!!!Payment",
-    "login": "DE!!!Login",
-    "signUp": "D!!!Sign Up",
+    "login": "DE!!!Log In",
+    "signUp": "DE!!!Sign Up",
     "profilePage": "DE!!!Profile Page",
     "serverError": "DE!!!Server Error",
     "clientError": "DE!!!Client Error",
@@ -180,7 +180,8 @@
     "rememberMe": "DE!!!Remember me",
     "forgotPassword": "DE!!!Forgot password?",
     "noAccount": "DE!!!Don’t have an account? Create one",
-    "signupLink": "DE!!!here"
+    "signupLink": "DE!!!here",
+    "loginInfo": "DE!!!Enter your email address and password to access admin panel"
   },
   "forgotPassword": {
     "title": "DE!!!Forgot your password?",

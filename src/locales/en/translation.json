@@ -16,7 +16,7 @@
     "forgotPass": "Forgot Password",
     "securityCode": "Security Code",
     "payment": "Payment",
-    "login": "Login",
+    "login": "Log In",
     "signUp": "Sign Up",
     "profilePage": "Profile Page",
     "serverError": "Server Error",
@@ -180,7 +180,8 @@
     "rememberMe": "Remember me",
     "forgotPassword": "Forgot password?",
     "noAccount": "Don’t have an account? Create one",
-    "signupLink": "here"
+    "signupLink": "here",
+    "loginInfo": "Enter your email address and password to access admin panel"
   },
   "forgotPassword": {
     "title": "Forgot your password?",

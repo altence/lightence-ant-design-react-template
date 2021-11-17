@@ -84,7 +84,7 @@ declare module 'styled-components' {
       thin: string;
       extraLight: string;
       light: string;
-      normal: string;
+      regular: string;
       medium: string;
       semibold: string;
       bold: string;
