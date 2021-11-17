@@ -11,6 +11,10 @@ export default createGlobalStyle`
   body {
     font-weight: 500;
   }
+  
+  img {
+    display: block;
+  }
 
   .range-picker {
     & .ant-picker-panels {
