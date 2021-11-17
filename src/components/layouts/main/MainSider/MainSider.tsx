@@ -1,9 +1,8 @@
-import React from 'react';
-import { Button } from 'antd';
-import { RightOutlined } from '@ant-design/icons';
+import React, { useMemo } from 'react';
 import Overlay from '../../../common/Overlay';
 import { useResponsive } from 'hooks/useResponsive';
 import * as S from './MainSider.styles';
+import { SiderLogo } from './SiderLogo';
 
 interface MainSiderProps {
   toggleSider: () => void;
@@ -11,30 +10,22 @@ interface MainSiderProps {
 }
 
 const MainSider: React.FC<MainSiderProps> = ({ children, toggleSider, isCollapsed, ...props }) => {
-  const { isDesktop, mobileOnly, tabletOnly } = useResponsive();
+  const { mobileOnly, tabletOnly } = useResponsive();
+
+  const isCollapsible = useMemo(() => mobileOnly && tabletOnly, [mobileOnly, tabletOnly]);
 
   return (
     <>
       <S.Sider
         trigger={null}
-        collapsed={isCollapsed}
+        collapsed={!isCollapsible && isCollapsed}
         collapsedWidth={tabletOnly ? 60 : 0}
-        collapsible={mobileOnly && tabletOnly}
+        collapsible={isCollapsible}
         width={260}
         {...props}
       >
-        <S.SiderContent>
-          {!isDesktop && (
-            <S.CollapseWrapper isCollapsed={isCollapsed}>
-              <Button
-                type="text"
-                icon={<RightOutlined rotate={(tabletOnly && !isCollapsed && 180) || 0} />}
-                onClick={toggleSider}
-              />
-            </S.CollapseWrapper>
-          )}
-          {children}
-        </S.SiderContent>
+        <SiderLogo isSiderCollapsed={isCollapsed} toggleSider={toggleSider} />
+        <S.SiderContent>{children}</S.SiderContent>
       </S.Sider>
       {mobileOnly && <Overlay onClick={toggleSider} show={!isCollapsed} />}
     </>
