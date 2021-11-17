@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Col, Collapse, Menu, Row } from 'antd';
+import { Col, Collapse, Menu } from 'antd';
 import { BurgerIcon } from '../common/Burger/BurgerIcon';
 
 export const DropdownMenu = styled(Menu)`
@@ -47,10 +47,6 @@ export const DropdownCollapse = styled(Collapse)`
       display: none;
     }
   }
-`;
-
-export const MobileHeaderRow = styled(Row)`
-  height: 100%;
 `;
 
 export const BurgerCol = styled(Col)`
