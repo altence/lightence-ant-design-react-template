@@ -90,7 +90,7 @@ const Filter: React.FC<Filter> = ({
       >
         <S.AddTagWrapper>
           <S.PlusIcon />
-          Tag
+          <S.AddTagText>{t('newsFeed.tag')}</S.AddTagText>
         </S.AddTagWrapper>
       </Dropdown>
       {!!selectedTags.length && (
@@ -101,8 +101,8 @@ const Filter: React.FC<Filter> = ({
         </S.TagsWrapper>
       )}
       <S.DateLabels>
-        <S.DateLabel>From</S.DateLabel>
-        <S.DateLabel>To</S.DateLabel>
+        <S.DateLabel>{t('newsFeed.from')}</S.DateLabel>
+        <S.DateLabel>{t('newsFeed.to')}</S.DateLabel>
       </S.DateLabels>
       <S.RangePicker
         dropdownClassName="range-picker"
@@ -164,14 +164,16 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
         const fromDate = dates[0];
         const toDate = dates[1];
 
-        return (author ? postAuthor.includes(enteredAuthor) : true) &&
+        return (
+          (author ? postAuthor.includes(enteredAuthor) : true) &&
           (dates[0] ? postDate.isAfter(fromDate) && postDate.isBefore(toDate) : true) &&
           (title ? postTitle.includes(enteredTitle) : true) &&
-          selectedTags.length
-          ? !!postTags.filter((n) => {
-              return selectedTags.indexOf(n) !== -1;
-            }).length
-          : true;
+          (selectedTags.length
+            ? !!postTags.filter((n) => {
+                return selectedTags.indexOf(n) !== -1;
+              }).length
+            : true)
+        );
       });
       setFilteredNews(filteredNews || []);
     } else {

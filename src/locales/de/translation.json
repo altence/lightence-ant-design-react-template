@@ -170,7 +170,10 @@
     "titleSearch": "DE!!!Search by title",
     "apply": "DE!!!Apply",
     "reset": "DE!!!Reset filter",
-    "feed": "DE!!!Feed"
+    "feed": "DE!!!Feed",
+    "tag": "DE!!!Tag",
+    "from": "DE!!!From",
+    "to": "DE!!!To"
   },
   "login": {
     "title": "DE!!!Login",
