@@ -5,6 +5,13 @@ import theme from '../../../../styles/theme';
 import { SearchOutlined, PlusCircleFilled, CloseOutlined } from '@ant-design/icons';
 import { Checkbox } from 'antd';
 
+export const AddTagText = styled.span`
+  color: ${(props) => props.theme.colors.text.main};
+  font-size: ${(props) => props.theme.commonFontSizes.md};
+  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+  line-height: 1.375rem;
+`;
+
 export const TitleWrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -110,11 +117,25 @@ export const Input = styled(AntInput)`
   background: ${(props) => props.theme.colors.main.secondaryBackground};
   border-radius: 3.125rem;
   padding-left: 3rem;
+  color: ${(props) => props.theme.colors.text.main};
+  font-size: ${(props) => props.theme.commonFontSizes.md};
+  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+  line-height: 1.375rem;
+
+  &::placeholder {
+    color: ${(props) => props.theme.colors.text.main};
+  }
 `;
 
 export const RangePicker = styled(DayjsDatePicker.RangePicker)`
   width: 100%;
   margin-bottom: 0.875rem;
+
+  & input {
+    color: ${(props) => props.theme.colors.text.main};
+    font-size: ${(props) => props.theme.commonFontSizes.xs};
+    font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+  }
 `;
 
 export const Btn = styled(Button)`
