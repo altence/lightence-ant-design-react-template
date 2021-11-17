@@ -18,22 +18,31 @@ export const LoginForm: React.FC = () => {
 
   return (
     <S.Wrapper>
-      <Form layout="vertical" onFinish={handleSubmit}>
+      <Form layout="vertical" onFinish={handleSubmit} requiredMark="optional">
         <S.Title>{t('common.login')}</S.Title>
-        <S.FormItem name="email" rules={[{ required: true, message: t('common.emailError') }]}>
+        <S.LoginInfo>{t('login.loginInfo')}</S.LoginInfo>
+        <S.FormItem
+          name="email"
+          label={t('common.email')}
+          rules={[{ required: true, message: t('common.emailError') }]}
+        >
           <S.Input placeholder={t('common.email')} />
         </S.FormItem>
-        <S.FormItem name="password" rules={[{ required: true, message: t('common.passwordError') }]}>
-          <S.Input placeholder={t('common.password')} />
+        <S.FormItem
+          label={t('common.password')}
+          name="password"
+          rules={[{ required: true, message: t('common.passwordError') }]}
+        >
+          <S.InputPassword placeholder={t('common.password')} />
         </S.FormItem>
         <S.ActionsWrapper>
           <Form.Item name="rememberMe" valuePropName="checked" noStyle>
             <S.CheckBox>
-              <S.Text>{t('login.rememberMe')}</S.Text>
+              <S.RememberMeText>{t('login.rememberMe')}</S.RememberMeText>
             </S.CheckBox>
           </Form.Item>
           <Link to="/forgot-password">
-            <S.Text>{t('login.forgotPassword')}</S.Text>
+            <S.ForgotPasswordText>{t('login.forgotPassword')}</S.ForgotPasswordText>
           </Link>
         </S.ActionsWrapper>
         <Form.Item noStyle>

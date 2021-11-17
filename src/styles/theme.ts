@@ -52,15 +52,15 @@ const commonFontSizes = {
   lg: '1.125rem',
   xl: '1.25rem',
   xxl: '1.5rem',
-  xxxl: '2rem',
-  xxxxl: '3rem',
+  xxxl: '1.625rem',
+  xxxxl: '2rem',
 };
 
 const commonFontWeight = {
   thin: '100',
   extraLight: '200',
   light: '300',
-  normal: '400',
+  regular: '400',
   medium: '500',
   semibold: '600',
   bold: '700',
