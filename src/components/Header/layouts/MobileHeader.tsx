@@ -13,27 +13,23 @@ interface MobileHeaderProps {
 
 export const MobileHeader: React.FC<MobileHeaderProps> = ({ toggleSider, isSiderOpened }) => {
   return (
-    <Row justify="space-between" align="middle">
+    <S.MobileHeaderRow justify="space-between" align="middle">
+      <Col>
+        <ProfileDropdown />
+      </Col>
+
       <Col>
         <Row gutter={[30, 30]} align="middle">
           <Col>
-            <ProfileDropdown />
+            <NotificationsDropdown />
           </Col>
 
           <Col>
-            <Row gutter={[30, 30]} align="middle">
-              <Col>
-                <NotificationsDropdown />
-              </Col>
+            <HeaderSearch />
+          </Col>
 
-              <Col>
-                <HeaderSearch />
-              </Col>
-
-              <Col>
-                <SettingsDropdown />
-              </Col>
-            </Row>
+          <Col>
+            <SettingsDropdown />
           </Col>
         </Row>
       </Col>
@@ -41,6 +37,6 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({ toggleSider, isSider
       <S.BurgerCol>
         <S.MobileBurger onClick={toggleSider} isCross={isSiderOpened} />
       </S.BurgerCol>
-    </Row>
+    </S.MobileHeaderRow>
   );
 };
