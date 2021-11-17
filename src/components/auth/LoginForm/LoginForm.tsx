@@ -4,6 +4,7 @@ import { Form } from 'antd';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import * as S from './LoginForm.styles';
+import { FormWrapper, FormTitle } from 'components/layouts/auth/AuthLayout.styles';
 
 export const LoginForm: React.FC = () => {
   const navigate = useNavigate();
@@ -17,10 +18,10 @@ export const LoginForm: React.FC = () => {
   };
 
   return (
-    <S.Wrapper>
+    <FormWrapper>
       <Form layout="vertical" onFinish={handleSubmit} requiredMark="optional">
-        <S.Title>{t('common.login')}</S.Title>
-        <S.LoginInfo>{t('login.loginInfo')}</S.LoginInfo>
+        <FormTitle>{t('common.login')}</FormTitle>
+        <S.LoginDescription>{t('login.loginInfo')}</S.LoginDescription>
         <S.FormItem
           name="email"
           label={t('common.email')}
@@ -59,6 +60,6 @@ export const LoginForm: React.FC = () => {
           </S.Text>
         </S.SignupWrapper>
       </Form>
-    </S.Wrapper>
+    </FormWrapper>
   );
 };

@@ -3,56 +3,8 @@ import { Button, Typography, Form, Checkbox } from 'antd';
 import { Input as CommonInput } from 'components/common/inputs/Input/Input';
 import { InputPassword as CommonInputPassword } from 'components/common/inputs/InputPassword/InputPassword';
 import theme from 'styles/theme';
-import { hexToRGB } from 'utils/utils';
 
-export const Wrapper = styled.div`
-  padding: 2.5rem;
-  width: 31.75rem;
-  background-color: ${(props) => hexToRGB(props.theme.colors.main.mainBackground, 0.93)};
-  border-radius: ${(props) => props.theme.border.radius};
-
-  @media only screen and ${theme.media.xs} {
-    padding: 2.5rem 1.25rem;
-    width: 20.75rem;
-  }
-
-  @media only screen and ${theme.media.md} {
-    padding: 2.5rem;
-    width: 31.75rem;
-  }
-
-  @media only screen and ${theme.media.xl} {
-    padding: 2.5rem;
-    width: 31.75rem;
-  }
-`;
-
-export const Title = styled.div`
-  color: ${(props) => props.theme.colors.main.primary};
-
-  @media only screen and ${theme.media.xs} {
-    margin-bottom: 0.625rem;
-    font-size: ${(props) => props.theme.commonFontSizes.lg};
-    font-weight: ${(props) => props.theme.commonFontWeight.bold};
-    line-height: 1.5625rem;
-  }
-
-  @media only screen and ${theme.media.md} {
-    margin-bottom: 0.875rem;
-    font-size: ${(props) => props.theme.commonFontSizes.xxl};
-    font-weight: ${(props) => props.theme.commonFontWeight.bold};
-    line-height: 1.9375rem;
-  }
-
-  @media only screen and ${theme.media.xl} {
-    margin-bottom: 0.9375rem;
-    font-size: ${(props) => props.theme.commonFontSizes.xxxl};
-    font-weight: ${(props) => props.theme.commonFontWeight.extraBold};
-    line-height: 2.125rem;
-  }
-`;
-
-export const LoginInfo = styled.div`
+export const LoginDescription = styled.div`
   margin-bottom: 1.875rem;
   color: ${(props) => props.theme.colors.text.main};
   font-size: ${(props) => props.theme.commonFontSizes.xs};
@@ -156,7 +108,8 @@ export const ForgotPasswordText = styled.span`
 `;
 
 export const SubmitButton = styled(Button)`
-  font-size: 1rem;
+  font-size: ${(props) => props.theme.commonFontSizes.md};
+  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
   width: 100%;
 `;
 

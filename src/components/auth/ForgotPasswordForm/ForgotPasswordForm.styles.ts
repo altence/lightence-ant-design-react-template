@@ -1,36 +1,30 @@
 import styled from 'styled-components';
-import { Button, Typography, Input as AntInput, Form, Checkbox } from 'antd';
-import theme from '../../../styles/theme';
-import { hexToRGB } from 'utils/utils';
+import { Button, Typography, Form, Checkbox } from 'antd';
+import { Input as CommonInput } from 'components/common/inputs/Input/Input';
+import { LeftOutlined } from '@ant-design/icons';
+import theme from 'styles/theme';
 
-export const Wrapper = styled.div`
-  padding: 1.875rem 1.875rem;
-  width: 20.5rem;
-
-  background-color: ${(props) => props.theme.colors.main.mainBackground};
-
-  border-radius: ${(props) => props.theme.border.radius};
-
-  @media only screen and ${theme.media.md} {
-    padding: 1.25rem 2rem;
-
-    background-color: ${(props) => hexToRGB(props.theme.colors.main.mainBackground, 0.7)};
-  }
-
-  @media only screen and ${theme.media.xl} {
-    padding: 3.75rem 2rem;
-    box-shadow: 0px 2px 10px rgba(132, 132, 132, 0.2);
-    width: 23rem;
-  }
+export const BackIcon = styled(LeftOutlined)`
+  font-size: 0.75rem;
+  margin-right: 0.75rem;
 `;
 
-export const Title = styled(Typography.Text)`
-  display: block;
-  font-size: 1.12rem;
-  margin-bottom: 0.5rem;
+export const ResetPasswordDescription = styled.div`
+  margin-bottom: 1.875rem;
+  color: ${(props) => props.theme.colors.text.main};
+  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  font-weight: ${(props) => props.theme.commonFontWeight.regular};
+
+  @media only screen and ${theme.media.xs} {
+    font-size: ${(props) => props.theme.commonFontSizes.xxs};
+  }
+
+  @media only screen and ${theme.media.md} {
+    font-size: ${(props) => props.theme.commonFontSizes.xs};
+  }
 
   @media only screen and ${theme.media.xl} {
-    margin-bottom: 2rem;
+    font-size: ${(props) => props.theme.commonFontSizes.xs};
   }
 `;
 
@@ -41,11 +35,11 @@ export const Text = styled(Typography.Text)`
 `;
 
 export const FormItem = styled(Form.Item)`
-  margin-bottom: 2rem;
+  margin-bottom: 0.75rem;
   position: relative;
 
   & .ant-form-item-control-input {
-    min-height: unset;
+    min-height: 3.125rem;
   }
 
   & .ant-form-item-explain {
@@ -55,10 +49,23 @@ export const FormItem = styled(Form.Item)`
 
     color: ${(props) => props.theme.colors.main.error};
   }
+
+  & label {
+    color: ${(props) => props.theme.colors.main.primary};
+    font-size: ${(props) => props.theme.commonFontSizes.xs};
+    line-height: 1.25rem;
+  }
 `;
 
-export const Input = styled(AntInput)`
-  font-size: 0.75rem;
+export const Input = styled(CommonInput)`
+  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+  color: ${(props) => props.theme.colors.text.main};
+  background: transparent;
+
+  & input.ant-input {
+    background: transparent;
+  }
 `;
 
 export const CheckBox = styled(Checkbox)`
@@ -71,6 +78,19 @@ export const CheckBox = styled(Checkbox)`
 `;
 
 export const SubmitButton = styled(Button)`
-  font-size: 1rem;
+  font-size: ${(props) => props.theme.commonFontSizes.md};
+  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
   width: 100%;
+  margin-top: 1.125rem;
+  margin-bottom: 1rem;
+`;
+
+export const BackWrapper = styled.div`
+  margin-top: 1rem;
+  font-size: ${(props) => props.theme.commonFontSizes.md};
+  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 1.25rem;
 `;
