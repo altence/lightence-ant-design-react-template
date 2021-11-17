@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Col, Collapse, Menu } from 'antd';
+import { Col, Collapse, Menu, Row } from 'antd';
 import { BurgerIcon } from '../common/Burger/BurgerIcon';
 
 export const DropdownMenu = styled(Menu)`
@@ -49,6 +49,10 @@ export const DropdownCollapse = styled(Collapse)`
   }
 `;
 
+export const MobileHeaderRow = styled(Row)`
+  height: 100%;
+`;
+
 export const BurgerCol = styled(Col)`
   z-index: 999;
   display: flex;
@@ -57,5 +61,6 @@ export const BurgerCol = styled(Col)`
 export const MobileBurger = styled(BurgerIcon)`
   width: 1.75rem;
   height: 1.75rem;
+  margin-right: -0.5rem;
   color: ${(props) => props.theme.commonColors.white};
 `;
