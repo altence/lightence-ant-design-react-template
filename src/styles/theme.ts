@@ -3,6 +3,8 @@ import { DefaultTheme } from 'styled-components';
 export const mobileLayout = {
   paddingVertical: '0.75rem',
   paddingHorizontal: '1rem',
+  headerHeight: '4.25rem',
+  headerPadding: '1rem',
 };
 
 export const desktopLayout = {

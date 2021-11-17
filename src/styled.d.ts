@@ -59,6 +59,8 @@ declare module 'styled-components' {
     mobileLayout: {
       paddingVertical: string;
       paddingHorizontal: string;
+      headerHeight: string;
+      headerPadding: string;
     };
     desktopLayout: {
       paddingVertical: string;

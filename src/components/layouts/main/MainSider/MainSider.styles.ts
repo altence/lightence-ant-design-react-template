@@ -1,9 +1,6 @@
-import styled, { css } from 'styled-components';
-import { Layout } from 'antd';
-
-interface CollapseProps {
-  isCollapsed: boolean;
-}
+import styled from 'styled-components';
+import { Button, Layout } from 'antd';
+import { Link } from 'react-router-dom';
 
 export const Sider = styled(Layout.Sider)`
   position: fixed;
@@ -26,39 +23,38 @@ export const Sider = styled(Layout.Sider)`
   }
 `;
 
-export const CollapseWrapper = styled.div<CollapseProps>`
-  padding: 1rem 0.5rem;
-  margin-bottom: 2rem;
-  min-height: 3.75rem;
+export const CollapseButton = styled(Button)`
+  @media only screen and ${(props) => props.theme.media.md} {
+    position: absolute;
+    transition: all 0.3s ease;
+    right: 0;
+  }
 
-  & > button {
-    @media only screen and ${(props) => props.theme.media.md} {
-      position: absolute;
-      transition: all 0.3s ease;
-      right: 0;
+  color: ${(props) => props.theme.colors.text.secondary};
 
-      ${(props) =>
-        props.isCollapsed &&
-        css`
-          transform: translateX(50%);
-          right: 50%;
-        `};
-    }
-
+  &:hover {
     color: ${(props) => props.theme.colors.text.secondary};
+  }
 
-    &:hover {
-      color: ${(props) => props.theme.colors.text.secondary};
-    }
-
-    &:focus {
-      color: ${(props) => props.theme.colors.text.secondary};
-    }
+  &:focus {
+    color: ${(props) => props.theme.colors.text.secondary};
   }
 `;
 
 export const SiderContent = styled.div`
-  @media only screen and ${(props) => props.theme.media.xl} {
-    padding-top: 6.25rem;
-  }
+  padding-top: 0.5rem; // TODO review this padding
+`;
+
+export const SiderLogoLink = styled(Link)`
+  height: ${(props) => props.theme.mobileLayout.headerHeight};
+  padding: ${(props) => props.theme.mobileLayout.headerPadding};
+  display: flex;
+  align-items: center;
+`;
+
+export const BrandSpan = styled.span`
+  margin: 0 1rem;
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: ${(props) => props.theme.commonColors.white};
 `;
