@@ -1,12 +1,12 @@
 import { defaultPaddings } from 'constants/defaultPaddings';
 import styled from 'styled-components';
 
-interface SliderWrapperProps {
+interface CarouselWrapperProps {
   length: number | undefined;
   isEnd: boolean;
 }
 
-export const SliderWrapper = styled.div<SliderWrapperProps>`
+export const CarouselWrapper = styled.div<CarouselWrapperProps>`
   margin: ${(props) =>
     `0 -${!props.isEnd ? defaultPaddings.mobile[1] : 0}px 1.5rem -${props.isEnd ? defaultPaddings.mobile[1] : 0}px`};
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { SwiperSlide } from 'swiper/react';
 import { useTranslation } from 'react-i18next';
 import { Card } from '../../../components/common/Card/Card';
-import { Slider } from '../../../components/common/Slider/Slider';
+import { Carousel } from '../../common/Carousel/Carousel';
 import { DoctorCard } from './DoctorCard/DoctorCard';
 import { doctorsData } from '../../../constants/doctorsData';
 
@@ -11,7 +11,7 @@ export const FavouritesDoctorsCard: React.FC = () => {
 
   return (
     <Card id="fav-doctors" title={t('dashboard.favoriteDoctors.title')}>
-      <Slider
+      <Carousel
         spaceBetween={10}
         slidesPerView={3}
         breakpoints={{
@@ -34,7 +34,7 @@ export const FavouritesDoctorsCard: React.FC = () => {
             />
           </SwiperSlide>
         ))}
-      </Slider>
+      </Carousel>
     </Card>
   );
 };

@@ -4,7 +4,7 @@ import { Button } from 'components/common/buttons/Button/Button';
 import { SwiperSlide } from 'swiper/react';
 import { useTranslation } from 'react-i18next';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
-import { Slider } from 'components/common/Slider/Slider';
+import { Carousel } from 'components/common/Carousel/Carousel';
 import { PaymentCard } from '../PaymentCard/PaymentCard';
 import { CreditCard } from '../PaymentForm/interfaces';
 import { removeCreditCard } from 'api/users.api';
@@ -73,8 +73,8 @@ export const PaymentCardCarousel: React.FC<PaymentCardCarouselProps> = ({
   );
 
   return (
-    <S.SliderWrapper length={paymentCards.length} isEnd={isCarouselEnd}>
-      <Slider
+    <S.CarouselWrapper length={paymentCards.length} isEnd={isCarouselEnd}>
+      <Carousel
         spaceBetween={16}
         slidesPerView={layout(1, 0.1)}
         breakpoints={{
@@ -124,7 +124,7 @@ export const PaymentCardCarousel: React.FC<PaymentCardCarouselProps> = ({
         onSlideChange={(swiper) => setCarouselEnd(swiper.isEnd)}
       >
         {paymentCards}
-      </Slider>
-    </S.SliderWrapper>
+      </Carousel>
+    </S.CarouselWrapper>
   );
 };

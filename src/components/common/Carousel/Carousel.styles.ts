@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Swiper } from 'swiper/react';
 
-export const Slider = styled(Swiper)`
+export const Carousel = styled(Swiper)`
   & .swiper-button-prev,
   & .swiper-button-next {
     color: ${(props) => props.theme.colors.main.primary};
