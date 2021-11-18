@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { useMediaQuery } from 'react-responsive';
 import { Chart } from 'components/common/Chart/Chart';
 import { getMarkAreaData } from 'utils/utils';
 import { ThemeContext } from 'styled-components';
@@ -8,20 +7,19 @@ import { hexToRGB } from 'utils/utils';
 const xAxisData = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
 export const ScreeningsChart: React.FC = () => {
-  const themeContext = useContext(ThemeContext);
-
-  const isBigScreen = useMediaQuery({ query: themeContext.media.xxl });
+  const theme = useContext(ThemeContext);
 
   const option = {
+    color: [hexToRGB(theme.colors.main.error, 1), hexToRGB(theme.colors.main.primary, 1)],
     tooltip: {
       trigger: 'axis',
       axisPointer: {
         type: 'cross',
-      },
+      }, // TODO Add formatter
     },
     grid: {
       top: 0,
-      left: (isBigScreen && 80) || 48,
+      left: 0,
       right: 0,
       bottom: 0,
     },
@@ -49,10 +47,10 @@ export const ScreeningsChart: React.FC = () => {
         showSymbol: false,
         lineStyle: {
           width: 2,
-          color: themeContext.colors.main.error,
+          color: theme.colors.main.error,
         },
         areaStyle: {
-          opacity: 1,
+          opacity: 0.2,
         },
         emphasis: {
           focus: 'series',
@@ -60,7 +58,7 @@ export const ScreeningsChart: React.FC = () => {
         data: [28, 32, 39, 41, 38, 40, 45, 49, 50, 48],
         markArea: {
           itemStyle: {
-            color: hexToRGB(themeContext.colors.main.primary, 0.7),
+            color: hexToRGB(theme.colors.main.primary, 0.01),
           },
           data: getMarkAreaData(xAxisData),
         },
@@ -71,16 +69,22 @@ export const ScreeningsChart: React.FC = () => {
         smooth: true,
         lineStyle: {
           width: 2,
-          color: themeContext.colors.main.primary,
+          color: theme.colors.main.primary,
         },
         showSymbol: false,
         areaStyle: {
-          opacity: 1,
+          opacity: 0.2,
         },
         emphasis: {
           focus: 'series',
         },
         data: [22, 22, 25, 31, 38, 43, 42, 38, 36, 38],
+        markArea: {
+          itemStyle: {
+            color: hexToRGB(theme.colors.main.primary, 0.01),
+          },
+          data: getMarkAreaData(xAxisData),
+        },
       },
     ],
   };

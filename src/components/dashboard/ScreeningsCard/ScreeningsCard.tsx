@@ -1,14 +1,14 @@
 import React from 'react';
 import { ScreeningsHeader } from './ScreeningsHeader/ScreeningsHeader';
-import { ScreeningsCollapse } from './ScreeningsCollapse/ScreeningsCollapse';
+import { ScreeningsFriends } from './ScreeningsFriends/ScreeningsFriends';
 import { ScreeningsChart } from './ScreeningsChart/ScreeningsChart';
-import * as S from './ScreeningsCard.styles';
+import { DashboardCard } from '../DashboardCard/DashboardCard';
 
 export const ScreeningsCard: React.FC = () => {
   return (
-    <S.Card id="latest-screenings" title={<ScreeningsHeader />} padding={0}>
-      <ScreeningsCollapse />
+    <DashboardCard id="latest-screenings" title={<ScreeningsHeader />} padding={0}>
+      <ScreeningsFriends />
       <ScreeningsChart />
-    </S.Card>
+    </DashboardCard>
   );
 };

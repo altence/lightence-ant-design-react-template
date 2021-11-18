@@ -18,6 +18,7 @@ export const Card = styled(AntCard)<CardProps>`
 
     & .ant-card-head-title {
       white-space: unset;
+      overflow: unset;
     }
   }
 
