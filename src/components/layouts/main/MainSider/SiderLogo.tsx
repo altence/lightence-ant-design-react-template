@@ -12,7 +12,7 @@ export const SiderLogo: React.FC<SiderLogoProps> = ({ isSiderCollapsed, toggleSi
   const { tabletOnly } = useResponsive();
 
   return (
-    <>
+    <S.SiderLogoDiv>
       <S.SiderLogoLink to="/">
         <img src={logo} alt="Lightence" width={36} height={36} />
         <S.BrandSpan>Lightence</S.BrandSpan>
@@ -20,11 +20,10 @@ export const SiderLogo: React.FC<SiderLogoProps> = ({ isSiderCollapsed, toggleSi
       {tabletOnly && (
         <S.CollapseButton
           type="text"
-          block
           icon={<RightOutlined rotate={isSiderCollapsed ? 0 : 180} />}
           onClick={toggleSider}
         />
       )}
-    </>
+    </S.SiderLogoDiv>
   );
 };

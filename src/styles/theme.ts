@@ -10,6 +10,7 @@ export const mobileLayout = {
 export const desktopLayout = {
   paddingVertical: '1.25rem',
   paddingHorizontal: '1.5rem',
+  headerHeight: '6.125rem',
 };
 
 export const breakpoints = {

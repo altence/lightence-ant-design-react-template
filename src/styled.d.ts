@@ -65,6 +65,7 @@ declare module 'styled-components' {
     desktopLayout: {
       paddingVertical: string;
       paddingHorizontal: string;
+      headerHeight: string;
     };
     commonFontSizes: {
       xxs: string;

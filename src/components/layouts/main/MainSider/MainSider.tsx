@@ -18,7 +18,7 @@ const MainSider: React.FC<MainSiderProps> = ({ children, toggleSider, isCollapse
     <>
       <S.Sider
         trigger={null}
-        collapsed={!isCollapsible && isCollapsed}
+        collapsed={false}
         collapsedWidth={tabletOnly ? 60 : 0}
         collapsible={isCollapsible}
         width={260}
