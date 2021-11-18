@@ -12,6 +12,7 @@ import * as S from './NewsFilter.styles';
 interface NewsFilterProps {
   news: Post[];
   newsTags?: ITag[];
+  setHasMore: (hasMore: boolean) => void;
   children: ({ filteredNews }: { filteredNews: Post[] }) => ReactNode;
 }
 
@@ -121,7 +122,7 @@ const Filter: React.FC<Filter> = ({
   );
 };
 
-export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children }) => {
+export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, setHasMore, children }) => {
   const [author, setAuthor] = useState('');
   const [title, setTitle] = useState('');
   const [selectedTags, setSelectedTags] = useState<ITag[]>([]);
@@ -154,7 +155,7 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
 
   const filterNews = useCallback(() => {
     let updatedNews = [...news];
-    if (author || title || dates.length || selectedTags.length) {
+    if (author || title || dates[0] || selectedTags.length) {
       updatedNews = news.filter((post) => {
         const postAuthor = post.author.toLowerCase();
         const enteredAuthor = author.toLowerCase();
@@ -176,6 +177,7 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
             : true)
         );
       });
+      setHasMore(false);
     }
     setFilteredNews(
       updatedNews.sort((a, b) => {
