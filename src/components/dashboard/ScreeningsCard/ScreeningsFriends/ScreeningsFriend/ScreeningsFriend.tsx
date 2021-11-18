@@ -29,7 +29,7 @@ export const ScreeningsFriend: React.FC<ScreeningsFriendProps> = ({
   const { isTablet: isTabletOrHigher } = useResponsive();
 
   return (
-    <Row onClick={onClick} justify="space-between">
+    <S.ScreeningsRow onClick={onClick} justify="space-between" isActive={isPrimary || isSecondary}>
       <Col>
         <Row gutter={[10, 0]}>
           <Col>
@@ -54,6 +54,6 @@ export const ScreeningsFriend: React.FC<ScreeningsFriendProps> = ({
           </S.Percentage>
         </Col>
       )}
-    </Row>
+    </S.ScreeningsRow>
   );
 };

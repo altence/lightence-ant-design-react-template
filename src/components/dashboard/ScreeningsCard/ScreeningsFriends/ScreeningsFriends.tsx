@@ -5,8 +5,12 @@ import { Carousel } from 'components/common/Carousel/Carousel';
 import { DashboardCard } from 'components/dashboard/DashboardCard/DashboardCard';
 import { getScreenings, Screening } from 'api/screenings.api';
 import * as S from './ScreeningsFriends.styles';
+import { useResponsive } from 'hooks/useResponsive';
+import { Col, Row } from 'antd';
 
 export const ScreeningsFriends: React.FC = () => {
+  const { mobileOnly, isTablet } = useResponsive();
+
   const [screenings, setScreenings] = useState<Screening[]>([]);
   const [active, setActive] = useState({
     isPrimary: 1,
@@ -19,6 +23,7 @@ export const ScreeningsFriends: React.FC = () => {
   }, []);
 
   const handleClickItem = (mode: number) => () => {
+    console.log('click');
     setActive((prev) => {
       if (prev.isFirstClick && prev.isPrimary !== mode) {
         return {
@@ -54,7 +59,7 @@ export const ScreeningsFriends: React.FC = () => {
           onClick={handleClickItem(index)}
         />
       )),
-    [screenings],
+    [screenings, active],
   );
 
   const carouselItems = useMemo(
@@ -62,11 +67,25 @@ export const ScreeningsFriends: React.FC = () => {
     [screeningsItems],
   );
 
+  const colItems = useMemo(
+    () =>
+      screeningsItems.map((item, index) => (
+        <Col key={index} span={24}>
+          {item}
+        </Col>
+      )),
+    [screeningsItems],
+  );
+
   return (
     <S.Wrapper>
-      <Carousel spaceBetween={15} slidesPerView={5}>
-        {carouselItems}
-      </Carousel>
+      {mobileOnly && (
+        <Carousel spaceBetween={15} slidesPerView={5}>
+          {carouselItems}
+        </Carousel>
+      )}
+
+      {isTablet && <Row gutter={[0, 10]}>{colItems}</Row>}
     </S.Wrapper>
   );
 };

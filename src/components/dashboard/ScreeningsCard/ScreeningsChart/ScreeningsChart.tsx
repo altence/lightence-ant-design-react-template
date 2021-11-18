@@ -3,11 +3,14 @@ import { Chart } from 'components/common/Chart/Chart';
 import { getMarkAreaData } from 'utils/utils';
 import { ThemeContext } from 'styled-components';
 import { hexToRGB } from 'utils/utils';
+import { useResponsive } from 'hooks/useResponsive';
 
 const xAxisData = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
 export const ScreeningsChart: React.FC = () => {
   const theme = useContext(ThemeContext);
+
+  const { isTablet: isTabletOrHigher } = useResponsive();
 
   const option = {
     color: [hexToRGB(theme.colors.main.error, 1), hexToRGB(theme.colors.main.primary, 1)],
@@ -89,5 +92,5 @@ export const ScreeningsChart: React.FC = () => {
     ],
   };
 
-  return <Chart option={option} />;
+  return <Chart option={option} {...(isTabletOrHigher && { height: '100%' })} />;
 };

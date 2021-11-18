@@ -10,6 +10,8 @@ export const Card = styled(AntCard)<CardProps>`
   box-shadow: ${(props) => props.theme.boxShadow};
 
   & .ant-card-head {
+    border-bottom: 0;
+
     font-weight: ${(props) => props.theme.commonFontWeight.bold};
 
     @media only screen and ${(props) => props.theme.media.xl} {

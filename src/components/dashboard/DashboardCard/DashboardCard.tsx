@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardProps } from 'components/common/Card/Card';
 import { useResponsive } from 'hooks/useResponsive';
 
-const dashboardPaddings = {
+export const dashboardPaddings = {
   xs: '1.875rem 1rem 1.25rem 1rem',
   md: '1.875rem 1.25rem 1.25rem 1.25rem',
   xl: '1.875rem 1.25rem 1.625rem 1.25rem',
