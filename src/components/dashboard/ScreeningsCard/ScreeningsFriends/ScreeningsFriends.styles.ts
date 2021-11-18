@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Button, Typography, Avatar as AntAvatar } from 'antd';
 import theme from 'styles/theme';
+import { dashboardPaddings } from 'components/dashboard/DashboardCard/DashboardCard';
 
 export const Wrapper = styled.div`
   padding: 0.9375rem;
@@ -8,6 +9,12 @@ export const Wrapper = styled.div`
   background-color: ${(props) => props.theme.colors.main.mainBackground};
 
   box-shadow: ${(props) => props.theme.boxShadow};
+
+  @media only screen and ${(props) => props.theme.media.md} {
+    padding: 1.25rem;
+
+    margin: 0 ${dashboardPaddings.md.split(' ')[1]};
+  }
 `;
 
 // interface CollapseProps {

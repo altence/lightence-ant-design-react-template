@@ -1,6 +1,10 @@
-import { Typography, Avatar as AntAvatar } from 'antd';
+import { Typography, Avatar as AntAvatar, Row } from 'antd';
 import styled from 'styled-components';
 import { hexToRGB } from 'utils/utils';
+
+interface ScreeningsRowProps {
+  isActive: boolean;
+}
 
 interface PercentageProps {
   isDowngrade: boolean;
@@ -10,6 +14,14 @@ interface AvatarProps {
   isPrimary: boolean;
   isSecondary: boolean;
 }
+
+export const ScreeningsRow = styled(Row).withConfig({
+  shouldForwardProp: (prop) => !['isActive'].includes(prop),
+})<ScreeningsRowProps>`
+  transition: all 0.3s ease;
+
+  opacity: ${(props) => (props.isActive ? 1 : 0.5)};
+`;
 
 export const Avatar = styled(AntAvatar).withConfig({
   shouldForwardProp: (prop) => !['isPrimary', 'isSecondary'].includes(prop),
@@ -26,7 +38,9 @@ export const Name = styled(Typography.Text)`
   font-weight: ${(props) => props.theme.commonFontWeight.semibold};
 `;
 
-export const Percentage = styled(Typography.Text)<PercentageProps>`
+export const Percentage = styled(Typography.Text).withConfig({
+  shouldForwardProp: (prop) => !['isDowngrade'].includes(prop),
+})<PercentageProps>`
   font-size: ${(props) => props.theme.commonFontSizes.xs};
 
   color: ${(props) => (props.isDowngrade ? props.theme.colors.main.error : props.theme.colors.main.success)};

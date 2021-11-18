@@ -4,10 +4,13 @@ import { Col, Row } from 'antd';
 import { Dates } from 'constants/Dates';
 import { Option } from 'components/common/Select/Select';
 import * as S from './ScreeningsHeader.styles';
+import { useResponsive } from 'hooks/useResponsive';
 
 const statistics = ['Statistics 1', 'Statistics 2', 'Statistics 3'];
 
 export const ScreeningsHeader: React.FC = () => {
+  const { isTablet } = useResponsive();
+
   const { t } = useTranslation();
 
   const months = Dates.getMonths();
@@ -33,7 +36,7 @@ export const ScreeningsHeader: React.FC = () => {
   );
 
   return (
-    <Row gutter={[15, 15]} align="middle">
+    <Row gutter={isTablet ? [20, 20] : [15, 15]} align="middle">
       <Col xs={24}>{t('dashboard.latestScreenings.title')}</Col>
 
       <Col xs={12}>
