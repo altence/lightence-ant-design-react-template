@@ -3,6 +3,7 @@ import { Menu as AntMenu } from 'antd';
 import { MenuItemProps } from './interfaces';
 
 export const Menu = styled(AntMenu)`
+  //TODO Review these styles to smoother collapse - expand
   background: transparent;
   border-right: 0;
 

@@ -19,7 +19,9 @@ export const SiderLogo: React.FC<SiderLogoProps> = ({ isSiderCollapsed, toggleSi
       </S.SiderLogoLink>
       {tabletOnly && (
         <S.CollapseButton
-          type="text"
+          shape="circle"
+          size="small"
+          isCollapsed={isSiderCollapsed}
           icon={<RightOutlined rotate={isSiderCollapsed ? 0 : 180} />}
           onClick={toggleSider}
         />

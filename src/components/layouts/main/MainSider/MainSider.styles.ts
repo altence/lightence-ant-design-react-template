@@ -1,11 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Button, Layout } from 'antd';
 import { Link } from 'react-router-dom';
 
 export const Sider = styled(Layout.Sider)`
   position: fixed;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: visible;
   right: 0;
   z-index: 5;
   height: 100%;
@@ -24,22 +23,28 @@ export const Sider = styled(Layout.Sider)`
   }
 `;
 
-export const CollapseButton = styled(Button)`
-  @media only screen and ${(props) => props.theme.media.md} {
-    //position: absolute;
-    transition: all 0.3s ease;
-    //right: 0;
-    //top: 0;
-  }
+export const CollapseButton = styled(Button)<{ isCollapsed: boolean }>`
+  background: ${(props) => props.theme.colors.main.primary};
+  transition: all 0.2s ease;
+  position: absolute;
+  right: 0.5rem;
+
+  ${(props) =>
+    props.isCollapsed &&
+    css`
+      right: -1rem;
+    `}
 
   color: ${(props) => props.theme.colors.text.secondary};
 
   &:hover {
     color: ${(props) => props.theme.colors.text.secondary};
+    background: ${(props) => props.theme.colors.main.primary};
   }
 
   &:focus {
     color: ${(props) => props.theme.colors.text.secondary};
+    background: ${(props) => props.theme.colors.main.primary};
   }
 `;
 
@@ -52,9 +57,17 @@ export const SiderContent = styled.div`
 `;
 
 export const SiderLogoLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+`;
+
+export const SiderLogoDiv = styled.div`
   height: ${(props) => props.theme.mobileLayout.headerHeight};
   padding: ${(props) => props.theme.mobileLayout.headerPadding};
   display: flex;
+  justify-content: space-between;
   align-items: center;
 
   @media only screen and ${(props) => props.theme.media.md} {
@@ -62,11 +75,6 @@ export const SiderLogoLink = styled(Link)`
     padding-top: ${(props) => props.theme.desktopLayout.paddingVertical};
     padding-bottom: ${(props) => props.theme.desktopLayout.paddingVertical};
   }
-`;
-
-export const SiderLogoDiv = styled.div`
-  display: flex;
-  justify-content: space-between;
 `;
 
 export const BrandSpan = styled.span`
