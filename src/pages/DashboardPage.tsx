@@ -1,6 +1,5 @@
 import React from 'react';
 import { Col, Row } from 'antd';
-import { useTranslation } from 'react-i18next';
 import { MapCard } from '../components/dashboard/MapCard/MapCard';
 import { ScreeningsCard } from '../components/dashboard/ScreeningsCard/ScreeningsCard';
 import { ActivityCard } from '../components/dashboard/ActivityCard/ActivityCard';
@@ -16,8 +15,6 @@ import { useResponsive } from 'hooks/useResponsive';
 import { StatisticsCards } from 'components/dashboard/StatisticsCards/StatisticsCards';
 
 const DashboardPage: React.FC = () => {
-  const { t } = useTranslation();
-
   const { isTablet, isDesktop } = useResponsive();
 
   const desktopLayout = (
@@ -120,7 +117,6 @@ const DashboardPage: React.FC = () => {
 
   return (
     <>
-      <PageTitle>{t('common.dashboard')}</PageTitle>
       <Row justify="space-between" gutter={[10, 10]}>
         {isDesktop ? desktopLayout : mobileAndTabletLayout}
       </Row>
