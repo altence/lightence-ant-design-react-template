@@ -1,41 +1,42 @@
 import React from 'react';
-import SwiperCore, { Navigation, Swiper } from 'swiper';
-import 'swiper/swiper.less';
-import 'swiper/components/navigation/navigation.less';
-import * as S from './Carousel.styles';
-
-SwiperCore.use([Navigation]);
+import Slider, { ResponsiveObject } from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 interface CarouselProps {
-  spaceBetween?: number;
-  slidesPerView?: number;
-  navigation?: boolean;
-  onSlideChange?: (swiper: Swiper) => void;
-  breakpoints?: {
-    [key: number]: {
-      [key: string]: number;
-    };
-  };
-  children: React.ReactNode;
+  className?: string;
+  slidesToShow?: number;
+  arrows?: boolean;
+  dots?: boolean;
+  infinite?: boolean;
+  nextArrow?: JSX.Element;
+  prevArrow?: JSX.Element;
+  responsive?: ResponsiveObject[];
 }
 
 export const Carousel: React.FC<CarouselProps> = ({
-  spaceBetween = 24,
-  slidesPerView = 3,
-  breakpoints,
-  navigation = false,
-  onSlideChange,
+  className,
+  slidesToShow = 1,
+  arrows = false,
+  dots = false,
+  infinite = false,
+  nextArrow,
+  prevArrow,
+  responsive,
   children,
 }) => {
   return (
-    <S.Carousel
-      navigation={navigation}
-      spaceBetween={spaceBetween}
-      slidesPerView={slidesPerView}
-      breakpoints={breakpoints}
-      onSlideChange={onSlideChange}
+    <Slider
+      className={className}
+      slidesToShow={slidesToShow}
+      arrows={arrows}
+      dots={dots}
+      infinite={infinite}
+      nextArrow={nextArrow}
+      prevArrow={prevArrow}
+      responsive={responsive}
     >
       {children}
-    </S.Carousel>
+    </Slider>
   );
 };

@@ -1,9 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Col, Row } from 'antd';
-import { SwiperSlide } from 'swiper/react';
 import { useTranslation } from 'react-i18next';
+import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import { ScreeningsFriend } from './ScreeningsFriend/ScreeningsFriend';
-import { Carousel } from 'components/common/Carousel/Carousel';
 import { useResponsive } from 'hooks/useResponsive';
 import { getScreenings, Screening } from 'api/screenings.api';
 import * as S from './ScreeningsFriends.styles';
@@ -69,11 +68,6 @@ export const ScreeningsFriends: React.FC = () => {
     [screenings, active],
   );
 
-  const carouselItems = useMemo(
-    () => screeningsItems.map((item, index) => <SwiperSlide key={index}>{item}</SwiperSlide>),
-    [screeningsItems],
-  );
-
   const colItems = useMemo(
     () =>
       screeningsItems.map((item, index) => (
@@ -87,9 +81,14 @@ export const ScreeningsFriends: React.FC = () => {
   return (
     <S.Wrapper>
       {mobileOnly && (
-        <Carousel spaceBetween={15} slidesPerView={5}>
-          {carouselItems}
-        </Carousel>
+        <S.ScreeningsCarousel
+          arrows
+          prevArrow={<ArrowLeftOutlined />}
+          nextArrow={<ArrowRightOutlined />}
+          slidesToShow={5}
+        >
+          {screeningsItems}
+        </S.ScreeningsCarousel>
       )}
 
       {isTablet && (
@@ -104,81 +103,3 @@ export const ScreeningsFriends: React.FC = () => {
     </S.Wrapper>
   );
 };
-
-// <S.Wrapper isCollapsed={isCollapsed}>
-//   <S.HeaderWrapper isCollapsed={isCollapsed}>
-//     {!isCollapsed && <S.Text>{t('dashboard.latestScreenings.friends')}</S.Text>}
-//     <S.ArrowBtn type="text" onClick={() => setCollapsed(!isCollapsed)}>
-//       {isCollapsed ? <ArrowRightOutlined /> : <ArrowLeftOutlined />}
-//     </S.ArrowBtn>
-//   </S.HeaderWrapper>
-//   <S.List>
-//     {data.map((friend, index) => (
-//       <S.ListItem
-//         key={friend.id}
-//         isCollapsed={isCollapsed}
-//         isDowngrade={friend.isDowngrade}
-//         isFirstActive={activeItems.isSecondary === index}
-//         isSecondActive={activeItems.secondItem === index}
-//         onClick={handleClickItem(index)}
-//       >
-//         <S.Avatar src={friend.imgUrl} shape="square" />
-//         {!isCollapsed && (
-//           <>
-//             <S.Text>{friend.name}</S.Text>
-//             <S.Text>
-//               {friend.isDowngrade ? <CaretDownOutlined /> : <CaretUpOutlined />}
-//               {friend.value}%
-//             </S.Text>
-//           </>
-//         )}
-//       </S.ListItem>
-//     ))}
-//   </S.List>
-// </S.Wrapper>
-
-// interface Friend extends Doctor {
-//   isDowngrade: boolean;
-//   value: number;
-// }
-// interface ScreeningsItemState {
-//   firstItem: number;
-//   secondItem: number;
-//   isFirstClick: boolean;
-// }
-
-// const [isCollapsed, setCollapsed] = useState(true);
-
-// const { t } = useTranslation();
-
-// const [activeItems, setActiveItems] = useState<ScreeningsItemState>({
-//   firstItem: 1,
-//   secondItem: 4,
-//   isFirstClick: true,
-// });
-
-// const data = useMemo(() => {
-//   const result: Friend[] = [];
-
-//   doctorsData.every((el, index) => {
-//     if (index === 6) return false;
-
-//     if (index === 1 || index === 5) {
-//       result.push({
-//         ...el,
-//         isDowngrade: true,
-//         value: Math.floor(1 + Math.random() * 99),
-//       });
-//     } else {
-//       result.push({
-//         ...el,
-//         isDowngrade: false,
-//         value: Math.floor(1 + Math.random() * 99),
-//       });
-//     }
-
-//     return true;
-//   });
-
-//   return result;
-// }, [doctorsData]);
