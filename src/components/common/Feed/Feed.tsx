@@ -37,7 +37,6 @@ export const Feed: React.FC<FeedProps> = ({ cards, next, hasMore }) => {
             author={post.author}
             avatar={post.avatarUrl}
             tags={post.tags}
-            keywords
           />
         ))}
       </S.NewsWrapper>

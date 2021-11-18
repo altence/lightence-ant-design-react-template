@@ -98,6 +98,7 @@ export const Title = styled.div`
 
 export const ContentWrapper = styled.div`
   display: flex;
+  justify-content: center;
   margin-top: 1.875rem;
 `;
 
@@ -144,7 +145,7 @@ export const Btn = styled(Button)`
 `;
 
 export const NewsWrapper = styled.div`
-  max-width: 50rem;
+  max-width: 40rem;
 
   @media only screen and ${theme.media.xs} {
     width: 100%;
@@ -164,6 +165,8 @@ export const NewsWrapper = styled.div`
 `;
 
 export const FilterWrapper = styled.div`
+  position: sticky;
+  top: 1.25rem;
   padding: 1.25rem 1rem;
   display: flex;
   flex-direction: column;
@@ -173,6 +176,17 @@ export const FilterWrapper = styled.div`
   border-radius: ${(props) => props.theme.border.radius};
   height: min-content;
   filter: drop-shadow(0 4px 40px rgba(0, 0, 0, 0.07));
+  @media only screen and ${theme.media.xs} {
+    position: relative;
+  }
+
+  @media only screen and ${theme.media.md} {
+    position: sticky;
+  }
+
+  @media only screen and ${theme.media.xl} {
+    position: sticky;
+  }
 `;
 
 export const FilterTitle = styled.div`

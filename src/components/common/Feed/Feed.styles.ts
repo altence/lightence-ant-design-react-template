@@ -4,6 +4,7 @@ import theme from '../../../styles/theme';
 export const NewsWrapper = styled.div`
   display: flex;
   flex-direction: column;
+
   & > div {
     margin-bottom: 1.25rem;
 

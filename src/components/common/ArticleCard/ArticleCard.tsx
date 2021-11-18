@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { Dates } from '../../../constants/Dates';
 import { Avatar } from 'antd';
 import { Tag, ITag } from '../Tag/Tag';
@@ -7,7 +6,6 @@ import * as S from './ArticleCard.styles';
 
 interface ArticleCardProps {
   author?: React.ReactNode;
-  keywords?: boolean;
   imgUrl: string;
   title: string;
   date: number;
@@ -24,19 +22,11 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
   description,
   author,
   avatar,
-  keywords,
   tags,
   className = 'article-card',
 }) => {
-  const { t } = useTranslation();
-
   return (
     <S.Wrapper className={className}>
-      {keywords ? (
-        <S.Keywords placeholder={t('common.keywords')} />
-      ) : (
-        <S.BtnMore type="ghost">{t('common.moreDetails')}</S.BtnMore>
-      )}
       <S.Header>
         {!!avatar && <Avatar src={avatar} size={43} />}
         <S.AuthorWrapper>
