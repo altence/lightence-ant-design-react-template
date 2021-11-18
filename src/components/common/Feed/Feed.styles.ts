@@ -17,3 +17,10 @@ export const NewsWrapper = styled.div`
     }
   }
 `;
+
+export const SpinnerWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 1.5rem;
+`;

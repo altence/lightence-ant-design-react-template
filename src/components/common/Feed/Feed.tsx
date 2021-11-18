@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { ArticleCard } from '../ArticleCard/ArticleCard';
 import { ITag } from '../Tag/Tag';
+import { Spin } from 'antd';
 import * as S from './Feed.styles';
 
 interface FeedCard {
@@ -25,7 +26,16 @@ export const Feed: React.FC<FeedProps> = ({ cards, next, hasMore }) => {
   const { t } = useTranslation();
 
   return (
-    <InfiniteScroll dataLength={cards.length} next={next} hasMore={hasMore} loader={<h4>{t('common.loading')}</h4>}>
+    <InfiniteScroll
+      dataLength={cards.length}
+      next={next}
+      hasMore={hasMore}
+      loader={
+        <S.SpinnerWrapper>
+          <Spin size="large" />
+        </S.SpinnerWrapper>
+      }
+    >
       <S.NewsWrapper>
         {cards.map((post, index) => (
           <ArticleCard
