@@ -1,5 +1,4 @@
 import React from 'react';
-import { SwiperSlide } from 'swiper/react';
 import { useTranslation } from 'react-i18next';
 import { Card } from '../../../components/common/Card/Card';
 import { Carousel } from '../../common/Carousel/Carousel';
@@ -11,28 +10,16 @@ export const FavouritesDoctorsCard: React.FC = () => {
 
   return (
     <Card id="fav-doctors" title={t('dashboard.favoriteDoctors.title')}>
-      <Carousel
-        spaceBetween={10}
-        slidesPerView={3}
-        breakpoints={{
-          500: {
-            slidesPerView: 4,
-          },
-          768: {
-            slidesPerView: 5,
-          },
-        }}
-      >
+      <Carousel slidesToShow={3}>
         {doctorsData.map((doctor) => (
-          <SwiperSlide key={doctor.id}>
-            <DoctorCard
-              imgUrl={doctor.imgUrl}
-              name={doctor.name}
-              specifity={doctor.specifity}
-              rating={doctor.rating}
-              lastVisit={doctor.lastVisit}
-            />
-          </SwiperSlide>
+          <DoctorCard
+            key={doctor.id}
+            imgUrl={doctor.imgUrl}
+            name={doctor.name}
+            specifity={doctor.specifity}
+            rating={doctor.rating}
+            lastVisit={doctor.lastVisit}
+          />
         ))}
       </Carousel>
     </Card>

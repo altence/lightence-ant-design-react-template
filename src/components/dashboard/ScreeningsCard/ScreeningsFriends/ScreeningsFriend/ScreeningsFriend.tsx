@@ -26,14 +26,21 @@ export const ScreeningsFriend: React.FC<ScreeningsFriendProps> = ({
 }) => {
   const isDowngrade = value < prevValue;
 
-  const { isTablet: isTabletOrHigher } = useResponsive();
+  const { isTablet: isTabletOrHigher, mobileOnly } = useResponsive();
 
   return (
     <S.ScreeningsRow onClick={onClick} justify="space-between" isActive={isPrimary || isSecondary}>
       <Col>
-        <Row gutter={[10, 0]}>
+        <Row gutter={[10, 0]} align="middle">
           <Col>
-            <S.Avatar shape="square" src={src} alt="Friend avatar" isPrimary={isPrimary} isSecondary={isSecondary} />
+            <S.Avatar
+              {...(mobileOnly && { size: 'large' })}
+              shape="square"
+              src={src}
+              alt="Friend avatar"
+              isPrimary={isPrimary}
+              isSecondary={isSecondary}
+            />
           </Col>
 
           {isTabletOrHigher && (
