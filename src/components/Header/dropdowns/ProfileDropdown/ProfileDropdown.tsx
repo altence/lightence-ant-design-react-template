@@ -13,9 +13,15 @@ export const ProfileDropdown: React.FC = () => {
   const isTablet = useMediaQuery({ query: theme.media.md });
 
   useEffect(() => {
+    let cleanupFunc = false;
+
     getUser().then((res) => {
-      setUser(res);
+      !cleanupFunc && setUser(res);
     });
+
+    return () => {
+      cleanupFunc = true;
+    };
   }, []);
 
   return user ? (
