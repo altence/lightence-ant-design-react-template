@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 export const Sider = styled(Layout.Sider)`
   position: fixed;
   overflow-y: auto;
+  overflow-x: hidden;
   right: 0;
   z-index: 5;
   height: 100%;
@@ -25,9 +26,10 @@ export const Sider = styled(Layout.Sider)`
 
 export const CollapseButton = styled(Button)`
   @media only screen and ${(props) => props.theme.media.md} {
-    position: absolute;
+    //position: absolute;
     transition: all 0.3s ease;
-    right: 0;
+    //right: 0;
+    //top: 0;
   }
 
   color: ${(props) => props.theme.colors.text.secondary};
@@ -42,7 +44,11 @@ export const CollapseButton = styled(Button)`
 `;
 
 export const SiderContent = styled.div`
-  padding-top: 0.5rem; // TODO review this padding
+  padding-top: ${(props) => props.theme.mobileLayout.paddingVertical};
+
+  @media only screen and ${(props) => props.theme.media.md} {
+    padding-top: ${(props) => props.theme.desktopLayout.paddingVertical};
+  }
 `;
 
 export const SiderLogoLink = styled(Link)`
@@ -50,6 +56,17 @@ export const SiderLogoLink = styled(Link)`
   padding: ${(props) => props.theme.mobileLayout.headerPadding};
   display: flex;
   align-items: center;
+
+  @media only screen and ${(props) => props.theme.media.md} {
+    height: ${(props) => props.theme.desktopLayout.headerHeight};
+    padding-top: ${(props) => props.theme.desktopLayout.paddingVertical};
+    padding-bottom: ${(props) => props.theme.desktopLayout.paddingVertical};
+  }
+`;
+
+export const SiderLogoDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const BrandSpan = styled.span`

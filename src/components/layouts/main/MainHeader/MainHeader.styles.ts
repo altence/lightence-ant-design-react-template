@@ -8,6 +8,6 @@ export const Header = styled(Layout.Header)`
     padding: ${(props) =>
       `${props.theme.desktopLayout.paddingVertical} ${props.theme.desktopLayout.paddingHorizontal}`};
 
-    height: 6.25rem;
+    height: ${(props) => props.theme.desktopLayout.headerHeight};
   }
 `;
