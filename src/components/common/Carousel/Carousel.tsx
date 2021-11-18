@@ -2,13 +2,13 @@ import React from 'react';
 import SwiperCore, { Navigation, Swiper } from 'swiper';
 import 'swiper/swiper.less';
 import 'swiper/components/navigation/navigation.less';
-import * as S from './Slider.styles';
+import * as S from './Carousel.styles';
 
 SwiperCore.use([Navigation]);
 
-interface SliderProps {
-  spaceBetween: number;
-  slidesPerView: number;
+interface CarouselProps {
+  spaceBetween?: number;
+  slidesPerView?: number;
   navigation?: boolean;
   onSlideChange?: (swiper: Swiper) => void;
   breakpoints?: {
@@ -19,16 +19,16 @@ interface SliderProps {
   children: React.ReactNode;
 }
 
-export const Slider: React.FC<SliderProps> = ({
-  spaceBetween,
-  slidesPerView,
+export const Carousel: React.FC<CarouselProps> = ({
+  spaceBetween = 24,
+  slidesPerView = 3,
   breakpoints,
   navigation = false,
   onSlideChange,
   children,
 }) => {
   return (
-    <S.Slider
+    <S.Carousel
       navigation={navigation}
       spaceBetween={spaceBetween}
       slidesPerView={slidesPerView}
@@ -36,6 +36,6 @@ export const Slider: React.FC<SliderProps> = ({
       onSlideChange={onSlideChange}
     >
       {children}
-    </S.Slider>
+    </S.Carousel>
   );
 };
