@@ -1,15 +1,17 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { Col, Row } from 'antd';
 import { SwiperSlide } from 'swiper/react';
+import { useTranslation } from 'react-i18next';
 import { ScreeningsFriend } from './ScreeningsFriend/ScreeningsFriend';
 import { Carousel } from 'components/common/Carousel/Carousel';
-import { DashboardCard } from 'components/dashboard/DashboardCard/DashboardCard';
+import { useResponsive } from 'hooks/useResponsive';
 import { getScreenings, Screening } from 'api/screenings.api';
 import * as S from './ScreeningsFriends.styles';
-import { useResponsive } from 'hooks/useResponsive';
-import { Col, Row } from 'antd';
 
 export const ScreeningsFriends: React.FC = () => {
   const { mobileOnly, isTablet } = useResponsive();
+
+  const { t } = useTranslation();
 
   const [screenings, setScreenings] = useState<Screening[]>([]);
   const [active, setActive] = useState({
@@ -19,11 +21,16 @@ export const ScreeningsFriends: React.FC = () => {
   });
 
   useEffect(() => {
-    getScreenings().then((res) => setScreenings(res));
+    let cleanupFunc = false;
+
+    getScreenings().then((res) => !cleanupFunc && setScreenings(res));
+
+    return () => {
+      cleanupFunc = true;
+    };
   }, []);
 
   const handleClickItem = (mode: number) => () => {
-    console.log('click');
     setActive((prev) => {
       if (prev.isFirstClick && prev.isPrimary !== mode) {
         return {
@@ -85,7 +92,15 @@ export const ScreeningsFriends: React.FC = () => {
         </Carousel>
       )}
 
-      {isTablet && <Row gutter={[0, 10]}>{colItems}</Row>}
+      {isTablet && (
+        <Row gutter={[10, 10]}>
+          <Col span={24}>
+            <S.Title>{t('dashboard.latestScreenings.friends')}</S.Title>
+          </Col>
+
+          {colItems}
+        </Row>
+      )}
     </S.Wrapper>
   );
 };
