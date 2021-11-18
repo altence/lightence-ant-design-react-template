@@ -18,6 +18,7 @@ interface AvatarProps {
 export const ScreeningsRow = styled(Row).withConfig({
   shouldForwardProp: (prop) => !['isActive'].includes(prop),
 })<ScreeningsRowProps>`
+  cursor: pointer;
   transition: all 0.3s ease;
 
   opacity: ${(props) => (props.isActive ? 1 : 0.5)};
@@ -36,6 +37,10 @@ export const Name = styled(Typography.Text)`
   font-size: ${(props) => props.theme.commonFontSizes.xs};
 
   font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+
+  @media only screen and ${(props) => props.theme.media.xl} {
+    font-size: ${(props) => props.theme.commonFontSizes.md};
+  }
 `;
 
 export const Percentage = styled(Typography.Text).withConfig({
@@ -44,4 +49,8 @@ export const Percentage = styled(Typography.Text).withConfig({
   font-size: ${(props) => props.theme.commonFontSizes.xs};
 
   color: ${(props) => (props.isDowngrade ? props.theme.colors.main.error : props.theme.colors.main.success)};
+
+  @media only screen and ${(props) => props.theme.media.xl} {
+    font-size: ${(props) => props.theme.commonFontSizes.md};
+  }
 `;

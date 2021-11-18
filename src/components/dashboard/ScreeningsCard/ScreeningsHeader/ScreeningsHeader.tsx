@@ -36,19 +36,25 @@ export const ScreeningsHeader: React.FC = () => {
   );
 
   return (
-    <Row gutter={isTablet ? [20, 20] : [15, 15]} align="middle">
-      <Col xs={24}>{t('dashboard.latestScreenings.title')}</Col>
-
-      <Col xs={12}>
-        <S.ScreeningsSelect bordered={false} placeholder={t('dashboard.latestScreenings.month')}>
-          {monthsOptions}
-        </S.ScreeningsSelect>
+    <Row gutter={isTablet ? [0, 20] : [0, 15]} align="middle">
+      <Col xs={24} xl={16}>
+        {t('dashboard.latestScreenings.title')}
       </Col>
 
-      <Col xs={12}>
-        <S.ScreeningsSelect bordered={false} placeholder={t('dashboard.latestScreenings.statistics')}>
-          {statisticsOptions}
-        </S.ScreeningsSelect>
+      <Col xs={24} xl={8}>
+        <Row gutter={isTablet ? [20, 20] : [15, 15]}>
+          <Col xs={12}>
+            <S.ScreeningsSelect bordered={false} placeholder={t('dashboard.latestScreenings.month')}>
+              {monthsOptions}
+            </S.ScreeningsSelect>
+          </Col>
+
+          <Col xs={12}>
+            <S.ScreeningsSelect bordered={false} placeholder={t('dashboard.latestScreenings.statistics')}>
+              {statisticsOptions}
+            </S.ScreeningsSelect>
+          </Col>
+        </Row>
       </Col>
     </Row>
   );
