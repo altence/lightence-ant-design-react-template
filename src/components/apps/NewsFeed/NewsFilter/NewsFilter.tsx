@@ -153,8 +153,9 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
   }, [news.length, title, author, dates]);
 
   const filterNews = useCallback(() => {
+    let updatedNews = [...news];
     if (author || title || dates.length || selectedTags.length) {
-      const filteredNews = news.filter((post) => {
+      updatedNews = news.filter((post) => {
         const postAuthor = post.author.toLowerCase();
         const enteredAuthor = author.toLowerCase();
         const postTitle = post.title.toLowerCase();
@@ -175,10 +176,12 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
             : true)
         );
       });
-      setFilteredNews(filteredNews || []);
-    } else {
-      setFilteredNews(news);
     }
+    setFilteredNews(
+      updatedNews.sort((a, b) => {
+        return b.date - a.date;
+      }),
+    );
   }, [news, author, title, dates, selectedTags]);
 
   const handleClickReset = useCallback(() => {
