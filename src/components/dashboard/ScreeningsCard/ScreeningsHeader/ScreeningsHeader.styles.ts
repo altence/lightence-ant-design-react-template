@@ -1,14 +1,8 @@
+import { Select } from 'components/common/Select/Select';
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
+export const ScreeningsSelect = styled(Select)`
+  width: 100%;
 
-export const SelectsWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 55%;
+  font-weight: ${(props) => props.theme.commonFontWeight.medium};
 `;

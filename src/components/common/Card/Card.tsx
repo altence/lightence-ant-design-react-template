@@ -11,11 +11,11 @@ export interface CardProps extends AntCardProps {
 }
 
 export const Card: React.FC<CardProps> = ({ className, padding, children, ...props }) => {
-  const { isTablet, isDesktop, isBigScreen } = useResponsive();
+  const { isTablet, isDesktop } = useResponsive();
 
   return (
     <S.Card
-      size={(isBigScreen && 'default') || 'small'}
+      size={isTablet ? 'default' : 'small'}
       className={className}
       bordered={false}
       padding={

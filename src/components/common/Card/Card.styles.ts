@@ -10,7 +10,15 @@ export const Card = styled(AntCard)<CardProps>`
   box-shadow: ${(props) => props.theme.boxShadow};
 
   & .ant-card-head {
-    flex-shrink: 0;
+    font-weight: ${(props) => props.theme.commonFontWeight.bold};
+
+    @media only screen and ${(props) => props.theme.media.xl} {
+      font-size: ${(props) => props.theme.commonFontSizes.xxl};
+    }
+
+    & .ant-card-head-title {
+      white-space: unset;
+    }
   }
 
   & .ant-card-body {
