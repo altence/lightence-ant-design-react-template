@@ -15,7 +15,7 @@ const MainLayout: React.FC = () => {
   return (
     <S.LayoutMaster>
       <MainSider isCollapsed={siderCollapsed} toggleSider={toggleSider}>
-        <SiderContent toggleSider={toggleSider} />
+        <SiderContent />
       </MainSider>
       <S.LayoutMain>
         <MainHeader>
