@@ -3,18 +3,10 @@ import { Menu as AntMenu } from 'antd';
 import { MenuItemProps } from './interfaces';
 
 export const Menu = styled(AntMenu)`
-  //TODO Review these styles to smoother collapse - expand
   background: transparent;
   border-right: 0;
 
   color: ${(props) => props.theme.colors.text.secondary};
-
-  & .ant-menu-item,
-  & .ant-menu-title-content {
-    overflow: unset !important;
-    white-space: unset !important;
-    line-height: 1.515;
-  }
 
   & .ant-menu-submenu-expand-icon,
   .ant-menu-submenu-arrow,
