@@ -29,10 +29,6 @@ export const Menu = styled(AntMenu)`
     color: ${(props) => props.theme.colors.text.secondary};
   }
 
-  .ant-menu-submenu-title {
-    background-color: transparent;
-  }
-
   .ant-menu-submenu-selected {
     .ant-menu-submenu-title {
       background-color: ${(props) => props.theme.colors.main.primaryShade};
