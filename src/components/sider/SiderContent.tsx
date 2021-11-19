@@ -1,54 +1,30 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useLocation } from 'react-router-dom';
-import { SiderMenuLink } from './SiderMenuLink/SiderMenuLink';
+import { Link } from 'react-router-dom';
 import * as S from './SiderContent.styles';
 import { sidebarNavigation } from './sidebarNavigation';
+import { Menu } from 'antd';
 
-interface SiderContentProps {
-  toggleSider: () => void;
-}
-
-const SiderContent: React.FC<SiderContentProps> = ({ toggleSider }) => {
+const SiderContent: React.FC = () => {
   const { t } = useTranslation();
 
-  const location = useLocation();
-
-  const navigationMenu = useMemo(
-    () =>
-      sidebarNavigation.map((nav, index) =>
-        nav.children && nav.children.length > 0 ? (
-          <S.Submenu
-            key={index}
-            title={t(nav.title)}
-            icon={nav.icon}
-            isActive={nav.children.some((child) => child.url === location.pathname)}
-          >
-            {nav.children.map((childNav, index) => (
-              <SiderMenuLink
-                key={nav.title + index}
-                href={childNav.url || ''}
-                title={t(childNav.title)}
-                isActive={childNav.url === location.pathname}
-              />
-            ))}
-          </S.Submenu>
-        ) : (
-          <SiderMenuLink
-            key={index}
-            href={nav.url || ''}
-            title={t(nav.title)}
-            isActive={nav.url === location.pathname}
-            icon={nav.icon}
-          />
-        ),
-      ),
-    [location.pathname],
-  );
-
   return (
-    <S.Menu mode="inline" onClick={toggleSider} selectable={false}>
-      {navigationMenu}
+    <S.Menu mode="inline">
+      {sidebarNavigation.map((nav, index) =>
+        nav.children && nav.children.length > 0 ? (
+          <Menu.SubMenu key={index} title={t(nav.title)} icon={nav.icon}>
+            {nav.children.map((childNav, index) => (
+              <Menu.Item key={nav.title + index} title="">
+                <Link to={childNav.url || ''}>{t(childNav.title)}</Link>
+              </Menu.Item>
+            ))}
+          </Menu.SubMenu>
+        ) : (
+          <Menu.Item key={index} title="" icon={nav.icon}>
+            <Link to={nav.url || ''}>{t(nav.title)}</Link>
+          </Menu.Item>
+        ),
+      )}
     </S.Menu>
   );
 };
