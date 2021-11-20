@@ -145,7 +145,7 @@ export const Btn = styled(Button)`
 `;
 
 export const NewsWrapper = styled.div`
-  max-width: 40rem;
+  max-width: 35rem;
 
   @media only screen and ${theme.media.xs} {
     width: 100%;
