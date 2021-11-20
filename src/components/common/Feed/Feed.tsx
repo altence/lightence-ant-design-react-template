@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { ArticleCard } from '../ArticleCard/ArticleCard';
 import { ITag } from '../Tag/Tag';
@@ -23,8 +22,6 @@ export interface FeedProps {
 }
 
 export const Feed: React.FC<FeedProps> = ({ cards, next, hasMore }) => {
-  const { t } = useTranslation();
-
   return (
     <InfiniteScroll
       dataLength={cards.length}
