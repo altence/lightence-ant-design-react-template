@@ -189,6 +189,11 @@
     "sendInstructions": "DE!!!Send instructions",
     "successReset": "DE!!!We've sent to your email address the reset link"
   },
+  "verifyEmail": {
+    "title": "DE!!!Check your mail",
+    "description": "DE!!!We have sent a verification code to your email",
+    "noCode": "DE!!!Didn’t get a verification code?"
+  },
   "profile": {
     "title": "DE!!!Profile",
     "fullness": "DE!!!fullness of your profile",

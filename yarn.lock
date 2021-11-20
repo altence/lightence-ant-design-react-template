@@ -10894,6 +10894,11 @@ react-trello@^2.2.11:
     trello-smooth-dnd "1.0.0"
     uuid "^3.3.2"
 
+react-verification-input@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/react-verification-input/-/react-verification-input-2.0.3.tgz#ed6d7e53f8fd4d36843bc5e0796f646fea38c8c5"
+  integrity sha512-UYKQILny6kM77IaCpJQ750F+wYBbgekBWNXynv2LpSCS5IrwQtCPnEctG6P04ULvP3xLx8cFyh8wZt0lAcmkAA==
+
 "react@>= 16.3", react@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
