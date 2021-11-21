@@ -1,12 +1,6 @@
 import styled from 'styled-components';
 import { Button } from 'antd';
-import { LeftOutlined } from '@ant-design/icons';
 import theme from 'styles/theme';
-
-export const BackIcon = styled(LeftOutlined)`
-  font-size: 0.75rem;
-  margin-right: 0.75rem;
-`;
 
 export const ResetPasswordDescription = styled.div`
   margin-bottom: 1.875rem;
@@ -33,13 +27,4 @@ export const SubmitButton = styled(Button)`
   width: 100%;
   margin-top: 1.125rem;
   margin-bottom: 1rem;
-`;
-
-export const BackWrapper = styled.div`
-  font-size: ${(props) => props.theme.commonFontSizes.md};
-  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  margin-bottom: 1.25rem;
 `;

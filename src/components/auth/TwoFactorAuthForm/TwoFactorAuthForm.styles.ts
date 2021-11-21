@@ -24,6 +24,25 @@ export const VerifyEmailDescription = styled.div`
   }
 `;
 
+export const EnterCodeText = styled.div`
+  margin-bottom: 1rem;
+  color: ${(props) => props.theme.colors.text.main};
+  font-size: ${(props) => props.theme.commonFontSizes.lg};
+  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+
+  @media only screen and ${theme.media.xs} {
+    font-weight: ${(props) => props.theme.commonFontWeight.bold};
+  }
+
+  @media only screen and ${theme.media.md} {
+    font-weight: ${(props) => props.theme.commonFontWeight.bold};
+  }
+
+  @media only screen and ${theme.media.xl} {
+    font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+  }
+`;
+
 export const NoCodeText = styled.div`
   margin-top: 1rem;
   color: ${(props) => props.theme.colors.main.primary};

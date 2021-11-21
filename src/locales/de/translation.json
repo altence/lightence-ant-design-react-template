@@ -17,6 +17,7 @@
     "securityCode": "DE!!!Security Code",
     "forgotPasswordPage": "DE!!!Forgot password page",
     "verifyEmailPage": "DE!!!Verify email page",
+    "twoFactorAuthPage": "DE!!!Two-Factor auth page",
     "payment": "DE!!!Payment",
     "login": "DE!!!Log In",
     "signUp": "DE!!!Sign Up",
@@ -208,6 +209,12 @@
   "verifyEmail": {
     "title": "DE!!!Check your mail",
     "description": "DE!!!We have sent a verification code to your email",
+    "noCode": "DE!!!Didn’t get a verification code?"
+  },
+  "twoFactorAuth": {
+    "title": "DE!!!Two-factor authentication",
+    "description": "DE!!!We have sent a verification code to your email",
+    "enterCode": "DE!!!Enter the code to continue",
     "noCode": "DE!!!Didn’t get a verification code?"
   },
   "profile": {
