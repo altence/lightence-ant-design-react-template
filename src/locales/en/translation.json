@@ -17,6 +17,7 @@
     "securityCode": "Security Code",
     "forgotPasswordPage": "Forgot password page",
     "verifyEmailPage": "Verify email page",
+    "twoFactorAuthPage": "Two-Factor auth page",
     "payment": "Payment",
     "login": "Log In",
     "signUp": "Sign Up",
@@ -208,6 +209,12 @@
   "verifyEmail": {
     "title": "Check your mail",
     "description": "We have sent a verification code to your email",
+    "noCode": "Didn’t get a verification code?"
+  },
+  "twoFactorAuth": {
+    "title": "Two-factor authentication",
+    "description": "We have sent a verification code to your email",
+    "enterCode": "Enter the code to continue",
     "noCode": "Didn’t get a verification code?"
   },
   "profile": {

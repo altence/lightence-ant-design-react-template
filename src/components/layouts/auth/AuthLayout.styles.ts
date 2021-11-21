@@ -5,6 +5,7 @@ import theme from 'styles/theme';
 import { hexToRGB } from 'utils/utils';
 import { Input as CommonInput } from 'components/common/inputs/Input/Input';
 import { InputPassword as CommonInputPassword } from 'components/common/inputs/InputPassword/InputPassword';
+import { LeftOutlined } from '@ant-design/icons';
 
 export const Wrapper = styled.div`
   font-family: Poppins, sans-serif;
@@ -178,4 +179,18 @@ export const SubmitButton = styled(Button)`
 export const FooterWrapper = styled.div`
   margin-top: 1.25rem;
   text-align: center;
+`;
+
+export const BackIcon = styled(LeftOutlined)`
+  font-size: 0.75rem;
+  margin-right: 0.75rem;
+`;
+
+export const BackWrapper = styled.div`
+  font-size: ${(props) => props.theme.commonFontSizes.md};
+  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 1.25rem;
 `;
