@@ -3,14 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Form, notification } from 'antd';
 import { useTranslation } from 'react-i18next';
 import * as S from './ForgotPasswordForm.styles';
-import {
-  FormWrapper,
-  FormTitle,
-  FormItem,
-  FormInput,
-  BackWrapper,
-  BackIcon,
-} from 'components/layouts/auth/AuthLayout.styles';
+import * as Auth from 'components/layouts/auth/AuthLayout.styles';
 
 export const ForgotPasswordForm: React.FC = () => {
   const { t } = useTranslation();
@@ -29,23 +22,27 @@ export const ForgotPasswordForm: React.FC = () => {
   };
 
   return (
-    <FormWrapper>
+    <Auth.FormWrapper>
       <Form layout="vertical" onFinish={handleSubmit} requiredMark="optional">
-        <BackWrapper onClick={() => history.goBack()}>
-          <BackIcon />
+        <Auth.BackWrapper onClick={() => history.goBack()}>
+          <Auth.BackIcon />
           {t('common.back')}
-        </BackWrapper>
-        <FormTitle>{t('forgotPassword.title')}</FormTitle>
+        </Auth.BackWrapper>
+        <Auth.FormTitle>{t('forgotPassword.title')}</Auth.FormTitle>
         <S.ResetPasswordDescription>{t('forgotPassword.description')}</S.ResetPasswordDescription>
-        <FormItem name="email" label={t('common.email')} rules={[{ required: true, message: t('common.emailError') }]}>
-          <FormInput placeholder={t('common.email')} />
-        </FormItem>
+        <Auth.FormItem
+          name="email"
+          label={t('common.email')}
+          rules={[{ required: true, message: t('common.emailError') }]}
+        >
+          <Auth.FormInput placeholder={t('common.email')} />
+        </Auth.FormItem>
         <Form.Item noStyle>
           <S.SubmitButton type="primary" htmlType="submit">
             {t('forgotPassword.sendInstructions')}
           </S.SubmitButton>
         </Form.Item>
       </Form>
-    </FormWrapper>
+    </Auth.FormWrapper>
   );
 };
