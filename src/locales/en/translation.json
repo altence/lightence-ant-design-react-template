@@ -18,6 +18,8 @@
     "forgotPasswordPage": "Forgot password page",
     "verifyEmailPage": "Verify email page",
     "twoFactorAuthPage": "Two-Factor auth page",
+    "newPasswordPage": "New password page",
+    "inputCode": "Input 6 digit code",
     "payment": "Payment",
     "login": "Log In",
     "signUp": "Sign Up",
@@ -216,6 +218,12 @@
     "description": "We have sent a verification code to your email",
     "enterCode": "Enter the code to continue",
     "noCode": "Didn’t get a verification code?"
+  },
+  "newPassword": {
+    "title": "Create new password",
+    "description": "Your new password must be different from previous password",
+    "resetPassword": "Reset password",
+    "successReset": "Password successfully reset"
   },
   "profile": {
     "title": "Profile",
