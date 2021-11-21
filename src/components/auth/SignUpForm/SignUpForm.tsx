@@ -4,7 +4,18 @@ import { Form } from 'antd';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import * as S from './SignUpForm.styles';
-import { FormWrapper } from 'components/layouts/auth/AuthLayout.styles';
+import {
+  FormWrapper,
+  FormCheckbox,
+  FormItem,
+  FormInput,
+  FormInputPassword,
+  Text,
+  LinkText,
+  ActionsWrapper,
+  SubmitButton,
+  FooterWrapper,
+} from 'components/layouts/auth/AuthLayout.styles';
 
 export const SignUpForm: React.FC = () => {
   const history = useHistory();
@@ -21,35 +32,31 @@ export const SignUpForm: React.FC = () => {
     <FormWrapper>
       <Form layout="vertical" onFinish={handleSubmit} requiredMark="optional">
         <S.Title>{t('common.signUp')}</S.Title>
-        <S.FormItem
+        <FormItem
           name="firstName"
           label={t('common.firstName')}
           rules={[{ required: true, message: t('common.firstNameError') }]}
         >
-          <S.Input placeholder={t('common.firstName')} />
-        </S.FormItem>
-        <S.FormItem
+          <FormInput placeholder={t('common.firstName')} />
+        </FormItem>
+        <FormItem
           name="lastName"
           label={t('common.lastName')}
           rules={[{ required: true, message: t('common.lastNameError') }]}
         >
-          <S.Input placeholder={t('common.lastName')} />
-        </S.FormItem>
-        <S.FormItem
-          name="email"
-          label={t('common.email')}
-          rules={[{ required: true, message: t('common.emailError') }]}
-        >
-          <S.Input placeholder={t('common.email')} />
-        </S.FormItem>
-        <S.FormItem
+          <FormInput placeholder={t('common.lastName')} />
+        </FormItem>
+        <FormItem name="email" label={t('common.email')} rules={[{ required: true, message: t('common.emailError') }]}>
+          <FormInput placeholder={t('common.email')} />
+        </FormItem>
+        <FormItem
           label={t('common.password')}
           name="password"
           rules={[{ required: true, message: t('common.passwordError') }]}
         >
-          <S.InputPassword placeholder={t('common.password')} />
-        </S.FormItem>
-        <S.FormItem
+          <FormInputPassword placeholder={t('common.password')} />
+        </FormItem>
+        <FormItem
           label={t('common.confirmPassword')}
           name="confirmPassword"
           dependencies={['password']}
@@ -65,31 +72,31 @@ export const SignUpForm: React.FC = () => {
             }),
           ]}
         >
-          <S.InputPassword placeholder={t('common.confirmPassword')} />
-        </S.FormItem>
-        <S.ActionsWrapper>
+          <FormInputPassword placeholder={t('common.confirmPassword')} />
+        </FormItem>
+        <ActionsWrapper>
           <Form.Item name="rememberMe" valuePropName="checked" noStyle>
-            <S.CheckBox>
-              <S.Text>
-                {t('signup.agree')} <S.LinkText>{t('signup.termOfUse')}</S.LinkText> and{' '}
-                <S.LinkText>{t('signup.privacyOPolicy')}</S.LinkText>
-              </S.Text>
-            </S.CheckBox>
+            <FormCheckbox>
+              <Text>
+                {t('signup.agree')} <LinkText>{t('signup.termOfUse')}</LinkText> and{' '}
+                <LinkText>{t('signup.privacyOPolicy')}</LinkText>
+              </Text>
+            </FormCheckbox>
           </Form.Item>
-        </S.ActionsWrapper>
+        </ActionsWrapper>
         <Form.Item noStyle>
-          <S.SubmitButton type="primary" htmlType="submit">
+          <SubmitButton type="primary" htmlType="submit">
             {t('common.signUp')}
-          </S.SubmitButton>
+          </SubmitButton>
         </Form.Item>
-        <S.SignupWrapper>
-          <S.Text>
+        <FooterWrapper>
+          <Text>
             {t('signup.alreadyHaveAccount')}{' '}
             <Link to="/login">
-              <S.LinkText>{t('signup.loginLink')}</S.LinkText>
+              <LinkText>{t('signup.loginLink')}</LinkText>
             </Link>
-          </S.Text>
-        </S.SignupWrapper>
+          </Text>
+        </FooterWrapper>
       </Form>
     </FormWrapper>
   );

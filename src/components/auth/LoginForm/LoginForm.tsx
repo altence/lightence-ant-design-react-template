@@ -4,7 +4,19 @@ import { Form } from 'antd';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import * as S from './LoginForm.styles';
-import { FormWrapper, FormTitle } from 'components/layouts/auth/AuthLayout.styles';
+import {
+  FormWrapper,
+  FormTitle,
+  FormCheckbox,
+  FormItem,
+  FormInput,
+  FormInputPassword,
+  ActionsWrapper,
+  Text,
+  LinkText,
+  SubmitButton,
+  FooterWrapper,
+} from 'components/layouts/auth/AuthLayout.styles';
 
 export const LoginForm: React.FC = () => {
   const navigate = useNavigate();
@@ -22,43 +34,39 @@ export const LoginForm: React.FC = () => {
       <Form layout="vertical" onFinish={handleSubmit} requiredMark="optional">
         <FormTitle>{t('common.login')}</FormTitle>
         <S.LoginDescription>{t('login.loginInfo')}</S.LoginDescription>
-        <S.FormItem
-          name="email"
-          label={t('common.email')}
-          rules={[{ required: true, message: t('common.emailError') }]}
-        >
-          <S.Input placeholder={t('common.email')} />
-        </S.FormItem>
-        <S.FormItem
+        <FormItem name="email" label={t('common.email')} rules={[{ required: true, message: t('common.emailError') }]}>
+          <FormInput placeholder={t('common.email')} />
+        </FormItem>
+        <FormItem
           label={t('common.password')}
           name="password"
           rules={[{ required: true, message: t('common.passwordError') }]}
         >
-          <S.InputPassword placeholder={t('common.password')} />
-        </S.FormItem>
-        <S.ActionsWrapper>
+          <FormInputPassword placeholder={t('common.password')} />
+        </FormItem>
+        <ActionsWrapper>
           <Form.Item name="rememberMe" valuePropName="checked" noStyle>
-            <S.CheckBox>
+            <FormCheckbox>
               <S.RememberMeText>{t('login.rememberMe')}</S.RememberMeText>
-            </S.CheckBox>
+            </FormCheckbox>
           </Form.Item>
           <Link to="/forgot-password">
             <S.ForgotPasswordText>{t('login.forgotPassword')}</S.ForgotPasswordText>
           </Link>
-        </S.ActionsWrapper>
+        </ActionsWrapper>
         <Form.Item noStyle>
-          <S.SubmitButton type="primary" htmlType="submit">
+          <SubmitButton type="primary" htmlType="submit">
             {t('common.login')}
-          </S.SubmitButton>
+          </SubmitButton>
         </Form.Item>
-        <S.SignupWrapper>
-          <S.Text>
+        <FooterWrapper>
+          <Text>
             {t('login.noAccount')}{' '}
             <Link to="/signup">
-              <S.SignupText>{t('login.signupLink')}</S.SignupText>
+              <LinkText>{t('login.signupLink')}</LinkText>
             </Link>
-          </S.Text>
-        </S.SignupWrapper>
+          </Text>
+        </FooterWrapper>
       </Form>
     </FormWrapper>
   );
