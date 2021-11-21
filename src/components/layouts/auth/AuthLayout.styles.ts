@@ -129,6 +129,10 @@ export const FormItem = styled(Form.Item)`
     font-size: ${(props) => props.theme.commonFontSizes.xs};
     line-height: 1.25rem;
   }
+
+  &.ant-form-item-has-feedback .ant-input-affix-wrapper .ant-input-suffix {
+    padding-right: 24px;
+  }
 `;
 
 export const FormInput = styled(CommonInput)`
