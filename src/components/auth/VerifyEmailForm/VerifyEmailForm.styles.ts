@@ -12,7 +12,6 @@ export const BackIcon = styled(LeftOutlined)`
 `;
 
 export const BackWrapper = styled.div`
-  margin-top: 1rem;
   font-size: ${(props) => props.theme.commonFontSizes.md};
   font-weight: ${(props) => props.theme.commonFontWeight.semibold};
   display: flex;
