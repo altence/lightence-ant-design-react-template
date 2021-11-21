@@ -41,6 +41,12 @@
     "emailError": "Please input users name or delete this field",
     "password": "Password",
     "passwordError": "Wrong login or password",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordError": "The two passwords that you entered do not match!",
+    "firstName": "First Name",
+    "firstNameError": "Please input first name",
+    "lastName": "Last Name",
+    "lastNameError": "Please input last name",
     "requiredField": "This field is required!",
     "back": "Back",
     "copy": "Copy",
@@ -182,6 +188,14 @@
     "noAccount": "Don’t have an account? Create one",
     "signupLink": "here",
     "loginInfo": "Enter your email address and password to access admin panel"
+  },
+  "signup": {
+    "loginLink": "here",
+    "agree": "I agree to the",
+    "termOfUse": "Terms of Use",
+    "and": "and",
+    "privacyOPolicy": "Privacy Policy",
+    "alreadyHaveAccount": "Already have an account? Log in"
   },
   "forgotPassword": {
     "title": "Reset password",
