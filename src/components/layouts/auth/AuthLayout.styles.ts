@@ -119,8 +119,7 @@ export const FormItem = styled(Form.Item)`
   & .ant-form-item-explain {
     position: absolute;
     font-size: 0.68rem;
-    top: 110%;
-
+    top: 105%;
     color: ${(props) => props.theme.colors.main.error};
   }
 
