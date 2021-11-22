@@ -1,4 +1,5 @@
 import { DefaultTheme } from 'styled-components';
+import { graphic } from 'echarts';
 
 export const mobileLayout = {
   paddingVertical: '0.75rem',
@@ -80,6 +81,16 @@ const colors = {
       'conic-gradient(from -35.18deg at 50% 50%, #006CCF -154.36deg, #FF5252 24.13deg, #FFB155 118.76deg, #006CCF 205.64deg, #FF5252 384.13deg)',
     mainBackground: commonColors.white,
     secondaryBackground: '#F4F4F4',
+    chartPrimaryGradient: new graphic.LinearGradient(0, 0, 0, 1, [
+      {
+        offset: 0,
+        color: 'rgba(0, 110, 211, 0.95)',
+      },
+      {
+        offset: 1,
+        color: 'rgba(193, 225, 255, 0.2)',
+      },
+    ]),
   },
   text: {
     main: '#404040',

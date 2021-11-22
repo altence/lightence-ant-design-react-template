@@ -5,18 +5,20 @@ import { Dates } from '../../../../constants/Dates';
 import { useResponsive } from 'hooks/useResponsive';
 
 export const ActivityChart: React.FC = () => {
-  const themeContext = useContext(ThemeContext);
+  const theme = useContext(ThemeContext);
 
   const days = Dates.getDays();
 
   const { isTablet, isDesktop, isBigScreen } = useResponsive();
 
   const option = {
+    color: theme.colors.main.chartPrimaryGradient,
     grid: {
-      top: (isDesktop && 40) || 30,
-      right: (isDesktop && 20) || 10,
-      bottom: (isDesktop && 20) || 10,
-      left: (isDesktop && 40) || (isTablet && 35) || 30,
+      top: 10,
+      right: 10,
+      bottom: 10,
+      left: 10,
+      containLabel: true,
     },
     xAxis: {
       type: 'category',
@@ -29,29 +31,29 @@ export const ActivityChart: React.FC = () => {
       data: days,
       position: 'top',
       axisLabel: {
-        color: themeContext.colors.main.primary,
+        color: theme.colors.main.primary,
         fontWeight: 500,
-        fontSize: (isBigScreen && 14) || (isDesktop && 12) || 10,
+        fontSize: 14,
       },
     },
     yAxis: {
       type: 'value',
       min: 0,
-      max: 110,
+      max: 80,
       interval: 10,
       axisLabel: {
-        color: themeContext.colors.text.light,
+        color: theme.colors.text.light,
         fontWeight: 500,
-        fontSize: (isDesktop && 12) || 10,
+        fontSize: 14,
       },
     },
     series: [
       {
-        barMaxWidth: (isBigScreen && 30) || (isTablet && 21) || 26,
-        data: [52, 58, 63, 78, 71, 68, 91],
+        barMaxWidth: 26,
+        data: [41, 45, 52, 63, 58, 55, 71],
         type: 'bar',
         itemStyle: {
-          borderRadius: (isDesktop && 7) || 5,
+          borderRadius: 7,
         },
       },
     ],
@@ -60,5 +62,5 @@ export const ActivityChart: React.FC = () => {
     },
   };
 
-  return <Chart option={option} height={isDesktop && '100%'} />;
+  return <Chart option={option} />;
 };

@@ -1,3 +1,4 @@
+import { LinearGradientObject } from 'echarts';
 import 'styled-components';
 
 declare module 'styled-components' {
@@ -28,6 +29,7 @@ declare module 'styled-components' {
         angularGradient: string;
         mainBackground: string;
         secondaryBackground: string;
+        chartPrimaryGradient: any;
       };
       text: {
         main: string;

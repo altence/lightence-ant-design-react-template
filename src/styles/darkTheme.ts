@@ -1,4 +1,5 @@
 import theme from './theme';
+import { graphic } from 'echarts';
 
 const darkColors = {
   main: {
@@ -13,6 +14,16 @@ const darkColors = {
       'conic-gradient(from -35.18deg at 50% 50%, #006CCF -154.36deg, #FF5252 24.13deg, #FFB155 118.76deg, #006CCF 205.64deg, #FF5252 384.13deg)',
     mainBackground: '#000000',
     secondaryBackground: '#F4F4F4',
+    chartPrimaryGradient: new graphic.LinearGradient(0, 0, 0, 1, [
+      {
+        offset: 0,
+        color: 'rgba(0, 0, 0, 0.95)',
+      },
+      {
+        offset: 1,
+        color: 'rgba(193, 225, 255, 0.2)',
+      },
+    ]),
   },
   text: {
     main: '#404040',
