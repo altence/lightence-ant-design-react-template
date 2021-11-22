@@ -3,21 +3,24 @@ import { ThemeContext } from 'styled-components';
 import { Chart } from '../../../common/Chart/Chart';
 import { Dates } from '../../../../constants/Dates';
 import { useResponsive } from 'hooks/useResponsive';
+import { dashboardPaddings } from 'components/dashboard/DashboardCard/DashboardCard';
 
 export const ActivityChart: React.FC = () => {
   const theme = useContext(ThemeContext);
 
   const days = Dates.getDays();
 
-  const { isTablet, isDesktop, isBigScreen } = useResponsive();
+  const { isTablet, isDesktop, isMobile } = useResponsive();
+
+  const size = isDesktop ? 'xl' : isTablet ? 'md' : isMobile ? 'xs' : 'xs';
 
   const option = {
     color: theme.colors.main.chartPrimaryGradient,
     grid: {
-      top: 10,
-      right: 10,
-      bottom: 10,
-      left: 10,
+      top: dashboardPaddings[size][0],
+      right: dashboardPaddings[size][1],
+      bottom: dashboardPaddings[size][1],
+      left: dashboardPaddings[size][0],
       containLabel: true,
     },
     xAxis: {
@@ -62,5 +65,5 @@ export const ActivityChart: React.FC = () => {
     },
   };
 
-  return <Chart option={option} />;
+  return <Chart option={option} {...(isTablet && { height: '100%' })} />;
 };

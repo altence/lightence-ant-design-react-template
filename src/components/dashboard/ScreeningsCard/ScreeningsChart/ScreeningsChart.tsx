@@ -23,7 +23,7 @@ export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, sec
   const { isTablet: isTabletOrHigher } = useResponsive();
 
   const option = {
-    color: [theme.colors.main.primary, theme.colors.main.error],
+    color: [theme.colors.main.chartPrimaryGradient, theme.colors.main.chartSecondaryGradient],
     tooltip: {
       trigger: 'axis',
       axisPointer: {
@@ -63,7 +63,7 @@ export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, sec
           color: theme.colors.main.primary,
         },
         areaStyle: {
-          opacity: 0.2,
+          opacity: 1,
         },
         emphasis: {
           focus: 'series',
@@ -86,7 +86,7 @@ export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, sec
         },
         showSymbol: false,
         areaStyle: {
-          opacity: 0.2,
+          opacity: 1,
         },
         emphasis: {
           focus: 'series',
