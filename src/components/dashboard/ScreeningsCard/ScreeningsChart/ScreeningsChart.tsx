@@ -13,7 +13,7 @@ export const ScreeningsChart: React.FC = () => {
   const { isTablet: isTabletOrHigher } = useResponsive();
 
   const option = {
-    color: [hexToRGB(theme.colors.main.error, 1), hexToRGB(theme.colors.main.primary, 1)],
+    color: [theme.colors.main.error, theme.colors.main.primary],
     tooltip: {
       trigger: 'axis',
       axisPointer: {
