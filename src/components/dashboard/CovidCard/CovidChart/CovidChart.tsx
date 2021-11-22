@@ -55,5 +55,5 @@ export const CovidChart: React.FC = () => {
     },
   };
 
-  return <Chart option={option} height={isTablet && '100%'} />;
+  return <Chart option={option} {...(isTablet && { height: '100%' })} />;
 };

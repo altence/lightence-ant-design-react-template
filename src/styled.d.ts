@@ -29,7 +29,8 @@ declare module 'styled-components' {
         angularGradient: string;
         mainBackground: string;
         secondaryBackground: string;
-        chartPrimaryGradient: any;
+        chartPrimaryGradient: LinearGradientObject;
+        chartSecondaryGradient: LinearGradientObject;
       };
       text: {
         main: string;

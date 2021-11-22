@@ -85,5 +85,5 @@ export const HealthChart: React.FC = () => {
     ],
   };
 
-  return <Chart option={option} height={isMobile && !isBigScreen && 250} />;
+  return <Chart option={option} {...(!isBigScreen && { height: 250 })} />;
 };

@@ -3,7 +3,7 @@ import ReactECharts from 'echarts-for-react';
 
 export interface ChartProps {
   width?: string | number;
-  height?: string | number | false;
+  height?: string | number;
 }
 
 export const Chart = styled(ReactECharts)<ChartProps>`
