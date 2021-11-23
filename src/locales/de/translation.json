@@ -341,5 +341,8 @@
     "email": "DE!!!Email",
     "union": "DE!!!Union Ads",
     "video": "DE!!!Video Ads"
+  },
+  "tables": {
+    "tables": "DE!!!Tables"
   }
 }
