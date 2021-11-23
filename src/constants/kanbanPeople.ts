@@ -1,12 +1,15 @@
+import avatar1 from 'assets/avatars/avatar1.png';
+import avatar2 from 'assets/avatars/avatar2.png';
+
 export const kanbanPeople = {
   anna: {
-    id: 'Anna',
-    name: 'Anna',
-    avatar: '',
+    id: 'Sasha',
+    name: 'Sasha',
+    avatar: avatar1,
   },
   pavel: {
     id: 'Pavel',
     name: 'Pavel',
-    avatar: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1629465123/Ellipse_59_vls5ji.jpg',
+    avatar: avatar2,
   },
 };
