@@ -8,6 +8,7 @@ import { Dropdown } from 'antd';
 import { Tag, ITag } from 'components/common/Tag/Tag';
 import { useResponsive } from 'hooks/useResponsive';
 import * as S from './NewsFilter.styles';
+import { AuthorValidator, TitleValidator, DatesValidator, TagsValidator } from './Validator';
 
 interface NewsFilterProps {
   news: Post[];
@@ -164,7 +165,6 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, setHasMo
   const filterNews = useCallback(
     (isReset = false) => {
       let updatedNews = [...news];
-
       if ((author || title || dates[0] || selectedTags.length) && !isReset) {
         updatedNews = news.filter((post) => {
           const postAuthor = post.author.toLowerCase();
@@ -173,18 +173,13 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, setHasMo
           const enteredTitle = title.toLowerCase();
           const postTags = post.tags;
           const postDate = Dates.getDate(post.date);
-          const [fromDate, toDate] = dates;
-
-          return (
-            (author ? postAuthor.includes(enteredAuthor) : true) &&
-            (dates[0] ? postDate.isAfter(fromDate) && postDate.isBefore(toDate) : true) &&
-            (title ? postTitle.includes(enteredTitle) : true) &&
-            (selectedTags.length
-              ? !!postTags.filter((n) => {
-                  return selectedTags.indexOf(n) !== -1;
-                }).length
-              : true)
-          );
+          const fieldsValidators = [
+            new AuthorValidator(postAuthor, enteredAuthor),
+            new TitleValidator(postTitle, enteredTitle),
+            new DatesValidator(postDate, dates),
+            new TagsValidator(postTags, selectedTags),
+          ];
+          return fieldsValidators.map((item) => item.validate()).every((i) => i === true);
         });
         setHasMore(false);
       }
