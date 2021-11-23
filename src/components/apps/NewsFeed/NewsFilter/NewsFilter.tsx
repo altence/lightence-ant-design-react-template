@@ -18,32 +18,28 @@ interface NewsFilterProps {
 
 interface Filter {
   author: string;
-  setAuthor: (author: string) => void;
   title: string;
-  setTitle: (title: string) => void;
   newsTagData: ITag[];
   onTagClick: (tag: ITag) => void;
   selectedTagsIds: Array<string>;
   selectedTags: ITag[];
   dates: [AppDate | null, AppDate | null];
-  setDates: (dates: [AppDate | null, AppDate | null]) => void;
+  updateFilteredField: (field: string, value: [AppDate | null, AppDate | null] | string) => void;
   handleClickReset: () => void;
-  filterNews: () => void;
+  filterNews: (isReset: boolean) => void;
 }
 
 const Filter: React.FC<Filter> = ({
   author,
-  setAuthor,
   title,
-  setTitle,
   newsTagData,
   onTagClick,
   selectedTagsIds,
   selectedTags,
   dates,
-  setDates,
   handleClickReset,
   filterNews,
+  updateFilteredField,
 }) => {
   const { t } = useTranslation();
   const { mobileOnly } = useResponsive();
@@ -55,7 +51,7 @@ const Filter: React.FC<Filter> = ({
         <S.Input
           placeholder={t('newsFeed.authorSearch')}
           value={author}
-          onChange={(event) => setAuthor(event.target.value)}
+          onChange={(event) => updateFilteredField('author', event.target.value)}
         />
       </S.InputWrapper>
       <S.InputWrapper>
@@ -63,7 +59,7 @@ const Filter: React.FC<Filter> = ({
         <S.Input
           placeholder={t('newsFeed.titleSearch')}
           value={title}
-          onChange={(event) => setTitle(event.target.value)}
+          onChange={(event) => updateFilteredField('title', event.target.value)}
         />
       </S.InputWrapper>
       <Dropdown
@@ -109,12 +105,12 @@ const Filter: React.FC<Filter> = ({
         dropdownClassName="range-picker"
         value={dates}
         onChange={(dates: RangeValue<AppDate>) =>
-          setDates([dates?.length ? dates[0] : null, dates?.length ? dates[1] : null])
+          updateFilteredField('dates', [dates?.length ? dates[0] : null, dates?.length ? dates[1] : null])
         }
       />
       <S.BtnWrapper>
         <S.Btn onClick={handleClickReset}>{t('newsFeed.reset')}</S.Btn>
-        <S.Btn onClick={filterNews} type="primary">
+        <S.Btn onClick={() => filterNews(false)} type="primary">
           {t('newsFeed.apply')}
         </S.Btn>
       </S.BtnWrapper>
@@ -123,10 +119,18 @@ const Filter: React.FC<Filter> = ({
 };
 
 export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, setHasMore, children }) => {
-  const [author, setAuthor] = useState('');
-  const [title, setTitle] = useState('');
-  const [selectedTags, setSelectedTags] = useState<ITag[]>([]);
-  const [dates, setDates] = useState<[AppDate | null, AppDate | null]>([null, null]);
+  const [filterFields, setFilterFields] = useState<{
+    author: string;
+    title: string;
+    selectedTags: ITag[];
+    dates: [AppDate | null, AppDate | null];
+  }>({
+    author: '',
+    title: '',
+    selectedTags: [],
+    dates: [null, null],
+  });
+  const { author, title, selectedTags, dates } = filterFields;
   const [filteredNews, setFilteredNews] = useState<Post[]>(news);
   const { mobileOnly } = useResponsive();
   const { t } = useTranslation();
@@ -139,22 +143,29 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, setHasMo
       const isExist = selectedTagsIds.includes(tag.id);
 
       if (isExist) {
-        setSelectedTags(selectedTags.filter((item) => item.id !== tag.id));
+        setFilterFields({
+          ...filterFields,
+          selectedTags: selectedTags.filter((item) => item.id !== tag.id),
+        });
       } else {
-        setSelectedTags([...selectedTags, tag]);
+        setFilterFields({
+          ...filterFields,
+          selectedTags: [...selectedTags, tag],
+        });
       }
     },
-    [selectedTags, setSelectedTags],
+    [selectedTags],
   );
 
   useEffect(() => {
-    filterNews();
+    filterNews(false);
   }, [news.length]);
 
   const filterNews = useCallback(
     (isReset = false) => {
       let updatedNews = [...news];
-      if (author || title || dates[0] || (selectedTags.length && !isReset)) {
+
+      if ((author || title || dates[0] || selectedTags.length) && !isReset) {
         updatedNews = news.filter((post) => {
           const postAuthor = post.author.toLowerCase();
           const enteredAuthor = author.toLowerCase();
@@ -162,8 +173,7 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, setHasMo
           const enteredTitle = title.toLowerCase();
           const postTags = post.tags;
           const postDate = Dates.getDate(post.date);
-          const fromDate = dates[0];
-          const toDate = dates[1];
+          const [fromDate, toDate] = dates;
 
           return (
             (author ? postAuthor.includes(enteredAuthor) : true) &&
@@ -184,16 +194,17 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, setHasMo
         }),
       );
     },
-    [news, author, title, dates, selectedTags],
+    [news, filterFields],
   );
 
   const handleClickReset = useCallback(() => {
-    setAuthor('');
-    setTitle('');
-    setDates([null, null]);
-    setSelectedTags([]);
+    setFilterFields({ author: '', title: '', dates: [null, null], selectedTags: [] });
     filterNews(true);
-  }, [setAuthor, setTitle, setDates, setSelectedTags]);
+  }, [filterNews, setFilterFields]);
+
+  const updateFilteredField = (field: string, value: string | [AppDate | null, AppDate | null]) => {
+    setFilterFields({ ...filterFields, [field]: value });
+  };
 
   return (
     <>
@@ -206,17 +217,15 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, setHasMo
             overlay={
               <Filter
                 author={author}
-                setAuthor={setAuthor}
                 title={title}
-                setTitle={setTitle}
                 newsTagData={newsTagData}
                 onTagClick={onTagClick}
                 selectedTagsIds={selectedTagsIds}
                 selectedTags={selectedTags}
                 dates={dates}
-                setDates={setDates}
                 handleClickReset={handleClickReset}
                 filterNews={filterNews}
+                updateFilteredField={updateFilteredField}
               />
             }
           >
@@ -229,17 +238,15 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, setHasMo
         {!mobileOnly && (
           <Filter
             author={author}
-            setAuthor={setAuthor}
             title={title}
-            setTitle={setTitle}
             newsTagData={newsTagData}
             onTagClick={onTagClick}
             selectedTagsIds={selectedTagsIds}
             selectedTags={selectedTags}
             dates={dates}
-            setDates={setDates}
             handleClickReset={handleClickReset}
             filterNews={filterNews}
+            updateFilteredField={updateFilteredField}
           />
         )}
       </S.ContentWrapper>
