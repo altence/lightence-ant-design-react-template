@@ -18,7 +18,6 @@ export const LoginDescription = styled.div`
 
   @media only screen and ${theme.media.xl} {
     margin-bottom: 1.875rem;
-    font-weight: ${(props) => props.theme.commonFontWeight.regular};
   }
 `;
 

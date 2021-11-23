@@ -18,10 +18,6 @@ export const VerifyEmailDescription = styled.div`
   @media only screen and ${theme.media.md} {
     font-size: ${(props) => props.theme.commonFontSizes.xs};
   }
-
-  @media only screen and ${theme.media.xl} {
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
-  }
 `;
 
 export const NoCodeText = styled.div`
