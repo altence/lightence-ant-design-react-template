@@ -1,5 +1,9 @@
 import { newsTags } from 'constants/newsTags';
 import { ITag } from 'components/common/Tag/Tag';
+import avatar1 from 'assets/avatars/avatar1.png';
+import avatar2 from 'assets/avatars/avatar2.png';
+import avatar3 from 'assets/avatars/avatar3.png';
+import avatar4 from 'assets/avatars/avatar4.png';
 
 export interface Post {
   avatarUrl: string;
@@ -18,8 +22,7 @@ export const getNews = (): Promise<Post[]> => {
     setTimeout(() => {
       res([
         {
-          avatarUrl:
-            'https://png.pngitem.com/pimgs/s/168-1684956_circle-headshot-headshot-circle-png-transparent-png.png',
+          avatarUrl: avatar1,
           author: 'Dr. Dan Reed',
           title: 'Lorem ipsum dolor sit amet',
           date: 1576789200000,
@@ -28,7 +31,7 @@ export const getNews = (): Promise<Post[]> => {
           tags: [arts],
         },
         {
-          avatarUrl: 'https://fullcirclecare.com/wp-content/uploads/2019/08/Dan-Reed-Headshot-Circle-Crop-300x300.png',
+          avatarUrl: avatar2,
           author: 'Jordan Howard',
           title: 'Morbi convallis',
           date: 1575925200000,
@@ -37,8 +40,7 @@ export const getNews = (): Promise<Post[]> => {
           tags: [arts, health],
         },
         {
-          avatarUrl:
-            'https://webinars.demandgenreport.com/wp-content/uploads/2017/05/feng-hong-full-circle-headshot-291x300.png',
+          avatarUrl: avatar3,
           author: 'Jack Hannah',
           title: 'Sed sed sodales erat',
           date: 1575147600000,
@@ -47,8 +49,7 @@ export const getNews = (): Promise<Post[]> => {
           tags: [health],
         },
         {
-          avatarUrl:
-            'https://www.wintro.io/assets/people/1-dd4d2977482fde231c856983d2f811dfde97c31ff3ad9e5c5dced4decc19f66d.png',
+          avatarUrl: avatar4,
           title: 'Integer a nisl nisl',
           author: 'Colin Falls',
           date: 1572555600000,
@@ -57,8 +58,7 @@ export const getNews = (): Promise<Post[]> => {
           tags: [music, health],
         },
         {
-          avatarUrl:
-            'https://png.pngitem.com/pimgs/s/168-1684956_circle-headshot-headshot-circle-png-transparent-png.png',
+          avatarUrl: avatar1,
           author: 'Dr. Dan Reed',
           title: 'Mauris non fermentum justo',
           date: 1569877200000,
@@ -67,7 +67,7 @@ export const getNews = (): Promise<Post[]> => {
           tags: [arts],
         },
         {
-          avatarUrl: 'https://fullcirclecare.com/wp-content/uploads/2019/08/Dan-Reed-Headshot-Circle-Crop-300x300.png',
+          avatarUrl: avatar2,
           author: 'Jordan Howard',
           title: 'In sem sapien',
           date: 1567285200000,
@@ -76,8 +76,7 @@ export const getNews = (): Promise<Post[]> => {
           tags: [arts],
         },
         {
-          avatarUrl:
-            'https://webinars.demandgenreport.com/wp-content/uploads/2017/05/feng-hong-full-circle-headshot-291x300.png',
+          avatarUrl: avatar3,
           author: 'Jack Hannah',
           title: 'Nam ac suscipit justo',
           date: 1564606800000,
@@ -86,8 +85,7 @@ export const getNews = (): Promise<Post[]> => {
           tags: [arts, health],
         },
         {
-          avatarUrl:
-            'https://www.wintro.io/assets/people/1-dd4d2977482fde231c856983d2f811dfde97c31ff3ad9e5c5dced4decc19f66d.png',
+          avatarUrl: avatar4,
           author: 'Colin Falls',
           title: 'Aliquam sollicitudin',
           date: 1561928400000,
@@ -96,7 +94,7 @@ export const getNews = (): Promise<Post[]> => {
           tags: [arts, music],
         },
         {
-          avatarUrl: 'https://fullcirclecare.com/wp-content/uploads/2019/08/Dan-Reed-Headshot-Circle-Crop-300x300.png',
+          avatarUrl: avatar2,
           author: 'Jordan Howard',
           title: 'Suspendisse mauris leo',
           date: 1559336400000,
@@ -105,8 +103,7 @@ export const getNews = (): Promise<Post[]> => {
           tags: [arts, music],
         },
         {
-          avatarUrl:
-            'https://www.wintro.io/assets/people/1-dd4d2977482fde231c856983d2f811dfde97c31ff3ad9e5c5dced4decc19f66d.png',
+          avatarUrl: avatar4,
           author: 'Colin Falls',
           title: 'Nunc semper mauris magna',
           date: 1556658000000,
@@ -115,8 +112,7 @@ export const getNews = (): Promise<Post[]> => {
           tags: [arts, music],
         },
         {
-          avatarUrl:
-            'https://webinars.demandgenreport.com/wp-content/uploads/2017/05/feng-hong-full-circle-headshot-291x300.png',
+          avatarUrl: avatar3,
           author: 'Jack Hannah',
           title: 'Vestibulum non magna nulla',
           date: 1554066000000,
@@ -125,7 +121,7 @@ export const getNews = (): Promise<Post[]> => {
           tags: [arts, health],
         },
         {
-          avatarUrl: 'https://fullcirclecare.com/wp-content/uploads/2019/08/Dan-Reed-Headshot-Circle-Crop-300x300.png',
+          avatarUrl: avatar2,
           author: 'Jordan Howard',
           title: 'Quisque nunc sapien',
           date: 1551387600000,
@@ -134,8 +130,7 @@ export const getNews = (): Promise<Post[]> => {
           tags: [music],
         },
         {
-          avatarUrl:
-            'https://webinars.demandgenreport.com/wp-content/uploads/2017/05/feng-hong-full-circle-headshot-291x300.png',
+          avatarUrl: avatar3,
           author: 'Jack Hannah',
           title: 'Aliquam feugiat ex eros',
           date: 1548968400000,
@@ -144,8 +139,7 @@ export const getNews = (): Promise<Post[]> => {
           tags: [music],
         },
         {
-          avatarUrl:
-            'https://www.wintro.io/assets/people/1-dd4d2977482fde231c856983d2f811dfde97c31ff3ad9e5c5dced4decc19f66d.png',
+          avatarUrl: avatar4,
           author: 'Colin Falls',
           title: 'Donec interdum mauris',
           date: 1546290000000,

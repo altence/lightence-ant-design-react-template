@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   position: relative;
   width: 100%;
-  filter: drop-shadow(0 4px 40px rgba(0, 0, 0, 0.07));
+  filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.07));
   background: ${(props) => props.theme.colors.main.mainBackground};
   border-radius: ${(props) => props.theme.border.radius};
 `;

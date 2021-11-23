@@ -148,49 +148,51 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, setHasMo
   );
 
   useEffect(() => {
-    if (!author && !title && !dates[0]) {
-      filterNews();
-    }
-  }, [news.length, title, author, dates]);
+    filterNews();
+  }, [news.length]);
 
-  const filterNews = useCallback(() => {
-    let updatedNews = [...news];
-    if (author || title || dates[0] || selectedTags.length) {
-      updatedNews = news.filter((post) => {
-        const postAuthor = post.author.toLowerCase();
-        const enteredAuthor = author.toLowerCase();
-        const postTitle = post.title.toLowerCase();
-        const enteredTitle = title.toLowerCase();
-        const postTags = post.tags;
-        const postDate = Dates.getDate(post.date);
-        const fromDate = dates[0];
-        const toDate = dates[1];
+  const filterNews = useCallback(
+    (isReset = false) => {
+      let updatedNews = [...news];
+      if (author || title || dates[0] || (selectedTags.length && !isReset)) {
+        updatedNews = news.filter((post) => {
+          const postAuthor = post.author.toLowerCase();
+          const enteredAuthor = author.toLowerCase();
+          const postTitle = post.title.toLowerCase();
+          const enteredTitle = title.toLowerCase();
+          const postTags = post.tags;
+          const postDate = Dates.getDate(post.date);
+          const fromDate = dates[0];
+          const toDate = dates[1];
 
-        return (
-          (author ? postAuthor.includes(enteredAuthor) : true) &&
-          (dates[0] ? postDate.isAfter(fromDate) && postDate.isBefore(toDate) : true) &&
-          (title ? postTitle.includes(enteredTitle) : true) &&
-          (selectedTags.length
-            ? !!postTags.filter((n) => {
-                return selectedTags.indexOf(n) !== -1;
-              }).length
-            : true)
-        );
-      });
-      setHasMore(false);
-    }
-    setFilteredNews(
-      updatedNews.sort((a, b) => {
-        return b.date - a.date;
-      }),
-    );
-  }, [news, author, title, dates, selectedTags]);
+          return (
+            (author ? postAuthor.includes(enteredAuthor) : true) &&
+            (dates[0] ? postDate.isAfter(fromDate) && postDate.isBefore(toDate) : true) &&
+            (title ? postTitle.includes(enteredTitle) : true) &&
+            (selectedTags.length
+              ? !!postTags.filter((n) => {
+                  return selectedTags.indexOf(n) !== -1;
+                }).length
+              : true)
+          );
+        });
+        setHasMore(false);
+      }
+      setFilteredNews(
+        updatedNews.sort((a, b) => {
+          return b.date - a.date;
+        }),
+      );
+    },
+    [news, author, title, dates, selectedTags],
+  );
 
   const handleClickReset = useCallback(() => {
     setAuthor('');
     setTitle('');
     setDates([null, null]);
     setSelectedTags([]);
+    filterNews(true);
   }, [setAuthor, setTitle, setDates, setSelectedTags]);
 
   return (
