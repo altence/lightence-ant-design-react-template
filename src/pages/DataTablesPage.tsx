@@ -1,7 +1,8 @@
+import { Tables } from 'components/tables/Tables/Tables';
 import React from 'react';
 
 const DataTablesPage: React.FC = () => {
-  return <>Data tables page</>;
+  return <Tables />;
 };
 
 export default DataTablesPage;
