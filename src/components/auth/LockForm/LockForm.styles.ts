@@ -29,13 +29,6 @@ export const Time = styled.div`
     font-size: ${(props) => props.theme.commonFontSizes.xxxl};
     font-weight: ${(props) => props.theme.commonFontWeight.extraBold};
   }
-
-  @media only screen and ${theme.media.xl} {
-    margin-bottom: 1rem;
-    line-height: 2.125rem;
-    font-size: ${(props) => props.theme.commonFontSizes.xxxl};
-    font-weight: ${(props) => props.theme.commonFontWeight.extraBold};
-  }
 `;
 
 export const Date = styled.div`
@@ -55,13 +48,6 @@ export const Date = styled.div`
     font-size: ${(props) => props.theme.commonFontSizes.xxl};
     font-weight: ${(props) => props.theme.commonFontWeight.bold};
   }
-
-  @media only screen and ${theme.media.xl} {
-    margin-bottom: 2.5rem;
-    line-height: 1.5rem;
-    font-size: ${(props) => props.theme.commonFontSizes.xxl};
-    font-weight: ${(props) => props.theme.commonFontWeight.bold};
-  }
 `;
 
 export const Name = styled.div`
@@ -75,11 +61,5 @@ export const Name = styled.div`
 
   @media only screen and ${theme.media.md} {
     font-size: ${(props) => props.theme.commonFontSizes.md};
-    font-weight: ${(props) => props.theme.commonFontWeight.semibold};
-  }
-
-  @media only screen and ${theme.media.xl} {
-    font-size: ${(props) => props.theme.commonFontSizes.md};
-    font-weight: ${(props) => props.theme.commonFontWeight.semibold};
   }
 `;

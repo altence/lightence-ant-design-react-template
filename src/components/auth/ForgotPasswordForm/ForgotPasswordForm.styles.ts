@@ -15,10 +15,6 @@ export const Description = styled.div`
   @media only screen and ${theme.media.md} {
     font-size: ${(props) => props.theme.commonFontSizes.xs};
   }
-
-  @media only screen and ${theme.media.xl} {
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
-  }
 `;
 
 export const SubmitButton = styled(Button)`

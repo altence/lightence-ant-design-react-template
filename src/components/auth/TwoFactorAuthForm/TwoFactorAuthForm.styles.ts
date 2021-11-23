@@ -18,10 +18,6 @@ export const VerifyEmailDescription = styled.div`
   @media only screen and ${theme.media.md} {
     font-size: ${(props) => props.theme.commonFontSizes.xs};
   }
-
-  @media only screen and ${theme.media.xl} {
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
-  }
 `;
 
 export const EnterCodeText = styled.div`
@@ -31,10 +27,6 @@ export const EnterCodeText = styled.div`
   font-weight: ${(props) => props.theme.commonFontWeight.semibold};
 
   @media only screen and ${theme.media.xs} {
-    font-weight: ${(props) => props.theme.commonFontWeight.bold};
-  }
-
-  @media only screen and ${theme.media.md} {
     font-weight: ${(props) => props.theme.commonFontWeight.bold};
   }
 

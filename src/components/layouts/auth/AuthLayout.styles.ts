@@ -39,7 +39,6 @@ export const Copyright = styled(Typography.Text)`
   transform: translateX(-50%);
   white-space: nowrap;
   font-size: 0.625rem;
-
   color: ${(props) => hexToRGB(props.theme.colors.text.secondary, 0.7)};
 
   @media only screen and ${theme.media.xl} {
@@ -59,11 +58,6 @@ export const FormWrapper = styled.div`
   }
 
   @media only screen and ${theme.media.md} {
-    padding: 2.5rem;
-    width: 31.75rem;
-  }
-
-  @media only screen and ${theme.media.xl} {
     padding: 2.5rem;
     width: 31.75rem;
   }
