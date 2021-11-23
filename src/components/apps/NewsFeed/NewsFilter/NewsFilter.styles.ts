@@ -122,10 +122,6 @@ export const Input = styled(AntInput)`
   font-size: ${(props) => props.theme.commonFontSizes.md};
   font-weight: ${(props) => props.theme.commonFontWeight.semibold};
   line-height: 1.375rem;
-
-  &::placeholder {
-    color: ${(props) => props.theme.colors.text.main};
-  }
 `;
 
 export const RangePicker = styled(DayjsDatePicker.RangePicker)`
