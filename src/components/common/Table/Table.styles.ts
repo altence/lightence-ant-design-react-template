@@ -47,4 +47,9 @@ export const Table = styled(AntdTable)`
     height: 1.25rem;
     width: 1.25rem;
   }
+  & .editable-row .ant-form-item-explain {
+    position: absolute;
+    top: 100%;
+    font-size: 12px;
+  }
 `;
