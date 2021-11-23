@@ -30,9 +30,9 @@ export const Table = styled(AntdTable)`
   .ant-pagination-jump-prev,
   .ant-pagination-jump-next,
   .ant-pagination-item {
-    min-width: 33px;
-    height: 33px;
-    line-height: 33px;
+    min-width: 2.0625rem;
+    height: 2.0625rem;
+    line-height: 2.0625rem;
     border-radius: 0;
     font-size: ${(props) => props.theme.commonFontSizes.xs};
   }
@@ -40,5 +40,11 @@ export const Table = styled(AntdTable)`
   & .ant-pagination-prev .ant-pagination-item-link,
   .ant-pagination-next .ant-pagination-item-link {
     border-radius: 0;
+  }
+
+  & .ant-checkbox-inner {
+    border-radius: 0.1875rem;
+    height: 1.25rem;
+    width: 1.25rem;
   }
 `;
