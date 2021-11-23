@@ -150,14 +150,6 @@ export const NewsWrapper = styled.div`
   @media only screen and ${theme.media.md} {
     width: calc(100% - 21.25rem);
   }
-
-  @media only screen and ${theme.media.xl} {
-    width: calc(100% - 21.25rem);
-  }
-
-  @media only screen and ${theme.media.xxl} {
-    width: calc(100% - 21.25rem);
-  }
 `;
 
 export const FilterWrapper = styled.div`
@@ -172,15 +164,12 @@ export const FilterWrapper = styled.div`
   border-radius: ${(props) => props.theme.border.radius};
   height: min-content;
   filter: drop-shadow(0 4px 40px rgba(0, 0, 0, 0.07));
+
   @media only screen and ${theme.media.xs} {
     position: relative;
   }
 
   @media only screen and ${theme.media.md} {
-    position: sticky;
-  }
-
-  @media only screen and ${theme.media.xl} {
     position: sticky;
   }
 `;

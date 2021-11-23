@@ -3,8 +3,8 @@ import avatar2 from 'assets/avatars/avatar2.png';
 
 export const kanbanPeople = {
   anna: {
-    id: 'Sasha',
-    name: 'Sasha',
+    id: 'Alex',
+    name: 'Alex',
     avatar: avatar1,
   },
   pavel: {
