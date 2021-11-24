@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Header } from '../../../Header/Header';
-import MainSider from '../MainSider/MainSider';
+import MainSider from '../sider/MainSider/MainSider';
 import MainContent from '../MainContent/MainContent';
-import SiderContent from 'components/sider/SiderContent';
 import { MainHeader } from '../MainHeader/MainHeader';
 import * as S from './MainLayout.styles';
 import { Outlet } from 'react-router-dom';
@@ -14,9 +13,7 @@ const MainLayout: React.FC = () => {
 
   return (
     <S.LayoutMaster>
-      <MainSider isCollapsed={siderCollapsed} toggleSider={toggleSider}>
-        <SiderContent setCollapsed={setSiderCollapsed} />
-      </MainSider>
+      <MainSider isCollapsed={siderCollapsed} setCollapsed={setSiderCollapsed} />
       <S.LayoutMain>
         <MainHeader>
           <Header toggleSider={toggleSider} isSiderOpened={!siderCollapsed} />

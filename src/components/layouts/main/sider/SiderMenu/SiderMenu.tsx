@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
-import * as S from './SiderContent.styles';
-import { sidebarNavigation, SidebarNavigationItem } from './sidebarNavigation';
+import * as S from './SiderMenu.styles';
+import { sidebarNavigation, SidebarNavigationItem } from '../sidebarNavigation';
 import { Menu } from 'antd';
 
 interface SiderContentProps {
@@ -15,7 +15,7 @@ const sidebarNavFlat = sidebarNavigation.reduce(
   [],
 );
 
-const SiderContent: React.FC<SiderContentProps> = ({ setCollapsed }) => {
+const SiderMenu: React.FC<SiderContentProps> = ({ setCollapsed }) => {
   const { t } = useTranslation();
   const location = useLocation();
 
@@ -59,4 +59,4 @@ const SiderContent: React.FC<SiderContentProps> = ({ setCollapsed }) => {
   );
 };
 
-export default SiderContent;
+export default SiderMenu;

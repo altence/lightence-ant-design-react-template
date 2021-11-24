@@ -1,18 +1,21 @@
 import React, { useMemo } from 'react';
-import Overlay from '../../../common/Overlay';
+import Overlay from '../../../../common/Overlay';
 import { useResponsive } from 'hooks/useResponsive';
 import * as S from './MainSider.styles';
-import { SiderLogo } from './SiderLogo';
+import { SiderLogo } from '../SiderLogo';
+import SiderMenu from '../SiderMenu/SiderMenu';
 
 interface MainSiderProps {
-  toggleSider: () => void;
   isCollapsed: boolean;
+  setCollapsed: (isCollapsed: boolean) => void;
 }
 
-const MainSider: React.FC<MainSiderProps> = ({ children, toggleSider, isCollapsed, ...props }) => {
+const MainSider: React.FC<MainSiderProps> = ({ isCollapsed, setCollapsed, ...props }) => {
   const { isDesktop, mobileOnly, tabletOnly } = useResponsive();
 
   const isCollapsible = useMemo(() => mobileOnly && tabletOnly, [mobileOnly, tabletOnly]);
+
+  const toggleSider = () => setCollapsed(!isCollapsed);
 
   return (
     <>
@@ -25,7 +28,9 @@ const MainSider: React.FC<MainSiderProps> = ({ children, toggleSider, isCollapse
         {...props}
       >
         <SiderLogo isSiderCollapsed={isCollapsed} toggleSider={toggleSider} />
-        <S.SiderContent>{children}</S.SiderContent>
+        <S.SiderContent>
+          <SiderMenu setCollapsed={setCollapsed} />
+        </S.SiderContent>
       </S.Sider>
       {mobileOnly && <Overlay onClick={toggleSider} show={!isCollapsed} />}
     </>
