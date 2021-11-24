@@ -1,7 +1,8 @@
-import React from 'react';
-import { Space } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { Space, TablePaginationConfig } from 'antd';
 import { Table } from 'components/common/Table/Table';
 import * as S from './BasicTable.styles';
+import { BasicTableRow, getBasicTableData, Pagination } from 'api/table.api';
 
 const columns = [
   {
@@ -52,30 +53,38 @@ const columns = [
   },
 ];
 
-const data = [
-  {
-    key: '1',
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-    tags: ['nice', 'developer'],
-  },
-  {
-    key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-    tags: ['loser'],
-  },
-  {
-    key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
-  },
-];
-
 export const BasicTable: React.FC = () => {
-  return <Table columns={columns} dataSource={data} />;
+  const [tableData, setTableData] = useState<{ data: BasicTableRow[]; pagination: Pagination; loading: boolean }>({
+    data: [],
+    pagination: {
+      current: 1,
+      pageSize: 3,
+    },
+    loading: false,
+  });
+
+  useEffect(() => {
+    fetch(tableData.pagination);
+  }, []);
+
+  const handleTableChange = (pagination: TablePaginationConfig) => {
+    fetch(pagination);
+  };
+
+  const fetch = (pagination: Pagination) => {
+    setTableData({ ...tableData, loading: true });
+    getBasicTableData(pagination).then((res) => {
+      setTableData({ data: res.data, pagination: res.pagination, loading: false });
+    });
+  };
+
+  return (
+    <Table
+      columns={columns}
+      dataSource={tableData.data}
+      pagination={tableData.pagination}
+      loading={tableData.loading}
+      onChange={handleTableChange}
+    />
+  );
 };
