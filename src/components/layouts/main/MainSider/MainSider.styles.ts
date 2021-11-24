@@ -7,7 +7,8 @@ export const Sider = styled(Layout.Sider)`
   overflow: visible;
   right: 0;
   z-index: 5;
-  height: 100%;
+  min-height: 100vh;
+  max-height: 100vh;
 
   color: ${(props) => props.theme.colors.text.secondary};
 
@@ -18,8 +19,6 @@ export const Sider = styled(Layout.Sider)`
 
   @media only screen and ${(props) => props.theme.media.xl} {
     position: unset;
-    overflow: unset;
-    height: unset;
   }
 `;
 
@@ -49,10 +48,12 @@ export const CollapseButton = styled(Button)<{ isCollapsed: boolean }>`
 `;
 
 export const SiderContent = styled.div`
-  padding-top: ${(props) => props.theme.mobileLayout.paddingVertical};
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc(100vh - ${(props) => props.theme.mobileLayout.headerHeight});
 
   @media only screen and ${(props) => props.theme.media.md} {
-    padding-top: ${(props) => props.theme.desktopLayout.paddingVertical};
+    max-height: calc(100vh - ${(props) => props.theme.desktopLayout.headerHeight});
   }
 `;
 

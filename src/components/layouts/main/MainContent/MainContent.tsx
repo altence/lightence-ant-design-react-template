@@ -5,6 +5,7 @@ const { Content } = Layout;
 
 export default styled(Content)`
   padding: ${(props) => `${props.theme.mobileLayout.paddingVertical} ${props.theme.mobileLayout.paddingHorizontal}`};
+  overflow: scroll;
 
   @media only screen and ${(props) => props.theme.media.md} {
     padding: ${(props) =>
