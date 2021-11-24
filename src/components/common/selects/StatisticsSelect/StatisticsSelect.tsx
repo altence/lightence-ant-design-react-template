@@ -4,7 +4,7 @@ import { Option, Select, SelectProps } from '../Select/Select';
 import { getStatistics, Statistic } from 'api/statistics.api';
 import { statistics as configStatistics } from 'constants/config/statistics';
 
-export const StatisticsSelect: React.FC<SelectProps> = () => {
+export const StatisticsSelect: React.FC<SelectProps> = ({ className, ...props }) => {
   const [statistics, setStatistics] = useState<Statistic[]>([]);
 
   useEffect(() => {
@@ -27,5 +27,9 @@ export const StatisticsSelect: React.FC<SelectProps> = () => {
     [statistics],
   );
 
-  return <Select>{statisticsOptions}</Select>;
+  return (
+    <Select className={className} {...props}>
+      {statisticsOptions}
+    </Select>
+  );
 };

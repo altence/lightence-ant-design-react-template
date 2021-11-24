@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ManOutlined, WomanOutlined } from '@ant-design/icons';
 import { Space } from 'antd';
-import { Select, Option } from 'components/common/Select/Select';
+import { Select, Option } from 'components/common/selects/Select/Select';
 import { FormItem } from 'components/common/Form/Form.styles';
 
 export const SexItem: React.FC = () => {

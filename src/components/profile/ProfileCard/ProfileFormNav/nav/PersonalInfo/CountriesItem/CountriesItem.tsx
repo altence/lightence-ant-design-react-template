@@ -2,8 +2,8 @@ import React from 'react';
 import { Country } from 'country-state-city';
 import { useTranslation } from 'react-i18next';
 import ReactCountryFlag from 'react-country-flag';
-import { Select, Option } from 'components/common/Select/Select';
 import { FormItem } from 'components/common/Form/Form.styles';
+import { Select, Option } from 'components/common/selects/Select/Select';
 import { Space } from 'antd';
 
 const countries = Country.getAllCountries();
