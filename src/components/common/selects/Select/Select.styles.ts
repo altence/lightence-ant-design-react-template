@@ -1,7 +1,16 @@
 import styled from 'styled-components';
 import { Select as AntSelect } from 'antd';
+import { Width } from 'interfaces/interfaces';
 
-export const Select = styled(AntSelect)`
+interface SelectProps {
+  width?: Width;
+}
+
+export const Select = styled(AntSelect)<SelectProps>`
+  width: ${(props) => (typeof props.width === 'number' ? `${props.width}px` : props.width)};
+
+  font-weight: ${(props) => props.theme.commonFontWeight.medium};
+
   ${(props) => !props.bordered && `box-shadow: ${props.theme.boxShadow}`};
 
   .ant-select-selection-placeholder {

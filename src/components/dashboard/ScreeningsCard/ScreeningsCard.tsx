@@ -4,10 +4,13 @@ import { ScreeningsFriends } from './ScreeningsFriends/ScreeningsFriends';
 import { ScreeningsChart } from './ScreeningsChart/ScreeningsChart';
 import { getScreenings, Screening } from 'api/screenings.api';
 import * as S from './ScreeningsCard.styles';
+import { Dates } from 'constants/Dates';
 
 export interface CurrentStatisticsState {
   firstUser: number;
   secondUser: number;
+  month: number;
+  statistic: number;
   isFirstClick: boolean;
 }
 
@@ -16,6 +19,8 @@ export const ScreeningsCard: React.FC = () => {
   const [currentStatistics, setCurrentStatistics] = useState<CurrentStatisticsState>({
     firstUser: 1,
     secondUser: 3,
+    month: Dates.getToday().get('month'),
+    statistic: 2,
     isFirstClick: true,
   });
 
@@ -24,7 +29,11 @@ export const ScreeningsCard: React.FC = () => {
   }, []);
 
   return (
-    <S.ScreeningsCard id="latest-screenings" title={<ScreeningsHeader />} padding={0}>
+    <S.ScreeningsCard
+      id="latest-screenings"
+      title={<ScreeningsHeader currentStatistics={currentStatistics} setCurrentStatistics={setCurrentStatistics} />}
+      padding={0}
+    >
       <ScreeningsFriends
         screenings={screenings}
         currentStatistics={currentStatistics}
