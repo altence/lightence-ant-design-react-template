@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
 import * as S from './SiderContent.styles';
@@ -6,7 +6,7 @@ import { sidebarNavigation, SidebarNavigationItem } from './sidebarNavigation';
 import { Menu } from 'antd';
 
 interface SiderContentProps {
-  closeSidebar: () => void;
+  setCollapsed: (isCollapsed: boolean) => void;
 }
 
 const sidebarNavFlat = sidebarNavigation.reduce(
@@ -15,7 +15,7 @@ const sidebarNavFlat = sidebarNavigation.reduce(
   [],
 );
 
-const SiderContent: React.FC<SiderContentProps> = ({ closeSidebar }) => {
+const SiderContent: React.FC<SiderContentProps> = ({ setCollapsed }) => {
   const { t } = useTranslation();
   const location = useLocation();
 
@@ -27,20 +27,22 @@ const SiderContent: React.FC<SiderContentProps> = ({ closeSidebar }) => {
   );
   const defaultOpenKeys = openedSubmenu ? [openedSubmenu.key] : [];
 
-  useEffect(() => {
-    closeSidebar();
-  }, []);
-
   return (
     <S.Menu
       mode="inline"
       defaultSelectedKeys={defaultSelectedKeys}
       defaultOpenKeys={defaultOpenKeys}
-      onClick={closeSidebar}
+      onClick={() => setCollapsed(true)}
     >
       {sidebarNavigation.map((nav) =>
         nav.children && nav.children.length > 0 ? (
-          <Menu.SubMenu key={nav.key} title={t(nav.title)} icon={nav.icon}>
+          <Menu.SubMenu
+            key={nav.key}
+            title={t(nav.title)}
+            icon={nav.icon}
+            onTitleClick={() => setCollapsed(false)}
+            popupClassName="d-none"
+          >
             {nav.children.map((childNav) => (
               <Menu.Item key={childNav.key} title="">
                 <Link to={childNav.url || ''}>{t(childNav.title)}</Link>
