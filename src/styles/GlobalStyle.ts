@@ -35,4 +35,8 @@ export default createGlobalStyle`
       max-width: 323px;
     }
   }
+  
+  .d-none {
+    display: none;
+  }
 `;

@@ -6,20 +6,16 @@ import SiderContent from 'components/sider/SiderContent';
 import { MainHeader } from '../MainHeader/MainHeader';
 import * as S from './MainLayout.styles';
 import { Outlet } from 'react-router-dom';
-import { useResponsive } from '../../../../hooks/useResponsive';
 
 const MainLayout: React.FC = () => {
-  const { tabletOnly } = useResponsive();
-  const [siderCollapsed, setSiderCollapsed] = useState(!tabletOnly);
+  const [siderCollapsed, setSiderCollapsed] = useState(true);
 
   const toggleSider = () => setSiderCollapsed(!siderCollapsed);
-
-  const closeSidebar = () => setSiderCollapsed(true);
 
   return (
     <S.LayoutMaster>
       <MainSider isCollapsed={siderCollapsed} toggleSider={toggleSider}>
-        <SiderContent closeSidebar={closeSidebar} />
+        <SiderContent setCollapsed={setSiderCollapsed} />
       </MainSider>
       <S.LayoutMain>
         <MainHeader>
