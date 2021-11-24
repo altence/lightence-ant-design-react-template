@@ -9,7 +9,7 @@ import { useResponsive } from 'hooks/useResponsive';
 export const HealthChart: React.FC = () => {
   const themeContext = useContext(ThemeContext);
 
-  const { isMobile, isTablet, isDesktop, isBigScreen } = useResponsive();
+  const { isTablet, isDesktop, isBigScreen } = useResponsive();
 
   const { t } = useTranslation();
 

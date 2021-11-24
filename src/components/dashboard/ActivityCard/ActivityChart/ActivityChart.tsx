@@ -4,8 +4,13 @@ import { Chart } from '../../../common/Chart/Chart';
 import { Dates } from '../../../../constants/Dates';
 import { useResponsive } from 'hooks/useResponsive';
 import { dashboardPaddings } from 'components/dashboard/DashboardCard/DashboardCard';
+import { ChartData } from 'interfaces/interfaces';
 
-export const ActivityChart: React.FC = () => {
+interface ActivityChartProps {
+  data: ChartData;
+}
+
+export const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
   const theme = useContext(ThemeContext);
 
   const days = Dates.getDays();
@@ -53,7 +58,7 @@ export const ActivityChart: React.FC = () => {
     series: [
       {
         barMaxWidth: 26,
-        data: [41, 45, 52, 63, 58, 55, 71],
+        data: data,
         type: 'bar',
         itemStyle: {
           borderRadius: 7,
