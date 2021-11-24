@@ -10,6 +10,6 @@ export const Tag = styled(AntdTag)`
 `;
 
 export const Delete = styled.a`
-  color: ${(props) => props.theme.colors.text.main};
+  color: ${(props) => props.theme.colors.text.light};
   font-size: ${(props) => props.theme.commonFontSizes.xs};
 `;

@@ -59,6 +59,7 @@ const columns: ColumnsType<BasicTableRow> = [
     title: 'Age',
     dataIndex: 'age',
     sorter: (a: BasicTableRow, b: BasicTableRow) => a.age - b.age,
+    showSorterTooltip: false,
   },
   {
     title: 'Address',
