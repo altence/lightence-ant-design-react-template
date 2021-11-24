@@ -138,8 +138,8 @@ export const EditableTable: React.FC = () => {
       editable: true,
     },
     {
-      title: 'operation',
-      dataIndex: 'operation',
+      title: 'Actions',
+      dataIndex: 'actions',
       render: (text: string, record: Item) => {
         const editable = isEditing(record);
         return editable ? (
