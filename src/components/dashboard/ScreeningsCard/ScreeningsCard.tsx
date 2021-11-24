@@ -11,7 +11,6 @@ export interface CurrentStatisticsState {
   secondUser: number;
   month: number;
   statistic: number;
-  isFirstClick: boolean;
 }
 
 export const ScreeningsCard: React.FC = () => {
@@ -21,8 +20,8 @@ export const ScreeningsCard: React.FC = () => {
     secondUser: 3,
     month: Dates.getToday().get('month'),
     statistic: 2,
-    isFirstClick: true,
   });
+  const [isFirstClick, setFirstClick] = useState(true);
 
   useEffect(() => {
     getScreenings().then((res) => setScreenings(res));
@@ -38,6 +37,8 @@ export const ScreeningsCard: React.FC = () => {
         screenings={screenings}
         currentStatistics={currentStatistics}
         setCurrentStatistics={setCurrentStatistics}
+        isFirstClick={isFirstClick}
+        setFirstClick={setFirstClick}
       />
       <ScreeningsChart
         firstUser={screenings[currentStatistics.firstUser]}
