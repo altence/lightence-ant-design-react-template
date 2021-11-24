@@ -41,5 +41,5 @@ export const hexToRGB = (hex: string, alpha: string | number): string => {
   return alpha ? `rgba(${r}, ${g}, ${b}, ${alpha})` : `rgb(${r}, ${g}, ${b})`;
 };
 
-export const getDifference = (value: number, prevValue: number): string =>
-  `${((Math.abs(value - prevValue) / prevValue) * 100).toFixed(0)}%`;
+export const getDifference = (value: number, prevValue: number): string | null =>
+  prevValue !== 0 ? `${((Math.abs(value - prevValue) / prevValue) * 100).toFixed(0)}%` : '100%';

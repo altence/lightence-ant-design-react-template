@@ -3,6 +3,7 @@ import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import { ScreeningsFriend } from './ScreeningsFriend/ScreeningsFriend';
+import { CarouselArrow } from 'components/common/CarouselArrow/CarouselArrow';
 import { useResponsive } from 'hooks/useResponsive';
 import { getScreenings, Screening } from 'api/screenings.api';
 import * as S from './ScreeningsFriends.styles';
@@ -20,13 +21,7 @@ export const ScreeningsFriends: React.FC = () => {
   });
 
   useEffect(() => {
-    let cleanupFunc = false;
-
-    getScreenings().then((res) => !cleanupFunc && setScreenings(res));
-
-    return () => {
-      cleanupFunc = true;
-    };
+    getScreenings().then((res) => setScreenings(res));
   }, []);
 
   const handleClickItem = (mode: number) => () => {
@@ -83,8 +78,16 @@ export const ScreeningsFriends: React.FC = () => {
       {mobileOnly && (
         <S.ScreeningsCarousel
           arrows
-          prevArrow={<ArrowLeftOutlined />}
-          nextArrow={<ArrowRightOutlined />}
+          prevArrow={
+            <CarouselArrow>
+              <ArrowLeftOutlined />
+            </CarouselArrow>
+          }
+          nextArrow={
+            <CarouselArrow>
+              <ArrowRightOutlined />
+            </CarouselArrow>
+          }
           slidesToShow={5}
         >
           {screeningsItems}

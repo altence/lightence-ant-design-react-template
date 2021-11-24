@@ -12,13 +12,15 @@ export const Text = styled(Typography.Text)`
 `;
 
 export const ProfileDropdownOverlay = styled(DropdownMenu)`
-  & .ant-menu-item {
+  .ant-menu-item {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 `;
 
-export const ItemsDivider = styled(Divider)`
+export const ItemsDivider = styled(Divider).withConfig({
+  shouldForwardProp: (prop) => !['eventKey', 'warnKey'].includes(prop),
+})`
   margin: 0;
 `;

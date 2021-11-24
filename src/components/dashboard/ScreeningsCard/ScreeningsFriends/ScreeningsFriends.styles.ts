@@ -36,14 +36,11 @@ export const Title = styled(Typography.Text)`
 `;
 
 export const ScreeningsCarousel = styled(Carousel)`
-  & .slick-track {
-  }
-
-  & .slick-disabled {
+  .slick-disabled {
     display: none !important;
   }
 
-  & .slick-arrow {
+  .slick-arrow {
     font-size: 1rem;
   }
 `;

@@ -11,13 +11,7 @@ export const StatisticsCards: React.FC = () => {
   const { isTablet } = useResponsive();
 
   useEffect(() => {
-    let cleanupFunc = false;
-
-    getStatistics().then((res) => !cleanupFunc && setStatistics(res));
-
-    return () => {
-      cleanupFunc = true;
-    };
+    getStatistics().then((res) => setStatistics(res));
   }, []);
 
   const statisticsCards = useMemo(

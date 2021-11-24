@@ -10,13 +10,7 @@ export const NotificationsDropdown: React.FC = () => {
   const [notifications, setNotifications] = useState<Notification[]>([]);
 
   useEffect(() => {
-    let cleanupFunc = false;
-
-    getNotifications().then((res) => !cleanupFunc && setNotifications(res));
-
-    return () => {
-      cleanupFunc = true;
-    };
+    getNotifications().then((res) => setNotifications(res));
   }, []);
 
   return (

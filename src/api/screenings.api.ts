@@ -40,7 +40,7 @@ export const getScreenings = (): Promise<Screening[]> => {
         {
           name: 'Fedorov Nik',
           value: 78,
-          prevValue: 90,
+          prevValue: 0,
           imgUrl:
             'https://res.cloudinary.com/lapkinthegod/image/upload/v1629187274/smile-happiness-nurse-medical-arab-strong_kqz3iv.jpg',
         },
