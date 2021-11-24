@@ -5,15 +5,25 @@ import { ThemeContext } from 'styled-components';
 import { hexToRGB } from 'utils/utils';
 import { useResponsive } from 'hooks/useResponsive';
 
+interface UserStatistics {
+  name: string;
+  data: number[];
+}
+
+interface ScreeningsChartProps {
+  firstUser: UserStatistics;
+  secondUser: UserStatistics;
+}
+
 const xAxisData = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
-export const ScreeningsChart: React.FC = () => {
+export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, secondUser }) => {
   const theme = useContext(ThemeContext);
 
   const { isTablet: isTabletOrHigher } = useResponsive();
 
   const option = {
-    color: [theme.colors.main.error, theme.colors.main.primary],
+    color: [theme.colors.main.primary, theme.colors.main.error],
     tooltip: {
       trigger: 'axis',
       axisPointer: {
@@ -44,13 +54,13 @@ export const ScreeningsChart: React.FC = () => {
     ],
     series: [
       {
-        name: 'Statistics 1',
+        name: `${firstUser?.name} statistics`,
         type: 'line',
         smooth: true,
         showSymbol: false,
         lineStyle: {
           width: 2,
-          color: theme.colors.main.error,
+          color: theme.colors.main.primary,
         },
         areaStyle: {
           opacity: 0.2,
@@ -58,7 +68,7 @@ export const ScreeningsChart: React.FC = () => {
         emphasis: {
           focus: 'series',
         },
-        data: [28, 32, 39, 41, 38, 40, 45, 49, 50, 48],
+        data: firstUser?.data,
         markArea: {
           itemStyle: {
             color: hexToRGB(theme.colors.main.primary, 0.01),
@@ -67,12 +77,12 @@ export const ScreeningsChart: React.FC = () => {
         },
       },
       {
-        name: 'Statistics 2',
+        name: `${secondUser?.name} statistics`,
         type: 'line',
         smooth: true,
         lineStyle: {
           width: 2,
-          color: theme.colors.main.primary,
+          color: theme.colors.main.error,
         },
         showSymbol: false,
         areaStyle: {
@@ -81,7 +91,7 @@ export const ScreeningsChart: React.FC = () => {
         emphasis: {
           focus: 'series',
         },
-        data: [22, 22, 25, 31, 38, 43, 42, 38, 36, 38],
+        data: secondUser?.data,
         markArea: {
           itemStyle: {
             color: hexToRGB(theme.colors.main.primary, 0.01),
