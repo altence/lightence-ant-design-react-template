@@ -18,6 +18,13 @@ export const Table = styled(AntdTable)`
     line-height: 1.25rem;
   }
 
+  & tbody .ant-table-row-expand-icon {
+    min-height: 1.25rem;
+    min-width: 1.25rem;
+    border-radius: 0.1875rem;
+    margin-top: 0;
+  }
+
   &
     .ant-table-thead
     > tr
@@ -50,6 +57,6 @@ export const Table = styled(AntdTable)`
   & .editable-row .ant-form-item-explain {
     position: absolute;
     top: 100%;
-    font-size: 12px;
+    font-size: 0.75rem;
   }
 `;

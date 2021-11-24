@@ -1,47 +1,14 @@
-import React, { useState } from 'react';
-import { Input, InputNumber, Popconfirm, Form, Typography } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Input, InputNumber, Popconfirm, Form, Typography, TablePaginationConfig } from 'antd';
 import { Table } from 'components/common/Table/Table';
-
-interface Item {
-  key: string;
-  name: string;
-  age: number;
-  address: string;
-}
-
-const originData: Item[] = [
-  {
-    key: '1',
-    name: `Edrward`,
-    age: 32,
-    address: `London Park no.1`,
-  },
-  {
-    key: '2',
-    name: `Alex`,
-    age: 45,
-    address: `London Park no.2`,
-  },
-  {
-    key: '3',
-    name: `Niko`,
-    age: 21,
-    address: `London Park no.3`,
-  },
-  {
-    key: '4',
-    name: `Josh`,
-    age: 18,
-    address: `London Park no.4`,
-  },
-];
+import { getEditableTableData, BasicTableRow, Pagination } from 'api/table.api';
 
 interface EditableCellProps extends React.HTMLAttributes<HTMLElement> {
   editing: boolean;
   dataIndex: string;
   title: string;
   inputType: 'number' | 'text';
-  record: Item;
+  record: BasicTableRow;
   index: number;
   children: React.ReactNode;
 }
@@ -80,25 +47,48 @@ const EditableCell: React.FC<EditableCellProps> = ({
 
 export const EditableTable: React.FC = () => {
   const [form] = Form.useForm();
-  const [data, setData] = useState(originData);
-  const [editingKey, setEditingKey] = useState('');
+  const [tableData, setTableData] = useState<{ data: BasicTableRow[]; pagination: Pagination; loading: boolean }>({
+    data: [],
+    pagination: {
+      current: 1,
+      pageSize: 3,
+    },
+    loading: false,
+  });
+  const [editingKey, setEditingKey] = useState(0);
 
-  const isEditing = (record: Item) => record.key === editingKey;
+  useEffect(() => {
+    fetch(tableData.pagination);
+  }, []);
 
-  const edit = (record: Partial<Item> & { key: React.Key }) => {
+  const handleTableChange = (pagination: TablePaginationConfig) => {
+    fetch(pagination);
+    cancel();
+  };
+
+  const fetch = (pagination: Pagination) => {
+    setTableData({ ...tableData, loading: true });
+    getEditableTableData(pagination).then((res) => {
+      setTableData({ data: res.data, pagination: res.pagination, loading: false });
+    });
+  };
+
+  const isEditing = (record: BasicTableRow) => record.key === editingKey;
+
+  const edit = (record: Partial<BasicTableRow> & { key: React.Key }) => {
     form.setFieldsValue({ name: '', age: '', address: '', ...record });
     setEditingKey(record.key);
   };
 
   const cancel = () => {
-    setEditingKey('');
+    setEditingKey(0);
   };
 
   const save = async (key: React.Key) => {
     try {
-      const row = (await form.validateFields()) as Item;
+      const row = (await form.validateFields()) as BasicTableRow;
 
-      const newData = [...data];
+      const newData = [...tableData.data];
       const index = newData.findIndex((item) => key === item.key);
       if (index > -1) {
         const item = newData[index];
@@ -106,13 +96,11 @@ export const EditableTable: React.FC = () => {
           ...item,
           ...row,
         });
-        setData(newData);
-        setEditingKey('');
       } else {
         newData.push(row);
-        setData(newData);
-        setEditingKey('');
       }
+      setTableData({ ...tableData, data: newData });
+      setEditingKey(0);
     } catch (errInfo) {
       console.log('Validate Failed:', errInfo);
     }
@@ -140,7 +128,7 @@ export const EditableTable: React.FC = () => {
     {
       title: 'Actions',
       dataIndex: 'actions',
-      render: (text: string, record: Item) => {
+      render: (text: string, record: BasicTableRow) => {
         const editable = isEditing(record);
         return editable ? (
           <span>
@@ -152,7 +140,7 @@ export const EditableTable: React.FC = () => {
             </Popconfirm>
           </span>
         ) : (
-          <Typography.Link disabled={editingKey !== ''} onClick={() => edit(record)}>
+          <Typography.Link disabled={editingKey !== 0} onClick={() => edit(record)}>
             Edit
           </Typography.Link>
         );
@@ -166,7 +154,7 @@ export const EditableTable: React.FC = () => {
     }
     return {
       ...col,
-      onCell: (record: Item) => ({
+      onCell: (record: BasicTableRow) => ({
         record,
         inputType: col.dataIndex === 'age' ? 'number' : 'text',
         dataIndex: col.dataIndex,
@@ -185,12 +173,15 @@ export const EditableTable: React.FC = () => {
           },
         }}
         bordered
-        dataSource={data}
+        dataSource={tableData.data}
         columns={mergedColumns}
         rowClassName="editable-row"
         pagination={{
+          ...tableData.pagination,
           onChange: cancel,
         }}
+        onChange={handleTableChange}
+        loading={tableData.loading}
       />
     </Form>
   );
