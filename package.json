@@ -7,7 +7,7 @@
     "@craco/craco": "^6.1.2",
     "@types/react-slick": "^0.23.7",
     "@types/uuid": "^8.3.1",
-    "antd": "^4.16.3",
+    "antd": "^4.17.0",
     "antd-mask-input": "^0.1.15",
     "country-state-city": "^3.0.1",
     "craco-antd": "^1.19.0",

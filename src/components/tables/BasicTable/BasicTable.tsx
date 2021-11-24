@@ -1,25 +1,68 @@
 import React, { useEffect, useState } from 'react';
 import { Space, TablePaginationConfig } from 'antd';
-import { Table } from 'components/common/Table/Table';
 import * as S from './BasicTable.styles';
 import { BasicTableRow, getBasicTableData, Pagination } from 'api/table.api';
+import { Table } from 'components/common/Table/Table';
+import { ColumnsType } from 'antd/es/table';
 
-const columns = [
+const columns: ColumnsType<BasicTableRow> = [
   {
     title: 'Name',
     dataIndex: 'name',
-    key: 'name',
     render: (text: string) => <a>{text}</a>,
+    filterMode: 'tree',
+    filters: [
+      {
+        text: 'First name',
+        value: 'firstName',
+        children: [
+          {
+            text: 'Joe',
+            value: 'Joe',
+          },
+          {
+            text: 'Pavel',
+            value: 'Pavel',
+          },
+          {
+            text: 'Jim',
+            value: 'Jim',
+          },
+          {
+            text: 'Josh',
+            value: 'Josh',
+          },
+        ],
+      },
+      {
+        text: 'Last name',
+        value: 'lastName',
+        children: [
+          {
+            text: 'Green',
+            value: 'Green',
+          },
+          {
+            text: 'Black',
+            value: 'Black',
+          },
+          {
+            text: 'Brown',
+            value: 'Brown',
+          },
+        ],
+      },
+    ],
+    onFilter: (value: string | number | boolean, record: BasicTableRow) => record.name.includes(value.toString()),
   },
   {
     title: 'Age',
     dataIndex: 'age',
-    key: 'age',
+    sorter: (a: BasicTableRow, b: BasicTableRow) => a.age - b.age,
   },
   {
     title: 'Address',
     dataIndex: 'address',
-    key: 'address',
   },
   {
     title: 'Tags',
@@ -43,7 +86,7 @@ const columns = [
   },
   {
     title: 'Action',
-    key: 'action',
+    dataIndex: 'action',
     render: (text: string, record: { name?: string }) => (
       <Space size="middle">
         <a>Invite {record.name}</a>
