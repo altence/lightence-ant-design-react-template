@@ -12,10 +12,12 @@ const MainLayout: React.FC = () => {
 
   const toggleSider = () => setSiderCollapsed(!siderCollapsed);
 
+  const closeSidebar = () => setSiderCollapsed(true);
+
   return (
     <S.LayoutMaster>
       <MainSider isCollapsed={siderCollapsed} toggleSider={toggleSider}>
-        <SiderContent />
+        <SiderContent closeSidebar={closeSidebar} />
       </MainSider>
       <S.LayoutMain>
         <MainHeader>
