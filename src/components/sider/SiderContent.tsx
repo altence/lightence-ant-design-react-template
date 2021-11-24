@@ -5,13 +5,17 @@ import * as S from './SiderContent.styles';
 import { sidebarNavigation, SidebarNavigationItem } from './sidebarNavigation';
 import { Menu } from 'antd';
 
+interface SiderContentProps {
+  closeSidebar: () => void;
+}
+
 const sidebarNavFlat = sidebarNavigation.reduce(
   (result: SidebarNavigationItem[], current) =>
     result.concat(current.children && current.children.length > 0 ? current.children : current),
   [],
 );
 
-const SiderContent: React.FC = () => {
+const SiderContent: React.FC<SiderContentProps> = ({ closeSidebar }) => {
   const { t } = useTranslation();
   const location = useLocation();
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
@@ -34,7 +38,13 @@ const SiderContent: React.FC = () => {
   }, []);
 
   return (
-    <S.Menu mode="inline" selectedKeys={selectedKeys} openKeys={openKeys} onOpenChange={setOpenKeys}>
+    <S.Menu
+      mode="inline"
+      selectedKeys={selectedKeys}
+      openKeys={openKeys}
+      onOpenChange={setOpenKeys}
+      onClick={closeSidebar}
+    >
       {sidebarNavigation.map((nav) =>
         nav.children && nav.children.length > 0 ? (
           <Menu.SubMenu key={nav.key} title={t(nav.title)} icon={nav.icon}>
