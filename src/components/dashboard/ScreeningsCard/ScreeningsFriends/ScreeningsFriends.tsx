@@ -13,12 +13,16 @@ interface ScreeningsFriendsProps {
   screenings: Screening[];
   currentStatistics: CurrentStatisticsState;
   setCurrentStatistics: (func: (state: CurrentStatisticsState) => CurrentStatisticsState) => void;
+  isFirstClick: boolean;
+  setFirstClick: (state: boolean) => void;
 }
 
 export const ScreeningsFriends: React.FC<ScreeningsFriendsProps> = ({
   screenings,
   currentStatistics,
   setCurrentStatistics,
+  isFirstClick,
+  setFirstClick,
 }) => {
   const { mobileOnly, isTablet } = useResponsive();
 
@@ -26,16 +30,18 @@ export const ScreeningsFriends: React.FC<ScreeningsFriendsProps> = ({
 
   const handleClickItem = (mode: number) => () => {
     setCurrentStatistics((prev) => {
-      if (prev.isFirstClick && prev.firstUser !== mode) {
+      if (isFirstClick && prev.firstUser !== mode) {
+        setFirstClick(!isFirstClick);
+
         return {
           ...prev,
-          isFirstClick: !prev.isFirstClick,
           secondUser: mode,
         };
       } else if (prev.secondUser !== mode) {
+        setFirstClick(!isFirstClick);
+
         return {
           ...prev,
-          isFirstClick: !prev.isFirstClick,
           firstUser: mode,
         };
       } else {
