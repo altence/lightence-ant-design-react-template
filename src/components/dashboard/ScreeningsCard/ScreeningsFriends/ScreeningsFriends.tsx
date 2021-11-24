@@ -1,42 +1,42 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import { ScreeningsFriend } from './ScreeningsFriend/ScreeningsFriend';
+import { CurrentStatisticsState } from '../ScreeningsCard';
 import { CarouselArrow } from 'components/common/CarouselArrow/CarouselArrow';
 import { useResponsive } from 'hooks/useResponsive';
-import { getScreenings, Screening } from 'api/screenings.api';
+import { Screening } from 'api/screenings.api';
 import * as S from './ScreeningsFriends.styles';
 
-export const ScreeningsFriends: React.FC = () => {
+interface ScreeningsFriendsProps {
+  screenings: Screening[];
+  currentStatistics: CurrentStatisticsState;
+  setCurrentStatistics: (func: (state: CurrentStatisticsState) => CurrentStatisticsState) => void;
+}
+
+export const ScreeningsFriends: React.FC<ScreeningsFriendsProps> = ({
+  screenings,
+  currentStatistics,
+  setCurrentStatistics,
+}) => {
   const { mobileOnly, isTablet } = useResponsive();
 
   const { t } = useTranslation();
 
-  const [screenings, setScreenings] = useState<Screening[]>([]);
-  const [active, setActive] = useState({
-    isPrimary: 1,
-    isSecondary: 3,
-    isFirstClick: true,
-  });
-
-  useEffect(() => {
-    getScreenings().then((res) => setScreenings(res));
-  }, []);
-
   const handleClickItem = (mode: number) => () => {
-    setActive((prev) => {
-      if (prev.isFirstClick && prev.isPrimary !== mode) {
+    setCurrentStatistics((prev) => {
+      if (prev.isFirstClick && prev.firstUser !== mode) {
         return {
           ...prev,
           isFirstClick: !prev.isFirstClick,
-          isSecondary: mode,
+          secondUser: mode,
         };
-      } else if (prev.isSecondary !== mode) {
+      } else if (prev.secondUser !== mode) {
         return {
           ...prev,
           isFirstClick: !prev.isFirstClick,
-          isPrimary: mode,
+          firstUser: mode,
         };
       } else {
         return {
@@ -55,12 +55,12 @@ export const ScreeningsFriends: React.FC = () => {
           value={screening.value}
           prevValue={screening.prevValue}
           src={screening.imgUrl}
-          isPrimary={index === active.isPrimary}
-          isSecondary={index === active.isSecondary}
+          isPrimary={index === currentStatistics.firstUser}
+          isSecondary={index === currentStatistics.secondUser}
           onClick={handleClickItem(index)}
         />
       )),
-    [screenings, active],
+    [screenings, currentStatistics],
   );
 
   const colItems = useMemo(
