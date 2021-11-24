@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
 import * as S from './SiderContent.styles';
@@ -18,31 +18,24 @@ const sidebarNavFlat = sidebarNavigation.reduce(
 const SiderContent: React.FC<SiderContentProps> = ({ closeSidebar }) => {
   const { t } = useTranslation();
   const location = useLocation();
-  const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
-  const [openKeys, setOpenKeys] = useState<string[]>([]);
+
+  const currentMenuItem = sidebarNavFlat.find(({ url }) => url === location.pathname);
+  const defaultSelectedKeys = currentMenuItem ? [currentMenuItem.key] : [];
+
+  const openedSubmenu = sidebarNavigation.find(({ children }) =>
+    children?.some(({ url }) => url === location.pathname),
+  );
+  const defaultOpenKeys = openedSubmenu ? [openedSubmenu.key] : [];
 
   useEffect(() => {
-    const currentMenuItem = sidebarNavFlat.find(({ url }) => url === location.pathname);
-    if (currentMenuItem) {
-      setSelectedKeys([currentMenuItem.key]);
-    }
-  }, [location.pathname]);
-
-  useEffect(() => {
-    const openedSubmenu = sidebarNavigation.find(({ children }) =>
-      children?.some(({ url }) => url === location.pathname),
-    );
-    if (openedSubmenu) {
-      setOpenKeys([openedSubmenu.key]);
-    }
+    closeSidebar();
   }, []);
 
   return (
     <S.Menu
       mode="inline"
-      selectedKeys={selectedKeys}
-      openKeys={openKeys}
-      onOpenChange={setOpenKeys}
+      defaultSelectedKeys={defaultSelectedKeys}
+      defaultOpenKeys={defaultOpenKeys}
       onClick={closeSidebar}
     >
       {sidebarNavigation.map((nav) =>
