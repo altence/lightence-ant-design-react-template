@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import './i18n';
 import './styles/main.less';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+import 'config/config';
 
 ReactDOM.render(
   <React.StrictMode>
