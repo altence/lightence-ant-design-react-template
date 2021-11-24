@@ -39,8 +39,4 @@ export const ScreeningsCarousel = styled(Carousel)`
   .slick-disabled {
     display: none !important;
   }
-
-  .slick-arrow {
-    font-size: 1rem;
-  }
 `;

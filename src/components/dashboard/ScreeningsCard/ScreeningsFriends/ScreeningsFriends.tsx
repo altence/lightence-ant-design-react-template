@@ -4,10 +4,10 @@ import { useTranslation } from 'react-i18next';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import { ScreeningsFriend } from './ScreeningsFriend/ScreeningsFriend';
 import { CurrentStatisticsState } from '../ScreeningsCard';
-import { CarouselArrow } from 'components/common/CarouselArrow/CarouselArrow';
 import { useResponsive } from 'hooks/useResponsive';
 import { Screening } from 'api/screenings.api';
 import * as S from './ScreeningsFriends.styles';
+import { CarouselArrow } from 'components/common/CarouselArrow/CarouselArrow';
 
 interface ScreeningsFriendsProps {
   screenings: Screening[];
