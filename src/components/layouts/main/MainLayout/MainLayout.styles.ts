@@ -4,6 +4,7 @@ import bg from 'assets/images/bg.png';
 
 export const LayoutMaster = styled(Layout)`
   min-height: 100vh;
+  max-height: 100vh;
 `;
 
 export const LayoutMain = styled(Layout)`
