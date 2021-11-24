@@ -31,6 +31,7 @@ export const ScreeningsHeader: React.FC<ScreeningsHeaderProps> = ({ currentStati
               value={currentStatistics.month}
               width="100%"
               bordered={false}
+              shadow
               placeholder={t('dashboard.latestScreenings.month')}
               onChange={(month) => setCurrentStatistics((prev) => ({ ...prev, month }))}
             />
@@ -41,6 +42,7 @@ export const ScreeningsHeader: React.FC<ScreeningsHeaderProps> = ({ currentStati
               value={currentStatistics.statistic}
               width="100%"
               bordered={false}
+              shadow
               placeholder={t('dashboard.latestScreenings.statistics')}
               onChange={(statistic) => setCurrentStatistics((prev) => ({ ...prev, statistic }))}
             />

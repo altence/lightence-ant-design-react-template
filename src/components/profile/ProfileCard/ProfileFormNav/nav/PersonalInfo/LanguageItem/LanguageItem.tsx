@@ -1,5 +1,5 @@
 import React from 'react';
-import { Select, Option } from 'components/common/Select/Select';
+import { Select, Option } from 'components/common/selects/Select/Select';
 import { useTranslation } from 'react-i18next';
 import { languages } from 'constants/languages';
 import { FormItem } from 'components/common/Form/Form.styles';

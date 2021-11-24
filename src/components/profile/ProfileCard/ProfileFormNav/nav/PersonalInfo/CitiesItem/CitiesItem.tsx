@@ -1,9 +1,8 @@
 import React, { useMemo } from 'react';
 import { City, Country } from 'country-state-city';
 import { useTranslation } from 'react-i18next';
+import { Select, Option } from 'components/common/selects/Select/Select';
 import { FormItem } from 'components/common/Form/Form.styles';
-import { Select, Option } from 'components/common/Select/Select';
-
 interface CitiesItemProps {
   country: string | undefined;
 }
