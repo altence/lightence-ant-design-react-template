@@ -1,5 +1,3 @@
-import { RoutesEnum } from 'constants/navigation';
-
 export interface Message {
   id: number;
   description: string;
@@ -37,7 +35,7 @@ export const getNotifications = (): Promise<Notification[]> => {
           userIcon:
             'https://res.cloudinary.com/lapkinthegod/image/upload/v1629187274/young-male-doctor-white-uniform_x7dcrs.jpg',
           place: 'dashboard.latestScreenings.title',
-          href: `${RoutesEnum.DASHBOARD_PAGE}#latest-screenings`,
+          href: `/#latest-screenings`,
         },
       ]);
     }, 1000);
