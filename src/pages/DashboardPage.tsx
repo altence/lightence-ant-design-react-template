@@ -10,7 +10,6 @@ import { FavouritesDoctorsCard } from '../components/dashboard/FavouritesDoctors
 import { PatientResultsCard } from '../components/dashboard/PatientResultsCard/PatientResultsCard';
 import { BloodScreeningCard } from '../components/dashboard/BloodScreeningCard/BloodScreeningCard';
 import { PiecesOfAdviceCard } from '../components/dashboard/PiecesOfAdviceCard/PiecesOfAdviceCard';
-import { PageTitle } from 'components/common/PageTitle/PageTitle';
 import { useResponsive } from 'hooks/useResponsive';
 import { StatisticsCards } from 'components/dashboard/StatisticsCards/StatisticsCards';
 
