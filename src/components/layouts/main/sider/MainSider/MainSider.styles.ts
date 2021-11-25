@@ -22,14 +22,14 @@ export const Sider = styled(Layout.Sider)`
   }
 `;
 
-export const CollapseButton = styled(Button)<{ isCollapsed: boolean }>`
+export const CollapseButton = styled(Button)<{ $isCollapsed: boolean }>`
   background: ${(props) => props.theme.colors.main.primary};
   transition: all 0.2s ease;
   position: absolute;
   right: 0.5rem;
 
   ${(props) =>
-    props.isCollapsed &&
+    props.$isCollapsed &&
     css`
       right: -1rem;
     `}
