@@ -7,7 +7,6 @@ import { Notification } from 'components/common/Notification/Notification';
 import { capitalize } from 'utils/utils';
 import { Mention, Notification as NotificationType } from 'api/notifications.api';
 import { notificationsSeverities } from 'constants/notificationsSeverities';
-import { RoutesEnum } from 'constants/navigation';
 import * as S from './NotificationsOverlay.styles';
 
 interface NotificationsOverlayProps {
@@ -69,7 +68,7 @@ export const NotificationsOverlay: React.FC<NotificationsOverlayProps> = ({ noti
             )}
             <Col span={24}>
               <S.Btn type="link">
-                <Link to={RoutesEnum.DASHBOARD_PAGE}>{t('header.notifications.viewAll')}</Link>
+                <Link to="/">{t('header.notifications.viewAll')}</Link>
               </S.Btn>
             </Col>
           </Row>

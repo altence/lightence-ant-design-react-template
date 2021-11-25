@@ -1,5 +1,4 @@
 import { CategoryType } from './categoriesList';
-import { RoutesEnum } from './navigation';
 
 export interface Component {
   name: string;
@@ -11,79 +10,79 @@ export interface Component {
 export const componentsData: Component[] = [
   {
     name: 'Protein',
-    url: `${RoutesEnum.DASHBOARD_PAGE}#protein`,
+    url: `/#protein`,
     categories: ['charts'],
     keywords: ['protein', 'charts', 'statistics'],
   },
   {
     name: 'Fat',
-    url: `${RoutesEnum.DASHBOARD_PAGE}#fat`,
+    url: `/#fat`,
     categories: ['charts'],
     keywords: ['fat', 'charts', 'statistics'],
   },
   {
     name: 'Bones',
-    url: `${RoutesEnum.DASHBOARD_PAGE}#bones`,
+    url: `/#bones`,
     categories: ['charts'],
     keywords: ['bones', 'charts', 'statistics'],
   },
   {
     name: 'Water',
-    url: `${RoutesEnum.DASHBOARD_PAGE}#water`,
+    url: `/#water`,
     categories: ['charts'],
     keywords: ['water', 'balance', 'statistics', 'charts'],
   },
   {
     name: 'Map',
-    url: `${RoutesEnum.DASHBOARD_PAGE}#map`,
+    url: `/#map`,
     categories: ['maps'],
     keywords: ['maps', 'doctor', 'polyclinic'],
   },
   {
     name: 'Latest screenings',
-    url: `${RoutesEnum.DASHBOARD_PAGE}#latest-screenings`,
+    url: `/#latest-screenings`,
     categories: ['charts'],
     keywords: ['latest screenings', 'charts', 'statistics'],
   },
   {
     name: 'Blood screening',
-    url: `${RoutesEnum.DASHBOARD_PAGE}#blood-screening`,
+    url: `/#blood-screening`,
     categories: ['data tables'],
     keywords: ['blood screening', 'statistics', 'data tables'],
   },
   {
     name: 'Treatment plan',
-    url: `${RoutesEnum.DASHBOARD_PAGE}#treatment`,
+    url: `/#treatment`,
     categories: ['data tables'],
     keywords: ['treatment plan', 'data tables'],
   },
   {
     name: 'Activity chart',
-    url: `${RoutesEnum.DASHBOARD_PAGE}#activity`,
+    url: `/#activity`,
     categories: ['charts'],
     keywords: ['activity', 'charts', 'statistics'],
   },
   {
     name: 'Covid chart',
-    url: `${RoutesEnum.DASHBOARD_PAGE}#covid`,
+    url: `/#covid`,
     categories: ['charts'],
     keywords: ['covid', 'charts', 'statistics'],
   },
   {
     name: 'Favorite doctors',
-    url: `${RoutesEnum.DASHBOARD_PAGE}#fav-doctors`,
+    url: `/#fav-doctors`,
     categories: ['data tables'],
     keywords: ['favorite doctors', 'data tables'],
   },
   {
     name: 'Patient timeline',
-    url: `${RoutesEnum.DASHBOARD_PAGE}#timeline`,
+    url: `/#timeline`,
     categories: ['data tables'],
     keywords: ['patient timeline', 'data tables'],
   },
   {
     name: 'Pieces of advice',
-    url: `${RoutesEnum.DASHBOARD_PAGE}#advice`,
+    url: `/#advice`,
     categories: ['data tables'],
     keywords: ['pieces of advice', 'data tables'],
   },
