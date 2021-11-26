@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Form, Image } from 'antd';
 import { useTranslation } from 'react-i18next';
 import * as S from './TwoFactorAuthForm.styles';
@@ -11,12 +11,12 @@ export const TwoFactorAuthForm: React.FC = () => {
   const { t } = useTranslation();
   const [verifyCode, setVerifyCode] = useState('');
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (verifyCode.length === 6) {
       setTimeout(() => {
-        history.push('/');
+        navigate('/');
       }, 500);
     }
   }, [verifyCode]);
@@ -24,7 +24,7 @@ export const TwoFactorAuthForm: React.FC = () => {
   return (
     <Auth.FormWrapper>
       <Form layout="vertical" requiredMark="optional">
-        <Auth.BackWrapper onClick={() => history.goBack()}>
+        <Auth.BackWrapper onClick={() => navigate(-1)}>
           <Auth.BackIcon />
           {t('common.back')}
         </Auth.BackWrapper>

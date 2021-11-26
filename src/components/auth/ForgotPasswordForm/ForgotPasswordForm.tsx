@@ -24,7 +24,7 @@ export const ForgotPasswordForm: React.FC = () => {
   return (
     <Auth.FormWrapper>
       <Form layout="vertical" onFinish={handleSubmit} requiredMark="optional">
-        <Auth.BackWrapper onClick={() => history.goBack()}>
+        <Auth.BackWrapper onClick={() => navigate(-1)}>
           <Auth.BackIcon />
           {t('common.back')}
         </Auth.BackWrapper>
