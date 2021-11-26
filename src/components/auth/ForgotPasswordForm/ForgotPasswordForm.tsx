@@ -17,7 +17,7 @@ export const ForgotPasswordForm: React.FC = () => {
     });
 
     setTimeout(() => {
-      navigate('/verify-email');
+      navigate('/auth/verify-email');
     }, 1000);
   };
 
