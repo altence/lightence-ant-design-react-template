@@ -7,6 +7,7 @@ export interface Component {
   keywords: string[];
 }
 
+// TODO review and come up with a better approach for urls
 export const componentsData: Component[] = [
   {
     name: 'Protein',
