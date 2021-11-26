@@ -129,9 +129,10 @@ export const LineRaceChart: React.FC = () => {
       name: '',
     },
     grid: {
-      left: '5%',
+      left: 65,
       top: 60,
       bottom: 60,
+      right: 150,
     },
     series: series,
   };

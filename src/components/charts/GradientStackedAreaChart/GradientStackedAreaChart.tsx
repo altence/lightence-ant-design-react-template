@@ -37,16 +37,11 @@ export const GradientStackedAreaChart: React.FC = () => {
         color: theme.colors.text.main,
       },
     },
-    toolbox: {
-      feature: {
-        saveAsImage: {},
-      },
-    },
     grid: {
-      left: '1%',
-      right: '1.5%',
+      left: 5,
+      right: 20,
       bottom: 0,
-      top: '25%',
+      top: 90,
       containLabel: true,
     },
     xAxis: [
