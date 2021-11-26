@@ -16,7 +16,7 @@ export const VerifyEmailForm: React.FC = () => {
   useEffect(() => {
     if (verifyCode.length === 6) {
       setTimeout(() => {
-        navigate('/');
+        navigate('/auth/new-password');
       }, 500);
     }
   }, [verifyCode]);

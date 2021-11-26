@@ -42,7 +42,7 @@ export const LoginForm: React.FC = () => {
               <S.RememberMeText>{t('login.rememberMe')}</S.RememberMeText>
             </Auth.FormCheckbox>
           </Form.Item>
-          <Link to="/forgot-password">
+          <Link to="/auth/forgot-password">
             <S.ForgotPasswordText>{t('login.forgotPassword')}</S.ForgotPasswordText>
           </Link>
         </Auth.ActionsWrapper>
@@ -54,7 +54,7 @@ export const LoginForm: React.FC = () => {
         <Auth.FooterWrapper>
           <Auth.Text>
             {t('login.noAccount')}{' '}
-            <Link to="/signup">
+            <Link to="/auth/sign-up">
               <Auth.LinkText>{t('login.signupLink')}</Auth.LinkText>
             </Link>
           </Auth.Text>
