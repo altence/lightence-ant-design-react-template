@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { Card } from 'components/common/Card/Card';
 import { Chart } from 'components/common/Chart/Chart';
 import { ThemeContext } from 'styled-components';
-import { useTranslation } from 'react-i18next';
 
 const data = [
   [10.0, 8.04],
@@ -23,12 +22,14 @@ const markLineOpt = {
   label: {
     formatter: 'y = 0.5 * x + 3',
     align: 'right',
+    show: false,
   },
   lineStyle: {
-    type: 'solid',
+    width: 0,
   },
   tooltip: {
     formatter: 'y = 0.5 * x + 3',
+    show: false,
   },
   data: [
     [
@@ -46,9 +47,6 @@ const markLineOpt = {
 
 export const ScatterChart: React.FC = () => {
   const theme = useContext(ThemeContext);
-
-  const { t } = useTranslation();
-
   const option = {
     color: theme.colors.main.primary,
     grid: {
@@ -75,8 +73,8 @@ export const ScatterChart: React.FC = () => {
   };
 
   return (
-    <Card title={t('charts.scatter')}>
-      <Chart option={option} />
+    <Card padding="30px 10px 20px 10px">
+      <Chart option={option} height="100%" />
     </Card>
   );
 };

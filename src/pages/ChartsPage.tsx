@@ -1,32 +1,27 @@
 import { Col, Row } from 'antd';
-import { BarChart } from 'components/charts/BarChart/BarChart';
-import { LineChart } from 'components/charts/LineChart/LineChart';
+import { GradientStackedAreaChart } from 'components/charts/GradientStackedAreaChart/GradientStackedAreaChart';
 import { PieChart } from 'components/charts/PieChart/PieChart';
-import { RadarChart } from 'components/charts/RadarChart/RadarChart';
+import { BarAnimationDelayChart } from 'components/charts/BarAnimationDelayChart/BarAnimationDelayChart';
 import { ScatterChart } from 'components/charts/ScatterChart/ScatterChart';
-import { BoxplotChart } from 'components/charts/BoxplotChart/BoxplotChart';
-import React from 'react';
+import { LineRaceChart } from 'components/charts/LineRaceChart/LineRaceChart';
 
 const ChartsPage: React.FC = () => {
   return (
-    <Row gutter={[10, 10]}>
-      <Col xs={24} md={12}>
-        <LineChart />
+    <Row gutter={[30, 30]}>
+      <Col xs={24} md={16}>
+        <GradientStackedAreaChart />
       </Col>
-      <Col xs={24} md={12}>
-        <BarChart />
-      </Col>
-      <Col xs={24} md={12}>
+      <Col xs={24} md={8}>
         <PieChart />
       </Col>
-      <Col xs={24} md={12}>
-        <BoxplotChart />
+      <Col xs={24} md={24}>
+        <LineRaceChart />
       </Col>
-      <Col xs={24} md={12}>
+      <Col xs={24} md={8}>
         <ScatterChart />
       </Col>
-      <Col xs={24} md={12}>
-        <RadarChart />
+      <Col xs={24} md={16}>
+        <BarAnimationDelayChart />
       </Col>
     </Row>
   );

@@ -1,64 +1,56 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
-import { useTranslation } from 'react-i18next';
+import React from 'react';
 import { Card } from 'components/common/Card/Card';
 import { Chart } from 'components/common/Chart/Chart';
-import { hexToRGB } from 'utils/utils';
-import { useResponsive } from 'hooks/useResponsive';
 
-export const PieChart: React.FC = () => {
-  const { t } = useTranslation();
-
-  const { isMobile, isTablet, isDesktop, isBigScreen } = useResponsive();
-
-  const theme = useContext(ThemeContext);
-
-  const radiusValue = isBigScreen ? '75%' : isDesktop ? '70%' : isTablet ? '50%' : isMobile ? '60%' : '60%';
-
-  const chartPosition = [
-    'center',
-    isBigScreen ? '60%' : isDesktop ? '65%' : isTablet ? '65%' : isMobile ? '70%' : '70%',
-  ];
-
-  const option = {
-    color: [
-      theme.colors.main.primary,
-      theme.colors.main.success,
-      theme.colors.main.error,
-      theme.colors.main.warning,
-      theme.colors.main.secondary,
-    ],
-    legend: { orient: 'horizontal', top: 'top' },
-    tooltip: {
-      trigger: 'item',
-    },
-    series: [
-      {
-        name: 'Access From',
-        type: 'pie',
-        center: chartPosition,
-        radius: radiusValue,
-        data: [
-          { value: 1048, name: 'Search Engine' },
-          { value: 735, name: 'Direct' },
-          { value: 580, name: 'Email' },
-          { value: 484, name: 'Union Ads' },
-          { value: 300, name: 'Video Ads' },
-        ],
-        emphasis: {
-          itemStyle: {
-            shadowBlur: 10,
-            shadowOffsetX: 0,
-            shadowColor: hexToRGB(theme.commonColors.black, 0.5),
-          },
+const option = {
+  tooltip: {
+    trigger: 'item',
+  },
+  legend: {
+    top: '0%',
+    left: 'center',
+  },
+  series: [
+    {
+      name: 'Access From',
+      type: 'pie',
+      top: '25%',
+      radius: ['55%', '100%'],
+      avoidLabelOverlap: false,
+      itemStyle: {
+        borderRadius: 5,
+        borderColor: '#fff',
+        borderWidth: 2,
+      },
+      label: {
+        show: false,
+        position: 'center',
+      },
+      emphasis: {
+        label: {
+          show: true,
+          fontSize: '40',
+          fontWeight: 'bold',
         },
       },
-    ],
-  };
+      labelLine: {
+        show: false,
+      },
+      data: [
+        { value: 1048, name: 'Search Engine' },
+        { value: 735, name: 'Direct' },
+        { value: 580, name: 'Email' },
+        { value: 484, name: 'Union Ads' },
+        { value: 300, name: 'Video Ads' },
+      ],
+    },
+  ],
+};
 
+export const PieChart: React.FC = () => {
   return (
-    <Card title={t('charts.pie')}>
-      <Chart option={option} />
+    <Card padding="30px 0">
+      <Chart option={option} height={'100%'} />
     </Card>
   );
 };
