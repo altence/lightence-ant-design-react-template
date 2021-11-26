@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Form } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useResponsive } from 'hooks/useResponsive';
@@ -7,13 +7,13 @@ import * as S from './LockForm.styles';
 import * as Auth from 'components/layouts/auth/AuthLayout.styles';
 
 export const LockForm: React.FC = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { mobileOnly } = useResponsive();
   const { t } = useTranslation();
 
   const handleSubmit = () => {
     setTimeout(() => {
-      history.push('/');
+      navigate('/');
     }, 500);
   };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Form, notification } from 'antd';
 import { useTranslation } from 'react-i18next';
 import * as S from './NewPasswordForm.styles';
@@ -8,7 +8,7 @@ import * as Auth from 'components/layouts/auth/AuthLayout.styles';
 export const NewPasswordForm: React.FC = () => {
   const { t } = useTranslation();
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleSubmit = () => {
     notification.open({
@@ -17,14 +17,14 @@ export const NewPasswordForm: React.FC = () => {
     });
 
     setTimeout(() => {
-      history.push('/');
+      navigate('/');
     }, 1000);
   };
 
   return (
     <Auth.FormWrapper>
       <Form layout="vertical" onFinish={handleSubmit} requiredMark="optional">
-        <Auth.BackWrapper onClick={() => history.goBack()}>
+        <Auth.BackWrapper onClick={() => navigate(-1)}>
           <Auth.BackIcon />
           {t('common.back')}
         </Auth.BackWrapper>
