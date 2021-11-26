@@ -1,8 +1,8 @@
 import React from 'react';
 import * as S from './MainSider/MainSider.styles';
 import { RightOutlined } from '@ant-design/icons';
-import { useResponsive } from '../../../../hooks/useResponsive';
-import logo from '../../../../assets/logo.png';
+import { useResponsive } from 'hooks/useResponsive';
+import logo from 'assets/logo.png';
 
 interface SiderLogoProps {
   isSiderCollapsed: boolean;
