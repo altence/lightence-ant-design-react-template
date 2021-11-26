@@ -18,7 +18,7 @@ import SignUpPage from '../../pages/SignUpPage';
 import LockPage from '../../pages/LockPage';
 import ForgotPasswordPage from '../../pages/ForgotPasswordPage';
 import Error404Page from '../../pages/Error404Page';
-import VerifyEmailPage from '../../pages/VerifyEmailPage';
+import SecurityCodePage from '../../pages/SecurityCodePage';
 import NewPasswordPage from '../../pages/NewPasswordPage';
 
 /*TODO check for lazy loading and add if lack*/
@@ -50,9 +50,8 @@ export const AppRouter: React.FC = () => {
           <Route path="sign-up" element={<SignUpPage />} />
           <Route path="lock" element={<LockPage />} />
           <Route path="forgot-password" element={<ForgotPasswordPage />} />
-          <Route path="verify-email" element={<VerifyEmailPage />} />
+          <Route path="security-code" element={<SecurityCodePage />} />
           <Route path="new-password" element={<NewPasswordPage />} />
-          <Route path="lock" element={<LockPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
