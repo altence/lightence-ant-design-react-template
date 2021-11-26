@@ -67,6 +67,16 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: 'forgotPass',
         url: '/auth/forgot-password',
       },
+      {
+        title: 'common.securityCode',
+        key: 'securityCode',
+        url: '/auth/security-code',
+      },
+      {
+        title: 'common.newPass',
+        key: 'newPass',
+        url: '/auth/new-password',
+      },
     ],
   },
   {
@@ -78,11 +88,6 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         title: 'common.payment',
         key: 'payment',
         url: '/forms/payment',
-      },
-      {
-        title: 'common.securityCode',
-        key: 'securityCode',
-        url: '/forms/security-code',
       },
     ],
   },
