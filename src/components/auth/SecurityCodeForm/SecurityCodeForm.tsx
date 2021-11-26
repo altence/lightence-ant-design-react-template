@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Image } from 'antd';
 import { useTranslation } from 'react-i18next';
-import * as S from './VerifyEmailForm.styles';
+import * as S from './SecurityCodeForm.styles';
 import * as Auth from 'components/layouts/auth/AuthLayout.styles';
 import { VerificationCodeInput } from 'components/common/VerificationCodeInput/VerificationCodeInput';
 import VerifyEmailImage from 'assets/images/verify-email.png';
 
-export const VerifyEmailForm: React.FC = () => {
+export const SecurityCodeForm: React.FC = () => {
   const { t } = useTranslation();
   const [verifyCode, setVerifyCode] = useState('');
 
