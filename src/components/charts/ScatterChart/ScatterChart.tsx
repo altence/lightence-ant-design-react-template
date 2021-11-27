@@ -19,17 +19,8 @@ const data = [
 
 const markLineOpt = {
   animation: false,
-  label: {
-    formatter: 'y = 0.5 * x + 3',
-    align: 'right',
-    show: false,
-  },
   lineStyle: {
     width: 0,
-  },
-  tooltip: {
-    formatter: 'y = 0.5 * x + 3',
-    show: false,
   },
   data: [
     [
@@ -52,8 +43,8 @@ export const ScatterChart: React.FC = () => {
     grid: {
       top: 10,
       right: 10,
-      bottom: 10,
-      left: 10,
+      bottom: 0,
+      left: 5,
       containLabel: true,
     },
     tooltip: {
@@ -73,8 +64,8 @@ export const ScatterChart: React.FC = () => {
   };
 
   return (
-    <Card padding="30px 10px 20px 10px">
-      <Chart option={option} height="100%" />
+    <Card padding="1.875rem 0.625rem 1.25rem 0.625rem">
+      <Chart option={option} height="20rem" />
     </Card>
   );
 };

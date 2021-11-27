@@ -2,18 +2,22 @@ import React, { useEffect, useState, useContext } from 'react';
 import { Card } from 'components/common/Card/Card';
 import { Chart } from 'components/common/Chart/Chart';
 import { ThemeContext } from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 export const BarAnimationDelayChart: React.FC = () => {
   const theme = useContext(ThemeContext);
+  const { t } = useTranslation();
   const [data, setData] = useState<{ data1: number[]; data2: number[]; xAxisData: string[] }>({
     data1: [],
     data2: [],
     xAxisData: [],
   });
+
   useEffect(() => {
     const xAxisData: string[] = [];
     const data1: number[] = [];
     const data2: number[] = [];
+
     setTimeout(() => {
       for (let i = 0; i < 100; i++) {
         xAxisData.push('A' + i);
@@ -23,9 +27,10 @@ export const BarAnimationDelayChart: React.FC = () => {
       setData({ data1, data2, xAxisData });
     }, 200);
   }, []);
+
   const option = {
     title: {
-      text: 'Bar Animation Delay',
+      text: t('charts.barLabel'),
       textStyle: {
         fontSize: theme.commonFontSizes.xxl,
         fontWeight: theme.commonFontWeight.bold,
@@ -35,7 +40,7 @@ export const BarAnimationDelayChart: React.FC = () => {
       left: 20,
     },
     legend: {
-      data: ['bar1', 'bar2'],
+      data: [`${t('charts.bar')}1`, `${t('charts.bar')}2`],
       left: 20,
       top: 40,
     },
@@ -56,7 +61,7 @@ export const BarAnimationDelayChart: React.FC = () => {
     yAxis: {},
     series: [
       {
-        name: 'bar1',
+        name: `${t('charts.bar')}1`,
         type: 'bar',
         data: data.data1,
         color: '#FFB155',
@@ -68,7 +73,7 @@ export const BarAnimationDelayChart: React.FC = () => {
         },
       },
       {
-        name: 'bar2',
+        name: `${t('charts.bar')}2`,
         type: 'bar',
         data: data.data2,
         color: '#89DCA0',
@@ -86,7 +91,7 @@ export const BarAnimationDelayChart: React.FC = () => {
     },
   };
   return (
-    <Card padding="30px 0">
+    <Card padding="1.875rem 0">
       <Chart option={option} height={'100%'} />
     </Card>
   );

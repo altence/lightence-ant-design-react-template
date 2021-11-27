@@ -324,11 +324,22 @@
     "createColumn": "Create new column"
   },
   "charts": {
-    "line": "Line chart",
-    "bar": "Bar chart",
-    "pie": "Pie chart",
-    "boxplot": "Boxplot chart",
-    "scatter": "Scatter chart",
-    "radar": "Radar chart"
+    "barLabel": "Bar Animation Delay",
+    "bar": "bar",
+    "gradientLabel": "Gradient Stacked Area Chart",
+    "line": "Line",
+    "lineTitle": "Income of Germany and France since 1950",
+    "mon": "Mon",
+    "tue": "Tue",
+    "wed": "Wed",
+    "thu": "Thu",
+    "fri": "Fri",
+    "sat": "Sat",
+    "sun": "Sun",
+    "search": "Search Engine",
+    "direct": "Direct",
+    "email": "Email",
+    "union": "Union Ads",
+    "video": "Video Ads"
   }
 }
