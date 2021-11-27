@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form } from 'antd';
 import { Link } from 'react-router-dom';
@@ -8,11 +8,14 @@ import * as Auth from 'components/layouts/auth/AuthLayout.styles';
 
 export const LoginForm: React.FC = () => {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
   const { t } = useTranslation();
 
   const handleSubmit = () => {
+    setIsLoading(true);
     setTimeout(() => {
+      setIsLoading(false);
       navigate('/');
     }, 1000);
   };
@@ -25,14 +28,20 @@ export const LoginForm: React.FC = () => {
         <Auth.FormItem
           name="email"
           label={t('common.email')}
-          rules={[{ required: true, message: t('common.emailError') }]}
+          rules={[
+            { required: true, message: t('common.requiredField') },
+            {
+              type: 'email',
+              message: t('profile.nav.personalInfo.notValidEmail'),
+            },
+          ]}
         >
           <Auth.FormInput placeholder={t('common.email')} />
         </Auth.FormItem>
         <Auth.FormItem
           label={t('common.password')}
           name="password"
-          rules={[{ required: true, message: t('common.passwordError') }]}
+          rules={[{ required: true, message: t('common.requiredField') }]}
         >
           <Auth.FormInputPassword placeholder={t('common.password')} />
         </Auth.FormItem>
@@ -47,7 +56,7 @@ export const LoginForm: React.FC = () => {
           </Link>
         </Auth.ActionsWrapper>
         <Form.Item noStyle>
-          <Auth.SubmitButton type="primary" htmlType="submit">
+          <Auth.SubmitButton type="primary" htmlType="submit" loading={isLoading}>
             {t('common.login')}
           </Auth.SubmitButton>
         </Form.Item>
