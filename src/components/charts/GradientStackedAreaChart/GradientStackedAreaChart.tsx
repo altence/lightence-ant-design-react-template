@@ -3,13 +3,16 @@ import { Chart } from 'components/common/Chart/Chart';
 import * as echarts from 'echarts';
 import { Card } from 'components/common/Card/Card';
 import { ThemeContext } from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 export const GradientStackedAreaChart: React.FC = () => {
   const theme = useContext(ThemeContext);
+  const { t } = useTranslation();
+
   const option = {
     color: ['#01509A', '#35A0DC', '#FFDA92', '#31A652', '#FF5252'],
     title: {
-      text: 'Gradient Stacked Area Chart',
+      text: t('charts.gradientLabel'),
       left: '1.5%',
       textStyle: {
         fontSize: theme.commonFontSizes.xxl,
@@ -28,7 +31,13 @@ export const GradientStackedAreaChart: React.FC = () => {
       },
     },
     legend: {
-      data: ['Line 1', 'Line 2', 'Line 3', 'Line 4', 'Line 5'],
+      data: [
+        `${t('charts.line')}1`,
+        `${t('charts.line')}2`,
+        `${t('charts.line')}3`,
+        `${t('charts.line')}4`,
+        `${t('charts.line')}5`,
+      ],
       top: '12%',
       left: '1%',
       textStyle: {
@@ -48,7 +57,15 @@ export const GradientStackedAreaChart: React.FC = () => {
       {
         type: 'category',
         boundaryGap: false,
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        data: [
+          t('charts.mon'),
+          t('charts.tue'),
+          t('charts.wed'),
+          t('charts.thu'),
+          t('charts.fri'),
+          t('charts.sat'),
+          t('charts.sun'),
+        ],
         axisLabel: {
           fontSize: theme.commonFontSizes.xxs,
           fontWeight: theme.commonFontWeight.light,
@@ -68,7 +85,7 @@ export const GradientStackedAreaChart: React.FC = () => {
     ],
     series: [
       {
-        name: 'Line 1',
+        name: `${t('charts.line')}1`,
         type: 'line',
         stack: 'Total',
         smooth: true,
@@ -95,7 +112,7 @@ export const GradientStackedAreaChart: React.FC = () => {
         data: [140, 232, 101, 264, 90, 340, 250],
       },
       {
-        name: 'Line 2',
+        name: `${t('charts.line')}2`,
         type: 'line',
         stack: 'Total',
         smooth: true,
@@ -122,7 +139,7 @@ export const GradientStackedAreaChart: React.FC = () => {
         data: [120, 282, 111, 234, 220, 340, 310],
       },
       {
-        name: 'Line 3',
+        name: `${t('charts.line')}3`,
         type: 'line',
         stack: 'Total',
         smooth: true,
@@ -149,7 +166,7 @@ export const GradientStackedAreaChart: React.FC = () => {
         data: [320, 132, 201, 334, 190, 130, 220],
       },
       {
-        name: 'Line 4',
+        name: `${t('charts.line')}4`,
         type: 'line',
         stack: 'Total',
         smooth: true,
@@ -176,7 +193,7 @@ export const GradientStackedAreaChart: React.FC = () => {
         data: [220, 402, 231, 134, 190, 230, 120],
       },
       {
-        name: 'Line 5',
+        name: `${t('charts.line')}5`,
         type: 'line',
         stack: 'Total',
         smooth: true,
@@ -210,7 +227,7 @@ export const GradientStackedAreaChart: React.FC = () => {
   };
 
   return (
-    <Card padding="30px 0">
+    <Card padding="1.875rem 0">
       <Chart option={option} height={'100%'} />
     </Card>
   );

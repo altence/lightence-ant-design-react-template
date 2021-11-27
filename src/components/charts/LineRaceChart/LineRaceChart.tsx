@@ -3,6 +3,7 @@ import * as echarts from 'echarts';
 import { Card } from 'components/common/Card/Card';
 import { Chart } from 'components/common/Chart/Chart';
 import { ThemeContext } from 'styled-components';
+import { useTranslation } from 'react-i18next';
 import Data from './data.json';
 
 interface DataRow {
@@ -43,6 +44,7 @@ export const LineRaceChart: React.FC = () => {
   const [series, setSeries] = useState<SeriesRow[]>([]);
   const rawData = JSON.parse(JSON.stringify(Data));
   const theme = useContext(ThemeContext);
+  const { t } = useTranslation();
 
   useEffect(() => {
     setTimeout(() => {
@@ -54,6 +56,7 @@ export const LineRaceChart: React.FC = () => {
     const countries = ['Finland', 'France', 'Germany', 'Iceland', 'Norway', 'Poland', 'Russia', 'United Kingdom'];
     const datasetWithFilters: DataRow[] = [];
     const seriesList: SeriesRow[] = [];
+
     echarts.util.each(countries, function (country) {
       const datasetId = 'dataset_' + country;
       datasetWithFilters.push({
@@ -108,7 +111,7 @@ export const LineRaceChart: React.FC = () => {
       ...data,
     ],
     title: {
-      text: 'Income of Germany and France since 1950',
+      text: t('charts.lineTitle'),
       left: '1.8%',
       textStyle: {
         fontSize: theme.commonFontSizes.xxl,
@@ -138,8 +141,8 @@ export const LineRaceChart: React.FC = () => {
   };
 
   return (
-    <Card padding="30px 0 0 0">
-      <Chart option={option} height={'385px'} />
+    <Card padding="1.875rem 0 0 0">
+      <Chart option={option} height={'24.0625rem'} />
     </Card>
   );
 };
