@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-import { Typography, Checkbox, Form, Button } from 'antd';
+import { Typography, Checkbox, Button } from 'antd';
 import loginBackground from 'assets/images/login-bg.webp';
 import theme from 'styles/theme';
 import { hexToRGB } from 'utils/utils';
+import { FormItem as CommonFormItem } from 'components/common/Form/Form.styles';
 import { Input as CommonInput } from 'components/common/inputs/Input/Input';
 import { InputPassword as CommonInputPassword } from 'components/common/inputs/InputPassword/InputPassword';
 import { LeftOutlined } from '@ant-design/icons';
@@ -51,6 +52,7 @@ export const FormWrapper = styled.div`
   width: 31.75rem;
   background-color: ${(props) => hexToRGB(props.theme.colors.main.mainBackground, 0.93)};
   border-radius: ${(props) => props.theme.border.radius};
+  font-family: Montserrat;
 
   @media only screen and ${theme.media.xs} {
     padding: 2.5rem 1.25rem;
@@ -102,19 +104,14 @@ export const FormCheckbox = styled(Checkbox)`
   }
 `;
 
-export const FormItem = styled(Form.Item)`
+export const FormItem = styled(CommonFormItem)`
   margin-bottom: 0.75rem;
-  position: relative;
-
   & .ant-form-item-control-input {
     min-height: 3.125rem;
   }
 
-  & .ant-form-item-explain {
-    position: absolute;
-    font-size: 0.68rem;
-    top: 105%;
-    color: ${(props) => props.theme.colors.main.error};
+  & .ant-form-item-explain-error {
+    font-size: ${(props) => props.theme.commonFontSizes.xs};
   }
 
   & label {
@@ -124,7 +121,7 @@ export const FormItem = styled(Form.Item)`
   }
 
   &.ant-form-item-has-feedback .ant-input-affix-wrapper .ant-input-suffix {
-    padding-right: 24px;
+    padding-right: 1.5rem;
   }
 `;
 
