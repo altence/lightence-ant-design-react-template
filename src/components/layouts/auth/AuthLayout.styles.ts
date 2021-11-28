@@ -50,6 +50,7 @@ export const Copyright = styled(Typography.Text)`
 export const FormWrapper = styled.div`
   padding: 2.5rem;
   width: 31.75rem;
+  overflow: auto;
   background-color: ${(props) => hexToRGB(props.theme.colors.main.mainBackground, 0.93)};
   border-radius: ${(props) => props.theme.border.radius};
   font-family: Montserrat;
@@ -57,11 +58,13 @@ export const FormWrapper = styled.div`
   @media only screen and ${theme.media.xs} {
     padding: 2.5rem 1.25rem;
     width: 20.75rem;
+    max-height: calc(100vh - 3rem);
   }
 
   @media only screen and ${theme.media.md} {
     padding: 2.5rem;
     width: 31.75rem;
+    max-height: calc(100vh - 3rem);
   }
 `;
 
