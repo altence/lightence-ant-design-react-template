@@ -24,7 +24,12 @@ export const SignUpForm: React.FC = () => {
 
   return (
     <Auth.FormWrapper>
-      <Form layout="vertical" onFinish={handleSubmit} requiredMark="optional">
+      <Form
+        fields={[{ name: ['termOfUse'], value: true }]}
+        layout="vertical"
+        onFinish={handleSubmit}
+        requiredMark="optional"
+      >
         <S.Title>{t('common.signUp')}</S.Title>
         <Auth.FormItem
           name="firstName"
