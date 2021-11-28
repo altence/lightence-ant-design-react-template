@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { Form } from 'antd';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { ReactComponent as GoogleIcon } from 'assets/icons/google.svg';
+import { ReactComponent as FacebookIcon } from 'assets/icons/facebook.svg';
 import * as S from './LoginForm.styles';
 import * as Auth from 'components/layouts/auth/AuthLayout.styles';
 
@@ -59,6 +61,22 @@ export const LoginForm: React.FC = () => {
           <Auth.SubmitButton type="primary" htmlType="submit" loading={isLoading}>
             {t('common.login')}
           </Auth.SubmitButton>
+        </Form.Item>
+        <Form.Item noStyle>
+          <Auth.SocialButton type="default" htmlType="submit" loading={isLoading}>
+            <Auth.SocialIconWrapper>
+              <GoogleIcon />
+            </Auth.SocialIconWrapper>
+            {t('common.googleLink')}
+          </Auth.SocialButton>
+        </Form.Item>
+        <Form.Item noStyle>
+          <Auth.SocialButton type="default" htmlType="submit" loading={isLoading}>
+            <Auth.SocialIconWrapper>
+              <FacebookIcon />
+            </Auth.SocialIconWrapper>
+            {t('common.facebookLink')}
+          </Auth.SocialButton>
         </Form.Item>
         <Auth.FooterWrapper>
           <Auth.Text>

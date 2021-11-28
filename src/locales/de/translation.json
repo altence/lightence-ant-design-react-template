@@ -60,7 +60,9 @@
     "formError": "DE!!!An error was occured",
     "info": "DE!!!Information",
     "name": "DE!!!Name",
-    "notFound": "DE!!!Sorry, there’s nothing found"
+    "notFound": "DE!!!Sorry, there’s nothing found",
+    "googleLink": "DE!!!Continue with Google",
+    "facebookLink": "DE!!!Continue with Facebook"
   },
   "header": {
     "search": "Search",
