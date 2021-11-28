@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Avatar } from 'antd';
 import { useTranslation } from 'react-i18next';
@@ -11,11 +11,16 @@ import * as Auth from 'components/layouts/auth/AuthLayout.styles';
 export const LockForm: React.FC = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+  const [dateState, setDateState] = useState(new Date());
   const { mobileOnly } = useResponsive();
   const { t } = useTranslation();
-  const currentDateInUTC = new Date().toUTCString();
+  const currentDateInUTC = dateState.toUTCString();
   const currentTime = Dates.format(currentDateInUTC, 'h:mm A');
   const currentDate = Dates.format(currentDateInUTC, 'dddd, MMMM D, YYYY');
+
+  useEffect(() => {
+    setInterval(() => setDateState(new Date()), 10000);
+  }, []);
 
   const handleSubmit = () => {
     setIsLoading(true);
