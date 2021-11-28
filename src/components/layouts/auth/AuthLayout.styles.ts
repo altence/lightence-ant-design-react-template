@@ -170,6 +170,19 @@ export const SubmitButton = styled(Button)`
   width: 100%;
 `;
 
+export const SocialButton = styled(Button)`
+  font-size: ${(props) => props.theme.commonFontSizes.md};
+  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+  color: ${(props) => props.theme.colors.main.primary};
+  border: ${(props) => `1px solid ${props.theme.colors.main.primary}`};
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+`;
+
 export const FooterWrapper = styled.div`
   margin-top: 1.25rem;
   text-align: center;
@@ -187,4 +200,16 @@ export const BackWrapper = styled.div`
   align-items: center;
   cursor: pointer;
   margin-bottom: 1.25rem;
+`;
+
+export const SocialIconWrapper = styled.div`
+  display: flex;
+  margin-right: 0.8125rem;
+  @media only screen and ${theme.media.xs} {
+    margin-right: 0.625rem;
+  }
+
+  @media only screen and ${theme.media.md} {
+    margin-right: 0.8125rem;
+  }
 `;
