@@ -1,9 +1,25 @@
 import styled from 'styled-components';
 import theme from 'styles/theme';
-import { Avatar as AntdAvatar } from 'antd';
+import * as Auth from 'components/layouts/auth/AuthLayout.styles';
 
-export const Avatar = styled(AntdAvatar)`
+export const FormItem = styled(Auth.FormItem)`
   margin-bottom: 1rem;
+`;
+
+export const AvatarCircle = styled.div`
+  border-radius: 50%;
+  background: ${(props) => props.theme.colors.main.mainBackground};
+  padding: 1px;
+  margin-bottom: 1rem;
+  @media only screen and ${theme.media.xs} {
+    height: 3.6875rem;
+    width: 3.6875rem;
+  }
+
+  @media only screen and ${theme.media.md} {
+    height: 4.8125rem;
+    width: 4.8125rem;
+  }
 `;
 
 export const ContentWrapper = styled.div`
