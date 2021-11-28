@@ -73,7 +73,7 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         url: '/auth/security-code',
       },
       {
-        title: 'common.newPass',
+        title: 'common.newPassword',
         key: 'newPass',
         url: '/auth/new-password',
       },
