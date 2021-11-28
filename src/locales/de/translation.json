@@ -60,9 +60,7 @@
     "formError": "DE!!!An error was occured",
     "info": "DE!!!Information",
     "name": "DE!!!Name",
-    "notFound": "DE!!!Sorry, there’s nothing found",
-    "googleLink": "DE!!!Continue with Google",
-    "facebookLink": "DE!!!Continue with Facebook"
+    "notFound": "DE!!!Sorry, there’s nothing found"
   },
   "header": {
     "search": "Search",
@@ -194,7 +192,9 @@
     "forgotPassword": "DE!!!Forgot password?",
     "noAccount": "DE!!!Don’t have an account? Create one",
     "signupLink": "DE!!!here",
-    "loginInfo": "DE!!!Enter your email address and password to access admin panel"
+    "loginInfo": "DE!!!Enter your email address and password to access admin panel",
+    "googleLink": "DE!!!Continue with Google",
+    "facebookLink": "DE!!!Continue with Facebook"
   },
   "signup": {
     "loginLink": "DE!!!here",
@@ -202,7 +202,9 @@
     "termOfUse": "DE!!!Terms of Use",
     "and": "DE!!!and",
     "privacyOPolicy": "DE!!!Privacy Policy",
-    "alreadyHaveAccount": "DE!!!Already have an account? Log in"
+    "alreadyHaveAccount": "DE!!!Already have an account? Log in",
+    "googleLink": "DE!!!Sign up with Google",
+    "facebookLink": "DE!!!Sign up with Facebook"
   },
   "forgotPassword": {
     "title": "DE!!!Reset password",

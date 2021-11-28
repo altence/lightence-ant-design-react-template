@@ -1,18 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form } from 'antd';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { ReactComponent as GoogleIcon } from 'assets/icons/google.svg';
+import { ReactComponent as FacebookIcon } from 'assets/icons/facebook.svg';
 import * as S from './SignUpForm.styles';
 import * as Auth from 'components/layouts/auth/AuthLayout.styles';
 
 export const SignUpForm: React.FC = () => {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
   const { t } = useTranslation();
 
   const handleSubmit = () => {
+    setIsLoading(true);
     setTimeout(() => {
+      setIsLoading(false);
       navigate('/');
     }, 1000);
   };
@@ -68,19 +73,41 @@ export const SignUpForm: React.FC = () => {
           <Auth.FormInputPassword placeholder={t('common.confirmPassword')} />
         </Auth.FormItem>
         <Auth.ActionsWrapper>
-          <Form.Item name="rememberMe" valuePropName="checked" noStyle>
+          <Form.Item name="termOfUse" valuePropName="checked" noStyle>
             <Auth.FormCheckbox>
               <Auth.Text>
-                {t('signup.agree')} <Auth.LinkText>{t('signup.termOfUse')}</Auth.LinkText> and{' '}
-                <Auth.LinkText>{t('signup.privacyOPolicy')}</Auth.LinkText>
+                {t('signup.agree')}{' '}
+                <Link to="/" target={'_blank'}>
+                  <Auth.LinkText>{t('signup.termOfUse')}</Auth.LinkText>
+                </Link>{' '}
+                and{' '}
+                <Link to="/" target={'_blank'}>
+                  <Auth.LinkText>{t('signup.privacyOPolicy')}</Auth.LinkText>
+                </Link>
               </Auth.Text>
             </Auth.FormCheckbox>
           </Form.Item>
         </Auth.ActionsWrapper>
         <Form.Item noStyle>
-          <Auth.SubmitButton type="primary" htmlType="submit">
+          <Auth.SubmitButton type="primary" htmlType="submit" loading={isLoading}>
             {t('common.signUp')}
           </Auth.SubmitButton>
+        </Form.Item>
+        <Form.Item noStyle>
+          <Auth.SocialButton type="default" htmlType="submit">
+            <Auth.SocialIconWrapper>
+              <GoogleIcon />
+            </Auth.SocialIconWrapper>
+            {t('signup.googleLink')}
+          </Auth.SocialButton>
+        </Form.Item>
+        <Form.Item noStyle>
+          <Auth.SocialButton type="default" htmlType="submit">
+            <Auth.SocialIconWrapper>
+              <FacebookIcon />
+            </Auth.SocialIconWrapper>
+            {t('signup.facebookLink')}
+          </Auth.SocialButton>
         </Form.Item>
         <Auth.FooterWrapper>
           <Auth.Text>
