@@ -63,19 +63,19 @@ export const LoginForm: React.FC = () => {
           </Auth.SubmitButton>
         </Form.Item>
         <Form.Item noStyle>
-          <Auth.SocialButton type="default" htmlType="submit" loading={isLoading}>
+          <Auth.SocialButton type="default" htmlType="submit">
             <Auth.SocialIconWrapper>
               <GoogleIcon />
             </Auth.SocialIconWrapper>
-            {t('common.googleLink')}
+            {t('login.googleLink')}
           </Auth.SocialButton>
         </Form.Item>
         <Form.Item noStyle>
-          <Auth.SocialButton type="default" htmlType="submit" loading={isLoading}>
+          <Auth.SocialButton type="default" htmlType="submit">
             <Auth.SocialIconWrapper>
               <FacebookIcon />
             </Auth.SocialIconWrapper>
-            {t('common.facebookLink')}
+            {t('login.facebookLink')}
           </Auth.SocialButton>
         </Form.Item>
         <Auth.FooterWrapper>

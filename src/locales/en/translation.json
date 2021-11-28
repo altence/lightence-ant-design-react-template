@@ -60,9 +60,7 @@
     "formError": "An error was occured",
     "info": "Information",
     "name": "Name",
-    "notFound": "Sorry, there’s nothing found",
-    "googleLink": "Continue with Google",
-    "facebookLink": "Continue with Facebook"
+    "notFound": "Sorry, there’s nothing found"
   },
   "header": {
     "search": "Search",
@@ -194,7 +192,9 @@
     "forgotPassword": "Forgot password?",
     "noAccount": "Don’t have an account? Create one",
     "signupLink": "here",
-    "loginInfo": "Enter your email address and password to access admin panel"
+    "loginInfo": "Enter your email address and password to access admin panel",
+    "googleLink": "Continue with Google",
+    "facebookLink": "Continue with Facebook"
   },
   "signup": {
     "loginLink": "here",
@@ -202,7 +202,9 @@
     "termOfUse": "Terms of Use",
     "and": "and",
     "privacyOPolicy": "Privacy Policy",
-    "alreadyHaveAccount": "Already have an account? Log in"
+    "alreadyHaveAccount": "Already have an account? Log in",
+    "googleLink": "Sign up with Google",
+    "facebookLink": "Sign up with Facebook"
   },
   "forgotPassword": {
     "title": "Reset password",
