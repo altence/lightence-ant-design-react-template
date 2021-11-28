@@ -18,7 +18,7 @@
     "forgotPasswordPage": "DE!!!Forgot password page",
     "verifyEmailPage": "DE!!!Verify email page",
     "twoFactorAuthPage": "DE!!!Two-Factor auth page",
-    "newPasswordPage": "DE!!!New password page",
+    "newPassword": "DE!!!New password",
     "inputCode": "DE!!!Input 6 digit code",
     "payment": "DE!!!Payment",
     "login": "DE!!!Log In",
@@ -227,7 +227,7 @@
     "title": "DE!!!Create new password",
     "description": "DE!!!Your new password must be different from previous password",
     "resetPassword": "DE!!!Reset password",
-    "successReset": "DE!!!Password successfully reset"
+    "successReset": "DE!!!New password set"
   },
   "profile": {
     "title": "DE!!!Profile",

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, notification } from 'antd';
 import { useTranslation } from 'react-i18next';
@@ -7,17 +7,18 @@ import * as Auth from 'components/layouts/auth/AuthLayout.styles';
 
 export const NewPasswordForm: React.FC = () => {
   const { t } = useTranslation();
-
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    notification.open({
-      message: t('common.success'),
-      description: t('newPassword.successReset'),
-    });
-
+    setIsLoading(true);
     setTimeout(() => {
+      setIsLoading(false);
       navigate('/');
+      notification.open({
+        message: t('common.success'),
+        description: t('newPassword.successReset'),
+      });
     }, 1000);
   };
 
@@ -57,7 +58,7 @@ export const NewPasswordForm: React.FC = () => {
           <Auth.FormInputPassword placeholder={t('common.confirmPassword')} />
         </Auth.FormItem>
         <Form.Item noStyle>
-          <S.SubmitButton type="primary" htmlType="submit">
+          <S.SubmitButton type="primary" htmlType="submit" loading={isLoading}>
             {t('newPassword.resetPassword')}
           </S.SubmitButton>
         </Form.Item>
