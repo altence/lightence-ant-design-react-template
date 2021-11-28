@@ -34,7 +34,7 @@ export const NewPasswordForm: React.FC = () => {
         <Auth.FormItem
           name="password"
           label={t('common.password')}
-          rules={[{ required: true, message: t('common.passwordError') }]}
+          rules={[{ required: true, message: t('common.requiredField') }]}
         >
           <Auth.FormInputPassword placeholder={t('common.password')} />
         </Auth.FormItem>
@@ -43,7 +43,7 @@ export const NewPasswordForm: React.FC = () => {
           label={t('common.confirmPassword')}
           dependencies={['password']}
           rules={[
-            { required: true, message: t('common.confirmPasswordError') },
+            { required: true, message: t('common.requiredField') },
             ({ getFieldValue }) => ({
               validator(_, value) {
                 if (!value || getFieldValue('password') === value) {

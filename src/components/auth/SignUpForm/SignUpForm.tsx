@@ -29,28 +29,34 @@ export const SignUpForm: React.FC = () => {
         <Auth.FormItem
           name="firstName"
           label={t('common.firstName')}
-          rules={[{ required: true, message: t('common.firstNameError') }]}
+          rules={[{ required: true, message: t('common.requiredField') }]}
         >
           <Auth.FormInput placeholder={t('common.firstName')} />
         </Auth.FormItem>
         <Auth.FormItem
           name="lastName"
           label={t('common.lastName')}
-          rules={[{ required: true, message: t('common.lastNameError') }]}
+          rules={[{ required: true, message: t('common.requiredField') }]}
         >
           <Auth.FormInput placeholder={t('common.lastName')} />
         </Auth.FormItem>
         <Auth.FormItem
           name="email"
           label={t('common.email')}
-          rules={[{ required: true, message: t('common.emailError') }]}
+          rules={[
+            { required: true, message: t('common.requiredField') },
+            {
+              type: 'email',
+              message: t('profile.nav.personalInfo.notValidEmail'),
+            },
+          ]}
         >
           <Auth.FormInput placeholder={t('common.email')} />
         </Auth.FormItem>
         <Auth.FormItem
           label={t('common.password')}
           name="password"
-          rules={[{ required: true, message: t('common.passwordError') }]}
+          rules={[{ required: true, message: t('common.requiredField') }]}
         >
           <Auth.FormInputPassword placeholder={t('common.password')} />
         </Auth.FormItem>
@@ -59,7 +65,7 @@ export const SignUpForm: React.FC = () => {
           name="confirmPassword"
           dependencies={['password']}
           rules={[
-            { required: true, message: t('common.confirmPasswordError') },
+            { required: true, message: t('common.requiredField') },
             ({ getFieldValue }) => ({
               validator(_, value) {
                 if (!value || getFieldValue('password') === value) {
