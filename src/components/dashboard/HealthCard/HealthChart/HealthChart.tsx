@@ -6,6 +6,7 @@ import { Pie } from 'constants/healthChartData';
 import { useResponsive } from 'hooks/useResponsive';
 import * as S from './HealthChart.styles';
 import { getHealthChartData } from 'api/health.api';
+import { CaretUpOutlined } from '@ant-design/icons';
 
 interface ChartProps {
   data: { value: number; name: string; description: string; color: string; dayUp: number }[];
@@ -120,7 +121,9 @@ export const HealthChart: React.FC = () => {
                   {item.name}
                   <S.Values>
                     <S.LegendPercent>{item.value}</S.LegendPercent>
-                    <S.LegendDayUp>{item.dayUp}%</S.LegendDayUp>
+                    <S.LegendDayUp>
+                      <CaretUpOutlined /> {item.dayUp}%
+                    </S.LegendDayUp>
                   </S.Values>
                 </S.LegendTitle>
                 <S.LegendText>{item.description}</S.LegendText>

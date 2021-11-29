@@ -19,20 +19,20 @@ export const pieChartData: Pie[] = [
     name: 'dashboard.health.ecology.title',
     description: 'dashboard.health.ecology.description',
     color: '#FFA115',
-    dayUp: 13,
+    dayUp: 15,
   },
   {
     value: 25,
     name: 'dashboard.health.genetics.title',
     description: 'dashboard.health.genetics.description',
     color: '#0059AB',
-    dayUp: 13,
+    dayUp: 11,
   },
   {
     value: 20,
     name: 'dashboard.health.someInfo.title',
     description: 'dashboard.health.someInfo.description',
     color: '#F5F5F5',
-    dayUp: 13,
+    dayUp: 20,
   },
 ];
