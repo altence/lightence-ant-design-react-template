@@ -1,16 +1,17 @@
 import styled from 'styled-components';
 import { Select as AntSelect } from 'antd';
-import { Width } from 'interfaces/interfaces';
+import { Dimension } from 'interfaces/interfaces';
+import { normalizeProp } from 'utils/utils';
 
 export interface SelectProps {
-  width?: Width;
+  width?: Dimension;
   shadow?: boolean;
 }
 
 export const Select = styled(AntSelect).withConfig({
   shouldForwardProp: (prop) => !['shadow', 'width'].includes(prop),
 })<SelectProps>`
-  width: ${(props) => (typeof props.width === 'number' ? `${props.width}px` : props.width)};
+  width: ${(props) => props.width && normalizeProp(props.width)};
 
   font-weight: ${(props) => props.theme.commonFontWeight.medium};
 

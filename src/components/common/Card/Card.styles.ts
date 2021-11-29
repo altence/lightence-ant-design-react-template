@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Card as AntCard } from 'antd';
 import { CardProps } from './Card';
-import { getValueFromProp } from 'utils/utils';
+import { normalizeProp } from 'utils/utils';
 
 export const Card = styled(AntCard)<CardProps>`
   display: flex;
@@ -32,7 +32,8 @@ export const Card = styled(AntCard)<CardProps>`
 
   .ant-card-body {
     flex-grow: 1;
+    height: 100%;
 
-    padding: ${(props) => props.padding && getValueFromProp(props.padding)};
+    padding: ${(props) => props.padding && normalizeProp(props.padding)};
   }
 `;
