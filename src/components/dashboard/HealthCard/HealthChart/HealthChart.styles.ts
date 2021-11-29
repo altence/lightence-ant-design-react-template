@@ -129,6 +129,8 @@ export const LegendPercent = styled(LegendText)`
 
 export const LegendDayUp = styled(LegendText)`
   color: #57d682;
+  display: flex;
+  align-items: center;
 
   @media only screen and ${(props) => props.theme.media.xs} {
     font-size: ${(props) => props.theme.commonFontSizes.xs};
