@@ -44,7 +44,7 @@ export const hexToRGB = (hex: string, alpha: string | number): string => {
 export const getDifference = (value: number, prevValue: number): string | null =>
   prevValue !== 0 ? `${((Math.abs(value - prevValue) / prevValue) * 100).toFixed(0)}%` : '100%';
 
-export const getValueFromProp = (prop: string | number | [number, number]): string =>
+export const normalizeProp = (prop: string | number | [number, number]): string =>
   typeof prop === 'number' ? `${prop}px` : (Array.isArray(prop) && `${prop[0]}px ${prop[1]}px`) || prop.toString();
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
