@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useContext, useEffect, useState } from 'react';
 import { EChartsOption } from 'echarts-for-react';
 import ReactECharts from 'echarts-for-react';
@@ -6,11 +7,12 @@ import { ThemeContext } from 'styled-components';
 
 interface ChartProps {
   option: EChartsOption;
+  onEvents?: Record<string, (e: any) => void>;
   width?: string | number;
   height?: string | number;
 }
 
-export const Chart: React.FC<ChartProps> = ({ option, width, height }) => {
+export const Chart: React.FC<ChartProps> = ({ option, width, height, onEvents }) => {
   const [loading, setLoading] = useState(true);
 
   const chartHeight = height || '400px';
@@ -36,6 +38,6 @@ export const Chart: React.FC<ChartProps> = ({ option, width, height }) => {
   return loading ? (
     <Loading />
   ) : (
-    <ReactECharts option={{ ...defaultOption, ...option }} style={{ height: chartHeight, width }} />
+    <ReactECharts option={{ ...defaultOption, ...option }} style={{ height: chartHeight, width }} onEvents={onEvents} />
   );
 };

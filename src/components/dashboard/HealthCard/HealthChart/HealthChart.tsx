@@ -1,89 +1,134 @@
-import React, { useContext } from 'react';
+import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { EChartsOption } from 'echarts';
-import { ThemeContext } from 'styled-components';
 import { useTranslation } from 'react-i18next';
-import { Chart } from '../../../common/Chart/Chart';
-import { pieChartData } from '../../../../constants/healthChartData';
+import { Chart as CommonChart } from '../../../common/Chart/Chart';
+import { Pie } from 'constants/healthChartData';
 import { useResponsive } from 'hooks/useResponsive';
+import * as S from './HealthChart.styles';
+import { getHealthChartData } from 'api/health.api';
 
-export const HealthChart: React.FC = () => {
-  const themeContext = useContext(ThemeContext);
+interface ChartProps {
+  data: { value: number; name: string; description: string; color: string; dayUp: number }[];
+  colors: string[];
+  onSelect: (e: { selected: { dataIndex: number[] }[] }) => void;
+}
 
-  const { isTablet, isDesktop, isBigScreen } = useResponsive();
-
+const Chart = React.memo<ChartProps>(({ data, colors, onSelect }) => {
+  const { isTablet } = useResponsive();
   const { t } = useTranslation();
-
-  const data = pieChartData.map((item) => {
-    return {
-      ...item,
-      name: t(item.name),
-      description: t(item.description),
-    };
-  });
 
   const option = {
     tooltip: {
       trigger: 'item',
     },
     legend: {
-      left: '50%',
-      top: 'center',
-      orient: 'vertical',
-      itemWidth: (isBigScreen && 20) || 13,
-      itemHeight: (isBigScreen && 20) || 13,
-      itemGap: (isBigScreen && 25) || (isTablet && 10) || 5,
-      icon: (isBigScreen && 'roundRect') || 'circle',
-      textStyle: {
-        padding: 10,
-        width: (isBigScreen && 260) || (isDesktop && 170) || (isTablet && 220) || 130,
-        overflow: 'break',
-        rich: {
-          a: {
-            fontFamily: 'Montserrat',
-            fontSize: 16,
-            fontWeight: 500,
-            padding: [0, 0, 5, 0],
-          },
-          b: {
-            fontFamily: 'Montserrat',
-            fontSize: (isBigScreen && 12) || 10,
-          },
-        },
-      },
-      formatter: (name: string) => {
-        const target = data.find((el) => el.name === name)?.description;
-
-        return `{a|${name}}\n\n{b|${target}}`;
-      },
+      show: false,
     },
+    color: colors,
     series: [
       {
         type: 'pie',
-        radius: ['40%', '60%'],
-        center: ['25%', 'center'],
+        radius: ['55%', '80%'],
+        center: ['50%', 85],
         avoidLabelOverlap: false,
         labelLine: false,
+        selectedMode: 'single',
+        selectedOffset: 3,
         label: {
-          show: true,
+          show: false,
           position: 'center',
           formatter: (label: EChartsOption) => {
-            return `${label.value} ${t('dashboard.health.percent')}`;
+            return `{a|${label.value}}\n{b|${t('dashboard.health.percent')}}`;
           },
-          backgroundColor: themeContext.colors.main.mainBackground,
-          color: themeContext.colors.main.primary,
-          fontSize: (isBigScreen && 18) || 12,
+          textStyle: {
+            rich: {
+              a: {
+                fontFamily: 'Montserrat',
+                fontSize: 45,
+                fontWeight: 800,
+                padding: 0,
+                color: '#0059AB',
+              },
+              b: {
+                fontFamily: 'Montserrat',
+                fontSize: 14,
+              },
+            },
+          },
         },
         data,
         emphasis: {
           label: {
             show: true,
-            backgroundColor: themeContext.colors.main.mainBackground,
-            color: themeContext.colors.main.primary,
           },
         },
       },
     ],
   };
+  return data.length ? (
+    <CommonChart
+      option={option}
+      {...{ height: 200, width: isTablet ? 175 : '100%' }}
+      onEvents={{ selectchanged: onSelect }}
+    />
+  ) : null;
+});
 
-  return <Chart option={option} {...(!isBigScreen && { height: 250 })} />;
+export const HealthChart: React.FC = () => {
+  const [chartData, setChartData] = useState<Pie[]>([]);
+  const [selectedSeries, setSelectedSeries] = useState<number[]>([]);
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    getHealthChartData().then((res) => setChartData(res));
+  }, []);
+
+  const data = useMemo(
+    () =>
+      chartData.map((item) => {
+        return {
+          ...item,
+          name: t(item.name),
+          description: t(item.description),
+        };
+      }),
+    [chartData.length],
+  );
+  const colors = useMemo(() => chartData.map((item) => item.color), [chartData.length]);
+
+  const onSelect = useCallback(
+    (e: { selected: { dataIndex: number[] }[] }) => {
+      if (e.selected.length) {
+        setSelectedSeries(e.selected[0].dataIndex);
+      } else {
+        setSelectedSeries([]);
+      }
+    },
+    [setSelectedSeries],
+  );
+
+  return (
+    <S.ChartWrapper>
+      <Chart data={data} colors={colors} onSelect={onSelect} />
+      <S.Legend>
+        {data.map((item, index) => (
+          <S.LegendWrapper key={index} isSelected={selectedSeries.includes(index)}>
+            <S.LegendInfo>
+              <S.LegendColor style={{ backgroundColor: colors[index] }} />
+              <S.LegendDescription>
+                <S.LegendTitle>
+                  {item.name}
+                  <S.Values>
+                    <S.LegendPercent>{item.value}</S.LegendPercent>
+                    <S.LegendDayUp>{item.dayUp}%</S.LegendDayUp>
+                  </S.Values>
+                </S.LegendTitle>
+                <S.LegendText>{item.description}</S.LegendText>
+              </S.LegendDescription>
+            </S.LegendInfo>
+          </S.LegendWrapper>
+        ))}
+      </S.Legend>
+    </S.ChartWrapper>
+  );
 };

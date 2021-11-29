@@ -7,7 +7,7 @@ export const HealthCard: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <Card title={t('dashboard.health.title')} padding={0}>
+    <Card title={t('dashboard.health.title')} padding={'0 20px'}>
       <HealthChart />
     </Card>
   );
