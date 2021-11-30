@@ -1,8 +1,7 @@
-import { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as echarts from 'echarts';
 import { Card } from 'components/common/Card/Card';
 import { Chart } from 'components/common/Chart/Chart';
-import { ThemeContext } from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import Data from './data.json';
 
@@ -43,7 +42,6 @@ export const LineRaceChart: React.FC = () => {
   const [data, setData] = useState<DataRow[]>([]);
   const [series, setSeries] = useState<SeriesRow[]>([]);
   const rawData = JSON.parse(JSON.stringify(Data));
-  const theme = useContext(ThemeContext);
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -110,16 +108,6 @@ export const LineRaceChart: React.FC = () => {
       },
       ...data,
     ],
-    title: {
-      text: t('charts.lineTitle'),
-      left: '1.8%',
-      textStyle: {
-        fontSize: theme.commonFontSizes.xxl,
-        fontWeight: theme.commonFontWeight.bold,
-        color: theme.colors.text.main,
-        lineHeight: 31,
-      },
-    },
     tooltip: {
       order: 'valueDesc',
       trigger: 'axis',
@@ -133,16 +121,16 @@ export const LineRaceChart: React.FC = () => {
     },
     grid: {
       left: 65,
-      top: 60,
-      bottom: 60,
       right: 150,
+      top: 20,
+      bottom: 30,
     },
     series: series,
   };
 
   return (
-    <Card padding="1.875rem 0 0 0">
-      <Chart option={option} height={'24.0625rem'} />
+    <Card padding="0 0 1.875rem" title={t('charts.lineRace')}>
+      <Chart option={option} height="24rem" />
     </Card>
   );
 };
