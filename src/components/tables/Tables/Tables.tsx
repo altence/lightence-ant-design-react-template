@@ -11,13 +11,13 @@ export const Tables: React.FC = () => {
     <>
       <S.Title>{t('tables.tables')}</S.Title>
       <S.TablesWrapper>
-        <S.Card title="Basic Table" padding="0 1.25rem">
+        <S.Card title={t('tables.basicTable')} padding="0 1.25rem">
           <BasicTable />
         </S.Card>
-        <S.Card title="Tree Table" padding="0 1.25rem">
+        <S.Card title={t('tables.treeTable')} padding="0 1.25rem">
           <TreeTable />
         </S.Card>
-        <S.Card title="Editable Table" padding="0 1.25rem">
+        <S.Card title={t('tables.editableTable')} padding="0 1.25rem">
           <EditableTable />
         </S.Card>
       </S.TablesWrapper>

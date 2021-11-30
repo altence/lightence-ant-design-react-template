@@ -5,98 +5,7 @@ import { BasicTableRow, getBasicTableData, Pagination, Tag } from 'api/table.api
 import { Table } from 'components/common/Table/Table';
 import { ColumnsType } from 'antd/es/table';
 import { Button } from 'components/common/buttons/Button/Button';
-
-const columns: ColumnsType<BasicTableRow> = [
-  {
-    title: 'Name',
-    dataIndex: 'name',
-    render: (text: string) => <a>{text}</a>,
-    filterMode: 'tree',
-    filterSearch: true,
-    filters: [
-      {
-        text: 'First name',
-        value: 'firstName',
-        children: [
-          {
-            text: 'Joe',
-            value: 'Joe',
-          },
-          {
-            text: 'Pavel',
-            value: 'Pavel',
-          },
-          {
-            text: 'Jim',
-            value: 'Jim',
-          },
-          {
-            text: 'Josh',
-            value: 'Josh',
-          },
-        ],
-      },
-      {
-        text: 'Last name',
-        value: 'lastName',
-        children: [
-          {
-            text: 'Green',
-            value: 'Green',
-          },
-          {
-            text: 'Black',
-            value: 'Black',
-          },
-          {
-            text: 'Brown',
-            value: 'Brown',
-          },
-        ],
-      },
-    ],
-    onFilter: (value: string | number | boolean, record: BasicTableRow) => record.name.includes(value.toString()),
-  },
-  {
-    title: 'Age',
-    dataIndex: 'age',
-    sorter: (a: BasicTableRow, b: BasicTableRow) => a.age - b.age,
-    showSorterTooltip: false,
-  },
-  {
-    title: 'Address',
-    dataIndex: 'address',
-  },
-  {
-    title: 'Tags',
-    key: 'tags',
-    dataIndex: 'tags',
-    render: (tags: Tag[]) => (
-      <>
-        {tags.map((tag: Tag) => {
-          return (
-            <S.Tag color={tag.color} key={tag.value}>
-              {tag.value.toUpperCase()}
-            </S.Tag>
-          );
-        })}
-      </>
-    ),
-  },
-  {
-    title: 'Actions',
-    dataIndex: 'actions',
-    width: '15%',
-    render: () => (
-      <Space>
-        <Button type="ghost">Invite</Button>
-        <Button type="default" danger>
-          Delete
-        </Button>
-      </Space>
-    ),
-  },
-];
+import { useTranslation } from 'react-i18next';
 
 export const BasicTable: React.FC = () => {
   const [tableData, setTableData] = useState<{ data: BasicTableRow[]; pagination: Pagination; loading: boolean }>({
@@ -107,6 +16,7 @@ export const BasicTable: React.FC = () => {
     },
     loading: false,
   });
+  const { t } = useTranslation();
 
   useEffect(() => {
     fetch(tableData.pagination);
@@ -122,6 +32,98 @@ export const BasicTable: React.FC = () => {
       setTableData({ data: res.data, pagination: res.pagination, loading: false });
     });
   };
+
+  const columns: ColumnsType<BasicTableRow> = [
+    {
+      title: t('tables.name'),
+      dataIndex: 'name',
+      render: (text: string) => <span>{text}</span>,
+      filterMode: 'tree',
+      filterSearch: true,
+      filters: [
+        {
+          text: t('tables.firstName'),
+          value: 'firstName',
+          children: [
+            {
+              text: 'Joe',
+              value: 'Joe',
+            },
+            {
+              text: 'Pavel',
+              value: 'Pavel',
+            },
+            {
+              text: 'Jim',
+              value: 'Jim',
+            },
+            {
+              text: 'Josh',
+              value: 'Josh',
+            },
+          ],
+        },
+        {
+          text: t('tables.lastName'),
+          value: 'lastName',
+          children: [
+            {
+              text: 'Green',
+              value: 'Green',
+            },
+            {
+              text: 'Black',
+              value: 'Black',
+            },
+            {
+              text: 'Brown',
+              value: 'Brown',
+            },
+          ],
+        },
+      ],
+      onFilter: (value: string | number | boolean, record: BasicTableRow) => record.name.includes(value.toString()),
+    },
+    {
+      title: t('tables.age'),
+      dataIndex: 'age',
+      sorter: (a: BasicTableRow, b: BasicTableRow) => a.age - b.age,
+      showSorterTooltip: false,
+    },
+    {
+      title: t('tables.address'),
+      dataIndex: 'address',
+    },
+    {
+      title: t('tables.tags'),
+      key: 'tags',
+      dataIndex: 'tags',
+      render: (tags: Tag[]) => (
+        <>
+          {tags.map((tag: Tag) => {
+            return (
+              <S.Tag color={tag.color} key={tag.value}>
+                {tag.value.toUpperCase()}
+              </S.Tag>
+            );
+          })}
+        </>
+      ),
+    },
+    {
+      title: t('tables.actions'),
+      dataIndex: 'actions',
+      width: '15%',
+      render: () => (
+        <Space>
+          <Button type="ghost">{t('tables.invite')}</Button>
+          <Button type="default" danger>
+            {t('tables.delete')}
+          </Button>
+        </Space>
+      ),
+    },
+  ];
 
   return (
     <Table
