@@ -182,6 +182,7 @@ export const EditableTable: React.FC = () => {
         }}
         onChange={handleTableChange}
         loading={tableData.loading}
+        scroll={{ x: 800 }}
       />
     </Form>
   );

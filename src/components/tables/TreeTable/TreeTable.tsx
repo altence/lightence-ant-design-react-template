@@ -69,6 +69,7 @@ export const TreeTable: React.FC = () => {
         pagination={tableData.pagination}
         loading={tableData.loading}
         onChange={handleTableChange}
+        scroll={{ x: 800 }}
       />
     </>
   );
