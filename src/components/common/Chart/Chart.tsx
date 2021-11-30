@@ -8,9 +8,9 @@ interface ChartProps extends S.ChartProps {
 }
 
 export const Chart: React.FC<ChartProps> = ({ option, width, height }) => {
-  const { isMobile, isTablet } = useResponsive();
+  const { isTablet } = useResponsive();
 
-  const chartHeight = height ? height : isTablet ? 250 : isMobile ? 200 : 200;
+  const chartHeight = height ? height : isTablet ? 250 : 200;
 
   return <S.Chart option={option} width={width} height={chartHeight} />;
 };
