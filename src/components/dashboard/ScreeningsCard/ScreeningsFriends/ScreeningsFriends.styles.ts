@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
   @media only screen and ${(props) => props.theme.media.xl} {
     position: absolute;
     width: 25rem;
-    height: 20rem;
+    height: 100%;
     margin: 0;
     z-index: 2;
 

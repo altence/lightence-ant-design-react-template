@@ -101,7 +101,7 @@ export const ScreeningsFriends: React.FC<ScreeningsFriendsProps> = ({
       )}
 
       {isTablet && (
-        <Row gutter={[10, 10]}>
+        <Row gutter={[7, 7]}>
           <Col span={24}>
             <S.Title>{t('dashboard.latestScreenings.friends')}</S.Title>
           </Col>

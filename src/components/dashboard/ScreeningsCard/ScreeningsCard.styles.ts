@@ -3,6 +3,8 @@ import { DashboardCard } from '../DashboardCard/DashboardCard';
 
 export const ScreeningsCard = styled(DashboardCard)`
   @media only screen and ${(props) => props.theme.media.xl} {
-    position: relative;
+    .ant-card-body {
+      position: relative;
+    }
   }
 `;
