@@ -34,7 +34,7 @@ export const DoctorProfile: React.FC<DoctorProfileProps> = ({ src, name, special
           </Col>
 
           <Col span={24}>
-            <S.Rating value={rating} />
+            <S.Rating value={rating} disabled />
           </Col>
         </Row>
       </Col>
