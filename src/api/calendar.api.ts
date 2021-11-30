@@ -13,6 +13,26 @@ export const getUserCalendar = (id: number): Promise<CalendarEvent[]> => {
     setTimeout(() => {
       res([
         {
+          doctor: 5,
+          date: now - 1000 * 60 * 60 * 24 * 5,
+        },
+        {
+          doctor: 1,
+          date: now - 1000 * 60 * 60 * 24 * 3,
+        },
+        {
+          doctor: 2,
+          date: now - 1000 * 60 * 60 * 24 * 10,
+        },
+        {
+          doctor: 4,
+          date: now - 1000 * 60 * 60 * 24 * 4,
+        },
+        {
+          doctor: 6,
+          date: now - 1000 * 60 * 60 * 24 * 16,
+        },
+        {
           date: now - 1000 * 60 * 60 * 24 * 2,
           doctor: 3,
         },
@@ -32,3 +52,8 @@ export const getUserCalendar = (id: number): Promise<CalendarEvent[]> => {
     });
   });
 };
+
+export interface History {
+  doctor: number;
+  date: number;
+}

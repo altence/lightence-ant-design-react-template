@@ -69,7 +69,7 @@ export const DoctorCard: React.FC<DoctorCardProps> = ({ name, speciality, rating
           </Col>
 
           <Col>
-            <S.Text>{Dates.format(date, 'L')}</S.Text>
+            <S.Text>{Dates.format(Dates.getDate(date), 'L')}</S.Text>
           </Col>
         </Row>
       </Col>
