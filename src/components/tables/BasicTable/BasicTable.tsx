@@ -12,6 +12,7 @@ const columns: ColumnsType<BasicTableRow> = [
     dataIndex: 'name',
     render: (text: string) => <a>{text}</a>,
     filterMode: 'tree',
+    filterSearch: true,
     filters: [
       {
         text: 'First name',
