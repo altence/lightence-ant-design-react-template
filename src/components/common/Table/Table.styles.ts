@@ -6,6 +6,11 @@ export const Table = styled(AntdTable)`
     color: ${(props) => props.theme.colors.main.primary};
     font-size: ${(props) => props.theme.commonFontSizes.xs};
     line-height: 1.25rem;
+    border-bottom: 1px solid rgba(1, 80, 154, 0.3);
+    border-top: 1px solid rgba(1, 80, 154, 0.3);
+    & .anticon {
+      color: ${(props) => props.theme.colors.main.primary};
+    }
   }
 
   & .ant-table-tbody > tr > td {
