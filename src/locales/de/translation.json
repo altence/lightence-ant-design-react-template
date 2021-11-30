@@ -33,6 +33,7 @@
     "ok": "DE!!!Ok",
     "deleteQuestion": "DE!!!Are you sure you want to delete?",
     "save": "DE!!!Save",
+    "edit": "DE!!!Edit",
     "saved": "DE!!!Your changes have been successfully saved!",
     "confirm": "DE!!!Confirm",
     "oops": "DE!!!Oops!",
@@ -343,6 +344,19 @@
     "video": "DE!!!Video Ads"
   },
   "tables": {
-    "tables": "DE!!!Tables"
+    "tables": "DE!!!Tables",
+    "basicTable": "DE!!!Basic Table",
+    "treeTable": "DE!!!Tree Table",
+    "editableTable": "DE!!!Editable Table",
+    "name": "DE!!!Name",
+    "firstName": "DE!!!First Name",
+    "lastName": "DE!!!Last Name",
+    "age": "DE!!!Age",
+    "address": "DE!!!Address",
+    "tags": "DE!!!Tags",
+    "actions": "DE!!!Actions",
+    "invite": "DE!!!Invite",
+    "delete": "DE!!!Delete",
+    "cancelInfo": "DE!!!Sure to cancel?"
   }
 }

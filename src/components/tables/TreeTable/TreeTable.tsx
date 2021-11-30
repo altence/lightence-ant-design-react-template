@@ -3,26 +3,7 @@ import { Table } from 'components/common/Table/Table';
 import { TablePaginationConfig } from 'antd';
 import { Key, DefaultRecordType } from 'rc-table/lib/interface';
 import { TreeTableRow, Pagination, getTreeTableData } from 'api/table.api';
-
-const columns = [
-  {
-    title: 'Name',
-    dataIndex: 'name',
-    key: 'name',
-  },
-  {
-    title: 'Age',
-    dataIndex: 'age',
-    key: 'age',
-    width: '12%',
-  },
-  {
-    title: 'Address',
-    dataIndex: 'address',
-    width: '30%',
-    key: 'address',
-  },
-];
+import { useTranslation } from 'react-i18next';
 
 export const TreeTable: React.FC = () => {
   const [tableData, setTableData] = useState<{ data: TreeTableRow[]; pagination: Pagination; loading: boolean }>({
@@ -33,6 +14,7 @@ export const TreeTable: React.FC = () => {
     },
     loading: false,
   });
+  const { t } = useTranslation();
 
   useEffect(() => {
     fetch(tableData.pagination);
@@ -60,6 +42,27 @@ export const TreeTable: React.FC = () => {
       console.log(selected, selectedRows);
     },
   };
+
+  const columns = [
+    {
+      title: t('tables.name'),
+      dataIndex: 'name',
+      key: 'name',
+    },
+    {
+      title: t('tables.age'),
+      dataIndex: 'age',
+      key: 'age',
+      width: '12%',
+    },
+    {
+      title: t('tables.address'),
+      dataIndex: 'address',
+      width: '30%',
+      key: 'address',
+    },
+  ];
+
   return (
     <>
       <Table

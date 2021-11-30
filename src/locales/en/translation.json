@@ -31,6 +31,7 @@
     "specifity": "Specifity",
     "cancel": "Cancel",
     "save": "Save",
+    "edit": "Edit",
     "saved": "Your changes have been successfully saved!",
     "confirm": "Confirm",
     "ok": "Ok",
@@ -343,6 +344,19 @@
     "video": "Video Ads"
   },
   "tables": {
-    "tables": "Tables"
+    "tables": "Tables",
+    "basicTable": "Basic Table",
+    "treeTable": "Tree Table",
+    "editableTable": "Editable Table",
+    "name": "Name",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "age": "Age",
+    "address": "Address",
+    "tags": "Tags",
+    "actions": "Actions",
+    "invite": "Invite",
+    "delete": "Delete",
+    "cancelInfo": "Sure to cancel?"
   }
 }

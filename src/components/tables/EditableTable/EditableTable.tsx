@@ -4,6 +4,7 @@ import { Table } from 'components/common/Table/Table';
 import { getEditableTableData, BasicTableRow, Pagination } from 'api/table.api';
 import { EditableCell } from './EditableCeil/EditableCeil';
 import { Button } from 'components/common/buttons/Button/Button';
+import { useTranslation } from 'react-i18next';
 
 export const EditableTable: React.FC = () => {
   const [form] = Form.useForm();
@@ -16,6 +17,7 @@ export const EditableTable: React.FC = () => {
     loading: false,
   });
   const [editingKey, setEditingKey] = useState(0);
+  const { t } = useTranslation();
 
   useEffect(() => {
     fetch(tableData.pagination);
@@ -68,25 +70,25 @@ export const EditableTable: React.FC = () => {
 
   const columns = [
     {
-      title: 'Name',
+      title: t('tables.name'),
       dataIndex: 'name',
       width: '25%',
       editable: true,
     },
     {
-      title: 'Age',
+      title: t('tables.age'),
       dataIndex: 'age',
       width: '15%',
       editable: true,
     },
     {
-      title: 'Address',
+      title: t('tables.address'),
       dataIndex: 'address',
       width: '40%',
       editable: true,
     },
     {
-      title: 'Actions',
+      title: t('tables.actions'),
       dataIndex: 'actions',
       width: '15%',
       render: (text: string, record: BasicTableRow) => {
@@ -94,15 +96,15 @@ export const EditableTable: React.FC = () => {
         return editable ? (
           <span>
             <Button type="primary" onClick={() => save(record.key)} style={{ marginRight: 8 }}>
-              Save
+              {t('common.save')}
             </Button>
-            <Popconfirm title="Sure to cancel?" onConfirm={cancel}>
-              <Button type="ghost">Cancel</Button>
+            <Popconfirm title={t('tables.cancelInfo')} onConfirm={cancel}>
+              <Button type="ghost">{t('common.cancel')}</Button>
             </Popconfirm>
           </span>
         ) : (
           <Button type="ghost" disabled={editingKey !== 0} onClick={() => edit(record)}>
-            Edit
+            {t('common.edit')}
           </Button>
         );
       },
