@@ -1,6 +1,7 @@
 import { CreditCard } from 'components/profile/ProfileCard/ProfileFormNav/nav/Payments/PaymentMethod/PaymentForm/interfaces';
 
 export interface User {
+  id: number;
   firstName: string;
   lastName: string;
   imgUrl: string;
@@ -48,6 +49,7 @@ export const getUser = (): Promise<User> => {
   return new Promise((res) => {
     setTimeout(() => {
       res({
+        id: 1,
         firstName: 'Alexandr',
         lastName: 'Yaschenkov',
         imgUrl: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1629465123/Ellipse_59_vls5ji.jpg',

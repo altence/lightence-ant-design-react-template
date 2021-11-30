@@ -24,16 +24,15 @@ export const Card = styled(AntCard)<CardProps>`
     @media only screen and ${(props) => props.theme.media.xl} {
       font-size: ${(props) => props.theme.commonFontSizes.xxl};
 
-      .ant-card-head-title {
-        padding-bottom: 0.25rem;
-      }
+    .ant-card-head-title {
+      white-space: unset;
+      overflow: unset;
     }
   }
 
   .ant-card-body {
     flex-grow: 1;
-    height: 100%;
 
-    padding: ${(props) => props.padding && normalizeProp(props.padding)};
+    padding: ${(props) => props.padding && normalizeProp(props.padding)} !important;
   }
 `;

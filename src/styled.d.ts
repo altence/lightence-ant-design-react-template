@@ -22,6 +22,7 @@ declare module 'styled-components' {
         primary: string;
         primaryShade: string;
         primaryGradient: string;
+        light: string;
         secondary: string;
         error: string;
         warning: string;

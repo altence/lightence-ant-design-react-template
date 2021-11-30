@@ -12,7 +12,14 @@ export const Button = styled(AntButton)<BtnProps>`
     css`
       &:hover {
         background: ${(props) => props.theme.colors.main.secondary};
+
         border-color: ${(props) => props.theme.colors.main.secondary};
+      }
+
+      &[disabled] {
+        background: ${(props) => props.theme.colors.main.light};
+
+        color: ${(props) => props.theme.colors.text.secondary};
       }
     `};
 
@@ -22,6 +29,12 @@ export const Button = styled(AntButton)<BtnProps>`
       &:hover {
         border-color: ${(props) => props.theme.colors.main.secondary};
         color: ${(props) => props.theme.colors.main.secondary};
+      }
+
+      &[disabled] {
+        border-color: ${(props) => props.theme.colors.main.light};
+
+        color: ${(props) => props.theme.colors.main.light};
       }
     `};
 
@@ -35,6 +48,10 @@ export const Button = styled(AntButton)<BtnProps>`
 
       &:hover {
         color: ${(props) => props.theme.colors.main.secondary};
+      }
+
+      &[disabled] {
+        color: ${(props) => props.theme.colors.main.light};
       }
     `};
 `;

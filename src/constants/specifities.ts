@@ -6,30 +6,30 @@ interface Specifity {
 export const specifities: Specifity[] = [
   {
     id: 1,
-    name: 'Surgeon',
+    name: 'surgeon',
   },
   {
     id: 2,
-    name: 'Dermatologist',
+    name: 'dermatologist',
   },
   {
     id: 3,
-    name: 'Oncologist',
+    name: 'oncologist',
   },
   {
     id: 4,
-    name: 'Cardiologist',
+    name: 'cardiologist',
   },
   {
     id: 5,
-    name: 'Therapist',
+    name: 'therapist',
   },
   {
     id: 6,
-    name: 'Ophthalmologist',
+    name: 'ophthalmologist',
   },
   {
     id: 7,
-    name: 'Neurologist',
+    name: 'neurologist',
   },
 ];
