@@ -103,7 +103,7 @@ export const BasicTable: React.FC = () => {
     data: [],
     pagination: {
       current: 1,
-      pageSize: 3,
+      pageSize: 5,
     },
     loading: false,
   });
