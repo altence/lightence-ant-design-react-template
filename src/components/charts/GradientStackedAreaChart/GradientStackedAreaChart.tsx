@@ -11,16 +11,6 @@ export const GradientStackedAreaChart: React.FC = () => {
 
   const option = {
     color: ['#01509A', '#35A0DC', '#FFDA92', '#31A652', '#FF5252'],
-    title: {
-      text: t('charts.gradientLabel'),
-      left: '1.5%',
-      textStyle: {
-        fontSize: theme.commonFontSizes.xxl,
-        fontWeight: theme.commonFontWeight.bold,
-        color: theme.colors.text.main,
-        lineHeight: 31,
-      },
-    },
     tooltip: {
       trigger: 'axis',
       axisPointer: {
@@ -32,8 +22,8 @@ export const GradientStackedAreaChart: React.FC = () => {
     },
     legend: {
       data: [`coal`, `hydro`, `nuclear`, `gas`, `oil`].map((item) => t('charts.' + item)),
-      top: '12%',
-      left: '1%',
+      top: 0,
+      left: 0,
       textStyle: {
         fontSize: theme.commonFontSizes.xxs,
         fontWeight: theme.commonFontWeight.light,
@@ -44,7 +34,6 @@ export const GradientStackedAreaChart: React.FC = () => {
       left: 5,
       right: 20,
       bottom: 0,
-      top: 90,
       containLabel: true,
     },
     xAxis: [
@@ -214,8 +203,8 @@ export const GradientStackedAreaChart: React.FC = () => {
   };
 
   return (
-    <Card padding="1.875rem 0">
-      <Chart option={option} height={'100%'} />
+    <Card padding="0 0 1.875rem" title={t('charts.gradientLabel')}>
+      <Chart option={option} height={'100%'} width="100%" />
     </Card>
   );
 };
