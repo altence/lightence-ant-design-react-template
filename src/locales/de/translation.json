@@ -327,8 +327,7 @@
   "charts": {
     "barLabel": "DE!!!Bar Animation Delay",
     "bar": "DE!!!bar",
-    "gradientLabel": "DE!!!Gradient Stacked Area Chart",
-    "line": "DE!!!Line",
+    "gradientLabel": "DE!!!Yearly Energy Production",
     "lineTitle": "DE!!!Income of Germany and France since 1950",
     "mon": "DE!!!Mon",
     "tue": "DE!!!Tue",
@@ -341,7 +340,12 @@
     "direct": "DE!!!Direct",
     "email": "DE!!!Email",
     "union": "DE!!!Union Ads",
-    "video": "DE!!!Video Ads"
+    "video": "DE!!!Video Ads",
+    "coal": "DE!!!Coal",
+    "hydro": "DE!!!Hydro",
+    "nuclear": "DE!!!Nuclear",
+    "gas": "DE!!!Gas",
+    "oil": "DE!!!Oil"
   },
   "tables": {
     "tables": "DE!!!Tables",
