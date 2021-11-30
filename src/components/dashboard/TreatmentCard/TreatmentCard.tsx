@@ -10,7 +10,7 @@ import { getUser, User } from 'api/users.api';
 import { CalendarEvent, getUserCalendar } from 'api/calendar.api';
 
 export const TreatmentCard: React.FC = () => {
-  const { tabletOnly, isBigScreen } = useResponsive();
+  const { tabletOnly, isTablet, isBigScreen } = useResponsive();
 
   const [selectedDate, setDate] = useState<AppDate>(Dates.getToday());
   const [isDateClicked, setDateClicked] = useState(false);
@@ -25,7 +25,7 @@ export const TreatmentCard: React.FC = () => {
     user && getUserCalendar(user?.id).then((res) => setCalendar(res));
   }, [user]);
 
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   useEffect(() => {
     setDate(selectedDate.locale(i18n.language));
@@ -53,7 +53,7 @@ export const TreatmentCard: React.FC = () => {
   const panelItem = <TreatmentPanel calendar={calendar} date={selectedDate} setDateClicked={setDateClicked} />;
 
   return (
-    <DashboardCard id="treatment">
+    <DashboardCard id="treatment" {...(isTablet && { title: t('dashboard.treatmentPlan.title') })}>
       <Row gutter={[10, 10]} wrap={false}>
         {tabletOnly || isBigScreen ? (
           <>
