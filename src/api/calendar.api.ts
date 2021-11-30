@@ -52,8 +52,3 @@ export const getUserCalendar = (id: number): Promise<CalendarEvent[]> => {
     });
   });
 };
-
-export interface History {
-  doctor: number;
-  date: number;
-}
