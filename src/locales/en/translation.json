@@ -156,11 +156,11 @@
       },
       "treatmentStarts": {
         "title": "Treatment starts",
-        "description": "Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million."
+        "description": "Dynamic treatment regimes are the type of regime most commonly used in clinical practice. For example, physicians may initiate combined antiretroviral therapy the first time an individual's recorded CD4 cell count drops below either 500 cells/mm3 or 350 cells/mm3."
       },
       "patientAdmission": {
         "title": "Patient admission",
-        "description": "Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million."
+        "description": "Emergent hospital admissions usually happen when a patient seen in the emergency department is subsequently admitted to the hospital."
       }
     },
     "news": "News"
