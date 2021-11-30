@@ -16,14 +16,30 @@ export const NotificationWrapper = styled.div`
   justify-content: center;
 
   background: ${(props) => props.theme.colors.main.primary};
+
+  @media only screen and ${(props) => props.theme.media.md} {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  @media only screen and ${(props) => props.theme.media.xl} {
+    width: 3rem;
+    height: 3rem;
+  }
 `;
 
 export const NotificationDot = styled(Badge)`
   .ant-badge-dot {
-    width: 3px;
-    height: 3px;
-    min-width: 3px;
+    width: 0.1875rem;
+    height: 0.1875rem;
+    min-width: 0.1875rem;
     transform: none;
+
+    @media only screen and ${(props) => props.theme.media.xl} {
+      width: 0.4375rem;
+      height: 0.4375rem;
+      min-width: 0.4375rem;
+    }
   }
 `;
 
@@ -31,6 +47,14 @@ export const Bell = styled(BellOutlined)`
   font-size: ${(props) => props.theme.commonFontSizes.md};
 
   color: ${(props) => props.theme.colors.text.secondary};
+
+  @media only screen and ${(props) => props.theme.media.md} {
+    font-size: ${(props) => props.theme.commonFontSizes.lg};
+  }
+
+  @media only screen and ${(props) => props.theme.media.xl} {
+    font-size: ${(props) => props.theme.commonFontSizes.xxl};
+  }
 `;
 
 export const Title = styled(Typography.Text)`
