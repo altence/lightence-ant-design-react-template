@@ -1,71 +1,25 @@
 import styled from 'styled-components';
 import { Typography } from 'antd';
+import { CalendarOutlined } from '@ant-design/icons';
 import theme from '../../../styles/theme';
 
-interface ItemProps {
+interface IconProps {
   isActive: boolean;
 }
 
-export const Wrapper = styled.div`
-  overflow: hidden;
-
-  background-color: ${(props) => props.theme.colors.main.mainBackground};
-`;
-
-export const Item = styled.div`
-  display: flex;
-  margin-bottom: 1.3rem;
-
-  @media only screen and ${theme.media.md} {
-    margin-bottom: 0.625rem;
+export const CalendarIcon = styled(CalendarOutlined)`
+  @media only screen and ${(props) => props.theme.media.xs} {
+    color: ${(props) => props.theme.colors.main.primary};
   }
 
-  @media only screen and ${theme.media.xxl} {
-    margin-bottom: 1rem;
-  }
-
-  &:nth-last-of-type(1) {
-    margin-bottom: 0;
+  @media only screen and ${(props) => props.theme.media.md} {
+    color: ${(props) => props.theme.colors.text.main};
   }
 `;
 
-export const IconWrapper = styled.div<ItemProps>`
+export const MobileTitleWrapper = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  flex-shrink: 0;
-  margin-right: 0.75rem;
-
-  background-color: ${(props) => (props.isActive && props.theme.colors.main.primary) || props.theme.colors.text.light};
-
-  color: ${(props) => (props.isActive && props.theme.colors.text.secondary) || props.theme.colors.main.primary};
-
-  @media only screen and ${theme.media.xxl} {
-    width: 3.12rem;
-    height: 3.12rem;
-    font-size: 1.5rem;
-    margin-right: 1.5rem;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 110%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1px;
-    height: 100%;
-
-    background-color: ${(props) => props.theme.colors.text.light};
-
-    @media only screen and ${theme.media.xxl} {
-      top: 120%;
-    }
-  }
+  justify-content: space-between;
 `;
 
 export const InfoWrapper = styled.div`
@@ -73,55 +27,57 @@ export const InfoWrapper = styled.div`
   flex-direction: column;
 `;
 
-export const InfoHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  @media only screen and ${theme.media.xl} {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  @media only screen and ${theme.media.xxl} {
-    margin-bottom: 0.2rem;
-  }
-`;
-
-export const Title = styled.span<ItemProps>`
-  font-size: 0.75rem;
-
-  color: ${(props) => props.isActive && props.theme.colors.main.primary};
-
-  @media only screen and ${theme.media.xxl} {
-    font-size: 1rem;
-    margin-bottom: 0.1rem;
-  }
-`;
-
 export const DateWrapper = styled.div`
   display: flex;
   align-items: center;
-  font-size: 0.5rem;
+  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  margin-top: 0.375rem;
 
-  @media only screen and ${theme.media.xxl} {
-    font-size: 0.625rem;
+  @media only screen and ${theme.media.xs} {
+    margin-top: 0;
+  }
+
+  @media only screen and ${theme.media.md} {
+    margin-top: 0.375rem;
   }
 `;
 
 export const Text = styled(Typography.Text)`
-  font-size: 0.625rem;
+  font-size: ${(props) => props.theme.commonFontSizes.xs};
   margin-left: 0.5rem;
 
-  @media only screen and ${theme.media.xxl} {
-    font-size: 0.625rem;
+  @media only screen and ${(props) => props.theme.media.xs} {
+    font-size: ${(props) => props.theme.commonFontSizes.xxs};
+    color: ${(props) => props.theme.colors.main.primary};
+  }
+
+  @media only screen and ${(props) => props.theme.media.md} {
+    font-size: ${(props) => props.theme.commonFontSizes.xs};
+    color: ${(props) => props.theme.colors.text.main};
   }
 `;
 
 export const Description = styled(Typography.Text)`
-  font-size: 0.625rem;
+  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  margin-top: 0.625rem;
 
-  @media only screen and ${theme.media.xxl} {
-    font-size: 0.875rem;
+  @media only screen and ${(props) => props.theme.media.xs} {
+    font-size: ${(props) => props.theme.commonFontSizes.xxs};
   }
+
+  @media only screen and ${(props) => props.theme.media.md} {
+    font-size: ${(props) => props.theme.commonFontSizes.xs};
+  }
+`;
+
+export const IconWrapper = styled.div<IconProps>`
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${(props) => (props.isActive ? props.theme.colors.main.primary : '#f5f5f5')};
+  color: ${(props) => (props.isActive ? props.theme.colors.text.secondary : props.theme.colors.main.primary)};
+  font-size: 1.15rem;
 `;
