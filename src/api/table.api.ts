@@ -111,8 +111,114 @@ export const getBasicTableData = (pagination: Pagination): Promise<BasicTableDat
               { value: 'teacher', color: 'aquamarine' },
             ],
           },
+          {
+            key: 10,
+            name: 'Cris Brown',
+            age: 25,
+            address: 'London',
+            tags: [
+              { value: 'developer', color: 'geekblue' },
+              { value: 'teacher', color: 'aquamarine' },
+            ],
+          },
+          {
+            key: 11,
+            name: 'Alina Fens',
+            age: 19,
+            address: 'Minsk',
+            tags: [
+              { value: 'cool', color: 'lawngreen' },
+              { value: 'teacher', color: 'aquamarine' },
+            ],
+          },
+          {
+            key: 12,
+            name: 'Alex Snak',
+            age: 28,
+            address: 'Brest',
+            tags: [
+              { value: 'cool', color: 'lawngreen' },
+              { value: 'awesome', color: 'volcano' },
+            ],
+          },
+          {
+            key: 13,
+            name: 'Pavel Dubrouski',
+            age: 26,
+            address: 'Minsk',
+            tags: [
+              { value: 'cool', color: 'lawngreen' },
+              { value: 'awesome', color: 'volcano' },
+              { value: 'teacher', color: 'aquamarine' },
+              { value: 'developer', color: 'geekblue' },
+            ],
+          },
+          {
+            key: 14,
+            name: 'Jack Donald',
+            age: 24,
+            address: 'New York',
+            tags: [{ value: 'cool', color: 'lawngreen' }],
+          },
+          {
+            key: 15,
+            name: 'Nik Nest',
+            age: 34,
+            address: 'London',
+            tags: [
+              { value: 'awesome', color: 'volcano' },
+              { value: 'developer', color: 'geekblue' },
+            ],
+          },
+          {
+            key: 16,
+            name: 'Zak Nikls',
+            age: 32,
+            address: 'Minsk',
+            tags: [
+              { value: 'awesome', color: 'volcano' },
+              { value: 'teacher', color: 'aquamarine' },
+            ],
+          },
+          {
+            key: 17,
+            name: 'Petr Dan',
+            age: 29,
+            address: 'Gomel',
+            tags: [
+              { value: 'developer', color: 'geekblue' },
+              { value: 'teacher', color: 'aquamarine' },
+            ],
+          },
+          {
+            key: 18,
+            name: 'Alexa Pirs',
+            age: 19,
+            address: 'Moscow',
+            tags: [
+              { value: 'cool', color: 'lawngreen' },
+              { value: 'awesome', color: 'volcano' },
+            ],
+          },
+          {
+            key: 19,
+            name: 'Mark Brown',
+            age: 25,
+            address: 'London',
+            tags: [
+              { value: 'teacher', color: 'aquamarine' },
+              { value: 'awesome', color: 'volcano' },
+            ],
+          },
+          {
+            key: 20,
+            name: 'Alex Brons',
+            age: 45,
+            address: 'Bronx',
+            tags: [{ value: 'cool', color: 'lawngreen' }],
+          },
         ],
-        pagination: { ...pagination, total: 9 },
+        pagination: { ...pagination, total: 20 },
       });
     }, 1000);
   });
@@ -263,8 +369,120 @@ export const getTreeTableData = (pagination: Pagination): Promise<TreeTableData>
               },
             ],
           },
+          {
+            key: 500,
+            name: 'Alex Nickls',
+            age: 45,
+            address: 'London No. 2 Lake Park',
+            children: [
+              {
+                key: 501,
+                name: 'Marta Nickls',
+                age: 25,
+                address: 'London No. 2 Lake Park',
+                children: [
+                  {
+                    key: 502,
+                    name: 'Pavel Nickls jr.',
+                    age: 12,
+                    address: 'London No. 1 Lake Park',
+                  },
+                  {
+                    key: 503,
+                    name: 'Alina Nickls sr.',
+                    age: 19,
+                    address: 'London No. 4 Lake Park',
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            key: 600,
+            name: 'Nick Donald',
+            age: 45,
+            address: 'London No. 2 Lake Park',
+            children: [
+              {
+                key: 601,
+                name: 'Alexsa Donald',
+                age: 34,
+                address: 'London No. 2 Lake Park',
+                children: [
+                  {
+                    key: 602,
+                    name: 'Marta Donald jr.',
+                    age: 24,
+                    address: 'London No. 1 Lake Park',
+                  },
+                  {
+                    key: 603,
+                    name: 'Alex Donald sr.',
+                    age: 19,
+                    address: 'London No. 4 Lake Park',
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            key: 700,
+            name: 'Jo Snider',
+            age: 26,
+            address: 'London No. 2 Lake Park',
+            children: [
+              {
+                key: 701,
+                name: 'Jo Snider',
+                age: 22,
+                address: 'London No. 2 Lake Park',
+                children: [
+                  {
+                    key: 702,
+                    name: 'Jaems Snider jr.',
+                    age: 24,
+                    address: 'London No. 1 Lake Park',
+                  },
+                  {
+                    key: 703,
+                    name: 'Jin Snider sr.',
+                    age: 19,
+                    address: 'London No. 4 Lake Park',
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            key: 800,
+            name: 'Jon Brown',
+            age: 26,
+            address: 'London No. 2 Lake Park',
+            children: [
+              {
+                key: 801,
+                name: 'Kitana Brown',
+                age: 22,
+                address: 'London No. 2 Lake Park',
+                children: [
+                  {
+                    key: 802,
+                    name: 'Cris Brown jr.',
+                    age: 24,
+                    address: 'London No. 1 Lake Park',
+                  },
+                  {
+                    key: 803,
+                    name: 'Jon Brown sr.',
+                    age: 19,
+                    address: 'London No. 4 Lake Park',
+                  },
+                ],
+              },
+            ],
+          },
         ],
-        pagination: { ...pagination, total: 4 },
+        pagination: { ...pagination, total: 8 },
       });
     }, 1000);
   });
@@ -299,8 +517,80 @@ export const getEditableTableData = (pagination: Pagination): Promise<EditableTa
             age: 18,
             address: `London Park no.4`,
           },
+          {
+            key: 5,
+            name: `Jo`,
+            age: 15,
+            address: `Minsk Park no.1`,
+          },
+          {
+            key: 6,
+            name: `Jaimi`,
+            age: 18,
+            address: `London Park no.2`,
+          },
+          {
+            key: 7,
+            name: `Alexa`,
+            age: 24,
+            address: `London Park no.6`,
+          },
+          {
+            key: 8,
+            name: `Donald`,
+            age: 27,
+            address: `London Park no.7`,
+          },
+          {
+            key: 9,
+            name: `Pavel`,
+            age: 17,
+            address: `London Park no.9`,
+          },
+          {
+            key: 10,
+            name: `Nick`,
+            age: 18,
+            address: `London Park no.1`,
+          },
+          {
+            key: 11,
+            name: `Dasha`,
+            age: 25,
+            address: `London Park no.2`,
+          },
+          {
+            key: 12,
+            name: `Alex`,
+            age: 27,
+            address: `London Park no.3`,
+          },
+          {
+            key: 13,
+            name: `Vic`,
+            age: 29,
+            address: `London Park no.2`,
+          },
+          {
+            key: 14,
+            name: `Natalia`,
+            age: 25,
+            address: `London Park no.4`,
+          },
+          {
+            key: 15,
+            name: `Zack`,
+            age: 27,
+            address: `London Park no.1`,
+          },
+          {
+            key: 16,
+            name: `Jack`,
+            age: 31,
+            address: `London Park no.4`,
+          },
         ],
-        pagination: { ...pagination, total: 4 },
+        pagination: { ...pagination, total: 16 },
       });
     }, 1000);
   });
