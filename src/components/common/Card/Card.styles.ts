@@ -27,12 +27,10 @@ export const Card = styled(AntCard)<CardProps>`
       .ant-card-head-title {
         padding-bottom: 0.25rem;
       }
-    }
   }
 
   .ant-card-body {
     flex-grow: 1;
-    height: 100%;
 
     padding: ${(props) => props.padding && normalizeProp(props.padding)};
   }
