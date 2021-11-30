@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Space, TablePaginationConfig } from 'antd';
+import { TablePaginationConfig } from 'antd';
 import * as S from './BasicTable.styles';
 import { BasicTableRow, getBasicTableData, Pagination } from 'api/table.api';
 import { Table } from 'components/common/Table/Table';
 import { ColumnsType } from 'antd/es/table';
+import { Button } from 'components/common/buttons/Button/Button';
 
 const columns: ColumnsType<BasicTableRow> = [
   {
@@ -86,13 +87,16 @@ const columns: ColumnsType<BasicTableRow> = [
     ),
   },
   {
-    title: 'Action',
-    dataIndex: 'action',
-    render: (text: string, record: { name?: string }) => (
-      <Space size="middle">
-        <a>Invite {record.name}</a>
-        <S.Delete>Delete</S.Delete>
-      </Space>
+    title: 'Actions',
+    dataIndex: 'actions',
+    width: '20%',
+    render: () => (
+      <S.ActionsButtons>
+        <Button type="ghost">Invite</Button>
+        <Button type="default" danger>
+          Delete
+        </Button>
+      </S.ActionsButtons>
     ),
   },
 ];
