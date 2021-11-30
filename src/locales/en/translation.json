@@ -345,7 +345,8 @@
     "hydro": "Hydro",
     "nuclear": "Nuclear",
     "gas": "Gas",
-    "oil": "Oil"
+    "oil": "Oil",
+    "referrer": "Website Visitors from"
   },
   "tables": {
     "tables": "Tables",

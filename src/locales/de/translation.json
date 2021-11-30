@@ -345,7 +345,8 @@
     "hydro": "DE!!!Hydro",
     "nuclear": "DE!!!Nuclear",
     "gas": "DE!!!Gas",
-    "oil": "DE!!!Oil"
+    "oil": "DE!!!Oil",
+    "referrer": "DE!!!Website Visitors from"
   },
   "tables": {
     "tables": "DE!!!Tables",
