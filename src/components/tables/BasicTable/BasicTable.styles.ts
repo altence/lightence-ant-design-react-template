@@ -15,6 +15,5 @@ export const Tag = styled(AntdTag)`
 
 export const ActionsButtons = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
 `;

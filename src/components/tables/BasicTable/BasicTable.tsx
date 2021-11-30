@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { TablePaginationConfig } from 'antd';
+import { Space, TablePaginationConfig } from 'antd';
 import * as S from './BasicTable.styles';
-import { BasicTableRow, getBasicTableData, Pagination } from 'api/table.api';
+import { BasicTableRow, getBasicTableData, Pagination, Tag } from 'api/table.api';
 import { Table } from 'components/common/Table/Table';
 import { ColumnsType } from 'antd/es/table';
 import { Button } from 'components/common/buttons/Button/Button';
@@ -71,16 +71,12 @@ const columns: ColumnsType<BasicTableRow> = [
     title: 'Tags',
     key: 'tags',
     dataIndex: 'tags',
-    render: (tags: string[]) => (
+    render: (tags: Tag[]) => (
       <>
-        {tags.map((tag: string) => {
-          let color = tag.length > 5 ? 'geekblue' : 'green';
-          if (tag === 'loser') {
-            color = 'volcano';
-          }
+        {tags.map((tag: Tag) => {
           return (
-            <S.Tag color={color} key={tag}>
-              {tag.toUpperCase()}
+            <S.Tag color={tag.color} key={tag.value}>
+              {tag.value.toUpperCase()}
             </S.Tag>
           );
         })}
@@ -90,14 +86,14 @@ const columns: ColumnsType<BasicTableRow> = [
   {
     title: 'Actions',
     dataIndex: 'actions',
-    width: '20%',
+    width: '15%',
     render: () => (
-      <S.ActionsButtons>
+      <Space>
         <Button type="ghost">Invite</Button>
         <Button type="default" danger>
           Delete
         </Button>
-      </S.ActionsButtons>
+      </Space>
     ),
   },
 ];

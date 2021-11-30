@@ -1,9 +1,14 @@
+export interface Tag {
+  color: string;
+  value: string;
+}
+
 export interface BasicTableRow {
   key: number;
   name: string;
   age: number;
   address: string;
-  tags?: string[];
+  tags?: Tag[];
 }
 
 export interface Pagination {
@@ -39,28 +44,73 @@ export const getBasicTableData = (pagination: Pagination): Promise<BasicTableDat
             name: 'John Brown',
             age: 32,
             address: 'New York No. 1 Lake Park',
-            tags: ['nice', 'developer'],
+            tags: [
+              { value: 'nice', color: 'green' },
+              { value: 'developer', color: 'geekblue' },
+            ],
           },
           {
             key: 2,
             name: 'Jim Green',
             age: 42,
             address: 'London No. 1 Lake Park',
-            tags: ['awesome'],
+            tags: [{ value: 'awesome', color: 'volcano' }],
           },
           {
             key: 3,
             name: 'Joe Black',
             age: 32,
             address: 'Sidney No. 1 Lake Park',
-            tags: ['cool', 'teacher'],
+            tags: [
+              { value: 'cool', color: 'lawngreen' },
+              { value: 'teacher', color: 'aquamarine' },
+            ],
           },
-          { key: 4, name: 'Pavel Green', age: 30, address: 'New York No. 1 Lake Park', tags: ['developer', 'nice'] },
-          { key: 5, name: 'Alex Brown', age: 26, address: 'Minsk', tags: ['developer'] },
-          { key: 6, name: 'Josh Black', age: 21, address: 'New York No. 1 Lake Park', tags: ['teacher', 'nice'] },
-          { key: 7, name: 'Cris Green', age: 22, address: 'Sidney No. 1 Lake Park', tags: ['nice'] },
-          { key: 8, name: 'Jaime Black', age: 23, address: 'New York No. 1 Lake Park', tags: ['developer'] },
-          { key: 9, name: 'Alina Brown', age: 19, address: 'Minsk', tags: ['cool', 'teacher'] },
+          {
+            key: 4,
+            name: 'Pavel Green',
+            age: 30,
+            address: 'New York No. 1 Lake Park',
+            tags: [
+              { value: 'developer', color: 'geekblue' },
+              { value: 'nice', color: 'green' },
+            ],
+          },
+          { key: 5, name: 'Alex Brown', age: 26, address: 'Minsk', tags: [{ value: 'developer', color: 'geekblue' }] },
+          {
+            key: 6,
+            name: 'Josh Black',
+            age: 21,
+            address: 'New York No. 1 Lake Park',
+            tags: [
+              { value: 'teacher', color: 'aquamarine' },
+              { value: 'nice', color: 'green' },
+            ],
+          },
+          {
+            key: 7,
+            name: 'Cris Green',
+            age: 22,
+            address: 'Sidney No. 1 Lake Park',
+            tags: [{ value: 'nice', color: 'green' }],
+          },
+          {
+            key: 8,
+            name: 'Jaime Black',
+            age: 23,
+            address: 'New York No. 1 Lake Park',
+            tags: [{ value: 'developer', color: 'geekblue' }],
+          },
+          {
+            key: 9,
+            name: 'Alina Brown',
+            age: 19,
+            address: 'Minsk',
+            tags: [
+              { value: 'cool', color: 'lawngreen' },
+              { value: 'teacher', color: 'aquamarine' },
+            ],
+          },
         ],
         pagination: { ...pagination, total: 9 },
       });
