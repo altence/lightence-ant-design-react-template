@@ -33,7 +33,6 @@ export const Card = styled(AntCard).withConfig({
 
   .ant-card-body {
     flex-grow: 1;
-    height: 100%;
 
     padding: ${(props) => props.padding && normalizeProp(props.padding)};
   }
