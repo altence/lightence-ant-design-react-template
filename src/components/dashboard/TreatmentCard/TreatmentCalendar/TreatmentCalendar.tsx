@@ -1,57 +1,71 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { TreatmentCardState } from '../TreatmentCard';
-import { LeftOutlined, RightOutlined } from '@ant-design/icons';
-import { AppDate } from '../../../../constants/Dates';
-import { useResponsive } from 'hooks/useResponsive';
+import { Col, Row } from 'antd';
+import { Card } from 'components/common/Card/Card';
+import { CalendarEvent } from 'api/calendar.api';
+import { AppDate, Dates } from 'constants/Dates';
+import { TreatmentProps } from '../interfaces';
+import { TreatmentCalendarHeader } from './TreatmentCalendarHeader/TreatmentCalendarHeader';
+import { TreatmentLegends } from './TreatmentLegends/TreatmentLegends';
 import * as S from './TreatmentCalendar.styles';
 
-export interface TreatmentCalendarProps {
-  date: TreatmentCardState;
-  setDate: (state: TreatmentCardState) => void;
-  handleDecrease: () => void;
-  handleIncrease: () => void;
+interface TreatmentCalendarProps extends TreatmentProps {
+  setDateClicked: (state: boolean) => void;
+  calendar: CalendarEvent[];
 }
 
 export const TreatmentCalendar: React.FC<TreatmentCalendarProps> = ({
+  calendar,
   date,
   setDate,
   handleDecrease,
   handleIncrease,
+  setDateClicked,
 }) => {
-  const { mobileOnly } = useResponsive();
-
-  const { t } = useTranslation();
-
   const handleSelect = (value: AppDate) => {
-    setDate({ date: value, isDateClicked: true });
+    setDate(value);
+    setDateClicked(true);
   };
 
   return (
-    <S.Wrapper>
-      {mobileOnly && (
-        <>
-          <S.ButtonLeft onClick={handleDecrease}>
-            <LeftOutlined />
-          </S.ButtonLeft>
-          <S.ButtonRight onClick={handleIncrease}>
-            <RightOutlined />
-          </S.ButtonRight>
-        </>
-      )}
-      <S.Calendar value={date.date} onSelect={handleSelect} fullscreen={false} />
-      <S.Legend>
-        <S.LegendItem>
-          <S.LegendIcon isPrimary />
-          {'-'}
-          <S.Text>{t('dashboard.treatmentPlan.upcomingTreatment')}</S.Text>
-        </S.LegendItem>
-        <S.LegendItem>
-          <S.LegendIcon />
-          {'-'}
-          <S.Text>{t('dashboard.treatmentPlan.implementationTreatment')}</S.Text>
-        </S.LegendItem>
-      </S.Legend>
-    </S.Wrapper>
+    <Card padding={[30, 15]}>
+      <Row gutter={[20, 20]}>
+        <Col span={24}>
+          <TreatmentCalendarHeader date={date} handleDecrease={handleDecrease} handleIncrease={handleIncrease} />
+        </Col>
+
+        <Col span={24}>
+          <S.Calendar
+            dateCellRender={(value) => {
+              const today = Dates.getToday();
+
+              return calendar.map((event) => {
+                const calendarDate = Dates.getDate(event.date);
+
+                if (
+                  calendarDate.isSame(value, 'date') &&
+                  calendarDate.isSame(value, 'month') &&
+                  calendarDate.isSame(value, 'year')
+                ) {
+                  const isPast = today.isAfter(calendarDate);
+
+                  return (
+                    <S.Event key={event.date} isPast={isPast}>
+                      {calendarDate.format('DD')}
+                    </S.Event>
+                  );
+                }
+              });
+            }}
+            value={date}
+            fullscreen={false}
+            onSelect={handleSelect}
+          />
+        </Col>
+
+        <Col span={24}>
+          <TreatmentLegends />
+        </Col>
+      </Row>
+    </Card>
   );
 };

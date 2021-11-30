@@ -1,13 +1,14 @@
 import React from 'react';
 import L, { IconOptions, PointExpression } from 'leaflet';
-import { Marker } from 'react-leaflet';
+import { Marker, Popup } from 'react-leaflet';
 
-import { ReactComponent as MapBackgroundIcon } from '../../../../assets/icons/map-background.svg';
-import { doctorsData } from '../../../../constants/doctorsData';
-import { Popup } from '../Popup/Popup';
+import { ReactComponent as MapBackgroundIcon } from 'assets/icons/map-background.svg';
 
 import * as S from './DoctorsMap.styles';
-import { useResponsive } from '../../../../hooks/useResponsive';
+import { useResponsive } from 'hooks/useResponsive';
+
+import { Doctor } from 'api/doctors.api';
+import { DoctorProfile } from 'components/common/DoctorProfile/DoctorProfile';
 
 const LARGE_MARKER_SIZE: PointExpression = [50, 50];
 const MARKER_SIZE: PointExpression = [30, 30];
@@ -27,13 +28,17 @@ class MarkerDoctor extends L.Icon {
   }
 }
 
-export const DoctorsMap: React.FC = () => {
+interface DoctorsMapProps {
+  doctors: Doctor[];
+}
+
+export const DoctorsMap: React.FC<DoctorsMapProps> = ({ doctors }) => {
   const { isDesktop } = useResponsive();
 
   return (
     <S.DoctorsMap>
       <MapBackgroundIcon />
-      {doctorsData.map((marker) => (
+      {doctors.map((marker) => (
         <Marker
           key={marker.id}
           icon={
@@ -47,7 +52,14 @@ export const DoctorsMap: React.FC = () => {
           }
           position={[marker.gps.latitude, marker.gps.longitude]}
         >
-          <Popup imgUrl={marker.imgUrl} name={marker.name} specifity={marker.specifity} rating={marker.rating} />
+          <Popup>
+            <DoctorProfile
+              src={marker.imgUrl}
+              name={marker.name}
+              speciality={marker.specifity}
+              rating={marker.rating}
+            />
+          </Popup>
         </Marker>
       ))}
     </S.DoctorsMap>

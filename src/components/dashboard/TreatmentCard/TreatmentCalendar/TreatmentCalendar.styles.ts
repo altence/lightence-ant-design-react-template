@@ -1,132 +1,94 @@
 import styled from 'styled-components';
-import { Typography } from 'antd';
 import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 import generateCalendar from 'antd/lib/calendar/generateCalendar';
 import { AppDate } from '../../../../constants/Dates';
-import theme from '../../../../styles/theme';
 
 const AntCalendar = generateCalendar<AppDate>(dayjsGenerateConfig);
 
-interface LegendProps {
-  isPrimary?: boolean;
-}
-
 export const Wrapper = styled.div`
-  position: relative;
-
   background-color: ${(props) => props.theme.colors.main.mainBackground};
 
-  @media only screen and ${theme.media.md} {
-    width: calc(45% - 0.25rem);
-    margin-right: 0.5rem;
-  }
-`;
-
-export const ButtonLeft = styled.button`
-  border: 0;
-  background-color: transparent;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  z-index: 2;
-
-  color: ${(props) => props.theme.colors.main.primary};
-`;
-
-export const ButtonRight = styled(ButtonLeft)`
-  left: unset;
-  right: 0;
+  box-shadow: ${(props) => props.theme.boxShadow};
 `;
 
 export const Calendar = styled(AntCalendar)`
-  & .ant-picker-calendar-header {
+  .ant-picker-calendar-header {
     display: none;
   }
 
-  & .ant-picker-panel {
+  .ant-picker-panel {
     border-top: none;
+
+    & .ant-picker-body {
+      padding: 0;
+    }
   }
 
-  & .ant-picker-date-panel .ant-picker-content th {
-    font-weight: 500;
-    font-size: 0.75rem;
+  .ant-picker-date-panel .ant-picker-content th {
+    font-weight: ${(props) => props.theme.commonFontWeight.medium};
+
+    font-size: ${(props) => props.theme.commonFontSizes.xs};
 
     color: ${(props) => props.theme.colors.main.primary};
-
-    @media only screen and ${theme.media.xxl} {
-      font-size: 0.875rem;
-    }
   }
 
-  & .ant-picker-cell-inner {
-    height: 1.43rem;
-    width: 1.43rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    font-size: 0.625rem;
+  .ant-picker-cell {
+    &.ant-picker-cell-today {
+      .ant-picker-cell-inner {
+        background: ${(props) => props.theme.colors.main.secondary};
 
-    @media only screen and ${theme.media.xxl} {
-      height: 2.37rem;
-      width: 2.37rem;
-      font-size: 0.875rem;
+        color: ${(props) => props.theme.colors.text.secondary};
+
+        &::before {
+          border-color: ${(props) => props.theme.colors.main.secondary};
+        }
+      }
+    }
+
+    &.ant-picker-cell-selected {
+      .ant-picker-cell-inner {
+        box-shadow: 0px 5px 15px rgba(0, 89, 171, 0.3);
+
+        background: ${(props) => props.theme.colors.main.primary};
+
+        .ant-picker-calendar-date-content > div {
+          background: ${(props) => props.theme.colors.main.primary};
+        }
+      }
+    }
+
+    .ant-picker-cell-inner {
+      font-weight: ${(props) => props.theme.commonFontWeight.medium};
+      font-size: ${(props) => props.theme.commonFontSizes.xs};
+      height: 1.875rem;
+      width: 1.875rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
     }
   }
 `;
 
-export const Legend = styled.div`
-  display: flex;
-  padding: 0 1rem;
+interface Event {
+  isPast: boolean;
+}
 
-  @media only screen and ${theme.media.md} {
-    padding: 0 0.5rem;
-  }
-
-  @media only screen and ${theme.media.xxl} {
-    padding: 1rem;
-  }
-`;
-
-export const LegendItem = styled.div`
-  width: 50%;
+export const Event = styled.div<Event>`
+  position: absolute;
   display: flex;
   align-items: center;
-  margin-right: 0.3rem;
-
-  @media only screen and ${theme.media.xxl} {
-    margin-right: 1rem;
-  }
-
-  &:nth-last-of-type(1) {
-    margin-right: 0;
-  }
-`;
-
-export const LegendIcon = styled.div<LegendProps>`
-  width: 0.625rem;
-  height: 0.625rem;
-  border-radius: 4px;
+  justify-content: center;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
   box-shadow: 0px 5px 15px rgba(0, 89, 171, 0.3);
-  flex-shrink: 0;
-  margin-right: 0.2rem;
 
-  background-color: ${(props) => (props.isPrimary && props.theme.colors.main.primary) || props.theme.colors.text.light};
+  ${(props) =>
+    props.isPast
+      ? `background: ${props.theme.colors.main.light}`
+      : `border: 1px solid ${props.theme.colors.main.primary}`};
 
-  @media only screen and ${theme.media.xxl} {
-    width: 1rem;
-    height: 1rem;
-    margin-right: 0.5rem;
-  }
-`;
-
-export const Text = styled(Typography.Text)`
-  font-size: 0.625rem;
-  margin-left: 0.3rem;
-
-  @media only screen and ${theme.media.xxl} {
-    font-size: 0.75rem;
-    margin-left: 0.5rem;
-  }
+  border-radius: ${(props) => props.theme.border.radius};
 `;

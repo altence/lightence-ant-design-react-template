@@ -8,6 +8,7 @@ interface ResponsiveReturnValues {
   isBigScreen: boolean;
   mobileOnly: boolean;
   tabletOnly: boolean;
+  desktopOnly: boolean;
 }
 
 export const useResponsive = (): ResponsiveReturnValues => {
@@ -19,8 +20,13 @@ export const useResponsive = (): ResponsiveReturnValues => {
   const mobileOnly = useMediaQuery({
     query: `(min-width: ${theme.breakpoints.xs}px) and (max-width: ${theme.breakpoints.md - 0.02}px)`,
   });
+
   const tabletOnly = useMediaQuery({
     query: `(min-width: ${theme.breakpoints.md}px) and (max-width: ${theme.breakpoints.xl - 0.02}px)`,
+  });
+
+  const desktopOnly = useMediaQuery({
+    query: `(min-width: ${theme.breakpoints.xl}px) and (max-width: ${theme.breakpoints.xxl - 0.02}px)`,
   });
 
   return {
@@ -30,5 +36,6 @@ export const useResponsive = (): ResponsiveReturnValues => {
     isBigScreen,
     mobileOnly,
     tabletOnly,
+    desktopOnly,
   };
 };
