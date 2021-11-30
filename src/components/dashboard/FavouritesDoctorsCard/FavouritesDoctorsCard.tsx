@@ -1,29 +1,43 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Doctor, getDoctorsData, History, getDoctorsHistory } from 'api/doctors.api';
+import { Doctor, getDoctorsData } from 'api/doctors.api';
 import { DashboardCard } from '../DashboardCard/DashboardCard';
 import { Carousel } from 'components/common/Carousel/Carousel';
 import { DoctorCard } from './DoctorCard/DoctorCard';
 import { ThemeContext } from 'styled-components';
+import { CalendarEvent, getUserCalendar } from 'api/calendar.api';
+import { getUser, User } from 'api/users.api';
+import { Dates } from 'constants/Dates';
 
 export const FavouritesDoctorsCard: React.FC = () => {
   const { t } = useTranslation();
   const [doctors, setDoctors] = useState<Doctor[]>([]);
-  const [history, setHistory] = useState<History[]>([]);
+  const [user, setUser] = useState<User>();
+  const [calendar, setCalendar] = useState<CalendarEvent[]>([]);
 
   const theme = useContext(ThemeContext);
+  const today = Dates.getToday();
 
   useEffect(() => {
     getDoctorsData().then((res) => setDoctors(res));
   }, []);
 
   useEffect(() => {
-    getDoctorsHistory().then((res) => setHistory(res));
+    getUser().then((res) => setUser(res));
   }, []);
+
+  useEffect(() => {
+    user && getUserCalendar(user.id).then((res) => setCalendar(res));
+  }, [user]);
+
+  const pastEvents = useMemo(
+    () => calendar.filter((event) => Dates.getDate(event.date).isBefore(today)),
+    [calendar, today],
+  );
 
   return (
     <DashboardCard id="fav-doctors" title={t('dashboard.favoriteDoctors.title')}>
-      {doctors.length > 0 && history.length > 0 && (
+      {doctors.length > 0 && calendar.length > 0 && (
         <Carousel
           slidesToShow={6}
           responsive={[
@@ -50,8 +64,8 @@ export const FavouritesDoctorsCard: React.FC = () => {
             },
           ]}
         >
-          {history.map((history) => {
-            const currentDoctor = doctors.find((doctor) => doctor.id === history.doctor);
+          {pastEvents.map((event) => {
+            const currentDoctor = doctors.find((doctor) => doctor.id === event.doctor);
 
             return (
               <div key={currentDoctor?.id}>
@@ -60,7 +74,7 @@ export const FavouritesDoctorsCard: React.FC = () => {
                   name={currentDoctor?.name}
                   speciality={currentDoctor?.specifity}
                   rating={currentDoctor?.rating}
-                  date={history.date}
+                  date={event.date}
                 />
               </div>
             );

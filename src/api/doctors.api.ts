@@ -1,5 +1,3 @@
-import { Dates } from 'constants/Dates';
-
 export interface Doctor {
   id: number;
   name: string;
@@ -145,46 +143,6 @@ export const getDoctorsData = (): Promise<Doctor[]> => {
             'https://res.cloudinary.com/lapkinthegod/image/upload/v1629187274/young-male-doctor-white-uniform_x7dcrs.jpg',
           phone: '+X-XXX-XXX-XXXX',
           address: '90 Taylor Drive Saginaw, MI 48601',
-        },
-      ]);
-    }, 0);
-  });
-};
-
-const now = Dates.getToday().valueOf();
-
-export interface History {
-  doctor: number;
-  date: number;
-}
-
-export const getDoctorsHistory = (): Promise<History[]> => {
-  return new Promise((res) => {
-    setTimeout(() => {
-      res([
-        {
-          doctor: 1,
-          date: now - 1000 * 60 * 60 * 24,
-        },
-        {
-          doctor: 2,
-          date: now - 1000 * 60 * 60 * 24 * 10,
-        },
-        {
-          doctor: 3,
-          date: now - 1000 * 60 * 60 * 24 * 2,
-        },
-        {
-          doctor: 4,
-          date: now - 1000 * 60 * 60 * 24 * 4,
-        },
-        {
-          doctor: 5,
-          date: now - 1000 * 60 * 60 * 24 * 22,
-        },
-        {
-          doctor: 6,
-          date: now - 1000 * 60 * 60 * 24 * 16,
         },
       ]);
     }, 0);
