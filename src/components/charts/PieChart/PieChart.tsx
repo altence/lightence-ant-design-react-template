@@ -51,7 +51,7 @@ export const PieChart: React.FC = () => {
   };
   return (
     <Card padding="0 0 1.875rem" title={t('charts.referrer')}>
-      <Chart option={option} height={'100%'} />
+      <Chart option={option} />
     </Card>
   );
 };

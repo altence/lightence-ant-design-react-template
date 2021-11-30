@@ -204,7 +204,7 @@ export const GradientStackedAreaChart: React.FC = () => {
 
   return (
     <Card padding="0 0 1.875rem" title={t('charts.gradientLabel')}>
-      <Chart option={option} height={'100%'} width="100%" />
+      <Chart option={option} />
     </Card>
   );
 };
