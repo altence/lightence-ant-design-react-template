@@ -2,14 +2,19 @@ import styled from 'styled-components';
 import { Tag as AntdTag } from 'antd';
 
 export const Tag = styled(AntdTag)`
-  padding: 0.3125rem 0.4375rem;
-  border: none;
-  margin-right: 0.3125rem;
-  line-height: 1.25rem;
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  padding: 0.375rem 0;
+  min-width: 7.5rem;
+  margin: 0;
+  text-align: center;
+  margin-right: 0.75rem;
+
+  @media only screen and ${(props) => props.theme.media.md} {
+    min-width: 6.5rem;
+  }
 `;
 
-export const Delete = styled.a`
-  color: ${(props) => props.theme.colors.text.light};
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
+export const ActionsButtons = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
