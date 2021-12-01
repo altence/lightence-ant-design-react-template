@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Card } from 'components/common/Card/Card';
 import { Chart } from 'components/common/Chart/Chart';
-import { ThemeContext } from 'styled-components';
 import { useTranslation } from 'react-i18next';
 
 const data = [
@@ -112,12 +111,10 @@ const defaultOption = {
 
 export const ScatterChart: React.FC = () => {
   const { t } = useTranslation();
-  const theme = useContext(ThemeContext);
-  const option = { ...defaultOption, color: theme.colors.charts.color1 };
 
   return (
     <Card padding="0 0 1.875rem" title={t('charts.scatter')}>
-      <Chart option={option} />
+      <Chart option={defaultOption} />
     </Card>
   );
 };

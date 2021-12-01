@@ -70,7 +70,7 @@ export const BarAnimationDelayChart: React.FC = () => {
         name: t('charts.males'),
         type: 'bar',
         data: data.data2,
-        color: theme.colors.charts.color5,
+        color: theme.colors.charts.color3,
         emphasis: {
           focus: 'series',
         },

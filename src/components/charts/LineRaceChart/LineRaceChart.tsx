@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import * as echarts from 'echarts';
 import { Card } from 'components/common/Card/Card';
 import { Chart } from 'components/common/Chart/Chart';
 import { useTranslation } from 'react-i18next';
@@ -51,11 +50,11 @@ export const LineRaceChart: React.FC = () => {
   }, []);
 
   const runAnimation = () => {
-    const countries = ['Finland', 'France', 'Germany', 'Iceland', 'Norway', 'Poland', 'Russia', 'United Kingdom'];
+    const countries = ['Finland', 'Germany', 'Iceland', 'Norway', 'United Kingdom'];
     const datasetWithFilters: DataRow[] = [];
     const seriesList: SeriesRow[] = [];
 
-    echarts.util.each(countries, function (country) {
+    countries.forEach((country) => {
       const datasetId = 'dataset_' + country;
       datasetWithFilters.push({
         id: datasetId,
