@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Card } from 'components/common/Card/Card';
 import { Chart } from 'components/common/Chart/Chart';
 import { useTranslation } from 'react-i18next';
+import { ThemeContext } from 'styled-components';
 
 export const BarAnimationDelayChart: React.FC = () => {
   const { t } = useTranslation();
+  const theme = useContext(ThemeContext);
   const [data, setData] = useState<{ data1: number[]; data2: number[]; xAxisData: string[] }>({
     data1: [],
     data2: [],
@@ -58,25 +60,21 @@ export const BarAnimationDelayChart: React.FC = () => {
         name: t('charts.females'),
         type: 'bar',
         data: data.data1,
-        color: '#FFB155',
+        color: theme.colors.charts.color2,
         emphasis: {
           focus: 'series',
         },
-        animationDelay: function (idx: number) {
-          return idx * 10;
-        },
+        animationDelay: (idx: number) => idx * 10,
       },
       {
         name: t('charts.males'),
         type: 'bar',
         data: data.data2,
-        color: '#89DCA0',
+        color: theme.colors.charts.color5,
         emphasis: {
           focus: 'series',
         },
-        animationDelay: function (idx: number) {
-          return idx * 10 + 100;
-        },
+        animationDelay: (idx: number) => idx * 10 + 100,
       },
     ],
     animationEasing: 'elasticOut',
