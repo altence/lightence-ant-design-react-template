@@ -4,15 +4,17 @@ import { getMarkAreaData } from 'utils/utils';
 import { ThemeContext } from 'styled-components';
 import { useResponsive } from 'hooks/useResponsive';
 import { hexToRGB } from 'utils/utils';
+import { ChartData } from 'interfaces/interfaces';
 
 const xAxisData = Array.from({ length: 30 }, (_, i) => i + 1);
 
-export const CovidChart: React.FC = () => {
-  const themeContext = useContext(ThemeContext);
+export const CovidChart: React.FC<{ data: ChartData }> = ({ data }) => {
+  const theme = useContext(ThemeContext);
 
   const { isTablet } = useResponsive();
 
   const option = {
+    color: theme.colors.main.chartPrimaryGradient,
     grid: {
       top: 0,
       left: 0,
@@ -23,7 +25,7 @@ export const CovidChart: React.FC = () => {
       show: false,
       type: 'category',
       boundaryGap: false,
-      data: Array.from({ length: 30 }, (_, i) => i + 1),
+      data: xAxisData,
     },
     yAxis: {
       show: false,
@@ -31,15 +33,12 @@ export const CovidChart: React.FC = () => {
     },
     series: [
       {
-        data: [
-          820, 600, 700, 400, 600, 800, 700, 750, 500, 600, 700, 600, 800, 500, 700, 800, 850, 600, 400, 300, 450, 700,
-          400, 410, 420, 430, 480, 500, 360, 320,
-        ],
+        data,
         type: 'line',
         areaStyle: {},
         markArea: {
           itemStyle: {
-            color: hexToRGB(themeContext.colors.main.primary, 0.7),
+            color: hexToRGB(theme.colors.main.primary, 0.02),
           },
           data: getMarkAreaData(xAxisData),
         },
@@ -47,11 +46,12 @@ export const CovidChart: React.FC = () => {
         smooth: true,
         lineStyle: {
           width: 2,
+          color: theme.colors.main.primary,
         },
       },
     ],
     tooltip: {
-      trigger: 'axis',
+      trigger: 'axis', // TODO update tooltip
     },
   };
 
