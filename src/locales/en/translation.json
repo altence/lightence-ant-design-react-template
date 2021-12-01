@@ -347,7 +347,10 @@
     "nuclear": "Nuclear",
     "gas": "Gas",
     "oil": "Oil",
-    "referrer": "Website Visitors from"
+    "referrer": "Website Visitors from",
+    "males": "Males",
+    "females": "Females",
+    "averageValue": "Average Value"
   },
   "tables": {
     "tables": "Tables",
