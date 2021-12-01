@@ -22,7 +22,7 @@ export const GradientStackedAreaChart: React.FC = () => {
       },
     },
     legend: {
-      data: [`coal`, `hydro`, `nuclear`, `gas`, `oil`].map((item) => t('charts.' + item)),
+      data: [`coal`, `hydro`, `nuclear`, `gas`, `oil`].map((item) => t(`charts.${item}`)),
       top: 0,
       left: 10,
     },
