@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Card } from 'components/common/Card/Card';
 import { Chart } from 'components/common/Chart/Chart';
 import { useTranslation } from 'react-i18next';
+import { ThemeContext } from 'styled-components';
 
 export const PieChart: React.FC = () => {
   const { t } = useTranslation();
+  const theme = useContext(ThemeContext);
   const option = {
     tooltip: {
       trigger: 'item',
@@ -22,7 +24,7 @@ export const PieChart: React.FC = () => {
         avoidLabelOverlap: false,
         itemStyle: {
           borderRadius: 5,
-          borderColor: '#fff',
+          borderColor: theme.commonColors.white,
           borderWidth: 2,
         },
         label: {
