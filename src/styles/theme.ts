@@ -112,6 +112,19 @@ const colors = {
     main: '#bec0c6',
   },
   mapGradient: 'linear-gradient(to right, rgba(64, 224, 208, 0.3), rgba(255, 140, 0, 0.3), rgba(255, 0, 128, 0.3))',
+  charts: {
+    tooltipLabel: '#6A7985',
+    color1: '#01509A',
+    color1Tint: '#2983D8',
+    color2: '#35A0DC',
+    color2Tint: '#67C5FA',
+    color3: '#FFDA92',
+    color3Tint: '#FFA800',
+    color4: '#31A652',
+    color4Tint: '#89DCA0',
+    color5: '#FF5252',
+    color5Tint: '#FFC1C1',
+  },
 };
 
 const theme: DefaultTheme = {

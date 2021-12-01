@@ -42,6 +42,19 @@ declare module 'styled-components' {
         main: string;
       };
       mapGradient: string;
+      charts: {
+        tooltipLabel: string;
+        color1: string;
+        color1Tint: string;
+        color2: string;
+        color2Tint: string;
+        color3: string;
+        color3Tint: string;
+        color4: string;
+        color4Tint: string;
+        color5: string;
+        color5Tint: string;
+      };
     };
     border: {
       radius: string;

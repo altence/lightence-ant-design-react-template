@@ -9,21 +9,23 @@ export const GradientStackedAreaChart: React.FC = () => {
   const theme = useContext(ThemeContext);
   const { t } = useTranslation();
 
+  const chartColors = theme.colors.charts;
+
   const option = {
-    color: ['#01509A', '#35A0DC', '#FFDA92', '#31A652', '#FF5252'],
+    color: [chartColors.color1, chartColors.color2, chartColors.color3, chartColors.color4, chartColors.color5],
     tooltip: {
       trigger: 'axis',
       axisPointer: {
         type: 'cross',
         label: {
-          backgroundColor: '#6a7985',
+          backgroundColor: chartColors.tooltipLabel,
         },
       },
     },
     legend: {
       data: [`coal`, `hydro`, `nuclear`, `gas`, `oil`].map((item) => t('charts.' + item)),
       top: 0,
-      left: 0,
+      left: 10,
       textStyle: {
         fontSize: theme.commonFontSizes.xxs,
         fontWeight: theme.commonFontWeight.light,
@@ -31,7 +33,7 @@ export const GradientStackedAreaChart: React.FC = () => {
       },
     },
     grid: {
-      left: 5,
+      left: 20,
       right: 20,
       bottom: 0,
       containLabel: true,
@@ -74,11 +76,11 @@ export const GradientStackedAreaChart: React.FC = () => {
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
             {
               offset: 0,
-              color: '#01509A',
+              color: chartColors.color1,
             },
             {
               offset: 1,
-              color: '#2983D8',
+              color: chartColors.color1Tint,
             },
           ]),
         },
@@ -101,11 +103,11 @@ export const GradientStackedAreaChart: React.FC = () => {
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
             {
               offset: 0,
-              color: '#35A0DC',
+              color: chartColors.color2,
             },
             {
               offset: 0.82,
-              color: '#67C5FA',
+              color: chartColors.color2Tint,
             },
           ]),
         },
@@ -128,11 +130,11 @@ export const GradientStackedAreaChart: React.FC = () => {
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
             {
               offset: 0,
-              color: '#FFDA92',
+              color: chartColors.color3,
             },
             {
               offset: 0.65,
-              color: '#FFA800',
+              color: chartColors.color3Tint,
             },
           ]),
         },
@@ -155,11 +157,11 @@ export const GradientStackedAreaChart: React.FC = () => {
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
             {
               offset: 0,
-              color: '#89DCA0',
+              color: chartColors.color4,
             },
             {
               offset: 1,
-              color: '#31A652',
+              color: chartColors.color4Tint,
             },
           ]),
         },
@@ -186,11 +188,11 @@ export const GradientStackedAreaChart: React.FC = () => {
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
             {
               offset: 0.4,
-              color: '#FF5252',
+              color: chartColors.color5,
             },
             {
               offset: 1,
-              color: '#FFC1C1',
+              color: chartColors.color5Tint,
             },
           ]),
         },
