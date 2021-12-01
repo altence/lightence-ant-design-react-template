@@ -25,11 +25,6 @@ export const GradientStackedAreaChart: React.FC = () => {
       data: [`coal`, `hydro`, `nuclear`, `gas`, `oil`].map((item) => t('charts.' + item)),
       top: 0,
       left: 10,
-      textStyle: {
-        fontSize: theme.commonFontSizes.xxs,
-        fontWeight: theme.commonFontWeight.light,
-        color: theme.colors.text.main,
-      },
     },
     grid: {
       left: 20,
