@@ -51,11 +51,11 @@ export const GradientStackedAreaChart: React.FC = () => {
     yAxis: [
       {
         type: 'value',
+        name: 'TWh',
         axisLabel: {
           fontSize: theme.commonFontSizes.xxs,
           fontWeight: theme.commonFontWeight.light,
           color: theme.colors.text.main,
-          formatter: '{value} TWh',
         },
       },
     ],
