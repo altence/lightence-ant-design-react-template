@@ -15,14 +15,14 @@ const ChartsPage: React.FC = () => {
       <Col xs={24} md={8}>
         <PieChart />
       </Col>
-      <Col xs={24} md={24}>
-        <LineRaceChart />
-      </Col>
       <Col xs={24} md={8}>
         <ScatterChart />
       </Col>
       <Col xs={24} md={16}>
         <BarAnimationDelayChart />
+      </Col>
+      <Col xs={24}>
+        <LineRaceChart />
       </Col>
     </Row>
   );
