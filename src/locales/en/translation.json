@@ -326,8 +326,7 @@
   },
   "charts": {
     "barLabel": "Bar Animation Delay",
-    "bar": "bar",
-    "gradientLabel": "Yearly Energy Production",
+    "gradientLabel": "Gradient Stacked Area",
     "lineRace": "Line Race",
     "incomeOf": "Income of Germany and France since 1950",
     "mon": "Mon",
