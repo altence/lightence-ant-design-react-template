@@ -49,7 +49,8 @@ export const BarAnimationDelayChart: React.FC = () => {
     yAxis: {
       name: t('charts.averageValue'),
       nameTextStyle: {
-        padding: [0, 16],
+        padding: [0, -24],
+        align: 'left',
       },
     },
     series: [

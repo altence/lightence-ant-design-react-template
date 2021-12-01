@@ -346,7 +346,8 @@
     "nuclear": "DE!!!Nuclear",
     "gas": "DE!!!Gas",
     "oil": "DE!!!Oil",
-    "referrer": "DE!!!Website Visitors from",
+    "pie": "DE!!!Pie",
+    "visitorsFrom": "DE!!!Visitors from",
     "males": "DE!!!Males",
     "females": "DE!!!Females",
     "averageValue": "DE!!!Average Value"
