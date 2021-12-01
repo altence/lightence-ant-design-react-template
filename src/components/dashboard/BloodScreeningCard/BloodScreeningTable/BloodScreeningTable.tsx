@@ -28,6 +28,7 @@ interface Column {
   dataIndex: string;
   key: string;
   colSpan?: number;
+  width?: string;
   render: (values: Values) => React.ReactElement;
 }
 
@@ -99,12 +100,14 @@ export const BloodScreeningTable: React.FC<BloodScreeningTableProps> = ({ active
       title: t('dashboard.bloodScreening.min'),
       dataIndex: 'values',
       key: 'values',
+      width: '15%',
       render: ({ cellName, min }) => <S.Text isActive={cellName === activeItem.values.cellName}>{min}</S.Text>,
     },
     {
       title: t('dashboard.bloodScreening.yourPerf'),
       dataIndex: 'values',
       key: 'values',
+      width: '25%',
       render: ({ cellName, min, current }) => (
         <S.PercentageWrapper>
           <S.Text isActive={cellName === activeItem.values.cellName}>{current}</S.Text>

@@ -12,7 +12,10 @@ interface PercentageProps extends TextProps {
 
 export const Table = styled(AntTable)`
   & .ant-table-thead > tr > th {
-    font-weight: 400;
+    background: transparent;
+    color: ${(props) => props.theme.colors.text.main};
+    font-size: ${(props) => props.theme.commonFontSizes.md};
+    font-weight: ${(props) => props.theme.commonFontWeight.semibold};
 
     &::before {
       display: none;
@@ -24,29 +27,32 @@ export const Table = styled(AntTable)`
     cursor: pointer;
   }
 
-  @media only screen and ${theme.media.xl} {
+  @media only screen and ${theme.media.xs} {
+    padding: 0 0.5rem;
+  }
+
+  @media only screen and ${theme.media.md} {
     padding: 0 1rem;
   }
 `;
 
 export const Text = styled.span<TextProps>`
-  color: ${(props) => (props.isActive && props.theme.colors.text.main) || props.theme.colors.text.light};
+  color: ${(props) => (props.isActive ? props.theme.colors.text.main : props.theme.colors.text.light)};
+  font-weight: ${(props) =>
+    props.isActive ? props.theme.commonFontWeight.semibold : props.theme.commonFontWeight.regular};
 `;
 
 export const PercentageWrapper = styled.div`
   display: flex;
-  width: 3rem;
-  justify-content: space-between;
-
-  @media only screen and ${theme.media.xxl} {
-    width: 4rem;
-  }
+  justify-content: flex-end;
 `;
 
 export const Percentage = styled.div<PercentageProps>`
-  display: inline-flex;
-  width: 2rem;
+  display: flex;
+  min-width: 3.2rem;
   align-items: center;
+  justify-content: flex-start;
+  margin-left: 1rem;
   color: ${(props) =>
     (props.isActive && props.isDowngrade && props.theme.colors.main.error) ||
     (props.isActive && props.theme.colors.main.success) ||
