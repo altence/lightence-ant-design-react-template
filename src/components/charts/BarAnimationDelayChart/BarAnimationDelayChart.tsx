@@ -1,11 +1,9 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card } from 'components/common/Card/Card';
 import { Chart } from 'components/common/Chart/Chart';
-import { ThemeContext } from 'styled-components';
 import { useTranslation } from 'react-i18next';
 
 export const BarAnimationDelayChart: React.FC = () => {
-  const theme = useContext(ThemeContext);
   const { t } = useTranslation();
   const [data, setData] = useState<{ data1: number[]; data2: number[]; xAxisData: string[] }>({
     data1: [],
@@ -29,26 +27,16 @@ export const BarAnimationDelayChart: React.FC = () => {
   }, []);
 
   const option = {
-    title: {
-      text: t('charts.barLabel'),
-      textStyle: {
-        fontSize: theme.commonFontSizes.xxl,
-        fontWeight: theme.commonFontWeight.bold,
-        color: theme.colors.text.main,
-        lineHeight: 31,
-      },
-      left: 20,
-    },
     legend: {
-      data: [`${t('charts.bar')}1`, `${t('charts.bar')}2`],
+      data: [t('charts.females'), t('charts.males')],
       left: 20,
-      top: 40,
+      top: 0,
     },
     grid: {
       left: 20,
       right: 20,
       bottom: 0,
-      top: 85,
+      top: 70,
       containLabel: true,
     },
     tooltip: {},
@@ -58,10 +46,15 @@ export const BarAnimationDelayChart: React.FC = () => {
         show: false,
       },
     },
-    yAxis: {},
+    yAxis: {
+      name: t('charts.averageValue'),
+      nameTextStyle: {
+        padding: [0, 16],
+      },
+    },
     series: [
       {
-        name: `${t('charts.bar')}1`,
+        name: t('charts.females'),
         type: 'bar',
         data: data.data1,
         color: '#FFB155',
@@ -73,7 +66,7 @@ export const BarAnimationDelayChart: React.FC = () => {
         },
       },
       {
-        name: `${t('charts.bar')}2`,
+        name: t('charts.males'),
         type: 'bar',
         data: data.data2,
         color: '#89DCA0',
@@ -86,13 +79,10 @@ export const BarAnimationDelayChart: React.FC = () => {
       },
     ],
     animationEasing: 'elasticOut',
-    animationDelayUpdate: function (idx: number) {
-      return idx * 5;
-    },
   };
   return (
-    <Card padding="1.875rem 0">
-      <Chart option={option} height={'100%'} />
+    <Card padding="0 0 1.875rem" title={t('charts.barLabel')}>
+      <Chart option={option} />
     </Card>
   );
 };
