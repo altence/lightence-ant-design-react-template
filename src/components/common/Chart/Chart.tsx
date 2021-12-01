@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { EChartsOption } from 'echarts-for-react';
-import { useResponsive } from 'hooks/useResponsive';
 import ReactECharts from 'echarts-for-react';
 import { Loading } from '../Loading';
 
@@ -12,9 +11,8 @@ interface ChartProps {
 
 export const Chart: React.FC<ChartProps> = ({ option, width, height }) => {
   const [loading, setLoading] = useState(true);
-  const { isTablet } = useResponsive();
 
-  const chartHeight = height || (isTablet ? '300px' : '200px');
+  const chartHeight = height || '400px';
 
   useEffect(() => {
     // FIXME workaround to make sure that parent container is initialized before the chart

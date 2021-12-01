@@ -54,9 +54,9 @@ const markLineOpt = {
 const defaultOption = {
   grid: {
     top: 10,
-    right: 10,
+    right: 30,
     bottom: 0,
-    left: 5,
+    left: 15,
     containLabel: true,
   },
   tooltip: {
