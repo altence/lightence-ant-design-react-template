@@ -62,13 +62,10 @@ const defaultOption = {
   tooltip: {
     showDelay: 0,
     // eslint-disable-next-line
-    formatter: function (params: any) {
-      if (params.value.length > 1) {
-        return params.value[0] + 'cm ' + params.value[1] + 'kg ';
-      } else {
-        return params.name + ' : ' + params.value + 'kg ';
-      }
-    },
+    formatter: (params: any) =>
+      params.value.length > 1
+        ? params.value[0] + 'cm ' + params.value[1] + 'kg '
+        : params.name + ' : ' + params.value + 'kg ',
     axisPointer: {
       show: true,
       type: 'cross',
@@ -116,7 +113,7 @@ const defaultOption = {
 export const ScatterChart: React.FC = () => {
   const { t } = useTranslation();
   const theme = useContext(ThemeContext);
-  const option = { ...defaultOption, color: theme.colors.main.primary };
+  const option = { ...defaultOption, color: theme.colors.charts.color1 };
 
   return (
     <Card padding="0 0 1.875rem" title={t('charts.scatter')}>
