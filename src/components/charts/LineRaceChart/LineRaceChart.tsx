@@ -76,9 +76,7 @@ export const LineRaceChart: React.FC = () => {
         name: country,
         endLabel: {
           show: true,
-          formatter: function (params) {
-            return params.value[3] + ': ' + params.value[0];
-          },
+          formatter: (params) => params.value[3] + ': ' + params.value[0],
         },
         labelLayout: {
           moveOverlap: 'shiftY',
