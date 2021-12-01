@@ -350,7 +350,8 @@
     "visitorsFrom": "DE!!!Visitors from",
     "males": "DE!!!Males",
     "females": "DE!!!Females",
-    "averageValue": "DE!!!Average Value"
+    "averageValue": "DE!!!Average Value",
+    "scatter": "DE!!!Scatter"
   },
   "tables": {
     "tables": "DE!!!Tables",
