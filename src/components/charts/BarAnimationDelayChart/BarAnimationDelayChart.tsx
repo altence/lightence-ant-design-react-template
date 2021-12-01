@@ -20,7 +20,7 @@ export const BarAnimationDelayChart: React.FC = () => {
 
     setTimeout(() => {
       for (let i = 0; i < 100; i++) {
-        xAxisData.push('A' + i);
+        xAxisData.push(`A${i}`);
         data1.push((Math.sin(i / 5) * (i / 5 - 10) + i / 6) * 5);
         data2.push((Math.cos(i / 5) * (i / 5 - 10) + i / 6) * 5);
       }

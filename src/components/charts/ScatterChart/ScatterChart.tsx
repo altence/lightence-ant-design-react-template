@@ -62,9 +62,7 @@ const defaultOption = {
     showDelay: 0,
     // eslint-disable-next-line
     formatter: (params: any) =>
-      params.value.length > 1
-        ? params.value[0] + 'cm ' + params.value[1] + 'kg '
-        : params.name + ' : ' + params.value + 'kg ',
+      params.value.length > 1 ? `${params.value[0]}cm ${params.value[1]}kg ` : `${params.name}: ${params.value} 'kg `,
     axisPointer: {
       show: true,
       type: 'cross',
