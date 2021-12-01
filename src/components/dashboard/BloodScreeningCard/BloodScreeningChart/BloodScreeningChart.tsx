@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { EChartsInstance } from 'echarts-for-react';
+import * as echarts from 'echarts';
 import { ThemeContext } from 'styled-components';
 import { BaseChart } from '../../../common/charts/BaseChart';
 import { Dates } from '../../../../constants/Dates';
@@ -19,10 +20,10 @@ export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ activ
 
   const option = {
     grid: {
-      top: '30%',
+      top: 27,
       bottom: 0,
-      left: 0,
-      right: 0,
+      left: -20,
+      right: -20,
     },
     tooltip: {
       trigger: 'axis',
@@ -31,16 +32,25 @@ export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ activ
       },
       axisPointer: {
         show: false,
+        lineStyle: {
+          width: 0,
+        },
       },
     },
     xAxis: {
       type: 'category',
       data: months,
       show: false,
+      lineStyle: {
+        width: 0,
+      },
     },
     yAxis: {
       type: 'value',
       show: false,
+      lineStyle: {
+        width: 0,
+      },
     },
     series: [
       {
@@ -48,8 +58,23 @@ export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ activ
         type: 'line',
         smooth: true,
         showSymbol: false,
+        itemStyle: {
+          borderWidth: 2,
+          borderColor: themeContext.colors.main.mainBackground,
+          color: themeContext.colors.main.error,
+        },
+        symbolSize: 18,
         areaStyle: {
-          opacity: (isTablet && 0.4) || 0,
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            {
+              offset: 0,
+              color: 'rgba(252, 120, 122, 0.79)',
+            },
+            {
+              offset: 1,
+              color: 'rgba(248, 251, 255, 0)',
+            },
+          ]),
         },
         lineStyle: {
           width: 2,
@@ -59,5 +84,5 @@ export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ activ
     ],
   };
 
-  return <BaseChart option={option} height={(isBigScreen && 200) || (isTablet && 150) || 100} />;
+  return <BaseChart option={option} height={(isBigScreen && 200) || (isTablet && 200) || 100} />;
 };

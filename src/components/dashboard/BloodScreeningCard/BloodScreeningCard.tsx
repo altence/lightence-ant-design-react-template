@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BloodScreeningChart } from './BloodScreeningChart/BloodScreeningChart';
 import { Cell, BloodScreeningTable } from './BloodScreeningTable/BloodScreeningTable';
-import { camelize } from 'utils/utils';
 import { useResponsive } from 'hooks/useResponsive';
 import * as S from './BloodScreeningCard.styles';
 
@@ -22,8 +21,18 @@ export const BloodScreeningCard: React.FC = () => {
   const { mobileOnly } = useResponsive();
 
   return (
-    <S.Card id="blood-screening" title={mobileOnly && t('dashboard.bloodScreening.title')} padding={0}>
-      <S.Badge>{t(`dashboard.bloodScreening.${camelize(activeItem.values.cellName)}`)}</S.Badge>
+    <S.Card
+      id="blood-screening"
+      title={
+        mobileOnly && (
+          <S.TitleWrapper>
+            <div>{t('dashboard.bloodScreening.title')}</div>
+            {!!activeItem?.values.cellName && <S.ActiveItem>{activeItem.values.cellName}</S.ActiveItem>}
+          </S.TitleWrapper>
+        )
+      }
+      padding={0}
+    >
       <BloodScreeningChart activeItem={activeItem} />
       <BloodScreeningTable activeItem={activeItem} setActiveItem={setActiveItem} />
     </S.Card>
