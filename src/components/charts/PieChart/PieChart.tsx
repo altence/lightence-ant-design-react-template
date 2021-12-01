@@ -11,11 +11,11 @@ export const PieChart: React.FC = () => {
     },
     legend: {
       top: '0%',
-      left: 'center',
+      left: 16,
     },
     series: [
       {
-        name: 'Access From',
+        name: t('charts.visitorsFrom'),
         type: 'pie',
         top: '25%',
         radius: ['55%', '100%'],
@@ -50,7 +50,7 @@ export const PieChart: React.FC = () => {
     ],
   };
   return (
-    <Card padding="0 0 1.875rem" title={t('charts.referrer')}>
+    <Card padding="0 0 1.875rem" title={t('charts.pie')}>
       <Chart option={option} />
     </Card>
   );
