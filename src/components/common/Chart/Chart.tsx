@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { EChartsOption } from 'echarts-for-react';
 import ReactECharts from 'echarts-for-react';
 import { Loading } from '../Loading';
+import { ThemeContext } from 'styled-components';
 
 interface ChartProps {
   option: EChartsOption;
@@ -19,5 +20,22 @@ export const Chart: React.FC<ChartProps> = ({ option, width, height }) => {
     setLoading(false);
   }, []);
 
-  return loading ? <Loading /> : <ReactECharts option={option} style={{ height: chartHeight, width }} />;
+  const theme = useContext(ThemeContext);
+  const color = [
+    theme.colors.charts.color1,
+    theme.colors.charts.color2,
+    theme.colors.charts.color3,
+    theme.colors.charts.color4,
+    theme.colors.charts.color5,
+  ];
+
+  const defaultOption = {
+    color,
+  };
+
+  return loading ? (
+    <Loading />
+  ) : (
+    <ReactECharts option={{ ...defaultOption, ...option }} style={{ height: chartHeight, width }} />
+  );
 };

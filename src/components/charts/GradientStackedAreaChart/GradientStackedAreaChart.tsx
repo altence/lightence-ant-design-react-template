@@ -12,7 +12,6 @@ export const GradientStackedAreaChart: React.FC = () => {
   const chartColors = theme.colors.charts;
 
   const option = {
-    color: [chartColors.color1, chartColors.color2, chartColors.color3, chartColors.color4, chartColors.color5],
     tooltip: {
       trigger: 'axis',
       axisPointer: {
