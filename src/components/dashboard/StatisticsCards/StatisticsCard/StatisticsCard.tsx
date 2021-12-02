@@ -25,10 +25,12 @@ export const StatisticsCard: React.FC<StatisticsCardProps> = ({ name, value, pre
   const { t } = useTranslation();
 
   return (
-    <S.StatisticCard id={t(name).toLowerCase()} color={theme.colors.main[color] as StatisticColor}>
+    <S.StatisticCard id={t(name).toLowerCase()} color={theme.colors.main[color] as StatisticColor} padding={'1rem'}>
       <Row wrap={false} gutter={[isTabletOrHigher ? 10 : 5, 0]}>
         <Col>
-          <S.Icon component={Icon} />
+          <S.IconWrapper>
+            <S.Icon component={Icon} />
+          </S.IconWrapper>
         </Col>
 
         <Col flex={1}>

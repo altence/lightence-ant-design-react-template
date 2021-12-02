@@ -12,12 +12,12 @@ interface StatisticsInfoProps {
 
 export const StatisticsInfo: React.FC<StatisticsInfoProps> = ({ name, value, prevValue }) => {
   return (
-    <Space direction="vertical" size={0}>
+    <Space direction="vertical" size={6}>
       <S.Title>{name}</S.Title>
 
       {prevValue && (
         <S.Text>
-          {value > prevValue ? <CaretUpOutlined /> : <CaretDownOutlined />}
+          <S.IconWrapper> {value > prevValue ? <CaretUpOutlined /> : <CaretDownOutlined />}</S.IconWrapper>
           {getDifference(value, prevValue)}
         </S.Text>
       )}

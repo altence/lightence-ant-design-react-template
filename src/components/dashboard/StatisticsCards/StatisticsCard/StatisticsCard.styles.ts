@@ -10,15 +10,19 @@ interface StatisticsProps {
   color: StatisticColor;
 }
 
-export const Icon = styled(AntIcon)`
-  font-size: 0.8rem;
+export const IconWrapper = styled.div`
+  margin-top: 0.25rem;
+`;
 
-  @media only screen and ${theme.media.md} {
+export const Icon = styled(AntIcon)`
+  font-size: 1.5rem;
+
+  @media only screen and ${theme.media.xs} {
     font-size: 1.5rem;
   }
 
   @media only screen and ${theme.media.xxl} {
-    font-size: 2rem;
+    font-size: 1.3rem;
   }
 `;
 
