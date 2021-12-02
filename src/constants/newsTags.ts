@@ -2,6 +2,7 @@ import theme from 'styles/theme';
 
 const { red, orange, lightgreen } = theme.commonColors;
 
+// TODO add i18n
 export const newsTags = {
   arts: {
     id: 'Arts',
@@ -17,5 +18,10 @@ export const newsTags = {
     id: 'health',
     title: 'health',
     bgColor: lightgreen,
+  },
+  covid: {
+    id: 'covid',
+    title: 'COVID',
+    bgColor: red,
   },
 };
