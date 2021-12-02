@@ -10,22 +10,27 @@ export const Card = styled(AntCard)<CardProps>`
 
   box-shadow: ${(props) => props.theme.boxShadow};
 
-  & .ant-card-head {
+  .ant-card-head {
     border-bottom: 0;
 
     font-weight: ${(props) => props.theme.commonFontWeight.bold};
 
-    @media only screen and ${(props) => props.theme.media.xl} {
-      font-size: ${(props) => props.theme.commonFontSizes.xxl};
-    }
-
-    & .ant-card-head-title {
+    .ant-card-head-title {
       white-space: unset;
       overflow: unset;
+      padding-bottom: 0;
+    }
+
+    @media only screen and ${(props) => props.theme.media.xl} {
+      font-size: ${(props) => props.theme.commonFontSizes.xxl};
+
+      .ant-card-head-title {
+        padding-bottom: 0.25rem;
+      }
     }
   }
 
-  & .ant-card-body {
+  .ant-card-body {
     flex-grow: 1;
 
     padding: ${(props) => props.padding && getValueFromProp(props.padding)};
