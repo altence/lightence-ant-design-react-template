@@ -9,7 +9,7 @@ import { HealthCard } from '../components/dashboard/HealthCard/HealthCard';
 import { FavouritesDoctorsCard } from '../components/dashboard/FavouritesDoctorsCard/FavouritesDoctorsCard';
 import { PatientResultsCard } from '../components/dashboard/PatientResultsCard/PatientResultsCard';
 import { BloodScreeningCard } from '../components/dashboard/BloodScreeningCard/BloodScreeningCard';
-import { PiecesOfAdviceCard } from '../components/dashboard/PiecesOfAdviceCard/PiecesOfAdviceCard';
+import { NewsCard } from '../components/dashboard/NewsCard/NewsCard';
 import { useResponsive } from 'hooks/useResponsive';
 import { StatisticsCards } from 'components/dashboard/StatisticsCards/StatisticsCards';
 
@@ -61,7 +61,7 @@ const DashboardPage: React.FC = () => {
       </Col>
 
       <Col span={24}>
-        <PiecesOfAdviceCard />
+        <NewsCard />
       </Col>
     </>
   );
@@ -103,7 +103,7 @@ const DashboardPage: React.FC = () => {
       </Col>
 
       <Col xs={24} md={24} order={(isTablet && 14) || 0}>
-        <PiecesOfAdviceCard />
+        <NewsCard />
       </Col>
 
       {isTablet && (

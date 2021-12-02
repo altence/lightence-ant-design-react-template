@@ -82,9 +82,9 @@ export const componentsData: Component[] = [
     keywords: ['patient timeline', 'data tables'],
   },
   {
-    name: 'Pieces of advice',
-    url: `/#advice`,
+    name: 'News',
+    url: `/#news`,
     categories: ['data tables'],
-    keywords: ['pieces of advice', 'data tables'],
+    keywords: ['news', 'news cards', 'data tables'],
   },
 ];
