@@ -84,24 +84,23 @@ export const EditableTable: React.FC = () => {
     {
       title: t('tables.address'),
       dataIndex: 'address',
-      width: '40%',
+      width: '30%',
       editable: true,
     },
     {
       title: t('tables.actions'),
       dataIndex: 'actions',
-      width: '15%',
       render: (text: string, record: BasicTableRow) => {
         const editable = isEditing(record);
         return editable ? (
-          <span>
+          <div>
             <Button type="primary" onClick={() => save(record.key)} style={{ marginRight: 8 }}>
               {t('common.save')}
             </Button>
             <Popconfirm title={t('tables.cancelInfo')} onConfirm={cancel}>
               <Button type="ghost">{t('common.cancel')}</Button>
             </Popconfirm>
-          </span>
+          </div>
         ) : (
           <Button type="ghost" disabled={editingKey !== 0} onClick={() => edit(record)}>
             {t('common.edit')}
