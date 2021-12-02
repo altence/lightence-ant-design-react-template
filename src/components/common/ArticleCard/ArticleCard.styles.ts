@@ -21,9 +21,14 @@ export const Wrapper = styled.div`
   flex: 1 1 21.25rem;
   position: relative;
   max-width: 42.5rem;
-  filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.07));
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   background: ${(props) => props.theme.colors.main.mainBackground};
   border-radius: ${(props) => props.theme.border.radius};
+  transition: 0.3s;
+
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
 `;
 
 export const Image = styled(AntImage)`
