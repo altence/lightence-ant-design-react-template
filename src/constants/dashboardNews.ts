@@ -5,7 +5,7 @@ import { newsTags } from './newsTags';
 
 const { health } = newsTags;
 
-export const piecesOfAdviceData: Array<Post> = [
+export const dashboardNews: Array<Post> = [
   {
     title: 'Curbing COVID-19 through border controls and restricted entry',
     text: 'Case finding via measures such as border controls, restricted entry, and inbound traveler quarantine, combined with testing high-risk populations and contacts of diagnosed COVID-19 patients. Timely and repeated testing may be necessary to minimize false-negative results. Trace digital tools can aid in outbreak investigation, contact tracing, and monitoring compliance with self-isolation.',

@@ -163,7 +163,7 @@
         "description": "Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million."
       }
     },
-    "piecesOfAdvice": "Pieces of advice"
+    "news": "News"
   },
   "error404": {
     "notFound": "Sorry, page not found!",

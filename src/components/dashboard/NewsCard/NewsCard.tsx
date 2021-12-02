@@ -1,16 +1,16 @@
 import React from 'react';
-import { piecesOfAdviceData } from '../../../constants/piecesOfAdviceData';
+import { dashboardNews } from '../../../constants/dashboardNews';
 import { DashboardCard } from '../DashboardCard/DashboardCard';
-import * as S from './PiecesOfAdviceCard.styles';
+import * as S from './NewsCard.styles';
 import { useTranslation } from 'react-i18next';
 
-export const PiecesOfAdviceCard: React.FC = () => {
+export const NewsCard: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <DashboardCard title={t('dashboard.piecesOfAdvice')}>
+    <DashboardCard title={t('dashboard.news')}>
       <S.Wrapper>
-        {piecesOfAdviceData.map((advice, index) => (
+        {dashboardNews.map((advice, index) => (
           <S.CardArticle
             key={index}
             imgUrl={advice.img}
