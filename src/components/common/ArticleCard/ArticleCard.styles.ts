@@ -18,8 +18,9 @@ export const AuthorWrapper = styled.div`
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  flex: 1 1 21.25rem;
   position: relative;
-  width: 100%;
+  max-width: 42.5rem;
   filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.07));
   background: ${(props) => props.theme.colors.main.mainBackground};
   border-radius: ${(props) => props.theme.border.radius};
@@ -27,20 +28,7 @@ export const Wrapper = styled.div`
 
 export const Image = styled(AntImage)`
   width: 100%;
-  height: 100%;
-  max-height: 22.375rem;
-
-  @media only screen and ${theme.media.xs} {
-    max-height: 11.625rem;
-  }
-
-  @media only screen and ${theme.media.md} {
-    max-height: 12.5rem;
-  }
-
-  @media only screen and ${theme.media.xl} {
-    max-height: 22.375rem;
-  }
+  height: auto;
 `;
 
 export const Author = styled.div`

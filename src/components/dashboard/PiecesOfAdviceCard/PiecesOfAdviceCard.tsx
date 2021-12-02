@@ -1,21 +1,20 @@
 import React from 'react';
-import { useMediaQuery } from 'react-responsive';
-import { PiecesOfAdviceHeader } from './PiecesOfAdviceHeader/PiecesOfAdviceHeader';
 import { piecesOfAdviceData } from '../../../constants/piecesOfAdviceData';
 import { DashboardCard } from '../DashboardCard/DashboardCard';
-import theme from '../../../styles/theme';
 import * as S from './PiecesOfAdviceCard.styles';
+import { useTranslation } from 'react-i18next';
+import { ArticleCard } from '../../common/ArticleCard/ArticleCard';
 
 export const PiecesOfAdviceCard: React.FC = () => {
-  const isDesktop = useMediaQuery({ query: theme.media.xl });
+  const { t } = useTranslation();
 
   return (
-    <DashboardCard id="advice" title={<PiecesOfAdviceHeader />}>
+    <DashboardCard title={t('dashboard.piecesOfAdvice')}>
       <S.Wrapper>
         {piecesOfAdviceData.map((advice) => (
-          <S.Advice
+          <ArticleCard
             key={advice.id}
-            imgUrl={(isDesktop && advice.imgUrlHighResol) || advice.imgUrl}
+            imgUrl={advice.imgUrl}
             title={advice.title}
             date={advice.date}
             description={advice.description}
