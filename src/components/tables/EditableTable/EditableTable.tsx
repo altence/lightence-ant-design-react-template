@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Popconfirm, Form, TablePaginationConfig } from 'antd';
 import { Table } from 'components/common/Table/Table';
 import { getEditableTableData, BasicTableRow, Pagination } from 'api/table.api';
-import { EditableCell } from './EditableCeil/EditableCeil';
+import { EditableCell } from './EditableCell/EditableCell';
 import { Button } from 'components/common/buttons/Button/Button';
 import { useTranslation } from 'react-i18next';
 
