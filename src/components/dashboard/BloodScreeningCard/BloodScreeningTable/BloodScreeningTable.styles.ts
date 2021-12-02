@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Table as AntTable } from 'antd';
+import { Table as CommonTable } from 'components/common/Table/Table';
 import theme from '../../../../styles/theme';
 
 interface TextProps {
@@ -10,7 +10,11 @@ interface PercentageProps extends TextProps {
   isDowngrade: boolean;
 }
 
-export const Table = styled(AntTable)`
+export const Table = styled(CommonTable)`
+  & thead .ant-table-cell {
+    border-top: none;
+    border-bottom: ${(props) => `1px solid ${props.theme.colors.main.secondaryBackground}`};
+  }
   & .ant-table-thead > tr > th {
     background: transparent;
     color: ${(props) => props.theme.colors.text.main};
