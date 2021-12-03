@@ -365,6 +365,7 @@
     "tags": "DE!!!Tags",
     "actions": "DE!!!Actions",
     "invite": "DE!!!Invite",
+    "inviteMessage": "DE!!!{{name}} invited successfully",
     "delete": "DE!!!Delete",
     "cancelInfo": "DE!!!Sure to cancel?"
   },
