@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Space, TablePaginationConfig } from 'antd';
+import { Space, TablePaginationConfig, notification } from 'antd';
 import * as S from './BasicTable.styles';
 import { BasicTableRow, getBasicTableData, Pagination, Tag } from 'api/table.api';
 import { Table } from 'components/common/Table/Table';
@@ -31,6 +31,10 @@ export const BasicTable: React.FC = () => {
     getBasicTableData(pagination).then((res) => {
       setTableData({ data: res.data, pagination: res.pagination, loading: false });
     });
+  };
+
+  const handleDeleteRow = (rowId: number) => {
+    setTableData({ ...tableData, data: tableData.data.filter((item) => item.key !== rowId) });
   };
 
   const columns: ColumnsType<BasicTableRow> = [
@@ -114,14 +118,23 @@ export const BasicTable: React.FC = () => {
       title: t('tables.actions'),
       dataIndex: 'actions',
       width: '15%',
-      render: () => (
-        <Space>
-          <Button type="ghost">{t('tables.invite')}</Button>
-          <Button type="default" danger>
-            {t('tables.delete')}
-          </Button>
-        </Space>
-      ),
+      render: (text: string, record: { name: string; key: number }) => {
+        return (
+          <Space>
+            <Button
+              type="ghost"
+              onClick={() => {
+                notification.open({ message: t('tables.inviteMessage', { name: record.name }) });
+              }}
+            >
+              {t('tables.invite')}
+            </Button>
+            <Button type="default" danger onClick={() => handleDeleteRow(record.key)}>
+              {t('tables.delete')}
+            </Button>
+          </Space>
+        );
+      },
     },
   ];
 
