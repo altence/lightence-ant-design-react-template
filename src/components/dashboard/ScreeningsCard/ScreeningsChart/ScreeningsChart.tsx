@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Chart } from 'components/common/Chart/Chart';
+import { BaseChart } from 'components/common/charts/BaseChart';
 import { getMarkAreaData } from 'utils/utils';
 import { ThemeContext } from 'styled-components';
 import { hexToRGB } from 'utils/utils';
@@ -102,5 +102,5 @@ export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, sec
     ],
   };
 
-  return <Chart option={option} {...(isTabletOrHigher && { height: '100%' })} />;
+  return <BaseChart option={option} {...(isTabletOrHigher && { height: '100%' })} />;
 };

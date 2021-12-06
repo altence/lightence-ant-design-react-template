@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { EChartsInstance } from 'echarts-for-react';
 import { ThemeContext } from 'styled-components';
-import { Chart } from '../../../common/Chart/Chart';
+import { BaseChart } from '../../../common/charts/BaseChart';
 import { Dates } from '../../../../constants/Dates';
 import { Cell } from '../BloodScreeningTable/BloodScreeningTable';
 import { useResponsive } from 'hooks/useResponsive';
@@ -59,5 +59,5 @@ export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ activ
     ],
   };
 
-  return <Chart option={option} height={(isBigScreen && 200) || (isTablet && 150) || 100} />;
+  return <BaseChart option={option} height={(isBigScreen && 200) || (isTablet && 150) || 100} />;
 };

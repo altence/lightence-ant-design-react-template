@@ -1,18 +1,22 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { EChartsOption } from 'echarts-for-react';
 import ReactECharts from 'echarts-for-react';
 import { Loading } from '../Loading';
-import { ThemeContext } from 'styled-components';
+import { getChartColors } from '../../../styles/theme';
 
-interface ChartProps {
-  option: EChartsOption;
+export interface BaseChartProps {
+  option?: EChartsOption;
   onEvents?: Record<string, (e: any) => void>;
   width?: string | number;
   height?: string | number;
 }
 
-export const Chart: React.FC<ChartProps> = ({ option, width, height, onEvents }) => {
+const defaultOption = {
+  color: getChartColors(),
+};
+
+export const BaseChart: React.FC<BaseChartProps> = ({ option, width, height, onEvents }) => {
   const [loading, setLoading] = useState(true);
 
   const chartHeight = height || '400px';
@@ -21,19 +25,6 @@ export const Chart: React.FC<ChartProps> = ({ option, width, height, onEvents })
     // FIXME workaround to make sure that parent container is initialized before the chart
     setLoading(false);
   }, []);
-
-  const theme = useContext(ThemeContext);
-  const color = [
-    theme.colors.charts.color1,
-    theme.colors.charts.color2,
-    theme.colors.charts.color3,
-    theme.colors.charts.color4,
-    theme.colors.charts.color5,
-  ];
-
-  const defaultOption = {
-    color,
-  };
 
   return loading ? (
     <Loading />

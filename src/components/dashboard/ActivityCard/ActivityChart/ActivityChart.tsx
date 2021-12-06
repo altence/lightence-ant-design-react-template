@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import { Chart } from '../../../common/Chart/Chart';
+import { BaseChart } from '../../../common/charts/BaseChart';
 import { Dates } from '../../../../constants/Dates';
 import { useResponsive } from 'hooks/useResponsive';
 import { dashboardPaddings } from 'components/dashboard/DashboardCard/DashboardCard';
@@ -70,5 +70,5 @@ export const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
     },
   };
 
-  return <Chart option={option} {...(isTablet && { height: '100%' })} />;
+  return <BaseChart option={option} {...(isTablet && { height: '100%' })} />;
 };

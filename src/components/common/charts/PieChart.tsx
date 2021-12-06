@@ -1,13 +1,18 @@
 import React, { useContext } from 'react';
-import { Card } from 'components/common/Card/Card';
-import { Chart } from 'components/common/Chart/Chart';
-import { useTranslation } from 'react-i18next';
+import { BaseChart, BaseChartProps } from 'components/common/charts/BaseChart';
 import { ThemeContext } from 'styled-components';
+import { EChartsOption } from 'echarts-for-react';
 
-export const PieChart: React.FC = () => {
-  const { t } = useTranslation();
+interface PieChartProps extends BaseChartProps {
+  option?: EChartsOption;
+  // eslint-disable-next-line
+  data?: any;
+  name?: string;
+}
+
+export const PieChart: React.FC<PieChartProps> = ({ option, data, name, ...props }) => {
   const theme = useContext(ThemeContext);
-  const option = {
+  const defaultPieOption = {
     tooltip: {
       trigger: 'item',
     },
@@ -17,7 +22,7 @@ export const PieChart: React.FC = () => {
     },
     series: [
       {
-        name: t('charts.visitorsFrom'),
+        name,
         type: 'pie',
         top: '25%',
         radius: ['55%', '100%'],
@@ -41,19 +46,9 @@ export const PieChart: React.FC = () => {
         labelLine: {
           show: false,
         },
-        data: [
-          { value: 1048, name: t('charts.search') },
-          { value: 735, name: t('charts.direct') },
-          { value: 580, name: t('charts.email') },
-          { value: 484, name: t('charts.union') },
-          { value: 300, name: t('charts.video') },
-        ],
+        data,
       },
     ],
   };
-  return (
-    <Card padding="0 0 1.875rem" title={t('charts.pie')}>
-      <Chart option={option} />
-    </Card>
-  );
+  return <BaseChart {...props} option={{ ...defaultPieOption, ...option }} />;
 };

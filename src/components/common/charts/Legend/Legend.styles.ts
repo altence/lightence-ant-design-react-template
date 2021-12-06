@@ -4,41 +4,6 @@ interface LegendWrapperProps {
   isSelected: boolean;
 }
 
-export const ChartWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  & ::-webkit-scrollbar {
-    width: 0.7rem;
-  }
-  & ::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
-  & ::-webkit-scrollbar-thumb {
-    background-color: ${(props) => props.theme.commonColors.lightgrey};
-    border-radius: 1.25rem;
-    border: 0.275rem solid transparent;
-    background-clip: content-box;
-  }
-
-  @media only screen and ${(props) => props.theme.media.xs} {
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-  }
-
-  @media only screen and ${(props) => props.theme.media.md} {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  @media only screen and ${(props) => props.theme.media.xl} {
-    flex-direction: column;
-    justify-content: center;
-  }
-`;
-
 export const Legend = styled.div`
   max-height: 16.25rem;
   overflow-y: scroll;
@@ -117,20 +82,6 @@ export const LegendText = styled.div`
 export const LegendPercent = styled(LegendText)`
   margin-left: 0.8125rem;
   margin-right: 1rem;
-
-  @media only screen and ${(props) => props.theme.media.xs} {
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
-  }
-
-  @media only screen and ${(props) => props.theme.media.md} {
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
-  }
-`;
-
-export const LegendDayUp = styled(LegendText)`
-  color: #57d682;
-  display: flex;
-  align-items: center;
 
   @media only screen and ${(props) => props.theme.media.xs} {
     font-size: ${(props) => props.theme.commonFontSizes.xs};

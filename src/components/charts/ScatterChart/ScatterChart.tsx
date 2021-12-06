@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from 'components/common/Card/Card';
-import { Chart } from 'components/common/Chart/Chart';
+import { BaseChart } from 'components/common/charts/BaseChart';
 import { useTranslation } from 'react-i18next';
 
 const data = [
@@ -112,7 +112,7 @@ export const ScatterChart: React.FC = () => {
 
   return (
     <Card padding="0 0 1.875rem" title={t('charts.scatter')}>
-      <Chart option={defaultOption} />
+      <BaseChart option={defaultOption} />
     </Card>
   );
 };

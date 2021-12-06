@@ -125,8 +125,7 @@
     "activity": "DE!!!Activity",
     "covid": "DE!!!COVID-19",
     "health": {
-      "title": "DE!!!Health",
-      "percent": "DE!!!percent",
+      "title": "DE!!!Health Depends on",
       "lifestyle": {
         "title": "DE!!!Lifestyle",
         "description": "DE!!!Without new treatments, the W.H.O. says, the number of new cancer patients"

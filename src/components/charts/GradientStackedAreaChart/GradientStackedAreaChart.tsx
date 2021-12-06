@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Chart } from 'components/common/Chart/Chart';
+import { BaseChart } from 'components/common/charts/BaseChart';
 import * as echarts from 'echarts';
 import { Card } from 'components/common/Card/Card';
 import { ThemeContext } from 'styled-components';
@@ -200,7 +200,7 @@ export const GradientStackedAreaChart: React.FC = () => {
 
   return (
     <Card padding="0 0 1.875rem" title={t('charts.gradientLabel')}>
-      <Chart option={option} />
+      <BaseChart option={option} />
     </Card>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 import { GradientStackedAreaChart } from 'components/charts/GradientStackedAreaChart/GradientStackedAreaChart';
-import { PieChart } from 'components/charts/PieChart/PieChart';
+import { VisitorsPieChart } from 'components/charts/VisitorsPieChart';
 import { BarAnimationDelayChart } from 'components/charts/BarAnimationDelayChart/BarAnimationDelayChart';
 import { ScatterChart } from 'components/charts/ScatterChart/ScatterChart';
 import { LineRaceChart } from 'components/charts/LineRaceChart/LineRaceChart';
@@ -16,7 +16,7 @@ const ChartsPage: React.FC = () => {
         <BarAnimationDelayChart />
       </Col>
       <Col xs={24} lg={12}>
-        <PieChart />
+        <VisitorsPieChart />
       </Col>
       <Col xs={24} lg={12}>
         <ScatterChart />
