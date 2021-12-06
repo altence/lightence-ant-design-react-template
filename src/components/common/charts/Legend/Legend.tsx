@@ -3,7 +3,7 @@ import * as S from './Legend.styles';
 import { getChartColors } from '../../../../styles/theme';
 
 interface LegendItem {
-  title: string;
+  name: string;
   value: number;
   description?: string;
 }
@@ -24,7 +24,7 @@ export const Legend: React.FC<LegendProps> = ({ legendItems, activeItemIndex }) 
             <S.LegendColor style={{ backgroundColor: colors[index] }} />
             <S.LegendDescription>
               <S.LegendTitle>
-                {item.title}
+                {item.name}
                 <S.Values>
                   <S.LegendPercent>{item.value}</S.LegendPercent>
                 </S.Values>

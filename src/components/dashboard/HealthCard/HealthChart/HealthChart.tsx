@@ -18,13 +18,19 @@ export const HealthChart: React.FC = () => {
 
   const chartData = healthChartData.map((item) => ({
     ...item,
-    title: t(item.title),
+    name: t(item.name),
     description: t(item.description),
   }));
 
   return (
     <>
-      <PieChart data={chartData} name={t('dashboard.health.title')} onEvents={onEvents} />
+      <PieChart
+        data={chartData}
+        name={t('dashboard.health.title')}
+        showLegend={false}
+        height="300px"
+        onEvents={onEvents}
+      />
       <Legend legendItems={chartData} activeItemIndex={activeItemIndex} />
     </>
   );

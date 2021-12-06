@@ -8,15 +8,17 @@ interface PieChartProps extends BaseChartProps {
   // eslint-disable-next-line
   data?: any;
   name?: string;
+  showLegend?: boolean;
 }
 
-export const PieChart: React.FC<PieChartProps> = ({ option, data, name, ...props }) => {
+export const PieChart: React.FC<PieChartProps> = ({ option, data, name, showLegend, ...props }) => {
   const theme = useContext(ThemeContext);
   const defaultPieOption = {
     tooltip: {
       trigger: 'item',
     },
     legend: {
+      show: showLegend,
       top: '0%',
       left: 16,
     },
@@ -24,7 +26,7 @@ export const PieChart: React.FC<PieChartProps> = ({ option, data, name, ...props
       {
         name,
         type: 'pie',
-        top: '25%',
+        top: showLegend ? '25%' : '10%',
         radius: ['55%', '100%'],
         avoidLabelOverlap: false,
         itemStyle: {
