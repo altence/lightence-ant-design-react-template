@@ -128,19 +128,19 @@
       "title": "Health Depends on",
       "lifestyle": {
         "title": "Lifestyle",
-        "description": "Without new treatments, the W.H.O. says, the number of new cancer patients"
+        "description": "According to WHO, 60% of related factors to individual health and quality of life are correlated to lifestyle."
       },
       "ecology": {
         "title": "Ecology",
-        "description": "Without new treatments, the W.H.O. says, the number of new cancer patients"
+        "description": "The environment is a major determinant of health, estimated to account for almost 20% of all deaths in the WHO European Region."
       },
       "genetics": {
         "title": "Genetics",
-        "description": "Without new treatments, the W.H.O. says, the number of new cancer patients"
+        "description": "Multivariate studies show that genetic factors enhancing SWB are partly overlapping with those protecting against depression and other mental health problems."
       },
-      "someInfo": {
-        "title": "Some info",
-        "description": "Without new treatments, the W.H.O. says, the number of new cancer patients"
+      "medicine": {
+        "title": "Medicine",
+        "description": "Relationship between health insurance (or lack of insurance), use of medical care and health outcomes for specific conditions and types of services, and with overall health status and mortality."
       }
     },
     "favoriteDoctors": {
