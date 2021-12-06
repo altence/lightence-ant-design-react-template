@@ -11,6 +11,8 @@ export const Title = styled(Typography.Text)`
   }
 `;
 
+export const FormList = styled(Form.List)``;
+
 export const FormItem = styled(Form.Item)`
   @media only screen and ${(props) => props.theme.media.xl} {
     margin-bottom: 2rem;
