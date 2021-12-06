@@ -4,7 +4,7 @@ import { getChartColors } from '../../../../styles/theme';
 
 interface LegendItem {
   name: string;
-  value: number;
+  value: number | string;
   description?: string;
 }
 
