@@ -20,6 +20,7 @@ import ForgotPasswordPage from '../../pages/ForgotPasswordPage';
 import Error404Page from '../../pages/Error404Page';
 import SecurityCodePage from '../../pages/SecurityCodePage';
 import NewPasswordPage from '../../pages/NewPasswordPage';
+import AdvancedFormsPage from '../../pages/AdvancedFormsPage';
 
 /*TODO check for lazy loading and add if lack*/
 export const AppRouter: React.FC = () => {
@@ -36,6 +37,7 @@ export const AppRouter: React.FC = () => {
           <Route path="forms">
             <Route path="payment" element={<PaymentPage />} />
             <Route path="security-code" element={<InputCodePage />} />
+            <Route path="advanced-forms" element={<AdvancedFormsPage />} />
           </Route>
           <Route path="data-tables" element={<DataTablesPage />} />
           <Route path="charts" element={<ChartsPage />} />
