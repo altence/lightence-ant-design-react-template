@@ -51,9 +51,6 @@ export const ValidationForm: React.FC = () => {
         </FormItem>
       )}
     >
-      <FormItem label="Plain Text">
-        <span className="ant-form-text">China</span>
-      </FormItem>
       <FormItem
         name="select"
         label="Select"
