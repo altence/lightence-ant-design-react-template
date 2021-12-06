@@ -5,8 +5,6 @@ interface LegendWrapperProps {
 }
 
 export const Legend = styled.div`
-  max-height: 16.25rem;
-  overflow-y: scroll;
   margin-bottom: 1.875rem;
   width: 100%;
 
