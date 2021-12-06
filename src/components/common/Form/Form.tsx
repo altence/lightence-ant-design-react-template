@@ -15,7 +15,7 @@ export interface FormProps extends AntFormProps {
   form?: FormInstance;
   footer?: (loading: boolean, onCancel: () => void) => React.ReactNode;
   onCancel?: () => void;
-  onFinish: (values: any) => Promise<any>;
+  onFinish?: (values: any) => Promise<any>;
   onFinishFailed?: <T>(error: ValidateErrorEntity<[]>) => Promise<T>;
   name: string;
 }
@@ -59,7 +59,9 @@ export const Form: React.FC<FormProps> = ({
     (values) => {
       setLoading(true);
 
-      onFinish(values).then(() => setFinished());
+      if (onFinish) {
+        onFinish(values).then(() => setFinished());
+      }
     },
     [onFinish, setLoading],
   );
