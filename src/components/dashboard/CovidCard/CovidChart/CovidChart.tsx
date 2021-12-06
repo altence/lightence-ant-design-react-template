@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Chart } from 'components/common/Chart/Chart';
+import { BaseChart } from 'components/common/charts/BaseChart';
 import { getMarkAreaData } from 'utils/utils';
 import { ThemeContext } from 'styled-components';
 import { useResponsive } from 'hooks/useResponsive';
@@ -55,5 +55,5 @@ export const CovidChart: React.FC = () => {
     },
   };
 
-  return <Chart option={option} {...(isTablet && { height: '100%' })} />;
+  return <BaseChart option={option} {...(isTablet && { height: '100%' })} />;
 };

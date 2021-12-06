@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Card } from 'components/common/Card/Card';
-import { Chart } from 'components/common/Chart/Chart';
+import { BaseChart } from 'components/common/charts/BaseChart';
 import { useTranslation } from 'react-i18next';
 import Data from './data.json';
 
@@ -127,7 +127,7 @@ export const LineRaceChart: React.FC = () => {
 
   return (
     <Card padding="0 0 1.875rem" title={t('charts.lineRace')}>
-      <Chart option={option} height="24rem" />
+      <BaseChart option={option} height="24rem" />
     </Card>
   );
 };
