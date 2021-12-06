@@ -4,6 +4,7 @@ import { socialLinksData } from 'constants/socialLinksData';
 import { FormItem } from '../../../../../../common/Form/Form.styles';
 import { Col, Row } from 'antd';
 import { ClipboardInput } from 'components/common/inputs/ClipboardInput/ClipboardInput';
+import * as S from './SocilaLinksItem.styles';
 
 interface SocialLinksItemProps {
   socialLinks: {
@@ -23,7 +24,11 @@ export const SocialLinksItem: React.FC<SocialLinksItemProps> = ({ socialLinks })
           <FormItem name={link.name}>
             <ClipboardInput
               value={Object.entries(socialLinks).find((formLink) => formLink[0] === link.name)?.[1]}
-              addonBefore={<link.Icon />}
+              addonBefore={
+                <S.IconWrapper>
+                  <link.Icon />
+                </S.IconWrapper>
+              }
             />
           </FormItem>
         </Col>
