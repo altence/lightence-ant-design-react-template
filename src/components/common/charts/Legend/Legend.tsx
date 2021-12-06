@@ -17,7 +17,7 @@ const colors = getChartColors();
 
 export const Legend: React.FC<LegendProps> = ({ legendItems, activeItemIndex }) => {
   return (
-    <div>
+    <>
       {legendItems.map((item, index) => (
         <S.LegendWrapper key={index} isSelected={index === activeItemIndex}>
           <S.LegendInfo>
@@ -30,6 +30,6 @@ export const Legend: React.FC<LegendProps> = ({ legendItems, activeItemIndex }) 
           </S.LegendInfo>
         </S.LegendWrapper>
       ))}
-    </div>
+    </>
   );
 };
