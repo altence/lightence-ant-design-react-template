@@ -16,7 +16,7 @@ export const VisitorsPieChart: React.FC = () => {
 
   return (
     <Card padding="0 0 1.875rem" title={t('charts.pie')}>
-      <PieChart data={data} name={name} />
+      <PieChart data={data} name={name} showLegend={true} />
     </Card>
   );
 };

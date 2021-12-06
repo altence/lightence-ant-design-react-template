@@ -22,6 +22,8 @@ export const HealthChart: React.FC = () => {
     description: t(item.description),
   }));
 
+  const legendData = chartData.map((item) => ({ ...item, value: `${item.value}%` }));
+
   return (
     <>
       <PieChart
@@ -31,7 +33,7 @@ export const HealthChart: React.FC = () => {
         height="300px"
         onEvents={onEvents}
       />
-      <Legend legendItems={chartData} activeItemIndex={activeItemIndex} />
+      <Legend legendItems={legendData} activeItemIndex={activeItemIndex} />
     </>
   );
 };

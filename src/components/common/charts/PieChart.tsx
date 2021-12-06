@@ -27,6 +27,7 @@ export const PieChart: React.FC<PieChartProps> = ({ option, data, name, showLege
         name,
         type: 'pie',
         top: showLegend ? '25%' : '10%',
+        bottom: '5%',
         radius: ['55%', '100%'],
         avoidLabelOverlap: false,
         itemStyle: {
