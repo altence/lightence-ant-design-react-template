@@ -2,10 +2,10 @@ import React from 'react';
 import * as S from './Legend.styles';
 import { getChartColors } from '../../../../styles/theme';
 
-interface LegendItem {
+export interface LegendItem {
   name: string;
   value: number | string;
-  description?: string;
+  description: string;
 }
 
 interface LegendProps {
