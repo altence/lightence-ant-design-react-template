@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Form, Input, InputNumber, Modal, Button, Avatar, Typography } from 'antd';
+import { Form as AntdForm, Modal, Avatar, Typography } from 'antd';
 import { SmileOutlined, UserOutlined } from '@ant-design/icons';
 import { FormInstance } from 'antd/lib/form';
+import { Form } from '../../common/Form/Form';
+import { FormItem } from 'components/common/Form/Form.styles';
+import { Input } from '../../common/inputs/Input/Input';
+import { InputNumber } from '../../common/inputs/InputNumber/InputNumber';
+import { Button } from '../../common/buttons/Button/Button';
 
 const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 16 },
-};
-const tailLayout = {
-  wrapperCol: { offset: 8, span: 16 },
 };
 
 interface UserType {
@@ -37,7 +39,7 @@ const useResetFormOnCloseModal = ({ form, visible }: { form: FormInstance; visib
 };
 
 const ModalForm: React.FC<ModalFormProps> = ({ visible, onCancel }) => {
-  const [form] = Form.useForm();
+  const [form] = AntdForm.useForm();
 
   useResetFormOnCloseModal({
     form,
@@ -50,13 +52,13 @@ const ModalForm: React.FC<ModalFormProps> = ({ visible, onCancel }) => {
 
   return (
     <Modal title="Basic Drawer" visible={visible} onOk={onOk} onCancel={onCancel}>
-      <Form form={form} layout="vertical" name="userForm">
-        <Form.Item name="name" label="User Name" rules={[{ required: true }]}>
+      <Form form={form} layout="vertical" name="userForm" footer={() => <div />}>
+        <FormItem name="name" label="User Name" rules={[{ required: true }]}>
           <Input />
-        </Form.Item>
-        <Form.Item name="age" label="User Age" rules={[{ required: true }]}>
+        </FormItem>
+        <FormItem name="age" label="User Age" rules={[{ required: true }]}>
           <InputNumber />
-        </Form.Item>
+        </FormItem>
       </Form>
     </Modal>
   );
@@ -73,12 +75,16 @@ export const ControlForm: React.FC = () => {
     setVisible(false);
   };
 
-  const onFinish = (values = {}) => {
+  const handleFinish = (values = {}) => {
     console.log('Finish:', values);
   };
 
+  const onFinish = async (values = {}) => {
+    await handleFinish(values);
+  };
+
   return (
-    <Form.Provider
+    <AntdForm.Provider
       onFormFinish={(name, { values, forms }) => {
         if (name === 'userForm') {
           const { basicForm } = forms;
@@ -88,11 +94,29 @@ export const ControlForm: React.FC = () => {
         }
       }}
     >
-      <Form {...layout} name="basicForm" onFinish={onFinish}>
-        <Form.Item name="group" label="Group Name" rules={[{ required: true }]}>
+      <Form
+        {...layout}
+        name="basicForm"
+        onFinish={onFinish}
+        footer={() => (
+          <FormItem>
+            <Button htmlType="submit" type="primary">
+              Submit
+            </Button>
+            <Button type="default" htmlType="button" style={{ margin: '0 8px' }} onClick={showUserModal}>
+              Add User
+            </Button>
+          </FormItem>
+        )}
+      >
+        <FormItem name="group" label="Group Name" rules={[{ required: true }]}>
           <Input />
-        </Form.Item>
-        <Form.Item label="User List" shouldUpdate={(prevValues, curValues) => prevValues.users !== curValues.users}>
+        </FormItem>
+        <FormItem
+          label="User List"
+          // eslint-disable-next-line
+          shouldUpdate={(prevValues: any, curValues: any) => prevValues.users !== curValues.users}
+        >
           {({ getFieldValue }) => {
             const users: UserType[] = getFieldValue('users') || [];
             return users.length ? (
@@ -110,18 +134,10 @@ export const ControlForm: React.FC = () => {
               </Typography.Text>
             );
           }}
-        </Form.Item>
-        <Form.Item {...tailLayout}>
-          <Button htmlType="submit" type="primary">
-            Submit
-          </Button>
-          <Button htmlType="button" style={{ margin: '0 8px' }} onClick={showUserModal}>
-            Add User
-          </Button>
-        </Form.Item>
+        </FormItem>
       </Form>
 
       <ModalForm visible={visible} onCancel={hideUserModal} />
-    </Form.Provider>
+    </AntdForm.Provider>
   );
 };
