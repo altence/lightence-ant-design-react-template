@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Form as AntdForm, Modal, Avatar, Typography } from 'antd';
+import { Form as AntdForm, Modal, Avatar } from 'antd';
 import { SmileOutlined, UserOutlined } from '@ant-design/icons';
 import { FormInstance } from 'antd/lib/form';
 import { Form } from '../../common/Form/Form';
@@ -7,6 +7,8 @@ import { FormItem } from 'components/common/Form/Form.styles';
 import { Input } from '../../common/inputs/Input/Input';
 import { InputNumber } from '../../common/inputs/InputNumber/InputNumber';
 import { Button } from '../../common/buttons/Button/Button';
+import { useTranslation } from 'react-i18next';
+import * as S from './ControlForm.styles';
 
 const layout = {
   labelCol: { span: 8 },
@@ -40,6 +42,7 @@ const useResetFormOnCloseModal = ({ form, visible }: { form: FormInstance; visib
 
 const ModalForm: React.FC<ModalFormProps> = ({ visible, onCancel }) => {
   const [form] = AntdForm.useForm();
+  const { t } = useTranslation();
 
   useResetFormOnCloseModal({
     form,
@@ -51,12 +54,20 @@ const ModalForm: React.FC<ModalFormProps> = ({ visible, onCancel }) => {
   };
 
   return (
-    <Modal title="Basic Drawer" visible={visible} onOk={onOk} onCancel={onCancel}>
+    <Modal title={t('forms.controlFormLabels.newUser')} visible={visible} onOk={onOk} onCancel={onCancel}>
       <Form form={form} layout="vertical" name="userForm" footer={() => <div />}>
-        <FormItem name="name" label="User Name" rules={[{ required: true }]}>
+        <FormItem
+          name="name"
+          label={t('forms.controlFormLabels.name')}
+          rules={[{ required: true, message: t('common.requiredField') }]}
+        >
           <Input />
         </FormItem>
-        <FormItem name="age" label="User Age" rules={[{ required: true }]}>
+        <FormItem
+          name="age"
+          label={t('forms.controlFormLabels.age')}
+          rules={[{ required: true, message: t('common.requiredField') }]}
+        >
           <InputNumber />
         </FormItem>
       </Form>
@@ -66,6 +77,7 @@ const ModalForm: React.FC<ModalFormProps> = ({ visible, onCancel }) => {
 
 export const ControlForm: React.FC = () => {
   const [visible, setVisible] = useState(false);
+  const { t } = useTranslation();
 
   const showUserModal = () => {
     setVisible(true);
@@ -101,37 +113,43 @@ export const ControlForm: React.FC = () => {
         footer={() => (
           <FormItem>
             <Button htmlType="submit" type="primary">
-              Submit
+              {t('forms.controlFormLabels.submit')}
             </Button>
             <Button type="default" htmlType="button" style={{ margin: '0 8px' }} onClick={showUserModal}>
-              Add User
+              {t('forms.controlFormLabels.addUser')}
             </Button>
           </FormItem>
         )}
       >
-        <FormItem name="group" label="Group Name" rules={[{ required: true }]}>
+        <FormItem
+          name="group"
+          label={t('forms.controlFormLabels.groupName')}
+          rules={[{ required: true, message: t('common.requiredField') }]}
+        >
           <Input />
         </FormItem>
         <FormItem
-          label="User List"
+          label={t('forms.controlFormLabels.userList')}
           // eslint-disable-next-line
           shouldUpdate={(prevValues: any, curValues: any) => prevValues.users !== curValues.users}
         >
           {({ getFieldValue }) => {
             const users: UserType[] = getFieldValue('users') || [];
             return users.length ? (
-              <ul>
+              <S.List>
                 {users.map((user, index) => (
-                  <li key={index} className="user">
+                  <S.ListItem key={index}>
                     <Avatar icon={<UserOutlined />} />
-                    {user.name} - {user.age}
-                  </li>
+                    <S.User>
+                      {user.name} - {user.age}
+                    </S.User>
+                  </S.ListItem>
                 ))}
-              </ul>
+              </S.List>
             ) : (
-              <Typography.Text className="ant-form-text" type="secondary">
-                ( <SmileOutlined /> No user yet. )
-              </Typography.Text>
+              <S.Text>
+                ( <SmileOutlined /> {t('forms.controlFormLabels.noUser')} )
+              </S.Text>
             );
           }}
         </FormItem>
