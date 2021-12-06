@@ -4,23 +4,6 @@ interface LegendWrapperProps {
   isSelected: boolean;
 }
 
-export const Legend = styled.div`
-  margin-bottom: 1.875rem;
-  width: 100%;
-
-  @media only screen and ${(props) => props.theme.media.xs} {
-    margin-left: 0;
-  }
-
-  @media only screen and ${(props) => props.theme.media.md} {
-    margin-left: 1.875rem;
-  }
-
-  @media only screen and ${(props) => props.theme.media.xl} {
-    margin-left: 0;
-  }
-`;
-
 export const LegendWrapper = styled.div<LegendWrapperProps>`
   display: flex;
   padding: 1rem;
@@ -77,19 +60,13 @@ export const LegendText = styled.div`
   }
 `;
 
-export const LegendPercent = styled(LegendText)`
-  margin-left: 0.8125rem;
-  margin-right: 1rem;
-
-  @media only screen and ${(props) => props.theme.media.xs} {
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
-  }
-
-  @media only screen and ${(props) => props.theme.media.md} {
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
-  }
-`;
-
 export const Values = styled.div`
   display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
+  font-size: 2rem;
+
+  @media only screen and ${(props) => props.theme.media.md} {
+    margin-left: 1.5rem;
+  }
 `;
