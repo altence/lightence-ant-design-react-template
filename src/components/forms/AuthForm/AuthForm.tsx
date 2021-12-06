@@ -16,33 +16,34 @@ interface Map {
   [key: string]: string | undefined;
 }
 
-const formLabels: Map = {
-  login: 'Login',
-  password: 'Password',
-  confirmPassword: 'Confirm Password',
-  salutation: 'Salutation',
-  gender: 'Gender',
-  firstName: 'First Name',
-  lastName: 'Last Name',
-  birthDay: 'Birth Day',
-  phone: 'Phone',
-  email: 'Email',
-  address1: 'Address 1',
-  address2: 'Address 2',
-  zipCode: 'Zip code',
-  city: 'City',
-  country: 'Country',
-};
-
 export const AuthFrom: React.FC = () => {
   const [current, setCurrent] = useState(0);
   const [form] = AntdForm.useForm();
   const [formValues, setFormValues] = useState<Map>({});
+  const { t } = useTranslation();
+
+  const formLabels: Map = {
+    login: t('forms.authFormLabels.login'),
+    password: t('forms.authFormLabels.password'),
+    confirmPassword: t('forms.authFormLabels.confirmPassword'),
+    salutation: t('forms.authFormLabels.salutation'),
+    gender: t('forms.authFormLabels.gender'),
+    firstName: t('forms.authFormLabels.firstName'),
+    lastName: t('forms.authFormLabels.lastName'),
+    birthday: t('forms.authFormLabels.birthday'),
+    phone: t('forms.authFormLabels.phone'),
+    email: t('forms.authFormLabels.email'),
+    address1: t('forms.authFormLabels.address1'),
+    address2: t('forms.authFormLabels.address2'),
+    zipCode: t('forms.authFormLabels.zipCode'),
+    city: t('forms.authFormLabels.city'),
+    country: t('forms.authFormLabels.country'),
+  };
 
   const next = () => {
     form.validateFields().then((values) => {
-      if (values.birthDay) {
-        values.birthDay = values.birthDay.format('YYYY-MM-DD');
+      if (values.birthday) {
+        values.birthday = values.birthday.format('YYYY-MM-DD');
       }
       if (values.phone) {
         values.phone = values.prefix + values.phone;
@@ -55,7 +56,7 @@ export const AuthFrom: React.FC = () => {
   const prev = () => {
     setCurrent(current - 1);
   };
-  const { t } = useTranslation();
+
   const handleFinish = (values = {}) => {
     console.log('Finish:', values);
   };
@@ -75,15 +76,23 @@ export const AuthFrom: React.FC = () => {
 
   const formFields = [
     <>
-      <FormItem name="login" label="Email/Login" rules={[{ required: true, message: t('common.requiredField') }]}>
+      <FormItem
+        name="login"
+        label={t('forms.authFormLabels.login')}
+        rules={[{ required: true, message: t('common.requiredField') }]}
+      >
         <Input />
       </FormItem>
-      <FormItem name="password" label="Password" rules={[{ required: true, message: t('common.requiredField') }]}>
+      <FormItem
+        name="password"
+        label={t('forms.authFormLabels.password')}
+        rules={[{ required: true, message: t('common.requiredField') }]}
+      >
         <InputPassword />
       </FormItem>
       <FormItem
         name="confirmPassword"
-        label="Confirm Password"
+        label={t('forms.authFormLabels.confirmPassword')}
         dependencies={['password']}
         rules={[
           { required: true, message: t('common.requiredField') },
@@ -101,50 +110,90 @@ export const AuthFrom: React.FC = () => {
       </FormItem>
     </>,
     <>
-      <FormItem name="salutation" label="Salutation" rules={[{ required: true, message: 'Please pick an item!' }]}>
+      <FormItem
+        name="salutation"
+        label={t('forms.authFormLabels.salutation')}
+        rules={[{ required: true, message: t('common.requiredField') }]}
+      >
         <RadioGroup>
-          <RadioButton value="mr">Mr</RadioButton>
-          <RadioButton value="mrs">Mrs</RadioButton>
+          <RadioButton value="mr">{t('forms.authFormLabels.mr')}</RadioButton>
+          <RadioButton value="mrs">{t('forms.authFormLabels.mrs')}</RadioButton>
         </RadioGroup>
       </FormItem>
-      <FormItem name="gender" label="Gender" rules={[{ required: true, message: t('common.requiredField') }]}>
+      <FormItem
+        name="gender"
+        label={t('forms.authFormLabels.gender')}
+        rules={[{ required: true, message: t('common.requiredField') }]}
+      >
         <Input />
       </FormItem>
-      <FormItem name="firstName" label="First Name" rules={[{ required: true, message: t('common.requiredField') }]}>
+      <FormItem
+        name="firstName"
+        label={t('forms.authFormLabels.firstName')}
+        rules={[{ required: true, message: t('common.requiredField') }]}
+      >
         <Input />
       </FormItem>
-      <FormItem name="lastName" label="Last Name" rules={[{ required: true, message: t('common.requiredField') }]}>
+      <FormItem
+        name="lastName"
+        label={t('forms.authFormLabels.lastName')}
+        rules={[{ required: true, message: t('common.requiredField') }]}
+      >
         <Input />
       </FormItem>
-      <FormItem name="birthDay" label="Birth day" rules={[{ required: true, message: t('common.requiredField') }]}>
+      <FormItem
+        name="birthday"
+        label={t('forms.authFormLabels.birthday')}
+        rules={[{ required: true, message: t('common.requiredField') }]}
+      >
         <DatePicker format="YYYY-MM-DD" />
       </FormItem>
       <FormItem
         name="phone"
-        label="Phone Number"
-        rules={[{ required: true, message: 'Please input your phone number!' }]}
+        label={t('forms.authFormLabels.phone')}
+        rules={[{ required: true, message: t('common.requiredField') }]}
         style={{ width: '100%' }}
       >
         <Input addonBefore={prefixSelector} />
       </FormItem>
-      <FormItem name="email" label="Email">
+      <FormItem name="email" label={t('forms.authFormLabels.email')}>
         <Input />
       </FormItem>
     </>,
     <>
-      <FormItem name="address1" label="Address 1" rules={[{ required: true, message: t('common.requiredField') }]}>
+      <FormItem
+        name="address1"
+        label={t('forms.authFormLabels.address1')}
+        rules={[{ required: true, message: t('common.requiredField') }]}
+      >
         <Input />
       </FormItem>
-      <FormItem name="address2" label="Address 1" rules={[{ required: true, message: t('common.requiredField') }]}>
+      <FormItem
+        name="address2"
+        label={t('forms.authFormLabels.address2')}
+        rules={[{ required: true, message: t('common.requiredField') }]}
+      >
         <Input />
       </FormItem>
-      <FormItem name="zipCode" label="Zip code" rules={[{ required: true, message: t('common.requiredField') }]}>
+      <FormItem
+        name="zipCode"
+        label={t('forms.authFormLabels.zipCode')}
+        rules={[{ required: true, message: t('common.requiredField') }]}
+      >
         <Input />
       </FormItem>
-      <FormItem name="city" label="City" rules={[{ required: true, message: t('common.requiredField') }]}>
+      <FormItem
+        name="city"
+        label={t('forms.authFormLabels.city')}
+        rules={[{ required: true, message: t('common.requiredField') }]}
+      >
         <Input />
       </FormItem>
-      <FormItem name="country" label="Country" rules={[{ required: true, message: t('common.requiredField') }]}>
+      <FormItem
+        name="country"
+        label={t('forms.authFormLabels.country')}
+        rules={[{ required: true, message: t('common.requiredField') }]}
+      >
         <Input />
       </FormItem>
     </>,
@@ -163,16 +212,16 @@ export const AuthFrom: React.FC = () => {
   ];
   const steps = [
     {
-      title: 'Login',
+      title: t('forms.authFormLabels.country'),
     },
     {
-      title: 'Info',
+      title: t('forms.authFormLabels.info'),
     },
     {
-      title: 'Location',
+      title: t('forms.authFormLabels.location'),
     },
     {
-      title: 'Confirm Details',
+      title: t('forms.authFormLabels.confirmDetails'),
     },
   ];
 
@@ -187,17 +236,17 @@ export const AuthFrom: React.FC = () => {
       <div>
         {current < steps.length - 1 && (
           <Button type="primary" onClick={() => next()}>
-            Next
+            {t('forms.authFormLabels.next')}
           </Button>
         )}
         {current === steps.length - 1 && (
           <Button type="primary" onClick={() => notification.open({ message: t('common.saved') })}>
-            Done
+            {t('forms.authFormLabels.done')}
           </Button>
         )}
         {current > 0 && (
           <Button type="default" style={{ margin: '0 8px' }} onClick={() => prev()}>
-            Previous
+            {t('forms.authFormLabels.previous')}
           </Button>
         )}
       </div>

@@ -11,6 +11,7 @@ import { Slider } from 'components/common/Slider/Slider';
 import { Upload, UploadDragger } from 'components/common/Upload/Upload';
 import { Rate } from 'components/common/Rate/Rate';
 import { Checkbox, CheckboxGroup } from 'components/common/Checkbox/Checkbox';
+import { useTranslation } from 'react-i18next';
 
 const formItemLayout = {
   labelCol: { span: 6 },
@@ -25,6 +26,8 @@ const normFile = (e = { fileList: [] }) => {
 };
 
 export const ValidationForm: React.FC = () => {
+  const { t } = useTranslation();
+
   const handleSubmit = (values = {}) => {
     console.log('Form values', values);
   };
@@ -35,7 +38,7 @@ export const ValidationForm: React.FC = () => {
 
   return (
     <Form
-      name="validate_other"
+      name="validateOther"
       {...formItemLayout}
       onFinish={onFinish}
       initialValues={{
@@ -46,47 +49,47 @@ export const ValidationForm: React.FC = () => {
       footer={() => (
         <FormItem>
           <Button type="primary" htmlType="submit">
-            Submit
+            {t('forms.validationFormLabels.submit')}
           </Button>
         </FormItem>
       )}
     >
       <FormItem
         name="select"
-        label="Select"
+        label={t('forms.validationFormLabels.select')}
         hasFeedback
-        rules={[{ required: true, message: 'Please select your country!' }]}
+        rules={[{ required: true, message: t('forms.validationFormLabels.countryError') }]}
       >
-        <Select placeholder="Please select a country">
-          <Option value="china">China</Option>
-          <Option value="usa">U.S.A</Option>
+        <Select placeholder={t('forms.validationFormLabels.selectCountry')}>
+          <Option value="china">{t('forms.validationFormLabels.china')}</Option>
+          <Option value="usa">{t('forms.validationFormLabels.usa')}</Option>
         </Select>
       </FormItem>
 
       <FormItem
         name="select-multiple"
-        label="Select [multiple]"
-        rules={[{ required: true, message: 'Please select your favourite colors!', type: 'array' }]}
+        label={t('forms.validationFormLabels.selectMultiple')}
+        rules={[{ required: true, message: t('forms.validationFormLabels.colorError'), type: 'array' }]}
       >
-        <Select mode="multiple" placeholder="Please select favourite colors">
-          <Option value="red">Red</Option>
-          <Option value="green">Green</Option>
-          <Option value="blue">Blue</Option>
+        <Select mode="multiple" placeholder={t('forms.validationFormLabels.selectColor')}>
+          <Option value="red">{t('forms.validationFormLabels.red')}</Option>
+          <Option value="green">{t('forms.validationFormLabels.green')}</Option>
+          <Option value="blue">{t('forms.validationFormLabels.blue')}</Option>
         </Select>
       </FormItem>
 
-      <FormItem label="Input Number">
+      <FormItem label={t('forms.validationFormLabels.inputNumber')}>
         <FormItem name="input-number" noStyle>
           <InputNumber min={1} max={10} />
         </FormItem>
-        <span className="ant-form-text"> machines</span>
+        <span> {t('forms.validationFormLabels.machines')}</span>
       </FormItem>
 
-      <FormItem name="switch" label="Switch" valuePropName="checked">
+      <FormItem name="switch" label={t('forms.validationFormLabels.switch')} valuePropName="checked">
         <Switch />
       </FormItem>
 
-      <FormItem name="slider" label="Slider">
+      <FormItem name="slider" label={t('forms.validationFormLabels.slider')}>
         <Slider
           tooltipVisible={false}
           marks={{
@@ -100,23 +103,27 @@ export const ValidationForm: React.FC = () => {
         />
       </FormItem>
 
-      <FormItem name="radio-group" label="Radio Group">
+      <FormItem name="radio-group" label={t('forms.validationFormLabels.radioGroup')}>
         <RadioGroup>
-          <Radio value="a">item 1</Radio>
-          <Radio value="b">item 2</Radio>
-          <Radio value="c">item 3</Radio>
+          <Radio value="a">{t('forms.validationFormLabels.item')} 1</Radio>
+          <Radio value="b">{t('forms.validationFormLabels.item')} 2</Radio>
+          <Radio value="c">{t('forms.validationFormLabels.item')} 3</Radio>
         </RadioGroup>
       </FormItem>
 
-      <FormItem name="radio-button" label="Radio Button" rules={[{ required: true, message: 'Please pick an item!' }]}>
+      <FormItem
+        name="radio-button"
+        label={t('forms.validationFormLabels.radioButton')}
+        rules={[{ required: true, message: t('forms.validationFormLabels.itemError') }]}
+      >
         <RadioGroup>
-          <RadioButton value="a">item 1</RadioButton>
-          <RadioButton value="b">item 2</RadioButton>
-          <RadioButton value="c">item 3</RadioButton>
+          <RadioButton value="a">{t('forms.validationFormLabels.item')} 1</RadioButton>
+          <RadioButton value="b">{t('forms.validationFormLabels.item')} 2</RadioButton>
+          <RadioButton value="c">{t('forms.validationFormLabels.item')} 3</RadioButton>
         </RadioGroup>
       </FormItem>
 
-      <FormItem name="checkbox-group" label="Checkbox Group">
+      <FormItem name="checkbox-group" label={t('forms.validationFormLabels.checkboxGroup')}>
         <CheckboxGroup>
           <Row>
             <Col span={8}>
@@ -153,26 +160,31 @@ export const ValidationForm: React.FC = () => {
         </CheckboxGroup>
       </FormItem>
 
-      <FormItem name="rate" label="Rate">
+      <FormItem name="rate" label={t('forms.validationFormLabels.rate')}>
         <Rate />
       </FormItem>
 
-      <FormItem name="upload" label="Upload" valuePropName="fileList" getValueFromEvent={normFile}>
+      <FormItem
+        name="upload"
+        label={t('forms.validationFormLabels.upload')}
+        valuePropName="fileList"
+        getValueFromEvent={normFile}
+      >
         <Upload name="logo" action="/upload.do" listType="picture">
           <Button type="default" icon={<UploadOutlined />}>
-            Click to upload
+            {t('forms.validationFormLabels.clickToUpload')}
           </Button>
         </Upload>
       </FormItem>
 
-      <FormItem label="Dragger">
+      <FormItem label={t('forms.validationFormLabels.dragger')}>
         <FormItem name="dragger" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
           <UploadDragger name="files" action="/upload.do">
-            <p className="ant-upload-drag-icon">
+            <p>
               <InboxOutlined />
             </p>
-            <p className="ant-upload-text">Click or drag file to this area to upload</p>
-            <p className="ant-upload-hint">Support for a single or bulk upload.</p>
+            <p>{t('forms.validationFormLabels.clickToDrag')}</p>
+            <p>{t('forms.validationFormLabels.supportSingle')}</p>
           </UploadDragger>
         </FormItem>
       </FormItem>
