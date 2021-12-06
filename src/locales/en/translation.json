@@ -4,6 +4,7 @@
     "apps": "Apps",
     "auth": "Auth",
     "forms": "Forms",
+    "advancedForms": "Advanced forms",
     "dataTables": "Data tables",
     "charts": "Charts",
     "maps": "Maps",

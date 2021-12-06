@@ -89,6 +89,11 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: 'payment',
         url: '/forms/payment',
       },
+      {
+        title: 'common.advancedForms',
+        key: 'advanced-forms',
+        url: '/forms/advanced-forms',
+      },
     ],
   },
   {
