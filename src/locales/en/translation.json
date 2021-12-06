@@ -368,5 +368,11 @@
     "invite": "Invite",
     "delete": "Delete",
     "cancelInfo": "Sure to cancel?"
+  },
+  "forms": {
+    "dynamicForm": "Dynamic form",
+    "controlForm": "Control form",
+    "validationForm": "Validation form",
+    "authForm": "Auth form"
   }
 }
