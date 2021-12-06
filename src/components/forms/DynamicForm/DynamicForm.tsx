@@ -1,7 +1,10 @@
-import { Form, Input, Button, Space, Select } from 'antd';
+import { Form as AntdForm, Space } from 'antd';
+import { Form } from '../../common/Form/Form';
+import { FormItem, FormList } from 'components/common/Form/Form.styles';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
-
-const { Option } = Select;
+import { Input } from '../../common/inputs/Input/Input';
+import { Select, Option } from '../../common/selects/Select/Select';
+import { Button } from '../../common/buttons/Button/Button';
 
 const areas = [
   { label: 'Beijing', value: 'Beijing' },
@@ -18,10 +21,14 @@ const sights: Sight = {
 };
 
 export const DynamicForm: React.FC = () => {
-  const [form] = Form.useForm();
+  const [form] = AntdForm.useForm();
 
-  const onFinish = (values = {}) => {
-    console.log('Received values of form:', values);
+  const handleSubmit = (values = {}) => {
+    console.log('Form values', values);
+  };
+
+  const onFinish = async (values = {}) => {
+    await handleSubmit(values);
   };
 
   const handleChange = () => {
@@ -30,39 +37,40 @@ export const DynamicForm: React.FC = () => {
 
   return (
     <Form form={form} name="dynamic_form_nest_item" onFinish={onFinish} autoComplete="off">
-      <Form.Item name="area" label="Area" rules={[{ required: true, message: 'Missing area' }]}>
+      <FormItem name="area" label="Area" rules={[{ required: true, message: 'Missing area' }]}>
         <Select options={areas} onChange={handleChange} />
-      </Form.Item>
-      <Form.List name="sights">
+      </FormItem>
+      <FormList name="sights">
         {(fields, { add, remove }) => (
           <>
             {fields.map((field) => (
               <Space key={field.key} align="baseline">
-                <Form.Item
+                <FormItem
                   noStyle
-                  shouldUpdate={(prevValues, curValues) =>
+                  // eslint-disable-next-line
+                  shouldUpdate={(prevValues: any, curValues: any) =>
                     prevValues.area !== curValues.area || prevValues.sights !== curValues.sights
                   }
                 >
                   {() => (
-                    <Form.Item
+                    <FormItem
                       {...field}
                       label="Sight"
                       name={[field.name, 'sight']}
                       fieldKey={[field.fieldKey, 'sight']}
                       rules={[{ required: true, message: 'Missing sight' }]}
                     >
-                      <Select disabled={!form.getFieldValue('area')} style={{ width: 130 }}>
+                      <Select disabled={!form.getFieldValue('area')} style={{ width: 253 }}>
                         {(sights[form.getFieldValue('area')] || []).map((item) => (
                           <Option key={item} value={item}>
                             {item}
                           </Option>
                         ))}
                       </Select>
-                    </Form.Item>
+                    </FormItem>
                   )}
-                </Form.Item>
-                <Form.Item
+                </FormItem>
+                <FormItem
                   {...field}
                   label="Price"
                   name={[field.name, 'price']}
@@ -70,25 +78,20 @@ export const DynamicForm: React.FC = () => {
                   rules={[{ required: true, message: 'Missing price' }]}
                 >
                   <Input />
-                </Form.Item>
+                </FormItem>
 
                 <MinusCircleOutlined onClick={() => remove(field.name)} />
               </Space>
             ))}
 
-            <Form.Item>
+            <FormItem>
               <Button type="dashed" onClick={() => add()} block icon={<PlusOutlined />}>
                 Add sights
               </Button>
-            </Form.Item>
+            </FormItem>
           </>
         )}
-      </Form.List>
-      <Form.Item>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item>
+      </FormList>
     </Form>
   );
 };
