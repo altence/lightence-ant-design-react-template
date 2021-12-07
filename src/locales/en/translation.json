@@ -482,5 +482,24 @@
       "male": "Male",
       "female": "Female"
     }
+  },
+  "buttons": {
+    "types": "Button types",
+    "sizes": "Button sizes",
+    "loadings": "Loading buttons",
+    "danger": "Danger buttons",
+    "disabled": "Disabled buttons",
+    "icons": "Icons buttons",
+    "primary": "Primary",
+    "default": "Default",
+    "ghost": "Ghost",
+    "dashed": "Dashed",
+    "text": "Text",
+    "link": "Link",
+    "small": "Small",
+    "large": "Large",
+    "loading": "Loading",
+    "click": "Click me!",
+    "search": "Search"
   }
 }
