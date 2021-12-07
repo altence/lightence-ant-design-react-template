@@ -141,4 +141,16 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
       },
     ],
   },
+  {
+    title: 'common.ui',
+    key: 'ui',
+    icon: <LayoutOutlined />,
+    children: [
+      {
+        title: 'common.buttonPage',
+        key: 'buttons',
+        url: '/ui-components/buttons',
+      },
+    ],
+  },
 ];

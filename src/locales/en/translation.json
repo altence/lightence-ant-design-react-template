@@ -72,7 +72,9 @@
     "address": "Address",
     "phone": "Phone",
     "day": "day",
-    "pwa": "Install PWA"
+    "pwa": "Install PWA",
+    "ui": "UI Components",
+    "buttonPage": "Buttons"
   },
   "header": {
     "search": "Search",
