@@ -8,21 +8,21 @@ import { useTranslation } from 'react-i18next';
 import { Button } from '../../common/buttons/Button/Button';
 import { RadioButton, RadioGroup } from 'components/common/Radio/Radio';
 import { DatePicker } from 'components/common/pickers/DatePicker';
-import { Select, Option } from 'components/common/selects/Select/Select';
+import { Option } from 'components/common/selects/Select/Select';
 import * as S from './AuthForm.styles';
 
 const { Step } = Steps;
-interface Map {
+interface FormValues {
   [key: string]: string | undefined;
 }
 
 export const AuthFrom: React.FC = () => {
   const [current, setCurrent] = useState(0);
   const [form] = AntdForm.useForm();
-  const [formValues, setFormValues] = useState<Map>({});
+  const [formValues, setFormValues] = useState<FormValues>({});
   const { t } = useTranslation();
 
-  const formLabels: Map = {
+  const formLabels: FormValues = {
     login: t('forms.authFormLabels.login'),
     password: t('forms.authFormLabels.password'),
     confirmPassword: t('forms.authFormLabels.confirmPassword'),
@@ -58,24 +58,39 @@ export const AuthFrom: React.FC = () => {
   };
 
   const handleFinish = (values = {}) => {
-    console.log('Finish:', values);
+    console.log('Form values', values);
   };
 
   const onFinish = async (values = {}) => {
     await handleFinish(values);
   };
 
+  const steps = [
+    {
+      title: t('forms.authFormLabels.country'),
+    },
+    {
+      title: t('forms.authFormLabels.info'),
+    },
+    {
+      title: t('forms.authFormLabels.location'),
+    },
+    {
+      title: t('forms.authFormLabels.confirmDetails'),
+    },
+  ];
+
   const prefixSelector = (
     <FormItem name="prefix" noStyle>
-      <Select style={{ width: 95 }}>
+      <S.Select>
         <Option value="375">+375</Option>
         <Option value="7">+7</Option>
-      </Select>
+      </S.Select>
     </FormItem>
   );
 
   const formFields = [
-    <>
+    <S.FormContent key="1">
       <FormItem
         name="login"
         label={t('forms.authFormLabels.login')}
@@ -108,8 +123,8 @@ export const AuthFrom: React.FC = () => {
       >
         <InputPassword />
       </FormItem>
-    </>,
-    <>
+    </S.FormContent>,
+    <S.FormContent key="2">
       <FormItem
         name="salutation"
         label={t('forms.authFormLabels.salutation')}
@@ -148,19 +163,27 @@ export const AuthFrom: React.FC = () => {
       >
         <DatePicker format="YYYY-MM-DD" />
       </FormItem>
-      <FormItem
+      <S.PhoneItem
         name="phone"
         label={t('forms.authFormLabels.phone')}
         rules={[{ required: true, message: t('common.requiredField') }]}
-        style={{ width: '100%' }}
       >
         <Input addonBefore={prefixSelector} />
-      </FormItem>
-      <FormItem name="email" label={t('forms.authFormLabels.email')}>
+      </S.PhoneItem>
+      <FormItem
+        name="email"
+        label={t('forms.authFormLabels.email')}
+        rules={[
+          {
+            type: 'email',
+            message: t('profile.nav.personalInfo.notValidEmail'),
+          },
+        ]}
+      >
         <Input />
       </FormItem>
-    </>,
-    <>
+    </S.FormContent>,
+    <S.FormContent key="3">
       <FormItem
         name="address1"
         label={t('forms.authFormLabels.address1')}
@@ -196,8 +219,8 @@ export const AuthFrom: React.FC = () => {
       >
         <Input />
       </FormItem>
-    </>,
-    <S.Details key="details">
+    </S.FormContent>,
+    <S.Details key="4">
       {Object.keys(formValues)
         .filter((item) => item !== 'prefix')
         .map((item: string, index: number) => {
@@ -209,20 +232,6 @@ export const AuthFrom: React.FC = () => {
           );
         })}
     </S.Details>,
-  ];
-  const steps = [
-    {
-      title: t('forms.authFormLabels.country'),
-    },
-    {
-      title: t('forms.authFormLabels.info'),
-    },
-    {
-      title: t('forms.authFormLabels.location'),
-    },
-    {
-      title: t('forms.authFormLabels.confirmDetails'),
-    },
   ];
 
   return (
@@ -245,9 +254,9 @@ export const AuthFrom: React.FC = () => {
           </Button>
         )}
         {current > 0 && (
-          <Button type="default" style={{ margin: '0 8px' }} onClick={() => prev()}>
+          <S.PrevButton type="default" onClick={() => prev()}>
             {t('forms.authFormLabels.previous')}
-          </Button>
+          </S.PrevButton>
         )}
       </div>
     </Form>
