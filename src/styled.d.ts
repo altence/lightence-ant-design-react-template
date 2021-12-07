@@ -33,6 +33,7 @@ declare module 'styled-components' {
         secondaryBackground: string;
         chartPrimaryGradient: LinearGradientObject;
         chartSecondaryGradient: LinearGradientObject;
+        chartTertiaryGradient: LinearGradientObject;
       };
       text: {
         main: string;
@@ -56,6 +57,9 @@ declare module 'styled-components' {
         color4Tint: string;
         color5: string;
         color5Tint: string;
+      };
+      shadow: {
+        color: string;
       };
     };
     border: {
