@@ -38,7 +38,7 @@ export const ValidationForm: React.FC = () => {
 
   return (
     <Form
-      name="validateOther"
+      name="validateForm"
       {...formItemLayout}
       onFinish={onFinish}
       initialValues={{
@@ -127,34 +127,24 @@ export const ValidationForm: React.FC = () => {
         <CheckboxGroup>
           <Row>
             <Col span={8}>
-              <Checkbox value="A" style={{ lineHeight: '32px' }}>
-                A
-              </Checkbox>
+              <Checkbox value="A">A</Checkbox>
             </Col>
             <Col span={8}>
-              <Checkbox value="B" style={{ lineHeight: '32px' }} disabled>
+              <Checkbox value="B" disabled>
                 B
               </Checkbox>
             </Col>
             <Col span={8}>
-              <Checkbox value="C" style={{ lineHeight: '32px' }}>
-                C
-              </Checkbox>
+              <Checkbox value="C">C</Checkbox>
             </Col>
             <Col span={8}>
-              <Checkbox value="D" style={{ lineHeight: '32px' }}>
-                D
-              </Checkbox>
+              <Checkbox value="D">D</Checkbox>
             </Col>
             <Col span={8}>
-              <Checkbox value="E" style={{ lineHeight: '32px' }}>
-                E
-              </Checkbox>
+              <Checkbox value="E">E</Checkbox>
             </Col>
             <Col span={8}>
-              <Checkbox value="F" style={{ lineHeight: '32px' }}>
-                F
-              </Checkbox>
+              <Checkbox value="F">F</Checkbox>
             </Col>
           </Row>
         </CheckboxGroup>

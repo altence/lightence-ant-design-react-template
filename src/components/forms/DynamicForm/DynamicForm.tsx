@@ -6,6 +6,7 @@ import { Input } from '../../common/inputs/Input/Input';
 import { Select, Option } from '../../common/selects/Select/Select';
 import { Button } from '../../common/buttons/Button/Button';
 import { useTranslation } from 'react-i18next';
+import * as S from './DynamicForm.styles';
 
 interface Sight {
   [key: string]: string[];
@@ -66,13 +67,13 @@ export const DynamicForm: React.FC = () => {
                       fieldKey={[field.fieldKey, 'sight']}
                       rules={[{ required: true, message: t('common.requiredField') }]}
                     >
-                      <Select disabled={!form.getFieldValue('area')} style={{ width: 253 }}>
+                      <S.Select disabled={!form.getFieldValue('area')}>
                         {(sights[form.getFieldValue('area')] || []).map((item) => (
                           <Option key={item} value={item}>
                             {item}
                           </Option>
                         ))}
-                      </Select>
+                      </S.Select>
                     </FormItem>
                   )}
                 </FormItem>

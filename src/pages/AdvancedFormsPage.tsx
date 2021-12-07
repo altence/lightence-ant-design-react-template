@@ -13,30 +13,37 @@ const Card = styled(CommonCard)`
   height: auto;
 `;
 
+const layouts = {
+  xxl: { span: 12, offset: 0 },
+  xl: { span: 16, offset: 4 },
+  md: { span: 18, offset: 3 },
+  xs: { span: 24, offset: 0 },
+};
+
 const AdvancedFormsPage: React.FC = () => {
   const { t } = useTranslation();
   return (
     <>
-      <Col xl={24}>
+      <Col xl={layouts.xs}>
         <Row gutter={[20, 0]}>
-          <Col xs={24} md={12} xl={12}>
+          <Col xs={layouts.xs} md={layouts.md} xl={layouts.xl} xxl={layouts.xxl}>
             <Card title={t('forms.dynamicForm')} padding="1.25rem">
               <DynamicForm />
             </Card>
           </Col>
-          <Col xs={24} md={12} xl={12}>
+          <Col xs={layouts.xs} md={layouts.md} xl={layouts.xl} xxl={layouts.xxl}>
             <Card title={t('forms.controlForm')} padding="1.25rem">
               <ControlForm />
             </Card>
           </Col>
         </Row>
         <Row gutter={[20, 0]}>
-          <Col xs={24} md={18} xl={12}>
+          <Col xs={layouts.xs} md={layouts.md} xl={layouts.xl} xxl={layouts.xxl}>
             <Card title={t('forms.validationForm')} padding="1.25rem">
               <ValidationForm />
             </Card>
           </Col>
-          <Col xs={24} md={18} xl={12}>
+          <Col xs={layouts.xs} md={layouts.md} xl={layouts.xl} xxl={layouts.xxl}>
             <Card title={t('forms.authForm')} padding="1.25rem">
               <AuthFrom />
             </Card>

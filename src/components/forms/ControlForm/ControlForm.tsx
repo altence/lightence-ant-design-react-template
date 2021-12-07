@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Form as AntdForm, Modal, Avatar } from 'antd';
+import React, { useState } from 'react';
+import { Form as AntdForm, Avatar } from 'antd';
 import { SmileOutlined, UserOutlined } from '@ant-design/icons';
-import { FormInstance } from 'antd/lib/form';
 import { Form } from '../../common/Form/Form';
 import { FormItem } from 'components/common/Form/Form.styles';
+import { AddUserFormModal } from './AddUserFormModal';
 import { Input } from '../../common/inputs/Input/Input';
-import { InputNumber } from '../../common/inputs/InputNumber/InputNumber';
 import { Button } from '../../common/buttons/Button/Button';
 import { useTranslation } from 'react-i18next';
 import * as S from './ControlForm.styles';
@@ -20,61 +19,6 @@ interface UserType {
   age: string;
 }
 
-interface ModalFormProps {
-  visible: boolean;
-  onCancel: () => void;
-}
-
-// reset form fields when modal is form, closed
-const useResetFormOnCloseModal = ({ form, visible }: { form: FormInstance; visible: boolean }) => {
-  const prevVisibleRef = useRef<boolean>();
-  useEffect(() => {
-    prevVisibleRef.current = visible;
-  }, [visible]);
-  const prevVisible = prevVisibleRef.current;
-
-  useEffect(() => {
-    if (!visible && prevVisible) {
-      form.resetFields();
-    }
-  }, [visible]);
-};
-
-const ModalForm: React.FC<ModalFormProps> = ({ visible, onCancel }) => {
-  const [form] = AntdForm.useForm();
-  const { t } = useTranslation();
-
-  useResetFormOnCloseModal({
-    form,
-    visible,
-  });
-
-  const onOk = () => {
-    form.submit();
-  };
-
-  return (
-    <Modal title={t('forms.controlFormLabels.newUser')} visible={visible} onOk={onOk} onCancel={onCancel}>
-      <Form form={form} layout="vertical" name="userForm" footer={() => <div />}>
-        <FormItem
-          name="name"
-          label={t('forms.controlFormLabels.name')}
-          rules={[{ required: true, message: t('common.requiredField') }]}
-        >
-          <Input />
-        </FormItem>
-        <FormItem
-          name="age"
-          label={t('forms.controlFormLabels.age')}
-          rules={[{ required: true, message: t('common.requiredField') }]}
-        >
-          <InputNumber />
-        </FormItem>
-      </Form>
-    </Modal>
-  );
-};
-
 export const ControlForm: React.FC = () => {
   const [visible, setVisible] = useState(false);
   const { t } = useTranslation();
@@ -88,7 +32,7 @@ export const ControlForm: React.FC = () => {
   };
 
   const handleFinish = (values = {}) => {
-    console.log('Finish:', values);
+    console.log('Form values', values);
   };
 
   const onFinish = async (values = {}) => {
@@ -99,25 +43,25 @@ export const ControlForm: React.FC = () => {
     <AntdForm.Provider
       onFormFinish={(name, { values, forms }) => {
         if (name === 'userForm') {
-          const { basicForm } = forms;
-          const users = basicForm.getFieldValue('users') || [];
-          basicForm.setFieldsValue({ users: [...users, values] });
+          const { controlForm } = forms;
+          const users = controlForm.getFieldValue('users') || [];
+          controlForm.setFieldsValue({ users: [...users, values] });
           setVisible(false);
         }
       }}
     >
       <Form
         {...layout}
-        name="basicForm"
+        name="controlForm"
         onFinish={onFinish}
         footer={() => (
           <FormItem>
             <Button htmlType="submit" type="primary">
               {t('forms.controlFormLabels.submit')}
             </Button>
-            <Button type="default" htmlType="button" style={{ margin: '0 8px' }} onClick={showUserModal}>
+            <S.AddUserButton type="default" htmlType="button" onClick={showUserModal}>
               {t('forms.controlFormLabels.addUser')}
-            </Button>
+            </S.AddUserButton>
           </FormItem>
         )}
       >
@@ -128,7 +72,7 @@ export const ControlForm: React.FC = () => {
         >
           <Input />
         </FormItem>
-        <FormItem
+        <S.UserList
           label={t('forms.controlFormLabels.userList')}
           // eslint-disable-next-line
           shouldUpdate={(prevValues: any, curValues: any) => prevValues.users !== curValues.users}
@@ -152,10 +96,9 @@ export const ControlForm: React.FC = () => {
               </S.Text>
             );
           }}
-        </FormItem>
+        </S.UserList>
       </Form>
-
-      <ModalForm visible={visible} onCancel={hideUserModal} />
+      <AddUserFormModal visible={visible} onCancel={hideUserModal} />
     </AntdForm.Provider>
   );
 };
