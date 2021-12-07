@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { EChartsInstance } from 'echarts-for-react';
-import * as echarts from 'echarts';
 import { ThemeContext } from 'styled-components';
 import { BaseChart } from '../../../common/charts/BaseChart';
 import { Dates } from '../../../../constants/Dates';
@@ -13,9 +12,7 @@ interface BloodScreeningChartsProps {
 
 export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ activeItem }) => {
   const themeContext = useContext(ThemeContext);
-
   const { isTablet, isBigScreen } = useResponsive();
-
   const months = Dates.getMonths();
 
   const option = {
@@ -66,7 +63,7 @@ export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ activ
             color: themeContext.colors.main.error,
             borderColor: themeContext.colors.main.mainBackground,
             borderWidth: 5,
-            shadowColor: 'rgba(0, 0, 0, 0.05)',
+            shadowColor: themeContext.colors.shadow.color,
             shadowOffsetX: 0,
             shadowOffsetY: 5,
             opacity: 1,
@@ -74,16 +71,7 @@ export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ activ
         },
         symbolSize: 18,
         areaStyle: {
-          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-            {
-              offset: 0,
-              color: 'rgba(252, 120, 122, 0.79)',
-            },
-            {
-              offset: 1,
-              color: 'rgba(248, 251, 255, 0)',
-            },
-          ]),
+          color: themeContext.colors.main.chartTertiaryGradient,
         },
         lineStyle: {
           width: 2,
