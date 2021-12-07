@@ -364,7 +364,7 @@
     "dynamicForm": "Dynamic form",
     "controlForm": "Control form",
     "validationForm": "Validation form",
-    "authForm": "Auth form",
+    "stepForm": "Step form",
     "dynamicFormLabels": {
       "beijing": "Beijing",
       "shanghai": "Shanghai",
@@ -416,7 +416,7 @@
       "supportSingle": "Support for a single or bulk upload.",
       "submit": "Submit"
     },
-    "authFormLabels": {
+    "stepFormLabels": {
       "login": "Email/Login",
       "password": "Password",
       "confirmPassword": "Confirm Password",

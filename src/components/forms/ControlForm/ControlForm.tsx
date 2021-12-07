@@ -31,12 +31,12 @@ export const ControlForm: React.FC = () => {
     setVisible(false);
   };
 
-  const handleFinish = (values = {}) => {
-    console.log('Form values', values);
-  };
-
   const onFinish = async (values = {}) => {
-    await handleFinish(values);
+    return new Promise((res) => {
+      setTimeout(() => {
+        res(values);
+      }, 1000);
+    });
   };
 
   return (
@@ -54,9 +54,9 @@ export const ControlForm: React.FC = () => {
         {...layout}
         name="controlForm"
         onFinish={onFinish}
-        footer={() => (
+        footer={(loading) => (
           <FormItem>
-            <Button htmlType="submit" type="primary">
+            <Button htmlType="submit" type="primary" loading={loading}>
               {t('forms.controlFormLabels.submit')}
             </Button>
             <S.AddUserButton type="default" htmlType="button" onClick={showUserModal}>

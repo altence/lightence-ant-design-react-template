@@ -3,6 +3,7 @@ import { Steps as AntdSteps } from 'antd';
 import { Select as CommonSelect } from 'components/common/selects/Select/Select';
 import { Button } from '../../common/buttons/Button/Button';
 import { FormItem } from 'components/common/Form/Form.styles';
+import theme from 'styles/theme';
 
 export const PhoneItem = styled(FormItem)`
   width: 100%;
@@ -38,10 +39,12 @@ export const Details = styled.div`
 
 export const DetailsRow = styled.div`
   display: flex;
+  width: 30rem;
+  justify-content: space-between;
 `;
 
 export const DetailsTitle = styled.div`
-  color: ${(props) => props.theme.colors.main.primary};
+  color: ${(props) => props.theme.colors.text.light};
   font-size: ${(props) => props.theme.commonFontSizes.md};
   font-weight: ${(props) => props.theme.commonFontWeight.semibold};
   margin-right: 0.5rem;
@@ -50,11 +53,43 @@ export const DetailsTitle = styled.div`
 export const DetailsValue = styled.div`
   color: ${(props) => props.theme.colors.text.main};
   font-size: ${(props) => props.theme.commonFontSizes.md};
+  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
 `;
 
 export const Steps = styled(AntdSteps)`
-  & .ant-steps-item-container {
+  height: auto;
+  & .ant-steps-item-container,
+  .ant-steps-item .ant-steps-item-content {
     display: flex;
     align-items: center;
+  }
+
+  & .ant-steps-item-tail::after,
+  .ant-steps-item-title::after {
+    background: ${(props) => props.theme.colors.text.light} !important;
+  }
+
+  & .ant-steps-item > .ant-steps-item-container > .ant-steps-item-tail::after {
+    height: 1.125rem;
+    margin-top: 0.125rem;
+  }
+`;
+
+export const ContentWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
+
+export const Content = styled.div`
+  min-width: 35rem;
+
+  @media only screen and ${theme.media.xs} {
+    min-width: 100%;
+  }
+
+  @media only screen and ${theme.media.md} {
+    min-width: 35rem;
   }
 `;

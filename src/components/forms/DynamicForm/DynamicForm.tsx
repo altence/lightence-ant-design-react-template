@@ -26,12 +26,12 @@ export const DynamicForm: React.FC = () => {
     Shanghai: [t('forms.dynamicFormLabels.orientalPearl'), t('forms.dynamicFormLabels.theBund')],
   };
 
-  const handleSubmit = (values = {}) => {
-    console.log('Form values', values);
-  };
-
-  const onFinish = async (values = {}) => {
-    await handleSubmit(values);
+  const onFinish = (values = {}) => {
+    return new Promise((res) => {
+      setTimeout(() => {
+        res(values);
+      }, 1000);
+    });
   };
 
   const handleChange = () => {
