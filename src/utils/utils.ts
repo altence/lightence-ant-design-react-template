@@ -46,3 +46,7 @@ export const getDifference = (value: number, prevValue: number): string | null =
 
 export const getValueFromProp = (prop: string | number | [number, number]): string =>
   typeof prop === 'number' ? `${prop}px` : (Array.isArray(prop) && `${prop[0]}px ${prop[1]}px`) || prop.toString();
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const mergeBy = (a: any[], b: any[], key: string): any[] =>
+  a.filter((elem) => !b.find((subElem) => subElem[key] === elem[key])).concat(b);

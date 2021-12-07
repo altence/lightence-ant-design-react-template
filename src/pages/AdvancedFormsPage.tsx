@@ -3,54 +3,64 @@ import { Card as CommonCard } from 'components/common/Card/Card';
 import { DynamicForm } from 'components/forms/DynamicForm/DynamicForm';
 import { ControlForm } from 'components/forms/ControlForm/ControlForm';
 import { ValidationForm } from 'components/forms/ValidationForm/ValidationForm';
-import { AuthFrom } from 'components/forms/AuthForm/AuthForm';
-import { Col, Row } from 'antd';
+import { StepForm } from 'components/forms/StepForm/StepForm';
+import { Col } from 'antd';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
+import theme from 'styles/theme';
 
 const Card = styled(CommonCard)`
   margin-bottom: 1.25rem;
   height: auto;
+  align-items: center;
+
+  & .ant-card-head {
+    align-self: flex-start;
+  }
+
+  & .ant-card-body {
+    width: 100%;
+    max-width: 35rem;
+  }
+
+  @media only screen and ${theme.media.xs} {
+    & .ant-card-body {
+      padding: 1.25rem 1rem;
+    }
+  }
+
+  @media only screen and ${theme.media.md} {
+    & .ant-card-body {
+      padding: 1.25rem 0;
+    }
+  }
 `;
-
-const layouts = {
-  xxl: { span: 12, offset: 0 },
-  xl: { span: 16, offset: 4 },
-  md: { span: 18, offset: 3 },
-  xs: { span: 24, offset: 0 },
-};
-
+const BigCard = styled(Card)`
+  & .ant-card-body {
+    max-width: 75rem;
+    align-items: center;
+  }
+`;
 const AdvancedFormsPage: React.FC = () => {
   const { t } = useTranslation();
   return (
-    <>
-      <Col xl={layouts.xs}>
-        <Row gutter={[20, 0]}>
-          <Col xs={layouts.xs} md={layouts.md} xl={layouts.xl} xxl={layouts.xxl}>
-            <Card title={t('forms.dynamicForm')} padding="1.25rem">
-              <DynamicForm />
-            </Card>
-          </Col>
-          <Col xs={layouts.xs} md={layouts.md} xl={layouts.xl} xxl={layouts.xxl}>
-            <Card title={t('forms.controlForm')} padding="1.25rem">
-              <ControlForm />
-            </Card>
-          </Col>
-        </Row>
-        <Row gutter={[20, 0]}>
-          <Col xs={layouts.xs} md={layouts.md} xl={layouts.xl} xxl={layouts.xxl}>
-            <Card title={t('forms.validationForm')} padding="1.25rem">
-              <ValidationForm />
-            </Card>
-          </Col>
-          <Col xs={layouts.xs} md={layouts.md} xl={layouts.xl} xxl={layouts.xxl}>
-            <Card title={t('forms.authForm')} padding="1.25rem">
-              <AuthFrom />
-            </Card>
-          </Col>
-        </Row>
-      </Col>
-    </>
+    <Col span={24}>
+      <Card title={t('forms.dynamicForm')} padding="1.25rem">
+        <DynamicForm />
+      </Card>
+
+      <Card title={t('forms.controlForm')} padding="1.25rem">
+        <ControlForm />
+      </Card>
+
+      <BigCard title={t('forms.validationForm')} padding="1.25rem">
+        <ValidationForm />
+      </BigCard>
+
+      <BigCard title={t('forms.stepForm')} padding="1.25rem">
+        <StepForm />
+      </BigCard>
+    </Col>
   );
 };
 

@@ -22,6 +22,7 @@ export const List = styled.ul`
 export const ListItem = styled.li`
   display: flex;
   align-items: center;
+  margin-bottom: 0.8rem;
 `;
 
 export const User = styled.div`
