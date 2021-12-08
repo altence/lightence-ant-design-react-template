@@ -79,7 +79,8 @@
     "dataDisplay": "Data display",
     "avatarsPage": "Avatars",
     "badgesPage": "Badges",
-    "collapsePage": "Collapse"
+    "collapsePage": "Collapse",
+    "paginationPage": "Pagination"
   },
   "header": {
     "search": "Search",
@@ -548,6 +549,13 @@
       "panelHeader": "This is panel header",
       "nestPanel": "This is panel nest panel",
       "text": "A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world."
+    },
+    "pagination": {
+      "basic": "Basic pagination",
+      "manyPages": "Many pages pagination",
+      "pageSize": "Change page size",
+      "disabled": "Disabled pagination",
+      "quickJump": "Quick jump pagination"
     }
   }
 }
