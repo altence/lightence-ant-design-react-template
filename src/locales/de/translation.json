@@ -71,7 +71,10 @@
     "address": "DE!!!Address",
     "phone": "DE!!!Phone",
     "day": "DE!!!day",
-    "pwa": "DE!!!Install PWA"
+    "pwa": "DE!!!Install PWA",
+    "ui": "DE!!!UI Components",
+    "buttonPage": "DE!!!Buttons",
+    "spinnerPage": "DE!!!Spinners"
   },
   "header": {
     "search": "Search",
@@ -460,5 +463,24 @@
       "mr": "DE!!!Mr",
       "mrs": "DE!!!Mrs"
     }
+  },
+  "buttons": {
+    "types": "DE!!!Button types",
+    "sizes": "DE!!!Button sizes",
+    "loadings": "DE!!!Loading buttons",
+    "danger": "DE!!!Danger buttons",
+    "disabled": "DE!!!Disabled buttons",
+    "icons": "DE!!!Icons buttons",
+    "primary": "DE!!!Primary",
+    "default": "DE!!!Default",
+    "ghost": "DE!!!Ghost",
+    "dashed": "DE!!!Dashed",
+    "text": "DE!!!Text",
+    "link": "DE!!!Link",
+    "small": "DE!!!Small",
+    "large": "DE!!!Large",
+    "loading": "DE!!!Loading",
+    "click": "DE!!!Click me!",
+    "search": "DE!!!Search"
   }
 }

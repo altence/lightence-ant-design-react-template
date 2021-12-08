@@ -151,6 +151,11 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: 'buttons',
         url: '/ui-components/buttons',
       },
+      {
+        title: 'common.spinnerPage',
+        key: 'spinners',
+        url: '/ui-components/spinners',
+      },
     ],
   },
 ];

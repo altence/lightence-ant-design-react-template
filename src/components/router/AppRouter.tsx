@@ -26,6 +26,7 @@ import NotificationsPage from '@app/pages/NotificationsPage';
 import PaymentsPage from '@app/pages/PaymentsPage';
 import ProfileLayout from '@app/components/layouts/profile/ProfileLayout';
 import ButtonsPage from '@app/pages/UIComponentsPages/ButtonsPage';
+import SpinnersPage from '@app/pages/UIComponentsPages/SpinnersPage';
 
 /*TODO check for lazy loading and add if lack*/
 export const AppRouter: React.FC = () => {
@@ -45,6 +46,7 @@ export const AppRouter: React.FC = () => {
           </Route>
           <Route path="ui-components">
             <Route path="buttons" element={<ButtonsPage />} />
+            <Route path="spinners" element={<SpinnersPage />} />
           </Route>
           <Route path="data-tables" element={<DataTablesPage />} />
           <Route path="charts" element={<ChartsPage />} />
