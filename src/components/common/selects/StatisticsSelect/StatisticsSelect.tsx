@@ -20,7 +20,7 @@ export const StatisticsSelect: React.FC<SelectProps> = ({ className, ...props })
 
         return (
           <Option key={statistic.id} value={statistic.id}>
-            {t(currentStatistic?.name || '')}
+            {t(currentStatistic?.title || '')}
           </Option>
         );
       }),

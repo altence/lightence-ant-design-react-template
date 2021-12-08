@@ -1,31 +1,39 @@
 import React, { useContext } from 'react';
-import { BaseChart } from 'components/common/charts/BaseChart';
+import { BaseChart, getDefaultTooltipStyles } from 'components/common/charts/BaseChart';
 import { getMarkAreaData } from 'utils/utils';
 import { ThemeContext } from 'styled-components';
 import { hexToRGB } from 'utils/utils';
+import { ChartSeriesData } from 'interfaces/interfaces';
 
 interface UserStatistics {
   name: string;
-  data: number[];
+  data: number[] | string[];
 }
 
 interface ScreeningsChartProps {
-  firstUser: UserStatistics;
-  secondUser: UserStatistics;
+  firstUser?: UserStatistics;
+  secondUser?: UserStatistics;
 }
 
-const xAxisData = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+const xAxisData = Array.from({ length: 30 }, (_, i) => i + 1);
 
 export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, secondUser }) => {
   const theme = useContext(ThemeContext);
 
   const option = {
-    color: [theme.colors.main.chartPrimaryGradient, theme.colors.main.chartSecondaryGradient],
+    color: [theme.colors.charts.chartPrimaryGradient, theme.colors.charts.chartSecondaryGradient],
     tooltip: {
+      ...getDefaultTooltipStyles(theme),
       trigger: 'axis',
-      axisPointer: {
-        type: 'cross',
-      }, // TODO Add formatter
+      formatter: (data: ChartSeriesData) => {
+        console.log(data);
+        const firstItem = data[1];
+        const secondItem = data[0];
+
+        return `${firstItem.seriesName}: ${firstItem.value}%  at ${firstItem.name}th day <br/>
+                ${secondItem.seriesName}: ${secondItem.value}% at ${secondItem.name}th day
+        `;
+      },
     },
     grid: {
       top: 0,
@@ -45,19 +53,17 @@ export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, sec
       {
         show: false,
         type: 'value',
-        min: 10,
-        max: 70,
       },
     ],
     series: [
       {
-        name: `${firstUser?.name} statistics`,
+        name: `${firstUser?.name}`,
         type: 'line',
         smooth: true,
         showSymbol: false,
         lineStyle: {
           width: 2,
-          color: theme.colors.main.primary,
+          color: theme.colors.charts.color1,
         },
         areaStyle: {
           opacity: 1,
@@ -68,18 +74,18 @@ export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, sec
         data: firstUser?.data,
         markArea: {
           itemStyle: {
-            color: hexToRGB(theme.colors.main.primary, 0.01),
+            color: hexToRGB(theme.colors.charts.color1, 0.01),
           },
           data: getMarkAreaData(xAxisData),
         },
       },
       {
-        name: `${secondUser?.name} statistics`,
+        name: `${secondUser?.name}`,
         type: 'line',
         smooth: true,
         lineStyle: {
           width: 2,
-          color: theme.colors.main.error,
+          color: theme.colors.charts.color5,
         },
         showSymbol: false,
         areaStyle: {
@@ -91,7 +97,7 @@ export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, sec
         data: secondUser?.data,
         markArea: {
           itemStyle: {
-            color: hexToRGB(theme.colors.main.primary, 0.01),
+            color: hexToRGB(theme.colors.charts.color1, 0.01),
           },
           data: getMarkAreaData(xAxisData),
         },

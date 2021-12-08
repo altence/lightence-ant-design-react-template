@@ -28,45 +28,47 @@ export const ScreeningsFriends: React.FC<ScreeningsFriendsProps> = ({
 
   const { t } = useTranslation();
 
-  const handleClickItem = (mode: number) => () => {
-    setCurrentStatistics((prev) => {
-      if (isFirstClick && prev.firstUser !== mode) {
-        setFirstClick(!isFirstClick);
-
-        return {
-          ...prev,
-          secondUser: mode,
-        };
-      } else if (prev.secondUser !== mode) {
-        setFirstClick(!isFirstClick);
-
-        return {
-          ...prev,
-          firstUser: mode,
-        };
-      } else {
-        return {
-          ...prev,
-        };
-      }
-    });
-  };
-
   const screeningsItems = useMemo(
     () =>
-      screenings.map((screening, index) => (
-        <ScreeningsFriend
-          key={screening.name}
-          name={screening.name}
-          value={screening.value}
-          prevValue={screening.prevValue}
-          src={screening.imgUrl}
-          isPrimary={index === currentStatistics.firstUser}
-          isSecondary={index === currentStatistics.secondUser}
-          onClick={handleClickItem(index)}
-        />
-      )),
-    [screenings, currentStatistics],
+      screenings.map((screening, index) => {
+        const handleClickItem = (mode: number) => () => {
+          setCurrentStatistics((prev) => {
+            if (isFirstClick && prev.firstUser !== mode) {
+              setFirstClick(!isFirstClick);
+
+              return {
+                ...prev,
+                secondUser: mode,
+              };
+            } else if (prev.secondUser !== mode) {
+              setFirstClick(!isFirstClick);
+
+              return {
+                ...prev,
+                firstUser: mode,
+              };
+            } else {
+              return {
+                ...prev,
+              };
+            }
+          });
+        };
+
+        return (
+          <ScreeningsFriend
+            key={screening.name}
+            name={screening.name}
+            value={screening.value}
+            prevValue={screening.prevValue}
+            src={screening.imgUrl}
+            isPrimary={index === currentStatistics.firstUser}
+            isSecondary={index === currentStatistics.secondUser}
+            onClick={handleClickItem(index)}
+          />
+        );
+      }),
+    [screenings, currentStatistics, isFirstClick, setCurrentStatistics, setFirstClick],
   );
 
   const colItems = useMemo(
