@@ -74,7 +74,8 @@
     "day": "day",
     "pwa": "Install PWA",
     "ui": "UI Components",
-    "buttonPage": "Buttons"
+    "buttonPage": "Buttons",
+    "spinnerPage": "Spinners"
   },
   "header": {
     "search": "Search",
@@ -501,5 +502,16 @@
     "loading": "Loading",
     "click": "Click me!",
     "search": "Search"
+  },
+  "spinners": {
+    "sizes": "Spinner sizes",
+    "customDescription": "Spinner with custom description",
+    "customIndicator": "Spinner with custom indicator",
+    "customLoading": "Spinner with custom loading",
+    "customLoadingDelay": "Spinner with custom delay",
+    "alertMessage": "Alert message title",
+    "alertDescription": "Further details about the context of this alert.",
+    "loadingState": "Loading state：",
+    "loading": "Loading..."
   }
 }
