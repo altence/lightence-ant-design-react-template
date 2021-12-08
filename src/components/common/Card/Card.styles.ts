@@ -25,8 +25,7 @@ export const Card = styled(AntCard)<CardProps>`
       font-size: ${(props) => props.theme.commonFontSizes.xxl};
 
     .ant-card-head-title {
-      white-space: unset;
-      overflow: unset;
+      padding-bottom: 0.25rem;
     }
   }
 
