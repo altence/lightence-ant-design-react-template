@@ -14,7 +14,7 @@ export const ScreeningsHeader: React.FC<ScreeningsHeaderProps> = ({ currentStati
   const { t } = useTranslation();
 
   return (
-    <Row gutter={[0, { xs: 15, md: 20 }]} align="middle">
+    <Row gutter={[0, { xs: 15, sm: 15, md: 20 }]} align="middle">
       <Col xs={24} xl={16}>
         {t('dashboard.latestScreenings.title')}
       </Col>
@@ -22,8 +22,8 @@ export const ScreeningsHeader: React.FC<ScreeningsHeaderProps> = ({ currentStati
       <Col xs={24} xl={8}>
         <Row
           gutter={[
-            { xs: 15, md: 20 },
-            { xs: 15, md: 20 },
+            { xs: 15, sm: 15, md: 20 },
+            { xs: 15, sm: 15, md: 20 },
           ]}
         >
           <Col xs={12}>
