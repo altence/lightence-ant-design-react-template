@@ -77,7 +77,8 @@
     "buttonPage": "Buttons",
     "spinnerPage": "Spinners",
     "dataDisplay": "Data display",
-    "avatarsPage": "Avatars"
+    "avatarsPage": "Avatars",
+    "badgesPage": "Badges"
   },
   "header": {
     "search": "Search",
@@ -523,6 +524,20 @@
       "groups": "Avatar groups",
       "badge": "Avatar with badge",
       "user": "Ant User"
+    },
+    "badges": {
+      "sizes": "Badge sizes",
+      "overflow": "Badge with overflow",
+      "status": "Status badge",
+      "ribbon": "Ribbon badge",
+      "cardTitle": "Pushes open the window",
+      "cardDescription": "and raises the spyglass.",
+      "hippies": "Hippies",
+      "success": "Success",
+      "error": "Error",
+      "default": "Default",
+      "processing": "Processing",
+      "warning": "Warning"
     }
   }
 }

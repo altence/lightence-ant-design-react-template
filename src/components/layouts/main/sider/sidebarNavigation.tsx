@@ -161,6 +161,11 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: 'avatars',
         url: '/ui-components/avatars',
       },
+      {
+        title: 'common.badgesPage',
+        key: 'badges',
+        url: '/ui-components/badges',
+      },
     ],
   },
 ];
