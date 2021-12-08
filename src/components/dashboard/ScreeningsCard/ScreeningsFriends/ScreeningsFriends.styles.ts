@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
   @media only screen and ${(props) => props.theme.media.md} {
     padding: 1.25rem;
 
-    margin: 0 ${dashboardPaddings.md[1]}px;
+    margin: ${dashboardPaddings.md[0]}px ${dashboardPaddings.md[1]}px;
   }
 
   @media only screen and ${(props) => props.theme.media.xl} {

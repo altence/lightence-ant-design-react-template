@@ -24,8 +24,9 @@ export const Card = styled(AntCard)<CardProps>`
     @media only screen and ${(props) => props.theme.media.xl} {
       font-size: ${(props) => props.theme.commonFontSizes.xxl};
 
-    .ant-card-head-title {
-      padding-bottom: 0.25rem;
+      .ant-card-head-title {
+        padding-bottom: 0.25rem;
+      }
     }
   }
 

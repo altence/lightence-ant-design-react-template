@@ -81,7 +81,7 @@ export const ScreeningsFriends: React.FC<ScreeningsFriendsProps> = ({
 
   return (
     <S.Wrapper>
-      {mobileOnly && (
+      {mobileOnly && screeningsItems.length > 0 && (
         <S.ScreeningsCarousel
           arrows
           prevArrow={
@@ -94,14 +94,27 @@ export const ScreeningsFriends: React.FC<ScreeningsFriendsProps> = ({
               <ArrowRightOutlined />
             </CarouselArrow>
           }
-          slidesToShow={5}
+          slidesToShow={6}
+          responsive={[
+            {
+              breakpoint: 500,
+              settings: {
+                slidesToShow: 5,
+              },
+            },
+          ]}
         >
           {screeningsItems}
         </S.ScreeningsCarousel>
       )}
 
       {isTablet && (
-        <Row gutter={[7, 7]}>
+        <Row
+          gutter={[
+            { xs: 10, sm: 10, xl: 22 },
+            { xs: 10, sm: 10, xl: 22 },
+          ]}
+        >
           <Col span={24}>
             <S.Title>{t('dashboard.latestScreenings.friends')}</S.Title>
           </Col>

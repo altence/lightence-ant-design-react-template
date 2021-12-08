@@ -3,7 +3,6 @@ import { BaseChart } from 'components/common/charts/BaseChart';
 import { getMarkAreaData } from 'utils/utils';
 import { ThemeContext } from 'styled-components';
 import { hexToRGB } from 'utils/utils';
-import { useResponsive } from 'hooks/useResponsive';
 
 interface UserStatistics {
   name: string;
@@ -19,8 +18,6 @@ const xAxisData = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
 export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, secondUser }) => {
   const theme = useContext(ThemeContext);
-
-  const { isTablet: isTabletOrHigher } = useResponsive();
 
   const option = {
     color: [theme.colors.main.chartPrimaryGradient, theme.colors.main.chartSecondaryGradient],
@@ -102,5 +99,5 @@ export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, sec
     ],
   };
 
-  return <BaseChart option={option} {...(isTabletOrHigher && { height: '100%' })} />;
+  return <BaseChart option={option} />;
 };
