@@ -1,17 +1,15 @@
 import { useState } from 'react';
 import { Form as AntdForm, notification, Steps } from 'antd';
 import { Form } from '../../common/Form/Form';
-import { FormItem } from 'components/common/Form/Form.styles';
-import { Input } from '../../common/inputs/Input/Input';
-import { InputPassword } from '../../common/inputs/InputPassword/InputPassword';
 import { useTranslation } from 'react-i18next';
 import { Button } from '../../common/buttons/Button/Button';
-import { RadioButton, RadioGroup } from 'components/common/Radio/Radio';
-import { DatePicker } from 'components/common/pickers/DatePicker';
 import { Dates } from 'constants/Dates';
-import { Option } from 'components/common/selects/Select/Select';
 import * as S from './StepForm.styles';
 import { mergeBy } from 'utils/utils';
+import { Step1 } from './Steps/Step1';
+import { Step2 } from './Steps/Step2';
+import { Step3 } from './Steps/Step3';
+import { Step4 } from './Steps/Step4';
 
 const { Step } = Steps;
 interface FormValues {
@@ -22,11 +20,6 @@ interface FieldData {
   name: string | number;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   value?: any;
-}
-
-interface Field {
-  name?: string;
-  value: string;
 }
 
 export const StepForm: React.FC = () => {
@@ -112,158 +105,11 @@ export const StepForm: React.FC = () => {
     },
   ];
 
-  const prefixSelector = (
-    <FormItem name="prefix" noStyle>
-      <S.Select>
-        <Option value="375">+375</Option>
-        <Option value="7">+7</Option>
-      </S.Select>
-    </FormItem>
-  );
-
   const formFieldsUi = [
-    <S.FormContent key="1">
-      <FormItem
-        name="login"
-        label={t('forms.stepFormLabels.login')}
-        rules={[{ required: true, message: t('common.requiredField') }]}
-      >
-        <Input />
-      </FormItem>
-      <FormItem
-        name="password"
-        label={t('forms.stepFormLabels.password')}
-        rules={[{ required: true, message: t('common.requiredField') }]}
-      >
-        <InputPassword />
-      </FormItem>
-      <FormItem
-        name="confirmPassword"
-        label={t('forms.stepFormLabels.confirmPassword')}
-        dependencies={['password']}
-        rules={[
-          { required: true, message: t('common.requiredField') },
-          ({ getFieldValue }) => ({
-            validator(_, value) {
-              if (!value || getFieldValue('password') === value) {
-                return Promise.resolve();
-              }
-              return Promise.reject(new Error(t('common.confirmPasswordError')));
-            },
-          }),
-        ]}
-      >
-        <InputPassword />
-      </FormItem>
-    </S.FormContent>,
-    <S.FormContent key="2">
-      <FormItem
-        name="salutation"
-        label={t('forms.stepFormLabels.salutation')}
-        rules={[{ required: true, message: t('common.requiredField') }]}
-      >
-        <RadioGroup>
-          <RadioButton value="mr">{t('forms.stepFormLabels.mr')}</RadioButton>
-          <RadioButton value="mrs">{t('forms.stepFormLabels.mrs')}</RadioButton>
-        </RadioGroup>
-      </FormItem>
-      <FormItem
-        name="gender"
-        label={t('forms.stepFormLabels.gender')}
-        rules={[{ required: true, message: t('common.requiredField') }]}
-      >
-        <Input />
-      </FormItem>
-      <FormItem
-        name="firstName"
-        label={t('forms.stepFormLabels.firstName')}
-        rules={[{ required: true, message: t('common.requiredField') }]}
-      >
-        <Input />
-      </FormItem>
-      <FormItem
-        name="lastName"
-        label={t('forms.stepFormLabels.lastName')}
-        rules={[{ required: true, message: t('common.requiredField') }]}
-      >
-        <Input />
-      </FormItem>
-      <FormItem
-        name="birthday"
-        label={t('forms.stepFormLabels.birthday')}
-        rules={[{ required: true, message: t('common.requiredField') }]}
-      >
-        <DatePicker format="YYYY-MM-DD" />
-      </FormItem>
-      <S.PhoneItem
-        name="phone"
-        label={t('forms.stepFormLabels.phone')}
-        rules={[{ required: true, message: t('common.requiredField') }]}
-      >
-        <Input addonBefore={prefixSelector} />
-      </S.PhoneItem>
-      <FormItem
-        name="email"
-        label={t('forms.stepFormLabels.email')}
-        rules={[
-          {
-            type: 'email',
-            message: t('profile.nav.personalInfo.notValidEmail'),
-          },
-        ]}
-      >
-        <Input />
-      </FormItem>
-    </S.FormContent>,
-    <S.FormContent key="3">
-      <FormItem
-        name="address1"
-        label={t('forms.stepFormLabels.address1')}
-        rules={[{ required: true, message: t('common.requiredField') }]}
-      >
-        <Input />
-      </FormItem>
-      <FormItem
-        name="address2"
-        label={t('forms.stepFormLabels.address2')}
-        rules={[{ required: true, message: t('common.requiredField') }]}
-      >
-        <Input />
-      </FormItem>
-      <FormItem
-        name="zipCode"
-        label={t('forms.stepFormLabels.zipCode')}
-        rules={[{ required: true, message: t('common.requiredField') }]}
-      >
-        <Input />
-      </FormItem>
-      <FormItem
-        name="city"
-        label={t('forms.stepFormLabels.city')}
-        rules={[{ required: true, message: t('common.requiredField') }]}
-      >
-        <Input />
-      </FormItem>
-      <FormItem
-        name="country"
-        label={t('forms.stepFormLabels.country')}
-        rules={[{ required: true, message: t('common.requiredField') }]}
-      >
-        <Input />
-      </FormItem>
-    </S.FormContent>,
-    <S.Details key="4">
-      {formValues
-        .filter((item) => !!item.value)
-        .map((item: Field, index: number) => {
-          return (
-            <S.DetailsRow key={index}>
-              <S.DetailsTitle>{item.name}</S.DetailsTitle>
-              <S.DetailsValue>{item.value}</S.DetailsValue>
-            </S.DetailsRow>
-          );
-        })}
-    </S.Details>,
+    <Step1 key="1" />,
+    <Step2 key="2" />,
+    <Step3 key="3" />,
+    <Step4 key="4" formValues={formValues} />,
   ];
 
   return (
