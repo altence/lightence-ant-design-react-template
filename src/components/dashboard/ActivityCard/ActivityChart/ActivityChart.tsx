@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import { BaseChart } from '../../../common/charts/BaseChart';
+import { BaseChart, getDefaultTooltipStyles } from '../../../common/charts/BaseChart';
 import { Dates } from '../../../../constants/Dates';
 import { useResponsive } from 'hooks/useResponsive';
 import { dashboardPaddings } from 'components/dashboard/DashboardCard/DashboardCard';
-import { ChartData } from 'interfaces/interfaces';
+import { ChartData, ChartSeriesData } from 'interfaces/interfaces';
 
 interface ActivityChartProps {
   data: ChartData;
@@ -20,7 +20,7 @@ export const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
   const size = isDesktop ? 'xl' : isTablet ? 'md' : isMobile ? 'xs' : 'xs';
 
   const option = {
-    color: theme.colors.main.chartPrimaryGradient,
+    color: theme.colors.charts.chartPrimaryGradient,
     grid: {
       top: dashboardPaddings[size][0],
       right: dashboardPaddings[size][1],
@@ -46,10 +46,9 @@ export const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
     },
     yAxis: {
       type: 'value',
-      min: 0,
-      max: 80,
-      interval: 10,
+      min: 1500,
       axisLabel: {
+        formatter: '{value} kcal',
         color: theme.colors.text.light,
         fontWeight: 500,
         fontSize: 14,
@@ -66,9 +65,15 @@ export const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
       },
     ],
     tooltip: {
+      ...getDefaultTooltipStyles(theme),
       trigger: 'axis',
+      formatter: (data: ChartSeriesData) => {
+        const currentItem = data[0];
+
+        return `${currentItem.value} kcal burned on ${currentItem.name}`;
+      },
     },
   };
 
-  return <BaseChart option={option} {...(isTablet && { height: '100%' })} />;
+  return <BaseChart option={option} {...(isDesktop && { height: '100%' })} />;
 };

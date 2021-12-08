@@ -5,7 +5,7 @@ import { ActivityChart } from './ActivityChart/ActivityChart';
 import { ChartData } from 'interfaces/interfaces';
 
 export const ActivityCard: React.FC = () => {
-  const [data] = useState<ChartData>([41, 45, 52, 63, 58, 55, 71]);
+  const [data] = useState<ChartData>([1840, 1927, 1793, 1757, 1934, 1620, 1754]);
 
   const { t } = useTranslation();
 
