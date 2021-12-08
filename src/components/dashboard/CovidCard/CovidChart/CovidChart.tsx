@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { BaseChart } from 'components/common/charts/BaseChart';
 import { getMarkAreaData } from 'utils/utils';
 import { ThemeContext } from 'styled-components';
-import { useResponsive } from 'hooks/useResponsive';
 import { hexToRGB } from 'utils/utils';
 import { ChartData } from 'interfaces/interfaces';
 
@@ -10,8 +9,6 @@ const xAxisData = Array.from({ length: 30 }, (_, i) => i + 1);
 
 export const CovidChart: React.FC<{ data: ChartData }> = ({ data }) => {
   const theme = useContext(ThemeContext);
-
-  const { isTablet } = useResponsive();
 
   const option = {
     color: theme.colors.main.chartPrimaryGradient,
