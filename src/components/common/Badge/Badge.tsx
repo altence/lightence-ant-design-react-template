@@ -1,7 +1,9 @@
 import React from 'react';
-import { BadgeProps as AntBadgeProps } from 'antd';
+import { BadgeProps as AntBadgeProps, Badge as AntdBadge } from 'antd';
 import { NotificationType } from '../Notification/Notification';
 import * as S from './Badge.styles';
+
+export const { Ribbon } = AntdBadge;
 
 interface BadgeProps extends AntBadgeProps {
   className?: string;
