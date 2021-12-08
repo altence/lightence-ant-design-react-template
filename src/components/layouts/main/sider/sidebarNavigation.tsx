@@ -166,6 +166,11 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: 'badges',
         url: '/ui-components/badges',
       },
+      {
+        title: 'common.collapsePage',
+        key: 'collapse',
+        url: '/ui-components/collapse',
+      },
     ],
   },
 ];
