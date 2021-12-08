@@ -78,7 +78,8 @@
     "spinnerPage": "Spinners",
     "dataDisplay": "Data display",
     "avatarsPage": "Avatars",
-    "badgesPage": "Badges"
+    "badgesPage": "Badges",
+    "collapsePage": "Collapse"
   },
   "header": {
     "search": "Search",
@@ -538,6 +539,15 @@
       "default": "Default",
       "processing": "Processing",
       "warning": "Warning"
+    },
+    "collapse": {
+      "basic": "Basic collapse",
+      "accordion": "Accordion collapse",
+      "nested": "Nested collapse",
+      "ghost": "Ghost collapse",
+      "panelHeader": "This is panel header",
+      "nestPanel": "This is panel nest panel",
+      "text": "A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world."
     }
   }
 }
