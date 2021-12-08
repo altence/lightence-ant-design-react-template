@@ -55,5 +55,5 @@ export const CovidChart: React.FC<{ data: ChartData }> = ({ data }) => {
     },
   };
 
-  return <BaseChart option={option} {...(isTablet && { height: '100%' })} />;
+  return <BaseChart option={option} />;
 };
