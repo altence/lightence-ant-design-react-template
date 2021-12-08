@@ -28,6 +28,8 @@ import ProfileLayout from '@app/components/layouts/profile/ProfileLayout';
 import ButtonsPage from '@app/pages/UIComponentsPages/ButtonsPage';
 import SpinnersPage from '@app/pages/UIComponentsPages/SpinnersPage';
 
+import AvatarsPage from '@app/pages/UIComponentsPages/DataDisplay/AvatarsPage';
+
 /*TODO check for lazy loading and add if lack*/
 export const AppRouter: React.FC = () => {
   return (
@@ -47,6 +49,7 @@ export const AppRouter: React.FC = () => {
           <Route path="ui-components">
             <Route path="buttons" element={<ButtonsPage />} />
             <Route path="spinners" element={<SpinnersPage />} />
+            <Route path="avatars" element={<AvatarsPage />} />
           </Route>
           <Route path="data-tables" element={<DataTablesPage />} />
           <Route path="charts" element={<ChartsPage />} />

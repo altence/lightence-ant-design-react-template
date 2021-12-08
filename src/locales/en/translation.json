@@ -75,7 +75,9 @@
     "pwa": "Install PWA",
     "ui": "UI Components",
     "buttonPage": "Buttons",
-    "spinnerPage": "Spinners"
+    "spinnerPage": "Spinners",
+    "dataDisplay": "Data display",
+    "avatarsPage": "Avatars"
   },
   "header": {
     "search": "Search",
@@ -513,5 +515,14 @@
     "alertDescription": "Further details about the context of this alert.",
     "loadingState": "Loading state：",
     "loading": "Loading..."
+  },
+  "dataDisplay": {
+    "avatars": {
+      "sizes": "Avatar sizes",
+      "shapes": "Avatar shapes",
+      "groups": "Avatar groups",
+      "badge": "Avatar with badge",
+      "user": "Ant User"
+    }
   }
 }
