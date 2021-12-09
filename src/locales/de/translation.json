@@ -122,8 +122,14 @@
       "title": "DE!!!Treatment plan",
       "noVisits": "DE!!!No visits for that day"
     },
-    "activity": "DE!!!Activity",
-    "covid": "DE!!!COVID-19",
+    "activity": {
+      "title": "DE!!!Activity",
+      "kcalBurned": "DE!!!kcal burned on"
+    },
+    "covid": {
+      "title": "DE!!!COVID-19",
+      "casesPerDay": "DE!!!cases/day in"
+    },
     "health": {
       "title": "DE!!!Health",
       "lifestyle": {

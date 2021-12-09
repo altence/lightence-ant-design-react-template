@@ -5,9 +5,12 @@ import styled, { ThemeContext } from 'styled-components';
 import { hexToRGB } from 'utils/utils';
 import { ChartData, ChartSeriesData } from 'interfaces/interfaces';
 import { Dates } from 'constants/Dates';
+import { useTranslation } from 'react-i18next';
 
 export const CovidChart: React.FC<{ data: ChartData }> = ({ data }) => {
   const theme = useContext(ThemeContext);
+
+  const { t } = useTranslation();
 
   const months = Dates.getMonths();
 
@@ -54,7 +57,7 @@ export const CovidChart: React.FC<{ data: ChartData }> = ({ data }) => {
       formatter: (data: ChartSeriesData) => {
         const currentItem = data[0];
 
-        return `${currentItem.value} cases/day in ${currentItem.name} 2020`;
+        return `${currentItem.value} ${t('dashboard.covid.casesPerDay')} ${currentItem.name} 2020`;
       },
     },
   };

@@ -10,7 +10,7 @@ export const ActivityCard: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <Card id="activity" title={t('dashboard.activity')} padding={0}>
+    <Card id="activity" title={t('dashboard.activity.title')} padding={0}>
       <ActivityChart data={data} />
     </Card>
   );

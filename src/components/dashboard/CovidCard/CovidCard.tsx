@@ -10,7 +10,7 @@ export const CovidCard: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <DashboardCard id="covid" title={t('dashboard.covid')} padding={0}>
+    <DashboardCard id="covid" title={t('dashboard.covid.title')} padding={0}>
       <CovidChart data={data} />
     </DashboardCard>
   );
