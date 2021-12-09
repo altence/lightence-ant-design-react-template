@@ -1,12 +1,14 @@
-import styled from 'styled-components';
-import { Typography } from 'antd';
+import styled, { css } from 'styled-components';
 import { dashboardPaddings } from 'components/dashboard/DashboardCard/DashboardCard';
 import { hexToRGB } from 'utils/utils';
-import { Carousel } from 'components/common/Carousel/Carousel';
 
-export const Wrapper = styled.div`
+interface WrapperProps {
+  isVisible: boolean;
+}
+
+export const Wrapper = styled.div<WrapperProps>`
   padding: 0.9375rem;
-  position: relative;
+  transition: all 0.3s ease;
 
   background-color: ${(props) => props.theme.colors.main.mainBackground};
 
@@ -26,17 +28,11 @@ export const Wrapper = styled.div`
     z-index: 2;
 
     background-color: ${(props) => hexToRGB(props.theme.colors.main.mainBackground, 0.9)};
-  }
-`;
 
-export const Title = styled(Typography.Text)`
-  font-weight: ${(props) => props.theme.commonFontWeight.bold};
-
-  font-size: ${(props) => props.theme.commonFontSizes.lg};
-`;
-
-export const ScreeningsCarousel = styled(Carousel)`
-  .slick-disabled {
-    display: none !important;
+    ${(props) =>
+      !props.isVisible &&
+      css`
+        width: 5rem;
+      `}
   }
 `;

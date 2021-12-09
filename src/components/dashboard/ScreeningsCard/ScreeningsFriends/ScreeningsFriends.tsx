@@ -1,16 +1,13 @@
-import React, { useMemo } from 'react';
-import { Col, Row } from 'antd';
-import { useTranslation } from 'react-i18next';
-import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
+import React, { useCallback, useMemo, useState } from 'react';
 import { ScreeningsFriend } from './ScreeningsFriend/ScreeningsFriend';
-import { CurrentStatisticsState } from '../ScreeningsCard';
+import { CurrentStatisticsState, ScreeningWithDoctors } from '../ScreeningsCard';
+import { MobileScreenings } from './MobileScreenings/MobileScreenings';
+import { DesktopScreenings } from './DesktopScreenings/DesktopScreenings';
 import { useResponsive } from 'hooks/useResponsive';
-import { Screening } from 'api/screenings.api';
 import * as S from './ScreeningsFriends.styles';
-import { CarouselArrow } from 'components/common/CarouselArrow/CarouselArrow';
 
 interface ScreeningsFriendsProps {
-  screenings: Screening[];
+  screenings: ScreeningWithDoctors[];
   currentStatistics: CurrentStatisticsState;
   setCurrentStatistics: (func: (state: CurrentStatisticsState) => CurrentStatisticsState) => void;
   isFirstClick: boolean;
@@ -24,105 +21,65 @@ export const ScreeningsFriends: React.FC<ScreeningsFriendsProps> = ({
   isFirstClick,
   setFirstClick,
 }) => {
+  const [isVisibleMenu, setVisibleMenu] = useState(true);
+
   const { mobileOnly, isTablet } = useResponsive();
 
-  const { t } = useTranslation();
+  const handleClickItem = useCallback(
+    (mode: number) => () => {
+      setCurrentStatistics((prev) => {
+        if (isFirstClick && prev.firstUser !== mode) {
+          setFirstClick(!isFirstClick);
+
+          return {
+            ...prev,
+            secondUser: mode,
+          };
+        } else if (prev.secondUser !== mode) {
+          setFirstClick(!isFirstClick);
+
+          return {
+            ...prev,
+            firstUser: mode,
+          };
+        } else {
+          return {
+            ...prev,
+          };
+        }
+      });
+    },
+    [isFirstClick, setFirstClick, setCurrentStatistics],
+  );
 
   const screeningsItems = useMemo(
     () =>
-      screenings.map((screening, index) => {
-        const handleClickItem = (mode: number) => () => {
-          setCurrentStatistics((prev) => {
-            if (isFirstClick && prev.firstUser !== mode) {
-              setFirstClick(!isFirstClick);
-
-              return {
-                ...prev,
-                secondUser: mode,
-              };
-            } else if (prev.secondUser !== mode) {
-              setFirstClick(!isFirstClick);
-
-              return {
-                ...prev,
-                firstUser: mode,
-              };
-            } else {
-              return {
-                ...prev,
-              };
-            }
-          });
-        };
-
-        return (
-          <ScreeningsFriend
-            key={screening.name}
-            name={screening.name}
-            value={screening.value}
-            prevValue={screening.prevValue}
-            src={screening.imgUrl}
-            isPrimary={index === currentStatistics.firstUser}
-            isSecondary={index === currentStatistics.secondUser}
-            onClick={handleClickItem(index)}
-          />
-        );
-      }),
-    [screenings, currentStatistics, isFirstClick, setCurrentStatistics, setFirstClick],
-  );
-
-  const colItems = useMemo(
-    () =>
-      screeningsItems.map((item, index) => (
-        <Col key={index} span={24}>
-          {item}
-        </Col>
+      screenings.map((screening, index) => (
+        <ScreeningsFriend
+          key={screening.name}
+          name={screening.name}
+          value={screening.value}
+          prevValue={screening.prevValue}
+          src={screening.imgUrl}
+          isPrimary={index === currentStatistics.firstUser}
+          isSecondary={index === currentStatistics.secondUser}
+          onClick={handleClickItem(index)}
+          isVisibleMenu={isVisibleMenu}
+        />
       )),
-    [screeningsItems],
+    [screenings, currentStatistics, isVisibleMenu, handleClickItem],
   );
 
   return (
-    <S.Wrapper>
-      {mobileOnly && screeningsItems.length > 0 && (
-        <S.ScreeningsCarousel
-          arrows
-          prevArrow={
-            <CarouselArrow>
-              <ArrowLeftOutlined />
-            </CarouselArrow>
-          }
-          nextArrow={
-            <CarouselArrow>
-              <ArrowRightOutlined />
-            </CarouselArrow>
-          }
-          slidesToShow={6}
-          responsive={[
-            {
-              breakpoint: 500,
-              settings: {
-                slidesToShow: 5,
-              },
-            },
-          ]}
-        >
-          {screeningsItems}
-        </S.ScreeningsCarousel>
-      )}
+    <S.Wrapper isVisible={isVisibleMenu}>
+      {mobileOnly && screeningsItems.length > 0 && <MobileScreenings screeningsItems={screeningsItems} />}
 
       {isTablet && (
-        <Row
-          gutter={[
-            { xs: 10, sm: 10, xl: 22 },
-            { xs: 10, sm: 10, xl: 22 },
-          ]}
-        >
-          <Col span={24}>
-            <S.Title>{t('dashboard.latestScreenings.friends')}</S.Title>
-          </Col>
-
-          {colItems}
-        </Row>
+        <DesktopScreenings
+          screeningsItems={screeningsItems}
+          isVisibleMenu={isVisibleMenu}
+          setVisibleMenu={setVisibleMenu}
+        />
       )}
     </S.Wrapper>
   );

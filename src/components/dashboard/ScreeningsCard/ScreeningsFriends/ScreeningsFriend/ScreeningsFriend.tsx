@@ -13,6 +13,7 @@ interface ScreeningsFriendProps {
   isPrimary: boolean;
   isSecondary: boolean;
   onClick?: () => void;
+  isVisibleMenu: boolean;
 }
 
 export const ScreeningsFriend: React.FC<ScreeningsFriendProps> = ({
@@ -23,15 +24,21 @@ export const ScreeningsFriend: React.FC<ScreeningsFriendProps> = ({
   isPrimary,
   isSecondary,
   onClick,
+  isVisibleMenu,
 }) => {
   const isDowngrade = value < prevValue;
 
   const { isTablet: isTabletOrHigher, mobileOnly } = useResponsive();
 
   return (
-    <S.ScreeningsRow onClick={onClick} justify="space-between" isActive={isPrimary || isSecondary}>
+    <S.ScreeningsRow
+      onClick={onClick}
+      justify={isVisibleMenu ? 'space-between' : 'center'}
+      isActive={isPrimary || isSecondary}
+      wrap={false}
+    >
       <Col>
-        <Row gutter={[10, 0]} align="middle">
+        <Row gutter={[10, 0]} align="middle" wrap={false}>
           <Col>
             <S.Avatar
               {...(mobileOnly && { size: 'large' })}
@@ -43,7 +50,7 @@ export const ScreeningsFriend: React.FC<ScreeningsFriendProps> = ({
             />
           </Col>
 
-          {isTabletOrHigher && (
+          {isTabletOrHigher && isVisibleMenu && (
             <Col>
               <S.Name>{name}</S.Name>
             </Col>
@@ -51,7 +58,7 @@ export const ScreeningsFriend: React.FC<ScreeningsFriendProps> = ({
         </Row>
       </Col>
 
-      {isTabletOrHigher && (
+      {isTabletOrHigher && isVisibleMenu && (
         <Col>
           <S.Percentage isDowngrade={isDowngrade}>
             <Space size={0}>

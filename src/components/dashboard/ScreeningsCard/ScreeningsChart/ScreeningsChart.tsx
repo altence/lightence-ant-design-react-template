@@ -26,7 +26,6 @@ export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, sec
       ...getDefaultTooltipStyles(theme),
       trigger: 'axis',
       formatter: (data: ChartSeriesData) => {
-        console.log(data);
         const firstItem = data[1];
         const secondItem = data[0];
 
@@ -53,6 +52,8 @@ export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, sec
       {
         show: false,
         type: 'value',
+        min: 0,
+        max: 100,
       },
     ],
     series: [

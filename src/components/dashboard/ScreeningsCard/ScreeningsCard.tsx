@@ -5,6 +5,8 @@ import { ScreeningsChart } from './ScreeningsChart/ScreeningsChart';
 import { getScreenings, Screening } from 'api/screenings.api';
 import { Dates } from 'constants/Dates';
 import { getStatistics, Statistic } from 'api/statistics.api';
+import { SmoothRandom } from 'utils/utils';
+import { Doctor, getDoctorsData } from 'api/doctors.api';
 import * as S from './ScreeningsCard.styles';
 
 export interface CurrentStatisticsState {
@@ -14,7 +16,10 @@ export interface CurrentStatisticsState {
   statistic: number;
 }
 
+export type ScreeningWithDoctors = Screening & { name: string; imgUrl: string };
+
 export const ScreeningsCard: React.FC = () => {
+  const [doctors, setDoctors] = useState<Doctor[]>([]);
   const [statistics, setStatistics] = useState<Statistic[]>([]);
   const [screenings, setScreenings] = useState<Screening[]>([]);
   const [currentStatistics, setCurrentStatistics] = useState<CurrentStatisticsState>({
@@ -33,7 +38,23 @@ export const ScreeningsCard: React.FC = () => {
     getStatistics().then((res) => setStatistics(res));
   }, []);
 
+  useEffect(() => {
+    getDoctorsData().then((res) => setDoctors(res));
+  }, []);
+
   const months = useMemo(() => Array.from({ length: 12 }, (_, i) => i), []);
+
+  const screeningsWithDoctors = useMemo((): ScreeningWithDoctors[] => {
+    return screenings.map((screening) => {
+      const currentDoctor = doctors.find((doctor) => doctor.id === screening.id);
+
+      return {
+        ...screening,
+        name: currentDoctor?.name || '',
+        imgUrl: currentDoctor?.imgUrl || '',
+      };
+    });
+  }, [doctors, screenings]);
 
   const values = useMemo(
     () =>
@@ -42,8 +63,8 @@ export const ScreeningsCard: React.FC = () => {
         data: statistics.map((statistic) => ({
           statisticId: statistic.id,
           data: screenings.map((screening) => ({
-            name: screening.name,
-            data: Array.from({ length: 30 }, () => (Math.random() * 100).toFixed()),
+            id: screening.id,
+            data: Array.from({ length: 30 }, () => (SmoothRandom(3, 0.7) * 100).toFixed()),
           })),
         })),
       })),
@@ -60,16 +81,16 @@ export const ScreeningsCard: React.FC = () => {
 
   const getUserStatistic = useCallback(
     (isFirstUser: boolean) => {
-      const user = isFirstUser ? 'firstUser' : 'secondUser'; // TODO we can simplify it to prop "user" and call function with props "firstUser" and "secondUser"
+      const user = isFirstUser ? 'firstUser' : 'secondUser';
 
       return (
         currentValues && {
-          name: screenings[currentStatistics[user]].name,
+          name: screeningsWithDoctors[currentStatistics[user]].name,
           data: currentValues[currentStatistics[user]].data,
         }
       );
     },
-    [currentStatistics, currentValues, screenings],
+    [currentStatistics, currentValues, screeningsWithDoctors],
   );
 
   return (
@@ -79,7 +100,7 @@ export const ScreeningsCard: React.FC = () => {
       padding={0}
     >
       <ScreeningsFriends
-        screenings={screenings}
+        screenings={screeningsWithDoctors}
         currentStatistics={currentStatistics}
         setCurrentStatistics={setCurrentStatistics}
         isFirstClick={isFirstClick}
