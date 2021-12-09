@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import { BaseChart, getDefaultTooltipStyles } from '../../../common/charts/BaseChart';
-import { Dates } from '../../../../constants/Dates';
+import { BaseChart, getDefaultTooltipStyles } from 'components/common/charts/BaseChart';
+import { Dates } from 'constants/Dates';
 import { useResponsive } from 'hooks/useResponsive';
 import { dashboardPaddings } from 'components/dashboard/DashboardCard/DashboardCard';
 import { ChartData, ChartSeriesData } from 'interfaces/interfaces';
+import { useTranslation } from 'react-i18next';
 
 interface ActivityChartProps {
   data: ChartData;
@@ -12,6 +13,8 @@ interface ActivityChartProps {
 
 export const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
   const theme = useContext(ThemeContext);
+
+  const { t } = useTranslation();
 
   const days = Dates.getDays();
 
@@ -70,7 +73,7 @@ export const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
       formatter: (data: ChartSeriesData) => {
         const currentItem = data[0];
 
-        return `${currentItem.value} kcal burned on ${currentItem.name}`;
+        return `${currentItem.value} ${t('dashboard.activity.kcalBurned')} ${currentItem.name}`;
       },
     },
   };

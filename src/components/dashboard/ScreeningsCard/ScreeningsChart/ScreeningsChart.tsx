@@ -4,6 +4,7 @@ import { getMarkAreaData } from 'utils/utils';
 import { ThemeContext } from 'styled-components';
 import { hexToRGB } from 'utils/utils';
 import { ChartSeriesData } from 'interfaces/interfaces';
+import { useTranslation } from 'react-i18next';
 
 interface UserStatistics {
   name: string;
@@ -20,6 +21,8 @@ const xAxisData = Array.from({ length: 30 }, (_, i) => i + 1);
 export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, secondUser }) => {
   const theme = useContext(ThemeContext);
 
+  const { t } = useTranslation();
+
   const option = {
     color: [theme.colors.charts.chartPrimaryGradient, theme.colors.charts.chartSecondaryGradient],
     tooltip: {
@@ -29,8 +32,8 @@ export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, sec
         const firstItem = data[1];
         const secondItem = data[0];
 
-        return `${firstItem.seriesName}: ${firstItem.value}%  at ${firstItem.name}th day <br/>
-                ${secondItem.seriesName}: ${secondItem.value}% at ${secondItem.name}th day
+        return `${firstItem.seriesName}: ${firstItem.value}%  - ${t('common.day')} ${firstItem.name} <br/>
+                ${secondItem.seriesName}: ${secondItem.value}% - ${t('common.day')} ${secondItem.name}
         `;
       },
     },
