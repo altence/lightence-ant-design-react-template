@@ -81,7 +81,8 @@
     "badgesPage": "Badges",
     "collapsePage": "Collapse",
     "paginationPage": "Pagination",
-    "modalsPage": "Modals"
+    "modalsPage": "Modals",
+    "popoversPage": "Popovers"
   },
   "header": {
     "search": "Search",
@@ -581,5 +582,27 @@
     "warningTitle": "This is a warning message",
     "error": "Error",
     "errorTitle": "This is an error message"
+  },
+  "popovers": {
+    "basic": "Basic popover",
+    "positions": "Popover positions",
+    "triggers": "Popover triggers",
+    "title": "Title",
+    "content": "Content",
+    "hover": "Hover me!",
+    "click": "Click me!",
+    "focus": "Focus me!",
+    "tl": "TL",
+    "top": "Top",
+    "tr": "TR",
+    "lt": "LT",
+    "left": "Left",
+    "lb": "LB",
+    "rt": "RT",
+    "right": "Right",
+    "rb": "RB",
+    "bl": "BL",
+    "bottom": "Bottom",
+    "br": "BR"
   }
 }

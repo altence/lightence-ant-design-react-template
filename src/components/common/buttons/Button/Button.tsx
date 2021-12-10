@@ -5,7 +5,7 @@ import * as S from './Button.styles';
 
 export interface ButtonProps extends AntButtonProps {
   className?: string;
-  type: ButtonType;
+  type?: ButtonType;
 }
 
 export const Button: React.FC<ButtonProps> = ({ className, type = 'ghost', children, ...props }) => (
