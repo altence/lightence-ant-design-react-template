@@ -68,7 +68,7 @@ export const ControlForm: React.FC = () => {
         <FormItem
           name="group"
           label={t('forms.controlFormLabels.groupName')}
-          rules={[{ required: true, message: t('common.requiredField') }]}
+          rules={[{ required: true, message: t('forms.controlFormLabels.groupNameError') }]}
         >
           <Input />
         </FormItem>
