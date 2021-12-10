@@ -196,6 +196,11 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: 'progress',
         url: '/ui-components/progress',
       },
+      {
+        title: 'common.resultsPage',
+        key: 'results',
+        url: '/ui-components/results',
+      },
     ],
   },
 ];
