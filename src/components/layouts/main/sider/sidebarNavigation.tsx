@@ -181,6 +181,11 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: 'modals',
         url: '/ui-components/modals',
       },
+      {
+        title: 'common.popoversPage',
+        key: 'popovers',
+        url: '/ui-components/popovers',
+      },
     ],
   },
 ];
