@@ -80,7 +80,8 @@
     "avatarsPage": "Avatars",
     "badgesPage": "Badges",
     "collapsePage": "Collapse",
-    "paginationPage": "Pagination"
+    "paginationPage": "Pagination",
+    "modalsPage": "Modals"
   },
   "header": {
     "search": "Search",
@@ -557,5 +558,28 @@
       "disabled": "Disabled pagination",
       "quickJump": "Quick jump pagination"
     }
+  },
+  "modals": {
+    "basic": "Basic modal",
+    "sizes": "Modal sizes",
+    "infoModal": "Information modal",
+    "someContent": "Some contents...",
+    "open": "Open Modal",
+    "small": "Small",
+    "middle": "Middle",
+    "large": "Large",
+    "fullscreen": "Fullscreen",
+    "smallTitle": "Small Modal",
+    "middleTitle": "Middle Modal",
+    "largeTitle": "Large Modal",
+    "fullscreenTitle": "Fullscreen Modal",
+    "success": "Success",
+    "successTitle": "This is a success message",
+    "info": "Info",
+    "infoTitle": "This is a notification message",
+    "warning": "Warning",
+    "warningTitle": "This is a warning message",
+    "error": "Error",
+    "errorTitle": "This is an error message"
   }
 }

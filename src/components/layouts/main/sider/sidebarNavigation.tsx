@@ -176,6 +176,11 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: 'collapse',
         url: '/ui-components/collapse',
       },
+      {
+        title: 'common.modalsPage',
+        key: 'modals',
+        url: '/ui-components/modals',
+      },
     ],
   },
 ];
