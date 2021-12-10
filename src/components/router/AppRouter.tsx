@@ -33,6 +33,7 @@ import CollapsePage from '@app/pages/UIComponentsPages/DataDisplay/CollapsePage'
 import PaginationPage from '@app/pages/UIComponentsPages/DataDisplay/PaginationPage';
 import ModalsPage from '@app/pages/UIComponentsPages/Modals/ModalsPage';
 import PopoversPage from '@app/pages/UIComponentsPages/Modals/PopoversPage';
+import PopconfirmsPage from '@app/pages/UIComponentsPages/Modals/PopconfirmsPage';
 /*TODO check for lazy loading and add if lack*/
 export const AppRouter: React.FC = () => {
   return (
@@ -58,6 +59,7 @@ export const AppRouter: React.FC = () => {
             <Route path="pagination" element={<PaginationPage />} />
             <Route path="modals" element={<ModalsPage />} />
             <Route path="popovers" element={<PopoversPage />} />
+            <Route path="popconfirms" element={<PopconfirmsPage />} />
           </Route>
           <Route path="data-tables" element={<DataTablesPage />} />
           <Route path="charts" element={<ChartsPage />} />
