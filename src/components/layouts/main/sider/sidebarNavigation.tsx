@@ -186,6 +186,11 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: 'popovers',
         url: '/ui-components/popovers',
       },
+      {
+        title: 'common.popconfirmsPage',
+        key: 'popconfirms',
+        url: '/ui-components/popconfirms',
+      },
     ],
   },
 ];

@@ -82,7 +82,8 @@
     "collapsePage": "Collapse",
     "paginationPage": "Pagination",
     "modalsPage": "Modals",
-    "popoversPage": "Popovers"
+    "popoversPage": "Popovers",
+    "popconfirmsPage": "Popconfirms"
   },
   "header": {
     "search": "Search",
@@ -604,5 +605,16 @@
     "bl": "BL",
     "bottom": "Bottom",
     "br": "BR"
+  },
+  "popconfirm": {
+    "basic": "Basic Popconfirm",
+    "positions": "Popconfirm positions",
+    "delete": "Delete",
+    "yes": "Yes",
+    "no": "No",
+    "content": "Are you sure to delete this task?",
+    "yesClick": "Clicked on Yes.",
+    "async": "Asynchronously close",
+    "openAsync": "Open Popconfirm with async logic"
   }
 }

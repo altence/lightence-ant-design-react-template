@@ -7,28 +7,28 @@ import * as S from '../UIComponentsPage.styles';
 
 const buttonWidth = 70;
 
-const PopoverButton = styled.div`
+export const PopoverButton = styled.div`
   display: flex;
   gap: 5px;
 `;
 
-const TopButtons = styled(PopoverButton)`
+export const TopButtons = styled(PopoverButton)`
   whitespace: nowrap;
   margin-left: ${buttonWidth + 18}px;
 `;
-const LeftButtons = styled(PopoverButton)`
+export const LeftButtons = styled(PopoverButton)`
   flex-direction: column;
   width: ${buttonWidth}px;
   float: left;
 `;
 
-const RightButtons = styled(PopoverButton)`
+export const RightButtons = styled(PopoverButton)`
   flex-direction: column;
   width: ${buttonWidth}px;
   margin-left: ${buttonWidth * 4}px;
 `;
 
-const BottomButtons = styled(PopoverButton)`
+export const BottomButtons = styled(PopoverButton)`
   margin-left: ${buttonWidth}px;
   clear: both;
   whitespace: nowrap;
