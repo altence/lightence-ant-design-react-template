@@ -86,7 +86,8 @@
     "popconfirmsPage": "Popconfirms",
     "progressPage": "Progress",
     "resultsPage": "Results",
-    "alertsPage": "Alerts"
+    "alertsPage": "Alerts",
+    "skeletonsPage": "Skeletons"
   },
   "header": {
     "search": "Search",
@@ -660,5 +661,22 @@
     "done": "Done",
     "accept": "Accept",
     "decline": "Decline"
+  },
+  "skeletons": {
+    "basic": "Basic skeleton",
+    "complex": "Complex skeleton",
+    "active": "Active skeleton",
+    "customization": "Skeleton customization",
+    "activeLabel": "Active",
+    "buttonBlock": "Button Block",
+    "size": "Size",
+    "buttonShape": "Button Shape",
+    "avatarShape": "Avatar Shape",
+    "default": "Default",
+    "large": "Large",
+    "small": "Small",
+    "round": "Round",
+    "circle": "Circle",
+    "square": "Square"
   }
 }
