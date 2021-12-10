@@ -23,7 +23,7 @@ export const Step2: React.FC = () => {
       <FormItem
         name="salutation"
         label={t('forms.stepFormLabels.salutation')}
-        rules={[{ required: true, message: t('common.requiredField') }]}
+        rules={[{ required: true, message: t('forms.stepFormLabels.salutationError') }]}
       >
         <RadioGroup>
           <RadioButton value="mr">{t('forms.stepFormLabels.mr')}</RadioButton>
@@ -43,28 +43,28 @@ export const Step2: React.FC = () => {
       <FormItem
         name="firstName"
         label={t('forms.stepFormLabels.firstName')}
-        rules={[{ required: true, message: t('common.requiredField') }]}
+        rules={[{ required: true, message: t('forms.stepFormLabels.firstNameError') }]}
       >
         <Input />
       </FormItem>
       <FormItem
         name="lastName"
         label={t('forms.stepFormLabels.lastName')}
-        rules={[{ required: true, message: t('common.requiredField') }]}
+        rules={[{ required: true, message: t('forms.stepFormLabels.lastNameError') }]}
       >
         <Input />
       </FormItem>
       <FormItem
         name="birthday"
         label={t('forms.stepFormLabels.birthday')}
-        rules={[{ required: true, message: t('common.requiredField') }]}
+        rules={[{ required: true, message: t('forms.stepFormLabels.birthdayError') }]}
       >
         <DatePicker format="YYYY-MM-DD" />
       </FormItem>
       <S.PhoneItem
         name="phone"
         label={t('forms.stepFormLabels.phone')}
-        rules={[{ required: true, message: t('common.requiredField') }]}
+        rules={[{ required: true, message: t('forms.stepFormLabels.phoneError') }]}
       >
         <Input addonBefore={prefixSelector} />
       </S.PhoneItem>

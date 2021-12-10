@@ -11,14 +11,14 @@ export const Step1: React.FC = () => {
       <FormItem
         name="login"
         label={t('forms.stepFormLabels.login')}
-        rules={[{ required: true, message: t('common.requiredField') }]}
+        rules={[{ required: true, message: t('forms.stepFormLabels.loginError') }]}
       >
         <Input />
       </FormItem>
       <FormItem
         name="password"
         label={t('forms.stepFormLabels.password')}
-        rules={[{ required: true, message: t('common.requiredField') }]}
+        rules={[{ required: true, message: t('forms.stepFormLabels.passwordError') }]}
       >
         <InputPassword />
       </FormItem>
@@ -27,7 +27,7 @@ export const Step1: React.FC = () => {
         label={t('forms.stepFormLabels.confirmPassword')}
         dependencies={['password']}
         rules={[
-          { required: true, message: t('common.requiredField') },
+          { required: true, message: t('common.confirmPasswordError') },
           ({ getFieldValue }) => ({
             validator(_, value) {
               if (!value || getFieldValue('password') === value) {

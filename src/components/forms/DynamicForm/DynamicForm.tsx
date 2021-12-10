@@ -43,7 +43,7 @@ export const DynamicForm: React.FC = () => {
       <FormItem
         name="area"
         label={t('forms.dynamicFormLabels.area')}
-        rules={[{ required: true, message: t('common.requiredField') }]}
+        rules={[{ required: true, message: t('forms.dynamicFormLabels.areaError') }]}
       >
         <Select options={areas} onChange={handleChange} />
       </FormItem>
@@ -65,7 +65,7 @@ export const DynamicForm: React.FC = () => {
                       label={t('forms.dynamicFormLabels.sight')}
                       name={[field.name, 'sight']}
                       fieldKey={[field.fieldKey, 'sight']}
-                      rules={[{ required: true, message: t('common.requiredField') }]}
+                      rules={[{ required: true, message: t('forms.dynamicFormLabels.sightError') }]}
                     >
                       <S.Select disabled={!form.getFieldValue('area')}>
                         {(sights[form.getFieldValue('area')] || []).map((item) => (
@@ -82,7 +82,7 @@ export const DynamicForm: React.FC = () => {
                   label={t('forms.dynamicFormLabels.price')}
                   name={[field.name, 'price']}
                   fieldKey={[field.fieldKey, 'price']}
-                  rules={[{ required: true, message: t('common.requiredField') }]}
+                  rules={[{ required: true, message: t('forms.dynamicFormLabels.priceError') }]}
                 >
                   <Input />
                 </FormItem>
