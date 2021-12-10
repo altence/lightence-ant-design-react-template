@@ -191,6 +191,11 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: 'popconfirms',
         url: '/ui-components/popconfirms',
       },
+      {
+        title: 'common.progressPage',
+        key: 'progress',
+        url: '/ui-components/progress',
+      },
     ],
   },
 ];

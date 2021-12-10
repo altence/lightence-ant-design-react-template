@@ -83,7 +83,8 @@
     "paginationPage": "Pagination",
     "modalsPage": "Modals",
     "popoversPage": "Popovers",
-    "popconfirmsPage": "Popconfirms"
+    "popconfirmsPage": "Popconfirms",
+    "progressPage": "Progress"
   },
   "header": {
     "search": "Search",
@@ -616,5 +617,12 @@
     "yesClick": "Clicked on Yes.",
     "async": "Asynchronously close",
     "openAsync": "Open Popconfirm with async logic"
+  },
+  "progress": {
+    "basic": "Basic progress",
+    "circle": "Circle progress",
+    "dynamic": "Dynamic progress",
+    "dashboard": "Dashboard progress",
+    "gradient": "Gradient progress"
   }
 }
