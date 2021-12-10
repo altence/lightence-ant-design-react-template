@@ -30,8 +30,8 @@ import SpinnersPage from '@app/pages/UIComponentsPages/SpinnersPage';
 import AvatarsPage from '@app/pages/UIComponentsPages/DataDisplay/AvatarsPage';
 import BadgesPage from '@app/pages/UIComponentsPages/DataDisplay/BadgesPage';
 import CollapsePage from '@app/pages/UIComponentsPages/DataDisplay/CollapsePage';
-import PaginationPage from 'pages/UIComponentsPages/DataDisplay/PaginationPage';
-
+import PaginationPage from '@app/pages/UIComponentsPages/DataDisplay/PaginationPage';
+import ModalsPage from '@app/pages/UIComponentsPages/Modals/ModalsPage';
 /*TODO check for lazy loading and add if lack*/
 export const AppRouter: React.FC = () => {
   return (
@@ -55,6 +55,7 @@ export const AppRouter: React.FC = () => {
             <Route path="badges" element={<BadgesPage />} />
             <Route path="collapse" element={<CollapsePage />} />
             <Route path="pagination" element={<PaginationPage />} />
+            <Route path="modals" element={<ModalsPage />} />
           </Route>
           <Route path="data-tables" element={<DataTablesPage />} />
           <Route path="charts" element={<ChartsPage />} />
