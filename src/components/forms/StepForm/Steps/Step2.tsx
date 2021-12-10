@@ -2,7 +2,7 @@ import { FormItem } from 'components/common/Form/Form.styles';
 import { Input } from 'components/common/inputs/Input/Input';
 import { RadioButton, RadioGroup } from 'components/common/Radio/Radio';
 import { DatePicker } from 'components/common/pickers/DatePicker';
-import { Option } from 'components/common/selects/Select/Select';
+import { Select, Option } from 'components/common/selects/Select/Select';
 import { useTranslation } from 'react-i18next';
 import * as S from '../StepForm.styles';
 
@@ -35,7 +35,10 @@ export const Step2: React.FC = () => {
         label={t('forms.stepFormLabels.gender')}
         rules={[{ required: true, message: t('common.requiredField') }]}
       >
-        <Input />
+        <Select placeholder={t('forms.stepFormLabels.gender')}>
+          <Option value="male">{t('forms.stepFormLabels.male')}</Option>
+          <Option value="female">{t('forms.stepFormLabels.female')}</Option>
+        </Select>
       </FormItem>
       <FormItem
         name="firstName"
