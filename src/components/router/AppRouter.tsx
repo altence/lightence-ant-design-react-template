@@ -36,6 +36,7 @@ import PopoversPage from '@app/pages/UIComponentsPages/Modals/PopoversPage';
 import PopconfirmsPage from '@app/pages/UIComponentsPages/Modals/PopconfirmsPage';
 import ProgressPage from '@app/pages/UIComponentsPages/Feedback/ProgressPage';
 import ResultsPage from '@app/pages/UIComponentsPages/Feedback/ResultsPage';
+import AlertsPage from '@app/pages/UIComponentsPages/Feedback/AlertsPage';
 /*TODO check for lazy loading and add if lack*/
 export const AppRouter: React.FC = () => {
   return (
@@ -64,6 +65,7 @@ export const AppRouter: React.FC = () => {
             <Route path="popconfirms" element={<PopconfirmsPage />} />
             <Route path="progress" element={<ProgressPage />} />
             <Route path="results" element={<ResultsPage />} />
+            <Route path="alerts" element={<AlertsPage />} />
           </Route>
           <Route path="data-tables" element={<DataTablesPage />} />
           <Route path="charts" element={<ChartsPage />} />
