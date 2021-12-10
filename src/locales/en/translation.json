@@ -85,7 +85,8 @@
     "popoversPage": "Popovers",
     "popconfirmsPage": "Popconfirms",
     "progressPage": "Progress",
-    "resultsPage": "Results"
+    "resultsPage": "Results",
+    "alertsPage": "Alerts"
   },
   "header": {
     "search": "Search",
@@ -639,5 +640,25 @@
     "errorSubTitle": "Please check and modify the following information before resubmitting.",
     "goConsole": "Go Console",
     "buyAgain": "Buy Again"
+  },
+  "alerts": {
+    "basic": "Basic alert",
+    "types": "Alert types",
+    "closable": "Closable alert",
+    "icons": "Alert with icon",
+    "customActions": "Alert with custom actions",
+    "success": "Success Text",
+    "info": "Info text",
+    "warning": "Warning text",
+    "error": "Error text",
+    "errorDescription": "Error Description",
+    "successDescription": "Detailed description and advice about successful copywriting.",
+    "infoDescription": "Additional description and information about copywriting.",
+    "warningDescription": "This is a warning notice about copywriting.",
+    "undo": "UNDO",
+    "detail": "Detail",
+    "done": "Done",
+    "accept": "Accept",
+    "decline": "Decline"
   }
 }

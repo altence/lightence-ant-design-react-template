@@ -16,7 +16,7 @@ const ProgressPage: React.FC = () => {
 
   return (
     <Col>
-      <Card title={t('results.success')} padding="1.25rem">
+      <Card title={t('results.success')} padding="1.25rem 0">
         <Result
           status="success"
           title={t('results.successTitle')}
@@ -29,7 +29,7 @@ const ProgressPage: React.FC = () => {
           ]}
         />
       </Card>
-      <Card title={t('results.info')} padding="1.25rem">
+      <Card title={t('results.info')} padding="1.25rem 0">
         <Result
           title={t('results.infoTitle')}
           extra={
@@ -39,7 +39,7 @@ const ProgressPage: React.FC = () => {
           }
         />
       </Card>
-      <Card title={t('results.warning')} padding="1.25rem">
+      <Card title={t('results.warning')} padding="1.25rem 0">
         <Result
           status="warning"
           title={t('results.warningTitle')}
@@ -50,7 +50,7 @@ const ProgressPage: React.FC = () => {
           }
         />
       </Card>
-      <Card title={t('results.error')} padding="1.25rem">
+      <Card title={t('results.error')} padding="1.25rem 0">
         <Result
           status="error"
           title={t('results.errorTitle')}
