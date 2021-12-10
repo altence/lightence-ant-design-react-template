@@ -448,7 +448,9 @@
       "done": "Done",
       "previous": "Previous",
       "mr": "Mr",
-      "mrs": "Mrs"
+      "mrs": "Mrs",
+      "male": "Male",
+      "female": "Female"
     }
   }
 }
