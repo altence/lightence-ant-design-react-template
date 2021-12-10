@@ -84,7 +84,8 @@
     "modalsPage": "Modals",
     "popoversPage": "Popovers",
     "popconfirmsPage": "Popconfirms",
-    "progressPage": "Progress"
+    "progressPage": "Progress",
+    "resultsPage": "Results"
   },
   "header": {
     "search": "Search",
@@ -624,5 +625,19 @@
     "dynamic": "Dynamic progress",
     "dashboard": "Dashboard progress",
     "gradient": "Gradient progress"
+  },
+  "results": {
+    "success": "Success result",
+    "info": "Info result",
+    "warning": "Warning result",
+    "error": "Error result",
+    "successTitle": "Successfully Purchased Cloud Server ECS!",
+    "successSubTitle": "Order number: 2017182818828182881 Cloud server configuration takes 1-5 minutes, please wait.",
+    "infoTitle": "Your operation has been executed",
+    "warningTitle": "There are some problems with your operation.",
+    "errorTitle": "Submission Failed",
+    "errorSubTitle": "Please check and modify the following information before resubmitting.",
+    "goConsole": "Go Console",
+    "buyAgain": "Buy Again"
   }
 }
