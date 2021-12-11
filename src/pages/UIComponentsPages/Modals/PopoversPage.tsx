@@ -52,7 +52,7 @@ const PopoversPage: React.FC = () => {
           <Button type="primary">{t('popovers.hover')}</Button>
         </Popover>
       </S.Card>
-      <S.Card title={t('popovers.positions')}>
+      <S.Card title={t('popovers.positions')} padding="1.25rem 0">
         <div>
           <TopButtons>
             <Popover placement="topLeft" title={title} content={content} trigger="click">
@@ -100,7 +100,7 @@ const PopoversPage: React.FC = () => {
           </BottomButtons>
         </div>
       </S.Card>
-      <S.Card title={t('popovers.triggers')}>
+      <S.Card title={t('popovers.triggers')} padding="1.25rem 0">
         <Popover content={content} title={title} trigger="hover">
           <Button>{t('popovers.hover')}</Button>
         </Popover>
