@@ -1,5 +1,6 @@
-import { Switch as AntdSwitch, SwitchProps } from 'antd';
+import { SwitchProps } from 'antd';
+import * as S from './Switch.styles';
 
 export const Switch: React.FC<SwitchProps> = (props) => {
-  return <AntdSwitch {...props} />;
+  return <S.Switch {...props} />;
 };
