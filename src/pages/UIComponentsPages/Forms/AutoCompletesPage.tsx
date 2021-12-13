@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Col, Input } from 'antd';
+import { Col } from 'antd';
 import { AutoComplete } from 'components/common/AutoComplete/AutoComplete';
+import { SearchInput } from 'components/common/inputs/SearchInput/SearchInput';
 import { Option } from 'components/common/selects/Select/Select';
 import { UserOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
@@ -104,7 +105,7 @@ const AutoCompletesPage: React.FC = () => {
           style={{ width: 400 }}
           options={categories}
         >
-          <Input.Search size="large" placeholder={t('autoCompletes.inputHere')} />
+          <SearchInput size="large" placeholder={t('autoCompletes.inputHere')} prefix={null} />
         </AutoComplete>
       </S.Card>
     </Col>

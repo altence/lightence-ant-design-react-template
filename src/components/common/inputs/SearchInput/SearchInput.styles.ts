@@ -1,10 +1,15 @@
 import styled from 'styled-components';
-import { Space as AntSpace } from 'antd';
-import { Input } from 'components/common/inputs/Input/Input';
+import { Space as AntSpace, Input } from 'antd';
 
-export const SearchInput = styled(Input)`
+const { Search } = Input;
+
+export const SearchInput = styled(Search)`
   & .ant-input-prefix {
     margin: 0.5rem;
+  }
+
+  & .ant-input-search-button {
+    height: 3.8125rem;
   }
 
   & input {
