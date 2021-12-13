@@ -20,11 +20,16 @@ export const SearchIcon = styled(SearchOutlined)`
 `;
 
 export const InputSearch = styled(SearchInput)`
+  .ant-input-group-addon {
+    display: none;
+  }
   @media only screen and ${(props) => props.theme.media.md} {
-    border-radius: 50px;
-    border: 0;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    .ant-input-group .ant-input-affix-wrapper:not(:last-child) {
+      border-radius: 3.125rem;
+      border: 0;
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
   }
 `;
 

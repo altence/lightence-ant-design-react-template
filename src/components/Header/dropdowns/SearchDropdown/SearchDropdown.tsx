@@ -44,12 +44,15 @@ export const SearchDropdown: React.FC<SearchOverlayProps> = ({
       >
         <DropdownHeader>
           <InputSearch
+            width="100%"
             value={query}
             placeholder={t('header.search')}
             filter={
               <Btn size="small" type="text" icon={<FilterIcon />} onClick={() => setFilterActive(!isFilterVisible)} />
             }
             onChange={(event) => setQuery(event.target.value)}
+            enterButton={null}
+            addonAfter={null}
           />
           <div ref={ref}></div>
         </DropdownHeader>
