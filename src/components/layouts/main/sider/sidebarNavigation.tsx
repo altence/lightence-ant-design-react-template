@@ -236,6 +236,11 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: 'switches',
         url: '/ui-components/switches',
       },
+      {
+        title: 'common.uploadsPage',
+        key: 'uploads',
+        url: '/ui-components/uploads',
+      },
     ],
   },
 ];

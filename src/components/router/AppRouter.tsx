@@ -43,6 +43,7 @@ import CheckboxesPage from 'pages/UIComponentsPages/Forms/CheckboxesPage';
 import RadiosPage from 'pages/UIComponentsPages/Forms/RadiosPage';
 import SelectsPage from 'pages/UIComponentsPages/Forms/SelectsPage';
 import SwitchesPage from 'pages/UIComponentsPages/Forms/SwitchesPage';
+import UploadsPage from 'pages/UIComponentsPages/Forms/UploadsPage';
 /*TODO check for lazy loading and add if lack*/
 export const AppRouter: React.FC = () => {
   return (
@@ -67,6 +68,7 @@ export const AppRouter: React.FC = () => {
             <Route path="radios" element={<RadiosPage />} />
             <Route path="selects" element={<SelectsPage />} />
             <Route path="switches" element={<SwitchesPage />} />
+            <Route path="uploads" element={<UploadsPage />} />
             <Route path="avatars" element={<AvatarsPage />} />
             <Route path="badges" element={<BadgesPage />} />
             <Route path="collapse" element={<CollapsePage />} />
