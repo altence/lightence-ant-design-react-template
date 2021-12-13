@@ -89,7 +89,8 @@
     "skeletonsPage": "DE!!!Skeletons",
     "inputsPage": "DE!!!Inputs",
     "checkboxesPage": "DE!!!Checkboxes",
-    "radiosPage": "DE!!!Radios"
+    "radiosPage": "DE!!!Radios",
+    "selectsPage": "DE!!!Selects"
   },
   "header": {
     "search": "Search",
@@ -709,5 +710,20 @@
     "d": "DE!!!D",
     "radioButton": "DE!!!Radio button",
     "radioButtonSizes": "DE!!!Radio button sizes"
+  },
+  "selects": {
+    "basic": "DE!!!Basic select",
+    "multipleSelect": "DE!!!Multiple select",
+    "selectSizes": "DE!!!Select sizes",
+    "customTags": "DE!!!Custom tags",
+    "disabled": "DE!!!Disabled",
+    "pleaseSelect": "DE!!!Please select",
+    "gold": "DE!!!gold",
+    "lime": "DE!!!lime",
+    "green": "DE!!!green",
+    "cyan": "DE!!!cyan",
+    "small": "DE!!!Small",
+    "middle": "DE!!!Middle",
+    "large": "DE!!!Large"
   }
 }
