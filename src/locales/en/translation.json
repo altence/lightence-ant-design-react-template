@@ -94,7 +94,8 @@
     "selectsPage": "Selects",
     "switchesPage": "Switches",
     "uploadsPage": "Uploads",
-    "ratesPage": "Rates"
+    "ratesPage": "Rates",
+    "autoCompletesPage": "AutoCompletes"
   },
   "header": {
     "search": "Search",
@@ -774,5 +775,19 @@
     "halfStar": "Half star rate",
     "readOnly": "Read only rate",
     "customIcons": "Rate with custom icons"
+  },
+  "autoCompletes": {
+    "basic": "Basic AutoComplete",
+    "customOptions": "AutoComplete with custom options",
+    "categories": "AutoComplete with categories",
+    "inputHere": "input here",
+    "libraries": "Libraries",
+    "solutions": "Solutions",
+    "articles": "Articles",
+    "antDesign": "AntDesign",
+    "antDesignFaq": "AntDesign FAQ",
+    "antDesignUI": "AntDesign UI",
+    "antDesignUIFaq": "AntDesign UI FAQ",
+    "antDesignLanguage": "AntDesign design language"
   }
 }

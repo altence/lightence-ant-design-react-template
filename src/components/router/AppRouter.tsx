@@ -45,6 +45,7 @@ import SelectsPage from 'pages/UIComponentsPages/Forms/SelectsPage';
 import SwitchesPage from 'pages/UIComponentsPages/Forms/SwitchesPage';
 import UploadsPage from 'pages/UIComponentsPages/Forms/UploadsPage';
 import RatesPage from 'pages/UIComponentsPages/Forms/RatesPage';
+import AutoCompletesPage from 'pages/UIComponentsPages/Forms/AutoCompletesPage';
 /*TODO check for lazy loading and add if lack*/
 export const AppRouter: React.FC = () => {
   return (
@@ -71,6 +72,7 @@ export const AppRouter: React.FC = () => {
             <Route path="switches" element={<SwitchesPage />} />
             <Route path="uploads" element={<UploadsPage />} />
             <Route path="rates" element={<RatesPage />} />
+            <Route path="auto-completes" element={<AutoCompletesPage />} />
             <Route path="avatars" element={<AvatarsPage />} />
             <Route path="badges" element={<BadgesPage />} />
             <Route path="collapse" element={<CollapsePage />} />

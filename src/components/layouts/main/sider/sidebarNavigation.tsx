@@ -246,6 +246,11 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: 'rates',
         url: '/ui-components/rates',
       },
+      {
+        title: 'common.autoCompletesPage',
+        key: 'auto-completes',
+        url: '/ui-components/auto-completes',
+      },
     ],
   },
 ];
