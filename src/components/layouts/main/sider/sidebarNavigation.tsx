@@ -241,6 +241,11 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: 'uploads',
         url: '/ui-components/uploads',
       },
+      {
+        title: 'common.ratesPage',
+        key: 'rates',
+        url: '/ui-components/rates',
+      },
     ],
   },
 ];
