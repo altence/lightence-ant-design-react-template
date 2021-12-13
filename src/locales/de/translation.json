@@ -90,7 +90,8 @@
     "inputsPage": "DE!!!Inputs",
     "checkboxesPage": "DE!!!Checkboxes",
     "radiosPage": "DE!!!Radios",
-    "selectsPage": "DE!!!Selects"
+    "selectsPage": "DE!!!Selects",
+    "switchesPage": "Switches"
   },
   "header": {
     "search": "Search",
@@ -725,5 +726,15 @@
     "small": "DE!!!Small",
     "middle": "DE!!!Middle",
     "large": "DE!!!Large"
+  },
+  "switches": {
+    "basic": "DE!!!Basic switch",
+    "disabled": "DE!!!Disabled switch",
+    "sizes": "DE!!!Switch sizes",
+    "loading": "DE!!!Switch with loading",
+    "icons": "DE!!!Switch with text and icons",
+    "toggleDisabled": "DE!!!Toggle disabled",
+    "yes": "DE!!!Yes",
+    "no": "DE!!!No"
   }
 }

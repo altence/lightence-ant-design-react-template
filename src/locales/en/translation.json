@@ -91,7 +91,8 @@
     "inputsPage": "Inputs",
     "checkboxesPage": "Checkboxes",
     "radiosPage": "Radios",
-    "selectsPage": "Selects"
+    "selectsPage": "Selects",
+    "switchesPage": "Switches"
   },
   "header": {
     "search": "Search",
@@ -745,5 +746,15 @@
     "small": "Small",
     "middle": "Middle",
     "large": "Large"
+  },
+  "switches": {
+    "basic": "Basic switch",
+    "disabled": "Disabled switch",
+    "sizes": "Switch sizes",
+    "loading": "Switch with loading",
+    "icons": "Switch with text and icons",
+    "toggleDisabled": "Toggle disabled",
+    "yes": "Yes",
+    "no": "No"
   }
 }
