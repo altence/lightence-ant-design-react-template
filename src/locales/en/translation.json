@@ -88,7 +88,8 @@
     "resultsPage": "Results",
     "alertsPage": "Alerts",
     "skeletonsPage": "Skeletons",
-    "inputsPage": "Inputs"
+    "inputsPage": "Inputs",
+    "checkboxesPage": "Checkboxes"
   },
   "header": {
     "search": "Search",
@@ -695,5 +696,23 @@
     "prePost": "Pre & post tabs",
     "prefixSuffix": "Prefix & suffix",
     "textarea": "Textarea"
+  },
+  "checkboxes": {
+    "basic": "Basic checkbox",
+    "checkbox": "Checkbox",
+    "disabledCheckbox": "Disabled checkbox",
+    "controlled": "Controlled checkbox",
+    "group": "Checkbox group",
+    "check": "Check",
+    "uncheck": "Uncheck",
+    "enable": "Enable",
+    "disable": "Disable",
+    "checked": "Checked",
+    "unchecked": "Unchecked",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "apple": "Apple",
+    "pear": "Pear",
+    "orange": "Orange"
   }
 }
