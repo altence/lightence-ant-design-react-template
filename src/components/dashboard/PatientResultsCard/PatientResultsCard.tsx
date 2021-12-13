@@ -21,7 +21,7 @@ export const PatientResultsCard: React.FC = () => {
         {patientResultStatus.map((status, index) => {
           const patientResult = patientResultsData.find((item) => item.status === status.id) || {
             isActive: false,
-            date: new Date().toUTCString(),
+            date: Date.now(),
           };
           return (
             <Step
