@@ -226,6 +226,11 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: 'radios',
         url: '/ui-components/radios',
       },
+      {
+        title: 'common.selectsPage',
+        key: 'selects',
+        url: '/ui-components/selects',
+      },
     ],
   },
 ];
