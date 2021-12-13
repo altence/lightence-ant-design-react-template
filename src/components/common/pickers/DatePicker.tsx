@@ -5,7 +5,6 @@ import { AppDate } from 'constants/Dates';
 
 type DatePickerProps = PickerProps<AppDate>;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const DatePicker = React.forwardRef<any, DatePickerProps>(({ className, ...props }, ref) => (
-  <DayjsDatePicker ref={ref} className={className} {...props} />
-));
+export const DatePicker = React.forwardRef<React.Component<DatePickerProps>, DatePickerProps>(
+  ({ className, ...props }, ref) => <DayjsDatePicker ref={ref} className={className} {...props} />,
+);
