@@ -151,16 +151,16 @@
     "patientResults": {
       "title": "DE!!!Patient timeline",
       "patientDischarge": {
-        "title": "DE!!!Patient discharge",
-        "description": "DE!!!Without new treatments, the W.H.O. says, the number of new cancer patients could reach twenty-seven million."
+        "title": "DE!!!Patient's discharge",
+        "description": "DE!!!A hospital will discharge you when you no longer need to receive inpatient care and can go home. Or, a hospital will discharge you to send you to another type of facility."
       },
       "treatmentStarts": {
         "title": "DE!!!Treatment starts",
-        "description": "DE!!!Dynamic treatment regimes are the type of regime most commonly used in clinical practice. For example, physicians may initiate combined antiretroviral therapy the first time an individual's recorded CD4 cell count drops below either 500 cells/mm3 or 350 cells/mm3."
+        "description": "DE!!!Part of the evaluation and treatment of any patient, regardless of condition or diagnosis, is an appropriate framework or pathway for diagnosis, treatment, and, if necessary, referral for specialty care."
       },
       "patientAdmission": {
         "title": "DE!!!Patient admission",
-        "description": "DE!!!Emergent hospital admissions usually happen when a patient seen in the emergency department is subsequently admitted to the hospital."
+        "description": "DE!!!Admission of a patient means allowing and facilitating a patient to stay in the hospital unit or ward for observation, investigation, and treatment of the disease he or she is suffering from."
       }
     },
     "news": "DE!!!News"

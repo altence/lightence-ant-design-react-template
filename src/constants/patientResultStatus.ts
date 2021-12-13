@@ -7,8 +7,8 @@ interface ResultStatus {
 export const patientResultStatus: ResultStatus[] = [
   {
     id: 1,
-    name: 'dashboard.patientResults.patientDischarge.title',
-    desc: 'dashboard.patientResults.patientDischarge.description',
+    name: 'dashboard.patientResults.patientAdmission.title',
+    desc: 'dashboard.patientResults.patientAdmission.description',
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ export const patientResultStatus: ResultStatus[] = [
   },
   {
     id: 3,
-    name: 'dashboard.patientResults.patientAdmission.title',
-    desc: 'dashboard.patientResults.patientAdmission.description',
+    name: 'dashboard.patientResults.patientDischarge.title',
+    desc: 'dashboard.patientResults.patientDischarge.description',
   },
 ];
