@@ -91,7 +91,8 @@
     "checkboxesPage": "DE!!!Checkboxes",
     "radiosPage": "DE!!!Radios",
     "selectsPage": "DE!!!Selects",
-    "switchesPage": "Switches"
+    "switchesPage": "DE!!!Switches",
+    "uploadsPage": "DE!!!Uploads"
   },
   "header": {
     "search": "Search",
@@ -736,5 +737,15 @@
     "toggleDisabled": "DE!!!Toggle disabled",
     "yes": "DE!!!Yes",
     "no": "DE!!!No"
+  },
+  "uploads": {
+    "basic": "DE!!!Basic upload",
+    "directory": "DE!!!Upload directory",
+    "dragger": "DE!!!Dragger upload",
+    "clickToUpload": "DE!!!Click to upload",
+    "dragUpload": "DE!!!Click or drag file to this area to upload",
+    "bulkUpload": "DE!!!Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files",
+    "successUpload": "DE!!!{{name}} file uploaded successfully.",
+    "failedUpload": "DE!!!{{name}} file upload failed."
   }
 }
