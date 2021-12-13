@@ -93,7 +93,8 @@
     "radiosPage": "Radios",
     "selectsPage": "Selects",
     "switchesPage": "Switches",
-    "uploadsPage": "Uploads"
+    "uploadsPage": "Uploads",
+    "ratesPage": "Rates"
   },
   "header": {
     "search": "Search",
@@ -767,5 +768,11 @@
     "bulkUpload": "Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files",
     "successUpload": "{{name}} file uploaded successfully.",
     "failedUpload": "{{name}} file upload failed."
+  },
+  "rates": {
+    "basic": "Basic rate",
+    "halfStar": "Half star rate",
+    "readOnly": "Read only rate",
+    "customIcons": "Rate with custom icons"
   }
 }

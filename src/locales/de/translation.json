@@ -92,7 +92,8 @@
     "radiosPage": "DE!!!Radios",
     "selectsPage": "DE!!!Selects",
     "switchesPage": "DE!!!Switches",
-    "uploadsPage": "DE!!!Uploads"
+    "uploadsPage": "DE!!!Uploads",
+    "ratesPage": "DE!!!Rates"
   },
   "header": {
     "search": "Search",
@@ -747,5 +748,11 @@
     "bulkUpload": "DE!!!Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files",
     "successUpload": "DE!!!{{name}} file uploaded successfully.",
     "failedUpload": "DE!!!{{name}} file upload failed."
+  },
+  "rates": {
+    "basic": "DE!!!Basic rate",
+    "halfStar": "DE!!!Half star rate",
+    "readOnly": "DE!!!Read only rate",
+    "customIcons": "DE!!!Rate with custom icons"
   }
 }
