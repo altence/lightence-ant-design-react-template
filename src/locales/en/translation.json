@@ -89,7 +89,8 @@
     "alertsPage": "Alerts",
     "skeletonsPage": "Skeletons",
     "inputsPage": "Inputs",
-    "checkboxesPage": "Checkboxes"
+    "checkboxesPage": "Checkboxes",
+    "radiosPage": "Radios"
   },
   "header": {
     "search": "Search",
@@ -714,5 +715,19 @@
     "apple": "Apple",
     "pear": "Pear",
     "orange": "Orange"
+  },
+  "radios": {
+    "basic": "Basic radio",
+    "radio": "Radio",
+    "disabledRadio": "Disabled radio",
+    "disabled": "Disabled",
+    "toggleDisabled": "Toggle disabled",
+    "radioGroup": "Radio group",
+    "a": "A",
+    "b": "B",
+    "c": "C",
+    "d": "D",
+    "radioButton": "Radio button",
+    "radioButtonSizes": "Radio button sizes"
   }
 }
