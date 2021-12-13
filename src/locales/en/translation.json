@@ -87,7 +87,8 @@
     "progressPage": "Progress",
     "resultsPage": "Results",
     "alertsPage": "Alerts",
-    "skeletonsPage": "Skeletons"
+    "skeletonsPage": "Skeletons",
+    "inputsPage": "Inputs"
   },
   "header": {
     "search": "Search",
@@ -678,5 +679,21 @@
     "round": "Round",
     "circle": "Circle",
     "square": "Square"
+  },
+  "inputs": {
+    "basic": "Basic input",
+    "sizes": "Input sizes",
+    "small": "small size",
+    "default": "default size",
+    "large": "large size",
+    "enterName": "Enter your username",
+    "extra": "Extra information",
+    "search": "Search inputs",
+    "searchText": "input search text",
+    "password": "Password input",
+    "passwordText": "input password",
+    "prePost": "Pre & post tabs",
+    "prefixSuffix": "Prefix & suffix",
+    "textarea": "Textarea"
   }
 }

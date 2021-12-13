@@ -211,6 +211,11 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: 'skeletons',
         url: '/ui-components/skeletons',
       },
+      {
+        title: 'common.inputsPage',
+        key: 'inputs',
+        url: '/ui-components/inputs',
+      },
     ],
   },
 ];
