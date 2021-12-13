@@ -35,7 +35,7 @@ export const PatientResultsCard: React.FC = () => {
                     </S.DateWrapper>
                   </S.MobileTitleWrapper>
                 ) : (
-                  t(status.name)
+                  <S.TitleWrapper>{t(status.name)}</S.TitleWrapper>
                 )
               }
               description={

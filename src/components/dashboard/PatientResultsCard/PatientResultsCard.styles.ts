@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 import { Typography } from 'antd';
 import { CalendarOutlined } from '@ant-design/icons';
-import theme from '../../../styles/theme';
 
 interface IconProps {
   isActive: boolean;
 }
+
+export const TitleWrapper = styled.div`
+  height: 2rem;
+  display: flex;
+  align-items: center;
+`;
 
 export const CalendarIcon = styled(CalendarOutlined)`
   @media only screen and ${(props) => props.theme.media.xs} {
@@ -20,6 +25,8 @@ export const CalendarIcon = styled(CalendarOutlined)`
 export const MobileTitleWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  height: 2rem;
+  align-items: center;
 `;
 
 export const InfoWrapper = styled.div`
@@ -31,15 +38,6 @@ export const DateWrapper = styled.div`
   display: flex;
   align-items: center;
   font-size: ${(props) => props.theme.commonFontSizes.xs};
-  margin-top: 0.375rem;
-
-  @media only screen and ${theme.media.xs} {
-    margin-top: 0;
-  }
-
-  @media only screen and ${theme.media.md} {
-    margin-top: 0.375rem;
-  }
 `;
 
 export const Text = styled(Typography.Text)`
