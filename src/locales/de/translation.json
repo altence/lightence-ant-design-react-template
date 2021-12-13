@@ -74,7 +74,22 @@
     "pwa": "DE!!!Install PWA",
     "ui": "DE!!!UI Components",
     "buttonPage": "DE!!!Buttons",
-    "spinnerPage": "DE!!!Spinners"
+    "spinnerPage": "DE!!!Spinners",
+    "dataDisplay": "DE!!!Data display",
+    "avatarsPage": "DE!!!Avatars",
+    "badgesPage": "DE!!!Badges",
+    "collapsePage": "DE!!!Collapse",
+    "paginationPage": "DE!!!Pagination",
+    "modalsPage": "DE!!!Modals",
+    "popoversPage": "DE!!!Popovers",
+    "popconfirmsPage": "DE!!!Popconfirms",
+    "progressPage": "DE!!!Progress",
+    "resultsPage": "DE!!!Results",
+    "alertsPage": "DE!!!Alerts",
+    "skeletonsPage": "DE!!!Skeletons",
+    "inputsPage": "DE!!!Inputs",
+    "checkboxesPage": "DE!!!Checkboxes",
+    "radiosPage": "DE!!!Radios"
   },
   "header": {
     "search": "Search",
@@ -680,5 +695,19 @@
     "apple": "DE!!!Apple",
     "pear": "DE!!!Pear",
     "orange": "DE!!!Orange"
+  },
+  "radios": {
+    "basic": "DE!!!Basic radio",
+    "radio": "DE!!!Radio",
+    "disabledRadio": "DE!!!Disabled radio",
+    "disabled": "DE!!!Disabled",
+    "toggleDisabled": "DE!!!Toggle disabled",
+    "radioGroup": "DE!!!Radio group",
+    "a": "DE!!!A",
+    "b": "DE!!!B",
+    "c": "DE!!!C",
+    "d": "DE!!!D",
+    "radioButton": "DE!!!Radio button",
+    "radioButtonSizes": "DE!!!Radio button sizes"
   }
 }

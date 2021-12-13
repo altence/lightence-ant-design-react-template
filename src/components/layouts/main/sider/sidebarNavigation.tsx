@@ -221,6 +221,11 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: 'checkboxes',
         url: '/ui-components/checkboxes',
       },
+      {
+        title: 'common.radiosPage',
+        key: 'radios',
+        url: '/ui-components/radios',
+      },
     ],
   },
 ];
