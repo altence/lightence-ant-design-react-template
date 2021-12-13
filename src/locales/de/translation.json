@@ -662,5 +662,23 @@
     "prePost": "DE!!!Pre & post tabs",
     "prefixSuffix": "DE!!!Prefix & suffix",
     "textarea": "DE!!!Textarea"
+  },
+  "checkboxes": {
+    "basic": "DE!!!Basic checkbox",
+    "checkbox": "DE!!!Checkbox",
+    "disabledCheckbox": "DE!!!Disabled checkbox",
+    "controlled": "DE!!!Controlled checkbox",
+    "group": "DE!!!Checkbox group",
+    "check": "DE!!!Check",
+    "uncheck": "DE!!!Uncheck",
+    "enable": "DE!!!Enable",
+    "disable": "DE!!!Disable",
+    "checked": "DE!!!Checked",
+    "unchecked": "DE!!!Unchecked",
+    "enabled": "DE!!!Enabled",
+    "disabled": "DE!!!Disabled",
+    "apple": "DE!!!Apple",
+    "pear": "DE!!!Pear",
+    "orange": "DE!!!Orange"
   }
 }

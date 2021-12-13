@@ -216,6 +216,11 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: 'inputs',
         url: '/ui-components/inputs',
       },
+      {
+        title: 'common.checkboxesPage',
+        key: 'checkboxes',
+        url: '/ui-components/checkboxes',
+      },
     ],
   },
 ];
