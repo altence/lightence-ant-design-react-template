@@ -3,6 +3,8 @@ import { Input as AntInput, InputProps as AntInputProps } from 'antd';
 
 interface InputPasswordProps extends AntInputProps {
   className?: string;
+  visibilityToggle?: boolean;
+  iconRender?: (visible: boolean) => React.ReactNode;
 }
 
 export const InputPassword = React.forwardRef<AntInput, InputPasswordProps>(

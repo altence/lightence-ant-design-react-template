@@ -646,5 +646,21 @@
     "round": "DE!!!Round",
     "circle": "DE!!!Circle",
     "square": "DE!!!Square"
+  },
+  "inputs": {
+    "basic": "DE!!!Basic input",
+    "sizes": "DE!!!Input sizes",
+    "small": "DE!!!small size",
+    "default": "DE!!!default size",
+    "large": "DE!!!large size",
+    "enterName": "DE!!!Enter your username",
+    "extra": "DE!!!Extra information",
+    "search": "DE!!!Search inputs",
+    "searchText": "DE!!!input search text",
+    "password": "DE!!!Password input",
+    "passwordText": "DE!!!input password",
+    "prePost": "DE!!!Pre & post tabs",
+    "prefixSuffix": "DE!!!Prefix & suffix",
+    "textarea": "DE!!!Textarea"
   }
 }

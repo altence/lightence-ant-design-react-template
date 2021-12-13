@@ -38,6 +38,7 @@ import ProgressPage from '@app/pages/UIComponentsPages/Feedback/ProgressPage';
 import ResultsPage from '@app/pages/UIComponentsPages/Feedback/ResultsPage';
 import AlertsPage from '@app/pages/UIComponentsPages/Feedback/AlertsPage';
 import SkeletonsPage from '@app/pages/UIComponentsPages/Feedback/SkeletonsPage';
+import InputsPage from '@app/pages/UIComponentsPages/Forms/InputsPage';
 /*TODO check for lazy loading and add if lack*/
 export const AppRouter: React.FC = () => {
   return (
@@ -57,6 +58,7 @@ export const AppRouter: React.FC = () => {
           <Route path="ui-components">
             <Route path="buttons" element={<ButtonsPage />} />
             <Route path="spinners" element={<SpinnersPage />} />
+            <Route path="inputs" element={<InputsPage />} />
             <Route path="avatars" element={<AvatarsPage />} />
             <Route path="badges" element={<BadgesPage />} />
             <Route path="collapse" element={<CollapsePage />} />
