@@ -95,7 +95,8 @@
     "uploadsPage": "DE!!!Uploads",
     "ratesPage": "DE!!!Rates",
     "autoCompletesPage": "DE!!!AutoCompletes",
-    "stepsPage": "DE!!!Steps"
+    "stepsPage": "DE!!!Steps",
+    "dateTimePickersPage": "DE!!!DateTime Pickers"
   },
   "header": {
     "search": "Search",
@@ -786,5 +787,12 @@
     "verification": "DE!!!Verification",
     "pay": "DE!!!Pay",
     "done": "DE!!!Done"
+  },
+  "dateTimePickers": {
+    "basic": "DE!!!Basic pickers",
+    "sizes": "DE!!!Picker sizes",
+    "disabled": "DE!!!Disabled pickers",
+    "range": "DE!!!Range picker",
+    "time": "DE!!!Time picker"
   }
 }
