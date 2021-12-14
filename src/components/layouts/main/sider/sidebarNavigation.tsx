@@ -256,6 +256,11 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: 'steps',
         url: '/ui-components/steps',
       },
+      {
+        title: 'common.dateTimePickersPage',
+        key: 'dateTimePickers',
+        url: '/ui-components/date-time-pickers',
+      },
     ],
   },
 ];

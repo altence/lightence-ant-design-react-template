@@ -47,6 +47,7 @@ import UploadsPage from 'pages/UIComponentsPages/Forms/UploadsPage';
 import RatesPage from 'pages/UIComponentsPages/Forms/RatesPage';
 import AutoCompletesPage from 'pages/UIComponentsPages/Forms/AutoCompletesPage';
 import StepsPage from 'pages/UIComponentsPages/Forms/StepsPage';
+import DateTimePickersPage from 'pages/UIComponentsPages/Forms/DateTimePickersPage';
 /*TODO check for lazy loading and add if lack*/
 export const AppRouter: React.FC = () => {
   return (
@@ -75,6 +76,7 @@ export const AppRouter: React.FC = () => {
             <Route path="rates" element={<RatesPage />} />
             <Route path="auto-completes" element={<AutoCompletesPage />} />
             <Route path="steps" element={<StepsPage />} />
+            <Route path="date-time-pickers" element={<DateTimePickersPage />} />
             <Route path="avatars" element={<AvatarsPage />} />
             <Route path="badges" element={<BadgesPage />} />
             <Route path="collapse" element={<CollapsePage />} />
