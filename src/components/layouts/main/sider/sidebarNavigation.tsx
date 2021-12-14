@@ -251,6 +251,11 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: 'auto-completes',
         url: '/ui-components/auto-completes',
       },
+      {
+        title: 'common.stepsPage',
+        key: 'steps',
+        url: '/ui-components/steps',
+      },
     ],
   },
 ];

@@ -93,7 +93,9 @@
     "selectsPage": "DE!!!Selects",
     "switchesPage": "DE!!!Switches",
     "uploadsPage": "DE!!!Uploads",
-    "ratesPage": "DE!!!Rates"
+    "ratesPage": "DE!!!Rates",
+    "autoCompletesPage": "DE!!!AutoCompletes",
+    "stepsPage": "DE!!!Steps"
   },
   "header": {
     "search": "Search",
@@ -754,5 +756,35 @@
     "halfStar": "DE!!!Half star rate",
     "readOnly": "DE!!!Read only rate",
     "customIcons": "DE!!!Rate with custom icons"
+  },
+  "autoCompletes": {
+    "basic": "DE!!!Basic AutoComplete",
+    "customOptions": "DE!!!AutoComplete with custom options",
+    "categories": "DE!!!AutoComplete with categories",
+    "inputHere": "DE!!!input here",
+    "libraries": "DE!!!Libraries",
+    "solutions": "DE!!!Solutions",
+    "articles": "DE!!!Articles",
+    "antDesign": "DE!!!AntDesign",
+    "antDesignFaq": "DE!!!AntDesign FAQ",
+    "antDesignUI": "DE!!!AntDesign UI",
+    "antDesignUIFaq": "DE!!!AntDesign UI FAQ",
+    "antDesignLanguage": "DE!!!AntDesign design language"
+  },
+  "steps": {
+    "basic": "DE!!!Basic steps",
+    "small": "DE!!!Small steps",
+    "icons": "DE!!!Steps with icons",
+    "vertical": "DE!!!Vertical steps",
+    "clickable": "DE!!!Clickable steps",
+    "description": "DE!!!This is a description.",
+    "finished": "DE!!!Finished",
+    "inProgress": "DE!!!In Progress",
+    "waiting": "DE!!!Waiting",
+    "step": "DE!!!Step {{number}}",
+    "login": "DE!!!Login",
+    "verification": "DE!!!Verification",
+    "pay": "DE!!!Pay",
+    "done": "DE!!!Done"
   }
 }

@@ -95,7 +95,8 @@
     "switchesPage": "Switches",
     "uploadsPage": "Uploads",
     "ratesPage": "Rates",
-    "autoCompletesPage": "AutoCompletes"
+    "autoCompletesPage": "AutoCompletes",
+    "stepsPage": "Steps"
   },
   "header": {
     "search": "Search",
@@ -789,5 +790,21 @@
     "antDesignUI": "AntDesign UI",
     "antDesignUIFaq": "AntDesign UI FAQ",
     "antDesignLanguage": "AntDesign design language"
+  },
+  "steps": {
+    "basic": "Basic steps",
+    "small": "Small steps",
+    "icons": "Steps with icons",
+    "vertical": "Vertical steps",
+    "clickable": "Clickable steps",
+    "description": "This is a description.",
+    "finished": "Finished",
+    "inProgress": "In Progress",
+    "waiting": "Waiting",
+    "step": "Step {{number}}",
+    "login": "Login",
+    "verification": "Verification",
+    "pay": "Pay",
+    "done": "Done"
   }
 }
