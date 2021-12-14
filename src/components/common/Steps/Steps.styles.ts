@@ -19,7 +19,7 @@ export const Steps = styled(AntdSteps)`
     }
   }
 
-  & .ant-steps-item-wait > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title {
+  .ant-steps-item-wait > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title {
     color: ${(props) => props.theme.colors.text.main};
     font-weight: ${(props) => props.theme.commonFontWeight.semibold};
     font-size: ${(props) => props.theme.commonFontSizes.xs};
@@ -30,7 +30,7 @@ export const Steps = styled(AntdSteps)`
     }
   }
 
-  & .ant-steps-item .ant-steps-item-description {
+  .ant-steps-item .ant-steps-item-description {
     padding-bottom: 2.1875rem;
 
     @media only screen and ${(props) => props.theme.media.md} {
@@ -39,6 +39,16 @@ export const Steps = styled(AntdSteps)`
 
     @media only screen and ${(props) => props.theme.media.xl} {
       padding-bottom: 2.1875rem;
+    }
+  }
+  .ant-steps-item-container {
+    display: flex;
+    align-items: baseline;
+  }
+
+  &.ant-steps-vertical {
+    .ant-steps-item-container {
+      align-items: flex-start;
     }
   }
 `;
