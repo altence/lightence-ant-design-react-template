@@ -98,7 +98,8 @@
     "autoCompletesPage": "AutoCompletes",
     "stepsPage": "Steps",
     "dateTimePickersPage": "DateTime Pickers",
-    "dropDownsPage": "Dropdowns"
+    "dropDownsPage": "Dropdowns",
+    "breadcrumbsPage": "Breadcrumbs"
   },
   "header": {
     "search": "Search",
@@ -835,5 +836,21 @@
     "thirdItem": "3rd menu item",
     "dangerItem": "a danger item",
     "disabled": "disabled"
+  },
+  "breadcrumbs": {
+    "basic": "Basic breadcrumb",
+    "withIcon": "Breadcrumb with icon",
+    "customSeparator": "Breadcrumb with custom separator",
+    "withDropdown": "Breadcrumb with dropdown",
+    "general": "General",
+    "layout": "Layout",
+    "navigation": "Navigation",
+    "home": "Home",
+    "applicationCenter": "Application Center",
+    "applicationList": "Application List",
+    "application": "An Application",
+    "antd": "Ant Design",
+    "component": "Component",
+    "button": "Button"
   }
 }

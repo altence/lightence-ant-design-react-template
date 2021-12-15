@@ -97,7 +97,8 @@
     "autoCompletesPage": "DE!!!AutoCompletes",
     "stepsPage": "DE!!!Steps",
     "dateTimePickersPage": "DE!!!DateTime Pickers",
-    "dropDownsPage": "Dropdowns"
+    "dropDownsPage": "DE!!!Dropdowns",
+    "breadcrumbsPage": "DE!!!Breadcrumbs"
   },
   "header": {
     "search": "Search",
@@ -815,5 +816,21 @@
     "thirdItem": "DE!!!3rd menu item",
     "dangerItem": "DE!!!a danger item",
     "disabled": "DE!!!disabled"
+  },
+  "breadcrumbs": {
+    "basic": "DE!!!Basic breadcrumb",
+    "withIcon": "DE!!!Breadcrumb with icon",
+    "customSeparator": "DE!!!Breadcrumb with custom separator",
+    "withDropdown": "DE!!!Breadcrumb with dropdown",
+    "general": "DE!!!General",
+    "layout": "DE!!!Layout",
+    "navigation": "DE!!!Navigation",
+    "home": "DE!!!Home",
+    "applicationCenter": "DE!!!Application Center",
+    "applicationList": "DE!!!Application List",
+    "application": "DE!!!An Application",
+    "antd": "DE!!!Ant Design",
+    "component": "DE!!!Component",
+    "button": "DE!!!Button"
   }
 }
