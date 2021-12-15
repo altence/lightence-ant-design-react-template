@@ -261,6 +261,11 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: 'dateTimePickers',
         url: '/ui-components/date-time-pickers',
       },
+      {
+        title: 'common.dropDownsPage',
+        key: 'dropDowns',
+        url: '/ui-components/dropdowns',
+      },
     ],
   },
 ];

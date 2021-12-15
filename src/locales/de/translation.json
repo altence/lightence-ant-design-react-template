@@ -96,7 +96,8 @@
     "ratesPage": "DE!!!Rates",
     "autoCompletesPage": "DE!!!AutoCompletes",
     "stepsPage": "DE!!!Steps",
-    "dateTimePickersPage": "DE!!!DateTime Pickers"
+    "dateTimePickersPage": "DE!!!DateTime Pickers",
+    "dropDownsPage": "Dropdowns"
   },
   "header": {
     "search": "Search",
@@ -794,5 +795,25 @@
     "disabled": "DE!!!Disabled pickers",
     "range": "DE!!!Range picker",
     "time": "DE!!!Time picker"
+  },
+  "dropdowns": {
+    "basic": "DE!!!Basic dropdown",
+    "positions": "DE!!!Dropdown positions",
+    "clickable": "DE!!!Clickable dropdown",
+    "context": "DE!!!Context dropdown",
+    "rightClick": "DE!!!Right Click on here",
+    "clickMe": "DE!!!Click me",
+    "hoverMe": "DE!!!Hover me",
+    "bl": "DE!!!bottomLeft",
+    "bc": "DE!!!bottomCenter",
+    "br": "DE!!!bottomRight",
+    "tl": "DE!!!topLeft",
+    "tc": "DE!!!topCenter",
+    "tr": "DE!!!topRight",
+    "firstItem": "DE!!!1st menu item",
+    "secondItem": "DE!!!2nd menu item",
+    "thirdItem": "DE!!!3rd menu item",
+    "dangerItem": "DE!!!a danger item",
+    "disabled": "DE!!!disabled"
   }
 }

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Col, Alert, Switch } from 'antd';
+import { Col, Alert, Switch, Space } from 'antd';
 import { Spinner } from 'components/common/Spinner/Spinner';
 import { useTranslation } from 'react-i18next';
 import { LoadingOutlined, RedoOutlined, ChromeOutlined } from '@ant-design/icons';
@@ -29,26 +29,26 @@ const SpinnersPage: React.FC = () => {
         <Spinner indicator={antIcon3} />
       </S.Card>
       <S.Card title={t('spinners.customLoading')} padding="1.25rem 0">
-        <div>
+        <Space direction="vertical" size={16}>
           <Spinner spinning={loading}>
             <Alert message={t('spinners.alertMessage')} description={t('spinners.alertDescription')} type="info" />
           </Spinner>
-          <div style={{ marginTop: 16 }}>
+          <div>
             {t('spinners.loadingState')}
             <Switch checked={loading} onChange={() => setLoading(!loading)} />
           </div>
-        </div>
+        </Space>
       </S.Card>
       <S.Card title={t('spinners.customLoadingDelay')} padding="1.25rem 0">
-        <div>
+        <Space direction="vertical" size={16}>
           <Spinner spinning={delayLoading} delay={500}>
             <Alert message={t('spinners.alertMessage')} description={t('spinners.alertDescription')} type="info" />
           </Spinner>
-          <div style={{ marginTop: 16 }}>
+          <div>
             {t('spinners.loadingState')}
             <Switch checked={delayLoading} onChange={() => setDelayLoading(!delayLoading)} />
           </div>
-        </div>
+        </Space>
       </S.Card>
     </Col>
   );
