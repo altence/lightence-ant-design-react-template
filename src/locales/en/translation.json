@@ -99,7 +99,8 @@
     "stepsPage": "Steps",
     "dateTimePickersPage": "DateTime Pickers",
     "dropDownsPage": "Dropdowns",
-    "breadcrumbsPage": "Breadcrumbs"
+    "breadcrumbsPage": "Breadcrumbs",
+    "tabsPage": "Tabs"
   },
   "header": {
     "search": "Search",
@@ -852,5 +853,18 @@
     "antd": "Ant Design",
     "component": "Component",
     "button": "Button"
+  },
+  "tabs": {
+    "basic": "Basic tabs",
+    "disabled": "Disabled tabs",
+    "positions": "Tabs positions",
+    "withIcon": "Tabs with icons",
+    "tab": "Tab",
+    "tabContent": "Content of Tab",
+    "tabPosition": "Tab position:",
+    "top": "Top",
+    "left": "Left",
+    "bottom": "Bottom",
+    "right": "Right"
   }
 }

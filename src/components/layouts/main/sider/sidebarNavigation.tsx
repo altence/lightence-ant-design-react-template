@@ -271,6 +271,11 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: 'breadcrumbs',
         url: '/ui-components/breadcrumbs',
       },
+      {
+        title: 'common.tabsPage',
+        key: 'tabs',
+        url: '/ui-components/tabs',
+      },
     ],
   },
 ];
