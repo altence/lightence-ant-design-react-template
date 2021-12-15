@@ -266,6 +266,11 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: 'dropDowns',
         url: '/ui-components/dropdowns',
       },
+      {
+        title: 'common.breadcrumbsPage',
+        key: 'breadcrumbs',
+        url: '/ui-components/breadcrumbs',
+      },
     ],
   },
 ];

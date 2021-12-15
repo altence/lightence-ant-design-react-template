@@ -22,19 +22,19 @@ const DropdownsPage: React.FC = () => {
   const basicMenu = (
     <Menu>
       <MenuItem>
-        <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+        <Button type="link" target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
           {t('dropdowns.firstItem')}
-        </a>
+        </Button>
       </MenuItem>
       <MenuItem icon={<DownOutlined />} disabled>
-        <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+        <Button type="link" target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
           {t('dropdowns.secondItem')} ({t('dropdowns.disabled')})
-        </a>
+        </Button>
       </MenuItem>
       <MenuItem disabled>
-        <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+        <Button type="link" target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
           {t('dropdowns.thirdItem')} ({t('dropdowns.disabled')})
-        </a>
+        </Button>
       </MenuItem>
       <MenuItem danger>{t('dropdowns.dangerItem')}</MenuItem>
     </Menu>
@@ -43,19 +43,19 @@ const DropdownsPage: React.FC = () => {
   const positionMenu = (
     <Menu>
       <MenuItem>
-        <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+        <Button type="link" target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
           {t('dropdowns.firstItem')}
-        </a>
+        </Button>
       </MenuItem>
       <MenuItem>
-        <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+        <Button type="link" target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
           {t('dropdowns.secondItem')}
-        </a>
+        </Button>
       </MenuItem>
       <MenuItem>
-        <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+        <Button type="link" target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
           {t('dropdowns.thirdItem')}
-        </a>
+        </Button>
       </MenuItem>
     </Menu>
   );
