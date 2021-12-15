@@ -98,7 +98,8 @@
     "stepsPage": "DE!!!Steps",
     "dateTimePickersPage": "DE!!!DateTime Pickers",
     "dropDownsPage": "DE!!!Dropdowns",
-    "breadcrumbsPage": "DE!!!Breadcrumbs"
+    "breadcrumbsPage": "DE!!!Breadcrumbs",
+    "tabsPage": "DE!!!Tabs"
   },
   "header": {
     "search": "Search",
@@ -832,5 +833,18 @@
     "antd": "DE!!!Ant Design",
     "component": "DE!!!Component",
     "button": "DE!!!Button"
+  },
+  "tabs": {
+    "basic": "DE!!!Basic tabs",
+    "disabled": "DE!!!Disabled tabs",
+    "positions": "TDE!!!abs positions",
+    "withIcon": "DE!!!Tabs with icons",
+    "tab": "DE!!!Tab",
+    "tabContent": "DE!!!Content of Tab",
+    "tabPosition": "DE!!!Tab position:",
+    "top": "DE!!!Top",
+    "left": "DE!!!Left",
+    "bottom": "DE!!!Bottom",
+    "right": "DE!!!Right"
   }
 }

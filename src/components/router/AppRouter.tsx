@@ -50,6 +50,7 @@ import StepsPage from 'pages/UIComponentsPages/Forms/StepsPage';
 import DateTimePickersPage from 'pages/UIComponentsPages/Forms/DateTimePickersPage';
 import DropdownsPage from 'pages/UIComponentsPages/DropdownsPage';
 import BreadcrumbsPage from 'pages/UIComponentsPages/Navigation/BreadcrumbsPage';
+import TabsPage from 'pages/UIComponentsPages/Navigation/TabsPage';
 /*TODO check for lazy loading and add if lack*/
 export const AppRouter: React.FC = () => {
   return (
@@ -81,6 +82,7 @@ export const AppRouter: React.FC = () => {
             <Route path="date-time-pickers" element={<DateTimePickersPage />} />
             <Route path="dropdowns" element={<DropdownsPage />} />
             <Route path="breadcrumbs" element={<BreadcrumbsPage />} />
+            <Route path="tabs" element={<TabsPage />} />
             <Route path="avatars" element={<AvatarsPage />} />
             <Route path="badges" element={<BadgesPage />} />
             <Route path="collapse" element={<CollapsePage />} />
