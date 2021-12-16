@@ -1,14 +1,17 @@
 import React from 'react';
 import { Col, Row } from 'antd';
-import { Card } from 'components/common/Card/Card';
 import { CalendarEvent } from 'api/calendar.api';
 import { AppDate, Dates } from 'constants/Dates';
-import { TreatmentProps } from '../interfaces';
-import { TreatmentCalendarHeader } from './TreatmentCalendarHeader/TreatmentCalendarHeader';
 import { TreatmentLegends } from './TreatmentLegends/TreatmentLegends';
 import * as S from './TreatmentCalendar.styles';
+import { CalendarSwitch } from '../../../common/CalendarSwitch/CalendarSwitch';
 
-interface TreatmentCalendarProps extends TreatmentProps {
+interface TreatmentCalendarProps {
+  date: AppDate;
+  setDate: (state: AppDate) => void;
+  onIncrease: () => void;
+  onDecrease: () => void;
+  onToday: () => void;
   setDateClicked: (state: boolean) => void;
   calendar: CalendarEvent[];
 }
@@ -17,20 +20,28 @@ export const TreatmentCalendar: React.FC<TreatmentCalendarProps> = ({
   calendar,
   date,
   setDate,
-  handleDecrease,
-  handleIncrease,
+  onDecrease,
+  onIncrease,
   setDateClicked,
+  onToday,
 }) => {
   const handleSelect = (value: AppDate) => {
     setDate(value);
     setDateClicked(true);
   };
 
+  const dateFormatted = Dates.format(date, 'MMMM YYYY');
+
   return (
-    <Card padding={[30, 15]}>
+    <>
       <Row gutter={[20, 20]}>
         <Col span={24}>
-          <TreatmentCalendarHeader date={date} handleDecrease={handleDecrease} handleIncrease={handleIncrease} />
+          <CalendarSwitch
+            dateFormatted={dateFormatted}
+            onDecrease={onDecrease}
+            onIncrease={onIncrease}
+            onToday={onToday}
+          />
         </Col>
 
         <Col span={24}>
@@ -66,6 +77,6 @@ export const TreatmentCalendar: React.FC<TreatmentCalendarProps> = ({
           <TreatmentLegends />
         </Col>
       </Row>
-    </Card>
+    </>
   );
 };
