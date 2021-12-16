@@ -65,7 +65,8 @@
     "formError": "DE!!!An error was occured",
     "info": "DE!!!Information",
     "name": "DE!!!Name",
-    "notFound": "DE!!!Sorry, there’s nothing found"
+    "notFound": "DE!!!Sorry, there’s nothing found",
+    "today": "DE!!!Today"
   },
   "header": {
     "search": "Search",
