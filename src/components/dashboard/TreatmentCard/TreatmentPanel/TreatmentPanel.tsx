@@ -6,7 +6,6 @@ import { AppDate, Dates } from 'constants/Dates';
 import { useResponsive } from 'hooks/useResponsive';
 import { CalendarEvent } from 'api/calendar.api';
 import { getDoctorsData, Doctor } from 'api/doctors.api';
-import { TreatmentButtons } from './TreatmentButtons/TreatmentButtons';
 import { TreatmentDoctor } from './TreatmentDoctor/TreatmentDoctor';
 
 interface TreatmentPanelProps {
@@ -47,10 +46,6 @@ export const TreatmentPanel: React.FC<TreatmentPanelProps> = ({ date, calendar, 
 
       <Col span={24}>
         <TreatmentDate date={date} />
-      </Col>
-
-      <Col span={24}>
-        <TreatmentButtons date={date} isEvent={!!currentEvent} />
       </Col>
     </Row>
   );
