@@ -119,13 +119,9 @@
     },
     "treatmentPlan": {
       "title": "Treatment plan",
-      "successTreatment": "You've successfully confirmed the treatment.",
-      "successQuestion": "Your question has been sent to the doctor",
       "upcomingVisits": "Upcoming visits",
       "noUpcomingVisits": "There is no upcoming visit.",
-      "noTreatments": "There is no treatments at this day.",
-      "question": "Enter your question here",
-      "askDoctor": "Ask the doctor"
+      "noTreatments": "There is no treatments at this day."
     },
     "activity": "Activity",
     "covid": "COVID-19",
