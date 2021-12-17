@@ -119,8 +119,6 @@
     },
     "treatmentPlan": {
       "title": "Treatment plan",
-      "upcomingTreatment": "upcoming treatment according to plan",
-      "implementationTreatment": "implementation of the treatment plan",
       "successTreatment": "You've successfully confirmed the treatment.",
       "successQuestion": "Your question has been sent to the doctor",
       "upcomingVisits": "Upcoming visits",

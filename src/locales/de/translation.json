@@ -118,8 +118,6 @@
     },
     "treatmentPlan": {
       "title": "DE!!!Treatment plan",
-      "upcomingTreatment": "DE!!!upcoming treatment according to plan",
-      "implementationTreatment": "DE!!!implementation of the treatment plan",
       "successTreatment": "DE!!!You've successfully confirmed the treatment.",
       "successQuestion": "DE!!!Your question has been sent to the doctor",
       "upcomingVisits": "DE!!!Upcoming visits",

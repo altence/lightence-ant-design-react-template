@@ -5,10 +5,31 @@ import { AppDate } from '../../../../constants/Dates';
 
 const AntCalendar = generateCalendar<AppDate>(dayjsGenerateConfig);
 
+interface Event {
+  $isPast: boolean;
+}
+
 export const Wrapper = styled.div`
   background-color: ${(props) => props.theme.colors.main.mainBackground};
 
   box-shadow: ${(props) => props.theme.boxShadow};
+`;
+
+export const Event = styled.div<Event>`
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 5px 15px rgba(0, 89, 171, 0.3);
+
+  ${(props) =>
+    props.$isPast ? `color: ${props.theme.colors.main.light}` : `color: ${props.theme.colors.main.primary}`};
+
+  border-radius: ${(props) => props.theme.border.radius};
 `;
 
 export const Calendar = styled(AntCalendar)`
@@ -35,10 +56,6 @@ export const Calendar = styled(AntCalendar)`
   .ant-picker-cell {
     &.ant-picker-cell-today {
       .ant-picker-cell-inner {
-        background: ${(props) => props.theme.colors.main.secondary};
-
-        color: ${(props) => props.theme.colors.text.secondary};
-
         &::before {
           border-color: ${(props) => props.theme.colors.main.secondary};
         }
@@ -47,13 +64,17 @@ export const Calendar = styled(AntCalendar)`
 
     &.ant-picker-cell-selected {
       .ant-picker-cell-inner {
-        box-shadow: 0px 5px 15px rgba(0, 89, 171, 0.3);
+        box-shadow: 0 5px 15px rgba(0, 89, 171, 0.3);
 
         background: ${(props) => props.theme.colors.main.primary};
 
         .ant-picker-calendar-date-content > div {
           background: ${(props) => props.theme.colors.main.primary};
         }
+      }
+
+      ${Event} {
+        color: ${(props) => props.theme.commonColors.white};
       }
     }
 
@@ -68,27 +89,4 @@ export const Calendar = styled(AntCalendar)`
       margin: 0 auto;
     }
   }
-`;
-
-interface Event {
-  isPast: boolean;
-}
-
-export const Event = styled.div<Event>`
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  box-shadow: 0px 5px 15px rgba(0, 89, 171, 0.3);
-
-  ${(props) =>
-    props.isPast
-      ? `background: ${props.theme.colors.main.light}`
-      : `border: 1px solid ${props.theme.colors.main.primary}`};
-
-  border-radius: ${(props) => props.theme.border.radius};
 `;
