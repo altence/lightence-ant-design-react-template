@@ -2,7 +2,6 @@ import React from 'react';
 import { Col, Row } from 'antd';
 import { CalendarEvent } from 'api/calendar.api';
 import { AppDate, Dates } from 'constants/Dates';
-import { TreatmentLegends } from './TreatmentLegends/TreatmentLegends';
 import * as S from './TreatmentCalendar.styles';
 import { CalendarSwitch } from '../../../common/CalendarSwitch/CalendarSwitch';
 
@@ -60,7 +59,7 @@ export const TreatmentCalendar: React.FC<TreatmentCalendarProps> = ({
                   const isPast = today.isAfter(calendarDate);
 
                   return (
-                    <S.Event key={event.date} isPast={isPast}>
+                    <S.Event key={event.date} $isPast={isPast}>
                       {calendarDate.format('DD')}
                     </S.Event>
                   );
@@ -71,10 +70,6 @@ export const TreatmentCalendar: React.FC<TreatmentCalendarProps> = ({
             fullscreen={false}
             onSelect={handleSelect}
           />
-        </Col>
-
-        <Col span={24}>
-          <TreatmentLegends />
         </Col>
       </Row>
     </>
