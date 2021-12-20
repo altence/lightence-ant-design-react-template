@@ -23,8 +23,10 @@ export const DoctorCardBody = styled.div`
 
 export const LabelCol = styled(Col)`
   opacity: 0.5;
+  font-size: 0.875rem;
 `;
 
 export const ValueCol = styled(Col)`
   color: ${(props) => props.theme.colors.main.primary};
+  font-size: 0.875rem;
 `;
