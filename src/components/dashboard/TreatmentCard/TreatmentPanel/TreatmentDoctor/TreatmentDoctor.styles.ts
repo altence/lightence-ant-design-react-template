@@ -1,17 +1,30 @@
-import { Typography } from 'antd';
 import styled from 'styled-components';
+import { Card } from '../../../../common/Card/Card';
+import { Col } from 'antd';
 
-export const Title = styled(Typography.Text)`
-  display: block;
-  text-align: center;
+export const DoctorName = styled.span`
+  color: #01509a;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+`;
 
-  font-size: ${(props) => props.theme.commonFontSizes.lg};
+export const DoctorCard = styled(Card)`
+  background: linear-gradient(to bottom, #c5d3e0 5rem, white 5rem);
+`;
 
-  font-weight: ${(props) => props.theme.commonFontWeight.medium};
+export const DoctorCardBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
-  @media only screen and ${(props) => props.theme.media.xl} {
-    line-height: 3.4rem;
+export const LabelCol = styled(Col)`
+  opacity: 0.5;
+`;
 
-    font-size: ${(props) => props.theme.commonFontSizes.xl};
-  }
+export const ValueCol = styled(Col)`
+  color: ${(props) => props.theme.colors.main.primary};
 `;
