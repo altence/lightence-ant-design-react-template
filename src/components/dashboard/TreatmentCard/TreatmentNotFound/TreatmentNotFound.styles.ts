@@ -17,5 +17,5 @@ export const CardBody = styled.div`
 `;
 
 export const Image = styled(AntImage)`
-  max-width: 20rem;
+  max-width: 16rem;
 `;
