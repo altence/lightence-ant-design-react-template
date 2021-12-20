@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import * as S from './TreatmentDoctor.styles';
 import { Avatar, Row } from 'antd';
-import { Dates } from '../../../../../constants/Dates';
+import { Dates } from '../../../../constants/Dates';
 
 export interface TreatmentDoctor {
   name: string;

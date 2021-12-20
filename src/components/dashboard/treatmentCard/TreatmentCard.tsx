@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useResponsive } from 'hooks/useResponsive';
 import { TreatmentCalendar } from './TreatmentCalendar/TreatmentCalendar';
-import { TreatmentPanel } from './TreatmentPanel/TreatmentPanel';
+import { TreatmentPanel } from './TreatmentPanel';
 import { AppDate, Dates } from 'constants/Dates';
 import { Col, Row } from 'antd';
 import { DashboardCard } from '../DashboardCard/DashboardCard';

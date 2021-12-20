@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { CalendarEvent } from 'api/calendar.api';
 import { getDoctorsData, Doctor } from 'api/doctors.api';
 import { TreatmentDoctor } from './TreatmentDoctor/TreatmentDoctor';
-import { specifities } from '../../../../constants/specifities';
-import { TreatmentNotFound } from '../TreatmentNotFound/TreatmentNotFound';
+import { specifities } from '../../../constants/specifities';
+import { TreatmentNotFound } from './TreatmentNotFound/TreatmentNotFound';
 
 interface TreatmentPanelProps {
   event?: CalendarEvent;
