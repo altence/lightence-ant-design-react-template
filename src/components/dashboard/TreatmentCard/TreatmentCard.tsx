@@ -77,7 +77,7 @@ export const TreatmentCard: React.FC = () => {
         ) : isDateClicked && calendar.some((event) => Dates.getDate(event.date).isSame(selectedDate, 'date')) ? (
           <BackButtonWrapper>
             {panelItem}
-            <BackButton type="link" icon={<ArrowLeftOutlined />} onClick={() => setDateClicked(false)} />
+            <BackButton type="text" icon={<ArrowLeftOutlined />} onClick={() => setDateClicked(false)} />
           </BackButtonWrapper>
         ) : (
           <Col>{calendarItem}</Col>
@@ -95,4 +95,5 @@ const BackButton = styled(Button)`
   position: absolute;
   top: 0;
   left: 0;
+  color: ${(props) => props.theme.colors.main.primary};
 `;
