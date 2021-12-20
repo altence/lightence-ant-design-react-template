@@ -21,10 +21,10 @@ export const TreatmentPanel: React.FC<TreatmentPanelProps> = ({ event }) => {
   if (event && currentDoctor) {
     const doctor: TreatmentDoctor = {
       name: currentDoctor.name,
-      address: 'Test Address',
+      address: currentDoctor.address,
       date: event.date,
       imgUrl: currentDoctor.imgUrl,
-      phone: 'Test phone',
+      phone: currentDoctor.phone,
       speciality: specifities.find(({ id }) => id === currentDoctor.specifity)?.name || '',
     };
 

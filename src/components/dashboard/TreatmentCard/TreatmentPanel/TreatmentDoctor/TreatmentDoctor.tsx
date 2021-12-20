@@ -34,7 +34,9 @@ export const TreatmentDoctor: React.FC<TreatmentDoctorProps> = ({ doctor }) => {
           <S.LabelCol span={10}>{t('common.address')}</S.LabelCol>
           <S.ValueCol span={14}>{address}</S.ValueCol>
           <S.LabelCol span={10}>{t('common.phone')}</S.LabelCol>
-          <S.ValueCol span={14}>{phone}</S.ValueCol>
+          <S.ValueCol span={14}>
+            <S.Tel href={`tel:${phone}`}>{phone}</S.Tel>
+          </S.ValueCol>
         </Row>
       </S.DoctorCardBody>
     </S.DoctorCard>

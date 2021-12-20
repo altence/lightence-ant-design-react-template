@@ -30,3 +30,9 @@ export const ValueCol = styled(Col)`
   color: ${(props) => props.theme.colors.main.primary};
   font-size: 0.875rem;
 `;
+
+export const Tel = styled.a`
+  &:hover {
+    text-decoration: underline;
+  }
+`;
