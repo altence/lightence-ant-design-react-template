@@ -8,6 +8,8 @@ export interface Doctor {
     longitude: number;
   };
   imgUrl: string;
+  phone: string;
+  address: string;
 }
 
 // TODO change image. Find new images and add them locally
@@ -18,7 +20,7 @@ export const getDoctorsData = (): Promise<Doctor[]> => {
       res([
         {
           id: 1,
-          name: 'Ivanov Ivan',
+          name: 'Anthony Owen',
           specifity: 1,
           rating: 5,
           gps: {
@@ -27,10 +29,12 @@ export const getDoctorsData = (): Promise<Doctor[]> => {
           },
           imgUrl:
             'https://res.cloudinary.com/lapkinthegod/image/upload/v1629187274/happy-young-male-doctor-using-tablet-computer_zjnbab.jpg',
+          phone: '+X-XXX-XXX-XXXX',
+          address: '98 Santa Clara Court Cherry Hill, NJ 08003',
         },
         {
           id: 2,
-          name: 'Fedorova Lida',
+          name: 'Kate Walker',
           specifity: 2,
           rating: 5,
           gps: {
@@ -39,10 +43,12 @@ export const getDoctorsData = (): Promise<Doctor[]> => {
           },
           imgUrl:
             'https://res.cloudinary.com/lapkinthegod/image/upload/v1629187274/doctor-using-tablet-computer-isolated-white-wall_jmtkgi.jpg',
+          phone: '+X-XXX-XXX-XXXX',
+          address: '111 Foxrun Street Conyers, GA 30012',
         },
         {
           id: 3,
-          name: 'Kozlov Fedor',
+          name: 'Finley Edwards',
           specifity: 3,
           rating: 4,
           gps: {
@@ -51,10 +57,12 @@ export const getDoctorsData = (): Promise<Doctor[]> => {
           },
           imgUrl:
             'https://res.cloudinary.com/lapkinthegod/image/upload/v1629187273/portrait-successful-mid-adult-doctor-with-crossed-arms_kp1eyf.jpg',
+          phone: '+X-XXX-XXX-XXXX',
+          address: '9540 South Del Monte Rd. West Hempstead, NY 11552',
         },
         {
           id: 4,
-          name: 'Chernov Alex',
+          name: 'Henry James',
           specifity: 4,
           rating: 5,
           gps: {
@@ -63,10 +71,12 @@ export const getDoctorsData = (): Promise<Doctor[]> => {
           },
           imgUrl:
             'https://res.cloudinary.com/lapkinthegod/image/upload/v1629187274/smile-happiness-nurse-medical-arab-strong_kqz3iv.jpg',
+          phone: '+X-XXX-XXX-XXXX',
+          address: '9 Wagon Street Ravenna, OH 44266',
         },
         {
           id: 5,
-          name: 'Zelenskiy Nik',
+          name: 'Oscar Davies',
           specifity: 5,
           rating: 4,
           gps: {
@@ -75,10 +85,12 @@ export const getDoctorsData = (): Promise<Doctor[]> => {
           },
           imgUrl:
             'https://res.cloudinary.com/lapkinthegod/image/upload/v1629187273/hospital-healthcare-workers-covid-19-treatment-concept-young-doctor-scrubs-making-daily-errands-clinic-listening-patient-symptoms-look-camera-professional-physician-curing-diseases_a5tou4.jpg',
+          phone: '+X-XXX-XXX-XXXX',
+          address: '9568 Tower St. Somerset, NJ 08873',
         },
         {
           id: 6,
-          name: 'Buzmakova Mia',
+          name: 'Madeleine Newman',
           specifity: 6,
           rating: 5,
           gps: {
@@ -87,10 +99,12 @@ export const getDoctorsData = (): Promise<Doctor[]> => {
           },
           imgUrl:
             'https://res.cloudinary.com/lapkinthegod/image/upload/v1629187274/studio-shot-attractive-middle-aged-blonde-woman-physician-with-stethoscope-around-her-neck-posing-isolated-with-pen-clipboard-making-medical-records-prescribing-treatment-patient_l8ygoh.jpg',
+          phone: '+X-XXX-XXX-XXXX',
+          address: '850 South Tunnel St. Newburgh, NY 12550',
         },
         {
           id: 7,
-          name: 'Lapkin Filipp',
+          name: 'Bailey Lee',
           specifity: 7,
           rating: 4,
           gps: {
@@ -99,10 +113,12 @@ export const getDoctorsData = (): Promise<Doctor[]> => {
           },
           imgUrl:
             'https://res.cloudinary.com/lapkinthegod/image/upload/v1629187274/young-male-doctor-white-uniform_x7dcrs.jpg',
+          phone: '+X-XXX-XXX-XXXX',
+          address: '7634 Taylor St. Boston, MA 02127',
         },
         {
           id: 8,
-          name: 'Test',
+          name: 'Evan Bennett',
           specifity: 7,
           rating: 4,
           gps: {
@@ -111,10 +127,12 @@ export const getDoctorsData = (): Promise<Doctor[]> => {
           },
           imgUrl:
             'https://res.cloudinary.com/lapkinthegod/image/upload/v1629187274/young-male-doctor-white-uniform_x7dcrs.jpg',
+          phone: '+X-XXX-XXX-XXXX',
+          address: '8687 Helen St. Orange Park, FL 32065',
         },
         {
           id: 9,
-          name: 'Test',
+          name: 'Alvin Jimenez',
           specifity: 7,
           rating: 4,
           gps: {
@@ -123,6 +141,8 @@ export const getDoctorsData = (): Promise<Doctor[]> => {
           },
           imgUrl:
             'https://res.cloudinary.com/lapkinthegod/image/upload/v1629187274/young-male-doctor-white-uniform_x7dcrs.jpg',
+          phone: '+X-XXX-XXX-XXXX',
+          address: '90 Taylor Drive Saginaw, MI 48601',
         },
       ]);
     }, 0);

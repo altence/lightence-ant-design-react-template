@@ -17,6 +17,10 @@ export const getUserCalendar = (id: number): Promise<CalendarEvent[]> => {
           doctor: 3,
         },
         {
+          date: now,
+          doctor: 2,
+        },
+        {
           date: now + 1000 * 60 * 60 * 24 * 2,
           doctor: 1,
         },
