@@ -67,20 +67,16 @@ export const TreatmentCard: React.FC = () => {
       <Row gutter={[10, 10]} wrap={false}>
         {isTablet ? (
           <>
-            <Col md={15} xl={12}>
-              {calendarItem}
-            </Col>
-            <Col md={9} xl={12}>
-              {panelItem}
-            </Col>
+            <Col md={12}>{calendarItem}</Col>
+            <Col md={12}>{panelItem}</Col>
           </>
         ) : isDateClicked && calendar.some((event) => Dates.getDate(event.date).isSame(selectedDate, 'date')) ? (
-          <BackButtonWrapper>
+          <BackButtonWrapper span={24}>
             {panelItem}
             <BackButton type="text" icon={<ArrowLeftOutlined />} onClick={() => setDateClicked(false)} />
           </BackButtonWrapper>
         ) : (
-          <Col>{calendarItem}</Col>
+          <Col span={24}>{calendarItem}</Col>
         )}
       </Row>
     </DashboardCard>
