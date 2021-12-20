@@ -3,6 +3,7 @@ import { CalendarEvent } from 'api/calendar.api';
 import { getDoctorsData, Doctor } from 'api/doctors.api';
 import { TreatmentDoctor } from './TreatmentDoctor/TreatmentDoctor';
 import { specifities } from '../../../../constants/specifities';
+import { TreatmentNotFound } from './TreatmentNotFound';
 
 interface TreatmentPanelProps {
   event?: CalendarEvent;
@@ -29,6 +30,6 @@ export const TreatmentPanel: React.FC<TreatmentPanelProps> = ({ event }) => {
 
     return <TreatmentDoctor doctor={doctor} />;
   } else {
-    return <>NOT FOUND</>;
+    return <TreatmentNotFound />;
   }
 };

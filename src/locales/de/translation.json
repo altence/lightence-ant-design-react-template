@@ -121,9 +121,7 @@
     },
     "treatmentPlan": {
       "title": "DE!!!Treatment plan",
-      "upcomingVisits": "DE!!!Upcoming visits",
-      "noUpcomingVisits": "DE!!!There is no upcoming visit.",
-      "noTreatments": "DE!!!No treatments at this day"
+      "noVisits": "DE!!!No visits for that day"
     },
     "activity": "DE!!!Activity",
     "covid": "DE!!!COVID-19",
