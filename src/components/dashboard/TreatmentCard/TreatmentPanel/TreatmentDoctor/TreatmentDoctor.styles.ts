@@ -8,6 +8,7 @@ export const DoctorName = styled.span`
   font-weight: bold;
   margin-top: 0.5rem;
   margin-bottom: 1rem;
+  text-align: center;
 `;
 
 export const DoctorCard = styled(Card)`
@@ -23,12 +24,10 @@ export const DoctorCardBody = styled.div`
 
 export const LabelCol = styled(Col)`
   opacity: 0.5;
-  font-size: 0.875rem;
 `;
 
 export const ValueCol = styled(Col)`
   color: ${(props) => props.theme.colors.main.primary};
-  font-size: 0.875rem;
 `;
 
 export const Tel = styled.a`
