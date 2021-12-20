@@ -4,14 +4,14 @@ import * as S from './CalendarSwitch.styles';
 import { Button } from '../buttons/Button/Button';
 import { useTranslation } from 'react-i18next';
 
-interface MonthSwitchProps {
+interface CalendarSwitchProps {
   dateFormatted: string;
   onIncrease: () => void;
   onDecrease: () => void;
   onToday: () => void;
 }
 
-export const CalendarSwitch: React.FC<MonthSwitchProps> = ({ dateFormatted, onIncrease, onDecrease, onToday }) => {
+export const CalendarSwitch: React.FC<CalendarSwitchProps> = ({ dateFormatted, onIncrease, onDecrease, onToday }) => {
   const { t } = useTranslation();
 
   return (
