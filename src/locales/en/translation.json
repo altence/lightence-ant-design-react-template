@@ -67,7 +67,10 @@
     "info": "Information",
     "name": "Name",
     "notFound": "Sorry, there’s nothing found",
-    "today": "Today"
+    "today": "Today",
+    "dateTime": "Date & Time",
+    "address": "Address",
+    "phone": "Phone"
   },
   "header": {
     "search": "Search",
@@ -121,7 +124,7 @@
       "title": "Treatment plan",
       "upcomingVisits": "Upcoming visits",
       "noUpcomingVisits": "There is no upcoming visit.",
-      "noTreatments": "There is no treatments at this day."
+      "noTreatments": "No treatments at this day"
     },
     "activity": "Activity",
     "covid": "COVID-19",

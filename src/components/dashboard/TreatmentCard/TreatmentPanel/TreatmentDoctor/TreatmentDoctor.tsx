@@ -1,30 +1,42 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { DoctorProfile } from 'components/common/DoctorProfile/DoctorProfile';
-import { Card } from 'components/common/Card/Card';
-import { Doctor } from 'api/doctors.api';
 import * as S from './TreatmentDoctor.styles';
+import { Avatar, Row } from 'antd';
+import { Dates } from '../../../../../constants/Dates';
 
-interface TreatmentDoctorProps {
-  doctor?: Doctor;
-  isEvent: boolean;
+export interface TreatmentDoctor {
+  name: string;
+  imgUrl: string;
+  speciality: string;
+  date: number;
+  address: string;
+  phone: string;
 }
 
-export const TreatmentDoctor: React.FC<TreatmentDoctorProps> = ({ doctor, isEvent }) => {
+interface TreatmentDoctorProps {
+  doctor: TreatmentDoctor;
+}
+
+export const TreatmentDoctor: React.FC<TreatmentDoctorProps> = ({ doctor }) => {
   const { t } = useTranslation();
 
+  const { name, speciality, address, imgUrl, phone, date } = doctor;
+
   return (
-    <Card padding={10}>
-      {isEvent ? (
-        <DoctorProfile
-          src={doctor?.imgUrl}
-          name={doctor?.name}
-          speciality={doctor?.specifity}
-          rating={doctor?.rating}
-        />
-      ) : (
-        <S.Title>{t('dashboard.treatmentPlan.noTreatments')}</S.Title>
-      )}
-    </Card>
+    <S.DoctorCard padding={'1rem'}>
+      <S.DoctorCardBody>
+        <Avatar src={imgUrl} size={128} />
+
+        <S.DoctorName>{`${name}, ${speciality}`}</S.DoctorName>
+        <Row gutter={[8, 8]}>
+          <S.LabelCol span={12}>{t('common.dateTime')}</S.LabelCol>
+          <S.ValueCol span={12}>{Dates.format(date, 'lll')}</S.ValueCol>
+          <S.LabelCol span={12}>{t('common.address')}</S.LabelCol>
+          <S.ValueCol span={12}>{address}</S.ValueCol>
+          <S.LabelCol span={12}>{t('common.phone')}</S.LabelCol>
+          <S.ValueCol span={12}>{phone}</S.ValueCol>
+        </Row>
+      </S.DoctorCardBody>
+    </S.DoctorCard>
   );
 };

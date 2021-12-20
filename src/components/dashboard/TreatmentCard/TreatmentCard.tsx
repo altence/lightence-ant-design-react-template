@@ -10,7 +10,7 @@ import { getUser, User } from 'api/users.api';
 import { CalendarEvent, getUserCalendar } from 'api/calendar.api';
 
 export const TreatmentCard: React.FC = () => {
-  const { tabletOnly, isBigScreen } = useResponsive();
+  const { isTablet } = useResponsive();
 
   const [selectedDate, setDate] = useState<AppDate>(Dates.getToday());
   const [isDateClicked, setDateClicked] = useState(false);
@@ -55,15 +55,21 @@ export const TreatmentCard: React.FC = () => {
     />
   );
 
-  const panelItem = <TreatmentPanel calendar={calendar} date={selectedDate} setDateClicked={setDateClicked} />;
+  const currentEvent = calendar.find((event) => Dates.getDate(event.date).isSame(selectedDate, 'date'));
+
+  const panelItem = <TreatmentPanel event={currentEvent} />;
 
   return (
     <DashboardCard title={t('dashboard.treatmentPlan.title')}>
       <Row gutter={[10, 10]} wrap={false}>
-        {tabletOnly || isBigScreen ? (
+        {isTablet ? (
           <>
-            <Col md={12}>{calendarItem}</Col>
-            <Col md={12}>{panelItem}</Col>
+            <Col md={15} xl={12}>
+              {calendarItem}
+            </Col>
+            <Col md={9} xl={12}>
+              {panelItem}
+            </Col>
           </>
         ) : isDateClicked && calendar.some((event) => Dates.getDate(event.date).isSame(selectedDate, 'date')) ? (
           <Col>{panelItem}</Col>

@@ -66,7 +66,10 @@
     "info": "DE!!!Information",
     "name": "DE!!!Name",
     "notFound": "DE!!!Sorry, there’s nothing found",
-    "today": "DE!!!Today"
+    "today": "DE!!!Today",
+    "dateTime": "DE!!!Date & Time",
+    "address": "DE!!!Address",
+    "phone": "DE!!!Phone"
   },
   "header": {
     "search": "Search",
@@ -120,7 +123,7 @@
       "title": "DE!!!Treatment plan",
       "upcomingVisits": "DE!!!Upcoming visits",
       "noUpcomingVisits": "DE!!!There is no upcoming visit.",
-      "noTreatments": "DE!!!There is no treatments at this day."
+      "noTreatments": "DE!!!No treatments at this day"
     },
     "activity": "DE!!!Activity",
     "covid": "DE!!!COVID-19",
