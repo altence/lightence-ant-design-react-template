@@ -3,7 +3,7 @@ import { Col, Row } from 'antd';
 import { MapCard } from '../components/dashboard/MapCard/MapCard';
 import { ScreeningsCard } from '../components/dashboard/ScreeningsCard/ScreeningsCard';
 import { ActivityCard } from '../components/dashboard/ActivityCard/ActivityCard';
-import { TreatmentCard } from '../components/dashboard/TreatmentCard/TreatmentCard';
+import { TreatmentCard } from '../components/dashboard/treatmentCard/TreatmentCard';
 import { CovidCard } from '../components/dashboard/CovidCard/CovidCard';
 import { HealthCard } from '../components/dashboard/HealthCard/HealthCard';
 import { FavouritesDoctorsCard } from '../components/dashboard/FavouritesDoctorsCard/FavouritesDoctorsCard';

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Card } from '../../../../common/Card/Card';
+import { Card } from '../../../common/Card/Card';
 import { Col } from 'antd';
 
 export const DoctorName = styled.span`
