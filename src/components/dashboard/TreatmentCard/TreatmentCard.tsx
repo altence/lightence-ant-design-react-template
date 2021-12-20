@@ -8,6 +8,9 @@ import { Col, Row } from 'antd';
 import { DashboardCard } from '../DashboardCard/DashboardCard';
 import { getUser, User } from 'api/users.api';
 import { CalendarEvent, getUserCalendar } from 'api/calendar.api';
+import { ArrowLeftOutlined } from '@ant-design/icons';
+import styled from 'styled-components';
+import { Button } from '../../common/buttons/Button/Button';
 
 export const TreatmentCard: React.FC = () => {
   const { isTablet } = useResponsive();
@@ -72,7 +75,10 @@ export const TreatmentCard: React.FC = () => {
             </Col>
           </>
         ) : isDateClicked && calendar.some((event) => Dates.getDate(event.date).isSame(selectedDate, 'date')) ? (
-          <Col>{panelItem}</Col>
+          <BackButtonWrapper>
+            {panelItem}
+            <BackButton type="link" icon={<ArrowLeftOutlined />} onClick={() => setDateClicked(false)} />
+          </BackButtonWrapper>
         ) : (
           <Col>{calendarItem}</Col>
         )}
@@ -80,3 +86,13 @@ export const TreatmentCard: React.FC = () => {
     </DashboardCard>
   );
 };
+
+const BackButtonWrapper = styled(Col)`
+  position: relative;
+`;
+
+const BackButton = styled(Button)`
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
