@@ -36,11 +36,11 @@ const DashboardPage: React.FC = () => {
         <ScreeningsCard />
       </Col>
 
-      <Col span={14}>
+      <Col xl={24} xxl={14}>
         <TreatmentCard />
       </Col>
 
-      <Col span={10}>
+      <Col xl={24} xxl={10}>
         <ActivityCard />
       </Col>
 
