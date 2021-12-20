@@ -29,12 +29,12 @@ export const TreatmentDoctor: React.FC<TreatmentDoctorProps> = ({ doctor }) => {
 
         <S.DoctorName>{`${name}, ${speciality}`}</S.DoctorName>
         <Row gutter={[8, 8]}>
-          <S.LabelCol span={12}>{t('common.dateTime')}</S.LabelCol>
-          <S.ValueCol span={12}>{Dates.format(date, 'lll')}</S.ValueCol>
-          <S.LabelCol span={12}>{t('common.address')}</S.LabelCol>
-          <S.ValueCol span={12}>{address}</S.ValueCol>
-          <S.LabelCol span={12}>{t('common.phone')}</S.LabelCol>
-          <S.ValueCol span={12}>{phone}</S.ValueCol>
+          <S.LabelCol span={10}>{t('common.dateTime')}</S.LabelCol>
+          <S.ValueCol span={14}>{Dates.format(date, 'lll')}</S.ValueCol>
+          <S.LabelCol span={10}>{t('common.address')}</S.LabelCol>
+          <S.ValueCol span={14}>{address}</S.ValueCol>
+          <S.LabelCol span={10}>{t('common.phone')}</S.LabelCol>
+          <S.ValueCol span={14}>{phone}</S.ValueCol>
         </Row>
       </S.DoctorCardBody>
     </S.DoctorCard>
