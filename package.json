@@ -31,6 +31,7 @@
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
     "react-slick": "^0.28.1",
+    "react-swipeable": "^6.2.0",
     "react-trello": "^2.2.11",
     "react-verification-input": "^2.0.3",
     "slick-carousel": "^1.8.1",
