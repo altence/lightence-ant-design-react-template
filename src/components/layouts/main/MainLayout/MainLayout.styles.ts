@@ -3,7 +3,9 @@ import { Layout } from 'antd';
 import bg from 'assets/images/bg.png';
 
 export const LayoutMaster = styled(Layout)`
-  height: 100vh;
+  @media only screen and ${(props) => props.theme.media.md} {
+    height: 100vh;
+  }
 `;
 
 export const LayoutMain = styled(Layout)`
@@ -13,7 +15,7 @@ export const LayoutMain = styled(Layout)`
   background-color: ${(props) => props.theme.colors.main.secondaryBackground};
 
   @media only screen and ${(props) => props.theme.media.md} {
-    margin-left: 60px;
+    margin-left: 80px;
 
     background: url(${bg}) no-repeat;
     background-size: 100% 250px;
