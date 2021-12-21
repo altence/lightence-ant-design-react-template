@@ -3,7 +3,7 @@ import { Card } from '../../../common/Card/Card';
 import { Col } from 'antd';
 
 export const DoctorName = styled.span`
-  color: #01509a;
+  color: ${(props) => props.theme.colors.main.primary};
   font-size: 1.25rem;
   font-weight: bold;
   margin-top: 0.5rem;
