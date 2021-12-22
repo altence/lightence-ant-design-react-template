@@ -3,7 +3,9 @@ import { Card as AntCard } from 'antd';
 import { CardProps } from './Card';
 import { normalizeProp } from 'utils/utils';
 
-export const Card = styled(AntCard)<CardProps>`
+export const Card = styled(AntCard).withConfig({
+  shouldForwardProp: (prop) => !['padding'].includes(prop),
+})<CardProps>`
   display: flex;
   flex-direction: column;
   height: 100%;
