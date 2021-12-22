@@ -4,16 +4,12 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import * as S from './ProfileOverlay.styles';
 
-interface ProfileOverlayProps {
-  setOverlayVisible: (state: boolean) => void;
-}
-
-export const ProfileOverlay: React.FC<ProfileOverlayProps> = ({ setOverlayVisible }) => {
+export const ProfileOverlay: React.FC = ({ ...props }) => {
   const { t } = useTranslation();
 
   return (
-    <S.ProfileDropdownOverlay selectable={false}>
-      <Menu.Item key={0} onClick={() => setOverlayVisible(false)}>
+    <S.ProfileDropdownOverlay selectable={false} {...props}>
+      <Menu.Item key={0}>
         <S.Text>
           <Link to="/profile">{t('profile.title')}</Link>
         </S.Text>
