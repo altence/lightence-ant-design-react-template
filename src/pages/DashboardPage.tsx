@@ -6,7 +6,7 @@ import { ActivityCard } from '../components/dashboard/ActivityCard/ActivityCard'
 import { TreatmentCard } from '../components/dashboard/treatmentCard/TreatmentCard';
 import { CovidCard } from '../components/dashboard/CovidCard/CovidCard';
 import { HealthCard } from '../components/dashboard/HealthCard/HealthCard';
-import { FavouritesDoctorsCard } from '../components/dashboard/FavouritesDoctorsCard/FavouritesDoctorsCard';
+import { FavouritesDoctorsCard } from '../components/dashboard/favouriteDoctors/FavouritesDoctorsCard';
 import { PatientResultsCard } from '../components/dashboard/PatientResultsCard/PatientResultsCard';
 import { BloodScreeningCard } from '../components/dashboard/BloodScreeningCard/BloodScreeningCard';
 import { NewsCard } from '../components/dashboard/NewsCard/NewsCard';
