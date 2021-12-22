@@ -63,12 +63,14 @@ declare module 'styled-components' {
     boxShadow: string;
     breakpoints: {
       xs: number;
+      sm: number;
       md: number;
       xl: number;
       xxl: number;
     };
     media: {
       xs: string;
+      sm: string;
       md: string;
       xl: string;
       xxl: string;

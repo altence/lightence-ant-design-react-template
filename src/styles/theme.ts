@@ -16,6 +16,7 @@ export const desktopLayout = {
 
 export const breakpoints = {
   xs: 360,
+  sm: 568,
   md: 768,
   xl: 1280,
   xxl: 1920,
@@ -25,6 +26,7 @@ const getMedia = (breakpoint: number) => `(min-width: ${breakpoint}px)`;
 
 export const media = {
   xs: getMedia(breakpoints.xs),
+  sm: getMedia(breakpoints.sm),
   md: getMedia(breakpoints.md),
   xl: getMedia(breakpoints.xl),
   xxl: getMedia(breakpoints.xxl),
