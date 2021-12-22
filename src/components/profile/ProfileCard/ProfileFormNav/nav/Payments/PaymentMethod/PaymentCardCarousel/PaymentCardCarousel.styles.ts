@@ -1,25 +1,15 @@
 import { defaultPaddings } from 'constants/defaultPaddings';
 import styled from 'styled-components';
 
-interface CarouselWrapperProps {
-  length: number | undefined;
-  isEnd: boolean;
-}
-
-export const CarouselWrapper = styled.div<CarouselWrapperProps>`
-  margin: ${(props) =>
-    `0 -${!props.isEnd ? defaultPaddings.mobile[1] : 0}px 1.5rem -${props.isEnd ? defaultPaddings.mobile[1] : 0}px`};
+export const CarouselWrapper = styled.div`
+  margin: ${`0 -${defaultPaddings.mobile[1]}px 1.5rem -${defaultPaddings.mobile[1]}px`};
 
   @media only screen and ${(props) => props.theme.media.md} {
-    margin: ${(props) =>
-      `0 -${!props.isEnd ? defaultPaddings.tablet[1] : 0}px 1.5rem -${props.isEnd ? defaultPaddings.tablet[1] : 0}px`};
+    margin: ${`0 -${defaultPaddings.tablet[1]}px 1.5rem -${defaultPaddings.tablet[1]}px`};
   }
 
   @media only screen and ${(props) => props.theme.media.xl} {
-    margin: ${(props) =>
-      `0 -${!props.isEnd ? defaultPaddings.desktop[1] : 0}px 1.5rem -${
-        props.isEnd ? defaultPaddings.desktop[1] : 0
-      }px`};
+    margin: ${`0 -${!defaultPaddings.desktop[1]}px 1.5rem -${defaultPaddings.desktop[1]}px`};
   }
 
   & .swiper-slide > div {
