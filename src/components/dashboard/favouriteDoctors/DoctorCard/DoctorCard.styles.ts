@@ -1,8 +1,9 @@
-import { Rate, Row, Typography } from 'antd';
+import { Rate, Typography } from 'antd';
 import styled from 'styled-components';
+import { Card } from '../../../common/Card/Card';
 
-export const DoctorRow = styled(Row)`
-  margin: 0 0.5rem;
+export const DoctorCard = styled(Card)`
+  margin: 1rem;
 `;
 
 export const Title = styled(Typography.Text)`
@@ -37,8 +38,10 @@ export const Text = styled(Typography.Text)`
 
 export const ImgWrapper = styled.div`
   overflow: hidden;
+  margin: -1rem -1rem 0;
 
-  border-radius: ${(props) => props.theme.border.radius};
+  border-top-left-radius: ${(props) => props.theme.border.radius};
+  border-top-right-radius: ${(props) => props.theme.border.radius};
 
   & > div {
     display: block;
