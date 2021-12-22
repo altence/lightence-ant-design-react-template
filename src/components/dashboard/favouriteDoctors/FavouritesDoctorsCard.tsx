@@ -41,15 +41,8 @@ export const FavouritesDoctorsCard: React.FC = () => {
       {doctors.length > 0 && calendar.length > 0 && (
         <CarouselWrapper>
           <Carousel
-            slidesToShow={6}
+            slidesToShow={5}
             responsive={[
-              {
-                breakpoint: theme.breakpoints.xxl - 1,
-                settings: {
-                  slidesToShow: 5,
-                  slidesToScroll: 1,
-                },
-              },
               {
                 breakpoint: theme.breakpoints.xl - 1,
                 settings: {
