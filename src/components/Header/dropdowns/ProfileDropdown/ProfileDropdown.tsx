@@ -9,7 +9,6 @@ import * as S from './ProfileDropdown.styles';
 
 export const ProfileDropdown: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
-  const [isOverlayVisible, setOverlayVisible] = useState(false);
 
   const isTablet = useMediaQuery({ query: theme.media.md });
 
@@ -18,12 +17,7 @@ export const ProfileDropdown: React.FC = () => {
   }, []);
 
   return user ? (
-    <Dropdown
-      overlay={<ProfileOverlay setOverlayVisible={setOverlayVisible} />}
-      trigger={['click']}
-      visible={isOverlayVisible}
-      onVisibleChange={setOverlayVisible}
-    >
+    <Dropdown overlay={<ProfileOverlay />} trigger={['click']}>
       <S.ProfileDropdownHeader as={Row} gutter={[10, 10]} align="middle">
         <Col>
           <Avatar src={user.imgUrl} alt="User" shape="circle" size={36} />
