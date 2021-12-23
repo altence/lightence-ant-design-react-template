@@ -31,7 +31,7 @@ export const BloodScreeningCard: React.FC = () => {
           </S.TitleWrapper>
         )
       }
-      padding={0}
+      padding="0 0 0.5rem"
     >
       <BloodScreeningChart activeItem={activeItem} />
       <BloodScreeningTable activeItem={activeItem} setActiveItem={setActiveItem} />
