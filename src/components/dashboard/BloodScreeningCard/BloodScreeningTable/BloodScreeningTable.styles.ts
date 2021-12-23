@@ -40,7 +40,7 @@ export const Text = styled.span<TextProps>`
 
 export const PercentageWrapper = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 `;
 
 export const Percentage = styled.div<PercentageProps>`
