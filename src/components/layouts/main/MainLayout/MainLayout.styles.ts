@@ -3,6 +3,8 @@ import { Layout } from 'antd';
 import bg from 'assets/images/bg.png';
 
 export const LayoutMaster = styled(Layout)`
+  background: ${(props) => props.theme.colors.main.secondaryBackground};
+
   @media only screen and ${(props) => props.theme.media.md} {
     height: 100vh;
   }
