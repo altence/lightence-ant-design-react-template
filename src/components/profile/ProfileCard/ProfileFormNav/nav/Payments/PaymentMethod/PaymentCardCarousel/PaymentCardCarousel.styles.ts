@@ -1,7 +1,11 @@
 import { defaultPaddings } from 'constants/defaultPaddings';
 import styled from 'styled-components';
 
-export const CarouselWrapper = styled.div`
+interface CarouselWrapperProps {
+  cardWidth: number | undefined;
+}
+
+export const CarouselWrapper = styled.div<CarouselWrapperProps>`
   margin: ${`0 -${defaultPaddings.mobile[1]}px 1.5rem -${defaultPaddings.mobile[1]}px`};
 
   @media only screen and ${(props) => props.theme.media.md} {
@@ -9,47 +13,37 @@ export const CarouselWrapper = styled.div`
   }
 
   @media only screen and ${(props) => props.theme.media.xl} {
-    margin: ${`0 -${!defaultPaddings.desktop[1]}px 1.5rem -${defaultPaddings.desktop[1]}px`};
+    margin: ${`0 -${defaultPaddings.desktop[1]}px 1.5rem -${defaultPaddings.desktop[1]}px`};
   }
 
   .slick-track > div > div {
     position: relative;
-    margin: 0 1rem;
+    margin: 0 0.5rem;
   }
 
-  & .rccs {
+  .rccs {
     width: 100%;
-    min-width: 270px;
+    height: ${(props) => (props.cardWidth ? `${props.cardWidth / 1.75}px` : '190px')};
 
-    @media only screen and ${(props) => props.theme.media.md} {
-      min-width: 350px;
-      height: 220px;
-    }
-
-    & .rccs__card {
+    .rccs__card {
       width: 100%;
-      min-width: 270px;
+      height: ${(props) => (props.cardWidth ? `${props.cardWidth / 1.75}px` : '190px')};
 
-      @media only screen and ${(props) => props.theme.media.md} {
-        min-width: 350px;
-        height: 220px;
+      .rccs__number {
+        font-size: ${(props) => (props.cardWidth ? `${props.cardWidth / 13}px` : '12px')};
+      }
+
+      .rccs__name {
+        font-size: ${(props) => (props.cardWidth ? `${props.cardWidth / 15}px` : '14px')};
+      }
+
+      .rccs__expiry__valid {
+        font-size: ${(props) => (props.cardWidth ? `${props.cardWidth / 27.5}px` : '8px')};
+      }
+
+      .rccs__expiry__value {
+        font-size: ${(props) => (props.cardWidth ? `${props.cardWidth / 18}px` : '12px')};
       }
     }
-  }
-`;
-
-export const BtnWrapper = styled.div`
-  display: flex;
-  position: absolute;
-  column-gap: 1rem;
-  top: 13%;
-  right: 7%;
-
-  & > button {
-    padding: 0 !important;
-    width: unset !important;
-    height: unset !important;
-
-    color: ${(props) => props.theme.colors.text.secondary};
   }
 `;
