@@ -1,10 +1,12 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { FormInstance } from 'antd';
 import { Carousel } from '@app/components/common/Carousel/Carousel';
 import { CreditCard } from '../PaymentForm/interfaces';
 import { PaymentCard } from '../PaymentCard/PaymentCard';
 import { ActionButtons } from './ActionButtons/ActionButtons';
 import { removeCreditCard } from 'api/users.api';
+import { ThemeContext } from 'styled-components';
+import { useDimensions } from '@app/hooks/useDimensions';
 import * as S from './PaymentCardCarousel.styles';
 
 interface PaymentCardCarouselProps {
@@ -22,6 +24,16 @@ export const PaymentCardCarousel: React.FC<PaymentCardCarouselProps> = ({
   setCardData,
   handleOpenModal,
 }) => {
+  const [cardRef, setCardRef] = useState<Element | null>(null);
+
+  useEffect(() => {
+    setCardRef(document.querySelector('.slick-current > div > div'));
+  }, []);
+
+  const { width: cardWidth } = useDimensions({ current: cardRef });
+
+  const theme = useContext(ThemeContext);
+
   const handleRemoveCard = useCallback(
     (number: string) => async () => {
       setCards((prev) => prev.filter((card) => card.number !== number));
@@ -53,8 +65,26 @@ export const PaymentCardCarousel: React.FC<PaymentCardCarouselProps> = ({
   );
 
   return (
-    <S.CarouselWrapper>
-      <Carousel>{paymentCards}</Carousel>
+    <S.CarouselWrapper cardWidth={cardWidth}>
+      <Carousel
+        slidesToShow={3}
+        responsive={[
+          {
+            breakpoint: theme.breakpoints.xxl - 1,
+            settings: {
+              slidesToShow: 2,
+            },
+          },
+          {
+            breakpoint: theme.breakpoints.sm - 1,
+            settings: {
+              slidesToShow: 1,
+            },
+          },
+        ]}
+      >
+        {paymentCards}
+      </Carousel>
     </S.CarouselWrapper>
   );
 };
