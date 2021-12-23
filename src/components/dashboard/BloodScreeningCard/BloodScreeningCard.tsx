@@ -22,7 +22,6 @@ export const BloodScreeningCard: React.FC = () => {
 
   return (
     <S.Card
-      id="blood-screening"
       title={
         mobileOnly && (
           <S.TitleWrapper>

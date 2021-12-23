@@ -1,9 +1,9 @@
 import React from 'react';
 import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
-import { camelize } from 'utils/utils';
 import { useResponsive } from 'hooks/useResponsive';
 import * as S from './BloodScreeningTable.styles';
+import { results } from 'constants/dashboard/bloodTestResults';
 
 interface BloodScreeningTableProps {
   activeItem: Cell;
@@ -13,7 +13,7 @@ interface BloodScreeningTableProps {
 
 interface Values {
   cellName: string;
-  min: number;
+  min?: number;
   current: number;
 }
 
@@ -36,84 +36,48 @@ export const BloodScreeningTable: React.FC<BloodScreeningTableProps> = ({ active
   const { isTablet, isBigScreen } = useResponsive();
   const { t } = useTranslation();
 
-  const dataSource: Cell[] = [
-    {
-      key: 0,
-      values: {
-        cellName: t('dashboard.bloodScreening.redBloodCells'),
-        min: 80,
-        current: 90,
-      },
-      data: [410, 466, 455, 467, 649, 670, 620, 600, 500, 400, 500, 700],
+  const dataSource: Cell[] = results.map(({ test, result, min }, index) => ({
+    key: index,
+    values: {
+      cellName: test,
+      min: min,
+      current: result,
     },
-    {
-      key: 1,
-      values: {
-        cellName: t('dashboard.bloodScreening.whiteBloodCells'),
-        min: 90,
-        current: 91,
-      },
-      data: [277, 426, 632, 452, 536, 670, 432, 523, 500, 400, 550, 770],
-    },
-    {
-      key: 2,
-      values: {
-        cellName: t('dashboard.bloodScreening.platelets'),
-        min: 60,
-        current: 55,
-      },
-      data: [347, 525, 542, 452, 325, 424, 366, 421, 565, 400, 320, 340],
-    },
-    {
-      key: 3,
-      values: {
-        cellName: t('dashboard.bloodScreening.hemoglobin'),
-        min: 40,
-        current: 60,
-      },
-      data: [425, 423, 314, 455, 546, 620, 482, 513, 450, 470, 520, 600],
-    },
-    {
-      key: 4,
-      values: {
-        cellName: t('dashboard.bloodScreening.hematocrit'),
-        min: 30,
-        current: 20,
-      },
-      data: [222, 426, 652, 482, 426, 450, 482, 523, 540, 500, 400, 450],
-    },
-  ];
+    data: Array(12)
+      .fill(null)
+      .map(() => result * Math.abs(Math.sin(Math.random() * result))),
+  }));
 
   const columns: Column[] = [
     {
-      title: t('dashboard.bloodScreening.cell'),
+      title: t('tests'),
       dataIndex: 'values',
       key: 'values',
-      render: ({ cellName }) => (
-        <S.Text isActive={cellName === activeItem.values.cellName}>
-          {t(`dashboard.bloodScreening.${camelize(cellName)}`)}
-        </S.Text>
-      ),
+      render: ({ cellName }) => <S.Text isActive={cellName === activeItem.values.cellName}>{cellName}</S.Text>,
     },
     {
       title: t('dashboard.bloodScreening.min'),
       dataIndex: 'values',
       key: 'values',
       width: '15%',
-      render: ({ cellName, min }) => <S.Text isActive={cellName === activeItem.values.cellName}>{min}</S.Text>,
+      render: ({ cellName, min }) => (
+        <S.Text isActive={cellName === activeItem.values.cellName}>{min !== undefined ? min : '-'}</S.Text>
+      ),
     },
     {
-      title: t('dashboard.bloodScreening.yourPerf'),
+      title: t('results'),
       dataIndex: 'values',
       key: 'values',
       width: '25%',
       render: ({ cellName, min, current }) => (
         <S.PercentageWrapper>
           <S.Text isActive={cellName === activeItem.values.cellName}>{current}</S.Text>
-          <S.Percentage isActive={cellName === activeItem.values.cellName} isDowngrade={min > current}>
-            {min < current ? <CaretUpOutlined /> : <CaretDownOutlined />}
-            <S.Text>{Math.abs(Math.round(((current - min) / min) * 100))}%</S.Text>
-          </S.Percentage>
+          {min && (
+            <S.Percentage isActive={cellName === activeItem.values.cellName} isDowngrade={min > current}>
+              {min < current ? <CaretUpOutlined /> : <CaretDownOutlined />}
+              <S.Text>{Math.abs(Math.round(((current - min) / min) * 100))}%</S.Text>
+            </S.Percentage>
+          )}
         </S.PercentageWrapper>
       ),
     },
