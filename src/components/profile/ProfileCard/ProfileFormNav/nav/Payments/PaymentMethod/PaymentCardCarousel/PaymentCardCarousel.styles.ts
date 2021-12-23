@@ -12,13 +12,9 @@ export const CarouselWrapper = styled.div`
     margin: ${`0 -${!defaultPaddings.desktop[1]}px 1.5rem -${defaultPaddings.desktop[1]}px`};
   }
 
-  & .swiper-slide > div {
+  .slick-track > div > div {
     position: relative;
-    max-width: 290px;
-
-    @media only screen and ${(props) => props.theme.media.md} {
-      max-width: 370px;
-    }
+    margin: 0 1rem;
   }
 
   & .rccs {
