@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Table as CommonTable } from 'components/common/Table/Table';
-import theme from '../../../../styles/theme';
 
 interface TextProps {
   isActive?: boolean;
@@ -11,11 +10,12 @@ interface PercentageProps extends TextProps {
 }
 
 export const Table = styled(CommonTable)`
-  & thead .ant-table-cell {
+  thead .ant-table-cell {
     border-top: none;
     border-bottom: ${(props) => `1px solid ${props.theme.colors.main.secondaryBackground}`};
   }
-  & .ant-table-thead > tr > th {
+
+  .ant-table-thead > tr > th {
     background: transparent;
     color: ${(props) => props.theme.colors.text.main};
     font-size: ${(props) => props.theme.commonFontSizes.md};
@@ -26,17 +26,9 @@ export const Table = styled(CommonTable)`
     }
   }
 
-  & .ant-table-tbody > tr > td {
+  .ant-table-tbody > tr > td {
     border: 0;
     cursor: pointer;
-  }
-
-  @media only screen and ${theme.media.xs} {
-    padding: 0 0.5rem;
-  }
-
-  @media only screen and ${theme.media.md} {
-    padding: 0 1rem;
   }
 `;
 
