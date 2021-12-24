@@ -6,6 +6,7 @@ import { Table } from 'components/common/Table/Table';
 import { ColumnsType } from 'antd/es/table';
 import { Button } from 'components/common/buttons/Button/Button';
 import { useTranslation } from 'react-i18next';
+import { defineColorByPriority } from '../../../utils/utils';
 
 export const BasicTable: React.FC = () => {
   const [tableData, setTableData] = useState<{ data: BasicTableRow[]; pagination: Pagination; loading: boolean }>({
@@ -106,7 +107,7 @@ export const BasicTable: React.FC = () => {
         <>
           {tags.map((tag: Tag) => {
             return (
-              <S.Tag color={tag.color} key={tag.value}>
+              <S.Tag color={defineColorByPriority(tag.priority)} key={tag.value}>
                 {tag.value.toUpperCase()}
               </S.Tag>
             );
@@ -146,6 +147,7 @@ export const BasicTable: React.FC = () => {
       loading={tableData.loading}
       onChange={handleTableChange}
       scroll={{ x: 800 }}
+      bordered
     />
   );
 };

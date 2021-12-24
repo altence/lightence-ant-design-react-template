@@ -1,28 +1,30 @@
+import { Priority } from './enums/priorities';
+
 export interface PaymentStatus {
   id: number;
   name: string;
-  color: 'secondary' | 'success' | 'warning' | 'error';
+  priority: Priority;
 }
 
 export const paymentStatuses: PaymentStatus[] = [
   {
     id: 1,
     name: 'profile.nav.payments.status.paid',
-    color: 'secondary',
+    priority: Priority.LOW,
   },
   {
     id: 2,
     name: 'profile.nav.payments.status.scheduled',
-    color: 'success',
+    priority: Priority.INFO,
   },
   {
     id: 3,
     name: 'profile.nav.payments.status.pending',
-    color: 'warning',
+    priority: Priority.MEDIUM,
   },
   {
     id: 4,
     name: 'profile.nav.payments.status.failed',
-    color: 'error',
+    priority: Priority.HIGH,
   },
 ];

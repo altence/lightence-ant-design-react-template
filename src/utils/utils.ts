@@ -1,3 +1,6 @@
+import { Priority } from '../constants/enums/priorities';
+import theme from '../styles/theme';
+
 export const camelize = (string: string): string => {
   return string
     .split(' ')
@@ -46,6 +49,21 @@ export const getDifference = (value: number, prevValue: number): string | null =
 
 export const normalizeProp = (prop: string | number | [number, number]): string =>
   typeof prop === 'number' ? `${prop}px` : (Array.isArray(prop) && `${prop[0]}px ${prop[1]}px`) || prop.toString();
+
+export const defineColorByPriority = (priority: Priority): string => {
+  switch (priority) {
+    case Priority.INFO:
+      return theme.colors.main.primary;
+    case Priority.LOW:
+      return theme.colors.main.success;
+    case Priority.MEDIUM:
+      return theme.colors.main.warning;
+    case Priority.HIGH:
+      return theme.colors.main.error;
+    default:
+      return theme.colors.main.success;
+  }
+};
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const mergeBy = (a: any[], b: any[], key: string): any[] =>
