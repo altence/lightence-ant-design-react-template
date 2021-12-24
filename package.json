@@ -54,7 +54,7 @@
     "workbox-streams": "^5.1.3"
   },
   "scripts": {
-    "start": "craco start",
+    "start": "nodemon -w ./src/styles/_override_variables.less --exec \"craco start\"",
     "build": "craco build",
     "test": "craco test",
     "eject": "craco eject",
@@ -94,6 +94,7 @@
     "eslint-plugin-react": "^7.24.0",
     "husky": "^6.0.0",
     "lint-staged": "^11.0.0",
+    "nodemon": "^2.0.12",
     "prettier": "^2.3.1",
     "stylelint": "^13.13.1",
     "stylelint-config-recommended": "^5.0.0",
