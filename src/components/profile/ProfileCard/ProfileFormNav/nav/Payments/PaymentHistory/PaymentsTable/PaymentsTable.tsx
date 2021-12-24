@@ -1,12 +1,11 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { Avatar } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { ThemeContext } from 'styled-components';
 import { ColumnType } from 'antd/lib/table';
 import { Dates } from 'constants/Dates';
 import { Status } from '../Status/Status';
 import { paymentStatuses, PaymentStatus } from 'constants/paymentStatuses';
-import { getCurrencyPrice } from 'utils/utils';
+import { defineColorByPriority, getCurrencyPrice } from 'utils/utils';
 import { Payment } from 'api/paymentHistory.api';
 import * as S from './PaymentsTable.styles';
 import { Button } from 'components/common/buttons/Button/Button';
@@ -30,8 +29,6 @@ interface PaymentsTableProps {
 
 export const PaymentsTable: React.FC<PaymentsTableProps> = ({ payments }) => {
   const { t } = useTranslation();
-
-  const themeContext = useContext(ThemeContext);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const columns: ColumnType<any>[] = useMemo(() => {
@@ -61,7 +58,7 @@ export const PaymentsTable: React.FC<PaymentsTableProps> = ({ payments }) => {
         dataIndex: 'status',
         key: 'status',
         render: (status: PaymentStatus) => (
-          <Status color={themeContext.colors.main[status.color]} text={t(status.name)} />
+          <Status color={defineColorByPriority(status.priority)} text={t(status.name)} />
         ),
         align: 'center',
       },

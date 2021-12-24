@@ -4,6 +4,7 @@ import { graphic } from 'echarts';
 const darkColors = {
   main: {
     primary: '#000000',
+    primaryLight: '#b3cbe1',
     primaryShade: '#0661B5',
     primaryGradient: 'linear-gradient(261.31deg, #006CCF -29.57%, #00509A 121.11%)',
     light: '#000000',

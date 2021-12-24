@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Popconfirm, Form, TablePaginationConfig } from 'antd';
+import { Popconfirm, Form, TablePaginationConfig, Space } from 'antd';
 import { Table } from 'components/common/Table/Table';
 import { getEditableTableData, BasicTableRow, Pagination } from 'api/table.api';
 import { EditableCell } from './EditableCell/EditableCell';
@@ -68,6 +68,10 @@ export const EditableTable: React.FC = () => {
     }
   };
 
+  const handleDeleteRow = (rowId: number) => {
+    setTableData({ ...tableData, data: tableData.data.filter((item) => item.key !== rowId) });
+  };
+
   const columns = [
     {
       title: t('tables.name'),
@@ -90,21 +94,31 @@ export const EditableTable: React.FC = () => {
     {
       title: t('tables.actions'),
       dataIndex: 'actions',
+      width: '15%',
       render: (text: string, record: BasicTableRow) => {
         const editable = isEditing(record);
-        return editable ? (
-          <div>
-            <Button type="primary" onClick={() => save(record.key)} style={{ marginRight: 8 }}>
-              {t('common.save')}
-            </Button>
-            <Popconfirm title={t('tables.cancelInfo')} onConfirm={cancel}>
-              <Button type="ghost">{t('common.cancel')}</Button>
-            </Popconfirm>
-          </div>
-        ) : (
-          <Button type="ghost" disabled={editingKey !== 0} onClick={() => edit(record)}>
-            {t('common.edit')}
-          </Button>
+        return (
+          <Space>
+            {editable ? (
+              <>
+                <Button type="primary" onClick={() => save(record.key)}>
+                  {t('common.save')}
+                </Button>
+                <Popconfirm title={t('tables.cancelInfo')} onConfirm={cancel}>
+                  <Button type="ghost">{t('common.cancel')}</Button>
+                </Popconfirm>
+              </>
+            ) : (
+              <>
+                <Button type="ghost" disabled={editingKey !== 0} onClick={() => edit(record)}>
+                  {t('common.edit')}
+                </Button>
+                <Button type="default" danger onClick={() => handleDeleteRow(record.key)}>
+                  {t('tables.delete')}
+                </Button>
+              </>
+            )}
+          </Space>
         );
       },
     },

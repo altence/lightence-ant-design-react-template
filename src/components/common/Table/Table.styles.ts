@@ -6,15 +6,10 @@ export const Table = styled(AntdTable)`
     color: ${(props) => props.theme.colors.main.primary};
     font-size: ${(props) => props.theme.commonFontSizes.xs};
     line-height: 1.25rem;
-    border-bottom: 1px solid rgba(1, 80, 154, 0.3);
-    border-top: 1px solid rgba(1, 80, 154, 0.3);
+
     & .anticon {
       color: ${(props) => props.theme.colors.main.primary};
     }
-  }
-
-  & .ant-table-tbody > tr > td {
-    border-bottom: 1px solid rgba(1, 80, 154, 0.3);
   }
 
   & tbody .ant-table-cell {
@@ -30,11 +25,12 @@ export const Table = styled(AntdTable)`
     margin-top: 0;
   }
 
+  // Override default antd selector
   &
     .ant-table-thead
     > tr
     > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
-    background: rgba(1, 80, 154, 0.3);
+    background-color: ${(props) => props.theme.colors.main.primaryLight};
   }
 
   & .ant-pagination-prev,
@@ -60,6 +56,7 @@ export const Table = styled(AntdTable)`
     width: 1.25rem;
     border: ${(props) => `1px solid ${props.theme.colors.main.primary}`};
   }
+
   & .editable-row .ant-form-item-explain {
     position: absolute;
     top: 100%;

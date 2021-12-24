@@ -20,6 +20,7 @@ declare module 'styled-components' {
     colors: {
       main: {
         primary: string;
+        primaryLight: string;
         primaryShade: string;
         primaryGradient: string;
         light: string;

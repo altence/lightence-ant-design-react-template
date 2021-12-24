@@ -1,6 +1,8 @@
+import { Priority } from '../constants/enums/priorities';
+
 export interface Tag {
-  color: string;
   value: string;
+  priority: Priority;
 }
 
 export interface BasicTableRow {
@@ -45,8 +47,8 @@ export const getBasicTableData = (pagination: Pagination): Promise<BasicTableDat
             age: 32,
             address: 'New York No. 1 Lake Park',
             tags: [
-              { value: 'nice', color: 'green' },
-              { value: 'developer', color: 'geekblue' },
+              { value: 'Architect', priority: Priority.LOW },
+              { value: 'Engineer', priority: Priority.MEDIUM },
             ],
           },
           {
@@ -54,7 +56,7 @@ export const getBasicTableData = (pagination: Pagination): Promise<BasicTableDat
             name: 'Jim Green',
             age: 42,
             address: 'London No. 1 Lake Park',
-            tags: [{ value: 'awesome', color: 'volcano' }],
+            tags: [{ value: 'Doctor', priority: Priority.HIGH }],
           },
           {
             key: 3,
@@ -62,8 +64,8 @@ export const getBasicTableData = (pagination: Pagination): Promise<BasicTableDat
             age: 32,
             address: 'Sidney No. 1 Lake Park',
             tags: [
-              { value: 'cool', color: 'lawngreen' },
-              { value: 'teacher', color: 'aquamarine' },
+              { value: 'Professor', priority: Priority.INFO },
+              { value: 'Architect', priority: Priority.LOW },
             ],
           },
           {
@@ -72,19 +74,25 @@ export const getBasicTableData = (pagination: Pagination): Promise<BasicTableDat
             age: 30,
             address: 'New York No. 1 Lake Park',
             tags: [
-              { value: 'developer', color: 'geekblue' },
-              { value: 'nice', color: 'green' },
+              { value: 'Engineer', priority: Priority.MEDIUM },
+              { value: 'Architect', priority: Priority.LOW },
             ],
           },
-          { key: 5, name: 'Alex Brown', age: 26, address: 'Minsk', tags: [{ value: 'developer', color: 'geekblue' }] },
+          {
+            key: 5,
+            name: 'Alex Brown',
+            age: 26,
+            address: 'Minsk',
+            tags: [{ value: 'Engineer', priority: Priority.MEDIUM }],
+          },
           {
             key: 6,
             name: 'Josh Black',
             age: 21,
             address: 'New York No. 1 Lake Park',
             tags: [
-              { value: 'teacher', color: 'aquamarine' },
-              { value: 'nice', color: 'green' },
+              { value: 'Teacher', priority: Priority.INFO },
+              { value: 'Architect', priority: Priority.LOW },
             ],
           },
           {
@@ -92,14 +100,14 @@ export const getBasicTableData = (pagination: Pagination): Promise<BasicTableDat
             name: 'Cris Green',
             age: 22,
             address: 'Sidney No. 1 Lake Park',
-            tags: [{ value: 'nice', color: 'green' }],
+            tags: [{ value: 'Architect', priority: Priority.LOW }],
           },
           {
             key: 8,
             name: 'Jaime Black',
             age: 23,
             address: 'New York No. 1 Lake Park',
-            tags: [{ value: 'developer', color: 'geekblue' }],
+            tags: [{ value: 'Engineer', priority: Priority.MEDIUM }],
           },
           {
             key: 9,
@@ -107,8 +115,8 @@ export const getBasicTableData = (pagination: Pagination): Promise<BasicTableDat
             age: 19,
             address: 'Minsk',
             tags: [
-              { value: 'cool', color: 'lawngreen' },
-              { value: 'teacher', color: 'aquamarine' },
+              { value: 'Professor', priority: Priority.LOW },
+              { value: 'Teacher', priority: Priority.INFO },
             ],
           },
           {
@@ -117,8 +125,8 @@ export const getBasicTableData = (pagination: Pagination): Promise<BasicTableDat
             age: 25,
             address: 'London',
             tags: [
-              { value: 'developer', color: 'geekblue' },
-              { value: 'teacher', color: 'aquamarine' },
+              { value: 'Engineer', priority: Priority.MEDIUM },
+              { value: 'Teacher', priority: Priority.INFO },
             ],
           },
           {
@@ -127,8 +135,8 @@ export const getBasicTableData = (pagination: Pagination): Promise<BasicTableDat
             age: 19,
             address: 'Minsk',
             tags: [
-              { value: 'cool', color: 'lawngreen' },
-              { value: 'teacher', color: 'aquamarine' },
+              { value: 'Professor', priority: Priority.LOW },
+              { value: 'Teacher', priority: Priority.INFO },
             ],
           },
           {
@@ -137,8 +145,8 @@ export const getBasicTableData = (pagination: Pagination): Promise<BasicTableDat
             age: 28,
             address: 'Brest',
             tags: [
-              { value: 'cool', color: 'lawngreen' },
-              { value: 'awesome', color: 'volcano' },
+              { value: 'Professor', priority: Priority.LOW },
+              { value: 'Doctor', priority: Priority.HIGH },
             ],
           },
           {
@@ -147,10 +155,10 @@ export const getBasicTableData = (pagination: Pagination): Promise<BasicTableDat
             age: 26,
             address: 'Minsk',
             tags: [
-              { value: 'cool', color: 'lawngreen' },
-              { value: 'awesome', color: 'volcano' },
-              { value: 'teacher', color: 'aquamarine' },
-              { value: 'developer', color: 'geekblue' },
+              { value: 'Professor', priority: Priority.LOW },
+              { value: 'Doctor', priority: Priority.HIGH },
+              { value: 'Teacher', priority: Priority.INFO },
+              { value: 'Engineer', priority: Priority.MEDIUM },
             ],
           },
           {
@@ -158,7 +166,7 @@ export const getBasicTableData = (pagination: Pagination): Promise<BasicTableDat
             name: 'Jack Donald',
             age: 24,
             address: 'New York',
-            tags: [{ value: 'cool', color: 'lawngreen' }],
+            tags: [{ value: 'Professor', priority: Priority.LOW }],
           },
           {
             key: 15,
@@ -166,8 +174,8 @@ export const getBasicTableData = (pagination: Pagination): Promise<BasicTableDat
             age: 34,
             address: 'London',
             tags: [
-              { value: 'awesome', color: 'volcano' },
-              { value: 'developer', color: 'geekblue' },
+              { value: 'Doctor', priority: Priority.HIGH },
+              { value: 'Engineer', priority: Priority.MEDIUM },
             ],
           },
           {
@@ -176,8 +184,8 @@ export const getBasicTableData = (pagination: Pagination): Promise<BasicTableDat
             age: 32,
             address: 'Minsk',
             tags: [
-              { value: 'awesome', color: 'volcano' },
-              { value: 'teacher', color: 'aquamarine' },
+              { value: 'Doctor', priority: Priority.HIGH },
+              { value: 'Teacher', priority: Priority.INFO },
             ],
           },
           {
@@ -186,8 +194,8 @@ export const getBasicTableData = (pagination: Pagination): Promise<BasicTableDat
             age: 29,
             address: 'Gomel',
             tags: [
-              { value: 'developer', color: 'geekblue' },
-              { value: 'teacher', color: 'aquamarine' },
+              { value: 'Engineer', priority: Priority.MEDIUM },
+              { value: 'Teacher', priority: Priority.INFO },
             ],
           },
           {
@@ -196,8 +204,8 @@ export const getBasicTableData = (pagination: Pagination): Promise<BasicTableDat
             age: 19,
             address: 'Moscow',
             tags: [
-              { value: 'cool', color: 'lawngreen' },
-              { value: 'awesome', color: 'volcano' },
+              { value: 'Professor', priority: Priority.LOW },
+              { value: 'Doctor', priority: Priority.HIGH },
             ],
           },
           {
@@ -206,8 +214,8 @@ export const getBasicTableData = (pagination: Pagination): Promise<BasicTableDat
             age: 25,
             address: 'London',
             tags: [
-              { value: 'teacher', color: 'aquamarine' },
-              { value: 'awesome', color: 'volcano' },
+              { value: 'Teacher', priority: Priority.INFO },
+              { value: 'Doctor', priority: Priority.HIGH },
             ],
           },
           {
@@ -215,7 +223,7 @@ export const getBasicTableData = (pagination: Pagination): Promise<BasicTableDat
             name: 'Alex Brons',
             age: 45,
             address: 'Bronx',
-            tags: [{ value: 'cool', color: 'lawngreen' }],
+            tags: [{ value: 'Professor', priority: Priority.LOW }],
           },
         ],
         pagination: { ...pagination, total: 20 },
