@@ -52,7 +52,7 @@ export const Form: React.FC<FormProps> = ({
   const setFinished = useCallback(() => {
     setFieldsChange(false);
     setLoading(false);
-    notification.open({ message: t('common.saved') });
+    notification.success({ message: t('common.saved') });
   }, [setFieldsChange, setLoading]);
 
   const onFinishDefault = useCallback(
@@ -69,7 +69,7 @@ export const Form: React.FC<FormProps> = ({
   const showErrorsDefault = useCallback((error) => {
     setLoading(false);
 
-    notification.open({
+    notification.error({
       message: (
         <Row gutter={[20, 20]}>
           {error.errorFields.map((item: Error, index: number) => (
