@@ -30,7 +30,7 @@ export const TwoFactorAuth: React.FC = () => {
       onFinish={onFinish}
     >
       <Row>
-        <Col xs={24} md={12} xl={24}>
+        <Col span={24}>
           <TwoFactorSwitch setEnabled={setEnabled} />
         </Col>
 
