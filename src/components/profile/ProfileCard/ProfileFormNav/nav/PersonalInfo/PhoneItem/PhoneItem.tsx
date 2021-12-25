@@ -31,7 +31,7 @@ export const PhoneItem: React.FC<PhoneItemsProps> = ({ required, onClick }) => {
         }),
       ]}
     >
-      <S.PhoneNumberInput value={phone} onChange={setPhone} onClick={onClick} />
+      <S.PhoneNumberInput className="ant-input" value={phone} onChange={setPhone} onClick={onClick} />
     </FormItem>
   );
 };
