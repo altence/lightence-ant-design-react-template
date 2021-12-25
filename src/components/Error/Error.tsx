@@ -17,7 +17,7 @@ export const Error: React.FC<ErrorProps> = ({ img, msg, btnText }) => {
       <S.ContentWrapper>
         <S.Title>{t('common.oops')}</S.Title>
         <S.Text>{msg}</S.Text>
-        <S.Btn size="large" type="primary" href="/">
+        <S.Btn type="primary" href="/">
           {btnText || t('error404.comeBack')}
         </S.Btn>
       </S.ContentWrapper>
