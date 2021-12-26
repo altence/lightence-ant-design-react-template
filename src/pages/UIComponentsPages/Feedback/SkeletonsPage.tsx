@@ -42,16 +42,16 @@ const SkeletonsPage: React.FC = () => {
 
   return (
     <Col>
-      <S.Card title={t('skeletons.basic')} padding="1.25rem">
+      <S.Card title={t('skeletons.basic')}>
         <Skeleton />
       </S.Card>
-      <S.Card title={t('skeletons.complex')} padding="1.25rem">
+      <S.Card title={t('skeletons.complex')}>
         <Skeleton avatar paragraph={{ rows: 4 }} />
       </S.Card>
-      <S.Card title={t('skeletons.active')} padding="1.25rem">
+      <S.Card title={t('skeletons.active')}>
         <Skeleton active />
       </S.Card>
-      <S.Card title={t('skeletons.customization')} padding="1.25rem 0">
+      <S.Card title={t('skeletons.customization')}>
         <div>
           <Space>
             <SkeletonButton active={state.active} size={state.size} shape={state.buttonShape} block={state.block} />

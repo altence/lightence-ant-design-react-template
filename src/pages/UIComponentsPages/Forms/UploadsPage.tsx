@@ -43,17 +43,17 @@ const UploadsPage: React.FC = () => {
 
   return (
     <Col>
-      <S.Card title={t('uploads.basic')} padding="1.25rem 0">
+      <S.Card title={t('uploads.basic')}>
         <Upload {...uploadProps}>
           <Button icon={<UploadOutlined />}>{t('uploads.clickToUpload')}</Button>
         </Upload>
       </S.Card>
-      <S.Card title={t('uploads.directory')} padding="1.25rem 0">
+      <S.Card title={t('uploads.directory')}>
         <Upload action="https://www.mocky.io/v2/5cc8019d300000980a055e76" directory>
           <Button icon={<UploadOutlined />}>{t('uploads.directory')}</Button>
         </Upload>
       </S.Card>
-      <S.Card title={t('uploads.dragger')} padding="1.25rem 0">
+      <S.Card title={t('uploads.dragger')}>
         <UploadDragger {...uploadProps}>
           <DraggerIconWrapper>
             <InboxOutlined />

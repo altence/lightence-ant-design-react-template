@@ -20,14 +20,14 @@ const CheckboxesPage: React.FC = () => {
 
   return (
     <Col>
-      <S.Card title={t('checkboxes.basic')} padding="1.25rem 0">
+      <S.Card title={t('checkboxes.basic')}>
         <Checkbox>{t('checkboxes.checkbox')}</Checkbox>
       </S.Card>
-      <S.Card title={t('checkboxes.disabledCheckbox')} padding="1.25rem 0">
+      <S.Card title={t('checkboxes.disabledCheckbox')}>
         <Checkbox defaultChecked={false} disabled />
         <Checkbox defaultChecked disabled />
       </S.Card>
-      <S.Card title={t('checkboxes.controlled')} padding="1.25rem 0">
+      <S.Card title={t('checkboxes.controlled')}>
         <Space direction="vertical" size={20}>
           <Checkbox checked={checked} disabled={disabled} onChange={onChange}>
             {label}
@@ -42,7 +42,7 @@ const CheckboxesPage: React.FC = () => {
           </Space>
         </Space>
       </S.Card>
-      <S.Card title={t('checkboxes.group')} padding="1.25rem 0">
+      <S.Card title={t('checkboxes.group')}>
         <CheckboxGroup options={groupOptions} defaultValue={[`${t('checkboxes.apple')}`]} />
       </S.Card>
     </Col>

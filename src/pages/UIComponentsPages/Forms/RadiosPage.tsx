@@ -20,10 +20,10 @@ const RadiosPage: React.FC = () => {
 
   return (
     <Col>
-      <S.Card title={t('radios.basic')} padding="1.25rem 0">
+      <S.Card title={t('radios.basic')}>
         <Radio>{t('radios.radio')}</Radio>
       </S.Card>
-      <S.Card title={t('radios.disabledRadio')} padding="1.25rem 0">
+      <S.Card title={t('radios.disabledRadio')}>
         <Space direction="vertical" size={20}>
           <div>
             <Radio defaultChecked={false} disabled={disabled}>
@@ -38,7 +38,7 @@ const RadiosPage: React.FC = () => {
           </Button>
         </Space>
       </S.Card>
-      <S.Card title={t('radios.radioGroup')} padding="1.25rem 0">
+      <S.Card title={t('radios.radioGroup')}>
         <RadioGroup onChange={onChange} value={value}>
           <Radio value={1}>{t('radios.a')}</Radio>
           <Radio value={2}>{t('radios.b')}</Radio>
@@ -46,7 +46,7 @@ const RadiosPage: React.FC = () => {
           <Radio value={4}>{t('radios.d')}</Radio>
         </RadioGroup>
       </S.Card>
-      <S.Card title={t('radios.radioButton')} padding="1.25rem 0">
+      <S.Card title={t('radios.radioButton')}>
         <Space direction="vertical" size={20}>
           <RadioGroup defaultValue="a">
             <RadioButton value="a">Hangzhou</RadioButton>
@@ -62,7 +62,7 @@ const RadiosPage: React.FC = () => {
           </RadioGroup>
         </Space>
       </S.Card>
-      <S.Card title={t('radios.radioButtonSizes')} padding="1.25rem 0">
+      <S.Card title={t('radios.radioButtonSizes')}>
         <Space direction="vertical" size={10}>
           <RadioGroup size="small" defaultValue="a">
             <RadioButton value="a">Hangzhou</RadioButton>

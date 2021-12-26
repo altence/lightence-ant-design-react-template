@@ -25,7 +25,7 @@ const ButtonsPage: React.FC = () => {
   };
   return (
     <Col>
-      <S.Card title={t('buttons.types')} padding="1.25rem 0">
+      <S.Card title={t('buttons.types')}>
         <Button type="primary">{t('buttons.primary')}</Button>
         <Button type="default">{t('buttons.default')}</Button>
         <Button type="ghost">{t('buttons.ghost')}</Button>
@@ -33,7 +33,7 @@ const ButtonsPage: React.FC = () => {
         <Button type="text">{t('buttons.text')}</Button>
         <Button type="link">{t('buttons.link')}</Button>
       </S.Card>
-      <S.Card title={t('buttons.sizes')} padding="1.25rem 0">
+      <S.Card title={t('buttons.sizes')}>
         <Button type="ghost" size="small">
           {t('buttons.small')}
         </Button>
@@ -44,7 +44,7 @@ const ButtonsPage: React.FC = () => {
           {t('buttons.large')}
         </Button>
       </S.Card>
-      <S.Card title={t('buttons.loadings')} padding="1.25rem 0">
+      <S.Card title={t('buttons.loadings')}>
         <Button type="primary" size="small" loading>
           {t('buttons.loading')}
         </Button>
@@ -61,7 +61,7 @@ const ButtonsPage: React.FC = () => {
         </Button>
         <Button type="primary" icon={<PoweroffOutlined />} loading={loadings[2]} onClick={() => enterLoading(2)} />
       </S.Card>
-      <S.Card title={t('buttons.danger')} padding="1.25rem 0">
+      <S.Card title={t('buttons.danger')}>
         <Button type="primary" danger>
           {t('buttons.primary')}
         </Button>
@@ -81,7 +81,7 @@ const ButtonsPage: React.FC = () => {
           {t('buttons.link')}
         </Button>
       </S.Card>
-      <S.Card title={t('buttons.disabled')} padding="1.25rem 0">
+      <S.Card title={t('buttons.disabled')}>
         <Button type="primary" disabled>
           {t('buttons.primary')}
         </Button>
@@ -101,7 +101,7 @@ const ButtonsPage: React.FC = () => {
           {t('buttons.link')}
         </Button>
       </S.Card>
-      <S.Card title={t('buttons.icons')} padding="1.25rem 0">
+      <S.Card title={t('buttons.icons')}>
         <Tooltip title={t('buttons.search')}>
           <Button type="primary" shape="circle" icon={<SearchOutlined />} />
         </Tooltip>

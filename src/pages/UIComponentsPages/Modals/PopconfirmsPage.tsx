@@ -27,12 +27,12 @@ const PopconfirmsPage: React.FC = () => {
 
   return (
     <Col>
-      <S.Card title={t('popconfirm.basic')} padding="1.25rem 0">
+      <S.Card title={t('popconfirm.basic')}>
         <Popconfirm title={text}>
           <Button type="primary">{t('popconfirm.delete')}</Button>
         </Popconfirm>
       </S.Card>
-      <S.Card title={t('popconfirm.positions')} padding="1.25rem 0">
+      <S.Card title={t('popconfirm.positions')}>
         <div>
           <TopButtons>
             <Popconfirm
@@ -152,7 +152,7 @@ const PopconfirmsPage: React.FC = () => {
           </BottomButtons>
         </div>
       </S.Card>
-      <S.Card title={t('popconfirm.async')} padding="1.25rem 0">
+      <S.Card title={t('popconfirm.async')}>
         <Popconfirm
           title={t('popovers.title')}
           visible={visible}

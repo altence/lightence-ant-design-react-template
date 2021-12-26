@@ -30,19 +30,19 @@ const ProgressPage: React.FC = () => {
 
   return (
     <Col>
-      <S.Card title={t('progress.basic')} padding="1.25rem">
+      <S.Card title={t('progress.basic')}>
         <Progress percent={30} />
         <Progress percent={50} status="active" />
         <Progress percent={70} status="exception" />
         <Progress percent={100} />
         <Progress percent={50} showInfo={false} />
       </S.Card>
-      <S.Card title={t('progress.circle')} padding="1.25rem 0">
+      <S.Card title={t('progress.circle')}>
         <Progress type="circle" percent={75} />
         <Progress type="circle" percent={70} status="exception" />
         <Progress type="circle" percent={100} />
       </S.Card>
-      <S.Card title={t('progress.dynamic')} padding="1.25rem">
+      <S.Card title={t('progress.dynamic')}>
         <div>
           <Progress percent={percent} type="circle" />
           <Progress percent={percent} />
@@ -52,11 +52,11 @@ const ProgressPage: React.FC = () => {
           </ButtonGroup>
         </div>
       </S.Card>
-      <S.Card title={t('progress.dashboard')} padding="1.25rem 0">
+      <S.Card title={t('progress.dashboard')}>
         <Progress type="dashboard" percent={75} />
         <Progress type="dashboard" percent={75} gapDegree={30} />
       </S.Card>
-      <S.Card title={t('progress.gradient')} padding="1.25rem 0">
+      <S.Card title={t('progress.gradient')}>
         <div>
           <Progress
             strokeColor={{

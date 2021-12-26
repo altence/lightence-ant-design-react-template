@@ -12,10 +12,10 @@ const SwitchesPage: React.FC = () => {
 
   return (
     <Col>
-      <S.Card title={t('switches.basic')} padding="1.25rem 0">
+      <S.Card title={t('switches.basic')}>
         <Switch defaultChecked />
       </S.Card>
-      <S.Card title={t('switches.disabled')} padding="1.25rem 0">
+      <S.Card title={t('switches.disabled')}>
         <Space direction="vertical" size={10}>
           <Switch disabled={disabled} defaultChecked />
           <Button type="primary" onClick={() => setDisabled(!disabled)}>
@@ -23,19 +23,19 @@ const SwitchesPage: React.FC = () => {
           </Button>
         </Space>
       </S.Card>
-      <S.Card title={t('switches.sizes')} padding="1.25rem 0">
+      <S.Card title={t('switches.sizes')}>
         <Space direction="vertical" size={10}>
           <Switch defaultChecked />
           <Switch size="small" defaultChecked />
         </Space>
       </S.Card>
-      <S.Card title={t('switches.loading')} padding="1.25rem 0">
+      <S.Card title={t('switches.loading')}>
         <Space direction="vertical" size={10}>
           <Switch loading defaultChecked />
           <Switch size="small" loading />
         </Space>
       </S.Card>
-      <S.Card title={t('switches.icons')} padding="1.25rem 0">
+      <S.Card title={t('switches.icons')}>
         <Space direction="vertical" size={10}>
           <Switch checkedChildren={t('switches.yes')} unCheckedChildren={t('switches.no')} defaultChecked />
           <Switch checkedChildren="1" unCheckedChildren="0" />

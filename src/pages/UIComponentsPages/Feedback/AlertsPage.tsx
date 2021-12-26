@@ -17,20 +17,20 @@ const AlertsPage: React.FC = () => {
 
   return (
     <Col>
-      <Card title={t('alerts.basic')} padding="1.25rem">
+      <Card title={t('alerts.basic')}>
         <Alert message={t('alerts.success')} type="success" />
       </Card>
-      <Card title={t('alerts.types')} padding="1.25rem">
+      <Card title={t('alerts.types')}>
         <Alert message={t('alerts.success')} type="success" />
         <Alert message={t('alerts.info')} type="info" />
         <Alert message={t('alerts.warning')} type="warning" />
         <Alert message={t('alerts.error')} type="error" />
       </Card>
-      <Card title={t('alerts.closable')} padding="1.25rem">
+      <Card title={t('alerts.closable')}>
         <Alert message={t('alerts.warning')} type="warning" closable />
         <Alert message={t('alerts.error')} description={t('alerts.errorDescription')} type="error" closable />
       </Card>
-      <Card title={t('alerts.icons')} padding="1.25rem">
+      <Card title={t('alerts.icons')}>
         <Alert message={t('alerts.success')} type="success" showIcon />
         <Alert message={t('alerts.info')} type="info" showIcon />
         <Alert message={t('alerts.warning')} type="warning" showIcon closable />
@@ -46,7 +46,7 @@ const AlertsPage: React.FC = () => {
         />
         <Alert message={t('alerts.error')} description={t('alerts.errorDescription')} type="error" showIcon />
       </Card>
-      <Card title={t('alerts.customActions')} padding="1.25rem">
+      <Card title={t('alerts.customActions')}>
         <Alert
           message={t('alerts.success')}
           type="success"

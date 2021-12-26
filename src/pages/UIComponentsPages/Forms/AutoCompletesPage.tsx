@@ -81,7 +81,7 @@ const AutoCompletesPage: React.FC = () => {
 
   return (
     <Col>
-      <S.Card title={t('autoCompletes.basic')} padding="1.25rem 0">
+      <S.Card title={t('autoCompletes.basic')}>
         <AutoComplete
           options={options}
           style={{ width: 200 }}
@@ -89,7 +89,7 @@ const AutoCompletesPage: React.FC = () => {
           placeholder={t('autoCompletes.inputHere')}
         />
       </S.Card>
-      <S.Card title={t('autoCompletes.customOptions')} padding="1.25rem 0">
+      <S.Card title={t('autoCompletes.customOptions')}>
         <AutoComplete style={{ width: 200 }} onSearch={handleCustomSearch} placeholder={t('autoCompletes.inputHere')}>
           {result.map((email: string) => (
             <Option key={email} value={email}>
@@ -98,7 +98,7 @@ const AutoCompletesPage: React.FC = () => {
           ))}
         </AutoComplete>
       </S.Card>
-      <S.Card title={t('autoCompletes.categories')} padding="1.25rem 0">
+      <S.Card title={t('autoCompletes.categories')}>
         <AutoComplete
           dropdownClassName="certain-category-search-dropdown"
           dropdownMatchSelectWidth={500}

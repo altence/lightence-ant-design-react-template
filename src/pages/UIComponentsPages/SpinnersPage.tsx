@@ -15,20 +15,20 @@ const SpinnersPage: React.FC = () => {
   const [delayLoading, setDelayLoading] = useState(false);
   return (
     <Col>
-      <S.Card title={t('spinners.sizes')} padding="1.25rem 0">
+      <S.Card title={t('spinners.sizes')}>
         <Spinner size="small" />
         <Spinner />
         <Spinner size="large" />
       </S.Card>
-      <S.Card title={t('spinners.customDescription')} padding="1.25rem 0">
+      <S.Card title={t('spinners.customDescription')}>
         <Spinner tip={t('spinners.loading')} />
       </S.Card>
-      <S.Card title={t('spinners.customIndicator')} padding="1.25rem 0">
+      <S.Card title={t('spinners.customIndicator')}>
         <Spinner indicator={antIcon1} />
         <Spinner indicator={antIcon2} />
         <Spinner indicator={antIcon3} />
       </S.Card>
-      <S.Card title={t('spinners.customLoading')} padding="1.25rem 0">
+      <S.Card title={t('spinners.customLoading')}>
         <Space direction="vertical" size={16}>
           <Spinner spinning={loading}>
             <Alert message={t('spinners.alertMessage')} description={t('spinners.alertDescription')} type="info" />
@@ -39,7 +39,7 @@ const SpinnersPage: React.FC = () => {
           </div>
         </Space>
       </S.Card>
-      <S.Card title={t('spinners.customLoadingDelay')} padding="1.25rem 0">
+      <S.Card title={t('spinners.customLoadingDelay')}>
         <Space direction="vertical" size={16}>
           <Spinner spinning={delayLoading} delay={500}>
             <Alert message={t('spinners.alertMessage')} description={t('spinners.alertDescription')} type="info" />
