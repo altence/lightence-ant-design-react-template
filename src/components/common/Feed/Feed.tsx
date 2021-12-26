@@ -32,6 +32,7 @@ export const Feed: React.FC<FeedProps> = ({ cards, next, hasMore }) => {
           <Spin size="large" />
         </S.SpinnerWrapper>
       }
+      scrollableTarget="main-content"
     >
       <S.NewsWrapper>
         {cards.map((post, index) => (

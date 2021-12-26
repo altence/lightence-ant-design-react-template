@@ -13,7 +13,6 @@ import { AuthorValidator, TitleValidator, DatesValidator, TagsValidator } from '
 interface NewsFilterProps {
   news: Post[];
   newsTags?: ITag[];
-  setHasMore: (hasMore: boolean) => void;
   children: ({ filteredNews }: { filteredNews: Post[] }) => ReactNode;
 }
 
@@ -119,7 +118,7 @@ const Filter: React.FC<Filter> = ({
   );
 };
 
-export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, setHasMore, children }) => {
+export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children }) => {
   const [filterFields, setFilterFields] = useState<{
     author: string;
     title: string;
@@ -177,7 +176,6 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, setHasMo
           ];
           return fieldsValidators.map((item) => item.validate()).every((i) => i === true);
         });
-        setHasMore(false);
       }
       setFilteredNews(
         updatedNews.sort((a, b) => {
