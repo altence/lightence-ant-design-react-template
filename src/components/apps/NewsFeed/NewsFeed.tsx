@@ -6,7 +6,7 @@ import { Empty } from 'antd';
 
 export const NewsFeed: React.FC = () => {
   const [news, setNews] = useState<Post[]>([]);
-  const [hasMore, setHasMore] = useState<boolean>(true);
+  const [hasMore] = useState<boolean>(true);
 
   useEffect(() => {
     getNews().then((res) => setNews(res));
@@ -14,10 +14,9 @@ export const NewsFeed: React.FC = () => {
 
   const next = () => {
     getNews().then((newNews) => setNews(news.concat(newNews)));
-    setHasMore(false);
   };
   return (
-    <NewsFilter news={news} setHasMore={setHasMore}>
+    <NewsFilter news={news}>
       {({ filteredNews }) =>
         filteredNews?.length || hasMore ? <Feed cards={filteredNews} next={next} hasMore={hasMore} /> : <Empty />
       }

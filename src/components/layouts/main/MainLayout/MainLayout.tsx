@@ -18,7 +18,7 @@ const MainLayout: React.FC = () => {
         <MainHeader>
           <Header toggleSider={toggleSider} isSiderOpened={!siderCollapsed} />
         </MainHeader>
-        <MainContent>
+        <MainContent id="main-content">
           <Outlet />
         </MainContent>
       </S.LayoutMain>
