@@ -16,16 +16,16 @@ const RatesPage: React.FC = () => {
 
   return (
     <Col>
-      <S.Card title={t('rates.basic')} padding="1.25rem 0">
+      <S.Card title={t('rates.basic')}>
         <Rate />
       </S.Card>
-      <S.Card title={t('rates.halfStar')} padding="1.25rem 0">
+      <S.Card title={t('rates.halfStar')}>
         <Rate allowHalf defaultValue={2.5} />
       </S.Card>
-      <S.Card title={t('rates.readOnly')} padding="1.25rem 0">
+      <S.Card title={t('rates.readOnly')}>
         <Rate disabled defaultValue={2} />
       </S.Card>
-      <S.Card title={t('rates.customIcons')} padding="1.25rem 0">
+      <S.Card title={t('rates.customIcons')}>
         <Space direction="vertical" size={10}>
           <Rate defaultValue={2} character={({ index }: { index: number }) => index + 1} />
           <Rate defaultValue={3} character={({ index }: { index: number }) => customIcons[index + 1]} />

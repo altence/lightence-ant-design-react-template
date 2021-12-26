@@ -61,14 +61,14 @@ const DropdownsPage: React.FC = () => {
   );
   return (
     <Col>
-      <S.Card title={t('dropdowns.basic')} padding="1.25rem 0">
+      <S.Card title={t('dropdowns.basic')}>
         <Dropdown overlay={basicMenu}>
           <Button onClick={(e) => e.preventDefault()}>
             {t('dropdowns.hoverMe')} <DownOutlined />
           </Button>
         </Dropdown>
       </S.Card>
-      <S.Card title={t('dropdowns.positions')} padding="1.25rem 0">
+      <S.Card title={t('dropdowns.positions')}>
         <Space direction="vertical" size={16}>
           <Space size={16}>
             <Dropdown overlay={positionMenu} placement="bottomLeft" arrow>
@@ -94,14 +94,14 @@ const DropdownsPage: React.FC = () => {
           </Space>
         </Space>
       </S.Card>
-      <S.Card title={t('dropdowns.clickable')} padding="1.25rem 0">
+      <S.Card title={t('dropdowns.clickable')}>
         <Dropdown overlay={positionMenu} trigger={['click']}>
           <Button onClick={(e) => e.preventDefault()}>
             {t('dropdowns.clickMe')} <DownOutlined />
           </Button>
         </Dropdown>
       </S.Card>
-      <S.Card title={t('dropdowns.context')} padding="1.25rem 0">
+      <S.Card title={t('dropdowns.context')}>
         <Dropdown overlay={positionMenu} trigger={['contextMenu']}>
           <ContextMenuWrapper>{t('dropdowns.rightClick')}</ContextMenuWrapper>
         </Dropdown>

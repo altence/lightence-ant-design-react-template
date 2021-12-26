@@ -30,7 +30,7 @@ const BreadcrumbsPage: React.FC = () => {
   );
   return (
     <Col>
-      <S.Card title={t('breadcrumbs.basic')} padding="1.25rem 0">
+      <S.Card title={t('breadcrumbs.basic')}>
         <Breadcrumb>
           <BreadcrumbItem>{t('breadcrumbs.home')}</BreadcrumbItem>
           <BreadcrumbItem href="">{t('breadcrumbs.applicationCenter')}</BreadcrumbItem>
@@ -38,7 +38,7 @@ const BreadcrumbsPage: React.FC = () => {
           <BreadcrumbItem>{t('breadcrumbs.application')}</BreadcrumbItem>
         </Breadcrumb>
       </S.Card>
-      <S.Card title={t('breadcrumbs.withIcon')} padding="1.25rem 0">
+      <S.Card title={t('breadcrumbs.withIcon')}>
         <Breadcrumb>
           <BreadcrumbItem href="">
             <HomeOutlined />
@@ -50,7 +50,7 @@ const BreadcrumbsPage: React.FC = () => {
           <BreadcrumbItem>{t('breadcrumbs.application')}</BreadcrumbItem>
         </Breadcrumb>
       </S.Card>
-      <S.Card title={t('breadcrumbs.customSeparator')} padding="1.25rem 0">
+      <S.Card title={t('breadcrumbs.customSeparator')}>
         <Breadcrumb separator=">">
           <BreadcrumbItem>{t('breadcrumbs.home')}</BreadcrumbItem>
           <BreadcrumbItem href="">{t('breadcrumbs.applicationCenter')}</BreadcrumbItem>
@@ -58,7 +58,7 @@ const BreadcrumbsPage: React.FC = () => {
           <BreadcrumbItem>{t('breadcrumbs.application')}</BreadcrumbItem>
         </Breadcrumb>
       </S.Card>
-      <S.Card title={t('breadcrumbs.withDropdown')} padding="1.25rem 0">
+      <S.Card title={t('breadcrumbs.withDropdown')}>
         <Breadcrumb>
           <BreadcrumbItem>{t('breadcrumbs.antd')}</BreadcrumbItem>
           <BreadcrumbItem href="">{t('breadcrumbs.component')}</BreadcrumbItem>

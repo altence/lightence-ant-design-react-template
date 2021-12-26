@@ -8,26 +8,26 @@ const DateTimePickersPage: React.FC = () => {
 
   return (
     <Col>
-      <S.Card title={t('dateTimePickers.basic')} padding="1.25rem 0">
+      <S.Card title={t('dateTimePickers.basic')}>
         <DayjsDatePicker />
         <DayjsDatePicker picker="week" />
         <DayjsDatePicker picker="month" />
         <DayjsDatePicker picker="quarter" />
         <DayjsDatePicker picker="year" />
       </S.Card>
-      <S.Card title={t('dateTimePickers.sizes')} padding="1.25rem 0">
+      <S.Card title={t('dateTimePickers.sizes')}>
         <DayjsDatePicker format="L" size="small" />
         <DayjsDatePicker format="L" />
         <DayjsDatePicker format="L" size="large" />
       </S.Card>
-      <S.Card title={t('dateTimePickers.disabled')} padding="1.25rem 0">
+      <S.Card title={t('dateTimePickers.disabled')}>
         <DayjsDatePicker format="L" disabled />
         <DayjsDatePicker.RangePicker format="L" disabled />
       </S.Card>
-      <S.Card title={t('dateTimePickers.range')} padding="1.25rem 0">
+      <S.Card title={t('dateTimePickers.range')}>
         <DayjsDatePicker.RangePicker format="L" />
       </S.Card>
-      <S.Card title={t('dateTimePickers.time')} padding="1.25rem 0">
+      <S.Card title={t('dateTimePickers.time')}>
         <DayjsDatePicker.TimePicker />
       </S.Card>
     </Col>

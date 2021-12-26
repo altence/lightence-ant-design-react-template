@@ -10,17 +10,17 @@ const AvatarsPage: React.FC = () => {
   const { t } = useTranslation();
   return (
     <Col>
-      <S.Card title={t('dataDisplay.avatars.sizes')} padding="1.25rem 0">
+      <S.Card title={t('dataDisplay.avatars.sizes')}>
         <Avatar size="small" icon={<UserOutlined />} />
         <Avatar icon={<UserOutlined />} />
         <Avatar size="large" icon={<UserOutlined />} />
         <Avatar size={64} icon={<UserOutlined />} />
       </S.Card>
-      <S.Card title={t('dataDisplay.avatars.shapes')} padding="1.25rem 0">
+      <S.Card title={t('dataDisplay.avatars.shapes')}>
         <Avatar size={45} icon={<UserOutlined />} />
         <Avatar size={45} shape="square" icon={<UserOutlined />} />
       </S.Card>
-      <S.Card title={t('dataDisplay.avatars.groups')} padding="1.25rem 0">
+      <S.Card title={t('dataDisplay.avatars.groups')}>
         <Group
           maxCount={2}
           size={45}
@@ -36,7 +36,7 @@ const AvatarsPage: React.FC = () => {
           <Avatar size={45} style={{ backgroundColor: theme.commonColors.blue }} icon={<AntDesignOutlined />} />
         </Group>
       </S.Card>
-      <S.Card title={t('dataDisplay.avatars.badge')} padding="1.25rem 0">
+      <S.Card title={t('dataDisplay.avatars.badge')}>
         <Badge count={1}>
           <Avatar size={45} shape="square" icon={<UserOutlined />} />
         </Badge>

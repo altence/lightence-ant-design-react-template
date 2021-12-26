@@ -16,7 +16,7 @@ const TabsPage: React.FC = () => {
 
   return (
     <Col>
-      <S.Card title={t('tabs.basic')} padding="1.25rem 0">
+      <S.Card title={t('tabs.basic')}>
         <Tabs defaultActiveKey="1">
           <TabPane tab={`${t('tabs.tab')} 1`} key="1">
             {t('tabs.tabContent')} 1
@@ -29,7 +29,7 @@ const TabsPage: React.FC = () => {
           </TabPane>
         </Tabs>
       </S.Card>
-      <S.Card title={t('tabs.disabled')} padding="1.25rem 0">
+      <S.Card title={t('tabs.disabled')}>
         <Tabs defaultActiveKey="1">
           <TabPane tab={`${t('tabs.tab')} 1`} key="1">
             {t('tabs.tabContent')} 1
@@ -42,7 +42,7 @@ const TabsPage: React.FC = () => {
           </TabPane>
         </Tabs>
       </S.Card>
-      <S.Card title={t('tabs.withIcon')} padding="1.25rem 0">
+      <S.Card title={t('tabs.withIcon')}>
         <Tabs defaultActiveKey="2">
           <TabPane
             tab={
@@ -68,7 +68,7 @@ const TabsPage: React.FC = () => {
           </TabPane>
         </Tabs>
       </S.Card>
-      <S.Card title={t('tabs.positions')} padding="1.25rem 0">
+      <S.Card title={t('tabs.positions')}>
         <Space direction="vertical" size={20}>
           <Space>
             {t('tabs.tabPosition')}

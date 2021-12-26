@@ -43,7 +43,7 @@ const ModalsPage: React.FC = () => {
 
   return (
     <Col>
-      <S.Card title={t('modals.basic')} padding="1.25rem 0">
+      <S.Card title={t('modals.basic')}>
         <Button type="primary" onClick={() => setIsBasicModalVisible(true)}>
           {t('modals.open')}
         </Button>
@@ -58,7 +58,7 @@ const ModalsPage: React.FC = () => {
           <p>{t('modals.someContent')}</p>
         </Modal>
       </S.Card>
-      <S.Card title={t('modals.sizes')} padding="1.25rem 0">
+      <S.Card title={t('modals.sizes')}>
         <Button type="primary" onClick={() => setIsSmallModalVisible(true)}>
           {t('modals.small')}
         </Button>
@@ -120,7 +120,7 @@ const ModalsPage: React.FC = () => {
           <p>{t('modals.someContent')}</p>
         </Modal>
       </S.Card>
-      <S.Card title={t('modals.infoModal')} padding="1.25rem 0">
+      <S.Card title={t('modals.infoModal')}>
         <Button type="default" onClick={success}>
           {t('modals.success')}
         </Button>

@@ -8,7 +8,7 @@ const BadgesPage: React.FC = () => {
   const { t } = useTranslation();
   return (
     <Col>
-      <S.Card title={t('dataDisplay.badges.sizes')} padding="1.25rem 0">
+      <S.Card title={t('dataDisplay.badges.sizes')}>
         <Badge size="default" count={5}>
           <Avatar shape="square" size="large" />
         </Badge>
@@ -16,7 +16,7 @@ const BadgesPage: React.FC = () => {
           <Avatar shape="square" size="large" />
         </Badge>
       </S.Card>
-      <S.Card title={t('dataDisplay.badges.overflow')} padding="1.25rem 0">
+      <S.Card title={t('dataDisplay.badges.overflow')}>
         <Badge count={99}>
           <Avatar shape="square" size="large" />
         </Badge>
@@ -30,7 +30,7 @@ const BadgesPage: React.FC = () => {
           <Avatar shape="square" size="large" />
         </Badge>
       </S.Card>
-      <S.Card title={t('dataDisplay.badges.status')} padding="1.25rem 0">
+      <S.Card title={t('dataDisplay.badges.status')}>
         <Badge status="success" />
         <Badge status="error" />
         <Badge status="default" />

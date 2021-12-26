@@ -55,7 +55,7 @@ const SelectsPage: React.FC = () => {
 
   return (
     <Col>
-      <S.Card title={t('selects.basic')} padding="1.25rem 0">
+      <S.Card title={t('selects.basic')}>
         <Select defaultValue="lucy" width={120}>
           <Option value="jack">Jack</Option>
           <Option value="lucy">Lucy</Option>
@@ -74,7 +74,7 @@ const SelectsPage: React.FC = () => {
           <Option value="lucy">Lucy</Option>
         </Select>
       </S.Card>
-      <S.Card title={t('selects.multipleSelect')} padding="1.25rem 0">
+      <S.Card title={t('selects.multipleSelect')}>
         <Space direction="vertical" size={10}>
           <Select
             mode="multiple"
@@ -90,7 +90,7 @@ const SelectsPage: React.FC = () => {
           </Select>
         </Space>
       </S.Card>
-      <S.Card title={t('selects.selectSizes')} padding="1.25rem 0">
+      <S.Card title={t('selects.selectSizes')}>
         <Space direction="vertical" size={10}>
           <RadioGroup value={size} onChange={handleSizeChange}>
             <RadioButton value="small">{t('selects.small')}</RadioButton>
