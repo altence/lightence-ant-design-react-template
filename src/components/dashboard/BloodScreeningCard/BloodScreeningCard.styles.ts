@@ -1,11 +1,4 @@
 import styled from 'styled-components';
-import { Card as CardStyled } from '../../common/Card/Card';
-
-export const Card = styled(CardStyled)`
-  & .ant-card-body {
-    position: relative;
-  }
-`;
 
 export const TitleWrapper = styled.div`
   display: flex;
