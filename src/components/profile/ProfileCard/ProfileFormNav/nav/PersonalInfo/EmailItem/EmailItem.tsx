@@ -14,7 +14,6 @@ export const EmailItem: React.FC<EmailItemProps> = ({ required, onClick }) => {
   return (
     <FormItem
       name="email"
-      requiredMark={required && 'optional'}
       label={t('profile.nav.personalInfo.email')}
       rules={[
         { required, message: t('common.requiredField') },

@@ -11,7 +11,6 @@ export const CVVItem: React.FC<CardInputProps> = ({ disabled, handleInputFocus }
     <FormItem
       name="cvc"
       label={t('profile.nav.payments.CVV')}
-      requiredMark="optional"
       rules={[
         {
           required: true,

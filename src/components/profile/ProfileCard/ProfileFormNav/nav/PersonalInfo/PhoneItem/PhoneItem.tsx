@@ -16,7 +16,6 @@ export const PhoneItem: React.FC<PhoneItemsProps> = ({ required, onClick }) => {
 
   return (
     <FormItem
-      requiredMark={required && 'optional'}
       name="phone"
       label={t('profile.nav.personalInfo.phone')}
       rules={[

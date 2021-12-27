@@ -11,7 +11,6 @@ export const CardNumberItem: React.FC<CardInputProps> = ({ disabled, handleInput
     <FormItem
       name="number"
       label={t('profile.nav.payments.cardNumber')}
-      requiredMark="optional"
       rules={[
         {
           required: true,

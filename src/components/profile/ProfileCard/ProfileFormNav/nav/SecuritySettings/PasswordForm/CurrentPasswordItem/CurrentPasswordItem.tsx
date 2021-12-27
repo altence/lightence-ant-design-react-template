@@ -9,7 +9,6 @@ export const CurrentPasswordItem: React.FC = () => {
   return (
     <FormItem
       name="password"
-      requiredMark="optional"
       label={t('profile.nav.securitySettings.currentPassword')}
       rules={[
         {
