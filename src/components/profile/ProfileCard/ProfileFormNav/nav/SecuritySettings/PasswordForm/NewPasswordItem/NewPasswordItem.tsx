@@ -10,7 +10,6 @@ export const NewPasswordItem: React.FC = () => {
   return (
     <FormItem
       name="newPassword"
-      requiredMark="optional"
       label={t('profile.nav.securitySettings.newPassword')}
       dependencies={['password']}
       hasFeedback

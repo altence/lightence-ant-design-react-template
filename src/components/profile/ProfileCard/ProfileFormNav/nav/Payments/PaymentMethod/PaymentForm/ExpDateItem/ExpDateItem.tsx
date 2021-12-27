@@ -11,7 +11,6 @@ export const ExpDateItem: React.FC<CardInputProps> = ({ disabled, handleInputFoc
     <FormItem
       name="expiry"
       label={t('profile.nav.payments.expDate')}
-      requiredMark="optional"
       rules={[
         {
           required: true,

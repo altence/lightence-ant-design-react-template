@@ -9,7 +9,6 @@ export const ConfirmItemPassword: React.FC = () => {
   return (
     <FormItem
       name="confirmPassword"
-      requiredMark="optional"
       label={t('profile.nav.securitySettings.confirmPassword')}
       dependencies={['newPassword']}
       hasFeedback
