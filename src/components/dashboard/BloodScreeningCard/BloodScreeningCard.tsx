@@ -1,22 +1,15 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BloodScreeningChart } from './BloodScreeningChart/BloodScreeningChart';
-import { Cell, BloodScreeningTable } from './BloodScreeningTable/BloodScreeningTable';
+import { BloodScreeningTable } from './BloodScreeningTable/BloodScreeningTable';
 import { useResponsive } from 'hooks/useResponsive';
 import * as S from './BloodScreeningCard.styles';
+import { BloodTestResult, results } from '../../../constants/dashboard/bloodTestResults';
 
 export const BloodScreeningCard: React.FC = () => {
   const { t } = useTranslation();
 
-  const [activeItem, setActiveItem] = useState<Cell>({
-    key: 0,
-    values: {
-      min: 80,
-      current: 90,
-      cellName: 'Red blood cells',
-    },
-    data: [410, 466, 455, 467, 649, 670, 620, 600, 500, 400, 500, 700],
-  });
+  const [activeItem, setActiveItem] = useState<BloodTestResult>(results[0]);
 
   const { mobileOnly } = useResponsive();
 
@@ -26,13 +19,13 @@ export const BloodScreeningCard: React.FC = () => {
         mobileOnly && (
           <S.TitleWrapper>
             <div>{t('dashboard.bloodScreening.title')}</div>
-            {!!activeItem?.values.cellName && <S.ActiveItem>{activeItem.values.cellName}</S.ActiveItem>}
+            {!!activeItem?.test && <S.ActiveItem>{activeItem.test}</S.ActiveItem>}
           </S.TitleWrapper>
         )
       }
       padding="0 0 0.5rem"
     >
-      <BloodScreeningChart activeItem={activeItem} />
+      <BloodScreeningChart data={activeItem.yearData} />
       <BloodScreeningTable activeItem={activeItem} setActiveItem={setActiveItem} />
     </S.Card>
   );

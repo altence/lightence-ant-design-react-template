@@ -3,14 +3,13 @@ import { EChartsInstance } from 'echarts-for-react';
 import { ThemeContext } from 'styled-components';
 import { BaseChart } from '../../../common/charts/BaseChart';
 import { Dates } from '../../../../constants/Dates';
-import { Cell } from '../BloodScreeningTable/BloodScreeningTable';
 import { useResponsive } from 'hooks/useResponsive';
 
 interface BloodScreeningChartsProps {
-  activeItem: Cell;
+  data: number[];
 }
 
-export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ activeItem }) => {
+export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ data }) => {
   const themeContext = useContext(ThemeContext);
   const { isTablet, isBigScreen } = useResponsive();
   const months = Dates.getMonths();
@@ -51,7 +50,7 @@ export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ activ
     },
     series: [
       {
-        data: activeItem.data,
+        data,
         type: 'line',
         smooth: true,
         showSymbol: false,

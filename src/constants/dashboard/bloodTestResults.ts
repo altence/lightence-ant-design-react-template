@@ -1,12 +1,15 @@
-export interface BloodTestResults {
+export interface BloodTestResult {
+  key: number;
   test: string;
   result: number;
   min?: number;
   max?: number;
   units: string;
+  yearData: number[];
+  flag: string;
 }
 
-export const results: BloodTestResults[] = [
+export const results: BloodTestResult[] = [
   { test: 'WBC', result: 6.6, min: 3.4, max: 10.8, units: 'x10E3/uL' },
   { test: 'RBC', result: 4.07, min: 4.14, max: 5.8, units: 'x10E6/uL' },
   { test: 'Hemoglobin', result: 15.6, min: 13, max: 17.7, units: 'g/uL' },
@@ -28,4 +31,23 @@ export const results: BloodTestResults[] = [
   { test: 'Baso (abs)', result: 0.0, min: 0, max: 0.2, units: 'x10E3/uL' },
   { test: 'Immature Granulocytes', result: 0, units: '%' },
   { test: 'Immature Gran (abs)', result: 0.0, min: 0, max: 0.1, units: 'x10E3/uL' },
-];
+]
+  .map((result, index) => ({ ...result, key: index }))
+  .map(({ result, ...rest }) => ({
+    ...rest,
+    result,
+    yearData: Array(12)
+      .fill(null)
+      .map(() => result * Math.abs(Math.sin(Math.random() * result))),
+  }))
+  .map(({ result, min, max, ...rest }) => {
+    let flag = 'NORM';
+    if (min !== undefined && max !== undefined) {
+      if (result < min) {
+        flag = 'LOW';
+      } else if (result > max) {
+        flag = 'HIGH';
+      }
+    }
+    return { ...rest, result, min, max, flag };
+  });
