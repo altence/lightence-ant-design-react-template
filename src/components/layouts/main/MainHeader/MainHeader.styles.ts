@@ -10,6 +10,7 @@ interface HeaderProps {
 export const Header = styled(Layout.Header)<HeaderProps>`
   line-height: 1.5;
 
+  // TODO fix in scope of AT-154
   @media only screen and ${(props) => props.theme.media.xs} and (max-width: 767.98px) {
     top: 0;
     width: 100%;
