@@ -5,17 +5,17 @@ import * as S from './MainHeader.styles';
 export const MainHeader: React.FC = ({ children }) => {
   const { scrollY, scrollDirection } = useScroll();
 
-  const { isHidden, isScrolled, isScrollDown } = useMemo(
+  const { isHidden, isScrollDown } = useMemo(
     () => ({
+      // TODO use 100 as constant
       isHidden: scrollY >= 100,
-      isScrolled: scrollY >= 200,
       isScrollDown: scrollDirection === 'down',
     }),
     [scrollY, scrollDirection],
   );
 
   return (
-    <S.Header $isHidden={isHidden} $isScrolled={isScrolled} $isScrollDown={isScrollDown}>
+    <S.Header $isHidden={isHidden} $isScrollDown={isScrollDown}>
       {children}
     </S.Header>
   );
