@@ -113,7 +113,10 @@
       "test": "DE!!!Test",
       "result": "DE!!!Result",
       "units": "DE!!!Units",
-      "flag": "DE!!!Flag"
+      "flag": "DE!!!Flag",
+      "norm": "DE!!!NORM",
+      "low": "DE!!!LOW",
+      "high": "DE!!!HIGH"
     },
     "treatmentPlan": {
       "title": "DE!!!Treatment plan",

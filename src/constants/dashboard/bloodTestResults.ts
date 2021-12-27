@@ -6,7 +6,7 @@ export interface BloodTestResult {
   max?: number;
   units: string;
   yearData: number[];
-  flag: string;
+  flag: number;
 }
 
 export const results: BloodTestResult[] = [
@@ -41,13 +41,15 @@ export const results: BloodTestResult[] = [
       .map(() => result * Math.abs(Math.sin(Math.random() * result))),
   }))
   .map(({ result, min, max, ...rest }) => {
-    let flag = 'NORM';
+    let flag = 0;
     if (min !== undefined && max !== undefined) {
       if (result < min) {
-        flag = 'LOW';
+        flag = 1;
       } else if (result > max) {
-        flag = 'HIGH';
+        flag = 2;
       }
     }
     return { ...rest, result, min, max, flag };
   });
+
+export const flags = ['dashboard.bloodScreening.norm', 'dashboard.bloodScreening.low', 'dashboard.bloodScreening.high'];

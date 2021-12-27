@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useResponsive } from 'hooks/useResponsive';
 import * as S from './BloodScreeningTable.styles';
-import { BloodTestResult, results } from 'constants/dashboard/bloodTestResults';
+import { BloodTestResult, flags, results } from 'constants/dashboard/bloodTestResults';
 import { ColumnsType } from 'antd/es/table';
 
 interface BloodScreeningTableProps {
@@ -36,8 +36,8 @@ export const BloodScreeningTable: React.FC<BloodScreeningTableProps> = ({ active
       title: t('dashboard.bloodScreening.flag'),
       dataIndex: 'flag',
       render: (flag, { key }) => (
-        <S.Flag $isNorm={flag === 'NORM'} $isActive={activeItem.key === key}>
-          {flag}
+        <S.Flag $isNorm={flag === 0} $isActive={activeItem.key === key}>
+          {t(flags[flag])}
         </S.Flag>
       ),
     },
