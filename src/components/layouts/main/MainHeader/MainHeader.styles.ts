@@ -11,7 +11,8 @@ export const Header = styled(Layout.Header)<HeaderProps>`
   line-height: 1.5;
 
   // TODO fix in scope of AT-154
-  @media only screen and ${(props) => props.theme.media.xs} and (max-width: 767.98px) {
+  @media only screen and ${(props) =>
+      `${props.theme.media.xs} and (max-width: ${props.theme.breakpoints.md - 0.02}px)`} {
     top: 0;
     width: 100%;
     z-index: 3;
