@@ -14,18 +14,13 @@ const MainLayout: React.FC = () => {
 
   const toggleSider = () => setSiderCollapsed(!siderCollapsed);
 
-  const swipeMobileHandlers = useSwipeable({
-    onSwipedLeft: () => toggleSider(),
-    onSwipedRight: () => !siderCollapsed && toggleSider(),
-  });
-
-  const swipeTabletHandlers = useSwipeable({
-    onSwipedLeft: () => !siderCollapsed && toggleSider(),
-    onSwipedRight: () => toggleSider(),
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: () => setSiderCollapsed(isTablet ? true : false),
+    onSwipedRight: () => setSiderCollapsed(isTablet ? false : true),
   });
 
   return (
-    <div {...(!isDesktop && (isTablet ? swipeTabletHandlers : swipeMobileHandlers))}>
+    <div {...(!isDesktop && swipeHandlers)}>
       <S.LayoutMaster>
         <MainSider isCollapsed={siderCollapsed} setCollapsed={setSiderCollapsed} />
         <S.LayoutMain>
