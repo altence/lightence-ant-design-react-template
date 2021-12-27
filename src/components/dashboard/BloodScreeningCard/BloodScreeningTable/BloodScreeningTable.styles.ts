@@ -33,3 +33,7 @@ export const Text = styled.span<TextProps>`
   font-weight: ${(props) =>
     props.$isActive ? props.theme.commonFontWeight.semibold : props.theme.commonFontWeight.regular};
 `;
+
+export const Flag = styled(Text)<{ $isNorm: boolean }>`
+  color: ${(props) => (props.$isNorm ? props.theme.colors.main.success : props.theme.colors.main.error)};
+`;
