@@ -2,11 +2,7 @@ import styled from 'styled-components';
 import { Table as CommonTable } from 'components/common/Table/Table';
 
 interface TextProps {
-  isActive?: boolean;
-}
-
-interface PercentageProps extends TextProps {
-  isDowngrade: boolean;
+  $isActive?: boolean;
 }
 
 export const Table = styled(CommonTable)`
@@ -33,33 +29,7 @@ export const Table = styled(CommonTable)`
 `;
 
 export const Text = styled.span<TextProps>`
-  color: ${(props) => (props.isActive ? props.theme.colors.text.main : props.theme.colors.text.light)};
+  color: ${(props) => (props.$isActive ? props.theme.colors.text.main : props.theme.colors.text.light)};
   font-weight: ${(props) =>
-    props.isActive ? props.theme.commonFontWeight.semibold : props.theme.commonFontWeight.regular};
-`;
-
-export const PercentageWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
-export const Percentage = styled.div<PercentageProps>`
-  display: flex;
-  min-width: 3.2rem;
-  align-items: center;
-  justify-content: flex-start;
-  margin-left: 1rem;
-  color: ${(props) =>
-    (props.isActive && props.isDowngrade && props.theme.colors.main.error) ||
-    (props.isActive && props.theme.colors.main.success) ||
-    props.theme.colors.text.light};
-
-  & ${Text} {
-    margin-left: 0.2rem;
-
-    color: ${(props) =>
-      (props.isActive && props.isDowngrade && props.theme.colors.main.error) ||
-      (props.isActive && props.theme.colors.main.success) ||
-      props.theme.colors.text.light};
-  }
+    props.$isActive ? props.theme.commonFontWeight.semibold : props.theme.commonFontWeight.regular};
 `;

@@ -1,85 +1,41 @@
-import React from 'react';
-import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useResponsive } from 'hooks/useResponsive';
 import * as S from './BloodScreeningTable.styles';
-import { results } from 'constants/dashboard/bloodTestResults';
+import { BloodTestResult, results } from 'constants/dashboard/bloodTestResults';
+import { ColumnsType } from 'antd/es/table';
 
 interface BloodScreeningTableProps {
-  activeItem: Cell;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  setActiveItem: (cell: any) => void;
-}
-
-interface Values {
-  cellName: string;
-  min?: number;
-  current: number;
-}
-
-export interface Cell {
-  key: number;
-  values: Values;
-  data: number[];
-}
-
-interface Column {
-  title: string;
-  dataIndex: string;
-  key: string;
-  colSpan?: number;
-  width?: string;
-  render: (values: Values) => React.ReactElement;
+  activeItem: BloodTestResult;
+  setActiveItem: (item: BloodTestResult) => void;
 }
 
 export const BloodScreeningTable: React.FC<BloodScreeningTableProps> = ({ activeItem, setActiveItem }) => {
   const { isTablet, isBigScreen } = useResponsive();
   const { t } = useTranslation();
+  const [dataSource] = useState<BloodTestResult[]>(results);
 
-  const dataSource: Cell[] = results.map(({ test, result, min }, index) => ({
-    key: index,
-    values: {
-      cellName: test,
-      min: min,
-      current: result,
-    },
-    data: Array(12)
-      .fill(null)
-      .map(() => result * Math.abs(Math.sin(Math.random() * result))),
-  }));
-
-  const columns: Column[] = [
+  const columns: ColumnsType<BloodTestResult> = [
     {
       title: t('tests'),
-      dataIndex: 'values',
-      key: 'values',
-      render: ({ cellName }) => <S.Text isActive={cellName === activeItem.values.cellName}>{cellName}</S.Text>,
-    },
-    {
-      title: t('dashboard.bloodScreening.min'),
-      dataIndex: 'values',
-      key: 'values',
-      width: '15%',
-      render: ({ cellName, min }) => (
-        <S.Text isActive={cellName === activeItem.values.cellName}>{min !== undefined ? min : '-'}</S.Text>
-      ),
+      dataIndex: 'test',
+      width: '30%',
+      render: (test: string, { key }) => <S.Text $isActive={activeItem.key === key}>{test}</S.Text>,
     },
     {
       title: t('results'),
-      dataIndex: 'values',
-      key: 'values',
-      width: '25%',
-      render: ({ cellName, min, current }) => (
-        <S.PercentageWrapper>
-          <S.Text isActive={cellName === activeItem.values.cellName}>{current}</S.Text>
-          {min && (
-            <S.Percentage isActive={cellName === activeItem.values.cellName} isDowngrade={min > current}>
-              {min < current ? <CaretUpOutlined /> : <CaretDownOutlined />}
-              <S.Text>{Math.abs(Math.round(((current - min) / min) * 100))}%</S.Text>
-            </S.Percentage>
-          )}
-        </S.PercentageWrapper>
-      ),
+      dataIndex: 'result',
+      render: (result: number, { key }) => <S.Text $isActive={activeItem.key === key}>{result}</S.Text>,
+    },
+    {
+      title: t('units'),
+      dataIndex: 'units',
+      render: (units, { key }) => <S.Text $isActive={activeItem.key === key}>{units}</S.Text>,
+    },
+    {
+      title: t('flag'),
+      dataIndex: 'flag',
+      render: (flag, { key }) => <S.Text $isActive={activeItem.key === key}>{flag}</S.Text>,
     },
   ];
 
@@ -89,6 +45,7 @@ export const BloodScreeningTable: React.FC<BloodScreeningTableProps> = ({ active
       pagination={false}
       columns={columns}
       dataSource={dataSource}
+      scroll={{ y: 300 }}
       onRow={(record) => {
         return {
           onClick: () => setActiveItem(record),
