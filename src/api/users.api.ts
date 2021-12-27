@@ -1,4 +1,5 @@
 import { CreditCard } from 'components/profile/ProfileCard/ProfileFormNav/nav/Payments/PaymentMethod/PaymentForm/interfaces';
+import avatarImg from '@app/assets/avatars/avatar5.png';
 
 export interface User {
   id: number;
@@ -50,10 +51,10 @@ export const getUser = (): Promise<User> => {
     setTimeout(() => {
       res({
         id: 1,
-        firstName: 'Alexandr',
-        lastName: 'Yaschenkov',
-        imgUrl: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1629465123/Ellipse_59_vls5ji.jpg',
-        userName: '@alex1989',
+        firstName: 'Christopher',
+        lastName: 'Johnson',
+        imgUrl: avatarImg,
+        userName: '@john1989',
       });
     }, 1000);
   });
