@@ -6,7 +6,7 @@ interface OverlayProps {
 
 export default styled.div<OverlayProps>`
   position: fixed;
-  z-index: 4;
+  z-index: 4; // To override headers z-index
   height: 0;
 
   ${(props) =>

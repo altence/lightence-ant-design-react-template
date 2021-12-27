@@ -15,7 +15,7 @@ export const Header = styled(Layout.Header)<HeaderProps>`
       `${props.theme.media.xs} and (max-width: ${props.theme.breakpoints.md - 0.02}px)`} {
     top: 0;
     width: 100%;
-    z-index: 3;
+    z-index: 3; // To override ANTD default z-indexes
     background: url(${bg}) no-repeat;
     position: sticky;
     transition: transform 0.3s ease, opacity 0.3s ease;
