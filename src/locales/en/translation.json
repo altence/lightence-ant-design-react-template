@@ -114,7 +114,10 @@
       "test": "Test",
       "result": "Result",
       "units": "Units",
-      "flag": "Flag"
+      "flag": "Flag",
+      "norm": "NORM",
+      "low": "LOW",
+      "high": "HIGH"
     },
     "treatmentPlan": {
       "title": "Treatment plan",
