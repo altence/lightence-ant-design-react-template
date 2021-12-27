@@ -35,7 +35,11 @@ export const BloodScreeningTable: React.FC<BloodScreeningTableProps> = ({ active
     {
       title: t('flag'),
       dataIndex: 'flag',
-      render: (flag, { key }) => <S.Text $isActive={activeItem.key === key}>{flag}</S.Text>,
+      render: (flag, { key }) => (
+        <S.Flag $isNorm={flag === 'NORM'} $isActive={activeItem.key === key}>
+          {flag}
+        </S.Flag>
+      ),
     },
   ];
 
