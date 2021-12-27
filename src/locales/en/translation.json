@@ -111,14 +111,10 @@
     },
     "bloodScreening": {
       "title": "Blood screening",
-      "cell": "Cell",
-      "min": "Min",
-      "yourPerf": "Your perf.",
-      "redBloodCells": "Red blood cells",
-      "whiteBloodCells": "White blood cells",
-      "platelets": "Platelets",
-      "hemoglobin": "Hemoglobin",
-      "hematocrit": "Hematocrit"
+      "test": "Test",
+      "result": "Result",
+      "units": "Units",
+      "flag": "Flag"
     },
     "treatmentPlan": {
       "title": "Treatment plan",

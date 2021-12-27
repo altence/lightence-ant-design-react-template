@@ -17,23 +17,23 @@ export const BloodScreeningTable: React.FC<BloodScreeningTableProps> = ({ active
 
   const columns: ColumnsType<BloodTestResult> = [
     {
-      title: t('tests'),
+      title: t('dashboard.bloodScreening.test'),
       dataIndex: 'test',
       width: '30%',
       render: (test: string, { key }) => <S.Text $isActive={activeItem.key === key}>{test}</S.Text>,
     },
     {
-      title: t('results'),
+      title: t('dashboard.bloodScreening.result'),
       dataIndex: 'result',
       render: (result: number, { key }) => <S.Text $isActive={activeItem.key === key}>{result}</S.Text>,
     },
     {
-      title: t('units'),
+      title: t('dashboard.bloodScreening.units'),
       dataIndex: 'units',
       render: (units, { key }) => <S.Text $isActive={activeItem.key === key}>{units}</S.Text>,
     },
     {
-      title: t('flag'),
+      title: t('dashboard.bloodScreening.flag'),
       dataIndex: 'flag',
       render: (flag, { key }) => (
         <S.Flag $isNorm={flag === 'NORM'} $isActive={activeItem.key === key}>
