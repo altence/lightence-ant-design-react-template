@@ -27,6 +27,7 @@ export const GradientStackedAreaChart: React.FC = () => {
       left: 10,
     },
     grid: {
+      top: 80,
       left: 20,
       right: 20,
       bottom: 0,
