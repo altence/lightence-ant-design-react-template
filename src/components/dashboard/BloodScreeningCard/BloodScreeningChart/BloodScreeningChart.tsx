@@ -54,19 +54,15 @@ export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ data 
         type: 'line',
         smooth: true,
         showSymbol: false,
+        symbol: 'circle',
         itemStyle: {
-          normal: {
-            opacity: 0,
-          },
-          emphasis: {
-            color: themeContext.colors.main.error,
-            borderColor: themeContext.colors.main.mainBackground,
-            borderWidth: 5,
-            shadowColor: themeContext.colors.shadow.color,
-            shadowOffsetX: 0,
-            shadowOffsetY: 5,
-            opacity: 1,
-          },
+          color: themeContext.colors.main.error,
+          borderColor: themeContext.colors.main.mainBackground,
+          borderWidth: 5,
+          shadowColor: themeContext.colors.shadow.color,
+          shadowOffsetX: 0,
+          shadowOffsetY: 5,
+          opacity: 1,
         },
         symbolSize: 18,
         areaStyle: {
