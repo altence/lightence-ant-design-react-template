@@ -31,7 +31,9 @@ export default createGlobalStyle`
   .range-picker {
     & .ant-picker-panels {
       @media only screen and ${(props) =>
-        `${props.theme.media.xs} and (max-width: ${props.theme.breakpoints.md - 0.02}px)`}  {
+        `${props.theme.media.xs} and (max-width: ${
+          props.theme.breakpoints.md - 0.02
+        }px)`}  { // Browsers don't currently support range queries. See https://getbootstrap.com/docs/5.0/layout/breakpoints/#max-width
         display: flex;
       flex-direction: column;
       }
