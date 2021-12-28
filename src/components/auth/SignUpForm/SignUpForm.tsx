@@ -7,7 +7,8 @@ import { ReactComponent as GoogleIcon } from 'assets/icons/google.svg';
 import { ReactComponent as FacebookIcon } from 'assets/icons/facebook.svg';
 import * as S from './SignUpForm.styles';
 import * as Auth from 'components/layouts/auth/AuthLayout.styles';
-import { notificationController } from 'controllers/notificationController';
+import { signUp, SignUpData, TokenData } from 'api/auth.api';
+import { setAuthDataToLocalStorage } from 'services/auth.service';
 
 export const SignUpForm: React.FC = () => {
   const navigate = useNavigate();
@@ -15,19 +16,18 @@ export const SignUpForm: React.FC = () => {
 
   const { t } = useTranslation();
 
-  useEffect(() => {
-    notificationController.info({
-      message: 'Test',
-      description: 'tstst',
-      duration: 100000,
-    });
-  }, []);
-  const handleSubmit = () => {
+  const handleSubmit = (values: SignUpData) => {
     setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-      navigate('/');
-    }, 1000);
+    signUp(values)
+      .then((res: TokenData) => {
+        setAuthDataToLocalStorage(res);
+        setIsLoading(false);
+        navigate('/');
+      })
+      .catch((e) => {
+        console.error(e);
+        setIsLoading(false);
+      });
   };
 
   return (

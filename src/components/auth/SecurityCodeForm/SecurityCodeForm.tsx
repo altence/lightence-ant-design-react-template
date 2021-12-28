@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import * as S from './SecurityCodeForm.styles';
 import * as Auth from 'components/layouts/auth/AuthLayout.styles';
 import { VerificationCodeInput } from 'components/common/VerificationCodeInput/VerificationCodeInput';
+import { verifyEmail } from 'api/auth.api';
 import VerifyEmailImage from 'assets/images/verify-email.png';
 
 export const SecurityCodeForm: React.FC = () => {
@@ -16,10 +17,15 @@ export const SecurityCodeForm: React.FC = () => {
   useEffect(() => {
     if (verifyCode.length === 6) {
       setIsLoading(true);
-      setTimeout(() => {
-        setIsLoading(false);
-        navigate('/auth/new-password');
-      }, 1000);
+      verifyEmail({ code: verifyCode })
+        .then(() => {
+          setIsLoading(false);
+          navigate('/auth/new-password');
+        })
+        .catch((e) => {
+          console.error(e);
+          setIsLoading(false);
+        });
     }
   }, [verifyCode, navigate]);
 

@@ -5,22 +5,28 @@ import { useTranslation } from 'react-i18next';
 import { notificationController } from 'controllers/notificationController';
 import * as S from './NewPasswordForm.styles';
 import * as Auth from 'components/layouts/auth/AuthLayout.styles';
+import { setNewPassword, NewPasswordData } from 'api/auth.api';
 
 export const NewPasswordForm: React.FC = () => {
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = () => {
+  const handleSubmit = (values: NewPasswordData) => {
     setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-      navigate('/');
-      notificationController.info({
-        message: t('common.success'),
-        description: t('newPassword.successReset'),
+    setNewPassword(values)
+      .then(() => {
+        setIsLoading(false);
+        navigate('/');
+        notificationController.info({
+          message: t('common.success'),
+          description: t('newPassword.successReset'),
+        });
+      })
+      .catch((e) => {
+        console.error(e);
+        setIsLoading(false);
       });
-    }, 1000);
   };
 
   return (

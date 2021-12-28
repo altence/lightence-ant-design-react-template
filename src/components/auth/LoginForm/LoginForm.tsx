@@ -7,6 +7,8 @@ import { ReactComponent as GoogleIcon } from 'assets/icons/google.svg';
 import { ReactComponent as FacebookIcon } from 'assets/icons/facebook.svg';
 import * as S from './LoginForm.styles';
 import * as Auth from 'components/layouts/auth/AuthLayout.styles';
+import { login, AuthData, TokenData } from 'api/auth.api';
+import { setAuthDataToLocalStorage } from 'services/auth.service';
 
 export const LoginForm: React.FC = () => {
   const navigate = useNavigate();
@@ -14,12 +16,18 @@ export const LoginForm: React.FC = () => {
 
   const { t } = useTranslation();
 
-  const handleSubmit = () => {
+  const handleSubmit = (values: AuthData) => {
     setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-      navigate('/');
-    }, 1000);
+    login(values)
+      .then((res: TokenData) => {
+        setAuthDataToLocalStorage(res);
+        setIsLoading(false);
+        navigate('/');
+      })
+      .catch((e) => {
+        console.error(e);
+        setIsLoading(false);
+      });
   };
 
   return (
