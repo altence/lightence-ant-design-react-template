@@ -85,11 +85,13 @@ declare module 'styled-components' {
       paddingHorizontal: string;
       headerHeight: string;
       headerPadding: string;
+      bgHeight: string;
     };
     desktopLayout: {
       paddingVertical: string;
       paddingHorizontal: string;
       headerHeight: string;
+      bgHeight: string;
     };
     commonFontSizes: {
       xxs: string;

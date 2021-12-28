@@ -6,12 +6,14 @@ export const mobileLayout = {
   paddingHorizontal: '1rem',
   headerHeight: '4.25rem',
   headerPadding: '1rem',
+  bgHeight: '12.5rem',
 };
 
 export const desktopLayout = {
   paddingVertical: '1.25rem',
   paddingHorizontal: '1.5rem',
   headerHeight: '5.625rem',
+  bgHeight: '15.625rem',
 };
 
 export const breakpoints = {

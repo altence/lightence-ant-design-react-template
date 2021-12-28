@@ -13,7 +13,7 @@ export const LayoutMaster = styled(Layout)`
 
 export const LayoutMain = styled(Layout)`
   background: url(${bg}) no-repeat;
-  background-size: auto 200px;
+  background-size: ${(props) => `auto ${props.theme.mobileLayout.bgHeight}`};
 
   background-color: ${(props) => props.theme.colors.main.secondaryBackground};
 
@@ -21,7 +21,7 @@ export const LayoutMain = styled(Layout)`
     margin-left: 80px;
 
     background: url(${bg}) no-repeat;
-    background-size: 100% 250px;
+    background-size: ${(props) => `100% ${props.theme.desktopLayout.bgHeight}`};
 
     background-color: ${(props) => props.theme.colors.main.secondaryBackground};
   }
