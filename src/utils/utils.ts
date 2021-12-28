@@ -1,4 +1,5 @@
 import { Priority } from '../constants/enums/priorities';
+import { Dimension } from '@app/interfaces/interfaces';
 import theme from '../styles/theme';
 
 export const camelize = (string: string): string => {
@@ -68,3 +69,19 @@ export const defineColorByPriority = (priority: Priority): string => {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const mergeBy = (a: any[], b: any[], key: string): any[] =>
   a.filter((elem) => !b.find((subElem) => subElem[key] === elem[key])).concat(b);
+
+export const getPixelsNumberFromDimension = (dimension: Dimension): number => {
+  switch (typeof dimension) {
+    case 'string': {
+      if (dimension.includes('rem')) {
+        return Number.parseInt(dimension) * 16;
+      }
+
+      return Number.parseInt(dimension);
+    }
+
+    case 'number': {
+      return dimension;
+    }
+  }
+};
