@@ -35,7 +35,14 @@ export const BasicTable: React.FC = () => {
   };
 
   const handleDeleteRow = (rowId: number) => {
-    setTableData({ ...tableData, data: tableData.data.filter((item) => item.key !== rowId) });
+    setTableData({
+      ...tableData,
+      data: tableData.data.filter((item) => item.key !== rowId),
+      pagination: {
+        ...tableData.pagination,
+        total: tableData.pagination.total ? tableData.pagination.total - 1 : tableData.pagination.total,
+      },
+    });
   };
 
   const columns: ColumnsType<BasicTableRow> = [
