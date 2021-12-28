@@ -7,6 +7,8 @@ import { Dates } from 'constants/Dates';
 import AvatarImg from 'assets/avatars/avatar1.png';
 import * as S from './LockForm.styles';
 import * as Auth from 'components/layouts/auth/AuthLayout.styles';
+import { login, AuthData, TokenData } from 'api/auth.api';
+import { setAuthDataToLocalStorage } from 'services/auth.service';
 
 export const LockForm: React.FC = () => {
   const navigate = useNavigate();
@@ -22,12 +24,19 @@ export const LockForm: React.FC = () => {
     setInterval(() => setDateState(new Date()), 10000);
   }, []);
 
-  const handleSubmit = () => {
+  const handleSubmit = (values: AuthData) => {
     setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-      navigate('/');
-    }, 1000);
+    const email = 'email'; // need get email from local storage or store
+    login({ ...values, email })
+      .then((res: TokenData) => {
+        setAuthDataToLocalStorage(res);
+        setIsLoading(false);
+        navigate('/');
+      })
+      .catch((e) => {
+        console.error(e);
+        setIsLoading(false);
+      });
   };
 
   return (

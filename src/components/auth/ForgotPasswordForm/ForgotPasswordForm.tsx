@@ -4,6 +4,7 @@ import { Form } from 'antd';
 import { useTranslation } from 'react-i18next';
 import * as S from './ForgotPasswordForm.styles';
 import * as Auth from 'components/layouts/auth/AuthLayout.styles';
+import { forgotPassword, ForgotPasswordData } from 'api/auth.api';
 
 export const ForgotPasswordForm: React.FC = () => {
   const { t } = useTranslation();
@@ -11,12 +12,17 @@ export const ForgotPasswordForm: React.FC = () => {
 
   const navigate = useNavigate();
 
-  const handleSubmit = () => {
+  const handleSubmit = (values: ForgotPasswordData) => {
     setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-      navigate('/auth/security-code');
-    }, 1000);
+    forgotPassword(values)
+      .then(() => {
+        setIsLoading(false);
+        navigate('/auth/security-code');
+      })
+      .catch((e) => {
+        console.error(e);
+        setIsLoading(false);
+      });
   };
 
   return (
