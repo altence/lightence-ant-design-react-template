@@ -1,14 +1,16 @@
-import React, { useMemo } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { useScroll } from '@app/hooks/useScroll';
 import * as S from './MainHeader.styles';
+import { getPixelsNumberFromDimension } from '@app/utils/utils';
+import { ThemeContext } from 'styled-components';
 
 export const MainHeader: React.FC = ({ children }) => {
   const { scrollY, scrollDirection } = useScroll();
+  const theme = useContext(ThemeContext);
 
   const { isHidden, isScrollDown } = useMemo(
     () => ({
-      // TODO use 100 as constant
-      isHidden: scrollY >= 100,
+      isHidden: scrollY >= getPixelsNumberFromDimension(theme.mobileLayout.bgHeight),
       isScrollDown: scrollDirection === 'down',
     }),
     [scrollY, scrollDirection],
