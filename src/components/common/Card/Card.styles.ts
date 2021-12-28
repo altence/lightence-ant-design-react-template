@@ -29,6 +29,7 @@ export const Card = styled(AntCard).withConfig({
       .ant-card-head-title {
         padding-bottom: 0.25rem;
       }
+    }
   }
 
   .ant-card-body {

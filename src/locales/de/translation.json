@@ -69,7 +69,8 @@
     "today": "DE!!!Today",
     "dateTime": "DE!!!Date & Time",
     "address": "DE!!!Address",
-    "phone": "DE!!!Phone"
+    "phone": "DE!!!Phone",
+    "day": "DE!!!day"
   },
   "header": {
     "search": "Search",
