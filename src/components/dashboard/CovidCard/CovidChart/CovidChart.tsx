@@ -15,7 +15,7 @@ export const CovidChart: React.FC<{ data: ChartData }> = ({ data }) => {
   const months = Dates.getMonths();
 
   const option = {
-    color: theme.colors.charts.chartPrimaryGradient,
+    color: theme.colors.main.chartPrimaryGradient,
     grid: {
       top: 0,
       left: 0,

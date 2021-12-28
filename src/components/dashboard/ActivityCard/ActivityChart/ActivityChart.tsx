@@ -23,7 +23,7 @@ export const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
   const size = isDesktop ? 'xl' : isTablet ? 'md' : isMobile ? 'xs' : 'xs';
 
   const option = {
-    color: theme.colors.charts.chartPrimaryGradient,
+    color: theme.colors.main.chartPrimaryGradient,
     grid: {
       top: dashboardPaddings[size][0],
       right: dashboardPaddings[size][1],

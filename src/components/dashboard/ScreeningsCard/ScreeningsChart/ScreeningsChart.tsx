@@ -24,7 +24,7 @@ export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, sec
   const { t } = useTranslation();
 
   const option = {
-    color: [theme.colors.charts.chartPrimaryGradient, theme.colors.charts.chartSecondaryGradient],
+    color: [theme.colors.main.chartPrimaryGradient, theme.colors.main.chartSecondaryGradient],
     tooltip: {
       ...getDefaultTooltipStyles(theme),
       trigger: 'axis',

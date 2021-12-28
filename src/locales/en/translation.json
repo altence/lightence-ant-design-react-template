@@ -70,7 +70,8 @@
     "today": "Today",
     "dateTime": "Date & Time",
     "address": "Address",
-    "phone": "Phone"
+    "phone": "Phone",
+    "day": "day"
   },
   "header": {
     "search": "Search",
