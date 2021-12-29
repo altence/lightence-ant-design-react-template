@@ -87,11 +87,22 @@ export const componentsData: Component[] = [
     categories: ['data tables'],
     keywords: ['favorite doctors', 'data tables'],
   },
-
   {
     name: 'News',
     url: `/#news`,
     categories: ['data tables'],
     keywords: ['news', 'data tables'],
+  },
+  {
+    name: 'Feed',
+    url: `/apps/feed`,
+    categories: ['apps'],
+    keywords: ['feed', 'apps'],
+  },
+  {
+    name: 'Kanban',
+    url: `/apps/kanban`,
+    categories: ['apps'],
+    keywords: ['kanban', 'apps', 'trello'],
   },
 ];
