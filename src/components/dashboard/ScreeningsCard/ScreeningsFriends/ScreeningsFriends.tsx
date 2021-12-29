@@ -71,7 +71,7 @@ export const ScreeningsFriends: React.FC<ScreeningsFriendsProps> = ({
   );
 
   return (
-    <S.Wrapper isVisible={isVisibleMenu}>
+    <S.Wrapper $isVisible={isVisibleMenu}>
       {mobileOnly && screeningsItems.length > 0 && <MobileScreenings screeningsItems={screeningsItems} />}
 
       {isTablet && (

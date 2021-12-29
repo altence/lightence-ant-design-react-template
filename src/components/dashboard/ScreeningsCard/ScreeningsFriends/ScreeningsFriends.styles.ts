@@ -3,7 +3,7 @@ import { dashboardPaddings } from 'components/dashboard/DashboardCard/DashboardC
 import { hexToRGB } from 'utils/utils';
 
 interface WrapperProps {
-  isVisible: boolean;
+  $isVisible: boolean;
 }
 
 export const Wrapper = styled.div<WrapperProps>`
@@ -30,7 +30,7 @@ export const Wrapper = styled.div<WrapperProps>`
     background-color: ${(props) => hexToRGB(props.theme.colors.main.mainBackground, 0.9)};
 
     ${(props) =>
-      !props.isVisible &&
+      !props.$isVisible &&
       css`
         width: 5rem;
       `}
