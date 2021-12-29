@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Checkbox, Col, Row } from 'antd';
+import { Col, Row } from 'antd';
 import { categoriesList, CategoryType } from 'constants/categoriesList';
 import { CategoryComponents } from 'components/Header/HeaderSearch/HeaderSearch';
 import * as S from './SearchFilter.styles';
