@@ -7,4 +7,9 @@ export const ScreeningsCarousel = styled(Carousel)`
   .slick-disabled {
     display: none !important;
   }
+
+  .slick-slide > div {
+    display: flex;
+    justify-content: center;
+  }
 `;
