@@ -7,6 +7,8 @@ import * as S from './MobileScreenings.styles';
 export const MobileScreenings: React.FC<ScreeningsProps> = ({ screeningsItems }) => {
   return (
     <S.ScreeningsCarousel
+      centerMode={false}
+      infinite={false}
       arrows
       prevArrow={
         <CarouselArrow>

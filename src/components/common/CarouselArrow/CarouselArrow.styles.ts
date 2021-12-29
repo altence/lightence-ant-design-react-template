@@ -11,4 +11,9 @@ export const ArrowWrapper = styled.div.withConfig({
   &:before {
     display: none;
   }
+
+  &:hover,
+  &:focus {
+    color: ${(props) => props.theme.colors.text.main};
+  }
 `;
