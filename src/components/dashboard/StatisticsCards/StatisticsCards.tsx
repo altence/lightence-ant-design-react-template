@@ -20,7 +20,13 @@ export const StatisticsCards: React.FC = () => {
         const currentStatistic = configStatistics.find((el) => el.id === st.id);
 
         return currentStatistic ? (
-          <Col key={st.id} xs={12} md={index === statistics.length - 1 ? 0 : 8} order={(isTablet && index + 1) || 0}>
+          <Col
+            key={st.id}
+            id={currentStatistic.name}
+            xs={12}
+            md={index === statistics.length - 1 ? 0 : 8}
+            order={(isTablet && index + 1) || 0}
+          >
             <StatisticsCard
               name={currentStatistic.title}
               value={st.value}
