@@ -5,9 +5,13 @@ import { LanguagePicker } from './LanguagePicker/LanguagePicker';
 import { NightModeSettings } from './NightModeSettings/NightModeSettings';
 import { ThemePicker } from './ThemePicker/ThemePicker';
 import * as S from './SettingsOverlay.styles';
+import { Button } from '@app/components/common/buttons/Button/Button';
+import { usePWA } from '@app/hooks/usePWA';
 
 export const SettingsOverlay: React.FC = () => {
   const { t } = useTranslation();
+
+  const { promptInstall, isPWASupported } = usePWA();
 
   return (
     <S.SettingsOverlayMenu mode="inline" selectable={false}>
@@ -22,6 +26,15 @@ export const SettingsOverlay: React.FC = () => {
           <NightModeSettings />
         </DropdownCollapse.Panel>
       </DropdownCollapse>
+      {isPWASupported && (
+        <Button
+          block
+          type="primary"
+          onClick={() => promptInstall && (promptInstall as BeforeInstallPromptEvent).prompt()}
+        >
+          {t('common.pwa')}
+        </Button>
+      )}
     </S.SettingsOverlayMenu>
   );
 };

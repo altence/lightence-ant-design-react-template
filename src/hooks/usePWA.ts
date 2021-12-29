@@ -8,18 +8,16 @@ interface UsePwaReturn {
 
 export const usePWA = (): UsePwaReturn => {
   const [isPWASupported, setPWASupported] = useState(false);
-  const [promptInstall, setPromptInstall] = useState<Event | null>(null);
+  const [promptInstall, setPromptInstall] = useState<BeforeInstallPromptEvent | null>(null);
 
   useEffect(() => {
     const handler = (e: Event) => {
       e.preventDefault();
       setPWASupported(true);
-      setPromptInstall(e);
+      setPromptInstall(e as BeforeInstallPromptEvent);
     };
 
     window.addEventListener('beforeinstallprompt', handler);
-
-    return () => window.removeEventListener('transitionend', handler);
   }, []);
 
   return useMemo(
