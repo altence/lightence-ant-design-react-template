@@ -57,7 +57,7 @@ export const BaseChart: React.FC<BaseChartProps> = ({ option, width, height, onE
     <ReactECharts
       {...props}
       option={{ ...defaultOption, ...option }}
-      style={{ ...style, height: chartHeight, width }}
+      style={{ ...style, height: chartHeight, minHeight: height === '100%' ? 400 : 'unset', width }}
       onEvents={onEvents}
     />
   );
