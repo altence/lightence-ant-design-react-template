@@ -22,45 +22,45 @@ const DashboardPage: React.FC = () => {
         <Row gutter={[10, 10]}>
           <StatisticsCards />
 
-          <Col span={24} order={5}>
+          <Col id="map" span={24} order={5}>
             <MapCard />
           </Col>
         </Row>
       </Col>
 
-      <Col span={10}>
+      <Col id="blood-screening" span={10}>
         <BloodScreeningCard />
       </Col>
 
-      <Col span={24}>
+      <Col id="latest-screenings" span={24}>
         <ScreeningsCard />
       </Col>
 
-      <Col xl={24} xxl={14}>
+      <Col id="treatment-plan" xl={24} xxl={14}>
         <TreatmentCard />
       </Col>
 
-      <Col xl={24} xxl={10}>
+      <Col id="activity" xl={24} xxl={10}>
         <ActivityCard />
       </Col>
 
-      <Col span={24}>
+      <Col id="covid" span={24}>
         <CovidCard />
       </Col>
 
-      <Col span={10}>
+      <Col id="patient-timeline" span={10}>
         <PatientResultsCard />
       </Col>
 
-      <Col span={14}>
+      <Col id="health" span={14}>
         <HealthCard />
       </Col>
 
-      <Col span={24}>
+      <Col id="favorite-doctors" span={24}>
         <FavouritesDoctorsCard />
       </Col>
 
-      <Col span={24}>
+      <Col id="news" span={24}>
         <NewsCard />
       </Col>
     </>
@@ -70,44 +70,44 @@ const DashboardPage: React.FC = () => {
     <>
       <StatisticsCards />
 
-      <Col xs={24} md={12} order={(isTablet && 5) || 0}>
+      <Col id="latest-screenings" xs={24} md={12} order={(isTablet && 5) || 0}>
         <ScreeningsCard />
       </Col>
 
-      <Col xs={24} md={12} order={(isTablet && 8) || 0}>
+      <Col id="activity" xs={24} md={12} order={(isTablet && 8) || 0}>
         <ActivityCard />
       </Col>
 
-      <Col xs={24} md={24} order={(isTablet && 9) || 0}>
+      <Col id="treatment-plan" xs={24} md={24} order={(isTablet && 9) || 0}>
         <TreatmentCard />
       </Col>
 
-      <Col xs={24} md={24} order={(isTablet && 10) || 0}>
+      <Col id="health" xs={24} md={24} order={(isTablet && 10) || 0}>
         <HealthCard />
       </Col>
 
-      <Col xs={24} md={12} order={(isTablet && 11) || 0}>
+      <Col id="patient-timeline" xs={24} md={12} order={(isTablet && 11) || 0}>
         <PatientResultsCard />
       </Col>
 
-      <Col xs={24} md={12} order={(isTablet && 6) || 0}>
+      <Col id="blood-screening" xs={24} md={12} order={(isTablet && 6) || 0}>
         <BloodScreeningCard />
       </Col>
 
-      <Col xs={24} md={24} order={(isTablet && 13) || 0}>
+      <Col id="favorite-doctors" xs={24} md={24} order={(isTablet && 13) || 0}>
         <FavouritesDoctorsCard />
       </Col>
 
-      <Col xs={24} md={12} order={(isTablet && 12) || 0}>
+      <Col id="covid" xs={24} md={12} order={(isTablet && 12) || 0}>
         <CovidCard />
       </Col>
 
-      <Col xs={24} md={24} order={(isTablet && 14) || 0}>
+      <Col id="news" xs={24} md={24} order={(isTablet && 14) || 0}>
         <NewsCard />
       </Col>
 
       {isTablet && (
-        <Col md={12} order={7}>
+        <Col id="map" md={12} order={7}>
           <MapCard />
         </Col>
       )}

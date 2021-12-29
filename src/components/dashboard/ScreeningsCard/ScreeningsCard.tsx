@@ -95,7 +95,6 @@ export const ScreeningsCard: React.FC = () => {
 
   return (
     <S.ScreeningsCard
-      id="latest-screenings"
       title={<ScreeningsHeader currentStatistics={currentStatistics} setCurrentStatistics={setCurrentStatistics} />}
       padding={0}
     >

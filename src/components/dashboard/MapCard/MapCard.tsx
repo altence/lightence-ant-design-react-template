@@ -11,7 +11,7 @@ export const MapCard: React.FC = () => {
   }, []);
 
   return (
-    <DashboardCard id="map" padding={0}>
+    <DashboardCard padding={0}>
       <DoctorsMap doctors={doctors} />
     </DashboardCard>
   );

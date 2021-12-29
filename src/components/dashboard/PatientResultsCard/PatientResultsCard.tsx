@@ -16,7 +16,7 @@ export const PatientResultsCard: React.FC = () => {
   const { mobileOnly } = useResponsive();
 
   return (
-    <DashboardCard id="timeline" title={t('dashboard.patientResults.title')}>
+    <DashboardCard title={t('dashboard.patientResults.title')}>
       <Steps direction="vertical" size="small" current={0}>
         {patientResultStatus.map((status, index) => {
           const patientResult = patientResultsData.find((item) => item.status === status.id) || {
