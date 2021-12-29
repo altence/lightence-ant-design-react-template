@@ -71,7 +71,8 @@
     "dateTime": "Date & Time",
     "address": "Address",
     "phone": "Phone",
-    "day": "day"
+    "day": "day",
+    "pwa": "Install PWA"
   },
   "header": {
     "search": "Search",

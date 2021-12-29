@@ -70,7 +70,8 @@
     "dateTime": "DE!!!Date & Time",
     "address": "DE!!!Address",
     "phone": "DE!!!Phone",
-    "day": "DE!!!day"
+    "day": "DE!!!day",
+    "pwa": "DE!!!Install PWA"
   },
   "header": {
     "search": "Search",
