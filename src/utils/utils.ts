@@ -69,7 +69,7 @@ export const defineColorByPriority = (priority: Priority): string => {
 export const mergeBy = (a: any[], b: any[], key: string): any[] =>
   a.filter((elem) => !b.find((subElem) => subElem[key] === elem[key])).concat(b);
 
-export const SmoothRandom = (factor: number, start: number): number => {
+export const getSmoothRandom = (factor: number, start: number): number => {
   let last = start;
 
   const halfEnvelope = 1 / factor / 2;

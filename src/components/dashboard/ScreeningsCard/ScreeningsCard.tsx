@@ -5,7 +5,7 @@ import { ScreeningsChart } from './ScreeningsChart/ScreeningsChart';
 import { getScreenings, Screening } from 'api/screenings.api';
 import { Dates } from 'constants/Dates';
 import { getStatistics, Statistic } from 'api/statistics.api';
-import { SmoothRandom } from 'utils/utils';
+import { getSmoothRandom } from 'utils/utils';
 import { Doctor, getDoctorsData } from 'api/doctors.api';
 import * as S from './ScreeningsCard.styles';
 
@@ -64,7 +64,7 @@ export const ScreeningsCard: React.FC = () => {
           statisticId: statistic.id,
           data: screenings.map((screening) => ({
             id: screening.id,
-            data: Array.from({ length: 30 }, () => (SmoothRandom(3, 0.7) * 100).toFixed()),
+            data: Array.from({ length: 30 }, () => (getSmoothRandom(3, 0.7) * 100).toFixed()),
           })),
         })),
       })),
