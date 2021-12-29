@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import { CarouselArrow } from 'components/common/CarouselArrow/CarouselArrow';
 import { ScreeningsProps } from '../interfaces';
 import * as S from './MobileScreenings.styles';
+import { ThemeContext } from 'styled-components';
 
 export const MobileScreenings: React.FC<ScreeningsProps> = ({ screeningsItems }) => {
+  const theme = useContext(ThemeContext);
+
   return (
     <S.ScreeningsCarousel
       centerMode={false}
@@ -23,7 +26,7 @@ export const MobileScreenings: React.FC<ScreeningsProps> = ({ screeningsItems })
       slidesToShow={6}
       responsive={[
         {
-          breakpoint: 500,
+          breakpoint: theme.breakpoints.sm,
           settings: {
             slidesToShow: 5,
           },
