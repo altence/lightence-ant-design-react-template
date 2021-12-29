@@ -70,11 +70,9 @@ export const mergeBy = (a: any[], b: any[], key: string): any[] =>
   a.filter((elem) => !b.find((subElem) => subElem[key] === elem[key])).concat(b);
 
 export const getSmoothRandom = (factor: number, start: number): number => {
-  let last = start;
-
   const halfEnvelope = 1 / factor / 2;
-  const max = Math.min(1, last + halfEnvelope);
-  const min = Math.max(0, last - halfEnvelope);
+  const max = Math.min(1, start + halfEnvelope);
+  const min = Math.max(0, start - halfEnvelope);
 
-  return (last = Math.random() * (max - min) + min);
+  return Math.random() * (max - min) + min;
 };
