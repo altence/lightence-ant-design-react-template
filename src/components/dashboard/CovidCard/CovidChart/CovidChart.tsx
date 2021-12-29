@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { BaseChart, getDefaultTooltipStyles } from 'components/common/charts/BaseChart';
 import { getMarkAreaData } from 'utils/utils';
-import styled, { ThemeContext } from 'styled-components';
+import { ThemeContext } from 'styled-components';
 import { hexToRGB } from 'utils/utils';
 import { ChartData, ChartSeriesData } from 'interfaces/interfaces';
 import { Dates } from 'constants/Dates';
@@ -62,10 +62,5 @@ export const CovidChart: React.FC<{ data: ChartData }> = ({ data }) => {
     },
   };
 
-  return <Chart option={option} />;
+  return <BaseChart option={option} height="100%" />;
 };
-
-const Chart = styled(BaseChart)`
-  height: 100%;
-  min-height: 400px;
-`;
