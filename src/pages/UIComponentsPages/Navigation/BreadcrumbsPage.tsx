@@ -12,17 +12,17 @@ const BreadcrumbsPage: React.FC = () => {
   const menu = (
     <Menu>
       <MenuItem>
-        <Button type="link" target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
+        <Button type="link" target="_blank" rel="noopener noreferrer" href="/">
           {t('breadcrumbs.general')}
         </Button>
       </MenuItem>
       <MenuItem>
-        <Button type="link" target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
+        <Button type="link" target="_blank" rel="noopener noreferrer" href="/">
           {t('breadcrumbs.layout')}
         </Button>
       </MenuItem>
       <MenuItem>
-        <Button type="link" target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
+        <Button type="link" target="_blank" rel="noopener noreferrer" href="/">
           {t('breadcrumbs.navigation')}
         </Button>
       </MenuItem>
@@ -33,17 +33,17 @@ const BreadcrumbsPage: React.FC = () => {
       <S.Card title={t('breadcrumbs.basic')}>
         <Breadcrumb>
           <BreadcrumbItem>{t('breadcrumbs.home')}</BreadcrumbItem>
-          <BreadcrumbItem href="">{t('breadcrumbs.applicationCenter')}</BreadcrumbItem>
-          <BreadcrumbItem href="">{t('breadcrumbs.applicationList')}</BreadcrumbItem>
+          <BreadcrumbItem>{t('breadcrumbs.applicationCenter')}</BreadcrumbItem>
+          <BreadcrumbItem>{t('breadcrumbs.applicationList')}</BreadcrumbItem>
           <BreadcrumbItem>{t('breadcrumbs.application')}</BreadcrumbItem>
         </Breadcrumb>
       </S.Card>
       <S.Card title={t('breadcrumbs.withIcon')}>
         <Breadcrumb>
-          <BreadcrumbItem href="">
+          <BreadcrumbItem>
             <HomeOutlined />
           </BreadcrumbItem>
-          <BreadcrumbItem href="">
+          <BreadcrumbItem>
             <UserOutlined />
             <span>{t('breadcrumbs.applicationList')}</span>
           </BreadcrumbItem>
@@ -53,18 +53,16 @@ const BreadcrumbsPage: React.FC = () => {
       <S.Card title={t('breadcrumbs.customSeparator')}>
         <Breadcrumb separator=">">
           <BreadcrumbItem>{t('breadcrumbs.home')}</BreadcrumbItem>
-          <BreadcrumbItem href="">{t('breadcrumbs.applicationCenter')}</BreadcrumbItem>
-          <BreadcrumbItem href="">{t('breadcrumbs.applicationList')}</BreadcrumbItem>
+          <BreadcrumbItem>{t('breadcrumbs.applicationCenter')}</BreadcrumbItem>
+          <BreadcrumbItem>{t('breadcrumbs.applicationList')}</BreadcrumbItem>
           <BreadcrumbItem>{t('breadcrumbs.application')}</BreadcrumbItem>
         </Breadcrumb>
       </S.Card>
       <S.Card title={t('breadcrumbs.withDropdown')}>
         <Breadcrumb>
           <BreadcrumbItem>{t('breadcrumbs.antd')}</BreadcrumbItem>
-          <BreadcrumbItem href="">{t('breadcrumbs.component')}</BreadcrumbItem>
-          <BreadcrumbItem href="" overlay={menu}>
-            {t('breadcrumbs.general')}
-          </BreadcrumbItem>
+          <BreadcrumbItem>{t('breadcrumbs.component')}</BreadcrumbItem>
+          <BreadcrumbItem overlay={menu}>{t('breadcrumbs.general')}</BreadcrumbItem>
           <BreadcrumbItem>{t('breadcrumbs.button')}</BreadcrumbItem>
         </Breadcrumb>
       </S.Card>
