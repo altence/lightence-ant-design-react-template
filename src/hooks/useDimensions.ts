@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 interface Dimension {
   width: number | undefined;
@@ -11,12 +11,23 @@ export const useDimensions = (ref: { current: Element | null }): Dimension => {
     height: 0,
   });
 
-  useEffect(() => {
-    const handleDimensions = () => {
-      const element = ref.current && ref.current.getBoundingClientRect();
-      setDimensions({ width: element?.width, height: element?.height });
-    };
+  const handleDimensions = useCallback(() => {
+    const element = ref.current && ref.current.getBoundingClientRect();
+    setDimensions({ width: element?.width, height: element?.height });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ref.current]);
 
+  useEffect(() => {
+    const id = setInterval(() => {
+      handleDimensions();
+    }, 1000);
+
+    return () => {
+      clearInterval(id);
+    };
+  }, [handleDimensions]);
+
+  useEffect(() => {
     handleDimensions();
 
     window.addEventListener('resize', handleDimensions);
@@ -24,7 +35,7 @@ export const useDimensions = (ref: { current: Element | null }): Dimension => {
     return () => {
       window.removeEventListener('resize', handleDimensions);
     };
-  }, [ref]);
+  }, [handleDimensions]);
 
   return { width: dimensions.width, height: dimensions.height };
 };

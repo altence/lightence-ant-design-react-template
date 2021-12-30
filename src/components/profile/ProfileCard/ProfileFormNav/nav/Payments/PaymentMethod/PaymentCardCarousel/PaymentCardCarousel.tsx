@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useContext, useMemo, useRef } from 'react';
 import { FormInstance } from 'antd';
 import { Carousel } from '@app/components/common/Carousel/Carousel';
 import { CreditCard } from '../PaymentForm/interfaces';
@@ -24,13 +24,9 @@ export const PaymentCardCarousel: React.FC<PaymentCardCarouselProps> = ({
   setCardData,
   handleOpenModal,
 }) => {
-  const [cardRef, setCardRef] = useState<Element | null>(null);
+  const cardRef = useRef(null);
 
-  useEffect(() => {
-    setCardRef(document.querySelector('.slick-current > div > div'));
-  }, []);
-
-  const { width: cardWidth } = useDimensions({ current: cardRef });
+  const { width: cardWidth } = useDimensions(cardRef);
 
   const theme = useContext(ThemeContext);
 
@@ -57,7 +53,7 @@ export const PaymentCardCarousel: React.FC<PaymentCardCarouselProps> = ({
   const paymentCards = useMemo(
     () =>
       cards.map((card, index) => (
-        <PaymentCard key={index} cardData={card}>
+        <PaymentCard key={index} cardData={card} {...(index === 2 && { ref: cardRef })}>
           <ActionButtons onEdit={handleEditCard(card)} onRemove={handleRemoveCard(card.number)} />
         </PaymentCard>
       )),
