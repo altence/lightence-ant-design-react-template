@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Dates } from '../constants/Dates';
 
 const selectedTheme = localStorage.getItem('theme');
@@ -11,21 +11,21 @@ export const useTheme = (isNightMode: boolean, nightTime: number[]): [string, (t
     localStorage.setItem('theme', theme);
   };
 
-  const checkNightMode = () => {
+  const checkNightMode = useCallback(() => {
     if (isNightMode) {
       selectTheme(isNight(nightTime) ? 'dark' : 'light');
     }
-  };
+  }, [isNightMode, nightTime]);
 
   useEffect(() => {
     checkNightMode();
-  }, [isNightMode, nightTime]);
+  }, [isNightMode, nightTime, checkNightMode]);
 
   useEffect(() => {
     const id = setInterval(checkNightMode, 60 * 1000);
 
     return () => clearInterval(id);
-  }, []);
+  }, [checkNightMode]);
 
   return [theme, selectTheme];
 };

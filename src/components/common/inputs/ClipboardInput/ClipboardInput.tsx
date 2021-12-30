@@ -18,7 +18,7 @@ export const ClipboardInput: React.FC<ClipboardInputProps> = ({ value, ...props 
       navigator.clipboard.writeText(value).then(() => {
         notification.open({ message: t('common.copied') });
       }),
-    [value],
+    [value, t],
   );
 
   return (

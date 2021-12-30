@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { Space, TablePaginationConfig, notification } from 'antd';
 import * as S from './BasicTable.styles';
 import { BasicTableRow, getBasicTableData, Pagination, Tag } from 'api/table.api';
@@ -19,19 +19,22 @@ export const BasicTable: React.FC = () => {
   });
   const { t } = useTranslation();
 
+  const fetch = useCallback(
+    (pagination: Pagination) => {
+      setTableData({ ...tableData, loading: true });
+      getBasicTableData(pagination).then((res) => {
+        setTableData({ data: res.data, pagination: res.pagination, loading: false });
+      });
+    },
+    [setTableData, tableData],
+  );
+
   useEffect(() => {
     fetch(tableData.pagination);
-  }, []);
+  }, [fetch, tableData.pagination]);
 
   const handleTableChange = (pagination: TablePaginationConfig) => {
     fetch(pagination);
-  };
-
-  const fetch = (pagination: Pagination) => {
-    setTableData({ ...tableData, loading: true });
-    getBasicTableData(pagination).then((res) => {
-      setTableData({ data: res.data, pagination: res.pagination, loading: false });
-    });
   };
 
   const handleDeleteRow = (rowId: number) => {

@@ -155,12 +155,8 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, setHasMo
         });
       }
     },
-    [selectedTags],
+    [selectedTags, selectedTagsIds, filterFields],
   );
-
-  useEffect(() => {
-    filterNews(false);
-  }, [news.length]);
 
   const filterNews = useCallback(
     (isReset = false) => {
@@ -189,8 +185,12 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, setHasMo
         }),
       );
     },
-    [news, filterFields],
+    [news, author, title, dates, selectedTags, setHasMore],
   );
+
+  useEffect(() => {
+    filterNews(false);
+  }, [news.length, filterNews]);
 
   const handleClickReset = useCallback(() => {
     setFilterFields({ author: '', title: '', dates: [null, null], selectedTags: [] });

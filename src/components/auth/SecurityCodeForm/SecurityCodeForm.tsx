@@ -21,7 +21,7 @@ export const SecurityCodeForm: React.FC = () => {
         navigate('/auth/new-password');
       }, 1000);
     }
-  }, [verifyCode]);
+  }, [verifyCode, navigate]);
 
   return (
     <Auth.FormWrapper>

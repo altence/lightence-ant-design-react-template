@@ -24,7 +24,7 @@ export const StatisticsSelect: React.FC<SelectProps> = ({ className, ...props })
           </Option>
         );
       }),
-    [statistics],
+    [statistics, t],
   );
 
   return (

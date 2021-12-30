@@ -43,7 +43,7 @@ export const PaymentCardCarousel: React.FC<PaymentCardCarouselProps> = ({
       handleOpenModal();
     },
 
-    [handleOpenModal, setCardData],
+    [handleOpenModal, setCardData, form],
   );
 
   const paymentCards = useMemo(
@@ -58,7 +58,7 @@ export const PaymentCardCarousel: React.FC<PaymentCardCarouselProps> = ({
           </S.BtnWrapper>
         </PaymentCard>
       )),
-    [cards, handleRemoveCard, handleEditCard],
+    [cards, handleRemoveCard, handleEditCard, t],
   );
 
   const layout = useMemo(

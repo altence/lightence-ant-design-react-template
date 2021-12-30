@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Popconfirm, Form, TablePaginationConfig, Space } from 'antd';
 import { Table } from 'components/common/Table/Table';
 import { getEditableTableData, BasicTableRow, Pagination } from 'api/table.api';
@@ -19,20 +19,23 @@ export const EditableTable: React.FC = () => {
   const [editingKey, setEditingKey] = useState(0);
   const { t } = useTranslation();
 
+  const fetch = useCallback(
+    (pagination: Pagination) => {
+      setTableData({ ...tableData, loading: true });
+      getEditableTableData(pagination).then((res) => {
+        setTableData({ data: res.data, pagination: res.pagination, loading: false });
+      });
+    },
+    [setTableData, tableData],
+  );
+
   useEffect(() => {
     fetch(tableData.pagination);
-  }, []);
+  }, [fetch, tableData.pagination]);
 
   const handleTableChange = (pagination: TablePaginationConfig) => {
     fetch(pagination);
     cancel();
-  };
-
-  const fetch = (pagination: Pagination) => {
-    setTableData({ ...tableData, loading: true });
-    getEditableTableData(pagination).then((res) => {
-      setTableData({ data: res.data, pagination: res.pagination, loading: false });
-    });
   };
 
   const isEditing = (record: BasicTableRow) => record.key === editingKey;

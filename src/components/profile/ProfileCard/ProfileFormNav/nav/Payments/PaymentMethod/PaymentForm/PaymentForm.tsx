@@ -68,7 +68,7 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({ form, cardData, setCar
         });
       }
     },
-    [setCards, cardData, closeModal],
+    [setCards, cardData, closeModal, t],
   );
 
   return (
