@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Col, Tooltip } from 'antd';
 import { Button } from 'components/common/buttons/Button/Button';
 import { PoweroffOutlined, SearchOutlined } from '@ant-design/icons';
@@ -8,6 +8,15 @@ import * as S from './UIComponentsPage.styles';
 const ButtonsPage: React.FC = () => {
   const [loadings, setLoadings] = useState<boolean[]>([]);
   const { t } = useTranslation();
+  let timeout: ReturnType<typeof setTimeout> | null = null;
+
+  useEffect(() => {
+    return () => {
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+    };
+  }, [timeout]);
 
   const enterLoading = (index: number) => {
     setLoadings((loadings) => {
@@ -15,7 +24,7 @@ const ButtonsPage: React.FC = () => {
       newLoadings[index] = true;
       return newLoadings;
     });
-    setTimeout(() => {
+    timeout = setTimeout(() => {
       setLoadings((loadings) => {
         const newLoadings = [...loadings];
         newLoadings[index] = false;
@@ -105,19 +114,28 @@ const ButtonsPage: React.FC = () => {
         <Tooltip title={t('buttons.search')}>
           <Button type="primary" shape="circle" icon={<SearchOutlined />} />
         </Tooltip>
-        <Button type="primary" shape="circle">
-          A
-        </Button>
-        <Button type="primary" icon={<SearchOutlined />}>
-          {t('buttons.search')}
-        </Button>
+        <Tooltip title={t('buttons.search')}>
+          <Button type="primary" shape="circle">
+            A
+          </Button>
+        </Tooltip>
+        <Tooltip title={t('buttons.search')}>
+          <Button type="primary" icon={<SearchOutlined />}>
+            {t('buttons.search')}
+          </Button>
+        </Tooltip>
+
         <Tooltip title={t('buttons.search')}>
           <Button type="dashed" shape="circle" icon={<SearchOutlined />} size="large" />
         </Tooltip>
-        <Button type="dashed" icon={<SearchOutlined />} size="large">
-          {t('buttons.search')}
-        </Button>
-        <Button type="ghost" icon={<SearchOutlined />} size="large" href="https://www.google.com" />
+        <Tooltip title={t('buttons.search')}>
+          <Button type="dashed" icon={<SearchOutlined />} size="large">
+            {t('buttons.search')}
+          </Button>
+        </Tooltip>
+        <Tooltip title={t('buttons.search')}>
+          <Button type="ghost" icon={<SearchOutlined />} size="large" href="https://www.google.com" />
+        </Tooltip>
       </S.Card>
     </Col>
   );
