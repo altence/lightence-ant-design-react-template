@@ -6,7 +6,17 @@ import theme from 'styles/theme';
 
 interface NotificationTitleProps {
   color?: string;
+  isOnlyTitle: boolean;
 }
+
+interface IconWrapperProps {
+  isOnlyTitle: boolean;
+}
+
+const IconWrapper = styled.div<IconWrapperProps>`
+  font-size: ${(props) => (props.isOnlyTitle ? '2.1875rem' : '2.8125rem')};
+  line-height: 2.8125rem;
+`;
 
 const SuccessIcon = styled(CheckCircleFilled)`
   color: ${theme.colors.main.success};
@@ -21,16 +31,24 @@ const WarningIcon = styled(ExclamationCircleFilled)`
 `;
 
 const NotificationTitle = styled.div<NotificationTitleProps>`
-  color: ${(props) => props.color};
-  font-size: ${theme.commonFontSizes.xxl};
-  font-weight: ${theme.commonFontWeight.bold};
+  color: ${(props) => (props.isOnlyTitle ? theme.colors.text.main : props.color)};
+  font-size: ${(props) => (props.isOnlyTitle ? theme.commonFontSizes.md : theme.commonFontSizes.xxl)};
+  font-weight: ${(props) => (props.isOnlyTitle ? theme.commonFontWeight.semibold : theme.commonFontWeight.bold)};
+  height: 2.8125rem;
+  display: flex;
+  align-items: center;
+  margin-left: ${(props) => (props.isOnlyTitle ? '0.625rem' : '1.5625rem')};
 `;
 
 const NotificationDescription = styled.div`
-  color: ${theme.colors.text.main}};
+  color: ${theme.colors.text.main};
   font-size: ${theme.commonFontSizes.md};
   font-weight: ${theme.commonFontWeight.semibold};
   line-height: 1.375rem;
+`;
+
+const EmptyDescription = styled.div`
+  margin-top: -0.625rem;
 `;
 
 type NotificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
@@ -57,36 +75,85 @@ interface NotificationProps {
 const openSuccessNotification = (config: NotificationProps): void => {
   notification.success({
     ...config,
-    icon: <SuccessIcon />,
-    message: <NotificationTitle color={theme.colors.main.success}>{config.message}</NotificationTitle>,
-    description: <NotificationDescription>{config.description}</NotificationDescription>,
+    icon: (
+      <IconWrapper isOnlyTitle={!config.description}>
+        <SuccessIcon />
+      </IconWrapper>
+    ),
+    message: (
+      <NotificationTitle color={theme.colors.main.success} isOnlyTitle={!config.description}>
+        {config.message}
+      </NotificationTitle>
+    ),
+    description: config.description ? (
+      <NotificationDescription>{config.description}</NotificationDescription>
+    ) : (
+      <EmptyDescription />
+    ),
+    style: { padding: config.description ? '2.1875rem 3.125rem' : '1.25rem 2.5rem' },
   });
 };
 
 const openInfoNotification = (config: NotificationProps): void => {
   notification.info({
     ...config,
-    icon: <InfoIcon />,
-    message: <NotificationTitle color={theme.colors.main.primary}>{config.message}</NotificationTitle>,
-    description: <NotificationDescription>{config.description}</NotificationDescription>,
+    icon: (
+      <IconWrapper isOnlyTitle={!config.description}>
+        <InfoIcon />
+      </IconWrapper>
+    ),
+    message: (
+      <NotificationTitle color={theme.colors.main.primary} isOnlyTitle={!config.description}>
+        {config.message}
+      </NotificationTitle>
+    ),
+    description: config.description ? (
+      <NotificationDescription>{config.description}</NotificationDescription>
+    ) : (
+      <EmptyDescription />
+    ),
   });
 };
 
 const openWarningNotification = (config: NotificationProps): void => {
   notification.warning({
     ...config,
-    icon: <WarningIcon />,
-    message: <NotificationTitle color={theme.colors.main.warning}>{config.message}</NotificationTitle>,
-    description: <NotificationDescription>{config.description}</NotificationDescription>,
+    icon: (
+      <IconWrapper isOnlyTitle={!config.description}>
+        <WarningIcon />
+      </IconWrapper>
+    ),
+    message: (
+      <NotificationTitle color={theme.colors.main.warning} isOnlyTitle={!config.description}>
+        {config.message}
+      </NotificationTitle>
+    ),
+    description: config.description ? (
+      <NotificationDescription>{config.description}</NotificationDescription>
+    ) : (
+      <EmptyDescription />
+    ),
   });
 };
 
 const openErrorNotification = (config: NotificationProps): void => {
   notification.error({
     ...config,
-    icon: <ErrorIcon />,
-    message: <NotificationTitle color={theme.colors.main.error}>{config.message}</NotificationTitle>,
-    description: <NotificationDescription>{config.description}</NotificationDescription>,
+    icon: (
+      <IconWrapper isOnlyTitle={!config.description}>
+        <ErrorIcon />
+      </IconWrapper>
+    ),
+    message: (
+      <NotificationTitle color={theme.colors.main.error} isOnlyTitle={!config.description}>
+        {config.message}
+      </NotificationTitle>
+    ),
+    description: config.description ? (
+      <NotificationDescription>{config.description}</NotificationDescription>
+    ) : (
+      <EmptyDescription />
+    ),
   });
 };
 

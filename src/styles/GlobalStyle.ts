@@ -41,18 +41,17 @@ export default createGlobalStyle`
   }
 
   .ant-notification-notice {
-    padding: 2.1875rem 3.125rem 2.5rem 3.125rem;
     width: 35.3125rem
   }
 
   .ant-notification-notice-with-icon .ant-notification-notice-message {
-    margin-left: 4.375rem;
-    padding-top: 0.3125rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 0;
+    margin-left: 2.8125rem;
   }
 
   .ant-notification-notice-with-icon .ant-notification-notice-description {
     margin-left: 4.375rem;
+    margin-top: 0.625rem;
   }
 
   .ant-notification-notice-icon {
