@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form } from 'antd';
 import { Link } from 'react-router-dom';
@@ -7,6 +7,7 @@ import { ReactComponent as GoogleIcon } from 'assets/icons/google.svg';
 import { ReactComponent as FacebookIcon } from 'assets/icons/facebook.svg';
 import * as S from './SignUpForm.styles';
 import * as Auth from 'components/layouts/auth/AuthLayout.styles';
+import { notificationController } from 'controllers/notificationController';
 
 export const SignUpForm: React.FC = () => {
   const navigate = useNavigate();
@@ -14,6 +15,13 @@ export const SignUpForm: React.FC = () => {
 
   const { t } = useTranslation();
 
+  useEffect(() => {
+    notificationController.info({
+      message: 'Test',
+      description: 'tstst',
+      duration: 100000,
+    });
+  }, []);
   const handleSubmit = () => {
     setIsLoading(true);
     setTimeout(() => {
