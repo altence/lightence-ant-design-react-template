@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useCallback, useEffect, useState } from 'react';
-import { Col, Form as AntForm, FormInstance, FormProps as AntFormProps, notification, Row } from 'antd';
+import { Col, Form as AntForm, FormInstance, FormProps as AntFormProps, Row } from 'antd';
 import { ButtonsGroup } from './ButtonsGroup/ButtonsGroup';
 import { useTranslation } from 'react-i18next';
 import { ValidateErrorEntity } from 'rc-field-form/lib/interface';
+import { notificationController } from 'controllers/notificationController';
 
 interface Error {
   errors: string;
@@ -52,7 +53,7 @@ export const Form: React.FC<FormProps> = ({
   const setFinished = useCallback(() => {
     setFieldsChange(false);
     setLoading(false);
-    notification.success({ message: t('common.saved') });
+    notificationController.success({ message: t('common.saved') });
   }, [setFieldsChange, setLoading, t]);
 
   const onFinishDefault = useCallback(
@@ -69,7 +70,7 @@ export const Form: React.FC<FormProps> = ({
   const showErrorsDefault = useCallback((error) => {
     setLoading(false);
 
-    notification.error({
+    notificationController.error({
       message: (
         <Row gutter={[20, 20]}>
           {error.errorFields.map((item: Error, index: number) => (
@@ -87,7 +88,7 @@ export const Form: React.FC<FormProps> = ({
       setLoading(true);
 
       onFinishFailed
-        ? onFinishFailed(error).then(() => notification.open({ message: t('common.formError') }))
+        ? onFinishFailed(error).then(() => notificationController.info({ message: t('common.formError') }))
         : showErrorsDefault(error);
     },
     [onFinishFailed, showErrorsDefault, t],

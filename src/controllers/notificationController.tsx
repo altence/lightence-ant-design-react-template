@@ -54,7 +54,7 @@ interface NotificationProps {
   closeIcon?: React.ReactNode;
 }
 
-export const openSuccessNotification = (config: NotificationProps): void => {
+const openSuccessNotification = (config: NotificationProps): void => {
   notification.success({
     ...config,
     icon: <SuccessIcon />,
@@ -63,7 +63,7 @@ export const openSuccessNotification = (config: NotificationProps): void => {
   });
 };
 
-export const openInfoNotification = (config: NotificationProps): void => {
+const openInfoNotification = (config: NotificationProps): void => {
   notification.info({
     ...config,
     icon: <InfoIcon />,
@@ -72,7 +72,7 @@ export const openInfoNotification = (config: NotificationProps): void => {
   });
 };
 
-export const openWarningNotification = (config: NotificationProps): void => {
+const openWarningNotification = (config: NotificationProps): void => {
   notification.warning({
     ...config,
     icon: <WarningIcon />,
@@ -81,11 +81,18 @@ export const openWarningNotification = (config: NotificationProps): void => {
   });
 };
 
-export const openErrorNotification = (config: NotificationProps): void => {
+const openErrorNotification = (config: NotificationProps): void => {
   notification.error({
     ...config,
     icon: <ErrorIcon />,
     message: <NotificationTitle color={theme.colors.main.error}>{config.message}</NotificationTitle>,
     description: <NotificationDescription>{config.description}</NotificationDescription>,
   });
+};
+
+export const notificationController = {
+  success: openSuccessNotification,
+  info: openInfoNotification,
+  warning: openWarningNotification,
+  error: openErrorNotification,
 };

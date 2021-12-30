@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Form as AntdForm, notification, Steps } from 'antd';
+import { Form as AntdForm, Steps } from 'antd';
+import { notificationController } from 'controllers/notificationController';
 import { Form } from '../../common/Form/Form';
 import { useTranslation } from 'react-i18next';
 import { Button } from '../../common/buttons/Button/Button';
@@ -84,7 +85,7 @@ export const StepForm: React.FC = () => {
   const onFinish = () => {
     setIsLoading(true);
     setTimeout(() => {
-      notification.open({ message: t('common.saved') });
+      notificationController.info({ message: t('common.saved') });
       setIsLoading(false);
       setCurrent(0);
     }, 1500);

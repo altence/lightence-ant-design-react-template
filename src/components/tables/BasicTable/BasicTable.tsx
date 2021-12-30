@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { Space, TablePaginationConfig, notification } from 'antd';
+import { Space, TablePaginationConfig } from 'antd';
 import * as S from './BasicTable.styles';
 import { BasicTableRow, getBasicTableData, Pagination, Tag } from 'api/table.api';
 import { Table } from 'components/common/Table/Table';
@@ -7,6 +7,7 @@ import { ColumnsType } from 'antd/es/table';
 import { Button } from 'components/common/buttons/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { defineColorByPriority } from '../../../utils/utils';
+import { notificationController } from 'controllers/notificationController';
 
 const initialPagination: Pagination = {
   current: 1,
@@ -137,7 +138,7 @@ export const BasicTable: React.FC = () => {
             <Button
               type="ghost"
               onClick={() => {
-                notification.open({ message: t('tables.inviteMessage', { name: record.name }) });
+                notificationController.info({ message: t('tables.inviteMessage', { name: record.name }) });
               }}
             >
               {t('tables.invite')}

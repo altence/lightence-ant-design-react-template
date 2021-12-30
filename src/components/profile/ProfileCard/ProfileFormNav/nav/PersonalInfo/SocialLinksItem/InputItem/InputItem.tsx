@@ -1,10 +1,11 @@
 import React, { useCallback } from 'react';
-import { notification, Tooltip } from 'antd';
+import { Tooltip } from 'antd';
 import { Button } from 'components/common/buttons/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { CopyOutlined } from '@ant-design/icons';
 import { FormItem } from 'components/common/Form/Form.styles';
 import { SuffixInput } from 'components/common/inputs/SuffixInput/SuffixInput';
+import { notificationController } from 'controllers/notificationController';
 
 interface InputItemProps {
   value: string | undefined;
@@ -18,7 +19,7 @@ export const InputItem: React.FC<InputItemProps> = ({ value, name, Addon }) => {
   const handleCopy = useCallback(() => {
     if (value) {
       navigator.clipboard.writeText(value).then(() => {
-        notification.open({ message: t('common.copied') });
+        notificationController.info({ message: t('common.copied') });
       });
     }
   }, [value]);

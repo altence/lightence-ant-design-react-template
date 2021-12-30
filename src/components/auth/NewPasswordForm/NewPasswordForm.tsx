@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Form, notification } from 'antd';
+import { Form } from 'antd';
 import { useTranslation } from 'react-i18next';
+import { notificationController } from 'controllers/notificationController';
 import * as S from './NewPasswordForm.styles';
 import * as Auth from 'components/layouts/auth/AuthLayout.styles';
 
@@ -15,7 +16,7 @@ export const NewPasswordForm: React.FC = () => {
     setTimeout(() => {
       setIsLoading(false);
       navigate('/');
-      notification.open({
+      notificationController.info({
         message: t('common.success'),
         description: t('newPassword.successReset'),
       });
