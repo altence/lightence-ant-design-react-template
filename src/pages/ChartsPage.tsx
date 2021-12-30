@@ -9,19 +9,19 @@ import { LineRaceChart } from 'components/charts/LineRaceChart/LineRaceChart';
 const ChartsPage: React.FC = () => {
   return (
     <Row gutter={[30, 30]}>
-      <Col xs={24}>
+      <Col id="gradient-stacked-area" xs={24}>
         <GradientStackedAreaChart />
       </Col>
-      <Col xs={24}>
+      <Col id="bar-animation-delay" xs={24}>
         <BarAnimationDelayChart />
       </Col>
-      <Col xs={24} lg={12}>
+      <Col id="pie" xs={24} lg={12}>
         <VisitorsPieChart />
       </Col>
-      <Col xs={24} lg={12}>
+      <Col id="scatter" xs={24} lg={12}>
         <ScatterChart />
       </Col>
-      <Col xs={24}>
+      <Col id="line-race" xs={24}>
         <LineRaceChart />
       </Col>
     </Row>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 import { SearchDropdown } from '../dropdowns/SearchDropdown/SearchDropdown';
 import { useResponsive } from 'hooks/useResponsive';
-import { componentsData, Component } from 'constants/componentsData';
+import { components as configComponents, Component } from '@app/constants/config/components';
 import { categoriesList, CategoryType } from 'constants/categoriesList';
 import * as S from './HeaderSearch.styles';
 
@@ -17,7 +17,7 @@ export const HeaderSearch: React.FC = () => {
   const { pathname } = useLocation();
 
   const [query, setQuery] = useState('');
-  const [components] = useState<Component[]>(componentsData);
+  const [components] = useState<Component[]>(configComponents);
 
   const [isModalVisible, setModalVisible] = useState(false);
   const [isOverlayVisible, setOverlayVisible] = useState(false);
