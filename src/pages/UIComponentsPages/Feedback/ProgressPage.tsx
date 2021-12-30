@@ -31,21 +31,21 @@ const ProgressPage: React.FC = () => {
   return (
     <Col>
       <S.Card title={t('progress.basic')}>
-        <Progress percent={30} />
-        <Progress percent={50} status="active" />
-        <Progress percent={70} status="exception" />
-        <Progress percent={100} />
-        <Progress percent={50} showInfo={false} />
+        <Progress percent={30} strokeColor={theme.colors.main.primary} />
+        <Progress percent={50} status="active" strokeColor={theme.colors.main.primary} />
+        <Progress percent={70} status="exception" strokeColor={theme.colors.main.error} />
+        <Progress percent={100} strokeColor={theme.colors.main.success} />
+        <Progress percent={50} showInfo={false} strokeColor={theme.colors.main.primary} />
       </S.Card>
       <S.Card title={t('progress.circle')}>
-        <Progress type="circle" percent={75} />
-        <Progress type="circle" percent={70} status="exception" />
-        <Progress type="circle" percent={100} />
+        <Progress type="circle" percent={75} strokeColor={theme.colors.main.primary} />
+        <Progress type="circle" percent={70} status="exception" strokeColor={theme.colors.main.error} />
+        <Progress type="circle" percent={100} strokeColor={theme.colors.main.success} />
       </S.Card>
       <S.Card title={t('progress.dynamic')}>
         <div>
-          <Progress percent={percent} type="circle" />
-          <Progress percent={percent} />
+          <Progress percent={percent} type="circle" strokeColor={theme.colors.main.primary} />
+          <Progress percent={percent} strokeColor={theme.colors.main.primary} />
           <ButtonGroup>
             <Button onClick={decline} icon={<MinusOutlined />} />
             <Button onClick={increase} icon={<PlusOutlined />} />
@@ -53,8 +53,8 @@ const ProgressPage: React.FC = () => {
         </div>
       </S.Card>
       <S.Card title={t('progress.dashboard')}>
-        <Progress type="dashboard" percent={75} />
-        <Progress type="dashboard" percent={75} gapDegree={30} />
+        <Progress type="dashboard" percent={75} strokeColor={theme.colors.main.primary} />
+        <Progress type="dashboard" percent={75} gapDegree={30} strokeColor={theme.colors.main.primary} />
       </S.Card>
       <S.Card title={t('progress.gradient')}>
         <div>
