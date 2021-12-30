@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { Col, FormInstance, notification, Row } from 'antd';
+import { Col, FormInstance, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { ProfileForm } from 'components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm';
 import { CardNumberItem } from './CardNumberItem/CardNumberItem';
@@ -11,6 +11,7 @@ import { CreditCard } from './interfaces';
 import { clearCardData } from '../PaymentMethod';
 import * as S from './PaymentForm.styles';
 import { addCreditCard, updateCreditCard } from 'api/users.api';
+import { notificationController } from 'controllers/notificationController';
 
 interface PaymentFormProps {
   form: FormInstance;
@@ -57,7 +58,7 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({ form, cardData, setCar
 
         setCards((prev) => {
           if (prev.find((stateCard) => data.number === stateCard.number && data.name === stateCard.name)) {
-            notification.open({ message: t('profile.nav.payments.sameCard') });
+            notificationController.info({ message: t('profile.nav.payments.sameCard') });
 
             return [...prev];
           }

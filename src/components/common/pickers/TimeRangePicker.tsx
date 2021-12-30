@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { DayjsDatePicker } from './DayjsDatePicker';
 import { AppDate, Dates } from 'constants/Dates';
-import { notification } from 'antd';
+import { notificationController } from 'controllers/notificationController';
 import { useTranslation } from 'react-i18next';
 
 const clearDate = Dates.getToday().hour(0).minute(0).second(0).millisecond(0);
@@ -25,7 +25,7 @@ export const TimeRangePicker: React.FC<TimePickerProps> = ({ timeRange, setTimeR
 
     setTimeRange(timeRangeSinceTodayMs);
 
-    notification.open({ message: t('common.saved') });
+    notificationController.info({ message: t('common.saved') });
   };
 
   return (
