@@ -11,12 +11,12 @@ export const useDimensions = (ref: { current: Element | null }): Dimension => {
     height: 0,
   });
 
-  const handleDimensions = () => {
-    const element = ref.current && ref.current.getBoundingClientRect();
-    setDimensions({ width: element?.width, height: element?.height });
-  };
-
   useEffect(() => {
+    const handleDimensions = () => {
+      const element = ref.current && ref.current.getBoundingClientRect();
+      setDimensions({ width: element?.width, height: element?.height });
+    };
+
     handleDimensions();
 
     window.addEventListener('resize', handleDimensions);
@@ -24,7 +24,7 @@ export const useDimensions = (ref: { current: Element | null }): Dimension => {
     return () => {
       window.removeEventListener('resize', handleDimensions);
     };
-  }, [ref.current]);
+  }, [ref]);
 
   return { width: dimensions.width, height: dimensions.height };
 };
