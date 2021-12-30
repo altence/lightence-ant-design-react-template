@@ -22,17 +22,17 @@ const DropdownsPage: React.FC = () => {
   const basicMenu = (
     <Menu>
       <MenuItem>
-        <Button type="link" target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+        <Button type="link" target="_blank" rel="noopener noreferrer" href="/">
           {t('dropdowns.firstItem')}
         </Button>
       </MenuItem>
       <MenuItem icon={<DownOutlined />} disabled>
-        <Button type="link" target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+        <Button type="link" target="_blank" rel="noopener noreferrer" href="/">
           {t('dropdowns.secondItem')} ({t('dropdowns.disabled')})
         </Button>
       </MenuItem>
       <MenuItem disabled>
-        <Button type="link" target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+        <Button type="link" target="_blank" rel="noopener noreferrer" href="/">
           {t('dropdowns.thirdItem')} ({t('dropdowns.disabled')})
         </Button>
       </MenuItem>
@@ -43,17 +43,17 @@ const DropdownsPage: React.FC = () => {
   const positionMenu = (
     <Menu>
       <MenuItem>
-        <Button type="link" target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+        <Button type="link" target="_blank" rel="noopener noreferrer" href="/">
           {t('dropdowns.firstItem')}
         </Button>
       </MenuItem>
       <MenuItem>
-        <Button type="link" target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+        <Button type="link" target="_blank" rel="noopener noreferrer" href="/">
           {t('dropdowns.secondItem')}
         </Button>
       </MenuItem>
       <MenuItem>
-        <Button type="link" target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+        <Button type="link" target="_blank" rel="noopener noreferrer" href="/">
           {t('dropdowns.thirdItem')}
         </Button>
       </MenuItem>
