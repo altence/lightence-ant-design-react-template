@@ -1,5 +1,7 @@
 import React from 'react';
 
-export const SecuritySettingsPage: React.FC = () => {
+const SecuritySettingsPage: React.FC = () => {
   return <div></div>;
 };
+
+export default SecuritySettingsPage;

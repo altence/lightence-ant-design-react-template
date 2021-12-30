@@ -1,5 +1,7 @@
 import React from 'react';
 
-export const ProfileLayout: React.FC = () => {
+const ProfileLayout: React.FC = () => {
   return <div></div>;
 };
+
+export default ProfileLayout;
