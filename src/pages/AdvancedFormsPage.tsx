@@ -45,19 +45,19 @@ const AdvancedFormsPage: React.FC = () => {
   const { t } = useTranslation();
   return (
     <Col span={24}>
-      <Card title={t('forms.dynamicForm')} padding="1.25rem">
+      <Card id="dynamic-form" title={t('forms.dynamicForm')} padding="1.25rem">
         <DynamicForm />
       </Card>
 
-      <Card title={t('forms.controlForm')} padding="1.25rem">
+      <Card id="control-form" title={t('forms.controlForm')} padding="1.25rem">
         <ControlForm />
       </Card>
 
-      <BigCard title={t('forms.validationForm')} padding="1.25rem">
+      <BigCard id="validation form" title={t('forms.validationForm')} padding="1.25rem">
         <ValidationForm />
       </BigCard>
 
-      <BigCard title={t('forms.stepForm')} padding="1.25rem">
+      <BigCard id="step-form" title={t('forms.stepForm')} padding="1.25rem">
         <StepForm />
       </BigCard>
     </Col>
