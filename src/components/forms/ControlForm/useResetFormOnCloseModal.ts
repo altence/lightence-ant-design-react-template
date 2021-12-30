@@ -12,5 +12,5 @@ export const useResetFormOnCloseModal = ({ form, visible }: { form: FormInstance
     if (!visible && prevVisible) {
       form.resetFields();
     }
-  }, [visible]);
+  }, [visible, form, prevVisible]);
 };

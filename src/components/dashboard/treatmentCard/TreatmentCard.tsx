@@ -32,7 +32,7 @@ export const TreatmentCard: React.FC = () => {
 
   useEffect(() => {
     setDate(selectedDate.locale(i18n.language));
-  }, [i18n.language]);
+  }, [i18n.language, selectedDate]);
 
   const handleDecreaseMonth = () => {
     setDate(selectedDate.month(selectedDate.month() - 1));

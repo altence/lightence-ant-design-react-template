@@ -47,13 +47,13 @@ export const Form: React.FC<FormProps> = ({
 
     setFieldsChange(false);
     (form || formDefault).resetFields();
-  }, [onCancel, setFieldsChange, form]);
+  }, [onCancel, setFieldsChange, form, formDefault]);
 
   const setFinished = useCallback(() => {
     setFieldsChange(false);
     setLoading(false);
     notification.success({ message: t('common.saved') });
-  }, [setFieldsChange, setLoading]);
+  }, [setFieldsChange, setLoading, t]);
 
   const onFinishDefault = useCallback(
     (values) => {
@@ -63,7 +63,7 @@ export const Form: React.FC<FormProps> = ({
         onFinish(values).then(() => setFinished());
       }
     },
-    [onFinish, setLoading],
+    [onFinish, setLoading, setFinished],
   );
 
   const showErrorsDefault = useCallback((error) => {
@@ -90,7 +90,7 @@ export const Form: React.FC<FormProps> = ({
         ? onFinishFailed(error).then(() => notification.open({ message: t('common.formError') }))
         : showErrorsDefault(error);
     },
-    [onFinishFailed, showErrorsDefault],
+    [onFinishFailed, showErrorsDefault, t],
   );
 
   useEffect(() => {

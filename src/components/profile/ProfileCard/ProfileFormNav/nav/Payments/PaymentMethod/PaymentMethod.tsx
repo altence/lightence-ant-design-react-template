@@ -97,7 +97,7 @@ export const PaymentMethod: React.FC = () => {
         />
       </S.Wrapper>
     ),
-    [isTablet, cards, handleOpenModal, setCardData, setCards, isModalVisible, cardData],
+    [cards, handleOpenModal, setCardData, setCards, isModalVisible, cardData, form, t],
   );
 
   return isTablet ? content : <Card>{content}</Card>;

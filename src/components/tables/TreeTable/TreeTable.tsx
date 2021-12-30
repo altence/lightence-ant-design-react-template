@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Table } from 'components/common/Table/Table';
 import { TablePaginationConfig } from 'antd';
 import { Key, DefaultRecordType } from 'rc-table/lib/interface';
@@ -16,19 +16,22 @@ export const TreeTable: React.FC = () => {
   });
   const { t } = useTranslation();
 
+  const fetch = useCallback(
+    (pagination: Pagination) => {
+      setTableData({ ...tableData, loading: true });
+      getTreeTableData(pagination).then((res) => {
+        setTableData({ data: res.data, pagination: res.pagination, loading: false });
+      });
+    },
+    [setTableData, tableData],
+  );
+
   useEffect(() => {
     fetch(tableData.pagination);
-  }, []);
+  }, [fetch, tableData.pagination]);
 
   const handleTableChange = (pagination: TablePaginationConfig) => {
     fetch(pagination);
-  };
-
-  const fetch = (pagination: Pagination) => {
-    setTableData({ ...tableData, loading: true });
-    getTreeTableData(pagination).then((res) => {
-      setTableData({ data: res.data, pagination: res.pagination, loading: false });
-    });
   };
 
   const rowSelection = {

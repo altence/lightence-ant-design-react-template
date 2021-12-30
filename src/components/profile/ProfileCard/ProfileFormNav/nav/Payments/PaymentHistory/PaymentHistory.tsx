@@ -48,7 +48,7 @@ export const PaymentHistory: React.FC = () => {
         </S.ContentWrapper>
       </>
     ),
-    [isTablet, history, payments, mobileOnly],
+    [isTablet, history, payments, mobileOnly, t],
   );
 
   return isTablet ? content : <Card>{content}</Card>;

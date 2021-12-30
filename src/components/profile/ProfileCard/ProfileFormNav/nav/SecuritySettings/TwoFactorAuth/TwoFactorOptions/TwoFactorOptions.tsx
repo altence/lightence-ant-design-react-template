@@ -26,7 +26,7 @@ export const TwoFactorOptions: React.FC<{ form: FormInstance }> = ({ form }) => 
       email: '',
       phone: '',
     });
-  }, [currentOption]);
+  }, [currentOption, form]);
 
   return (
     <>

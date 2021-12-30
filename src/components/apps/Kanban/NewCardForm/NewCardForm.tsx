@@ -43,7 +43,7 @@ export const NewCardForm: React.FC<NewCardFormProps> = ({ onAdd, onCancel }) => 
           <Input placeholder={t(item.title)} bordered={false} />
         </S.FormInput>
       )),
-    [],
+    [t],
   );
 
   return (

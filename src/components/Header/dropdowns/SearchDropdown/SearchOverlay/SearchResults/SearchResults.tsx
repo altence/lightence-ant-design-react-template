@@ -30,7 +30,7 @@ export const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
           )}
         />
       )),
-    [results],
+    [results, t],
   );
 
   return <S.SearchResultsWrapper>{resultsList}</S.SearchResultsWrapper>;

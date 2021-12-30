@@ -24,7 +24,7 @@ export const SearchFilter: React.FC<SearchFilterProps> = ({ data, isVisible, chi
           {t(filter.title)}
         </S.CheckBox>
       )),
-    [],
+    [t],
   );
 
   useEffect(() => {

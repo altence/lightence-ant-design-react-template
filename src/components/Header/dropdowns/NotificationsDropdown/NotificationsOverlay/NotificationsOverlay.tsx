@@ -42,7 +42,7 @@ export const NotificationsOverlay: React.FC<NotificationsOverlayProps> = ({ noti
           />
         );
       }),
-    [notifications],
+    [notifications, t],
   );
 
   return (

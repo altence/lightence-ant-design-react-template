@@ -76,7 +76,7 @@ export const PaymentsTable: React.FC<PaymentsTableProps> = ({ payments }) => {
         render: () => <Button type="link">{t('profile.nav.payments.details')}</Button>,
       },
     ];
-  }, []);
+  }, [t]);
 
   const dataSource: Status[] = useMemo(
     () =>

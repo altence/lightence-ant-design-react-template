@@ -26,7 +26,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
     setModalVisible(false);
     form.setFieldsValue(clearCardData);
     setCardData(clearCardData);
-  }, [setModalVisible, setCardData]);
+  }, [setModalVisible, setCardData, form]);
 
   return (
     <Modal size="small" visible={isModalVisible} onCancel={handleCloseModal} footer={null} closable={false}>
