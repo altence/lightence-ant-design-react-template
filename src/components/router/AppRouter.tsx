@@ -1,26 +1,31 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import DashboardPage from '../../pages/DashboardPage';
-import MainLayout from '../layouts/main/MainLayout/MainLayout';
-import ProfilePage from '../../pages/ProfilePage';
-import AuthLayout from '../layouts/auth/AuthLayout';
-import LoginPage from '../../pages/LoginPage';
-import NewsFeedPage from '../../pages/NewsFeedPage';
-import KanbanPage from '../../pages/KanbanPage';
-import PaymentPage from '../../pages/PaymentPage';
-import InputCodePage from '../../pages/InputCodePage';
-import DataTablesPage from '../../pages/DataTablesPage';
-import ChartsPage from '../../pages/ChartsPage';
-import MapsPage from '../../pages/MapsPage';
-import ServerErrorPage from '../../pages/ServerErrorPage';
-import MaintenancePage from '../../pages/MaintenancePage';
-import SignUpPage from '../../pages/SignUpPage';
-import LockPage from '../../pages/LockPage';
-import ForgotPasswordPage from '../../pages/ForgotPasswordPage';
-import Error404Page from '../../pages/Error404Page';
-import SecurityCodePage from '../../pages/SecurityCodePage';
-import NewPasswordPage from '../../pages/NewPasswordPage';
-import AdvancedFormsPage from '../../pages/AdvancedFormsPage';
+import DashboardPage from '@app/pages/DashboardPage';
+import MainLayout from '@app/components/layouts/main/MainLayout/MainLayout';
+import ProfilePage from '@app/pages/ProfilePage';
+import AuthLayout from '@app/components/layouts/auth/AuthLayout';
+import LoginPage from '@app/pages/LoginPage';
+import NewsFeedPage from '@app/pages/NewsFeedPage';
+import KanbanPage from '@app/pages/KanbanPage';
+import PaymentPage from '@app/pages/PaymentPage';
+import InputCodePage from '@app/pages/InputCodePage';
+import DataTablesPage from '@app/pages/DataTablesPage';
+import ChartsPage from '@app/pages/ChartsPage';
+import MapsPage from '@app/pages/MapsPage';
+import ServerErrorPage from '@app/pages/ServerErrorPage';
+import MaintenancePage from '@app/pages/MaintenancePage';
+import SignUpPage from '@app/pages/SignUpPage';
+import LockPage from '@app/pages/LockPage';
+import ForgotPasswordPage from '@app/pages/ForgotPasswordPage';
+import Error404Page from '@app/pages/Error404Page';
+import SecurityCodePage from '@app/pages/SecurityCodePage';
+import NewPasswordPage from '@app/pages/NewPasswordPage';
+import AdvancedFormsPage from '@app/pages/AdvancedFormsPage';
+import PersonalInfoPage from '@app/pages/PersonalInfoPage';
+import SecuritySettingsPage from '@app/pages/SecuritySettingsPage';
+import NotificationsPage from '@app/pages/NotificationsPage';
+import PaymentsPage from '@app/pages/PaymentsPage';
+import ProfileLayout from '@app/components/layouts/profile/ProfileLayout';
 
 /*TODO check for lazy loading and add if lack*/
 export const AppRouter: React.FC = () => {
@@ -54,6 +59,12 @@ export const AppRouter: React.FC = () => {
           <Route path="forgot-password" element={<ForgotPasswordPage />} />
           <Route path="security-code" element={<SecurityCodePage />} />
           <Route path="new-password" element={<NewPasswordPage />} />
+        </Route>
+        <Route path="/profile" element={<ProfileLayout />}>
+          <Route path="personal-info" element={<PersonalInfoPage />} />
+          <Route path="security-settings" element={<SecuritySettingsPage />} />
+          <Route path="notifications" element={<NotificationsPage />} />
+          <Route path="payments" element={<PaymentsPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
