@@ -26,4 +26,12 @@ export const Select = styled(AntSelect).withConfig({
   .ant-select-arrow {
     color: ${(props) => props.theme.colors.text.main};
   }
+
+  &.ant-select-multiple.ant-select-sm .ant-select-selection-item {
+    height: 0.875rem;
+    line-height: ${(props) => props.theme.commonFontSizes.xs};
+    font-size: ${(props) => props.theme.commonFontSizes.xs};
+    margin-top: 0.1875rem;
+    margin-bottom: 0.1875rem;
+  }
 `;
