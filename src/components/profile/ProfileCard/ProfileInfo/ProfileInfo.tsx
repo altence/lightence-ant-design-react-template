@@ -13,7 +13,7 @@ export const ProfileInfo: React.FC<ProfileInfoProps> = ({ profileData }) => {
 
   const { t } = useTranslation();
 
-  return (
+  return profileData ? (
     <S.Wrapper>
       <S.ImgWrapper>
         <Avatar shape="circle" src={profileData?.imgUrl} alt="Profile" />
@@ -25,5 +25,5 @@ export const ProfileInfo: React.FC<ProfileInfoProps> = ({ profileData }) => {
       </S.FullnessWrapper>
       <S.Text>{t('profile.fullness')}</S.Text>
     </S.Wrapper>
-  );
+  ) : null;
 };

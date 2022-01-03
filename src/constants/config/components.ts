@@ -8,6 +8,7 @@ export interface Component {
 }
 
 // TODO review and come up with a better approach for urls
+// maybe we need to have enum with all routes like we had before?
 export const components: Component[] = [
   {
     name: 'Protein',
@@ -224,5 +225,29 @@ export const components: Component[] = [
     url: `/404`,
     categories: ['data tables'],
     keywords: ['client error', 'data tables', '400'],
+  },
+  {
+    name: 'Personal info',
+    url: `/profile/personal-info`,
+    categories: ['data tables'],
+    keywords: ['personal info', 'data tables'],
+  },
+  {
+    name: 'Security settings',
+    url: `/profile/security-settings`,
+    categories: ['data tables'],
+    keywords: ['security settings', 'data tables'],
+  },
+  {
+    name: 'Notifications (settings)', // Have to explain bcz user can understand it like a page with a list of his notifications
+    url: `/profile/notifications`,
+    categories: ['data tables'],
+    keywords: ['notifications', 'data tables'],
+  },
+  {
+    name: 'Payments',
+    url: `/profile/payments`,
+    categories: ['data tables'],
+    keywords: ['payments', 'data tables'],
   },
 ];
