@@ -39,7 +39,6 @@ export const Details = styled.div`
 
 export const DetailsRow = styled.div`
   display: flex;
-  width: 30rem;
   justify-content: space-between;
 `;
 
