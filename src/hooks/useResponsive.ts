@@ -18,7 +18,7 @@ export const useResponsive = (): ResponsiveReturnValues => {
   const isBigScreen = useMediaQuery({ query: theme.media.xxl });
 
   const mobileOnly = useMediaQuery({
-    query: `(min-width: ${theme.breakpoints.xs}px) and (max-width: ${theme.breakpoints.md - 0.02}px)`,
+    query: `(max-width: ${theme.breakpoints.md - 0.02}px)`,
   });
 
   const tabletOnly = useMediaQuery({
