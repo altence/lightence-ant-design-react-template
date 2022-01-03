@@ -69,29 +69,25 @@ const DropdownsPage: React.FC = () => {
         </Dropdown>
       </S.Card>
       <S.Card title={t('dropdowns.positions')}>
-        <Space direction="vertical" size={16}>
-          <Space size={16}>
-            <Dropdown overlay={positionMenu} placement="bottomLeft" arrow>
-              <Button>{t('dropdowns.bl')}</Button>
-            </Dropdown>
-            <Dropdown overlay={positionMenu} placement="bottomCenter" arrow>
-              <Button>{t('dropdowns.bc')}</Button>
-            </Dropdown>
-            <Dropdown overlay={positionMenu} placement="bottomRight" arrow>
-              <Button>{t('dropdowns.br')}</Button>
-            </Dropdown>
-          </Space>
-          <Space size={16}>
-            <Dropdown overlay={positionMenu} placement="topLeft" arrow>
-              <Button>{t('dropdowns.tl')}</Button>
-            </Dropdown>
-            <Dropdown overlay={positionMenu} placement="topCenter" arrow>
-              <Button>{t('dropdowns.tc')}</Button>
-            </Dropdown>
-            <Dropdown overlay={positionMenu} placement="topRight" arrow>
-              <Button>{t('dropdowns.tr')}</Button>
-            </Dropdown>
-          </Space>
+        <Space size={16} wrap>
+          <Dropdown overlay={positionMenu} placement="bottomLeft" arrow>
+            <Button>{t('dropdowns.bl')}</Button>
+          </Dropdown>
+          <Dropdown overlay={positionMenu} placement="bottomCenter" arrow>
+            <Button>{t('dropdowns.bc')}</Button>
+          </Dropdown>
+          <Dropdown overlay={positionMenu} placement="bottomRight" arrow>
+            <Button>{t('dropdowns.br')}</Button>
+          </Dropdown>
+          <Dropdown overlay={positionMenu} placement="topLeft" arrow>
+            <Button>{t('dropdowns.tl')}</Button>
+          </Dropdown>
+          <Dropdown overlay={positionMenu} placement="topCenter" arrow>
+            <Button>{t('dropdowns.tc')}</Button>
+          </Dropdown>
+          <Dropdown overlay={positionMenu} placement="topRight" arrow>
+            <Button>{t('dropdowns.tr')}</Button>
+          </Dropdown>
         </Space>
       </S.Card>
       <S.Card title={t('dropdowns.clickable')}>
