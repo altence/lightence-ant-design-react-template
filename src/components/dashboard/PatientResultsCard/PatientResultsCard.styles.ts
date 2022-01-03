@@ -13,9 +13,7 @@ export const TitleWrapper = styled.div`
 `;
 
 export const CalendarIcon = styled(CalendarOutlined)`
-  @media only screen and ${(props) => props.theme.media.xs} {
-    color: ${(props) => props.theme.colors.main.primary};
-  }
+  color: ${(props) => props.theme.colors.main.primary};
 
   @media only screen and ${(props) => props.theme.media.md} {
     color: ${(props) => props.theme.colors.text.main};
@@ -41,13 +39,10 @@ export const DateWrapper = styled.div`
 `;
 
 export const Text = styled(Typography.Text)`
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
   margin-left: 0.5rem;
-
-  @media only screen and ${(props) => props.theme.media.xs} {
-    font-size: ${(props) => props.theme.commonFontSizes.xxs};
-    color: ${(props) => props.theme.colors.main.primary};
-  }
+  line-height: 1;
+  font-size: ${(props) => props.theme.commonFontSizes.xxs};
+  color: ${(props) => props.theme.colors.main.primary};
 
   @media only screen and ${(props) => props.theme.media.md} {
     font-size: ${(props) => props.theme.commonFontSizes.xs};
@@ -56,12 +51,8 @@ export const Text = styled(Typography.Text)`
 `;
 
 export const Description = styled(Typography.Text)`
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
   margin-top: 0.625rem;
-
-  @media only screen and ${(props) => props.theme.media.xs} {
-    font-size: ${(props) => props.theme.commonFontSizes.xxs};
-  }
+  font-size: ${(props) => props.theme.commonFontSizes.xxs};
 
   @media only screen and ${(props) => props.theme.media.md} {
     font-size: ${(props) => props.theme.commonFontSizes.xs};
