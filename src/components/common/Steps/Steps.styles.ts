@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { Steps as AntdSteps } from 'antd';
 
 export const Steps = styled(AntdSteps)`
+  font-size: unset;
+
   & .ant-steps-item:not(:last-child) > .ant-steps-item-container > .ant-steps-item-tail {
     left: 1rem;
   }
@@ -9,11 +11,8 @@ export const Steps = styled(AntdSteps)`
   & .ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title {
     color: ${(props) => props.theme.colors.main.primary};
     font-weight: ${(props) => props.theme.commonFontWeight.semibold};
-
-    @media only screen and ${(props) => props.theme.media.xs} {
-      font-size: ${(props) => props.theme.commonFontSizes.xs};
-      width: 100%;
-    }
+    font-size: ${(props) => props.theme.commonFontSizes.xs};
+    width: 100%;
 
     @media only screen and ${(props) => props.theme.media.md} {
       font-size: ${(props) => props.theme.commonFontSizes.md};
@@ -23,11 +22,8 @@ export const Steps = styled(AntdSteps)`
   & .ant-steps-item-wait > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title {
     color: ${(props) => props.theme.colors.text.main};
     font-weight: ${(props) => props.theme.commonFontWeight.semibold};
-
-    @media only screen and ${(props) => props.theme.media.xs} {
-      font-size: ${(props) => props.theme.commonFontSizes.xs};
-      width: 100%;
-    }
+    font-size: ${(props) => props.theme.commonFontSizes.xs};
+    width: 100%;
 
     @media only screen and ${(props) => props.theme.media.md} {
       font-size: ${(props) => props.theme.commonFontSizes.md};
