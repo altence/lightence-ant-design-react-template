@@ -23,8 +23,8 @@ const App: React.FC = () => {
 
   return (
     <>
-      <GlobalStyle />
       <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
+        <GlobalStyle />
         <ThemeContext.Provider value={{ theme, setTheme }}>
           <NightModeContext.Provider value={{ isNightMode, setNightMode, nightTime, setNightTime }}>
             <ConfigProvider locale={i18n.language === 'en' ? enUS : deDe}>
