@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import theme from './theme';
 
 export default createGlobalStyle`
   * {
@@ -31,7 +30,8 @@ export default createGlobalStyle`
 
   .range-picker {
     & .ant-picker-panels {
-      @media only screen and ${theme.media.xs} and (max-width: ${theme.breakpoints.md - 0.02}px) {
+      @media only screen and ${(props) =>
+        `${props.theme.media.xs} and (max-width: ${props.theme.breakpoints.md - 0.02}px)`} {
         display: flex;
       flex-direction: column;
       }
@@ -39,12 +39,13 @@ export default createGlobalStyle`
   }
 
   .search-dropdown {
-    @media only screen and ${theme.media.xs} and (max-width: ${theme.breakpoints.md - 0.02}px) {
+    @media only screen and ${(props) =>
+      `${props.theme.media.xs} and (max-width: ${props.theme.breakpoints.md - 0.02}px)`} {
       width: calc(100vw - 16px);
     max-width: 600px;
     }
 
-    @media only screen and ${theme.media.md} {
+    @media only screen and ${(props) => props.theme.media.md} {
       max-width: 323px;
     }
   }
