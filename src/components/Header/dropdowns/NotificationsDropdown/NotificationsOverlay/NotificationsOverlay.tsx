@@ -54,7 +54,7 @@ export const NotificationsOverlay: React.FC<NotificationsOverlayProps> = ({ noti
               {noticesList}
             </Space>
           ) : (
-            <S.Text>{t('header.notices.noNotices')}</S.Text>
+            <S.Text>{t('header.notifications.noNotifications')}</S.Text>
           )}
         </Col>
         <Col span={24}>
