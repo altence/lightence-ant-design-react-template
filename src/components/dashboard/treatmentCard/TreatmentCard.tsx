@@ -31,8 +31,8 @@ export const TreatmentCard: React.FC = () => {
   const { i18n, t } = useTranslation();
 
   useEffect(() => {
-    setDate(selectedDate.locale(i18n.language));
-  }, [i18n.language, selectedDate]);
+    setDate((selectedDate) => selectedDate.locale(i18n.language));
+  }, [i18n.language]);
 
   const handleDecreaseMonth = () => {
     setDate(selectedDate.month(selectedDate.month() - 1));
