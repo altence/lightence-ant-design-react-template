@@ -36,7 +36,7 @@ export const Payment: React.FC<PaymentProps> = ({ src, recipient, date, status, 
           <S.Text>{Dates.format(date, 'LL')}</S.Text>
         </S.Item>
         <S.Item>
-          <S.Subtitle>{t('profile.nav.payments.priority.title')}</S.Subtitle>
+          <S.Subtitle>{t('profile.nav.payments.status.title')}</S.Subtitle>
           <Status color={defineColorByPriority(paymentStatus.priority)} text={t(paymentStatus.name)} />
         </S.Item>
         <S.Item>
