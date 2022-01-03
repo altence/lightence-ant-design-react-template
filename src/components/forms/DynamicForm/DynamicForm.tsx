@@ -1,4 +1,4 @@
-import { Form as AntdForm, Space } from 'antd';
+import { Col, Form as AntdForm, Row, Space } from 'antd';
 import { Form } from '../../common/Form/Form';
 import { FormItem, FormList } from 'components/common/Form/Form.styles';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
@@ -51,44 +51,50 @@ export const DynamicForm: React.FC = () => {
         {(fields, { add, remove }) => (
           <>
             {fields.map((field) => (
-              <Space key={field.key} align="baseline">
-                <FormItem
-                  noStyle
-                  // eslint-disable-next-line
-                  shouldUpdate={(prevValues: any, curValues: any) =>
-                    prevValues.area !== curValues.area || prevValues.sights !== curValues.sights
-                  }
-                >
-                  {() => (
-                    <FormItem
-                      {...field}
-                      label={t('forms.dynamicFormLabels.sight')}
-                      name={[field.name, 'sight']}
-                      fieldKey={[field.fieldKey, 'sight']}
-                      rules={[{ required: true, message: t('forms.dynamicFormLabels.sightError') }]}
-                    >
-                      <S.Select disabled={!form.getFieldValue('area')}>
-                        {(sights[form.getFieldValue('area')] || []).map((item) => (
-                          <Option key={item} value={item}>
-                            {item}
-                          </Option>
-                        ))}
-                      </S.Select>
-                    </FormItem>
-                  )}
-                </FormItem>
-                <FormItem
-                  {...field}
-                  label={t('forms.dynamicFormLabels.price')}
-                  name={[field.name, 'price']}
-                  fieldKey={[field.fieldKey, 'price']}
-                  rules={[{ required: true, message: t('forms.dynamicFormLabels.priceError') }]}
-                >
-                  <Input />
-                </FormItem>
+              <Row key={field.key} wrap={false} gutter={[10, 10]} align="middle" justify="space-between">
+                <Col span={12}>
+                  <FormItem
+                    noStyle
+                    // eslint-disable-next-line
+                    shouldUpdate={(prevValues: any, curValues: any) =>
+                      prevValues.area !== curValues.area || prevValues.sights !== curValues.sights
+                    }
+                  >
+                    {() => (
+                      <FormItem
+                        {...field}
+                        label={t('forms.dynamicFormLabels.sight')}
+                        name={[field.name, 'sight']}
+                        fieldKey={[field.fieldKey, 'sight']}
+                        rules={[{ required: true, message: t('forms.dynamicFormLabels.sightError') }]}
+                      >
+                        <Select disabled={!form.getFieldValue('area')}>
+                          {(sights[form.getFieldValue('area')] || []).map((item) => (
+                            <Option key={item} value={item}>
+                              {item}
+                            </Option>
+                          ))}
+                        </Select>
+                      </FormItem>
+                    )}
+                  </FormItem>
+                </Col>
+                <Col span={8}>
+                  <FormItem
+                    {...field}
+                    label={t('forms.dynamicFormLabels.price')}
+                    name={[field.name, 'price']}
+                    fieldKey={[field.fieldKey, 'price']}
+                    rules={[{ required: true, message: t('forms.dynamicFormLabels.priceError') }]}
+                  >
+                    <Input />
+                  </FormItem>
+                </Col>
 
-                <MinusCircleOutlined onClick={() => remove(field.name)} />
-              </Space>
+                <Col>
+                  <MinusCircleOutlined onClick={() => remove(field.name)} />
+                </Col>
+              </Row>
             ))}
 
             <FormItem>
