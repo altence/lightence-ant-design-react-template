@@ -5,30 +5,32 @@ import { Key, DefaultRecordType } from 'rc-table/lib/interface';
 import { TreeTableRow, Pagination, getTreeTableData } from 'api/table.api';
 import { useTranslation } from 'react-i18next';
 
+const initialPagination: Pagination = {
+  current: 1,
+  pageSize: 4,
+};
+
 export const TreeTable: React.FC = () => {
   const [tableData, setTableData] = useState<{ data: TreeTableRow[]; pagination: Pagination; loading: boolean }>({
     data: [],
-    pagination: {
-      current: 1,
-      pageSize: 4,
-    },
+    pagination: initialPagination,
     loading: false,
   });
   const { t } = useTranslation();
 
   const fetch = useCallback(
     (pagination: Pagination) => {
-      setTableData({ ...tableData, loading: true });
+      setTableData((tableData) => ({ ...tableData, loading: true }));
       getTreeTableData(pagination).then((res) => {
         setTableData({ data: res.data, pagination: res.pagination, loading: false });
       });
     },
-    [setTableData, tableData],
+    [setTableData],
   );
 
   useEffect(() => {
-    fetch(tableData.pagination);
-  }, [fetch, tableData.pagination]);
+    fetch(initialPagination);
+  }, [fetch]);
 
   const handleTableChange = (pagination: TablePaginationConfig) => {
     fetch(pagination);

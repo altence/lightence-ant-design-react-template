@@ -6,14 +6,16 @@ import { EditableCell } from './EditableCell/EditableCell';
 import { Button } from 'components/common/buttons/Button/Button';
 import { useTranslation } from 'react-i18next';
 
+const initialPagination: Pagination = {
+  current: 1,
+  pageSize: 4,
+};
+
 export const EditableTable: React.FC = () => {
   const [form] = Form.useForm();
   const [tableData, setTableData] = useState<{ data: BasicTableRow[]; pagination: Pagination; loading: boolean }>({
     data: [],
-    pagination: {
-      current: 1,
-      pageSize: 4,
-    },
+    pagination: initialPagination,
     loading: false,
   });
   const [editingKey, setEditingKey] = useState(0);
@@ -21,17 +23,17 @@ export const EditableTable: React.FC = () => {
 
   const fetch = useCallback(
     (pagination: Pagination) => {
-      setTableData({ ...tableData, loading: true });
+      setTableData((tableData) => ({ ...tableData, loading: true }));
       getEditableTableData(pagination).then((res) => {
         setTableData({ data: res.data, pagination: res.pagination, loading: false });
       });
     },
-    [setTableData, tableData],
+    [setTableData],
   );
 
   useEffect(() => {
-    fetch(tableData.pagination);
-  }, [fetch, tableData.pagination]);
+    fetch(initialPagination);
+  }, [fetch]);
 
   const handleTableChange = (pagination: TablePaginationConfig) => {
     fetch(pagination);
