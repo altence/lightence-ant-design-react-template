@@ -77,9 +77,6 @@ const ButtonsPage: React.FC = () => {
         <Button type="default" danger>
           {t('buttons.default')}
         </Button>
-        <Button type="ghost" danger>
-          {t('buttons.ghost')}
-        </Button>
         <Button type="dashed" danger>
           {t('buttons.dashed')}
         </Button>

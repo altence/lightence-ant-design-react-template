@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Col } from 'antd';
 import { AutoComplete } from 'components/common/AutoComplete/AutoComplete';
-import { SearchInput } from 'components/common/inputs/SearchInput/SearchInput';
+import { SearchInput as CommonSearchInput } from 'components/common/inputs/SearchInput/SearchInput';
 import { Option } from 'components/common/selects/Select/Select';
 import { UserOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
@@ -15,6 +15,18 @@ const Link = styled.a`
 const CategoryWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+`;
+
+const SearchInput = styled(CommonSearchInput)`
+  .ant-input-search-button {
+    @media only screen and ${(props) => props.theme.media.xs} {
+      height: 2.7rem;
+    }
+
+    @media only screen and ${(props) => props.theme.media.md} {
+      height: 3.1rem;
+    }
+  }
 `;
 
 const mockVal = (str: string, repeat = 1) => ({
@@ -105,7 +117,7 @@ const AutoCompletesPage: React.FC = () => {
           style={{ width: 400 }}
           options={categories}
         >
-          <SearchInput size="large" placeholder={t('autoCompletes.inputHere')} prefix={null} />
+          <SearchInput placeholder={t('autoCompletes.inputHere')} prefix={null} />
         </AutoComplete>
       </S.Card>
     </Col>
