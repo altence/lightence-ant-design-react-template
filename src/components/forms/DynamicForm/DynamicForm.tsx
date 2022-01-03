@@ -1,4 +1,4 @@
-import { Col, Form as AntdForm, Row, Space } from 'antd';
+import { Col, Form as AntdForm, Row } from 'antd';
 import { Form } from '../../common/Form/Form';
 import { FormItem, FormList } from 'components/common/Form/Form.styles';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
@@ -6,7 +6,6 @@ import { Input } from '../../common/inputs/Input/Input';
 import { Select, Option } from '../../common/selects/Select/Select';
 import { Button } from '../../common/buttons/Button/Button';
 import { useTranslation } from 'react-i18next';
-import * as S from './DynamicForm.styles';
 
 interface Sight {
   [key: string]: string[];
