@@ -5,7 +5,7 @@ import { User } from 'api/users.api';
 import * as S from './ProfileInfo.styles';
 
 interface ProfileInfoProps {
-  profileData: User;
+  profileData?: User;
 }
 
 export const ProfileInfo: React.FC<ProfileInfoProps> = ({ profileData }) => {
@@ -16,10 +16,10 @@ export const ProfileInfo: React.FC<ProfileInfoProps> = ({ profileData }) => {
   return (
     <S.Wrapper>
       <S.ImgWrapper>
-        <Avatar shape="circle" src={profileData.imgUrl} alt="Profile" />
+        <Avatar shape="circle" src={profileData?.imgUrl} alt="Profile" />
       </S.ImgWrapper>
-      <S.Title>{`${profileData.firstName} ${profileData.lastName}`}</S.Title>
-      <S.Subtitle>{profileData.userName}</S.Subtitle>
+      <S.Title>{`${profileData?.firstName} ${profileData?.lastName}`}</S.Title>
+      <S.Subtitle>{profileData?.userName}</S.Subtitle>
       <S.FullnessWrapper>
         <S.FullnessLine width={fullness}>{fullness}%</S.FullnessLine>
       </S.FullnessWrapper>

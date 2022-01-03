@@ -15,14 +15,14 @@ export const profileNavData: ProfileNavItem[] = [
     name: 'profile.nav.personalInfo.title',
     Icon: UserOutlined,
     color: 'primary',
-    href: 'info',
+    href: 'personal-info',
   },
   {
     id: 2,
     name: 'profile.nav.securitySettings.title',
     Icon: SecurityScanOutlined,
     color: 'success',
-    href: 'security',
+    href: 'security-settings',
   },
   {
     id: 3,

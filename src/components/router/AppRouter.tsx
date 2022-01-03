@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import DashboardPage from '@app/pages/DashboardPage';
 import MainLayout from '@app/components/layouts/main/MainLayout/MainLayout';
-import ProfilePage from '@app/pages/ProfilePage';
 import AuthLayout from '@app/components/layouts/auth/AuthLayout';
 import LoginPage from '@app/pages/LoginPage';
 import NewsFeedPage from '@app/pages/NewsFeedPage';
@@ -38,7 +37,6 @@ export const AppRouter: React.FC = () => {
             <Route path="feed" element={<NewsFeedPage />} />
             <Route path="kanban" element={<KanbanPage />} />
           </Route>
-
           <Route path="forms">
             <Route path="payment" element={<PaymentPage />} />
             <Route path="security-code" element={<InputCodePage />} />
@@ -47,10 +45,15 @@ export const AppRouter: React.FC = () => {
           <Route path="data-tables" element={<DataTablesPage />} />
           <Route path="charts" element={<ChartsPage />} />
           <Route path="maps" element={<MapsPage />} />
-          <Route path="profile" element={<ProfilePage />} />
           <Route path="server-error" element={<ServerErrorPage />} />
           <Route path="maintenance" element={<MaintenancePage />} />
           <Route path="404" element={<Error404Page />} />
+          <Route path="profile" element={<ProfileLayout />}>
+            <Route path="personal-info" element={<PersonalInfoPage />} />
+            <Route path="security-settings" element={<SecuritySettingsPage />} />
+            <Route path="notifications" element={<NotificationsPage />} />
+            <Route path="payments" element={<PaymentsPage />} />
+          </Route>
         </Route>
         <Route path="/auth" element={<AuthLayout />}>
           <Route path="login" element={<LoginPage />} />
@@ -59,12 +62,6 @@ export const AppRouter: React.FC = () => {
           <Route path="forgot-password" element={<ForgotPasswordPage />} />
           <Route path="security-code" element={<SecurityCodePage />} />
           <Route path="new-password" element={<NewPasswordPage />} />
-        </Route>
-        <Route path="/profile" element={<ProfileLayout />}>
-          <Route path="personal-info" element={<PersonalInfoPage />} />
-          <Route path="security-settings" element={<SecuritySettingsPage />} />
-          <Route path="notifications" element={<NotificationsPage />} />
-          <Route path="payments" element={<PaymentsPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
