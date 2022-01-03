@@ -1,21 +1,14 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { profileNavData } from 'constants/profileNavData';
+import { profileNavData } from '@app/constants/profileNavData';
+import { useLocation, useNavigate } from 'react-router-dom';
 import * as S from './ProfileNav.styles';
-interface ProfileNavProps {
-  menu: string;
-  setCurrentMenu: (menu: string) => void;
-}
 
-export const ProfileNav: React.FC<ProfileNavProps> = ({ menu, setCurrentMenu }) => {
+export const ProfileNav: React.FC = () => {
   const { t } = useTranslation();
 
-  const onClickBtn = useCallback(
-    (href) => () => {
-      setCurrentMenu(href);
-    },
-    [setCurrentMenu],
-  );
+  const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <S.Wrapper>
@@ -25,8 +18,8 @@ export const ProfileNav: React.FC<ProfileNavProps> = ({ menu, setCurrentMenu }) 
           icon={<item.Icon />}
           type="text"
           color={item.color}
-          onClick={onClickBtn(item.href)}
-          isActive={item.href === menu}
+          onClick={() => navigate(item.href)}
+          isActive={`/profile/${item.href}` === location.pathname}
         >
           {t(item.name)}
         </S.Btn>
