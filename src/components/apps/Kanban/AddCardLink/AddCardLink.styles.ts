@@ -6,9 +6,9 @@ export const AddCardWrapper = styled.div`
   align-items: center;
   height: 3.75rem;
   width: 100%;
-  border: ${(props) => `1px solid ${props.theme.commonColors.skyblue}`};
+  border: ${(props) => `1px solid ${props.theme.colors.text.secondary}`};
   border-radius: ${(props) => props.theme.border.radius};
   cursor: pointer;
   font-size: ${(props) => props.theme.commonFontSizes.xxl};
-  color: ${(props) => props.theme.commonColors.skyblue};
+  color: ${(props) => props.theme.colors.text.secondary};
 `;
