@@ -13,21 +13,23 @@ export const Kanban: React.FC = () => {
   const theme = useContext(ThemeContext);
 
   return (
-    <S.Kanban
-      components={{ Card, NewCardForm, LaneHeader, AddCardLink, NewLaneSection, NewLaneForm }}
-      editable
-      laneDraggable
-      canAddLanes
-      data={kanbanData}
-      laneStyle={{ background: 'transparent', maxHeight: '85.5vh', paddingBottom: '10px' }}
-      cardStyle={{
-        borderRadius: theme.border.radius,
-        backgroundColor: theme.colors.main.mainBackground,
-        padding: `1.25rem 1rem`,
-        marginBottom: '1rem',
-        minWidth: '15.9375rem',
-        maxWidth: '15.9375rem',
-      }}
-    />
+    <div className="no-swipe">
+      <S.Kanban
+        components={{ Card, NewCardForm, LaneHeader, AddCardLink, NewLaneSection, NewLaneForm }}
+        editable
+        laneDraggable
+        canAddLanes
+        data={kanbanData}
+        laneStyle={{ background: 'transparent', maxHeight: '85.5vh', paddingBottom: '10px' }}
+        cardStyle={{
+          borderRadius: theme.border.radius,
+          backgroundColor: theme.colors.main.mainBackground,
+          padding: `1.25rem 1rem`,
+          marginBottom: '1rem',
+          minWidth: '15.9375rem',
+          maxWidth: '15.9375rem',
+        }}
+      />
+    </div>
   );
 };

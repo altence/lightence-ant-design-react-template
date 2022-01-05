@@ -148,6 +148,7 @@ export const EditableTable: React.FC = () => {
   return (
     <Form form={form} component={false}>
       <Table
+        className="no-swipe"
         components={{
           body: {
             cell: EditableCell,

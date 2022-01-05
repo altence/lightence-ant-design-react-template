@@ -20,6 +20,7 @@ export const Carousel: React.FC<Settings> = ({
       infinite={infinite}
       centerMode={centerMode}
       {...props}
+      className={`${props.className} no-swipe`}
     >
       {children}
     </Slider>

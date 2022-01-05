@@ -14,9 +14,16 @@ const MainLayout: React.FC = () => {
 
   const toggleSider = () => setSiderCollapsed(!siderCollapsed);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const eventPathHasNoSwipeClass = (event: any) => {
+    const path = event.path || (event.composedPath && event.composedPath());
+
+    return path.some((el: Element) => el.classList && el.classList.contains('no-swipe'));
+  };
+
   const swipeHandlers = useSwipeable({
-    onSwipedLeft: () => setSiderCollapsed(isTablet ? true : false),
-    onSwipedRight: () => setSiderCollapsed(isTablet ? false : true),
+    onSwipedLeft: (event) => !eventPathHasNoSwipeClass(event.event) && setSiderCollapsed(isTablet ? true : false),
+    onSwipedRight: (event) => !eventPathHasNoSwipeClass(event.event) && setSiderCollapsed(isTablet ? false : true),
   });
 
   return (

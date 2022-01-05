@@ -154,6 +154,7 @@ export const BasicTable: React.FC = () => {
 
   return (
     <Table
+      className="no-swipe"
       columns={columns}
       dataSource={tableData.data}
       pagination={tableData.pagination}

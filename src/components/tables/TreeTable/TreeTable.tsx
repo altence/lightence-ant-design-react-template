@@ -71,6 +71,7 @@ export const TreeTable: React.FC = () => {
   return (
     <>
       <Table
+        className="no-swipe"
         columns={columns}
         dataSource={tableData.data}
         rowSelection={{ ...rowSelection }}

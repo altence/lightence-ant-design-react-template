@@ -36,7 +36,7 @@ export const DoctorsMap: React.FC<DoctorsMapProps> = ({ doctors }) => {
   const { isDesktop } = useResponsive();
 
   return (
-    <S.DoctorsMap>
+    <S.DoctorsMap className="no-swipe">
       <MapBackgroundIcon />
       {doctors.map((marker) => (
         <Marker
