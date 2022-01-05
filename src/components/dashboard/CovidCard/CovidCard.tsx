@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { getCovidData, CoronaData } from '@app/api/covid.api';
 import { useTranslation } from 'react-i18next';
 import { DashboardCard } from '../DashboardCard/DashboardCard';
@@ -14,16 +14,40 @@ export const CovidCard: React.FC = () => {
     getCovidData().then((res) => setData(res?.data.reverse()));
   }, []);
 
+  const { data1, data2, data3, xData } = useMemo(() => {
+    const data1: number[] = [];
+    const data2: number[] = [];
+    const data3: number[] = [];
+    const xData: string[] = [];
+
+    data &&
+      data?.forEach((el) => {
+        data1.push(el.new_confirmed);
+        data2.push(el.new_deaths);
+        data3.push(el.new_recovered);
+        xData.push(Dates.getDate(el.date).format('LL'));
+      });
+
+    return {
+      data1: {
+        title: t('dashboard.covid.casesPerDay'),
+        data: data1,
+      },
+      data2: {
+        title: t('dashboard.covid.deaths'),
+        data: data2,
+      },
+      data3: {
+        title: t('dashboard.covid.recovered'),
+        data: data3,
+      },
+      xData,
+    };
+  }, [data, t]);
+
   return (
     <DashboardCard id="covid" title={t('dashboard.covid.title')} padding={0}>
-      {data && (
-        <CovidChart
-          data={{ title: t('dashboard.covid.casesPerDay'), data: data?.map((el) => el.new_confirmed) }}
-          data2={{ title: t('dashboard.covid.deaths'), data: data?.map((el) => el.new_deaths) }}
-          data3={{ title: t('dashboard.covid.recovered'), data: data?.map((el) => el.new_recovered) }}
-          xData={data?.map((el) => Dates.getDate(el.date).format('LL'))}
-        />
-      )}
+      {data && <CovidChart data1={data1} data2={data2} data3={data3} xData={xData} />}
     </DashboardCard>
   );
 };
