@@ -73,6 +73,12 @@ const darkColors = {
   shadow: {
     color: 'rgba(0, 0, 0, 0.07)',
   },
+  notifications: {
+    success: '#EFFFF4',
+    primary: '#D7EBFF',
+    warning: '#FFF4E7',
+    error: '#FFE2E2',
+  },
 };
 
 export const darkTheme = {

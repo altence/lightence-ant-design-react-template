@@ -51,11 +51,30 @@ export default createGlobalStyle`
 
   .ant-notification-notice-with-icon .ant-notification-notice-description {
     margin-left: 4.375rem;
-    margin-top: 0.625rem;
+    margin-top: 0;
   }
 
   .ant-notification-notice-icon {
     font-size: 2.8125rem;
     margin-left: 0
+  }
+
+  .ant-notification-notice-close {
+    top: 1.25rem;
+    right: 1.25rem;
+  }
+
+  .ant-notification-notice-close-x {
+    display: flex;
+    font-size: 0.9375rem;
+  }
+
+  .notification-without-description {
+    .ant-notification-notice-close {
+      top: 1.875rem;
+    }
+    .ant-notification-notice-with-icon .ant-notification-notice-description  {
+      margin-top: 0.625rem;
+    }
   }
 `;

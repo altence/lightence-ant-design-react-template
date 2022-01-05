@@ -61,6 +61,12 @@ declare module 'styled-components' {
       shadow: {
         color: string;
       };
+      notifications: {
+        success: string;
+        primary: string;
+        warning: string;
+        error: string;
+      };
     };
     border: {
       radius: string;
