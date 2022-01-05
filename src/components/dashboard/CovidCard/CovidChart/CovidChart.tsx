@@ -4,9 +4,14 @@ import { getMarkAreaData } from 'utils/utils';
 import { ThemeContext } from 'styled-components';
 import { hexToRGB } from 'utils/utils';
 import { ChartData, xData } from 'interfaces/interfaces';
-import { useTranslation } from 'react-i18next';
+import { useResponsive } from '@app/hooks/useResponsive';
 
-export const CovidChart: React.FC<{ data: ChartData; data2: ChartData; data3: ChartData; xData: xData }> = ({
+interface CovidData {
+  title: string;
+  data: ChartData;
+}
+
+export const CovidChart: React.FC<{ data: CovidData; data2: CovidData; data3: CovidData; xData: xData }> = ({
   data,
   data2,
   data3,
@@ -14,7 +19,7 @@ export const CovidChart: React.FC<{ data: ChartData; data2: ChartData; data3: Ch
 }) => {
   const theme = useContext(ThemeContext);
 
-  const { t } = useTranslation();
+  const { isDesktop } = useResponsive();
 
   const option = {
     color: [
@@ -49,8 +54,8 @@ export const CovidChart: React.FC<{ data: ChartData; data2: ChartData; data3: Ch
     },
     series: [
       {
-        name: t('dashboard.covid.casesPerDay'),
-        data,
+        name: data.title,
+        data: data.data,
         type: 'line',
         areaStyle: {},
         markArea: {
@@ -67,8 +72,8 @@ export const CovidChart: React.FC<{ data: ChartData; data2: ChartData; data3: Ch
         },
       },
       {
-        name: t('dashboard.covid.deaths'),
-        data: data2,
+        name: data2.title,
+        data: data2.data,
         type: 'line',
         areaStyle: {},
         markArea: {
@@ -85,8 +90,8 @@ export const CovidChart: React.FC<{ data: ChartData; data2: ChartData; data3: Ch
         },
       },
       {
-        name: t('dashboard.covid.recovered'),
-        data: data3,
+        name: data3.title,
+        data: data3.data,
         type: 'line',
         areaStyle: {},
         markArea: {
@@ -100,6 +105,22 @@ export const CovidChart: React.FC<{ data: ChartData; data2: ChartData; data3: Ch
         lineStyle: {
           width: 2,
           color: theme.colors.charts.color4,
+        },
+      },
+      {
+        data: [
+          { name: data.title, value: data.data },
+          { name: data2.title, value: data2.data },
+          { name: data3.title, value: data3.data },
+        ],
+        label: {
+          show: isDesktop,
+        },
+        type: 'pie',
+        radius: '30%',
+        center: ['70%', '25%'],
+        emphasis: {
+          show: false,
         },
       },
     ],
