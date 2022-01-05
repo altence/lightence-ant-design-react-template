@@ -11,8 +11,8 @@ interface CovidData {
   data: ChartData;
 }
 
-export const CovidChart: React.FC<{ data: CovidData; data2: CovidData; data3: CovidData; xData: xData }> = ({
-  data,
+export const CovidChart: React.FC<{ data1: CovidData; data2: CovidData; data3: CovidData; xData: xData }> = ({
+  data1,
   data2,
   data3,
   xData,
@@ -54,8 +54,8 @@ export const CovidChart: React.FC<{ data: CovidData; data2: CovidData; data3: Co
     },
     series: [
       {
-        name: data.title,
-        data: data.data,
+        name: data1.title,
+        data: data1.data,
         type: 'line',
         areaStyle: {},
         markArea: {
@@ -109,7 +109,7 @@ export const CovidChart: React.FC<{ data: CovidData; data2: CovidData; data3: Co
       },
       {
         data: [
-          { name: data.title, value: data.data },
+          { name: data1.title, value: data1.data },
           { name: data2.title, value: data2.data },
           { name: data3.title, value: data3.data },
         ],
