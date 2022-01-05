@@ -16,12 +16,14 @@ export const CovidCard: React.FC = () => {
 
   return (
     <DashboardCard id="covid" title={t('dashboard.covid.title')} padding={0}>
-      <CovidChart
-        data={data?.map((el) => el.new_confirmed)}
-        data2={data?.map((el) => el.new_deaths)}
-        data3={data?.map((el) => el.new_recovered)}
-        xData={data?.map((el) => Dates.getDate(el.date).format('LL'))}
-      />
+      {data && (
+        <CovidChart
+          data={{ title: t('dashboard.covid.casesPerDay'), data: data?.map((el) => el.new_confirmed) }}
+          data2={{ title: t('dashboard.covid.deaths'), data: data?.map((el) => el.new_deaths) }}
+          data3={{ title: t('dashboard.covid.recovered'), data: data?.map((el) => el.new_recovered) }}
+          xData={data?.map((el) => Dates.getDate(el.date).format('LL'))}
+        />
+      )}
     </DashboardCard>
   );
 };
