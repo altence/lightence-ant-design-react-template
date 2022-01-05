@@ -16,6 +16,9 @@ interface IconWrapperProps {
 const IconWrapper = styled.div<IconWrapperProps>`
   font-size: ${(props) => (props.isOnlyTitle ? '2.1875rem' : '2.8125rem')};
   line-height: 2.8125rem;
+  ${(props) =>
+    props.isOnlyTitle &&
+    'display: flex; align-items: center; justify-content: center; height: 2.1875rem; width: 2.1875rem;'}
 `;
 
 const SuccessIcon = styled(CheckCircleFilled)`
@@ -34,7 +37,7 @@ const NotificationTitle = styled.div<NotificationTitleProps>`
   color: ${(props) => (props.isOnlyTitle ? theme.colors.text.main : props.color)};
   font-size: ${(props) => (props.isOnlyTitle ? theme.commonFontSizes.md : theme.commonFontSizes.xxl)};
   font-weight: ${(props) => (props.isOnlyTitle ? theme.commonFontWeight.semibold : theme.commonFontWeight.bold)};
-  height: 2.8125rem;
+  height: ${(props) => (props.isOnlyTitle ? '2.1875rem' : '2.8125rem')};
   display: flex;
   align-items: center;
   margin-left: ${(props) => (props.isOnlyTitle ? '0.625rem' : '1.5625rem')};
@@ -90,7 +93,12 @@ const openSuccessNotification = (config: NotificationProps): void => {
     ) : (
       <EmptyDescription />
     ),
-    style: { padding: config.description ? '2.1875rem 3.125rem' : '1.25rem 2.5rem' },
+    style: {
+      padding: config.description ? '1.9375rem 2.5rem' : '1.1875rem 2.5rem',
+      border: `1px solid ${theme.colors.main.success}`,
+      background: theme.colors.notifications.success,
+    },
+    className: config.description ? '' : 'notification-without-description',
   });
 };
 
@@ -112,6 +120,12 @@ const openInfoNotification = (config: NotificationProps): void => {
     ) : (
       <EmptyDescription />
     ),
+    style: {
+      padding: config.description ? '1.9375rem 2.5rem' : '1.1875rem 2.5rem',
+      border: `1px solid ${theme.colors.main.primary}`,
+      background: theme.colors.notifications.primary,
+    },
+    className: config.description ? '' : 'notification-without-description',
   });
 };
 
@@ -133,6 +147,12 @@ const openWarningNotification = (config: NotificationProps): void => {
     ) : (
       <EmptyDescription />
     ),
+    style: {
+      padding: config.description ? '1.9375rem 2.5rem' : '1.1875rem 2.5rem',
+      border: `1px solid ${theme.colors.main.warning}`,
+      background: theme.colors.notifications.warning,
+    },
+    className: config.description ? '' : 'notification-without-description',
   });
 };
 
@@ -154,6 +174,12 @@ const openErrorNotification = (config: NotificationProps): void => {
     ) : (
       <EmptyDescription />
     ),
+    style: {
+      padding: config.description ? '1.9375rem 2.5rem' : '1.1875rem 2.5rem',
+      border: `1px solid ${theme.colors.main.error}`,
+      background: theme.colors.notifications.error,
+    },
+    className: config.description ? '' : 'notification-without-description',
   });
 };
 
