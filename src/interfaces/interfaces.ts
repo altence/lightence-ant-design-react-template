@@ -2,7 +2,9 @@ import { NumericLiteral } from 'typescript';
 
 export type Dimension = number | string;
 
-export type ChartData = number[];
+export type ChartData = number[] | undefined;
+
+export type xData = number[] | string[] | undefined;
 
 export interface ChartSeries {
   seriesName: string;

@@ -36,14 +36,14 @@ const darkColors = {
         color: 'rgba(255, 255, 255, 0)',
       },
     ]),
-    chartTertiaryGradient: new graphic.LinearGradient(0, 0, 0, 1, [
+    chartAdditionalGradient: new graphic.LinearGradient(0, 0, 0, 1, [
       {
         offset: 0,
-        color: 'rgba(252, 120, 122, 0.79)',
+        color: 'rgba(11, 156, 49, 0.9)',
       },
       {
         offset: 1,
-        color: 'rgba(248, 251, 255, 0)',
+        color: 'rgba(255, 255, 255, 0)',
       },
     ]),
   },

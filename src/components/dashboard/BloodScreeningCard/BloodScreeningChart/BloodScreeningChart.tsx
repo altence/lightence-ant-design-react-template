@@ -66,7 +66,7 @@ export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ data 
         },
         symbolSize: 18,
         areaStyle: {
-          color: themeContext.colors.main.chartTertiaryGradient,
+          color: themeContext.colors.main.chartSecondaryGradient,
         },
         lineStyle: {
           width: 2,

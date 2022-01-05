@@ -130,7 +130,9 @@
     },
     "covid": {
       "title": "DE!!!COVID-19",
-      "casesPerDay": "DE!!!cases/day in"
+      "casesPerDay": "DE!!!cases/day",
+      "deaths": "DE!!!deaths",
+      "recovered": "DE!!!recovered"
     },
     "health": {
       "title": "DE!!!Health",
