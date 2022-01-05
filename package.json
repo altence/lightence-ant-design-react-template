@@ -9,6 +9,7 @@
     "@types/uuid": "^8.3.1",
     "antd": "^4.17.0",
     "antd-mask-input": "^0.1.15",
+    "axios": "^0.24.0",
     "country-list": "^2.2.0",
     "craco-antd": "^1.19.0",
     "dayjs": "^1.10.6",

@@ -131,7 +131,9 @@
     },
     "covid": {
       "title": "COVID-19",
-      "casesPerDay": "cases/day in"
+      "casesPerDay": "cases/day",
+      "deaths": "deaths",
+      "recovered": "recovered"
     },
     "health": {
       "title": "Health",
