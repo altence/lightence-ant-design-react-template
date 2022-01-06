@@ -25,27 +25,13 @@ export const PatientResultsCard: React.FC = () => {
           };
           return (
             <Step
-              title={
-                mobileOnly ? (
-                  <S.MobileTitleWrapper>
-                    <span>{t(status.name)}</span>
-                    <S.DateWrapper>
-                      <S.CalendarIcon />
-                      <S.Text>{Dates.format(patientResult?.date, 'D MMMM YYYY')}</S.Text>
-                    </S.DateWrapper>
-                  </S.MobileTitleWrapper>
-                ) : (
-                  <S.TitleWrapper>{t(status.name)}</S.TitleWrapper>
-                )
-              }
+              title={<S.TitleWrapper>{t(status.name)}</S.TitleWrapper>}
               description={
                 <S.InfoWrapper>
-                  {!mobileOnly && (
-                    <S.DateWrapper>
-                      <S.CalendarIcon />
-                      <S.Text>{Dates.format(patientResult?.date, 'D MMMM YYYY')}</S.Text>
-                    </S.DateWrapper>
-                  )}
+                  <S.DateWrapper>
+                    <S.CalendarIcon />
+                    <S.Text>{Dates.format(patientResult?.date, 'D MMMM YYYY')}</S.Text>
+                  </S.DateWrapper>
                   <S.Description>{t(status.desc)}</S.Description>
                 </S.InfoWrapper>
               }
