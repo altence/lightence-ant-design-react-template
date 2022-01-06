@@ -33,27 +33,35 @@ export const CovidCard: React.FC = () => {
       });
 
     return {
-      confirmedArr: {
+      confirmedArr,
+      deathsArr,
+      recoveredArr,
+      dateArr,
+    };
+  }, [data]);
+
+  const { confirmed, deaths, recovered } = useMemo(
+    () => ({
+      confirmed: {
         title: t('dashboard.covid.casesPerDay'),
         data: confirmedArr,
       },
-      deathsArr: {
+      deaths: {
         title: t('dashboard.covid.deaths'),
         data: deathsArr,
       },
-      recoveredArr: {
+      recovered: {
         title: t('dashboard.covid.recovered'),
         data: recoveredArr,
       },
-      dateArr,
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data]);
+    }),
+    [confirmedArr, deathsArr, recoveredArr, t],
+  );
 
   return (
     <DashboardCard id="covid" title={t('dashboard.covid.title')} padding={0}>
       {data ? (
-        <CovidChart confirmedArr={confirmedArr} deathsArr={deathsArr} recoveredArr={recoveredArr} dateArr={dateArr} />
+        <CovidChart confirmed={confirmed} deaths={deaths} recovered={recovered} dateArr={dateArr} />
       ) : (
         <NotFound />
       )}
