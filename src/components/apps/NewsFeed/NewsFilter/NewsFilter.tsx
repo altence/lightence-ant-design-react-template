@@ -25,7 +25,8 @@ interface Filter {
   selectedTags: ITag[];
   dates: [AppDate | null, AppDate | null];
   updateFilteredField: (field: string, value: [AppDate | null, AppDate | null] | string) => void;
-  handleClickReset: () => void;
+  onApply: () => void;
+  onReset: () => void;
   filterNews: (isReset: boolean) => void;
 }
 
@@ -37,15 +38,27 @@ const Filter: React.FC<Filter> = ({
   selectedTagsIds,
   selectedTags,
   dates,
-  handleClickReset,
+  onApply,
+  onReset,
   filterNews,
   updateFilteredField,
 }) => {
   const { t } = useTranslation();
   const { mobileOnly } = useResponsive();
+
+  const applyFilter = () => {
+    filterNews(false);
+    onApply();
+  };
+
+  const resetFilter = () => {
+    onReset();
+  };
+
   return (
     <S.FilterWrapper>
       {!mobileOnly && <S.FilterTitle>{t('newsFeed.filter')}</S.FilterTitle>}
+
       <S.InputWrapper>
         <S.SearchIcon />
         <S.Input
@@ -54,6 +67,7 @@ const Filter: React.FC<Filter> = ({
           onChange={(event) => updateFilteredField('author', event.target.value)}
         />
       </S.InputWrapper>
+
       <S.InputWrapper>
         <S.SearchIcon />
         <S.Input
@@ -62,6 +76,7 @@ const Filter: React.FC<Filter> = ({
           onChange={(event) => updateFilteredField('title', event.target.value)}
         />
       </S.InputWrapper>
+
       <Dropdown
         placement="bottomCenter"
         trigger={['click']}
@@ -90,6 +105,7 @@ const Filter: React.FC<Filter> = ({
           <S.AddTagText>{t('newsFeed.tag')}</S.AddTagText>
         </S.AddTagWrapper>
       </Dropdown>
+
       {!!selectedTags.length && (
         <S.TagsWrapper>
           {selectedTags.map((tag) => (
@@ -97,10 +113,12 @@ const Filter: React.FC<Filter> = ({
           ))}
         </S.TagsWrapper>
       )}
+
       <S.DateLabels>
         <S.DateLabel>{t('newsFeed.from')}</S.DateLabel>
         <S.DateLabel>{t('newsFeed.to')}</S.DateLabel>
       </S.DateLabels>
+
       <S.RangePicker
         dropdownClassName="range-picker"
         value={dates}
@@ -108,9 +126,10 @@ const Filter: React.FC<Filter> = ({
           updateFilteredField('dates', [dates?.length ? dates[0] : null, dates?.length ? dates[1] : null])
         }
       />
+
       <S.BtnWrapper>
-        <S.Btn onClick={handleClickReset}>{t('newsFeed.reset')}</S.Btn>
-        <S.Btn onClick={() => filterNews(false)} type="primary">
+        <S.Btn onClick={() => resetFilter()}>{t('newsFeed.reset')}</S.Btn>
+        <S.Btn onClick={() => applyFilter()} type="primary">
           {t('newsFeed.apply')}
         </S.Btn>
       </S.BtnWrapper>
@@ -132,6 +151,7 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
   });
   const { author, title, selectedTags, dates } = filterFields;
   const [filteredNews, setFilteredNews] = useState<Post[]>(news);
+  const [overlayVisible, setOverlayVisible] = useState<boolean>(false);
   const { mobileOnly } = useResponsive();
   const { t } = useTranslation();
 
@@ -168,13 +188,15 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
           const enteredTitle = title.toLowerCase();
           const postTags = post.tags;
           const postDate = Dates.getDate(post.date);
+
           const fieldsValidators = [
             new AuthorValidator(postAuthor, enteredAuthor),
             new TitleValidator(postTitle, enteredTitle),
             new DatesValidator(postDate, dates),
             new TagsValidator(postTags, selectedTags),
           ];
-          return fieldsValidators.map((item) => item.validate()).every((i) => i === true);
+
+          return fieldsValidators.map((validator) => validator.validate()).every((i) => i);
         });
       }
       setFilteredNews(
@@ -190,9 +212,19 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
     filterNews(false);
   }, [news.length, filterNews]);
 
+  const handleClickApply = useCallback(() => {
+    if (mobileOnly) {
+      setOverlayVisible(false);
+    }
+  }, []);
+
   const handleClickReset = useCallback(() => {
     setFilterFields({ author: '', title: '', dates: [null, null], selectedTags: [] });
     filterNews(true);
+
+    if (mobileOnly) {
+      setOverlayVisible(false);
+    }
   }, [filterNews, setFilterFields]);
 
   const updateFilteredField = (field: string, value: string | [AppDate | null, AppDate | null]) => {
@@ -203,10 +235,13 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
     <>
       <S.TitleWrapper>
         <S.Title>{t('newsFeed.feed')}</S.Title>
+
         {mobileOnly && (
           <Dropdown
             placement="bottomLeft"
             trigger={['click']}
+            visible={overlayVisible}
+            onVisibleChange={(visible) => setOverlayVisible(visible)}
             overlay={
               <Filter
                 author={author}
@@ -216,7 +251,8 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
                 selectedTagsIds={selectedTagsIds}
                 selectedTags={selectedTags}
                 dates={dates}
-                handleClickReset={handleClickReset}
+                onApply={handleClickApply}
+                onReset={handleClickReset}
                 filterNews={filterNews}
                 updateFilteredField={updateFilteredField}
               />
@@ -226,8 +262,10 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
           </Dropdown>
         )}
       </S.TitleWrapper>
+
       <S.ContentWrapper>
         <S.NewsWrapper>{children({ filteredNews: filteredNews || news })}</S.NewsWrapper>
+
         {!mobileOnly && (
           <Filter
             author={author}
@@ -237,7 +275,8 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
             selectedTagsIds={selectedTagsIds}
             selectedTags={selectedTags}
             dates={dates}
-            handleClickReset={handleClickReset}
+            onApply={handleClickApply}
+            onReset={handleClickReset}
             filterNews={filterNews}
             updateFilteredField={updateFilteredField}
           />
