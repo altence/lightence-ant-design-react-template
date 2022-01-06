@@ -5,6 +5,7 @@ import { DashboardCard } from '../DashboardCard/DashboardCard';
 import { CovidChart } from './CovidChart/CovidChart';
 import { Dates } from '@app/constants/Dates';
 import { notification } from 'antd';
+import { NotFound } from '@app/components/common/NotFound/NotFound';
 
 export const CovidCard: React.FC = () => {
   const [data, setData] = useState<CoronaData[]>();
@@ -51,8 +52,10 @@ export const CovidCard: React.FC = () => {
 
   return (
     <DashboardCard id="covid" title={t('dashboard.covid.title')} padding={0}>
-      {data && (
+      {data ? (
         <CovidChart confirmedArr={confirmedArr} deathsArr={deathsArr} recoveredArr={recoveredArr} dateArr={dateArr} />
+      ) : (
+        <NotFound />
       )}
     </DashboardCard>
   );
