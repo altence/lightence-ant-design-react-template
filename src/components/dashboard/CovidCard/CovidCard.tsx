@@ -17,40 +17,43 @@ export const CovidCard: React.FC = () => {
       .catch((e) => notification.error({ message: e.message }));
   }, []);
 
-  const { data1, data2, data3, xData } = useMemo(() => {
-    const data1: number[] = [];
-    const data2: number[] = [];
-    const data3: number[] = [];
-    const xData: string[] = [];
+  const { confirmedArr, deathsArr, recoveredArr, dateArr } = useMemo(() => {
+    const confirmedArr: number[] = [];
+    const deathsArr: number[] = [];
+    const recoveredArr: number[] = [];
+    const dateArr: string[] = [];
 
     data &&
       data?.forEach((el) => {
-        data1.push(el.new_confirmed);
-        data2.push(el.new_deaths);
-        data3.push(el.new_recovered);
-        xData.push(Dates.getDate(el.date).format('LL'));
+        confirmedArr.push(el.new_confirmed);
+        deathsArr.push(el.new_deaths);
+        recoveredArr.push(el.new_recovered);
+        dateArr.push(Dates.getDate(el.date).format('LL'));
       });
 
     return {
-      data1: {
+      confirmedArr: {
         title: t('dashboard.covid.casesPerDay'),
-        data: data1,
+        data: confirmedArr,
       },
-      data2: {
+      deathsArr: {
         title: t('dashboard.covid.deaths'),
-        data: data2,
+        data: deathsArr,
       },
-      data3: {
+      recoveredArr: {
         title: t('dashboard.covid.recovered'),
-        data: data3,
+        data: recoveredArr,
       },
-      xData,
+      dateArr,
     };
-  }, [data, t]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data]);
 
   return (
     <DashboardCard id="covid" title={t('dashboard.covid.title')} padding={0}>
-      {data && <CovidChart data1={data1} data2={data2} data3={data3} xData={xData} />}
+      {data && (
+        <CovidChart confirmedArr={confirmedArr} deathsArr={deathsArr} recoveredArr={recoveredArr} dateArr={dateArr} />
+      )}
     </DashboardCard>
   );
 };
