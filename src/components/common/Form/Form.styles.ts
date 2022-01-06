@@ -47,6 +47,10 @@ export const FormItem = styled(Form.Item)`
 
   & div[role='alert'] {
     margin: 0.5rem 0;
+
+    &:not(:first-of-type) {
+      display: none;
+    }
   }
 
   & .ant-picker-suffix {
