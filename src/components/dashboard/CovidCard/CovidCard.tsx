@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { DashboardCard } from '../DashboardCard/DashboardCard';
 import { CovidChart } from './CovidChart/CovidChart';
 import { Dates } from '@app/constants/Dates';
+import { notification } from 'antd';
 
 export const CovidCard: React.FC = () => {
   const [data, setData] = useState<CoronaData[]>();
@@ -11,7 +12,9 @@ export const CovidCard: React.FC = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    getCovidData().then((res) => setData(res?.data.reverse()));
+    getCovidData()
+      .then((res) => setData(res?.data.reverse()))
+      .catch((e) => notification.error({ message: e.message }));
   }, []);
 
   const { data1, data2, data3, xData } = useMemo(() => {
