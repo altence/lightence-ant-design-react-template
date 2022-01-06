@@ -30,7 +30,7 @@ export const CarouselWrapper = styled.div<CarouselWrapperProps>`
       height: ${(props) => (props.cardWidth ? `${props.cardWidth / 1.75}px` : '190px')};
 
       .rccs__number {
-        font-size: ${(props) => (props.cardWidth ? `${props.cardWidth / 13}px` : '12px')};
+        font-size: ${(props) => (props.cardWidth ? `${props.cardWidth / 14}px` : '12px')};
       }
 
       .rccs__name {
