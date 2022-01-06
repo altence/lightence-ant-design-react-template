@@ -27,7 +27,6 @@ interface Filter {
   updateFilteredField: (field: string, value: [AppDate | null, AppDate | null] | string) => void;
   onApply: () => void;
   onReset: () => void;
-  filterNews: (isReset: boolean) => void;
 }
 
 const Filter: React.FC<Filter> = ({
@@ -40,14 +39,12 @@ const Filter: React.FC<Filter> = ({
   dates,
   onApply,
   onReset,
-  filterNews,
   updateFilteredField,
 }) => {
   const { t } = useTranslation();
   const { mobileOnly } = useResponsive();
 
   const applyFilter = () => {
-    filterNews(false);
     onApply();
   };
 
@@ -205,18 +202,21 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
         }),
       );
     },
-    [news, author, title, dates, selectedTags, setHasMore],
+    [news, author, title, dates, selectedTags],
   );
 
   useEffect(() => {
+    setFilteredNews(news);
     filterNews(false);
-  }, [news.length, filterNews]);
+  }, [news]);
 
   const handleClickApply = useCallback(() => {
+    filterNews(false);
+
     if (mobileOnly) {
       setOverlayVisible(false);
     }
-  }, []);
+  }, [mobileOnly, filterNews]);
 
   const handleClickReset = useCallback(() => {
     setFilterFields({ author: '', title: '', dates: [null, null], selectedTags: [] });
@@ -225,7 +225,7 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
     if (mobileOnly) {
       setOverlayVisible(false);
     }
-  }, [filterNews, setFilterFields]);
+  }, [filterNews, setFilterFields, mobileOnly]);
 
   const updateFilteredField = (field: string, value: string | [AppDate | null, AppDate | null]) => {
     setFilterFields({ ...filterFields, [field]: value });
@@ -253,7 +253,6 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
                 dates={dates}
                 onApply={handleClickApply}
                 onReset={handleClickReset}
-                filterNews={filterNews}
                 updateFilteredField={updateFilteredField}
               />
             }
@@ -277,7 +276,6 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
             dates={dates}
             onApply={handleClickApply}
             onReset={handleClickReset}
-            filterNews={filterNews}
             updateFilteredField={updateFilteredField}
           />
         )}
