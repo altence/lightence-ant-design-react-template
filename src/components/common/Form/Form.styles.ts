@@ -1,5 +1,10 @@
 import { Typography, Form } from 'antd';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+interface FormItemProps {
+  $isSuccess?: boolean;
+  $successText?: string;
+}
 
 export const Title = styled(Typography.Text)`
   font-weight: 700;
@@ -13,7 +18,7 @@ export const Title = styled(Typography.Text)`
 
 export const FormList = styled(Form.List)``;
 
-export const FormItem = styled(Form.Item)`
+export const FormItem = styled(Form.Item)<FormItemProps>`
   @media only screen and ${(props) => props.theme.media.xl} {
     margin-bottom: 2rem;
   }
@@ -79,6 +84,23 @@ export const FormItem = styled(Form.Item)`
       display: none;
     }
   }
+
+  ${(props) =>
+    props.$isSuccess &&
+    css`
+      .ant-input {
+        border-color: ${props.theme.colors.main.success};
+      }
+
+      .ant-form-item-control-input {
+        display: block;
+
+        &::after {
+          content: '✓ ${props.$successText}';
+          color: ${props.theme.colors.main.success};
+        }
+      }
+    `}
 
   & .ant-picker-suffix {
     font-size: 1rem;

@@ -7,8 +7,14 @@ export interface User {
   lastName: string;
   imgUrl: string;
   userName: string;
-  email: string;
-  phone: string;
+  email: {
+    name: string;
+    verified: boolean;
+  };
+  phone: {
+    number: string;
+    verified: boolean;
+  };
   sex: 'male' | 'female';
   birthday: string;
   lang: 'en' | 'de';
@@ -71,8 +77,14 @@ export const getUser = (): Promise<User> => {
         lastName: 'Johnson',
         imgUrl: avatarImg,
         userName: '@john1989',
-        email: 'john1989@example.com',
-        phone: '+18143519459',
+        email: {
+          name: 'john1989@example.com',
+          verified: true,
+        },
+        phone: {
+          number: '+18143519459',
+          verified: true,
+        },
         sex: 'male',
         birthday: '01/26/2022',
         lang: 'en',
