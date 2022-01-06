@@ -7,18 +7,22 @@ import { Empty } from 'antd';
 export const NewsFeed: React.FC = () => {
   const [news, setNews] = useState<Post[]>([]);
   const [hasMore] = useState<boolean>(true);
+  const [loaded, setLoaded] = useState<boolean>(false);
 
   useEffect(() => {
-    getNews().then((res) => setNews(res));
+    getNews()
+      .then((res) => setNews(res))
+      .finally(() => setLoaded(true));
   }, []);
 
   const next = () => {
     getNews().then((newNews) => setNews(news.concat(newNews)));
   };
+
   return (
     <NewsFilter news={news}>
       {({ filteredNews }) =>
-        filteredNews?.length || hasMore ? <Feed cards={filteredNews} next={next} hasMore={hasMore} /> : <Empty />
+        filteredNews?.length || !loaded ? <Feed cards={filteredNews} next={next} hasMore={hasMore} /> : <Empty />
       }
     </NewsFilter>
   );
