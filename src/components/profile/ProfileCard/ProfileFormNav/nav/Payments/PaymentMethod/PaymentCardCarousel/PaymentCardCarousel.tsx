@@ -57,7 +57,7 @@ export const PaymentCardCarousel: React.FC<PaymentCardCarouselProps> = ({
           <ActionButtons onEdit={handleEditCard(card)} onRemove={handleRemoveCard(card.number)} />
         </PaymentCard>
       )),
-    [cards, handleRemoveCard, handleEditCard, t],
+    [cards, handleRemoveCard, handleEditCard],
   );
 
   return (
