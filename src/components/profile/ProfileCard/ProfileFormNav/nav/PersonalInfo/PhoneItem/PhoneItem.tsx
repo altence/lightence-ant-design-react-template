@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { isValidPhoneNumber } from 'react-phone-number-input';
 import { FormItem } from '../../../../../../common/Form/Form.styles';
@@ -10,8 +10,6 @@ interface PhoneItemsProps {
 }
 
 export const PhoneItem: React.FC<PhoneItemsProps> = ({ required, onClick }) => {
-  const [phone, setPhone] = useState<string>('');
-
   const { t } = useTranslation();
 
   return (
@@ -22,7 +20,7 @@ export const PhoneItem: React.FC<PhoneItemsProps> = ({ required, onClick }) => {
         { required, message: t('common.requiredField') },
         () => ({
           validator(_, value) {
-            if (!value || isValidPhoneNumber(phone)) {
+            if (!value || isValidPhoneNumber(value)) {
               return Promise.resolve();
             }
             return Promise.reject(new Error(t('profile.nav.personalInfo.wrongNumber')));
@@ -30,7 +28,7 @@ export const PhoneItem: React.FC<PhoneItemsProps> = ({ required, onClick }) => {
         }),
       ]}
     >
-      <S.PhoneNumberInput className="ant-input" value={phone} onChange={setPhone} onClick={onClick} />
+      <S.PhoneNumberInput className="ant-input" onClick={onClick} />
     </FormItem>
   );
 };
