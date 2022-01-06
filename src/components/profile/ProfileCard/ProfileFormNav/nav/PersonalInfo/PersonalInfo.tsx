@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row, Form as AntForm } from 'antd';
 import { ProfileForm } from '../../ProfileForm/ProfileForm';
@@ -17,8 +17,9 @@ import { ZipcodeItem } from './ZipcodeItem/ZipcodeItem';
 import { AddressItem } from './AddressItem/AddressItem';
 import { WebsiteItem } from './WebsiteItem/WebsiteItem';
 import { SocialLinksItem } from './SocialLinksItem/SocialLinksItem';
-import { updateUser } from 'api/users.api';
+import { getUser, updateUser, User } from 'api/users.api';
 import * as S from '../../../../../common/Form/Form.styles';
+import { Dates } from '@app/constants/Dates';
 
 const initialPersonalInfoValues = {
   firstName: '',
@@ -42,8 +43,36 @@ const initialPersonalInfoValues = {
 
 export const PersonalInfo: React.FC = () => {
   const [formValues, setFormValues] = useState(initialPersonalInfoValues);
+  const [user, setUser] = useState<User>();
 
   const [form] = AntForm.useForm();
+
+  useEffect(() => {
+    getUser().then((res) => setUser(res));
+  }, []);
+
+  useEffect(() => {
+    user &&
+      form.setFieldsValue({
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        phone: user.phone,
+        nickname: user.userName,
+        sex: user.sex,
+        birthday: Dates.getDate(user.birthday),
+        language: user.lang,
+        country: user.country,
+        city: user.city,
+        address1: user.address1,
+        address2: user?.address2,
+        zipcode: user.zipcode,
+        website: user?.website,
+        twitter: user?.socials?.twitter,
+        linkedin: user?.socials?.linkedin,
+        facebook: user?.socials?.facebook,
+      });
+  }, [user, form]);
 
   const { t } = useTranslation();
 

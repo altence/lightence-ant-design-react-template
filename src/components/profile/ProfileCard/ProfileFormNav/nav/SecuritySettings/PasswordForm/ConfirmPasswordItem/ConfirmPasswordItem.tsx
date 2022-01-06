@@ -11,7 +11,6 @@ export const ConfirmItemPassword: React.FC = () => {
       name="confirmPassword"
       label={t('profile.nav.securitySettings.confirmPassword')}
       dependencies={['newPassword']}
-      hasFeedback
       rules={[
         {
           required: true,

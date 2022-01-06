@@ -1,18 +1,23 @@
+export type LanguageType = 'en' | 'de';
+
 interface Language {
   id: number;
-  name: string;
+  name: LanguageType;
+  title: string;
   countryCode: string;
 }
 
 export const languages: Language[] = [
   {
     id: 1,
-    name: 'English',
-    countryCode: 'GB',
+    name: 'en',
+    title: 'English',
+    countryCode: 'gb',
   },
   {
     id: 2,
-    name: 'Deutsch',
-    countryCode: 'DE',
+    name: 'de',
+    title: 'German',
+    countryCode: 'de',
   },
 ];

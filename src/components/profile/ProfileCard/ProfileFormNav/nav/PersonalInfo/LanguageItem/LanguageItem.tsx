@@ -10,7 +10,7 @@ const languageOptions = languages.map((lang) => (
   <Option key={lang.id} value={lang.name}>
     <Space align="center">
       <ReactCountryFlag svg countryCode={lang.countryCode} />
-      {lang.name}
+      {lang.title}
     </Space>
   </Option>
 ));

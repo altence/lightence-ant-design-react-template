@@ -7,6 +7,22 @@ export interface User {
   lastName: string;
   imgUrl: string;
   userName: string;
+  email: string;
+  phone: string;
+  sex: 'male' | 'female';
+  birthday: string;
+  lang: 'en' | 'de';
+  country: string;
+  city: string;
+  address1: string;
+  address2?: string;
+  zipcode: number;
+  website?: string;
+  socials?: {
+    twitter?: string;
+    facebook?: string;
+    linkedin?: string;
+  };
 }
 
 interface UserData {
@@ -55,6 +71,15 @@ export const getUser = (): Promise<User> => {
         lastName: 'Johnson',
         imgUrl: avatarImg,
         userName: '@john1989',
+        email: 'john1989@example.com',
+        phone: '+18143519459',
+        sex: 'male',
+        birthday: '01/26/2022',
+        lang: 'en',
+        country: 'GB',
+        city: 'London',
+        address1: '14 London Road',
+        zipcode: 5211,
       });
     }, 1000);
   });
