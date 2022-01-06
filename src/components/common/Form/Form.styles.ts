@@ -47,8 +47,35 @@ export const FormItem = styled(Form.Item)`
 
   & div[role='alert'] {
     margin: 0.5rem 0;
+    line-height: 1;
+    display: flex;
+
+    &:before {
+      content: 'X';
+      display: inline-flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      margin: 0 0.25rem;
+      color: ${(props) => props.theme.colors.text.secondary};
+      background: ${(props) => props.theme.colors.main.error};
+      border-radius: 50%;
+      width: 1rem;
+      height: 1rem;
+      font-size: 0.5rem;
+    }
 
     &:not(:first-of-type) {
+      display: none;
+    }
+  }
+
+  &.ant-form-item-has-feedback {
+    .ant-input-suffix {
+      padding-right: 0;
+    }
+
+    & .ant-form-item-children-icon {
       display: none;
     }
   }

@@ -12,7 +12,7 @@ const selectOptions = countries.map((country) => (
   <Option key={country.name} value={country.code}>
     <Space align="center">
       <ReactCountryFlag countryCode={country.code} svg />
-      {country.name}
+      <span style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>{country.name}</span>
     </Space>
   </Option>
 ));
