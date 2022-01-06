@@ -208,6 +208,8 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
   useEffect(() => {
     setFilteredNews(news);
     filterNews(false);
+    // TODO AT-183
+    // eslint-disable-next-line
   }, [news]);
 
   const handleClickApply = useCallback(() => {
