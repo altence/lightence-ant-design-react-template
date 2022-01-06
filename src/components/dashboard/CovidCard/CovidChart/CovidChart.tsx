@@ -12,11 +12,11 @@ interface CovidData {
 }
 
 export const CovidChart: React.FC<{
-  confirmedArr: CovidData;
-  deathsArr: CovidData;
-  recoveredArr: CovidData;
+  confirmed: CovidData;
+  deaths: CovidData;
+  recovered: CovidData;
   dateArr: xData;
-}> = ({ confirmedArr, deathsArr, recoveredArr, dateArr }) => {
+}> = ({ confirmed, deaths, recovered, dateArr }) => {
   const theme = useContext(ThemeContext);
 
   const { isDesktop } = useResponsive();
@@ -54,8 +54,8 @@ export const CovidChart: React.FC<{
     },
     series: [
       {
-        name: confirmedArr.title,
-        data: confirmedArr.data,
+        name: confirmed.title,
+        data: confirmed.data,
         type: 'line',
         areaStyle: {},
         markArea: {
@@ -72,8 +72,8 @@ export const CovidChart: React.FC<{
         },
       },
       {
-        name: deathsArr.title,
-        data: deathsArr.data,
+        name: deaths.title,
+        data: deaths.data,
         type: 'line',
         areaStyle: {},
         markArea: {
@@ -90,8 +90,8 @@ export const CovidChart: React.FC<{
         },
       },
       {
-        name: recoveredArr.title,
-        data: recoveredArr.data,
+        name: recovered.title,
+        data: recovered.data,
         type: 'line',
         areaStyle: {},
         markArea: {
@@ -109,9 +109,9 @@ export const CovidChart: React.FC<{
       },
       {
         data: [
-          { name: confirmedArr.title, value: confirmedArr.data },
-          { name: deathsArr.title, value: deathsArr.data },
-          { name: recoveredArr.title, value: recoveredArr.data },
+          { name: confirmed.title, value: confirmed.data },
+          { name: deaths.title, value: deaths.data },
+          { name: recovered.title, value: recovered.data },
         ],
         label: {
           show: isDesktop,
