@@ -7,14 +7,17 @@ import * as S from './PhoneItem.styles';
 interface PhoneItemsProps {
   required?: boolean;
   onClick?: () => void;
+  verified?: boolean;
 }
 
-export const PhoneItem: React.FC<PhoneItemsProps> = ({ required, onClick }) => {
+export const PhoneItem: React.FC<PhoneItemsProps> = ({ required, onClick, verified }) => {
   const { t } = useTranslation();
 
   return (
     <FormItem
       name="phone"
+      $isSuccess={verified}
+      $successText={t('profile.nav.personalInfo.verified')}
       label={t('profile.nav.personalInfo.phone')}
       rules={[
         { required, message: t('common.requiredField') },
@@ -28,7 +31,7 @@ export const PhoneItem: React.FC<PhoneItemsProps> = ({ required, onClick }) => {
         }),
       ]}
     >
-      <S.PhoneNumberInput className="ant-input" onClick={onClick} />
+      <S.PhoneNumberInput disabled={verified} className="ant-input" onClick={onClick} />
     </FormItem>
   );
 };

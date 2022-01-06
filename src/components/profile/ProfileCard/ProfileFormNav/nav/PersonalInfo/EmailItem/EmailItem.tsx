@@ -6,14 +6,17 @@ import { FormItem } from '../../../../../../common/Form/Form.styles';
 interface EmailItemProps {
   required?: boolean;
   onClick?: () => void;
+  verified?: boolean;
 }
 
-export const EmailItem: React.FC<EmailItemProps> = ({ required, onClick }) => {
+export const EmailItem: React.FC<EmailItemProps> = ({ required, onClick, verified }) => {
   const { t } = useTranslation();
 
   return (
     <FormItem
       name="email"
+      $isSuccess={verified}
+      $successText={t('profile.nav.personalInfo.verified')}
       label={t('profile.nav.personalInfo.email')}
       rules={[
         { required, message: t('common.requiredField') },
@@ -23,7 +26,7 @@ export const EmailItem: React.FC<EmailItemProps> = ({ required, onClick }) => {
         },
       ]}
     >
-      <Input onClick={onClick} />
+      <Input disabled={verified} onClick={onClick} />
     </FormItem>
   );
 };

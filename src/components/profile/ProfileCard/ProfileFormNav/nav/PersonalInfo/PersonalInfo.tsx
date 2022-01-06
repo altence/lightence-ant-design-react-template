@@ -56,8 +56,8 @@ export const PersonalInfo: React.FC = () => {
       form.setFieldsValue({
         firstName: user.firstName,
         lastName: user.lastName,
-        email: user.email,
-        phone: user.phone,
+        email: user.email.name,
+        phone: user.phone.number,
         nickname: user.userName,
         sex: user.sex,
         birthday: Dates.getDate(user.birthday),
@@ -134,11 +134,11 @@ export const PersonalInfo: React.FC = () => {
           </Col>
 
           <Col xs={24} md={12}>
-            <PhoneItem />
+            <PhoneItem verified={user?.phone.verified} />
           </Col>
 
           <Col xs={24} md={12}>
-            <EmailItem />
+            <EmailItem verified={user?.email.verified} />
           </Col>
 
           <Col span={24}>
