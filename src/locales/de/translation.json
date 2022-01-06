@@ -326,6 +326,7 @@
   "kanban": {
     "title": "DE!!!Title",
     "label": "DE!!!Label",
+    "unnamedLabel": "DE!!!Unnamed label",
     "description": "DE!!!Description",
     "tags": "DE!!!Tags",
     "addTags": "DE!!!Add tags",

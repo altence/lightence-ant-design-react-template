@@ -14,7 +14,7 @@ export const NewLaneForm: React.FC<NewLaneFormProps> = ({ onAdd, onCancel }) => 
   const handleSubmit = async (values: { title: string }) => {
     await onAdd({
       id: uuidv4(),
-      title: values.title,
+      title: values.title || t('kanban.unnamedLabel'),
     });
   };
 
