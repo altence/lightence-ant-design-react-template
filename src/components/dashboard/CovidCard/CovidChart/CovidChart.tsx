@@ -11,12 +11,12 @@ interface CovidData {
   data: ChartData;
 }
 
-export const CovidChart: React.FC<{ data1: CovidData; data2: CovidData; data3: CovidData; xData: xData }> = ({
-  data1,
-  data2,
-  data3,
-  xData,
-}) => {
+export const CovidChart: React.FC<{
+  confirmedArr: CovidData;
+  deathsArr: CovidData;
+  recoveredArr: CovidData;
+  dateArr: xData;
+}> = ({ confirmedArr, deathsArr, recoveredArr, dateArr }) => {
   const theme = useContext(ThemeContext);
 
   const { isDesktop } = useResponsive();
@@ -46,7 +46,7 @@ export const CovidChart: React.FC<{ data1: CovidData; data2: CovidData; data3: C
       show: false,
       type: 'category',
       boundaryGap: false,
-      data: xData,
+      data: dateArr,
     },
     yAxis: {
       show: false,
@@ -54,15 +54,15 @@ export const CovidChart: React.FC<{ data1: CovidData; data2: CovidData; data3: C
     },
     series: [
       {
-        name: data1.title,
-        data: data1.data,
+        name: confirmedArr.title,
+        data: confirmedArr.data,
         type: 'line',
         areaStyle: {},
         markArea: {
           itemStyle: {
             color: hexToRGB(theme.colors.charts.color1, 0.02),
           },
-          data: xData && getMarkAreaData(xData),
+          data: dateArr && getMarkAreaData(dateArr),
         },
         showSymbol: false,
         smooth: true,
@@ -72,15 +72,15 @@ export const CovidChart: React.FC<{ data1: CovidData; data2: CovidData; data3: C
         },
       },
       {
-        name: data2.title,
-        data: data2.data,
+        name: deathsArr.title,
+        data: deathsArr.data,
         type: 'line',
         areaStyle: {},
         markArea: {
           itemStyle: {
             color: hexToRGB(theme.colors.charts.color5, 0.02),
           },
-          data: xData && getMarkAreaData(xData),
+          data: dateArr && getMarkAreaData(dateArr),
         },
         showSymbol: false,
         smooth: true,
@@ -90,15 +90,15 @@ export const CovidChart: React.FC<{ data1: CovidData; data2: CovidData; data3: C
         },
       },
       {
-        name: data3.title,
-        data: data3.data,
+        name: recoveredArr.title,
+        data: recoveredArr.data,
         type: 'line',
         areaStyle: {},
         markArea: {
           itemStyle: {
             color: hexToRGB(theme.colors.charts.color4, 0.02),
           },
-          data: xData && getMarkAreaData(xData),
+          data: dateArr && getMarkAreaData(dateArr),
         },
         showSymbol: false,
         smooth: true,
@@ -109,9 +109,9 @@ export const CovidChart: React.FC<{ data1: CovidData; data2: CovidData; data3: C
       },
       {
         data: [
-          { name: data1.title, value: data1.data },
-          { name: data2.title, value: data2.data },
-          { name: data3.title, value: data3.data },
+          { name: confirmedArr.title, value: confirmedArr.data },
+          { name: deathsArr.title, value: deathsArr.data },
+          { name: recoveredArr.title, value: recoveredArr.data },
         ],
         label: {
           show: isDesktop,
