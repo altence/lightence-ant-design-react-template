@@ -46,7 +46,6 @@ export const Text = styled(Typography.Text)`
 
   @media only screen and ${(props) => props.theme.media.md} {
     font-size: ${(props) => props.theme.commonFontSizes.xs};
-    color: ${(props) => props.theme.colors.text.main};
   }
 `;
 
