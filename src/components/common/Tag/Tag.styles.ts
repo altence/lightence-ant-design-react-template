@@ -15,7 +15,6 @@ export const RemoveTagIcon = styled(CloseOutlined)`
 `;
 
 export const TagWrapper = styled(TagSpan)`
-  height: 1.875rem;
   border-radius: 0.5rem;
   display: flex;
   justify-content: center;
