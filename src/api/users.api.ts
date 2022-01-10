@@ -144,11 +144,3 @@ export const updateCreditCard = (creditCard: CreditCard): Promise<CreditCard> =>
     }, 1000);
   });
 };
-
-export const removeCreditCard = (id: string): Promise<string> => {
-  return new Promise((res) => {
-    setTimeout(() => {
-      res(id);
-    }, 1000);
-  });
-};

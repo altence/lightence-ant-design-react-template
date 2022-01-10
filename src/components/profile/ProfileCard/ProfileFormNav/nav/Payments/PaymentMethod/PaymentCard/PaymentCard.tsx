@@ -10,11 +10,9 @@ interface PaymentCardProps {
   children?: React.ReactNode;
 }
 
-export const PaymentCard = React.forwardRef<HTMLDivElement, PaymentCardProps>(
-  ({ className, cardData, children }, ref) => (
-    <S.Wrapper className={className} ref={ref} background={cardData.background}>
-      <Cards {...cardData} />
-      {children}
-    </S.Wrapper>
-  ),
+export const PaymentCard: React.FC<PaymentCardProps> = ({ cardData, children }) => (
+  <S.Wrapper $background={cardData.background}>
+    <Cards {...cardData} />
+    {children}
+  </S.Wrapper>
 );

@@ -1,15 +1,15 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Form } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { Card } from 'components/common/Card/Card';
-import { PaymentCardCarousel } from './PaymentCardCarousel/PaymentCardCarousel';
-import { FormItem, Title } from '../../../../../../common/Form/Form.styles';
+import { FormItem, Title } from '@app/components/common/Form/Form.styles';
 import { CreditCard } from './PaymentForm/interfaces';
 import { cardThemes } from 'constants/cardThemes';
 import { PaymentModal } from './PaymentModal/PaymentModal';
 import { useResponsive } from 'hooks/useResponsive';
 import { cards as initialCards } from '@app/constants/data/cards';
 import * as S from './PaymentMethod.styles';
+import { PaymentCardsWidget } from '@app/components/profile/ProfileCard/ProfileFormNav/nav/Payments/PaymentMethod/PaymentCardsWidget';
 
 export const clearCardData: CreditCard = {
   name: '',
@@ -35,33 +35,33 @@ export const PaymentMethod: React.FC = () => {
     setModalVisible(true);
   }, [setModalVisible]);
 
-  const content = useMemo(
-    () => (
-      <S.Wrapper>
-        <FormItem>
-          <Title>{t('profile.nav.payments.paymentMethod')}</Title>
-        </FormItem>
-        <PaymentCardCarousel
-          form={form}
-          cards={cards}
-          setCards={setCards}
-          handleOpenModal={handleOpenModal}
-          setCardData={setCardData}
-        />
-        <S.AddBtn type="ghost" onClick={handleOpenModal}>
-          {t('profile.nav.payments.addNewCard')}
-        </S.AddBtn>
-        <PaymentModal
-          isModalVisible={isModalVisible}
-          setModalVisible={setModalVisible}
-          form={form}
-          cardData={cardData}
-          setCardData={setCardData}
-          setCards={setCards}
-        />
-      </S.Wrapper>
-    ),
-    [cards, handleOpenModal, setCardData, setCards, isModalVisible, cardData, form, t],
+  const handleCardRemove = (cardNumber: string) => setCards(cards.filter((card) => card.number !== cardNumber));
+
+  const handleCardEdit = (card: CreditCard) => {
+    const editCard = { ...card, isEdit: true };
+    setCardData(editCard);
+    form.setFieldsValue(editCard);
+    handleOpenModal();
+  };
+
+  const content = (
+    <S.Wrapper>
+      <FormItem>
+        <Title>{t('profile.nav.payments.paymentMethod')}</Title>
+      </FormItem>
+      <PaymentCardsWidget cards={cards} onCardEdit={handleCardEdit} onCardRemove={handleCardRemove} />
+      <S.AddBtn type="ghost" onClick={handleOpenModal}>
+        {t('profile.nav.payments.addNewCard')}
+      </S.AddBtn>
+      <PaymentModal
+        isModalVisible={isModalVisible}
+        setModalVisible={setModalVisible}
+        form={form}
+        cardData={cardData}
+        setCardData={setCardData}
+        setCards={setCards}
+      />
+    </S.Wrapper>
   );
 
   return isTablet ? content : <Card>{content}</Card>;

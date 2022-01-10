@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 interface PaymentCardProps {
-  background: string;
+  $background: string;
 }
 
 export const Wrapper = styled.div<PaymentCardProps>`
   & > .rccs > .rccs__card--unknown > div {
-    background: ${(props) => `url(${props.background})`};
+    background: ${(props) => `url(${props.$background})`};
     background-size: cover;
     transition: all 0.5s ease;
   }
@@ -31,7 +31,7 @@ export const Wrapper = styled.div<PaymentCardProps>`
       }
 
       & > div:first-of-type {
-        background: ${(props) => `url(${props.background})`};
+        background: ${(props) => `url(${props.$background})`};
         background-size: cover;
         transition: all 0.5s ease;
       }

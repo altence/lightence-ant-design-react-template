@@ -1,4 +1,4 @@
-import { useMediaQuery } from 'react-responsive';
+import { MediaQueryAllQueryable, MediaQueryMatchers, useMediaQuery } from 'react-responsive';
 import theme from 'styles/theme';
 
 interface ResponsiveReturnValues {
@@ -9,6 +9,11 @@ interface ResponsiveReturnValues {
   mobileOnly: boolean;
   tabletOnly: boolean;
   desktopOnly: boolean;
+  useMediaQuery: (
+    settings: Partial<MediaQueryAllQueryable & { query?: string | undefined }>,
+    device?: MediaQueryMatchers,
+    callback?: (matches: boolean) => void,
+  ) => boolean;
 }
 
 export const useResponsive = (): ResponsiveReturnValues => {
@@ -37,5 +42,6 @@ export const useResponsive = (): ResponsiveReturnValues => {
     mobileOnly,
     tabletOnly,
     desktopOnly,
+    useMediaQuery,
   };
 };
