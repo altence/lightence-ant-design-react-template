@@ -100,7 +100,8 @@
     "dateTimePickersPage": "DateTime Pickers",
     "dropDownsPage": "Dropdowns",
     "breadcrumbsPage": "Breadcrumbs",
-    "tabsPage": "Tabs"
+    "tabsPage": "Tabs",
+    "notificationsPage": "Notifications"
   },
   "header": {
     "search": "Search",
@@ -866,5 +867,23 @@
     "left": "Left",
     "bottom": "Bottom",
     "right": "Right"
+  },
+  "notifications": {
+    "basic": "Basic notification",
+    "types": "Notification types",
+    "success": "Success",
+    "info": "Info",
+    "warning": "Warning",
+    "error": "Error",
+    "successTitle": "Success Text",
+    "infoTitle": "Info text",
+    "warningTitle": "Warning text",
+    "errorTitle": "Error text",
+    "errorDescription": "Error Description",
+    "successDescription": "Success description",
+    "infoDescription": "Info description",
+    "warningDescription": "Warning description",
+    "withoutDescription": "Notifications without description",
+    "basicTitle": "Basic"
   }
 }

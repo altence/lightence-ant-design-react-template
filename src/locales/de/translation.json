@@ -99,7 +99,8 @@
     "dateTimePickersPage": "DE!!!DateTime Pickers",
     "dropDownsPage": "DE!!!Dropdowns",
     "breadcrumbsPage": "DE!!!Breadcrumbs",
-    "tabsPage": "DE!!!Tabs"
+    "tabsPage": "DE!!!Tabs",
+    "notificationsPage": "DE!!!Notifications"
   },
   "header": {
     "search": "Search",
@@ -846,5 +847,23 @@
     "left": "DE!!!Left",
     "bottom": "DE!!!Bottom",
     "right": "DE!!!Right"
+  },
+  "notifications": {
+    "basic": "DE!!!Basic notification",
+    "types": "DE!!!Notification types",
+    "success": "DE!!!Success",
+    "info": "DE!!!Info",
+    "warning": "DE!!!Warning",
+    "error": "DE!!!Error",
+    "successTitle": "DE!!!Success Text",
+    "infoTitle": "DE!!!Info text",
+    "warningTitle": "DE!!!Warning text",
+    "errorTitle": "DE!!!Error text",
+    "errorDescription": "DE!!!Error Description",
+    "successDescription": "DE!!!Success description",
+    "infoDescription": "DE!!!Info description",
+    "warningDescription": "DE!!!Warning description",
+    "withoutDescription": "DE!!!Notifications without description",
+    "basicTitle": "DE!!!Basic"
   }
 }

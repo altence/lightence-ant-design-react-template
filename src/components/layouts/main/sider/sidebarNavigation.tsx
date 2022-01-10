@@ -207,6 +207,11 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         url: '/ui-components/alerts',
       },
       {
+        title: 'common.notificationsPage',
+        key: 'notifications',
+        url: '/ui-components/notifications',
+      },
+      {
         title: 'common.skeletonsPage',
         key: 'skeletons',
         url: '/ui-components/skeletons',
