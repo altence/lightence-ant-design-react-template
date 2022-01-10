@@ -21,8 +21,8 @@ export const PaymentCardsWidget: React.FC<PaymentCardsWidgetProps> = ({ cards, o
 
   return (
     <Row justify={justify} gutter={[16, 16]}>
-      {cards.map((card, index) => (
-        <Col key={index}>
+      {cards.map((card) => (
+        <Col key={card.number}>
           <PaymentCard cardData={card}>
             <ActionButtons onEdit={() => onCardEdit(card)} onRemove={() => onCardRemove(card.number)} />
           </PaymentCard>
