@@ -12,17 +12,17 @@ const BreadcrumbsPage: React.FC = () => {
   const menu = (
     <Menu>
       <MenuItem>
-        <Button type="link" target="_blank" rel="noopener noreferrer" href="/">
+        <Button type="link" target="_blank" rel="noopener noreferrer">
           {t('breadcrumbs.general')}
         </Button>
       </MenuItem>
       <MenuItem>
-        <Button type="link" target="_blank" rel="noopener noreferrer" href="/">
+        <Button type="link" target="_blank" rel="noopener noreferrer">
           {t('breadcrumbs.layout')}
         </Button>
       </MenuItem>
       <MenuItem>
-        <Button type="link" target="_blank" rel="noopener noreferrer" href="/">
+        <Button type="link" target="_blank" rel="noopener noreferrer">
           {t('breadcrumbs.navigation')}
         </Button>
       </MenuItem>

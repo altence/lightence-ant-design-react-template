@@ -131,7 +131,7 @@ const ButtonsPage: React.FC = () => {
           </Button>
         </Tooltip>
         <Tooltip title={t('buttons.search')}>
-          <Button type="ghost" icon={<SearchOutlined />} size="large" href="https://www.google.com" />
+          <Button type="ghost" icon={<SearchOutlined />} size="large" />
         </Tooltip>
       </S.Card>
     </Col>
