@@ -53,7 +53,7 @@ const SkeletonsPage: React.FC = () => {
       </S.Card>
       <S.Card title={t('skeletons.customization')}>
         <div>
-          <Space>
+          <Space wrap>
             <SkeletonButton active={state.active} size={state.size} shape={state.buttonShape} block={state.block} />
             <SkeletonAvatar active={state.active} size={state.size} shape={state.avatarShape} />
             <SkeletonInput style={{ width: 200 }} active={state.active} size={state.size} />

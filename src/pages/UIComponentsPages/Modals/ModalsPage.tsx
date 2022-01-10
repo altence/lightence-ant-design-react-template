@@ -89,7 +89,7 @@ const ModalsPage: React.FC = () => {
           visible={isMiddleModalVisible}
           onOk={() => setIsMiddleModalVisible(false)}
           onCancel={() => setIsMiddleModalVisible(false)}
-          size="middle"
+          size="medium"
         >
           <p>{t('modals.someContent')}</p>
           <p>{t('modals.someContent')}</p>

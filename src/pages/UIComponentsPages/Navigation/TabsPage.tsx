@@ -70,7 +70,7 @@ const TabsPage: React.FC = () => {
       </S.Card>
       <S.Card title={t('tabs.positions')}>
         <Space direction="vertical" size={20}>
-          <Space>
+          <Space wrap>
             {t('tabs.tabPosition')}
             <RadioGroup value={tabPosition} onChange={changeTabPosition}>
               <RadioButton value="top">{t('tabs.top')}</RadioButton>

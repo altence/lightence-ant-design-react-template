@@ -6,10 +6,10 @@ import * as S from './Modal.styles';
 export const { info: InfoModal, success: SuccessModal, warning: WarningModal, error: ErrorModal } = AntdModal;
 
 interface ModalProps extends AntModalProps {
-  size?: 'small' | 'middle' | 'large';
+  size?: 'small' | 'medium' | 'large';
 }
 
-export const Modal: React.FC<ModalProps> = ({ size = 'middle', children, ...props }) => {
+export const Modal: React.FC<ModalProps> = ({ size = 'medium', children, ...props }) => {
   const modalSize = Object.entries(modalSizes).find((sz) => sz[0] === size)?.[1];
 
   return (

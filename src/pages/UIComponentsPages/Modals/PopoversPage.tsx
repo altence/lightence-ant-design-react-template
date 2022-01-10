@@ -14,7 +14,14 @@ export const PopoverButton = styled.div`
 
 export const TopButtons = styled(PopoverButton)`
   whitespace: nowrap;
-  margin-left: ${buttonWidth + 18}px;
+
+  @media only screen and ${(props) => props.theme.media.xs} {
+    margin-left: ${buttonWidth - 24}px;
+  }
+
+  @media only screen and ${(props) => props.theme.media.md} {
+    margin-left: ${buttonWidth + 18}px;
+  }
 `;
 export const LeftButtons = styled(PopoverButton)`
   flex-direction: column;
@@ -25,13 +32,27 @@ export const LeftButtons = styled(PopoverButton)`
 export const RightButtons = styled(PopoverButton)`
   flex-direction: column;
   width: ${buttonWidth}px;
-  margin-left: ${buttonWidth * 4}px;
+
+  @media only screen and ${(props) => props.theme.media.xs} {
+    margin-left: ${buttonWidth * 3 - 14}px;
+  }
+
+  @media only screen and ${(props) => props.theme.media.md} {
+    margin-left: ${buttonWidth * 4}px;
+  }
 `;
 
 export const BottomButtons = styled(PopoverButton)`
   margin-left: ${buttonWidth}px;
   clear: both;
   whitespace: nowrap;
+  @media only screen and ${(props) => props.theme.media.xs} {
+    margin-left: ${buttonWidth - 44}px;
+  }
+
+  @media only screen and ${(props) => props.theme.media.md} {
+    margin-left: ${buttonWidth}px;
+  }
 `;
 
 const PopoversPage: React.FC = () => {

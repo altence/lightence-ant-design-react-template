@@ -47,4 +47,9 @@ export const Steps = styled(AntdSteps)`
       align-items: flex-start;
     }
   }
+  &.ant-steps-vertical.ant-steps-small {
+    .ant-steps-item-container .ant-steps-item-tail {
+      padding: 1.625rem 0 0.375rem;
+    }
+  }
 `;
