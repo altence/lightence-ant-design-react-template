@@ -8,7 +8,18 @@ import {
   SkeletonImage,
 } from 'components/common/Skeleton/Skeleton';
 import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
 import * as S from '../UIComponentsPage.styles';
+
+const FormItem = styled(Form.Item)`
+  @media only screen and ${(props) => props.theme.media.xs} {
+    max-width: fit-content;
+  }
+
+  @media only screen and ${(props) => props.theme.media.md} {
+    max-width: 100%;
+  }
+`;
 
 const SkeletonsPage: React.FC = () => {
   const { t } = useTranslation();
@@ -66,32 +77,32 @@ const SkeletonsPage: React.FC = () => {
           <SkeletonImage />
           <Divider />
           <Form layout="inline">
-            <Form.Item label={t('skeletons.activeLabel')}>
+            <FormItem label={t('skeletons.activeLabel')}>
               <Switch checked={state.active} onChange={handleActiveChange} />
-            </Form.Item>
-            <Form.Item label={t('skeletons.buttonBlock')}>
+            </FormItem>
+            <FormItem label={t('skeletons.buttonBlock')}>
               <Switch checked={state.block} onChange={handleBlockChange} />
-            </Form.Item>
-            <Form.Item label={t('skeletons.size')}>
+            </FormItem>
+            <FormItem label={t('skeletons.size')}>
               <Radio.Group value={state.size} onChange={handleSizeChange}>
                 <Radio.Button value="default">{t('skeletons.default')}</Radio.Button>
                 <Radio.Button value="large">{t('skeletons.large')}</Radio.Button>
                 <Radio.Button value="small">{t('skeletons.small')}</Radio.Button>
               </Radio.Group>
-            </Form.Item>
-            <Form.Item label={t('skeletons.buttonShape')}>
+            </FormItem>
+            <FormItem label={t('skeletons.buttonShape')}>
               <Radio.Group value={state.buttonShape} onChange={handleShapeChange('buttonShape')}>
                 <Radio.Button value="default">{t('skeletons.default')}</Radio.Button>
                 <Radio.Button value="round">{t('skeletons.round')}</Radio.Button>
                 <Radio.Button value="circle">{t('skeletons.circle')}</Radio.Button>
               </Radio.Group>
-            </Form.Item>
-            <Form.Item label={t('skeletons.avatarShape')}>
+            </FormItem>
+            <FormItem label={t('skeletons.avatarShape')}>
               <Radio.Group value={state.avatarShape} onChange={handleShapeChange('avatarShape')}>
                 <Radio.Button value="square">{t('skeletons.square')}</Radio.Button>
                 <Radio.Button value="circle">{t('skeletons.circle')}</Radio.Button>
               </Radio.Group>
-            </Form.Item>
+            </FormItem>
           </Form>
         </div>
       </S.Card>
