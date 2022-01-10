@@ -1,11 +1,11 @@
 interface ModalSizes {
   small: string;
-  middle: string;
+  medium: string;
   large: string;
 }
 
 export const modalSizes: ModalSizes = {
   small: '400px',
-  middle: '600px',
+  medium: '600px',
   large: '800px',
 };

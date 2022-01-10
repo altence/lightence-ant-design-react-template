@@ -19,13 +19,7 @@ const CategoryWrapper = styled.div`
 
 const SearchInput = styled(CommonSearchInput)`
   .ant-input-search-button {
-    @media only screen and ${(props) => props.theme.media.xs} {
-      height: 2.7rem;
-    }
-
-    @media only screen and ${(props) => props.theme.media.md} {
-      height: 3.1rem;
-    }
+    height: 3.1rem;
   }
 `;
 
@@ -111,12 +105,7 @@ const AutoCompletesPage: React.FC = () => {
         </AutoComplete>
       </S.Card>
       <S.Card title={t('autoCompletes.categories')}>
-        <AutoComplete
-          dropdownClassName="certain-category-search-dropdown"
-          dropdownMatchSelectWidth={500}
-          style={{ width: 400 }}
-          options={categories}
-        >
+        <AutoComplete dropdownClassName="certain-category-search-dropdown" options={categories}>
           <SearchInput placeholder={t('autoCompletes.inputHere')} prefix={null} />
         </AutoComplete>
       </S.Card>

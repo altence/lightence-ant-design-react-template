@@ -4,7 +4,17 @@ import { Button } from 'components/common/buttons/Button/Button';
 import { Popconfirm } from 'components/common/Popconfirm/Popconfirm';
 import { useTranslation } from 'react-i18next';
 import { TopButtons, LeftButtons, RightButtons, BottomButtons } from './PopoversPage';
+import styled from 'styled-components';
 import * as S from '../UIComponentsPage.styles';
+
+const AsyncButton = styled(Button)`
+  @media only screen and ${(props) => props.theme.media.xs} {
+    font-size: ${(props) => props.theme.commonFontSizes.xs};
+  }
+  @media only screen and ${(props) => props.theme.media.md} {
+    font-size: ${(props) => props.theme.commonFontSizes.md};
+  }
+`;
 
 const PopconfirmsPage: React.FC = () => {
   const { t } = useTranslation();
@@ -160,9 +170,9 @@ const PopconfirmsPage: React.FC = () => {
           okButtonProps={{ loading: confirmLoading }}
           onCancel={() => setVisible(false)}
         >
-          <Button type="primary" onClick={() => setVisible(true)}>
+          <AsyncButton type="primary" onClick={() => setVisible(true)}>
             {t('popconfirm.openAsync')}
-          </Button>
+          </AsyncButton>
         </Popconfirm>
       </S.Card>
     </Col>

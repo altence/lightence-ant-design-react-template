@@ -11,6 +11,16 @@ const Card = styled(S.Card)`
   }
 `;
 
+const BuyButton = styled(Button)`
+  @media only screen and ${(props) => props.theme.media.xs} {
+    margin-top: 1rem;
+  }
+
+  @media only screen and ${(props) => props.theme.media.md} {
+    margin-top: 0;
+  }
+`;
+
 const ProgressPage: React.FC = () => {
   const { t } = useTranslation();
 
@@ -25,7 +35,7 @@ const ProgressPage: React.FC = () => {
             <Button type="primary" key="console">
               {t('results.goConsole')}
             </Button>,
-            <Button key="buy">{t('results.buyAgain')}</Button>,
+            <BuyButton key="buy">{t('results.buyAgain')}</BuyButton>,
           ]}
         />
       </Card>
@@ -59,7 +69,7 @@ const ProgressPage: React.FC = () => {
             <Button type="primary" key="console">
               {t('results.goConsole')}
             </Button>,
-            <Button key="buy">{t('results.buyAgain')}</Button>,
+            <BuyButton key="buy">{t('results.buyAgain')}</BuyButton>,
           ]}
         />
       </Card>

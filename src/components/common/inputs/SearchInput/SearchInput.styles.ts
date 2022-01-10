@@ -17,7 +17,6 @@ export const SearchInput = styled(Search)`
   }
 
   & input {
-    font-size: 0.75rem;
     font-weight: 600;
 
     @media only screen and ${(props) => props.theme.media.md} {
@@ -29,6 +28,23 @@ export const SearchInput = styled(Search)`
 
       color: ${(props) => props.theme.colors.text.main};
     }
+  }
+
+  .ant-input-group-addon {
+    min-width: 5.5rem;
+    color: ${(props) => `${props.theme.colors.main.primary}`};
+    font-weight: ${(props) => `${props.theme.commonFontWeight.semibold}`};
+    font-size: ${(props) => `${props.theme.commonFontSizes.lg}`};
+  }
+
+  .ant-input-search-button {
+    &.ant-btn .anticon {
+      color: ${(props) => `${props.theme.colors.main.primary}`};
+    }
+    width: 100%;
+    background-color: rgba(1, 80, 154, 0.05);
+    border: ${(props) => `1px solid ${props.theme.colors.border.main}`};
+    color: ${(props) => `${props.theme.colors.main.primary}`};
   }
 `;
 
