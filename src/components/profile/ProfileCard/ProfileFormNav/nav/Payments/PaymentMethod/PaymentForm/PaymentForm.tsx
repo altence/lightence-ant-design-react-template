@@ -1,28 +1,34 @@
-import React, { useCallback } from 'react';
-import { Col, FormInstance, Row } from 'antd';
-import { useTranslation } from 'react-i18next';
-import { ProfileForm } from 'components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm';
+import React, { useCallback, useState } from 'react';
+import { Col, Form, Row } from 'antd';
 import { CardNumberItem } from './CardNumberItem/CardNumberItem';
 import { CardholderItem } from './CardholderItem/CardholderItem';
 import { ExpDateItem } from './ExpDateItem/ExpDateItem';
 import { CVVItem } from './CVVItem/CVVItem';
 import { CardThemeItem } from './CardThemeItem/CardThemeItem';
 import { CreditCard } from './interfaces';
-import { clearCardData } from '../PaymentMethod';
 import * as S from './PaymentForm.styles';
-import { addCreditCard, updateCreditCard } from 'api/users.api';
-import { notificationController } from 'controllers/notificationController';
+import { ProfileForm } from '@app/components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm';
+import { cardThemes } from '@app/constants/cardThemes';
+
+export const clearCardData: CreditCard = {
+  name: '',
+  cvc: '',
+  expiry: '',
+  number: '',
+  focused: '',
+  background: cardThemes[0].background,
+  isEdit: false,
+};
 
 interface PaymentFormProps {
-  form: FormInstance;
-  cardData: CreditCard;
-  setCardData: (state: CreditCard) => void;
-  setCards: (func: (state: CreditCard[]) => CreditCard[]) => void;
   closeModal: () => void;
+  onFormFinish: (card: CreditCard) => Promise<void>;
 }
 
-export const PaymentForm: React.FC<PaymentFormProps> = ({ form, cardData, setCardData, setCards, closeModal }) => {
-  const { t } = useTranslation();
+export const PaymentForm: React.FC<PaymentFormProps> = ({ closeModal, onFormFinish }) => {
+  const [cardData, setCardData] = useState<CreditCard>(clearCardData);
+
+  const [form] = Form.useForm();
 
   const handleInputFocus = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,39 +43,13 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({ form, cardData, setCar
   const onFinish = useCallback(
     async (values) => {
       const card = { ...values, background: cardData.background };
-
-      let data: CreditCard;
-
-      if (cardData.isEdit) {
-        data = await updateCreditCard(cardData);
-
-        setCards((prev) => {
-          const editCardIndex = prev.indexOf(data);
-          const prevCopy = [...prev];
-
-          prevCopy.splice(editCardIndex, 1, card);
-
-          closeModal();
-
-          return prevCopy;
-        });
-      } else {
-        data = await addCreditCard(card);
-
-        setCards((prev) => {
-          if (prev.find((stateCard) => data.number === stateCard.number && data.name === stateCard.name)) {
-            notificationController.info({ message: t('profile.nav.payments.sameCard') });
-
-            return [...prev];
-          }
-
-          closeModal();
-
-          return [...prev, card];
-        });
-      }
+      return onFormFinish(card).then(() => {
+        setCardData(clearCardData);
+        closeModal();
+        form.setFieldsValue(clearCardData);
+      });
     },
-    [setCards, cardData, closeModal, t],
+    [cardData.background, closeModal, form, onFormFinish],
   );
 
   return (
@@ -88,14 +68,14 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({ form, cardData, setCar
     >
       <S.PayCard cardData={cardData} />
       <S.FormItemsWrapper>
-        <CardNumberItem disabled={!!cardData.isEdit} handleInputFocus={handleInputFocus} />
-        <CardholderItem disabled={!!cardData.isEdit} handleInputFocus={handleInputFocus} />
+        <CardNumberItem handleInputFocus={handleInputFocus} />
+        <CardholderItem handleInputFocus={handleInputFocus} />
         <Row gutter={[20, 0]}>
           <Col span={12}>
-            <ExpDateItem disabled={!!cardData.isEdit} handleInputFocus={handleInputFocus} />
+            <ExpDateItem handleInputFocus={handleInputFocus} />
           </Col>
           <Col span={12}>
-            <CVVItem disabled={!!cardData.isEdit} handleInputFocus={handleInputFocus} />
+            <CVVItem handleInputFocus={handleInputFocus} />
           </Col>
         </Row>
         <CardThemeItem cardData={cardData} setCardData={setCardData} />

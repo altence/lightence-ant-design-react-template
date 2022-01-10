@@ -29,7 +29,7 @@ export const cards = [
     isEdit: false,
   },
   {
-    name: 'Ivanov Ivan',
+    name: 'Christopher Johnson',
     cvc: '222',
     expiry: '09/24',
     number: '5205 0024 2535 5235',
