@@ -39,18 +39,18 @@ import ResultsPage from '@app/pages/UIComponentsPages/Feedback/ResultsPage';
 import AlertsPage from '@app/pages/UIComponentsPages/Feedback/AlertsPage';
 import SkeletonsPage from '@app/pages/UIComponentsPages/Feedback/SkeletonsPage';
 import InputsPage from '@app/pages/UIComponentsPages/Forms/InputsPage';
-import CheckboxesPage from 'pages/UIComponentsPages/Forms/CheckboxesPage';
-import RadiosPage from 'pages/UIComponentsPages/Forms/RadiosPage';
-import SelectsPage from 'pages/UIComponentsPages/Forms/SelectsPage';
-import SwitchesPage from 'pages/UIComponentsPages/Forms/SwitchesPage';
-import UploadsPage from 'pages/UIComponentsPages/Forms/UploadsPage';
-import RatesPage from 'pages/UIComponentsPages/Forms/RatesPage';
-import AutoCompletesPage from 'pages/UIComponentsPages/Forms/AutoCompletesPage';
-import StepsPage from 'pages/UIComponentsPages/Forms/StepsPage';
-import DateTimePickersPage from 'pages/UIComponentsPages/Forms/DateTimePickersPage';
-import DropdownsPage from 'pages/UIComponentsPages/DropdownsPage';
-import BreadcrumbsPage from 'pages/UIComponentsPages/Navigation/BreadcrumbsPage';
-import TabsPage from 'pages/UIComponentsPages/Navigation/TabsPage';
+import CheckboxesPage from '@app/pages/UIComponentsPages/Forms/CheckboxesPage';
+import RadiosPage from '@app/pages/UIComponentsPages/Forms/RadiosPage';
+import SelectsPage from '@app/pages/UIComponentsPages/Forms/SelectsPage';
+import SwitchesPage from '@app/pages/UIComponentsPages/Forms/SwitchesPage';
+import UploadsPage from '@app/pages/UIComponentsPages/Forms/UploadsPage';
+import RatesPage from '@app/pages/UIComponentsPages/Forms/RatesPage';
+import AutoCompletesPage from '@app/pages/UIComponentsPages/Forms/AutoCompletesPage';
+import StepsPage from '@app/pages/UIComponentsPages/Forms/StepsPage';
+import DateTimePickersPage from '@app/pages/UIComponentsPages/Forms/DateTimePickersPage';
+import DropdownsPage from '@app/pages/UIComponentsPages/DropdownsPage';
+import BreadcrumbsPage from '@app/pages/UIComponentsPages/Navigation/BreadcrumbsPage';
+import TabsPage from '@app/pages/UIComponentsPages/Navigation/TabsPage';
 /*TODO check for lazy loading and add if lack*/
 export const AppRouter: React.FC = () => {
   return (
