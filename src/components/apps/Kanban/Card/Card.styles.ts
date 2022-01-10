@@ -62,7 +62,6 @@ export const ThreeDotsWrapper = styled.span`
 `;
 
 export const CardWrapper = styled(MovableCardWrapper)`
-  filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.07));
   position: relative;
 `;
 
