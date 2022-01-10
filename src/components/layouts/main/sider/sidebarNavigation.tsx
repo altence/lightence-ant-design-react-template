@@ -148,14 +148,9 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
     icon: <BlockOutlined />,
     children: [
       {
-        title: 'common.buttonPage',
-        key: 'buttons',
-        url: '/ui-components/buttons',
-      },
-      {
-        title: 'common.spinnerPage',
-        key: 'spinners',
-        url: '/ui-components/spinners',
+        title: 'common.alertsPage',
+        key: 'alerts',
+        url: '/ui-components/alerts',
       },
       {
         title: 'common.avatarsPage',
@@ -163,64 +158,24 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         url: '/ui-components/avatars',
       },
       {
+        title: 'common.autoCompletesPage',
+        key: 'auto-completes',
+        url: '/ui-components/auto-completes',
+      },
+      {
         title: 'common.badgesPage',
         key: 'badges',
         url: '/ui-components/badges',
       },
       {
-        title: 'common.paginationPage',
-        key: 'pagination',
-        url: '/ui-components/pagination',
+        title: 'common.breadcrumbsPage',
+        key: 'breadcrumbs',
+        url: '/ui-components/breadcrumbs',
       },
       {
-        title: 'common.collapsePage',
-        key: 'collapse',
-        url: '/ui-components/collapse',
-      },
-      {
-        title: 'common.modalsPage',
-        key: 'modals',
-        url: '/ui-components/modals',
-      },
-      {
-        title: 'common.popoversPage',
-        key: 'popovers',
-        url: '/ui-components/popovers',
-      },
-      {
-        title: 'common.popconfirmsPage',
-        key: 'popconfirms',
-        url: '/ui-components/popconfirms',
-      },
-      {
-        title: 'common.progressPage',
-        key: 'progress',
-        url: '/ui-components/progress',
-      },
-      {
-        title: 'common.resultsPage',
-        key: 'results',
-        url: '/ui-components/results',
-      },
-      {
-        title: 'common.alertsPage',
-        key: 'alerts',
-        url: '/ui-components/alerts',
-      },
-      {
-        title: 'common.notificationsPage',
-        key: 'notifications',
-        url: '/ui-components/notifications',
-      },
-      {
-        title: 'common.skeletonsPage',
-        key: 'skeletons',
-        url: '/ui-components/skeletons',
-      },
-      {
-        title: 'common.inputsPage',
-        key: 'inputs',
-        url: '/ui-components/inputs',
+        title: 'common.buttonPage',
+        key: 'buttons',
+        url: '/ui-components/buttons',
       },
       {
         title: 'common.checkboxesPage',
@@ -228,39 +183,9 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         url: '/ui-components/checkboxes',
       },
       {
-        title: 'common.radiosPage',
-        key: 'radios',
-        url: '/ui-components/radios',
-      },
-      {
-        title: 'common.selectsPage',
-        key: 'selects',
-        url: '/ui-components/selects',
-      },
-      {
-        title: 'common.switchesPage',
-        key: 'switches',
-        url: '/ui-components/switches',
-      },
-      {
-        title: 'common.uploadsPage',
-        key: 'uploads',
-        url: '/ui-components/uploads',
-      },
-      {
-        title: 'common.ratesPage',
-        key: 'rates',
-        url: '/ui-components/rates',
-      },
-      {
-        title: 'common.autoCompletesPage',
-        key: 'auto-completes',
-        url: '/ui-components/auto-completes',
-      },
-      {
-        title: 'common.stepsPage',
-        key: 'steps',
-        url: '/ui-components/steps',
+        title: 'common.collapsePage',
+        key: 'collapse',
+        url: '/ui-components/collapse',
       },
       {
         title: 'common.dateTimePickersPage',
@@ -273,14 +198,89 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         url: '/ui-components/dropdowns',
       },
       {
-        title: 'common.breadcrumbsPage',
-        key: 'breadcrumbs',
-        url: '/ui-components/breadcrumbs',
+        title: 'common.inputsPage',
+        key: 'inputs',
+        url: '/ui-components/inputs',
+      },
+      {
+        title: 'common.modalsPage',
+        key: 'modals',
+        url: '/ui-components/modals',
+      },
+      {
+        title: 'common.notificationsPage',
+        key: 'notifications',
+        url: '/ui-components/notifications',
+      },
+      {
+        title: 'common.paginationPage',
+        key: 'pagination',
+        url: '/ui-components/pagination',
+      },
+      {
+        title: 'common.popconfirmsPage',
+        key: 'popconfirms',
+        url: '/ui-components/popconfirms',
+      },
+      {
+        title: 'common.popoversPage',
+        key: 'popovers',
+        url: '/ui-components/popovers',
+      },
+      {
+        title: 'common.progressPage',
+        key: 'progress',
+        url: '/ui-components/progress',
+      },
+      {
+        title: 'common.radiosPage',
+        key: 'radios',
+        url: '/ui-components/radios',
+      },
+      {
+        title: 'common.ratesPage',
+        key: 'rates',
+        url: '/ui-components/rates',
+      },
+      {
+        title: 'common.resultsPage',
+        key: 'results',
+        url: '/ui-components/results',
+      },
+      {
+        title: 'common.selectsPage',
+        key: 'selects',
+        url: '/ui-components/selects',
+      },
+      {
+        title: 'common.skeletonsPage',
+        key: 'skeletons',
+        url: '/ui-components/skeletons',
+      },
+      {
+        title: 'common.spinnerPage',
+        key: 'spinners',
+        url: '/ui-components/spinners',
+      },
+      {
+        title: 'common.stepsPage',
+        key: 'steps',
+        url: '/ui-components/steps',
+      },
+      {
+        title: 'common.switchesPage',
+        key: 'switches',
+        url: '/ui-components/switches',
       },
       {
         title: 'common.tabsPage',
         key: 'tabs',
         url: '/ui-components/tabs',
+      },
+      {
+        title: 'common.uploadsPage',
+        key: 'uploads',
+        url: '/ui-components/uploads',
       },
     ],
   },
