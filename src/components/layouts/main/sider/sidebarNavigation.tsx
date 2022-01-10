@@ -8,6 +8,7 @@ import {
   LineChartOutlined,
   TableOutlined,
   UserOutlined,
+  BlockOutlined,
 } from '@ant-design/icons';
 
 export interface SidebarNavigationItem {
@@ -144,7 +145,7 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
   {
     title: 'common.ui',
     key: 'ui',
-    icon: <LayoutOutlined />,
+    icon: <BlockOutlined />,
     children: [
       {
         title: 'common.buttonPage',
