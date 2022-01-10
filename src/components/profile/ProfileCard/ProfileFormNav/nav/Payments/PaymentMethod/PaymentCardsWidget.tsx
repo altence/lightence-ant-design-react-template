@@ -4,13 +4,15 @@ import { PaymentCard } from '@app/components/profile/ProfileCard/ProfileFormNav/
 import { Col, Row } from 'antd';
 import { useResponsive } from '@app/hooks/useResponsive';
 import { ActionButtons } from '@app/components/profile/ProfileCard/ProfileFormNav/nav/Payments/PaymentMethod/PaymentCardCarousel/ActionButtons/ActionButtons';
+import { AddNewCardButton } from '@app/components/profile/ProfileCard/ProfileFormNav/nav/Payments/PaymentMethod/AddNewCardButton/AddNewCardButton';
 
 interface PaymentCardsWidgetProps {
   cards: CreditCard[];
   onCardRemove: (cardNumber: string) => void;
+  onCardAdd: (card: CreditCard) => Promise<void>;
 }
 
-export const PaymentCardsWidget: React.FC<PaymentCardsWidgetProps> = ({ cards, onCardRemove }) => {
+export const PaymentCardsWidget: React.FC<PaymentCardsWidgetProps> = ({ cards, onCardRemove, onCardAdd }) => {
   const { useMediaQuery } = useResponsive();
 
   const breakpoint = 659.98; // calculated manually according to default card size (290px) and other factors
@@ -27,6 +29,9 @@ export const PaymentCardsWidget: React.FC<PaymentCardsWidgetProps> = ({ cards, o
           </PaymentCard>
         </Col>
       ))}
+      <Col>
+        <AddNewCardButton onCardAdd={onCardAdd} />
+      </Col>
     </Row>
   );
 };
