@@ -1,11 +1,11 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Card } from 'components/common/Card/Card';
-import { Payment } from './Payment/Payment';
-import { PaymentsTable } from './PaymentsTable/PaymentsTable';
-import { getPaymentHistory, Payment as IPayment } from 'api/paymentHistory.api';
-import { FormItem, Title } from '../../../../../../common/Form/Form.styles';
-import { useResponsive } from 'hooks/useResponsive';
+import { Card } from '@app/components/common/Card/Card';
+import { Payment } from '../Payment/Payment';
+import { PaymentsTable } from '../PaymentsTable/PaymentsTable';
+import { getPaymentHistory, Payment as IPayment } from '@app/api/paymentHistory.api';
+import { FormItem, Title } from '@app/components/common/Form/Form.styles';
+import { useResponsive } from '@app/hooks/useResponsive';
 import * as S from './PaymentHistory.styles';
 
 export const PaymentHistory: React.FC = () => {

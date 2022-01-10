@@ -1,11 +1,11 @@
 import React, { useCallback, useState } from 'react';
 import { Col, Form, Row } from 'antd';
-import { CardNumberItem } from './CardNumberItem/CardNumberItem';
-import { CardholderItem } from './CardholderItem/CardholderItem';
-import { ExpDateItem } from './ExpDateItem/ExpDateItem';
-import { CVVItem } from './CVVItem/CVVItem';
-import { CardThemeItem } from './CardThemeItem/CardThemeItem';
-import { CreditCard } from './interfaces';
+import { CardNumberItem } from '../CardNumberItem/CardNumberItem';
+import { CardholderItem } from '../CardholderItem/CardholderItem';
+import { ExpDateItem } from '../ExpDateItem/ExpDateItem';
+import { CVVItem } from '../CVVItem/CVVItem';
+import { CardThemeItem } from '../CardThemeItem/CardThemeItem';
+import { CreditCard } from '../interfaces';
 import * as S from './PaymentForm.styles';
 import { ProfileForm } from '@app/components/profile/ProfileCard/ProfileFormNav/ProfileForm/ProfileForm';
 import { cardThemes } from '@app/constants/cardThemes';

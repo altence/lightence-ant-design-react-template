@@ -1,6 +1,6 @@
 import React from 'react';
 import { Notifications } from './nav/Notifications/Notifications';
-import { Payments } from './nav/Payments/Payments';
+import { Payments } from './nav/payments/Payments';
 import { PersonalInfo } from './nav/PersonalInfo/PersonalInfo';
 import { SecuritySettings } from './nav/SecuritySettings/SecuritySettings';
 

@@ -1,10 +1,10 @@
 import React from 'react';
-import { CreditCard } from './PaymentForm/interfaces';
-import { PaymentCard } from '@app/components/profile/ProfileCard/ProfileFormNav/nav/Payments/PaymentMethod/PaymentCard/PaymentCard';
+import { CreditCard } from './paymentForm/interfaces';
+import { PaymentCard } from '@app/components/profile/ProfileCard/ProfileFormNav/nav/payments/paymentMethod/PaymentCard/PaymentCard';
 import { Col, Row } from 'antd';
 import { useResponsive } from '@app/hooks/useResponsive';
-import { ActionButtons } from '@app/components/profile/ProfileCard/ProfileFormNav/nav/Payments/PaymentMethod/PaymentCardCarousel/ActionButtons/ActionButtons';
-import { AddNewCardButton } from '@app/components/profile/ProfileCard/ProfileFormNav/nav/Payments/PaymentMethod/AddNewCardButton/AddNewCardButton';
+import { ActionButtons } from '@app/components/profile/ProfileCard/ProfileFormNav/nav/payments/paymentMethod/ActionButtons/ActionButtons';
+import { AddNewCardButton } from '@app/components/profile/ProfileCard/ProfileFormNav/nav/payments/paymentMethod/addNewCard/AddNewCardButton/AddNewCardButton';
 
 interface PaymentCardsWidgetProps {
   cards: CreditCard[];

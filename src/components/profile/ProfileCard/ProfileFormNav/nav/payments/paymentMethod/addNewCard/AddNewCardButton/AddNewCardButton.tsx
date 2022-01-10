@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import * as S from '@app/components/profile/ProfileCard/ProfileFormNav/nav/Payments/PaymentMethod/AddNewCardButton/AddNewCardButton.styles';
-import { AddNewCardModal } from '@app/components/profile/ProfileCard/ProfileFormNav/nav/Payments/PaymentMethod/PaymentModal/AddNewCardModal';
-import { CreditCard } from '@app/components/profile/ProfileCard/ProfileFormNav/nav/Payments/PaymentMethod/PaymentForm/interfaces';
+import * as S from '@app/components/profile/ProfileCard/ProfileFormNav/nav/payments/paymentMethod/addNewCard/AddNewCardButton/AddNewCardButton.styles';
+import { AddNewCardModal } from '@app/components/profile/ProfileCard/ProfileFormNav/nav/payments/paymentMethod/addNewCard/AddNewCardModal';
+import { CreditCard } from '@app/components/profile/ProfileCard/ProfileFormNav/nav/payments/paymentMethod/paymentForm/interfaces';
 import { useTranslation } from 'react-i18next';
 
 interface AddNewCardButtonProps {

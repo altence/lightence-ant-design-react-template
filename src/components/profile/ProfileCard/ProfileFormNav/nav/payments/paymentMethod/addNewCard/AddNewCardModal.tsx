@@ -1,7 +1,7 @@
 import React from 'react';
-import { Modal } from 'components/common/Modal/Modal';
-import { CreditCard } from '../PaymentForm/interfaces';
-import { PaymentForm } from '../PaymentForm/PaymentForm';
+import { Modal } from '@app/components/common/Modal/Modal';
+import { CreditCard } from '../paymentForm/interfaces';
+import { PaymentForm } from '../paymentForm/PaymentForm/PaymentForm';
 
 interface PaymentModalProps {
   isModalVisible: boolean;
