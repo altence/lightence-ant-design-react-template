@@ -7,11 +7,10 @@ import { ActionButtons } from '@app/components/profile/ProfileCard/ProfileFormNa
 
 interface PaymentCardsWidgetProps {
   cards: CreditCard[];
-  onCardEdit: (card: CreditCard) => void;
   onCardRemove: (cardNumber: string) => void;
 }
 
-export const PaymentCardsWidget: React.FC<PaymentCardsWidgetProps> = ({ cards, onCardEdit, onCardRemove }) => {
+export const PaymentCardsWidget: React.FC<PaymentCardsWidgetProps> = ({ cards, onCardRemove }) => {
   const { useMediaQuery } = useResponsive();
 
   const breakpoint = 659.98; // calculated manually according to default card size (290px) and other factors
@@ -24,7 +23,7 @@ export const PaymentCardsWidget: React.FC<PaymentCardsWidgetProps> = ({ cards, o
       {cards.map((card) => (
         <Col key={card.number}>
           <PaymentCard cardData={card}>
-            <ActionButtons onEdit={() => onCardEdit(card)} onRemove={() => onCardRemove(card.number)} />
+            <ActionButtons onRemove={() => onCardRemove(card.number)} />
           </PaymentCard>
         </Col>
       ))}
