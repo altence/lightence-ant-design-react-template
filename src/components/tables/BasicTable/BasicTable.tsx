@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { Space, TablePaginationConfig } from 'antd';
-import * as S from './BasicTable.styles';
+import { Col, Row, Space, TablePaginationConfig } from 'antd';
 import { BasicTableRow, getBasicTableData, Pagination, Tag } from 'api/table.api';
 import { Table } from 'components/common/Table/Table';
 import { ColumnsType } from 'antd/es/table';
@@ -117,15 +116,15 @@ export const BasicTable: React.FC = () => {
       key: 'tags',
       dataIndex: 'tags',
       render: (tags: Tag[]) => (
-        <>
+        <Row gutter={[10, 10]}>
           {tags.map((tag: Tag) => {
             return (
-              <S.Tag color={defineColorByPriority(tag.priority)} key={tag.value}>
-                {tag.value.toUpperCase()}
-              </S.Tag>
+              <Col key={tag.value}>
+                <Status color={defineColorByPriority(tag.priority)}>{tag.value.toUpperCase()}</Status>
+              </Col>
             );
           })}
-        </>
+        </Row>
       ),
     },
     {
