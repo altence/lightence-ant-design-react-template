@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import { patientResultStatus } from '../../../constants/patientResultStatus';
 import { patientResultsData } from '../../../constants/patientResultsData';
 import { Dates } from '../../../constants/Dates';
-import { useResponsive } from 'hooks/useResponsive';
 import { DashboardCard } from '../DashboardCard/DashboardCard';
 import * as S from './PatientResultsCard.styles';
 
@@ -13,11 +12,10 @@ const icons = [<CheckOutlined key={0} />, <BarChartOutlined key={1} />, <FileTex
 
 export const PatientResultsCard: React.FC = () => {
   const { t } = useTranslation();
-  const { mobileOnly } = useResponsive();
 
   return (
     <DashboardCard title={t('dashboard.patientResults.title')}>
-      <Steps direction="vertical" size="small" current={0}>
+      <Steps direction="vertical" current={0}>
         {patientResultStatus.map((status, index) => {
           const patientResult = patientResultsData.find((item) => item.status === status.id) || {
             isActive: false,

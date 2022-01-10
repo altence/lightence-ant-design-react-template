@@ -4,10 +4,6 @@ import { Steps as AntdSteps } from 'antd';
 export const Steps = styled(AntdSteps)`
   font-size: unset;
 
-  & .ant-steps-item:not(:last-child) > .ant-steps-item-container > .ant-steps-item-tail {
-    left: 1rem;
-  }
-
   & .ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title {
     color: ${(props) => props.theme.colors.main.primary};
     font-weight: ${(props) => props.theme.commonFontWeight.semibold};
