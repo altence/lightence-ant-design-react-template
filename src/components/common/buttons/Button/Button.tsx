@@ -10,8 +10,10 @@ export interface ButtonProps extends AntButtonProps {
   type?: ButtonType;
 }
 
-export const Button: React.FC<ButtonProps> = ({ className, type = 'ghost', children, ...props }) => (
-  <S.Button type={type} className={className} {...props}>
-    {children}
-  </S.Button>
+export const Button = React.forwardRef<HTMLElement, ButtonProps>(
+  ({ className, type = 'ghost', children, ...props }, ref) => (
+    <S.Button ref={ref} type={type} className={className} {...props}>
+      {children}
+    </S.Button>
+  ),
 );
