@@ -51,6 +51,7 @@ import DateTimePickersPage from '@app/pages/UIComponentsPages/Forms/DateTimePick
 import DropdownsPage from '@app/pages/UIComponentsPages/DropdownsPage';
 import BreadcrumbsPage from '@app/pages/UIComponentsPages/Navigation/BreadcrumbsPage';
 import TabsPage from '@app/pages/UIComponentsPages/Navigation/TabsPage';
+import NotificationsUIPage from '@app/pages/UIComponentsPages/Feedback/NotificationsPage';
 /*TODO check for lazy loading and add if lack*/
 export const AppRouter: React.FC = () => {
   return (
@@ -93,6 +94,7 @@ export const AppRouter: React.FC = () => {
             <Route path="progress" element={<ProgressPage />} />
             <Route path="results" element={<ResultsPage />} />
             <Route path="alerts" element={<AlertsPage />} />
+            <Route path="notifications" element={<NotificationsUIPage />} />
             <Route path="skeletons" element={<SkeletonsPage />} />
           </Route>
           <Route path="data-tables" element={<DataTablesPage />} />
