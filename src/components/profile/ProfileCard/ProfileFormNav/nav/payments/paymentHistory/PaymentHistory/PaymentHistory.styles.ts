@@ -1,6 +1,6 @@
 import { Typography } from 'antd';
 import styled from 'styled-components';
-import { defaultPaddings } from 'constants/defaultPaddings';
+import { defaultPaddings } from '@app/constants/defaultPaddings';
 
 interface ContentWrapperProps {
   isEmptyHistory: boolean;

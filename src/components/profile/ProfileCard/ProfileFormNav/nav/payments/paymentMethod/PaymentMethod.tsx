@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Card } from 'components/common/Card/Card';
 import { FormItem, Title } from '@app/components/common/Form/Form.styles';
-import { CreditCard } from './PaymentForm/interfaces';
+import { CreditCard } from './paymentForm/interfaces';
 import { useResponsive } from 'hooks/useResponsive';
 import { cards as initialCards } from '@app/constants/data/cards';
-import { PaymentCardsWidget } from '@app/components/profile/ProfileCard/ProfileFormNav/nav/Payments/PaymentMethod/PaymentCardsWidget';
+import { PaymentCardsWidget } from '@app/components/profile/ProfileCard/ProfileFormNav/nav/payments/paymentMethod/PaymentCardsWidget';
 import { addCreditCard } from '@app/api/users.api';
 
 export const PaymentMethod: React.FC = () => {

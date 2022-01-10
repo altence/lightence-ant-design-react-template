@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { PaymentCard } from '../PaymentCard/PaymentCard';
-import { ButtonsGroup } from 'components/common/Form/ButtonsGroup/ButtonsGroup';
+import { PaymentCard } from '../../PaymentCard/PaymentCard';
+import { ButtonsGroup } from '@app/components/common/Form/ButtonsGroup/ButtonsGroup';
 
 export const PayCard = styled(PaymentCard)`
   position: absolute;

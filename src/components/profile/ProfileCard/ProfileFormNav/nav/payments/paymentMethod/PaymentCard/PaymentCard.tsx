@@ -1,7 +1,7 @@
 import React from 'react';
 import Cards from 'react-credit-cards';
 import 'react-credit-cards/es/styles-compiled.css';
-import { CreditCard } from '../PaymentForm/interfaces';
+import { CreditCard } from '../paymentForm/interfaces';
 import * as S from './PaymentCard.styles';
 
 interface PaymentCardProps {

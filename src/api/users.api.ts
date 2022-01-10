@@ -1,4 +1,4 @@
-import { CreditCard } from 'components/profile/ProfileCard/ProfileFormNav/nav/Payments/PaymentMethod/PaymentForm/interfaces';
+import { CreditCard } from 'components/profile/ProfileCard/ProfileFormNav/nav/payments/paymentMethod/paymentForm/interfaces';
 import avatarImg from '@app/assets/avatars/avatar5.png';
 
 export interface User {
