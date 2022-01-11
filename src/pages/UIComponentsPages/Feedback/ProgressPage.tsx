@@ -25,7 +25,7 @@ const ProgressPage: React.FC = () => {
     setPercent(newPercent);
   };
 
-  const decline = () => {
+  const decrease = () => {
     let newPercent = percent - 10;
     if (newPercent < 0) {
       newPercent = 0;
@@ -52,7 +52,7 @@ const ProgressPage: React.FC = () => {
           <Progress percent={percent} type="circle" strokeColor={dynamicSuccessColor} />
           <Progress percent={percent} strokeColor={dynamicSuccessColor} />
           <ButtonGroup>
-            <Button onClick={decline} icon={<MinusOutlined />} />
+            <Button onClick={decrease} icon={<MinusOutlined />} />
             <Button onClick={increase} icon={<PlusOutlined />} />
           </ButtonGroup>
         </div>
