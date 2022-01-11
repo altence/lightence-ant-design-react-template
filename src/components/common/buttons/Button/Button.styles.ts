@@ -22,19 +22,19 @@ export const Button = styled(AntButton)<BtnProps>`
         color: ${defineColorBySeverity(props.$severity, props.theme)};
 
         &:hover {
-          background: '#fff';
+          background: #fff;
 
-          border-color: ${shadeColor(defineColorBySeverity(props.$severity, props.theme), 10)} !important;
+          border-color: ${shadeColor(defineColorBySeverity(props.$severity, props.theme), 10)};
 
-          color: ${shadeColor(defineColorBySeverity(props.$severity, props.theme), 10)} !important;
+          color: ${shadeColor(defineColorBySeverity(props.$severity, props.theme), 10)};
         }
 
         &:focus {
-          background: '#fff';
+          background: #fff;
 
-          border-color: ${shadeColor(defineColorBySeverity(props.$severity, props.theme), 10)} !important;
+          border-color: ${shadeColor(defineColorBySeverity(props.$severity, props.theme), 10)};
 
-          color: ${shadeColor(defineColorBySeverity(props.$severity, props.theme), 10)} !important;
+          color: ${shadeColor(defineColorBySeverity(props.$severity, props.theme), 10)};
         }
       `}
 

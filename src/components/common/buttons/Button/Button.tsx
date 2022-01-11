@@ -14,7 +14,7 @@ export interface ButtonProps extends AntButtonProps {
 
 export const Button = React.forwardRef<HTMLElement, ButtonProps>(
   ({ className, type = 'ghost', $severity, children, ...props }, ref) => (
-    <S.Button ref={ref} type={type} className={className} {...props} $severity={$severity}>
+    <S.Button ref={ref} type={$severity ? 'primary' : type} className={className} {...props} $severity={$severity}>
       {children}
     </S.Button>
   ),
