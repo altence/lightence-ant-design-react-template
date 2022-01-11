@@ -1,3 +1,5 @@
+import { NotificationType } from '@app/components/common/Notification/Notification';
+import { DefaultTheme } from 'styled-components';
 import { Priority } from '../constants/enums/priorities';
 import theme from '../styles/theme';
 
@@ -65,6 +67,21 @@ export const defineColorByPriority = (priority: Priority): string => {
   }
 };
 
+export const defineColorBySeverity = (severity: NotificationType | undefined, theme: DefaultTheme): string => {
+  switch (severity) {
+    case 'error':
+      return theme.colors.main.error;
+    case 'warning':
+      return theme.colors.main.warning;
+    case 'success':
+      return theme.colors.main.success;
+    case 'info':
+      return theme.colors.main.primary;
+    default:
+      return theme.colors.main.primary;
+  }
+};
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const mergeBy = (a: any[], b: any[], key: string): any[] =>
   a.filter((elem) => !b.find((subElem) => subElem[key] === elem[key])).concat(b);
@@ -75,4 +92,24 @@ export const getSmoothRandom = (factor: number, start: number): number => {
   const min = Math.max(0, start - halfEnvelope);
 
   return Math.random() * (max - min) + min;
+};
+
+export const shadeColor = (color: string, percent: number): string => {
+  let R = parseInt(color.substring(1, 3), 16);
+  let G = parseInt(color.substring(3, 5), 16);
+  let B = parseInt(color.substring(5, 7), 16);
+
+  R = parseInt(((R * (100 + percent)) / 100).toString());
+  G = parseInt(((G * (100 + percent)) / 100).toString());
+  B = parseInt(((B * (100 + percent)) / 100).toString());
+
+  R = R < 255 ? R : 255;
+  G = G < 255 ? G : 255;
+  B = B < 255 ? B : 255;
+
+  const RR = R.toString(16).length == 1 ? '0' + R.toString(16) : R.toString(16);
+  const GG = G.toString(16).length == 1 ? '0' + G.toString(16) : G.toString(16);
+  const BB = B.toString(16).length == 1 ? '0' + B.toString(16) : B.toString(16);
+
+  return '#' + RR + GG + BB;
 };
