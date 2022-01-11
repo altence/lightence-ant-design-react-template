@@ -18,6 +18,7 @@ export const SearchInput = styled(Search)`
 
   & input {
     font-weight: 600;
+    background-color: #f3f3f3;
 
     @media only screen and ${(props) => props.theme.media.md} {
       font-size: 1rem;

@@ -1,20 +1,19 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { DesktopHeader } from './layouts/DesktopHeader';
 import { MobileHeader } from './layouts/MobileHeader';
 import { useResponsive } from 'hooks/useResponsive';
-import { useLocation } from 'react-router-dom';
 
 interface HeaderProps {
   toggleSider: () => void;
   isSiderOpened: boolean;
-  withDivider: boolean;
+  isTwoColumnsLayout: boolean;
 }
 
-export const Header: React.FC<HeaderProps> = ({ toggleSider, isSiderOpened, withDivider }) => {
+export const Header: React.FC<HeaderProps> = ({ toggleSider, isSiderOpened, isTwoColumnsLayout }) => {
   const { isTablet } = useResponsive();
 
   return isTablet ? (
-    <DesktopHeader withDivider={withDivider} />
+    <DesktopHeader withDivider={isTwoColumnsLayout} />
   ) : (
     <MobileHeader toggleSider={toggleSider} isSiderOpened={isSiderOpened} />
   );

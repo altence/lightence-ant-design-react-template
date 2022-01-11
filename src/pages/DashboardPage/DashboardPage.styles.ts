@@ -6,7 +6,7 @@ export const RightSideCol = styled(Col)`
     100vh - ${(props) => props.theme.desktopLayout.headerHeight} -
       ${(props) => props.theme.desktopLayout.paddingVertical} * 2
   );
-  padding-left: ${(props) => props.theme.desktopLayout.paddingHorizontal};
+  padding-left: 1.875rem;
 
   &:before {
     height: 100vh;
@@ -22,5 +22,6 @@ export const RightSideCol = styled(Col)`
 
 export const LeftSideCol = styled(Col)`
   max-height: calc(100vh - ${(props) => props.theme.desktopLayout.headerHeight});
-  overflow: scroll;
+  overflow: auto;
+  padding-right: 1rem;
 `;

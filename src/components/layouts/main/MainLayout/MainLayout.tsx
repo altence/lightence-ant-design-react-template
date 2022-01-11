@@ -6,26 +6,28 @@ import { MainHeader } from '../MainHeader/MainHeader';
 import * as S from './MainLayout.styles';
 import { Outlet, useLocation } from 'react-router-dom';
 import { DASHBOARD_PATH } from '@app/components/router/AppRouter';
+import { useResponsive } from '@app/hooks/useResponsive';
 
 const MainLayout: React.FC = () => {
-  const [isDashboardPages, setIsDashboardPages] = useState(true);
+  const [isTwoColumnsLayout, setIsTwoColumnsLayout] = useState(true);
   const [siderCollapsed, setSiderCollapsed] = useState(true);
+  const { isDesktop } = useResponsive();
   const location = useLocation();
 
   const toggleSider = () => setSiderCollapsed(!siderCollapsed);
 
   useEffect(() => {
-    setIsDashboardPages([DASHBOARD_PATH].includes(location.pathname));
-  }, [location.pathname]);
+    setIsTwoColumnsLayout([DASHBOARD_PATH].includes(location.pathname) && isDesktop);
+  }, [location.pathname, isDesktop]);
 
   return (
     <S.LayoutMaster>
       <MainSider isCollapsed={siderCollapsed} setCollapsed={setSiderCollapsed} />
       <S.LayoutMain>
         <MainHeader>
-          <Header toggleSider={toggleSider} isSiderOpened={!siderCollapsed} withDivider={isDashboardPages} />
+          <Header toggleSider={toggleSider} isSiderOpened={!siderCollapsed} isTwoColumnsLayout={isTwoColumnsLayout} />
         </MainHeader>
-        <MainContent id="main-content" $twoColumnsLayout={isDashboardPages}>
+        <MainContent id="main-content" $twoColumnsLayout={isTwoColumnsLayout}>
           <Outlet />
         </MainContent>
       </S.LayoutMain>

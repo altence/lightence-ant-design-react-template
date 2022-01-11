@@ -19,11 +19,11 @@ const DashboardPage: React.FC = () => {
   const { isTablet, isDesktop } = useResponsive();
 
   const desktopLayout = (
-    <>
-      <S.LeftSideCol xl={14} xxl={17}>
-        <Row gutter={[10, 10]}>
+    <Row>
+      <S.LeftSideCol xl={16} xxl={16}>
+        <Row gutter={[30, 30]}>
           <Col span={24}>
-            <Row gutter={[10, 10]}>
+            <Row gutter={[30, 30]}>
               <StatisticsCards />
 
               <Col id="map" span={24} order={5}>
@@ -66,14 +66,14 @@ const DashboardPage: React.FC = () => {
         </Row>
       </S.LeftSideCol>
 
-      <S.RightSideCol xl={10} xxl={7}>
+      <S.RightSideCol xl={8} xxl={8}>
         <BloodScreeningCard />
       </S.RightSideCol>
-    </>
+    </Row>
   );
 
   const mobileAndTabletLayout = (
-    <>
+    <Row gutter={[20, 20]}>
       <StatisticsCards />
 
       <Col id="latest-screenings" xs={24} md={12} order={(isTablet && 5) || 0}>
@@ -117,10 +117,10 @@ const DashboardPage: React.FC = () => {
           <MapCard />
         </Col>
       )}
-    </>
+    </Row>
   );
 
-  return <Row>{isDesktop ? desktopLayout : mobileAndTabletLayout}</Row>;
+  return isDesktop ? desktopLayout : mobileAndTabletLayout;
 };
 
 export default DashboardPage;

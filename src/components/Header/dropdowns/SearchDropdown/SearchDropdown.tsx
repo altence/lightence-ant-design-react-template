@@ -54,7 +54,7 @@ export const SearchDropdown: React.FC<SearchOverlayProps> = ({
             enterButton={null}
             addonAfter={null}
           />
-          <div ref={ref}></div>
+          <div ref={ref} />
         </DropdownHeader>
       </Dropdown>
     </>

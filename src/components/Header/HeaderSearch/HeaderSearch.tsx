@@ -24,9 +24,11 @@ export const HeaderSearch: React.FC = () => {
 
   const sortedResults = query
     ? categoriesList.reduce((acc, current) => {
-        const searchResults = components
-          .filter((component) => component.categories.includes(current.name))
-          .filter((component) => component.keywords.some((keyword) => keyword.includes(query)));
+        const searchResults = components.filter(
+          (component) =>
+            component.categories.includes(current.name) &&
+            component.keywords.some((keyword) => keyword.includes(query)),
+        );
 
         return searchResults.length > 0 ? acc.concat({ category: current.name, components: searchResults }) : acc;
       }, [] as CategoryComponents[])

@@ -18,7 +18,7 @@ export const DesktopHeader: React.FC<DesktopHeaderProps> = ({ withDivider }) => 
         <HeaderSearch />
       </Col>
 
-      <S.ProfileColumn xl={10} xxl={7} $withDivider={withDivider}>
+      <S.ProfileColumn xl={8} xxl={8} $withDivider={withDivider}>
         <Row align="middle" justify="end" gutter={[30, 30]}>
           <Col>
             <NotificationsDropdown />
