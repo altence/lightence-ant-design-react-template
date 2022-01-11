@@ -1,41 +1,49 @@
 import styled, { css } from 'styled-components';
 import { Button as AntButton } from 'antd';
 import { ButtonType } from 'antd/lib/button';
+import { Severity } from '@app/interfaces/interfaces';
+import { defineColorBySeverity, hexToRGB, shadeColor } from '@app/utils/utils';
 
 interface BtnProps {
   type: ButtonType;
+  $severity?: Severity;
 }
 
 export const Button = styled(AntButton)<BtnProps>`
   ${(props) =>
-    props.type === 'primary' &&
+    !props.danger &&
     css`
-      &:hover {
-        background: ${(props) => props.theme.colors.main.secondary};
+      ${props.$severity &&
+      css`
+        background: ${hexToRGB(defineColorBySeverity(props.$severity, props.theme), 0.2)};
 
-        border-color: ${(props) => props.theme.colors.main.secondary};
-      }
-    `};
+        border-color: ${defineColorBySeverity(props.$severity, props.theme)};
 
-  ${(props) =>
-    props.type === 'ghost' &&
-    css`
-      &:hover {
-        border-color: ${(props) => props.theme.colors.main.secondary};
-        color: ${(props) => props.theme.colors.main.secondary};
-      }
-    `};
+        color: ${defineColorBySeverity(props.$severity, props.theme)};
 
-  ${(props) =>
-    props.type === 'link' &&
-    css`
-      & span,
-      a {
-        text-decoration: underline;
-      }
+        &:hover {
+          background: '#fff';
 
-      &:hover {
-        color: ${(props) => props.theme.colors.main.secondary};
-      }
-    `};
+          border-color: ${shadeColor(defineColorBySeverity(props.$severity, props.theme), 10)} !important;
+
+          color: ${shadeColor(defineColorBySeverity(props.$severity, props.theme), 10)} !important;
+        }
+
+        &:focus {
+          background: '#fff';
+
+          border-color: ${shadeColor(defineColorBySeverity(props.$severity, props.theme), 10)} !important;
+
+          color: ${shadeColor(defineColorBySeverity(props.$severity, props.theme), 10)} !important;
+        }
+      `}
+
+      ${props.type === 'link' &&
+      css`
+        & span,
+        a {
+          text-decoration: underline;
+        }
+      `};
+    `}
 `;

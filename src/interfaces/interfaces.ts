@@ -14,3 +14,5 @@ export interface ChartSeries {
 }
 
 export type ChartSeriesData = ChartSeries[];
+
+export type Severity = 'success' | 'error' | 'info' | 'warning';
