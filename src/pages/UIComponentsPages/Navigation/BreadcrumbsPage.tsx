@@ -1,4 +1,4 @@
-import { Col } from 'antd';
+import { Col, Space } from 'antd';
 import { Button } from 'components/common/buttons/Button/Button';
 import { Breadcrumb, BreadcrumbItem } from 'components/common/Breadcrumb/Breadcrumb';
 import { Menu, MenuItem } from 'components/common/Menu/Menu';
@@ -44,8 +44,10 @@ const BreadcrumbsPage: React.FC = () => {
             <HomeOutlined />
           </BreadcrumbItem>
           <BreadcrumbItem>
-            <UserOutlined />
-            <span>{t('breadcrumbs.applicationList')}</span>
+            <Space>
+              <UserOutlined />
+              <span>{t('breadcrumbs.applicationList')}</span>
+            </Space>
           </BreadcrumbItem>
           <BreadcrumbItem>{t('breadcrumbs.application')}</BreadcrumbItem>
         </Breadcrumb>
