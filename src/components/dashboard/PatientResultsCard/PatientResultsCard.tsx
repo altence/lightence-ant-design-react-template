@@ -2,9 +2,9 @@ import React from 'react';
 import { Steps, Step } from 'components/common/Steps/Steps';
 import { BarChartOutlined, CheckOutlined, FileTextOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
-import { patientResultStatus } from '../../../constants/patientResultStatus';
-import { patientResultsData } from '../../../constants/patientResultsData';
-import { Dates } from '../../../constants/Dates';
+import { patientResultStatus } from '@app/constants/patientResultStatus';
+import { patientResultsData } from '@app/constants/patientResultsData';
+import { Dates } from '@app/constants/Dates';
 import { DashboardCard } from '../DashboardCard/DashboardCard';
 import * as S from './PatientResultsCard.styles';
 
