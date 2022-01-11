@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useMemo } from 'react';
 import { Col } from 'antd';
 import { Progress } from 'components/common/Progress/Progress';
 import { Button, ButtonGroup } from 'components/common/buttons/Button/Button';
@@ -11,6 +11,11 @@ const ProgressPage: React.FC = () => {
   const [percent, setPercent] = useState<number>(0);
   const theme = useContext(ThemeContext);
   const { t } = useTranslation();
+
+  const dynamicSuccessColor = useMemo(
+    () => (percent === 100 ? theme.colors.main.success : theme.colors.main.primary),
+    [percent, theme.colors.main],
+  );
 
   const increase = () => {
     let newPercent = percent + 10;
@@ -44,8 +49,8 @@ const ProgressPage: React.FC = () => {
       </S.Card>
       <S.Card title={t('progress.dynamic')}>
         <div>
-          <Progress percent={percent} type="circle" strokeColor={theme.colors.main.primary} />
-          <Progress percent={percent} strokeColor={theme.colors.main.primary} />
+          <Progress percent={percent} type="circle" strokeColor={dynamicSuccessColor} />
+          <Progress percent={percent} strokeColor={dynamicSuccessColor} />
           <ButtonGroup>
             <Button onClick={decline} icon={<MinusOutlined />} />
             <Button onClick={increase} icon={<PlusOutlined />} />
