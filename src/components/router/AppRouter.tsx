@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import DashboardPage from '@app/pages/DashboardPage';
+import DashboardPage from '@app/pages/DashboardPage/DashboardPage';
 import MainLayout from '@app/components/layouts/main/MainLayout/MainLayout';
 import AuthLayout from '@app/components/layouts/auth/AuthLayout';
 import LoginPage from '@app/pages/LoginPage';
@@ -52,12 +52,15 @@ import DropdownsPage from '@app/pages/UIComponentsPages/DropdownsPage';
 import BreadcrumbsPage from '@app/pages/UIComponentsPages/Navigation/BreadcrumbsPage';
 import TabsPage from '@app/pages/UIComponentsPages/Navigation/TabsPage';
 import NotificationsUIPage from '@app/pages/UIComponentsPages/Feedback/NotificationsPage';
+
+export const DASHBOARD_PATH = '/';
+
 /*TODO check for lazy loading and add if lack*/
 export const AppRouter: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<MainLayout />}>
+        <Route path={DASHBOARD_PATH} element={<MainLayout />}>
           <Route index element={<DashboardPage />} />
           <Route path="apps">
             <Route path="feed" element={<NewsFeedPage />} />

@@ -85,7 +85,7 @@ const colors = {
     angularGradient:
       'conic-gradient(from -35.18deg at 50% 50%, #006CCF -154.36deg, #FF5252 24.13deg, #FFB155 118.76deg, #006CCF 205.64deg, #FF5252 384.13deg)',
     mainBackground: commonColors.white,
-    secondaryBackground: '#F4F4F4',
+    secondaryBackground: '#F8FBFF',
     chartPrimaryGradient: new graphic.LinearGradient(0, 0, 0, 1, [
       {
         offset: 0,
@@ -124,7 +124,7 @@ const colors = {
     secondary: commonColors.white,
   },
   border: {
-    main: '#bec0c6',
+    main: '#cce1f4',
   },
   mapGradient: 'linear-gradient(to right, rgba(64, 224, 208, 0.3), rgba(255, 140, 0, 0.3), rgba(255, 0, 128, 0.3))',
   charts: {

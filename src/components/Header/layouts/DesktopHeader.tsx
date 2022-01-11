@@ -5,15 +5,21 @@ import { ProfileDropdown } from '../dropdowns/ProfileDropdown/ProfileDropdown';
 import { HeaderSearch } from '../HeaderSearch/HeaderSearch';
 import { SettingsDropdown } from '../dropdowns/SettingsDropdown/SettingsDropdown';
 
-export const DesktopHeader: React.FC = () => {
+import * as S from '../Header.styles';
+
+interface DesktopHeaderProps {
+  withDivider: boolean;
+}
+
+export const DesktopHeader: React.FC<DesktopHeaderProps> = ({ withDivider }) => {
   return (
     <Row justify="space-between" align="middle">
       <Col xl={10} xxl={8}>
         <HeaderSearch />
       </Col>
 
-      <Col>
-        <Row gutter={[30, 30]} align="middle">
+      <S.ProfileColumn xl={10} xxl={7} $withDivider={withDivider}>
+        <Row align="middle" justify="end" gutter={[30, 30]}>
           <Col>
             <NotificationsDropdown />
           </Col>
@@ -26,7 +32,7 @@ export const DesktopHeader: React.FC = () => {
             <ProfileDropdown />
           </Col>
         </Row>
-      </Col>
+      </S.ProfileColumn>
     </Row>
   );
 };

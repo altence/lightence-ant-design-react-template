@@ -26,6 +26,16 @@ export const Table = styled(CommonTable)`
     border: 0;
     cursor: pointer;
   }
+
+  @media only screen and ${(props) => props.theme.media.md} {
+    .ant-table-container {
+      // 100vh - headerHeight - 2*paddingVertical - height of chart - height of table header
+      height: calc(
+        100vh - ${(props) => props.theme.desktopLayout.headerHeight} -
+          ${(props) => props.theme.desktopLayout.paddingVertical}*2 - 200px - 45px
+      );
+    }
+  }
 `;
 
 export const Text = styled.span<TextProps>`

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Col, Collapse, Menu } from 'antd';
 import { BurgerIcon } from '../common/Burger/BurgerIcon';
 
@@ -20,7 +20,7 @@ export const DropdownHeader = styled.div`
     display: block;
     font-size: 1.25rem;
 
-    color: ${(props) => props.theme.colors.text.secondary};
+    color: ${(props) => props.theme.colors.text.main};
 
     @media only screen and ${(props) => props.theme.media.md} {
       font-size: 1.625rem;
@@ -59,4 +59,27 @@ export const MobileBurger = styled(BurgerIcon)`
   height: 1.75rem;
   margin-right: -0.5rem;
   color: ${(props) => props.theme.colors.text.secondary};
+`;
+
+interface ProfileColumn {
+  $withDivider: boolean;
+}
+
+export const ProfileColumn = styled(Col)<ProfileColumn>`
+  @media only screen and ${(props) => props.theme.media.md} {
+    ${(props) =>
+      props?.$withDivider &&
+      css`
+        &:before {
+          height: ${props.theme.desktopLayout.headerHeight};
+          display: block;
+          width: 1px;
+          background: ${(props) => props.theme.colors.border.main};
+          content: '';
+          position: absolute;
+          // TODO fix header inputs height
+          margin-top: -${props.theme.desktopLayout.paddingVertical};
+        }
+      `}
+  }
 `;
