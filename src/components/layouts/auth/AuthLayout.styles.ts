@@ -53,6 +53,7 @@ export const FormWrapper = styled.div`
   overflow: auto;
   background-color: ${(props) => hexToRGB(props.theme.colors.main.mainBackground, 0.93)};
   border-radius: ${(props) => props.theme.border.radius};
+  // TODO move to fonts
   font-family: Montserrat;
 
   @media only screen and ${theme.media.xs} {
