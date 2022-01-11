@@ -58,7 +58,7 @@ export const PaymentsTable: React.FC<PaymentsTableProps> = ({ payments }) => {
         dataIndex: 'status',
         key: 'status',
         render: (status: PaymentStatus) => (
-          <Status color={defineColorByPriority(status.priority)} text={t(status.name)} />
+          <Status color={defineColorByPriority(status.priority)} text={t(status.name).toUpperCase()} />
         ),
         align: 'center',
       },
