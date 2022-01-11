@@ -5,8 +5,9 @@ import { Table } from 'components/common/Table/Table';
 import { ColumnsType } from 'antd/es/table';
 import { Button } from 'components/common/buttons/Button/Button';
 import { useTranslation } from 'react-i18next';
-import { defineColorByPriority } from '../../../utils/utils';
+import { defineColorByPriority } from '@app/utils/utils';
 import { notificationController } from 'controllers/notificationController';
+import { Status } from '@app/components/profile/ProfileCard/ProfileFormNav/nav/payments/paymentHistory/Status/Status';
 
 const initialPagination: Pagination = {
   current: 1,
@@ -120,7 +121,7 @@ export const BasicTable: React.FC = () => {
           {tags.map((tag: Tag) => {
             return (
               <Col key={tag.value}>
-                <Status color={defineColorByPriority(tag.priority)}>{tag.value.toUpperCase()}</Status>
+                <Status color={defineColorByPriority(tag.priority)} text={tag.value.toUpperCase()} />
               </Col>
             );
           })}
