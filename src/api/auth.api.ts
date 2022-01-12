@@ -1,51 +1,5 @@
-import { setTokenToHeader, axiosMockAdapter } from 'services/api.service';
-import axios from 'axios';
-
-const AUTH_RESPONSE = {
-  token: 'authToken',
-  refreshToken: 'refreshToken',
-  expirationDate: 'date',
-};
-
-axiosMockAdapter.onPost('/login').reply(() => {
-  return new Promise((res) => {
-    setTimeout(() => {
-      res([200, AUTH_RESPONSE]);
-    }, 1000);
-  });
-});
-
-axiosMockAdapter.onPost('/signUp').reply(() => {
-  return new Promise((res) => {
-    setTimeout(() => {
-      res([200, AUTH_RESPONSE]);
-    }, 1000);
-  });
-});
-
-axiosMockAdapter.onPost('/forgotPassword').reply(() => {
-  return new Promise((res) => {
-    setTimeout(() => {
-      res([200]);
-    }, 1000);
-  });
-});
-
-axiosMockAdapter.onPost('/verifyEmail').reply(() => {
-  return new Promise((res) => {
-    setTimeout(() => {
-      res([200]);
-    }, 1000);
-  });
-});
-
-axiosMockAdapter.onPost('/newPassword').reply(() => {
-  return new Promise((res) => {
-    setTimeout(() => {
-      res([200]);
-    }, 1000);
-  });
-});
+import { httpApi } from '@app/api/http.api';
+import './mocks/auth.api.mock';
 
 export interface AuthData {
   email: string;
@@ -81,33 +35,32 @@ export interface NewPasswordData {
 }
 
 export const login = (authData: AuthData): Promise<TokenData> => {
-  return axios.post<TokenData>('/login', { ...authData }).then((res) => {
-    setTokenToHeader('authToken');
+  return httpApi.post<TokenData>('login', { ...authData }).then((res) => {
+    console.log(res.data);
     return res.data;
   });
 };
 
 export const signUp = (signUpData: SignUpData): Promise<TokenData> => {
-  return axios.post<TokenData>('/signUp', { ...signUpData }).then((res) => {
-    setTokenToHeader('authToken');
+  return httpApi.post<TokenData>('signUp', { ...signUpData }).then((res) => {
     return res.data;
   });
 };
 
 export const forgotPassword = (forgotPasswordData: ForgotPasswordData): Promise<boolean> => {
-  return axios.post<boolean>('/forgotPassword', { ...forgotPasswordData }).then(() => {
+  return httpApi.post<boolean>('forgotPassword', { ...forgotPasswordData }).then(() => {
     return true;
   });
 };
 
 export const verifyEmail = (verifyEmailData: VerifyEmailData): Promise<boolean> => {
-  return axios.post<boolean>('/verifyEmail', { ...verifyEmailData }).then(() => {
+  return httpApi.post<boolean>('verifyEmail', { ...verifyEmailData }).then(() => {
     return true;
   });
 };
 
 export const setNewPassword = (newPasswordData: NewPasswordData): Promise<boolean> => {
-  return axios.post<boolean>('/newPassword', { ...newPasswordData }).then(() => {
+  return httpApi.post<boolean>('newPassword', { ...newPasswordData }).then(() => {
     return true;
   });
 };

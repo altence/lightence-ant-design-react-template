@@ -7,32 +7,43 @@ import { ReactComponent as GoogleIcon } from 'assets/icons/google.svg';
 import { ReactComponent as FacebookIcon } from 'assets/icons/facebook.svg';
 import * as S from './LoginForm.styles';
 import * as Auth from 'components/layouts/auth/AuthLayout.styles';
-import { login, AuthData, TokenData } from 'api/auth.api';
+import { login, TokenData } from 'api/auth.api';
 import { setAuthDataToLocalStorage } from 'services/auth.service';
+import { notificationController } from '@app/controllers/notificationController';
+
+interface LoginFormData {
+  email: string;
+  password: string;
+}
+
+const initValues: LoginFormData = {
+  email: 'hello@altence.com',
+  password: 'some-test-pass',
+};
 
 export const LoginForm: React.FC = () => {
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setLoading] = useState(false);
 
   const { t } = useTranslation();
 
-  const handleSubmit = (values: AuthData) => {
-    setIsLoading(true);
+  const handleSubmit = (values: LoginFormData) => {
+    setLoading(true);
     login(values)
       .then((res: TokenData) => {
         setAuthDataToLocalStorage(res);
-        setIsLoading(false);
         navigate('/');
       })
       .catch((e) => {
-        console.error(e);
-        setIsLoading(false);
-      });
+        console.log(e.response.data);
+        notificationController.error(e.response.data);
+      })
+      .finally(() => setLoading(false));
   };
 
   return (
     <Auth.FormWrapper>
-      <Form layout="vertical" onFinish={handleSubmit} requiredMark="optional">
+      <Form layout="vertical" onFinish={handleSubmit} requiredMark="optional" initialValues={initValues}>
         <Auth.FormTitle>{t('common.login')}</Auth.FormTitle>
         <S.LoginDescription>{t('login.loginInfo')}</S.LoginDescription>
         <Auth.FormItem
