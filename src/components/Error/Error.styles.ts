@@ -3,7 +3,6 @@ import { Button, Typography, Image as AntImage } from 'antd';
 import theme from '../../styles/theme';
 
 export const Wrapper = styled.div`
-  font-family: Poppins, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
