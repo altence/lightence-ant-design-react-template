@@ -16,7 +16,7 @@ export const ThemePicker: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <Radio.Group defaultValue={currentTheme} onChange={onChange}>
+    <Radio.Group value={currentTheme} onChange={onChange}>
       <Space direction="vertical">
         <RadioBtn value="light">{t('header.lightTheme')}</RadioBtn>
         <RadioBtn value="dark">{t('header.darkTheme')}</RadioBtn>
