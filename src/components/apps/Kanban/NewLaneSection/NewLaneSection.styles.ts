@@ -4,7 +4,7 @@ import { PlusOutlined } from '@ant-design/icons';
 
 export const NewLaneSection = styled(NewLane)`
   background: ${(props) => props.theme.commonColors.skyblue};
-  margin-top: 2.8125rem;
+  margin-top: 53.28px; // Calculate based on lanes padding, margin and lane header height
   height: 24.3125rem;
   width: 15.9375rem;
   border-radius: 0.4375rem;
