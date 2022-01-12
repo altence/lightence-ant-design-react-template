@@ -7,7 +7,6 @@ import { ThemeContext } from './context/ThemeContext';
 import { NightModeContext } from './context/NightModeContext';
 import lightTheme from './styles/theme';
 import GlobalStyle from './styles/GlobalStyle';
-import 'typeface-poppins';
 import 'typeface-montserrat';
 import { useTheme } from './hooks/useTheme';
 import { useNightMode } from './hooks/useNightMode';

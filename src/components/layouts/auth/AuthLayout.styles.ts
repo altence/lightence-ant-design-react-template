@@ -9,7 +9,6 @@ import { InputPassword as CommonInputPassword } from 'components/common/inputs/I
 import { LeftOutlined } from '@ant-design/icons';
 
 export const Wrapper = styled.div`
-  font-family: Poppins, sans-serif;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -53,8 +52,6 @@ export const FormWrapper = styled.div`
   overflow: auto;
   background-color: ${(props) => hexToRGB(props.theme.colors.main.mainBackground, 0.93)};
   border-radius: ${(props) => props.theme.border.radius};
-  // TODO move to fonts
-  font-family: Montserrat;
 
   @media only screen and ${theme.media.xs} {
     padding: 2.5rem 1.25rem;
