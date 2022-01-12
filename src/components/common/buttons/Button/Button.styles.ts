@@ -15,6 +15,9 @@ export const Button = styled(AntButton)<BtnProps>`
     css`
       ${props.$severity &&
       css`
+        box-shadow: none;
+        text-shadow: none;
+
         background: ${hexToRGB(defineColorBySeverity(props.$severity, props.theme), 0.2)};
 
         border-color: ${defineColorBySeverity(props.$severity, props.theme)};
