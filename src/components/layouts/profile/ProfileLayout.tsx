@@ -16,7 +16,7 @@ import { getUser, User } from '@app/api/users.api';
 const ProfileLayout: React.FC = () => {
   const [user, setUser] = useState<User>();
 
-  const { isDesktop } = useResponsive();
+  const { isTablet } = useResponsive();
 
   useEffect(() => {
     getUser().then((res) => setUser(res));
@@ -31,8 +31,8 @@ const ProfileLayout: React.FC = () => {
   const isMenuShown = isTabletOrHigher || (mobileOnly && location.pathname !== '/profile');
 
   useEffect(() => {
-    isDesktop && location.pathname === '/profile' && navigate('personal-info');
-  }, [isDesktop, location.pathname, navigate]);
+    isTablet && location.pathname === '/profile' && navigate('personal-info');
+  }, [isTablet, location.pathname, navigate]);
 
   return (
     <>
