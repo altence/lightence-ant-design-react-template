@@ -31,6 +31,7 @@ declare module 'styled-components' {
         angularGradient: string;
         mainBackground: string;
         secondaryBackground: string;
+        lightBackground: string;
         chartPrimaryGradient: LinearGradientObject;
         chartSecondaryGradient: LinearGradientObject;
         chartAdditionalGradient: LinearGradientObject;
