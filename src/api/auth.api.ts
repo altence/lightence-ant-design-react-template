@@ -35,10 +35,7 @@ export interface NewPasswordData {
 }
 
 export const login = (authData: AuthData): Promise<TokenData> => {
-  return httpApi.post<TokenData>('login', { ...authData }).then((res) => {
-    console.log(res.data);
-    return res.data;
-  });
+  return httpApi.post<TokenData>('login', { ...authData }).then(({ data }) => data);
 };
 
 export const signUp = (signUpData: SignUpData): Promise<TokenData> => {
