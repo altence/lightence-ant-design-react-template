@@ -9,7 +9,7 @@ interface Content {
 
 export default styled(Content)<Content>`
   padding: ${(props) => `${props.theme.mobileLayout.paddingVertical} ${props.theme.mobileLayout.paddingHorizontal}`};
-  overflow: ${(props) => (props?.$twoColumnsLayout ? 'hidden' : 'auto')};
+  overflow: ${(props) => (props?.$twoColumnsLayout ? 'hidden' : 'overlay')};
 
   @media only screen and ${(props) => props.theme.media.md} {
     padding: ${(props) =>
