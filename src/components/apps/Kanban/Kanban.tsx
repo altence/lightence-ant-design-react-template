@@ -14,12 +14,19 @@ export const Kanban: React.FC = () => {
 
   return (
     <S.Kanban
-      components={{ Card, NewCardForm, LaneHeader, AddCardLink, NewLaneSection, NewLaneForm }}
+      components={{
+        Card,
+        NewCardForm,
+        LaneHeader,
+        AddCardLink,
+        NewLaneSection,
+        NewLaneForm,
+      }}
       editable
       laneDraggable
       canAddLanes
       data={kanbanData}
-      laneStyle={{ background: 'transparent', maxHeight: '85.5vh', paddingBottom: '10px' }}
+      laneStyle={{ background: 'transparent', maxHeight: '80vh' }}
       cardStyle={{
         borderRadius: theme.border.radius,
         backgroundColor: theme.colors.main.mainBackground,

@@ -3,11 +3,12 @@ import styled from 'styled-components';
 
 export const Kanban = styled(Board)`
   background: transparent;
-  min-height: 90vh;
-  max-height: calc(100vh - 7.8rem);
-  margin: ${(props) => `0 -${props.theme.mobileLayout.paddingHorizontal} -1rem`};
+  height: unset;
+  padding: unset;
+  margin: ${(props) => `-${props.theme.mobileLayout.paddingVertical} -${props.theme.mobileLayout.paddingHorizontal}`};
 
   @media only screen and ${(props) => props.theme.media.md} {
-    margin: ${(props) => `0 -${props.theme.desktopLayout.paddingHorizontal} -1rem`};
+    margin: ${(props) =>
+      `-${props.theme.desktopLayout.paddingVertical} -${props.theme.desktopLayout.paddingHorizontal}`};
   }
 `;
