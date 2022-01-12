@@ -1,6 +1,13 @@
 import { httpApiMock } from '@app/api/mocks/http.api.mock';
+import { AuthData } from '@app/api/auth.api';
+import { initValues } from '@app/components/auth/LoginForm/LoginForm';
 
-httpApiMock.onPost('login').reply(200, { token: 'bearerToken' });
+httpApiMock.onPost('login').reply((config) => {
+  const data: AuthData = JSON.parse(config.data || '');
+  if (data.password === initValues.password) {
+    return [200, { token: 'bearerToken' }];
+  } else return [400, { message: 'Invalid Credentials' }];
+});
 
 httpApiMock.onPost('/signUp').reply(() => {
   return new Promise((res) => {

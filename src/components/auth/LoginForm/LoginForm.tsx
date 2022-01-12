@@ -16,7 +16,7 @@ interface LoginFormData {
   password: string;
 }
 
-const initValues: LoginFormData = {
+export const initValues: LoginFormData = {
   email: 'hello@altence.com',
   password: 'some-test-pass',
 };
@@ -35,8 +35,7 @@ export const LoginForm: React.FC = () => {
         navigate('/');
       })
       .catch((e) => {
-        console.log(e.response.data);
-        notificationController.error(e.response.data);
+        notificationController.error({ message: e.message });
       })
       .finally(() => setLoading(false));
   };
