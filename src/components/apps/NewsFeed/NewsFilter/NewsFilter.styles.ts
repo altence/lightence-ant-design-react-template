@@ -84,18 +84,6 @@ export const InputWrapper = styled.div`
   position: relative;
 `;
 
-export const Title = styled.div`
-  display: flex;
-  margin-top: 1.875rem;
-  font-size: ${(props) => props.theme.commonFontSizes.xxl};
-  font-weight: ${(props) => props.theme.commonFontWeight.bold};
-  color: ${(props) => props.theme.colors.text.secondary};
-
-  @media only screen and ${theme.media.xs} {
-    margin-top: 0;
-  }
-`;
-
 export const ContentWrapper = styled.div`
   display: flex;
   justify-content: center;

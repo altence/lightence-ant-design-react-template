@@ -9,6 +9,7 @@ import { Tag, ITag } from 'components/common/Tag/Tag';
 import { useResponsive } from 'hooks/useResponsive';
 import * as S from './NewsFilter.styles';
 import { AuthorValidator, TitleValidator, DatesValidator, TagsValidator } from './Validator';
+import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 
 interface NewsFilterProps {
   news: Post[];
@@ -236,7 +237,7 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
   return (
     <>
       <S.TitleWrapper>
-        <S.Title>{t('newsFeed.feed')}</S.Title>
+        <PageTitle>{t('newsFeed.feed')}</PageTitle>
 
         {mobileOnly && (
           <Dropdown
