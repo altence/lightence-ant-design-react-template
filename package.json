@@ -11,7 +11,7 @@
     "axios": "^0.24.0",
     "axios-mock-adapter": "^1.20.0",
     "country-list": "^2.2.0",
-    "craco-antd": "^1.19.0",
+    "craco-less": "^2.0.0",
     "dayjs": "^1.10.6",
     "echarts": "^5.1.2",
     "echarts-for-react": "^3.0.1",
@@ -58,7 +58,7 @@
     "workbox-streams": "^5.1.3"
   },
   "scripts": {
-    "start": "nodemon -w ./src/styles/_override_variables.less --exec \"craco start\"",
+    "start": "craco start",
     "build": "craco build",
     "test": "craco test",
     "eject": "craco eject",
@@ -97,7 +97,6 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "husky": "^6.0.0",
     "lint-staged": "^11.0.0",
-    "nodemon": "^2.0.12",
     "prettier": "^2.3.1",
     "stylelint": "^13.13.1",
     "stylelint-config-recommended": "^5.0.0",
