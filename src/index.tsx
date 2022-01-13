@@ -6,10 +6,14 @@ import './i18n';
 import './styles/main.less';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import 'config/config';
+import { Provider } from 'react-redux';
+import { store } from '@app/store/store';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root'),
 );

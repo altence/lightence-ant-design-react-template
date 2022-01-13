@@ -7,9 +7,11 @@ import { ReactComponent as GoogleIcon } from 'assets/icons/google.svg';
 import { ReactComponent as FacebookIcon } from 'assets/icons/facebook.svg';
 import * as S from './LoginForm.styles';
 import * as Auth from 'components/layouts/auth/AuthLayout.styles';
-import { login, TokenData } from 'api/auth.api';
-import { setAuthDataToLocalStorage } from 'services/auth.service';
+import { useAppDispatch } from '@app/hooks/reduxHooks';
+import { setToken } from '@app/store/authSlice';
+import { login } from '@app/api/auth.api';
 import { notificationController } from '@app/controllers/notificationController';
+import { setUser } from '@app/store/userSlice';
 
 interface LoginFormData {
   email: string;
@@ -24,20 +26,22 @@ export const initValues: LoginFormData = {
 export const LoginForm: React.FC = () => {
   const navigate = useNavigate();
   const [isLoading, setLoading] = useState(false);
+  const dispatch = useAppDispatch();
 
   const { t } = useTranslation();
 
   const handleSubmit = (values: LoginFormData) => {
     setLoading(true);
     login(values)
-      .then((res: TokenData) => {
-        setAuthDataToLocalStorage(res);
+      .then(({ token, user }) => {
         navigate('/');
+        dispatch(setUser(user));
+        dispatch(setToken(token));
       })
-      .catch((e) => {
-        notificationController.error({ message: e.message });
-      })
-      .finally(() => setLoading(false));
+      .catch((err) => {
+        notificationController.error({ message: err.message });
+        setLoading(false);
+      });
   };
 
   return (
