@@ -1,6 +1,8 @@
 import React from 'react';
 import * as S from './Legend.styles';
 import { getChartColors } from '../../../../styles/theme';
+import { Popover } from '@app/components/common/Popover/Popover';
+import { InfoCircleOutlined } from '@ant-design/icons';
 
 export interface LegendItem {
   name: string;
@@ -24,9 +26,11 @@ export const Legend: React.FC<LegendProps> = ({ legendItems, activeItemIndex }) 
             <S.LegendColor style={{ backgroundColor: colors[index] }} />
             <S.LegendDescription>
               <S.LegendTitle>{item.name}</S.LegendTitle>
-              <S.LegendText>{item.description}</S.LegendText>
             </S.LegendDescription>
             <S.Values>{item.value}</S.Values>
+            <Popover content={<S.PopoverContent>{item.description}</S.PopoverContent>} trigger="hover">
+              <S.InfoStyled />
+            </Popover>
           </S.LegendInfo>
         </S.LegendWrapper>
       ))}

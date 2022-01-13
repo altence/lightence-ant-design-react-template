@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { InfoCircleOutlined } from '@ant-design/icons/lib';
 
 interface LegendWrapperProps {
   isSelected: boolean;
@@ -6,7 +7,8 @@ interface LegendWrapperProps {
 
 export const LegendWrapper = styled.div<LegendWrapperProps>`
   display: flex;
-  padding: 1rem;
+  padding: 0.5rem;
+  // TODO color from theme
   background: ${(props) => (props.isSelected ? '#ECF6FF' : 'transparent')};
   border-radius: ${(props) => props.theme.border.radius};
 `;
@@ -14,11 +16,12 @@ export const LegendWrapper = styled.div<LegendWrapperProps>`
 export const LegendInfo = styled.div`
   display: flex;
   width: 100%;
+  align-items: center;
+  color: ${(props) => props.theme.colors.text.superLight};
 `;
 
 export const LegendDescription = styled.div`
   display: flex;
-  flex-direction: column;
   margin-left: 1.25rem;
   width: 100%;
 `;
@@ -34,7 +37,6 @@ export const LegendTitle = styled.div`
   line-height: 1rem;
   font-weight: ${(props) => props.theme.commonFontWeight.semibold};
   color: ${(props) => props.theme.colors.text.main};
-  margin-bottom: 0.25rem;
   display: flex;
   justify-content: space-between;
 
@@ -47,24 +49,20 @@ export const LegendTitle = styled.div`
   }
 `;
 
-export const LegendText = styled.div`
-  line-height: 1.25rem;
-  color: ${(props) => props.theme.colors.text.main};
+export const InfoStyled = styled(InfoCircleOutlined)`
+  cursor: pointer;
+  margin-left: 0.5rem;
+`;
 
-  @media only screen and ${(props) => props.theme.media.xs} {
-    font-size: ${(props) => props.theme.commonFontSizes.xxs};
-  }
-
-  @media only screen and ${(props) => props.theme.media.md} {
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
-  }
+export const PopoverContent = styled.div`
+  max-width: 15rem;
 `;
 
 export const Values = styled.div`
   display: flex;
   align-items: center;
   margin-left: 0.5rem;
-  font-size: 2rem;
+  color: ${(props) => props.theme.colors.main.primary};
 
   @media only screen and ${(props) => props.theme.media.md} {
     margin-left: 1.5rem;
