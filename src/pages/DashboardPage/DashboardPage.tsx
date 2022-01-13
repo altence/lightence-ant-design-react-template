@@ -6,7 +6,7 @@ import { ActivityCard } from '@app/components/dashboard/ActivityCard/ActivityCar
 import { TreatmentCard } from '@app/components/dashboard/treatmentCard/TreatmentCard';
 import { CovidCard } from '@app/components/dashboard/CovidCard/CovidCard';
 import { HealthCard } from '@app/components/dashboard/HealthCard/HealthCard';
-import { FavouritesDoctorsCard } from '@app/components/dashboard/favouriteDoctors/FavouritesDoctorsCard';
+import { FavoritesDoctorsCard } from '@app/components/dashboard/favoriteDoctors/FavoritesDoctorsCard';
 import { PatientResultsCard } from '@app/components/dashboard/PatientResultsCard/PatientResultsCard';
 import { BloodScreeningCard } from '@app/components/dashboard/BloodScreeningCard/BloodScreeningCard';
 import { NewsCard } from '@app/components/dashboard/NewsCard/NewsCard';
@@ -57,7 +57,7 @@ const DashboardPage: React.FC = () => {
           </Col>
 
           <Col id="favorite-doctors" span={24}>
-            <FavouritesDoctorsCard />
+            <FavoritesDoctorsCard />
           </Col>
 
           <Col id="news" span={24}>
@@ -101,7 +101,7 @@ const DashboardPage: React.FC = () => {
       </Col>
 
       <Col id="favorite-doctors" xs={24} md={24} order={(isTablet && 13) || 0}>
-        <FavouritesDoctorsCard />
+        <FavoritesDoctorsCard />
       </Col>
 
       <Col id="covid" xs={24} md={12} order={(isTablet && 12) || 0}>

@@ -10,12 +10,12 @@ export interface CardProps extends AntCardProps {
   children: React.ReactNode;
 }
 
-export const Card: React.FC<CardProps> = ({ className, padding, children, ...props }) => {
+export const Card: React.FC<CardProps> = ({ className, padding, size, children, ...props }) => {
   const { isTablet, isDesktop } = useResponsive();
 
   return (
     <S.Card
-      size={isTablet ? 'default' : 'small'}
+      size={size ? size : isTablet ? 'default' : 'small'}
       className={className}
       bordered={false}
       padding={

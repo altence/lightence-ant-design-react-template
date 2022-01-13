@@ -9,7 +9,7 @@ import { CalendarEvent, getUserCalendar } from 'api/calendar.api';
 import { Dates } from 'constants/Dates';
 import { useAppSelector } from '@app/hooks/reduxHooks';
 
-export const FavouritesDoctorsCard: React.FC = () => {
+export const FavoritesDoctorsCard: React.FC = () => {
   const { t } = useTranslation();
   const [doctors, setDoctors] = useState<Doctor[]>([]);
   const [calendar, setCalendar] = useState<CalendarEvent[]>([]);

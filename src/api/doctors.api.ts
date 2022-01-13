@@ -56,8 +56,8 @@ export const getDoctorsData = (): Promise<Doctor[]> => {
           specifity: 3,
           rating: 4,
           gps: {
-            latitude: -99.133209,
-            longitude: 19.432608,
+            latitude: 55.17111,
+            longitude: -118.796928,
           },
           imgUrl: ryan,
           phone: '+X-XXX-XXX-XXXX',
@@ -82,8 +82,8 @@ export const getDoctorsData = (): Promise<Doctor[]> => {
           specifity: 5,
           rating: 4,
           gps: {
-            latitude: 52.520008,
-            longitude: 13.404954,
+            latitude: 59.334122,
+            longitude: 18.071997,
           },
           imgUrl: james,
           phone: '+X-XXX-XXX-XXXX',

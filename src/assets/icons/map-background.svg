@@ -9,7 +9,7 @@
                 patternUnits="userSpaceOnUse"
                 patternContentUnits="userSpaceOnUse"
         >
-            <circle id="pattern-circle" cx="5" cy="5" r="2"/>
+            <circle id="pattern-circle" cx="5" cy="5" r="4"/>
         </pattern>
     </defs>
 
@@ -23,7 +23,7 @@
                 patternUnits="userSpaceOnUse"
                 patternContentUnits="userSpaceOnUse"
         >
-            <circle id="pattern-circle-hovered" cx="5" cy="5" r="2"/>
+            <circle id="pattern-circle-hovered" cx="5" cy="5" r="4"/>
         </pattern>
     </defs>
 </svg>

@@ -45,7 +45,15 @@ declare module 'styled-components' {
       border: {
         main: string;
       };
-      mapGradient: string;
+      dashboardMap: {
+        background: string;
+        dotsColor: string;
+        dotsHoveredColor: string;
+        markerBorderColor: string;
+        controlColor: string;
+        controlBackgroundColor: string;
+        controlDisabledBackgroundColor: string;
+      };
       charts: {
         tooltipLabel: string;
         color1: string;

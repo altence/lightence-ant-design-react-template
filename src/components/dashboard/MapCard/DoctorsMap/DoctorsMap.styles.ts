@@ -4,9 +4,11 @@ import { CountryMap } from '../../../common/CountryMap/CountryMap';
 export const DoctorsMap = styled(CountryMap)`
   // Leaflet uses z-index inside. Create a new stacking context for avoiding overlapping
   isolation: isolate;
+  height: 19rem;
 
   &.leaflet-container {
-    background: ${(props) => props.theme.colors.mapGradient};
+    background-image: ${(props) => props.theme.colors.dashboardMap.background};
+    border-radius: ${(props) => props.theme.border.radius};
 
     svg {
       path {
@@ -21,11 +23,11 @@ export const DoctorsMap = styled(CountryMap)`
     }
 
     #pattern-circle {
-      fill: ${(props) => props.theme.colors.main.secondary};
+      fill: ${(props) => props.theme.colors.dashboardMap.dotsColor};
     }
 
     #pattern-circle-hovered {
-      fill: ${(props) => props.theme.colors.main.error};
+      fill: ${(props) => props.theme.colors.dashboardMap.dotsHoveredColor};
     }
   }
 
@@ -35,33 +37,36 @@ export const DoctorsMap = styled(CountryMap)`
 
   .leaflet-marker-icon {
     border-radius: 50%;
+    border: 2px solid ${(props) => props.theme.colors.dashboardMap.markerBorderColor};
   }
 
   .leaflet-control-zoom {
-    border-color: ${(props) => props.theme.colors.main.secondary};
+    border: 0;
+
+    &.leaflet-control a {
+      line-height: 1.625rem;
+      border: 0;
+      border-radius: 0.5rem;
+    }
   }
 
   .leaflet-control-zoom-out,
   .leaflet-control-zoom-in {
-    background-color: transparent;
-    color: ${(props) => props.theme.colors.main.secondary};
+    background-color: ${(props) => props.theme.colors.dashboardMap.controlBackgroundColor};
+    color: ${(props) => props.theme.colors.dashboardMap.controlColor};
 
     &:hover {
-      background-color: transparent;
-      color: ${(props) => props.theme.colors.main.error};
+      background-color: ${(props) => props.theme.colors.dashboardMap.controlBackgroundColor};
+      color: ${(props) => props.theme.colors.dashboardMap.dotsHoveredColor};
     }
 
     &.leaflet-disabled {
-      background-color: transparent;
-      color: ${(props) => props.theme.colors.main.secondary};
+      background-color: ${(props) => props.theme.colors.dashboardMap.controlDisabledBackgroundColor};
+      color: ${(props) => props.theme.colors.dashboardMap.controlColor};
     }
   }
 
   .leaflet-control-zoom-in {
-    border-bottom: 0;
-
-    &:hover {
-      border-bottom: 0;
-    }
+    margin-bottom: 0.5rem;
   }
 `;

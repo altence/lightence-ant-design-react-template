@@ -54,7 +54,7 @@ export const DoctorsMap: React.FC<DoctorsMapProps> = ({ doctors }) => {
         >
           <Popup>
             <DoctorProfile
-              src={marker.imgUrl}
+              avatar={marker.imgUrl}
               name={marker.name}
               speciality={marker.specifity}
               rating={marker.rating}
