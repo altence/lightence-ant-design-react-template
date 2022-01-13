@@ -13,8 +13,6 @@ httpApi.interceptors.request.use((config) => {
 });
 
 httpApi.interceptors.response.use(undefined, (error: AxiosError) => {
-  console.log(error.message);
-  console.log(error.response?.data);
   throw new ApiError<ApiErrorData>(error.response?.data.message || error.message, error.response?.data);
 });
 

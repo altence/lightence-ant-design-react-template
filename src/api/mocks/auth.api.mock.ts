@@ -1,12 +1,40 @@
 import { httpApiMock } from '@app/api/mocks/http.api.mock';
 import { AuthData } from '@app/api/auth.api';
 import { initValues } from '@app/components/auth/LoginForm/LoginForm';
+import avatarImg from '@app/assets/avatars/avatar5.png';
 
 httpApiMock.onPost('login').reply((config) => {
   const data: AuthData = JSON.parse(config.data || '');
   if (data.password === initValues.password) {
-    return [200, { token: 'bearerToken' }];
-  } else return [400, { message: 'Invalid Credentials' }];
+    return [
+      200,
+      {
+        token: 'bearerToken',
+        user: {
+          id: 1,
+          firstName: 'Christopher',
+          lastName: 'Johnson',
+          imgUrl: avatarImg,
+          userName: '@john1989',
+          email: {
+            name: 'john1989@example.com',
+            verified: true,
+          },
+          phone: {
+            number: '+18143519459',
+            verified: true,
+          },
+          sex: 'male',
+          birthday: '01/26/2022',
+          lang: 'en',
+          country: 'GB',
+          city: 'London',
+          address1: '14 London Road',
+          zipcode: 5211,
+        },
+      },
+    ];
+  } else return [401, { message: 'Invalid Credentials' }];
 });
 
 httpApiMock.onPost('/signUp').reply(() => {

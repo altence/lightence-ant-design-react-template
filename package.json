@@ -5,6 +5,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
     "@craco/craco": "^6.1.2",
+    "@reduxjs/toolkit": "^1.7.1",
     "antd": "^4.17.0",
     "antd-mask-input": "^0.1.15",
     "axios": "^0.24.0",
@@ -26,6 +27,7 @@
     "react-infinite-scroll-component": "^6.1.0",
     "react-leaflet": "^3.2.2",
     "react-phone-number-input": "^3.1.27",
+    "react-redux": "^7.2.6",
     "react-responsive": "^8.2.0",
     "react-router-dom": "^6.0.2",
     "react-router-hash-link": "^2.4.3",
