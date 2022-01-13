@@ -2,7 +2,6 @@ import React from 'react';
 import * as S from './Legend.styles';
 import { getChartColors } from '../../../../styles/theme';
 import { Popover } from '@app/components/common/Popover/Popover';
-import { InfoCircleOutlined } from '@ant-design/icons';
 
 export interface LegendItem {
   name: string;

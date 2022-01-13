@@ -11,15 +11,15 @@ import { useAppSelector } from '@app/hooks/reduxHooks';
 
 import * as S from './FavoritesDoctorsCard.styles';
 
-function SampleNextArrow(props: any) {
+const NextArrow = (props: any) => {
   const { className, style, onClick } = props;
   return <S.SliderArrow className={className} style={{ ...style, display: 'block' }} onClick={onClick} />;
-}
+};
 
-function SamplePrevArrow(props: any) {
+const PrevArrow = (props: any) => {
   const { className, style, onClick } = props;
   return <S.SliderArrow className={className} style={{ ...style, display: 'block' }} onClick={onClick} />;
-}
+};
 
 export const FavoritesDoctorsCard: React.FC = () => {
   const { t } = useTranslation();
@@ -49,11 +49,9 @@ export const FavoritesDoctorsCard: React.FC = () => {
       {doctors.length > 0 && calendar.length > 0 && (
         <S.CarouselWrapper>
           <Carousel
-            slidesToShow={3}
-            slidesToScroll={1}
             arrows={true}
-            nextArrow={<SampleNextArrow />}
-            prevArrow={<SamplePrevArrow />}
+            nextArrow={<NextArrow />}
+            prevArrow={<PrevArrow />}
             responsive={[
               {
                 breakpoint: theme.breakpoints.xxl - 1,
@@ -70,7 +68,7 @@ export const FavoritesDoctorsCard: React.FC = () => {
               {
                 breakpoint: theme.breakpoints.md - 1,
                 settings: {
-                  slidesToShow: 2,
+                  slidesToShow: 1,
                 },
               },
               {
