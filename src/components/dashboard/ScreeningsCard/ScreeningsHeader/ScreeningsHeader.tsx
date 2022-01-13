@@ -15,11 +15,11 @@ export const ScreeningsHeader: React.FC<ScreeningsHeaderProps> = ({ currentStati
 
   return (
     <Row gutter={[0, { xs: 15, sm: 15, md: 20 }]} align="middle">
-      <Col xs={24} xl={16}>
+      <Col xs={24} xl={12}>
         {t('dashboard.latestScreenings.title')}
       </Col>
 
-      <Col xs={24} xl={8}>
+      <Col xs={24} xl={12}>
         <Row
           gutter={[
             { xs: 15, sm: 15, md: 20 },
