@@ -36,27 +36,23 @@ const DashboardPage: React.FC = () => {
             <ScreeningsCard />
           </Col>
 
-          <Col id="treatment-plan" xl={24} xxl={14}>
+          <Col id="treatment-plan" xl={24} xxl={24}>
             <TreatmentCard />
+          </Col>
+
+          <Col id="covid" xl={24} xxl={14}>
+            <CovidCard />
           </Col>
 
           <Col id="activity" xl={24} xxl={10}>
             <ActivityCard />
           </Col>
 
-          <Col id="covid" span={24}>
-            <CovidCard />
-          </Col>
-
-          <Col id="patient-timeline" span={10}>
-            <PatientResultsCard />
-          </Col>
-
-          <Col id="health" span={14}>
+          <Col id="health" span={10}>
             <HealthCard />
           </Col>
 
-          <Col id="favorite-doctors" span={24}>
+          <Col id="favorite-doctors" xl={24} xxl={14}>
             <FavoritesDoctorsCard />
           </Col>
 
@@ -68,6 +64,7 @@ const DashboardPage: React.FC = () => {
 
       <S.RightSideCol xl={8} xxl={8}>
         <BloodScreeningCard />
+        <PatientResultsCard />
       </S.RightSideCol>
     </Row>
   );

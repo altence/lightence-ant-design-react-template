@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import { patientResultStatus } from '@app/constants/patientResultStatus';
 import { patientResultsData } from '@app/constants/patientResultsData';
 import { Dates } from '@app/constants/Dates';
-import { DashboardCard } from '@app/components/dashboard/DashboardCard/DashboardCard';
 import * as S from './PatientResultsCard.styles';
 
 const icons = [<CheckOutlined key={0} />, <BarChartOutlined key={1} />, <FileTextOutlined key={2} />];
@@ -14,8 +13,8 @@ export const PatientResultsCard: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <DashboardCard title={t('dashboard.patientResults.title')}>
-      <Steps direction="vertical" size="small" current={0}>
+    <S.DashboardCardStyled>
+      <Steps direction="vertical" current={0}>
         {patientResultStatus.map((status, index) => {
           const patientResult = patientResultsData.find((item) => item.status === status.id) || {
             isActive: false,
@@ -39,6 +38,6 @@ export const PatientResultsCard: React.FC = () => {
           );
         })}
       </Steps>
-    </DashboardCard>
+    </S.DashboardCardStyled>
   );
 };

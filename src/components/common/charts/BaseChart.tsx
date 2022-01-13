@@ -47,7 +47,7 @@ export const BaseChart: React.FC<BaseChartProps> = ({ option, width, height, onE
   const chartHeight = height || '400px';
 
   useEffect(() => {
-    // FIXME workaround to make sure that parent container is initialized before the chart
+    // TODO FIXME workaround to make sure that parent container is initialized before the chart
     setLoading(false);
   }, []);
 

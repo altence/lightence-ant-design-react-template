@@ -49,7 +49,7 @@ export const BloodScreeningTable: React.FC<BloodScreeningTableProps> = ({ active
       pagination={false}
       columns={columns}
       dataSource={dataSource}
-      scroll={{ y: '100%' }}
+      scroll={{ y: 224 }}
       onRow={(record) => {
         return {
           onClick: () => setActiveItem(record),

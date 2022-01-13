@@ -1,10 +1,17 @@
 import styled from 'styled-components';
 import { Typography } from 'antd';
 import { CalendarOutlined } from '@ant-design/icons';
+import { DashboardCard } from '@app/components/dashboard/DashboardCard/DashboardCard';
 
 interface IconProps {
   isActive: boolean;
 }
+
+export const DashboardCardStyled = styled(DashboardCard)`
+  flex-grow: 1;
+  margin-top: 30px;
+  overflow-y: auto;
+`;
 
 export const TitleWrapper = styled.div`
   height: 2rem;
