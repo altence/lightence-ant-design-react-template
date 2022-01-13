@@ -1,5 +1,6 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { login, LoginRequest } from '@app/api/auth.api';
+import { setUser } from '@app/store/userSlice';
 
 export interface AuthSlice {
   token: string;
@@ -9,25 +10,22 @@ const initialState: AuthSlice = {
   token: '',
 };
 
-export const doLogin = createAsyncThunk('auth/login', async (loginPayload: LoginRequest, { rejectWithValue }) =>
-  login(loginPayload).catch((err) => rejectWithValue(err.message)),
+export const doLogin = createAsyncThunk('auth/login', async (loginPayload: LoginRequest, { dispatch }) =>
+  login(loginPayload).then((res) => {
+    dispatch(setUser(res.user));
+    return res.token;
+  }),
 );
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {
-    setToken(state, action: PayloadAction<string>) {
-      state.token = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(doLogin.fulfilled, (state, action) => {
-      state.token = action.payload.token;
+      state.token = action.payload;
     });
   },
 });
-
-export const { setToken } = authSlice.actions;
 
 export default authSlice.reducer;
