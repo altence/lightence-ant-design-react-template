@@ -25,11 +25,11 @@ const DashboardPage: React.FC = () => {
           <Col span={24}>
             <Row gutter={[30, 30]}>
               <StatisticsCards />
-
-              <Col id="map" span={24} order={5}>
-                <MapCard />
-              </Col>
             </Row>
+          </Col>
+
+          <Col id="map" span={24}>
+            <MapCard />
           </Col>
 
           <Col id="latest-screenings" span={24}>
