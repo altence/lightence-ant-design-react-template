@@ -73,6 +73,12 @@ const DashboardPage: React.FC = () => {
     <Row gutter={[20, 20]}>
       <StatisticsCards />
 
+      {isTablet && (
+        <Col id="map" md={24} order={4}>
+          <MapCard />
+        </Col>
+      )}
+
       <Col id="latest-screenings" xs={24} md={12} order={(isTablet && 5) || 0}>
         <ScreeningsCard />
       </Col>
@@ -81,11 +87,11 @@ const DashboardPage: React.FC = () => {
         <ActivityCard />
       </Col>
 
-      <Col id="treatment-plan" xs={24} md={24} order={(isTablet && 9) || 0}>
+      <Col id="treatment-plan" xs={24} md={24} order={(isTablet && 10) || 0}>
         <TreatmentCard />
       </Col>
 
-      <Col id="health" xs={24} md={24} order={(isTablet && 10) || 0}>
+      <Col id="health" xs={24} md={12} order={(isTablet && 9) || 0}>
         <HealthCard />
       </Col>
 
@@ -108,12 +114,6 @@ const DashboardPage: React.FC = () => {
       <Col id="news" xs={24} md={24} order={(isTablet && 14) || 0}>
         <NewsCard />
       </Col>
-
-      {isTablet && (
-        <Col id="map" md={12} order={7}>
-          <MapCard />
-        </Col>
-      )}
     </Row>
   );
 

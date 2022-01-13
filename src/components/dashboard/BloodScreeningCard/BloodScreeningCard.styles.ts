@@ -1,4 +1,9 @@
 import styled from 'styled-components';
+import { Card } from '@app/components/common/Card/Card';
+
+export const BloodScreeningCard = styled(Card)`
+  height: 100%;
+`;
 
 export const TitleWrapper = styled.div`
   display: flex;

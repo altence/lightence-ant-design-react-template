@@ -68,7 +68,7 @@ export const FavoritesDoctorsCard: React.FC = () => {
               {
                 breakpoint: theme.breakpoints.md - 1,
                 settings: {
-                  slidesToShow: 1,
+                  slidesToShow: 2,
                 },
               },
               {
