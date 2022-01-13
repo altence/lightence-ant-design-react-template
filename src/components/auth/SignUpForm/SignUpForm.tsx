@@ -7,8 +7,7 @@ import { ReactComponent as GoogleIcon } from 'assets/icons/google.svg';
 import { ReactComponent as FacebookIcon } from 'assets/icons/facebook.svg';
 import * as S from './SignUpForm.styles';
 import * as Auth from 'components/layouts/auth/AuthLayout.styles';
-import { signUp, SignUpData, TokenData } from 'api/auth.api';
-import { setAuthDataToLocalStorage } from 'services/auth.service';
+import { signUp, SignUpData } from 'api/auth.api';
 
 export const SignUpForm: React.FC = () => {
   const navigate = useNavigate();
@@ -19,8 +18,7 @@ export const SignUpForm: React.FC = () => {
   const handleSubmit = (values: SignUpData) => {
     setIsLoading(true);
     signUp(values)
-      .then((res: TokenData) => {
-        setAuthDataToLocalStorage(res);
+      .then(() => {
         setIsLoading(false);
         navigate('/');
       })
