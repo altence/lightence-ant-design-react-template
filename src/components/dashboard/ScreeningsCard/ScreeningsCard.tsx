@@ -56,6 +56,11 @@ export const ScreeningsCard: React.FC = () => {
     });
   }, [doctors, screenings]);
 
+  const generateScreeningValue = () => {
+    const randomValue = getSmoothRandom(3, 0.7) * 100;
+    return (randomValue * Math.abs(Math.sin(randomValue))).toFixed();
+  };
+
   const values = useMemo(
     () =>
       months.map((month) => ({
@@ -64,7 +69,10 @@ export const ScreeningsCard: React.FC = () => {
           statisticId: statistic.id,
           data: screenings.map((screening) => ({
             id: screening.id,
-            data: Array.from({ length: 30 }, () => (getSmoothRandom(3, 0.7) * 100).toFixed()),
+            data: Array.from({ length: 16 }, (_, index) => ({
+              day: index * 2,
+              value: generateScreeningValue(),
+            })),
           })),
         })),
       })),

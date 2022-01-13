@@ -6,9 +6,14 @@ import { hexToRGB } from 'utils/utils';
 import { ChartSeriesData } from 'interfaces/interfaces';
 import { useTranslation } from 'react-i18next';
 
+interface StatisticsData {
+  day: number;
+  value: string | number;
+}
+
 interface UserStatistics {
   name: string;
-  data: number[] | string[];
+  data: StatisticsData[];
 }
 
 interface ScreeningsChartProps {
@@ -16,7 +21,7 @@ interface ScreeningsChartProps {
   secondUser?: UserStatistics;
 }
 
-const xAxisData = Array.from({ length: 30 }, (_, i) => i + 1);
+const xAxisData = Array.from({ length: 16 }, (_, i) => i + 1);
 
 export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, secondUser }) => {
   const theme = useContext(ThemeContext);
@@ -28,12 +33,15 @@ export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, sec
     tooltip: {
       ...getDefaultTooltipStyles(theme),
       trigger: 'axis',
-      formatter: (data: ChartSeriesData) => {
-        const firstItem = data[1];
-        const secondItem = data[0];
+      formatter: (series: ChartSeriesData) => {
+        const firstUser = series[1];
+        const secondUser = series[0];
 
-        return `${firstItem.seriesName}: ${firstItem.value}%  - ${t('common.day')} ${firstItem.name} <br/>
-                ${secondItem.seriesName}: ${secondItem.value}% - ${t('common.day')} ${secondItem.name}
+        const firstUserData = firstUser.data;
+        const secondUserData = secondUser.data;
+
+        return `${firstUser.seriesName}: ${firstUserData.value}%  - ${t('common.day')} ${firstUserData.day} <br/>
+                ${secondUser.seriesName}: ${secondUserData.value}% - ${t('common.day')} ${secondUserData.day}
         `;
       },
     },

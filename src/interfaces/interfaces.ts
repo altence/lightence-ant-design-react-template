@@ -9,7 +9,10 @@ export type xData = number[] | string[];
 export interface ChartSeries {
   seriesName: string;
   value: number;
-  data: NumericLiteral;
+  data: {
+    day: number;
+    value: NumericLiteral;
+  };
   name: string;
 }
 
