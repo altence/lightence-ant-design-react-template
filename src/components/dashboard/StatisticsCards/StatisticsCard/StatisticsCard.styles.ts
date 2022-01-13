@@ -17,7 +17,9 @@ export const Icon = styled(AntIcon)`
   font-size: 1.5rem;
 `;
 
-export const StatisticCard = styled(DashboardCard)<StatisticsProps>`
+export const StatisticCard = styled(DashboardCard).withConfig({
+  shouldForwardProp: (prop) => !['color'].includes(prop),
+})<StatisticsProps>`
   line-height: 1;
   overflow: hidden;
   border: 1px solid ${(props) => props.color};
