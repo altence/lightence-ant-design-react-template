@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Form } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ReactComponent as GoogleIcon } from 'assets/icons/google.svg';
 import { ReactComponent as FacebookIcon } from 'assets/icons/facebook.svg';
 import * as S from './LoginForm.styles';
 import * as Auth from 'components/layouts/auth/AuthLayout.styles';
 import { useAppDispatch } from '@app/hooks/reduxHooks';
-import { setToken } from '@app/store/authSlice';
-import { login } from '@app/api/auth.api';
+import { doLogin } from '@app/store/authSlice';
 import { notificationController } from '@app/controllers/notificationController';
-import { setUser } from '@app/store/userSlice';
 
 interface LoginFormData {
   email: string;
@@ -25,19 +22,16 @@ export const initValues: LoginFormData = {
 
 export const LoginForm: React.FC = () => {
   const navigate = useNavigate();
-  const [isLoading, setLoading] = useState(false);
   const dispatch = useAppDispatch();
-
   const { t } = useTranslation();
+
+  const [isLoading, setLoading] = useState(false);
 
   const handleSubmit = (values: LoginFormData) => {
     setLoading(true);
-    login(values)
-      .then(({ token, user }) => {
-        navigate('/');
-        dispatch(setUser(user));
-        dispatch(setToken(token));
-      })
+    dispatch(doLogin(values))
+      .unwrap()
+      .then(() => navigate('/'))
       .catch((err) => {
         notificationController.error({ message: err.message });
         setLoading(false);
