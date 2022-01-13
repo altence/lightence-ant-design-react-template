@@ -4,10 +4,22 @@ import { Doctor, getDoctorsData } from 'api/doctors.api';
 import { DashboardCard } from '../DashboardCard/DashboardCard';
 import { Carousel } from 'components/common/Carousel/Carousel';
 import { DoctorCard } from './DoctorCard/DoctorCard';
-import styled, { ThemeContext } from 'styled-components';
+import { ThemeContext } from 'styled-components';
 import { CalendarEvent, getUserCalendar } from 'api/calendar.api';
 import { Dates } from 'constants/Dates';
 import { useAppSelector } from '@app/hooks/reduxHooks';
+
+import * as S from './FavoritesDoctorsCard.styles';
+
+function SampleNextArrow(props: any) {
+  const { className, style, onClick } = props;
+  return <S.SliderArrow className={className} style={{ ...style, display: 'block' }} onClick={onClick} />;
+}
+
+function SamplePrevArrow(props: any) {
+  const { className, style, onClick } = props;
+  return <S.SliderArrow className={className} style={{ ...style, display: 'block' }} onClick={onClick} />;
+}
 
 export const FavoritesDoctorsCard: React.FC = () => {
   const { t } = useTranslation();
@@ -35,36 +47,36 @@ export const FavoritesDoctorsCard: React.FC = () => {
   return (
     <DashboardCard title={t('dashboard.favoriteDoctors.title')} padding="0 20px">
       {doctors.length > 0 && calendar.length > 0 && (
-        <CarouselWrapper>
+        <S.CarouselWrapper>
           <Carousel
-            slidesToShow={5}
+            slidesToShow={3}
+            slidesToScroll={1}
+            arrows={true}
+            nextArrow={<SampleNextArrow />}
+            prevArrow={<SamplePrevArrow />}
             responsive={[
               {
                 breakpoint: theme.breakpoints.xxl - 1,
                 settings: {
-                  slidesToShow: 4,
-                  slidesToScroll: 1,
+                  slidesToShow: 2,
                 },
               },
               {
                 breakpoint: theme.breakpoints.xl - 1,
                 settings: {
                   slidesToShow: 3,
-                  slidesToScroll: 1,
                 },
               },
               {
                 breakpoint: theme.breakpoints.md - 1,
                 settings: {
                   slidesToShow: 2,
-                  slidesToScroll: 1,
                 },
               },
               {
                 breakpoint: theme.breakpoints.sm - 1,
                 settings: {
                   slidesToShow: 1,
-                  slidesToScroll: 1,
                 },
               },
             ]}
@@ -85,13 +97,8 @@ export const FavoritesDoctorsCard: React.FC = () => {
               );
             })}
           </Carousel>
-        </CarouselWrapper>
+        </S.CarouselWrapper>
       )}
     </DashboardCard>
   );
 };
-
-const CarouselWrapper = styled.div`
-  margin-left: -1.25rem;
-  margin-right: -1.25rem;
-`;
