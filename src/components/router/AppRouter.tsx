@@ -52,15 +52,22 @@ import DropdownsPage from '@app/pages/UIComponentsPages/DropdownsPage';
 import BreadcrumbsPage from '@app/pages/UIComponentsPages/Navigation/BreadcrumbsPage';
 import TabsPage from '@app/pages/UIComponentsPages/Navigation/TabsPage';
 import NotificationsUIPage from '@app/pages/UIComponentsPages/Feedback/NotificationsPage';
+import { RequireAuth } from '@app/components/router/RequireAuth';
 
 export const DASHBOARD_PATH = '/';
 
 /*TODO check for lazy loading and add if lack*/
 export const AppRouter: React.FC = () => {
+  const protectedLayout = (
+    <RequireAuth>
+      <MainLayout />
+    </RequireAuth>
+  );
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={DASHBOARD_PATH} element={<MainLayout />}>
+        <Route path={DASHBOARD_PATH} element={protectedLayout}>
           <Route index element={<DashboardPage />} />
           <Route path="apps">
             <Route path="feed" element={<NewsFeedPage />} />
