@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { LaneHeader } from 'react-trello/dist/styles/Base';
 
 export const Header = styled(LaneHeader)`
-  color: ${(props) => props.theme.colors.text.secondary};
+  color: ${(props) => props.theme.colors.text.main};
   width: 16rem;
   padding: 0;
 `;

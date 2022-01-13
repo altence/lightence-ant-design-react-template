@@ -5,7 +5,7 @@ export const Text = styled(H1)`
   &.ant-typography {
     margin-bottom: 1rem;
 
-    color: ${(props) => props.theme.colors.text.secondary};
+    color: ${(props) => props.theme.colors.text.main};
 
     @media only screen and ${(props) => props.theme.media.md} {
       margin-bottom: 1.25rem;
