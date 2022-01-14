@@ -11,6 +11,7 @@ import { useAppSelector } from '@app/hooks/reduxHooks';
 
 import * as S from './FavoritesDoctorsCard.styles';
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const NextArrow = (props: any) => {
   const { className, style, onClick } = props;
   return <S.SliderArrow className={className} style={{ ...style, display: 'block' }} onClick={onClick} />;
