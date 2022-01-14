@@ -112,8 +112,14 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
   {
     title: 'common.maps',
     key: 'maps',
-    url: '/maps',
     icon: <CompassOutlined />,
+    children: [
+      {
+        title: 'common.googleMap',
+        key: 'google-maps',
+        url: '/maps/google-maps',
+      },
+    ],
   },
   {
     title: 'common.pages',

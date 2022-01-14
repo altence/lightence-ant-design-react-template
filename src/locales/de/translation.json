@@ -101,7 +101,8 @@
     "dropDownsPage": "DE!!!Dropdowns",
     "breadcrumbsPage": "DE!!!Breadcrumbs",
     "tabsPage": "DE!!!Tabs",
-    "notificationsPage": "DE!!!Notifications"
+    "notificationsPage": "DE!!!Notifications",
+    "googleMap": "Google Maps"
   },
   "header": {
     "search": "Search",
