@@ -25,7 +25,7 @@ export const Button = styled(AntButton)<BtnProps>`
         color: ${defineColorBySeverity(props.$severity, props.theme)};
 
         &:hover {
-          background: #fff;
+          background: ${props.theme.colors.main.mainBackground};
 
           border-color: ${shadeColor(defineColorBySeverity(props.$severity, props.theme), 10)};
 
@@ -33,7 +33,7 @@ export const Button = styled(AntButton)<BtnProps>`
         }
 
         &:focus {
-          background: #fff;
+          background: ${props.theme.colors.main.mainBackground};
 
           border-color: ${shadeColor(defineColorBySeverity(props.$severity, props.theme), 10)};
 

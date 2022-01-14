@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext, useCallback } from 'react';
 import { Card } from 'components/common/Card/Card';
 import { BaseChart } from 'components/common/charts/BaseChart';
 import { useTranslation } from 'react-i18next';
 import Data from './data.json';
+import { ThemeContext } from 'styled-components';
 
 interface DataRow {
   id: string;
@@ -21,6 +22,7 @@ interface SeriesRow {
   endLabel: {
     show: boolean;
     formatter: (params: { value: string }) => string;
+    color?: string;
   };
   labelLayout: {
     moveOverlap: string;
@@ -43,13 +45,9 @@ export const LineRaceChart: React.FC = () => {
   const rawData = JSON.parse(JSON.stringify(Data));
   const { t } = useTranslation();
 
-  useEffect(() => {
-    setTimeout(() => {
-      runAnimation();
-    }, 200);
-  }, []);
+  const theme = useContext(ThemeContext);
 
-  const runAnimation = () => {
+  const runAnimation = useCallback(() => {
     const countries = ['Finland', 'Germany', 'Iceland', 'Norway', 'United Kingdom'];
     const datasetWithFilters: DataRow[] = [];
     const seriesList: SeriesRow[] = [];
@@ -77,6 +75,7 @@ export const LineRaceChart: React.FC = () => {
         endLabel: {
           show: true,
           formatter: (params) => `${params.value[3]}: ${params.value[0]}`,
+          color: theme.colors.text.main,
         },
         labelLayout: {
           moveOverlap: 'shiftY',
@@ -95,7 +94,14 @@ export const LineRaceChart: React.FC = () => {
     });
     setData(datasetWithFilters);
     setSeries(seriesList);
-  };
+  }, [theme]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      runAnimation();
+    }, 200);
+  }, [runAnimation]);
+
   const option = {
     animationDuration: 10000,
     dataset: [

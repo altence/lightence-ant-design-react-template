@@ -21,6 +21,9 @@ export const PieChart: React.FC<PieChartProps> = ({ option, data, name, showLege
       show: showLegend,
       top: '0%',
       left: 16,
+      textStyle: {
+        color: theme.colors.text.main,
+      },
     },
     series: [
       {

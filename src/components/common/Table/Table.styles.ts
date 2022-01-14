@@ -30,7 +30,7 @@ export const Table = styled(AntdTable)`
     .ant-table-thead
     > tr
     > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
-    background-color: ${(props) => props.theme.colors.main.primaryLight};
+    background-color: ${(props) => props.theme.colors.main.primary};
   }
 
   & .ant-pagination-prev,
