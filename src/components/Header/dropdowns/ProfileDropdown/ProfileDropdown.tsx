@@ -1,20 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Avatar, Col, Dropdown, Row } from 'antd';
 import { useMediaQuery } from 'react-responsive';
 import { H6 } from 'components/common/typography/H6/H6';
 import { ProfileOverlay } from './ProfileOverlay/ProfileOverlay';
-import { getUser, User } from 'api/users.api';
 import theme from 'styles/theme';
 import * as S from './ProfileDropdown.styles';
+import { useAppSelector } from '@app/hooks/reduxHooks';
 
 export const ProfileDropdown: React.FC = () => {
-  const [user, setUser] = useState<User | null>(null);
-
   const isTablet = useMediaQuery({ query: theme.media.md });
 
-  useEffect(() => {
-    getUser().then((res) => setUser(res));
-  }, []);
+  const user = useAppSelector((state) => state.user.user);
 
   return user ? (
     <Dropdown overlay={<ProfileOverlay />} trigger={['click']}>
