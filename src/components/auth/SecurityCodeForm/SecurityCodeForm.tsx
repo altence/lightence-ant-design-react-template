@@ -5,29 +5,31 @@ import { useTranslation } from 'react-i18next';
 import * as S from './SecurityCodeForm.styles';
 import * as Auth from 'components/layouts/auth/AuthLayout.styles';
 import { VerificationCodeInput } from 'components/common/VerificationCodeInput/VerificationCodeInput';
-import { verifyEmail } from 'api/auth.api';
 import VerifyEmailImage from 'assets/images/verify-email.png';
+import { useAppDispatch } from '@app/hooks/reduxHooks';
+import { doVerifySecurityCode } from '@app/store/authSlice';
+import { notificationController } from '@app/controllers/notificationController';
 
 export const SecurityCodeForm: React.FC = () => {
-  const [verifyCode, setVerifyCode] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const dispatch = useAppDispatch();
+
+  const [securityCode, setSecurityCode] = useState('');
+  const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (verifyCode.length === 6) {
-      setIsLoading(true);
-      verifyEmail({ code: verifyCode })
-        .then(() => {
-          setIsLoading(false);
-          navigate('/auth/new-password');
-        })
-        .catch((e) => {
-          console.error(e);
-          setIsLoading(false);
+    if (securityCode.length === 6) {
+      setLoading(true);
+      dispatch(doVerifySecurityCode({ code: securityCode }))
+        .unwrap()
+        .then(() => navigate('/auth/new-password'))
+        .catch((err) => {
+          notificationController.error({ message: err.message });
+          setLoading(false);
         });
     }
-  }, [verifyCode, navigate]);
+  }, [securityCode, navigate, dispatch]);
 
   return (
     <Auth.FormWrapper>
@@ -40,11 +42,11 @@ export const SecurityCodeForm: React.FC = () => {
           <S.ImageWrapper>
             <Image src={VerifyEmailImage} alt="Not found" preview={false} />
           </S.ImageWrapper>
-          <Auth.FormTitle>{t('verifyEmail.title')}</Auth.FormTitle>
-          <S.VerifyEmailDescription>{t('verifyEmail.description')}</S.VerifyEmailDescription>
-          {isLoading ? <Spin /> : <VerificationCodeInput autoFocus onChange={(value) => setVerifyCode(value)} />}
-          <Link to="/" target={'_blank'}>
-            <S.NoCodeText>{t('verifyEmail.noCode')}</S.NoCodeText>
+          <Auth.FormTitle>{t('securityCodeForm.title')}</Auth.FormTitle>
+          <S.VerifyEmailDescription>{t('securityCodeForm.description')}</S.VerifyEmailDescription>
+          {isLoading ? <Spin /> : <VerificationCodeInput autoFocus onChange={setSecurityCode} />}
+          <Link to="/" target="_blank">
+            <S.NoCodeText>{t('securityCodeForm.noCode')}</S.NoCodeText>
           </Link>
         </S.ContentWrapper>
       </Form>

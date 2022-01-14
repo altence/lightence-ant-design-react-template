@@ -249,10 +249,10 @@
     "sendInstructions": "DE!!!Send instructions",
     "successReset": "DE!!!We've sent to your email address the reset link"
   },
-  "verifyEmail": {
+  "securityCodeForm": {
     "title": "DE!!!Check your mail",
     "description": "DE!!!We have sent a verification code to your email",
-    "noCode": "DE!!!Didn’t get a verification code?"
+    "noCode": "DE!!!Didn't get a verification code?"
   },
   "twoFactorAuth": {
     "title": "DE!!!Two-factor authentication",

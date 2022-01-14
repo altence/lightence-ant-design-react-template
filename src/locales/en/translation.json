@@ -251,10 +251,10 @@
     "sendInstructions": "Send instructions",
     "successReset": "We've sent to your email address the reset link"
   },
-  "verifyEmail": {
+  "securityCodeForm": {
     "title": "Check your mail",
     "description": "We have sent a verification code to your email",
-    "noCode": "Didn’t get a verification code?"
+    "noCode": "Didn't get a verification code?"
   },
   "twoFactorAuth": {
     "title": "Two-factor authentication",
