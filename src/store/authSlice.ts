@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { login, LoginRequest } from '@app/api/auth.api';
+import { login, LoginRequest, signUp, SignUpRequest } from '@app/api/auth.api';
 import { setUser } from '@app/store/userSlice';
 import { persistToken, persistUser, readToken } from '@app/services/localStorage.service';
 
@@ -20,6 +20,8 @@ export const doLogin = createAsyncThunk('auth/login', async (loginPayload: Login
     return res.token;
   }),
 );
+
+export const doSignUp = createAsyncThunk('auth/signUp', async (signUpPayload: SignUpRequest) => signUp(signUpPayload));
 
 const authSlice = createSlice({
   name: 'auth',

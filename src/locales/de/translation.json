@@ -867,5 +867,9 @@
     "warningDescription": "DE!!!Warning description",
     "withoutDescription": "DE!!!Notifications without description",
     "basicTitle": "DE!!!Basic"
+  },
+  "auth": {
+    "signUpSuccessMessage": "DE!!!New user was created",
+    "signUpSuccessDescription": "DE!!!Please use your new credentials to log in"
   }
 }

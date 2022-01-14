@@ -888,5 +888,9 @@
     "warningDescription": "Warning description",
     "withoutDescription": "Notifications without description",
     "basicTitle": "Basic"
+  },
+  "auth": {
+    "signUpSuccessMessage": "New user was created",
+    "signUpSuccessDescription": "Please use your new credentials to log in"
   }
 }

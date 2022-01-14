@@ -7,35 +7,53 @@ import { ReactComponent as GoogleIcon } from 'assets/icons/google.svg';
 import { ReactComponent as FacebookIcon } from 'assets/icons/facebook.svg';
 import * as S from './SignUpForm.styles';
 import * as Auth from 'components/layouts/auth/AuthLayout.styles';
-import { signUp, SignUpData } from 'api/auth.api';
+import { useAppDispatch } from '@app/hooks/reduxHooks';
+import { doSignUp } from '@app/store/authSlice';
+import { notificationController } from '@app/controllers/notificationController';
+
+interface SignUpFormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+}
+
+const initValues = {
+  firstName: 'Christopher',
+  lastName: 'Johnson',
+  email: 'christopher.johnson@altence.com',
+  password: 'test-pass',
+  confirmPassword: 'test-pass',
+  termOfUse: true,
+};
 
 export const SignUpForm: React.FC = () => {
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useAppDispatch();
+  const [isLoading, setLoading] = useState(false);
 
   const { t } = useTranslation();
 
-  const handleSubmit = (values: SignUpData) => {
-    setIsLoading(true);
-    signUp(values)
+  const handleSubmit = (values: SignUpFormData) => {
+    setLoading(true);
+    dispatch(doSignUp(values))
+      .unwrap()
       .then(() => {
-        setIsLoading(false);
-        navigate('/');
+        notificationController.success({
+          message: t('auth.signUpSuccessMessage'),
+          description: t('auth.signUpSuccessDescription'),
+        });
+        navigate('/auth/login');
       })
-      .catch((e) => {
-        console.error(e);
-        setIsLoading(false);
+      .catch((err) => {
+        notificationController.error({ message: err.message });
+        setLoading(false);
       });
   };
 
   return (
     <Auth.FormWrapper>
-      <Form
-        fields={[{ name: ['termOfUse'], value: true }]}
-        layout="vertical"
-        onFinish={handleSubmit}
-        requiredMark="optional"
-      >
+      <Form layout="vertical" onFinish={handleSubmit} requiredMark="optional" initialValues={initValues}>
         <S.Title>{t('common.signUp')}</S.Title>
         <Auth.FormItem
           name="firstName"
