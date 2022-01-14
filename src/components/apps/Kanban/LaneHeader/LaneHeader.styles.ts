@@ -3,7 +3,7 @@ import { LaneHeader } from 'react-trello/dist/styles/Base';
 
 export const Header = styled(LaneHeader)`
   color: ${(props) => props.theme.colors.text.secondary};
-  width: 15.9375rem;
+  width: 16rem;
   padding: 0;
 `;
 
@@ -12,6 +12,7 @@ export const Title = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: ${(props) => props.theme.commonFontWeight.bold};
+  color: ${(props) => props.theme.colors.main.primary};
 `;
 
 export const Dot = styled.span`
