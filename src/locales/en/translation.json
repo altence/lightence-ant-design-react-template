@@ -9,6 +9,7 @@
     "charts": "Charts",
     "maps": "Maps",
     "googleMap": "Google Maps",
+    "leafletMap": "Leaflet Maps",
     "pages": "Pages",
     "feed": "Feed",
     "kanban": "Kanban",

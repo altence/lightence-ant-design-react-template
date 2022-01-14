@@ -52,7 +52,8 @@ import BreadcrumbsPage from '@app/pages/UIComponentsPages/Navigation/Breadcrumbs
 import TabsPage from '@app/pages/UIComponentsPages/Navigation/TabsPage';
 import NotificationsUIPage from '@app/pages/UIComponentsPages/Feedback/NotificationsPage';
 import { RequireAuth } from '@app/components/router/RequireAuth';
-import GoogleMaps from '@app/pages/maps/google-maps/GoogleMapsPage';
+import GoogleMaps from '@app/pages/maps/GoogleMapsPage/GoogleMapsPage';
+import LeafletMaps from '@app/pages/maps/LeafletMapsPage/LeafletMapsPage';
 
 export const DASHBOARD_PATH = '/';
 
@@ -111,6 +112,7 @@ export const AppRouter: React.FC = () => {
           <Route path="charts" element={<ChartsPage />} />
           <Route path="maps">
             <Route path="google-maps" element={<GoogleMaps />} />
+            <Route path="leaflet-maps" element={<LeafletMaps />} />
           </Route>
           <Route path="server-error" element={<ServerErrorPage />} />
           <Route path="maintenance" element={<MaintenancePage />} />

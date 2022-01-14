@@ -119,6 +119,11 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: 'google-maps',
         url: '/maps/google-maps',
       },
+      {
+        title: 'common.leafletMap',
+        key: 'leaflet-maps',
+        url: '/maps/leaflet-maps',
+      },
     ],
   },
   {
