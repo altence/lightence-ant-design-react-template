@@ -8,6 +8,8 @@ import {
   resetPassword,
   verifySecurityCode,
   SecurityCodePayload,
+  NewPasswordData,
+  setNewPassword,
 } from '@app/api/auth.api';
 import { setUser } from '@app/store/userSlice';
 import { persistToken, persistUser, readToken } from '@app/services/localStorage.service';
@@ -39,6 +41,10 @@ export const doResetPassword = createAsyncThunk('auth/resetPassword', async (res
 export const doVerifySecurityCode = createAsyncThunk(
   'auth/verifySecurityCode',
   async (securityCodePayload: SecurityCodePayload) => verifySecurityCode(securityCodePayload),
+);
+
+export const doSetNewPassword = createAsyncThunk('auth/setNewPassword', async (newPasswordData: NewPasswordData) =>
+  setNewPassword(newPasswordData),
 );
 
 const authSlice = createSlice({

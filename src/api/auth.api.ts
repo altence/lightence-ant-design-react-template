@@ -23,9 +23,7 @@ export interface SecurityCodePayload {
 }
 
 export interface NewPasswordData {
-  password: string;
   newPassword: string;
-  confirmPassword: string;
 }
 
 export interface LoginRequest {
@@ -50,8 +48,5 @@ export const resetPassword = (resetPasswordPayload: ResetPasswordRequest): Promi
 export const verifySecurityCode = (securityCodePayload: SecurityCodePayload): Promise<undefined> =>
   httpApi.post<undefined>('verifySecurityCode', { ...securityCodePayload }).then(({ data }) => data);
 
-export const setNewPassword = (newPasswordData: NewPasswordData): Promise<boolean> => {
-  return httpApi.post<boolean>('newPassword', { ...newPasswordData }).then(() => {
-    return true;
-  });
-};
+export const setNewPassword = (newPasswordData: NewPasswordData): Promise<undefined> =>
+  httpApi.post<undefined>('setNewPassword', { ...newPasswordData }).then(({ data }) => data);

@@ -264,7 +264,8 @@
     "title": "DE!!!Create new password",
     "description": "DE!!!Your new password must be different from previous password",
     "resetPassword": "DE!!!Reset password",
-    "successReset": "DE!!!New password set"
+    "successMessage": "DE!!!New password was set",
+    "successDescription": "DE!!!Please, use your email with a new password to log in"
   },
   "profile": {
     "title": "DE!!!Profile",
