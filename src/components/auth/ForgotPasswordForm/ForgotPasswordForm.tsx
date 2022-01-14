@@ -4,30 +4,40 @@ import { Form } from 'antd';
 import { useTranslation } from 'react-i18next';
 import * as S from './ForgotPasswordForm.styles';
 import * as Auth from 'components/layouts/auth/AuthLayout.styles';
-import { forgotPassword, ForgotPasswordData } from 'api/auth.api';
+import { useAppDispatch } from '@app/hooks/reduxHooks';
+import { doResetPassword } from '@app/store/authSlice';
+import { notificationController } from '@app/controllers/notificationController';
+
+interface ForgotPasswordFormData {
+  email: string;
+}
+
+const initValues = {
+  email: 'christopher.johnson@altence.com',
+};
 
 export const ForgotPasswordForm: React.FC = () => {
   const { t } = useTranslation();
-  const [isLoading, setIsLoading] = useState(false);
-
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const [isLoading, setLoading] = useState(false);
 
-  const handleSubmit = (values: ForgotPasswordData) => {
-    setIsLoading(true);
-    forgotPassword(values)
+  const handleSubmit = (values: ForgotPasswordFormData) => {
+    setLoading(true);
+    dispatch(doResetPassword(values))
+      .unwrap()
       .then(() => {
-        setIsLoading(false);
         navigate('/auth/security-code');
       })
-      .catch((e) => {
-        console.error(e);
-        setIsLoading(false);
+      .catch((err) => {
+        notificationController.error({ message: err.message });
+        setLoading(false);
       });
   };
 
   return (
     <Auth.FormWrapper>
-      <Form layout="vertical" onFinish={handleSubmit} requiredMark="optional">
+      <Form layout="vertical" onFinish={handleSubmit} requiredMark="optional" initialValues={initValues}>
         <Auth.BackWrapper onClick={() => navigate(-1)}>
           <Auth.BackIcon />
           {t('common.back')}
