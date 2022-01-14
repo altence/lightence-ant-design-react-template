@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './i18n';
-import './styles/main.less';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import 'config/config';
 import { Provider } from 'react-redux';
 import { store } from '@app/store/store';
+import './styles/main_dark.less';
 
 ReactDOM.render(
   <React.StrictMode>

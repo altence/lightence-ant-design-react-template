@@ -12,7 +12,7 @@ interface Event {
 export const Wrapper = styled.div`
   background-color: ${(props) => props.theme.colors.main.mainBackground};
 
-  box-shadow: ${(props) => props.theme.boxShadow};
+  box-shadow: ${(props) => props.theme.boxShadow.main};
 `;
 
 export const Event = styled.div<Event>`
@@ -25,6 +25,8 @@ export const Event = styled.div<Event>`
   width: 100%;
   height: 100%;
   box-shadow: 0 5px 15px rgba(0, 89, 171, 0.3);
+
+  background: ${(props) => props.theme.colors.main.secondaryBackground};
 
   ${(props) =>
     props.$isPast ? `color: ${props.theme.colors.main.light}` : `color: ${props.theme.colors.main.primary}`};

@@ -80,7 +80,10 @@ declare module 'styled-components' {
     border: {
       radius: string;
     };
-    boxShadow: string;
+    boxShadow: {
+      main: string;
+      hover: string;
+    };
     breakpoints: {
       xs: number;
       sm: number;

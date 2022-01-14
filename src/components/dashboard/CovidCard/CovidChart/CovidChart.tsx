@@ -34,6 +34,7 @@ export const CovidChart: React.FC<{
       textStyle: {
         fontSize: 16,
         padding: 10,
+        color: theme.colors.text.main,
       },
     },
     grid: {
@@ -115,6 +116,7 @@ export const CovidChart: React.FC<{
         ],
         label: {
           show: isDesktop,
+          color: theme.colors.text.main,
         },
         type: 'pie',
         radius: '30%',

@@ -91,4 +91,20 @@ export default createGlobalStyle`
       margin-top: 0.625rem;
     }
   }
+
+  .ant-picker-cell {
+    color: ${(props) => props.theme.colors.text.superLight};
+
+    &:hover .ant-picker-cell-inner {
+      background: ${(props) => props.theme.colors.main.secondaryBackground} !important;
+    }
+  }
+
+  .ant-picker-cell-in-view {
+    color: ${(props) => props.theme.colors.text.main};
+  }
+
+  .ant-picker svg {
+    color: ${(props) => props.theme.colors.text.light};
+  }
 `;

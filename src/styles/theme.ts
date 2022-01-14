@@ -167,13 +167,18 @@ const colors = {
   },
 };
 
+const boxShadow = {
+  main: '0 4px 8px 0 rgba(0, 0, 0, 0.07)',
+  hover: '0 8px 16px 0 rgba(0, 0, 0, 0.2)',
+};
+
 const theme: DefaultTheme = {
   commonColors,
   colors,
   border: {
     radius: '7px',
   },
-  boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.07)',
+  boxShadow,
   breakpoints,
   media,
   mobileLayout,

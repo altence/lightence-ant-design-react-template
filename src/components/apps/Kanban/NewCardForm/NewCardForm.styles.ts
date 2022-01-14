@@ -37,4 +37,6 @@ export const FormInput = styled(FormItem)`
 
 export const CardWrapper = styled(Card)`
   padding: 1.25rem 1rem;
+
+  background: ${(props) => props.theme.colors.main.mainBackground};
 `;

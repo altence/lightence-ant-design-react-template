@@ -3,34 +3,33 @@ import { graphic } from 'echarts';
 
 const darkColors = {
   main: {
-    primary: '#000000',
-    primaryLight: '#b3cbe1',
+    primary: '#0072DD',
+    primaryLight: '#1b0035',
     primaryShade: '#0661B5',
     primaryGradient: 'linear-gradient(261.31deg, #006CCF -29.57%, #00509A 121.11%)',
-    light: '#000000',
-    secondary: '#383838',
-    error: '#383838',
-    warning: '#383838',
-    success: '#383838',
+    light: '#696969',
+    secondary: '#35A0DC',
+    error: '#FF5252',
+    warning: '#FFB155',
+    success: '#57D682',
     angularGradient:
       'conic-gradient(from -35.18deg at 50% 50%, #006CCF -154.36deg, #FF5252 24.13deg, #FFB155 118.76deg, #006CCF 205.64deg, #FF5252 384.13deg)',
-    mainBackground: '#000000',
-    secondaryBackground: '#F4F4F4',
-    lightBackground: '#F3F3F3',
+    mainBackground: '#2D2C3E',
+    secondaryBackground: '#1c2137',
     chartPrimaryGradient: new graphic.LinearGradient(0, 0, 0, 1, [
       {
         offset: 0,
-        color: 'rgba(0, 0, 0, 0.95)',
+        color: 'rgba(0, 110, 211, 0.75)',
       },
       {
         offset: 1,
-        color: 'rgba(193, 225, 255, 0.2)',
+        color: 'rgba(193, 225, 255, 0)',
       },
     ]),
     chartSecondaryGradient: new graphic.LinearGradient(0, 0, 0, 1, [
       {
         offset: 0,
-        color: 'rgba(0, 0, 0, 0.5)',
+        color: 'rgba(255, 82, 82, 0.5)',
       },
       {
         offset: 1,
@@ -49,13 +48,13 @@ const darkColors = {
     ]),
   },
   text: {
-    main: '#404040',
+    main: '#ffffff',
     light: '#9A9B9F',
-    superLight: '#BEC0C6',
-    secondary: '#000000',
+    superLight: '#444',
+    secondary: '#ffffff',
   },
   border: {
-    main: '#bec0c6',
+    main: '#ffffff',
   },
   dashboardMap: {
     background:
@@ -94,7 +93,13 @@ const darkColors = {
   },
 };
 
+const boxShadow = {
+  main: '0 4px 8px 0 rgba(255, 255, 255, 0.07)',
+  hover: '0 8px 16px 0 rgba(255, 255, 255, 0.2)',
+};
+
 export const darkTheme = {
   ...theme,
   colors: darkColors,
+  boxShadow,
 };

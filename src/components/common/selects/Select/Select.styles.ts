@@ -15,7 +15,13 @@ export const Select = styled(AntSelect).withConfig({
 
   font-weight: ${(props) => props.theme.commonFontWeight.medium};
 
-  box-shadow: ${(props) => props.shadow && props.theme.boxShadow};
+  box-shadow: ${(props) => props.shadow && props.theme.boxShadow.main};
+
+  &.ant-select-borderless {
+    background: ${(props) => props.theme.colors.main.secondaryBackground};
+
+    border-radius: ${(props) => props.theme.border.radius};
+  }
 
   .ant-select-selection-placeholder {
     font-size: ${(props) => props.theme.commonFontSizes.xs};
