@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Avatar } from 'antd';
-import { User } from 'api/users.api';
+import { UserModel } from '@app/domain/UserModel';
 import * as S from './ProfileInfo.styles';
 
 interface ProfileInfoProps {
-  profileData?: User;
+  profileData: UserModel | null;
 }
 
 export const ProfileInfo: React.FC<ProfileInfoProps> = ({ profileData }) => {

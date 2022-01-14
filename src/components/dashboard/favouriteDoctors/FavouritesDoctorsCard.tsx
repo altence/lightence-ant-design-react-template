@@ -6,24 +6,21 @@ import { Carousel } from 'components/common/Carousel/Carousel';
 import { DoctorCard } from './DoctorCard/DoctorCard';
 import styled, { ThemeContext } from 'styled-components';
 import { CalendarEvent, getUserCalendar } from 'api/calendar.api';
-import { getUser, User } from 'api/users.api';
 import { Dates } from 'constants/Dates';
+import { useAppSelector } from '@app/hooks/reduxHooks';
 
 export const FavouritesDoctorsCard: React.FC = () => {
   const { t } = useTranslation();
   const [doctors, setDoctors] = useState<Doctor[]>([]);
-  const [user, setUser] = useState<User>();
   const [calendar, setCalendar] = useState<CalendarEvent[]>([]);
+
+  const user = useAppSelector((state) => state.user.user);
 
   const theme = useContext(ThemeContext);
   const today = Dates.getToday();
 
   useEffect(() => {
     getDoctorsData().then((res) => setDoctors(res));
-  }, []);
-
-  useEffect(() => {
-    getUser().then((res) => setUser(res));
   }, []);
 
   useEffect(() => {

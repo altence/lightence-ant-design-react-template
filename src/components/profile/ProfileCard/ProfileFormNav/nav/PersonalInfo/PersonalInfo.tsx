@@ -17,9 +17,10 @@ import { ZipcodeItem } from './ZipcodeItem/ZipcodeItem';
 import { AddressItem } from './AddressItem/AddressItem';
 import { WebsiteItem } from './WebsiteItem/WebsiteItem';
 import { SocialLinksItem } from './SocialLinksItem/SocialLinksItem';
-import { getUser, updateUser, User } from 'api/users.api';
+import { updateUser } from 'api/users.api';
 import * as S from '../../../../../common/Form/Form.styles';
 import { Dates } from '@app/constants/Dates';
+import { useAppSelector } from '@app/hooks/reduxHooks';
 
 const initialPersonalInfoValues = {
   firstName: '',
@@ -43,13 +44,10 @@ const initialPersonalInfoValues = {
 
 export const PersonalInfo: React.FC = () => {
   const [formValues, setFormValues] = useState(initialPersonalInfoValues);
-  const [user, setUser] = useState<User>();
+
+  const user = useAppSelector((state) => state.user.user);
 
   const [form] = AntForm.useForm();
-
-  useEffect(() => {
-    getUser().then((res) => setUser(res));
-  }, []);
 
   useEffect(() => {
     user &&

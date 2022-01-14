@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Col, Row } from 'antd';
 import { LeftOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
@@ -11,21 +11,17 @@ import { Button } from '@app/components/common/buttons/Button/Button';
 import { ProfileInfo } from '@app/components/profile/ProfileCard/ProfileInfo/ProfileInfo';
 import { ProfileNav } from '@app/components/profile/ProfileCard/ProfileNav/ProfileNav';
 import { useResponsive } from '@app/hooks/useResponsive';
-import { getUser, User } from '@app/api/users.api';
+import { useAppSelector } from '@app/hooks/reduxHooks';
 
 const ProfileLayout: React.FC = () => {
-  const [user, setUser] = useState<User>();
-
-  const { isTablet } = useResponsive();
-
-  useEffect(() => {
-    getUser().then((res) => setUser(res));
-  }, []);
+  const user = useAppSelector((state) => state.user.user);
 
   const { t } = useTranslation();
   const { isTablet: isTabletOrHigher, mobileOnly } = useResponsive();
   const location = useLocation();
   const navigate = useNavigate();
+
+  const { isTablet } = useResponsive();
 
   const isTitleShown = isTabletOrHigher || (mobileOnly && location.pathname === '/profile');
   const isMenuShown = isTabletOrHigher || (mobileOnly && location.pathname !== '/profile');
