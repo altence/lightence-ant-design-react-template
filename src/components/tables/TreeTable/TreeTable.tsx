@@ -4,6 +4,7 @@ import { TablePaginationConfig } from 'antd';
 import { Key, DefaultRecordType } from 'rc-table/lib/interface';
 import { TreeTableRow, Pagination, getTreeTableData } from 'api/table.api';
 import { useTranslation } from 'react-i18next';
+import { useMounted } from '@app/hooks/useMounted';
 
 const initialPagination: Pagination = {
   current: 1,
@@ -17,15 +18,18 @@ export const TreeTable: React.FC = () => {
     loading: false,
   });
   const { t } = useTranslation();
+  const { isMounted } = useMounted();
 
   const fetch = useCallback(
     (pagination: Pagination) => {
       setTableData((tableData) => ({ ...tableData, loading: true }));
       getTreeTableData(pagination).then((res) => {
-        setTableData({ data: res.data, pagination: res.pagination, loading: false });
+        if (isMounted.current) {
+          setTableData({ data: res.data, pagination: res.pagination, loading: false });
+        }
       });
     },
-    [setTableData],
+    [isMounted],
   );
 
   useEffect(() => {
