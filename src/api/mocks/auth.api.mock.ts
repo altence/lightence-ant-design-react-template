@@ -41,13 +41,7 @@ httpApiMock.onPost('signUp').reply(200);
 
 httpApiMock.onPost('forgotPassword').reply(200);
 
-httpApiMock.onPost('/verifyEmail').reply(() => {
-  return new Promise((res) => {
-    setTimeout(() => {
-      res([200]);
-    }, 1000);
-  });
-});
+httpApiMock.onPost('verifySecurityCode').reply(200);
 
 httpApiMock.onPost('/newPassword').reply(() => {
   return new Promise((res) => {

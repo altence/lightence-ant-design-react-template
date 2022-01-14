@@ -1,5 +1,14 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { ResetPasswordRequest, login, LoginRequest, signUp, SignUpRequest, resetPassword } from '@app/api/auth.api';
+import {
+  ResetPasswordRequest,
+  login,
+  LoginRequest,
+  signUp,
+  SignUpRequest,
+  resetPassword,
+  verifySecurityCode,
+  SecurityCodePayload,
+} from '@app/api/auth.api';
 import { setUser } from '@app/store/userSlice';
 import { persistToken, persistUser, readToken } from '@app/services/localStorage.service';
 
@@ -25,6 +34,11 @@ export const doSignUp = createAsyncThunk('auth/signUp', async (signUpPayload: Si
 
 export const doResetPassword = createAsyncThunk('auth/resetPassword', async (resetPassPayload: ResetPasswordRequest) =>
   resetPassword(resetPassPayload),
+);
+
+export const doVerifySecurityCode = createAsyncThunk(
+  'auth/verifySecurityCode',
+  async (securityCodePayload: SecurityCodePayload) => verifySecurityCode(securityCodePayload),
 );
 
 const authSlice = createSlice({
