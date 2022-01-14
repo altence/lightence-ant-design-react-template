@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { websitePattern } from 'constants/patterns';
-import { FormItem } from '../../../../../../common/Form/Form.styles';
+import { FormItem } from '@app/components/common/Form/Form.styles';
 import { OpenURLInput } from 'components/common/inputs/OpenURLInput/OpenURLInput';
 
 const scheme = 'https://';

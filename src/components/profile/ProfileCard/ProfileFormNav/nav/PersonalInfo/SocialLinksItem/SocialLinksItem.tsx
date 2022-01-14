@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { socialLinksData } from 'constants/socialLinksData';
-import { FormItem } from '../../../../../../common/Form/Form.styles';
+import { FormItem } from '@app/components/common/Form/Form.styles';
 import { Col, Row } from 'antd';
 import { ClipboardInput } from 'components/common/inputs/ClipboardInput/ClipboardInput';
 import * as S from './SocilaLinksItem.styles';
