@@ -4,49 +4,64 @@ import { Form, Avatar } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useResponsive } from 'hooks/useResponsive';
 import { Dates } from 'constants/Dates';
-import AvatarImg from 'assets/avatars/avatar1.png';
 import * as S from './LockForm.styles';
 import * as Auth from 'components/layouts/auth/AuthLayout.styles';
-import { login, AuthData } from 'api/auth.api';
+import { useAppDispatch, useAppSelector } from '@app/hooks/reduxHooks';
+import { initValues as loginInitVal } from '@app/components/auth/LoginForm/LoginForm';
+import { notificationController } from '@app/controllers/notificationController';
+import { doLogin } from '@app/store/authSlice';
+
+interface LockFormData {
+  password: string;
+}
+
+const initValues = {
+  password: loginInitVal.password,
+};
 
 export const LockForm: React.FC = () => {
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false);
-  const [dateState, setDateState] = useState(new Date());
   const { mobileOnly } = useResponsive();
   const { t } = useTranslation();
+  const dispatch = useAppDispatch();
+
+  const [isLoading, setLoading] = useState(false);
+  const [dateState, setDateState] = useState(new Date());
+  const user = useAppSelector((state) => state.user.user);
+  const fullName = `${user?.firstName} ${user?.lastName}`;
+
   const currentDateInUTC = dateState.toUTCString();
   const currentTime = Dates.format(currentDateInUTC, 'h:mm A');
   const currentDate = Dates.format(currentDateInUTC, 'dddd, MMMM D, YYYY');
 
   useEffect(() => {
-    setInterval(() => setDateState(new Date()), 10000);
+    const interval = setInterval(() => setDateState(new Date()), 10 * 1000);
+    return () => clearInterval(interval);
   }, []);
 
-  const handleSubmit = (values: AuthData) => {
-    setIsLoading(true);
-    const email = 'email'; // need get email from local storage or store
-    login({ ...values, email })
+  const handleSubmit = ({ password }: LockFormData) => {
+    setLoading(true);
+    dispatch(doLogin({ email: user?.email.name || '', password }))
+      .unwrap()
       .then(() => {
-        setIsLoading(false);
-        navigate('/');
+        navigate(-1);
       })
       .catch((e) => {
-        console.error(e);
-        setIsLoading(false);
+        notificationController.error({ message: e.message });
+        setLoading(false);
       });
   };
 
   return (
     <Auth.FormWrapper>
-      <Form layout="vertical" onFinish={handleSubmit} requiredMark="optional">
+      <Form layout="vertical" onFinish={handleSubmit} requiredMark="optional" initialValues={initValues}>
         <S.ContentWrapper>
           <S.Time>{currentTime}</S.Time>
           <S.Date>{currentDate}</S.Date>
           <S.AvatarCircle>
-            <Avatar src={AvatarImg} size={mobileOnly ? 59 : 77} />
+            <Avatar src={user?.imgUrl} size={mobileOnly ? 59 : 77} />
           </S.AvatarCircle>
-          <S.Name>Christopher Johnson</S.Name>
+          <S.Name>{fullName}</S.Name>
         </S.ContentWrapper>
         <S.FormItem
           label={t('common.password')}

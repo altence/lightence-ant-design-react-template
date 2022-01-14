@@ -123,7 +123,14 @@ export const AppRouter: React.FC = () => {
         <Route path="/auth" element={<AuthLayout />}>
           <Route path="login" element={<LoginPage />} />
           <Route path="sign-up" element={<SignUpPage />} />
-          <Route path="lock" element={<LockPage />} />
+          <Route
+            path="lock"
+            element={
+              <RequireAuth>
+                <LockPage />
+              </RequireAuth>
+            }
+          />
           <Route path="forgot-password" element={<ForgotPasswordPage />} />
           <Route path="security-code" element={<SecurityCodePage />} />
           <Route path="new-password" element={<NewPasswordPage />} />
