@@ -37,15 +37,9 @@ httpApiMock.onPost('login').reply((config) => {
   } else return [401, { message: 'Invalid Credentials' }];
 });
 
-httpApiMock.onPost('/signUp').reply(200);
+httpApiMock.onPost('signUp').reply(200);
 
-httpApiMock.onPost('/forgotPassword').reply(() => {
-  return new Promise((res) => {
-    setTimeout(() => {
-      res([200]);
-    }, 1000);
-  });
-});
+httpApiMock.onPost('forgotPassword').reply(200);
 
 httpApiMock.onPost('/verifyEmail').reply(() => {
   return new Promise((res) => {
@@ -62,9 +56,3 @@ httpApiMock.onPost('/newPassword').reply(() => {
     }, 1000);
   });
 });
-
-const AUTH_RESPONSE = {
-  token: 'authToken123',
-  refreshToken: 'refreshToken',
-  expirationDate: 'date',
-};

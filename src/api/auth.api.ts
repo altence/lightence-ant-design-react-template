@@ -20,7 +20,7 @@ export interface SignUpRequest {
   password: string;
 }
 
-export interface ForgotPasswordData {
+export interface ResetPasswordRequest {
   email: string;
 }
 
@@ -44,19 +44,14 @@ export interface LoginResponse {
   user: UserModel;
 }
 
-export const login = (loginPayload: LoginRequest): Promise<LoginResponse> => {
-  return httpApi.post<LoginResponse>('login', { ...loginPayload }).then(({ data }) => data);
-};
+export const login = (loginPayload: LoginRequest): Promise<LoginResponse> =>
+  httpApi.post<LoginResponse>('login', { ...loginPayload }).then(({ data }) => data);
 
-export const signUp = (signUpData: SignUpRequest): Promise<undefined> => {
-  return httpApi.post<undefined>('signUp', { ...signUpData }).then(({ data }) => data);
-};
+export const signUp = (signUpData: SignUpRequest): Promise<undefined> =>
+  httpApi.post<undefined>('signUp', { ...signUpData }).then(({ data }) => data);
 
-export const forgotPassword = (forgotPasswordData: ForgotPasswordData): Promise<boolean> => {
-  return httpApi.post<boolean>('forgotPassword', { ...forgotPasswordData }).then(() => {
-    return true;
-  });
-};
+export const resetPassword = (resetPasswordPayload: ResetPasswordRequest): Promise<undefined> =>
+  httpApi.post<undefined>('forgotPassword', { ...resetPasswordPayload }).then(({ data }) => data);
 
 export const verifyEmail = (verifyEmailData: VerifyEmailData): Promise<boolean> => {
   return httpApi.post<boolean>('verifyEmail', { ...verifyEmailData }).then(() => {
