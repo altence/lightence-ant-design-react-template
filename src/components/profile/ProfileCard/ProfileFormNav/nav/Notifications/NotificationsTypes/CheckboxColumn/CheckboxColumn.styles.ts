@@ -51,7 +51,7 @@ export const Wrapper = styled.div`
 `;
 
 export const HeaderCol = styled(Col)`
-  background: #f2f6fa;
+  background: ${(props) => props.theme.colors.main.secondaryBackground};
 
   border-top: ${(props) => `1px solid ${hexToRGB(props.theme.colors.main.primary, 0.3)}`};
 

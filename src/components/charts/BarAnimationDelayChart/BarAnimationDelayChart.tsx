@@ -33,6 +33,9 @@ export const BarAnimationDelayChart: React.FC = () => {
       data: [t('charts.females'), t('charts.males')],
       left: 20,
       top: 0,
+      textStyle: {
+        color: theme.colors.text.main,
+      },
     },
     grid: {
       left: 20,
