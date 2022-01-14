@@ -5,33 +5,45 @@ import { useTranslation } from 'react-i18next';
 import { notificationController } from 'controllers/notificationController';
 import * as S from './NewPasswordForm.styles';
 import * as Auth from 'components/layouts/auth/AuthLayout.styles';
-import { setNewPassword, NewPasswordData } from 'api/auth.api';
+import { useAppDispatch } from '@app/hooks/reduxHooks';
+import { doSetNewPassword } from '@app/store/authSlice';
+
+interface NewPasswordFormData {
+  password: string;
+  confirmPassword: string;
+}
+
+const initStates = {
+  password: 'new-password',
+  confirmPassword: 'new-password',
+};
 
 export const NewPasswordForm: React.FC = () => {
   const { t } = useTranslation();
-  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const [isLoading, setLoading] = useState(false);
 
-  const handleSubmit = (values: NewPasswordData) => {
-    setIsLoading(true);
-    setNewPassword(values)
+  const handleSubmit = (values: NewPasswordFormData) => {
+    setLoading(true);
+    dispatch(doSetNewPassword({ newPassword: values.password }))
+      .unwrap()
       .then(() => {
-        setIsLoading(false);
-        navigate('/');
-        notificationController.info({
-          message: t('common.success'),
-          description: t('newPassword.successReset'),
+        navigate('/auth/login');
+        notificationController.success({
+          message: t('newPassword.successMessage'),
+          description: t('newPassword.successDescription'),
         });
       })
-      .catch((e) => {
-        console.error(e);
-        setIsLoading(false);
+      .catch((err) => {
+        notificationController.error({ message: err.message });
+        setLoading(false);
       });
   };
 
   return (
     <Auth.FormWrapper>
-      <Form layout="vertical" onFinish={handleSubmit} requiredMark="optional">
+      <Form layout="vertical" onFinish={handleSubmit} requiredMark="optional" initialValues={initStates}>
         <Auth.BackWrapper onClick={() => navigate(-1)}>
           <Auth.BackIcon />
           {t('common.back')}
