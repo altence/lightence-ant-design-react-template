@@ -56,6 +56,7 @@ import GoogleMaps from '@app/pages/maps/GoogleMapsPage/GoogleMapsPage';
 import LeafletMaps from '@app/pages/maps/LeafletMapsPage/LeafletMapsPage';
 import ReactSimpleMaps from '@app/pages/maps/ReactSimpleMapsPage/ReactSimpleMapsPage';
 import PigeonsMaps from '@app/pages/maps/PigeonsMapsPage/PigeonsMapsPage';
+import { Logout } from './Logout';
 
 export const DASHBOARD_PATH = '/';
 
@@ -143,6 +144,7 @@ export const AppRouter: React.FC = () => {
           <Route path="security-code" element={<SecurityCodePage />} />
           <Route path="new-password" element={<NewPasswordPage />} />
         </Route>
+        <Route path="/logout" element={<Logout />} />
       </Routes>
     </BrowserRouter>
   );

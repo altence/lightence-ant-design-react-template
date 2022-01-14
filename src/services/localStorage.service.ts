@@ -17,3 +17,6 @@ export const readUser = (): UserModel | null => {
 
   return userStr ? JSON.parse(userStr) : null;
 };
+
+export const deleteToken = (): void => localStorage.removeItem('accessToken');
+export const deleteUser = (): void => localStorage.removeItem('user');
