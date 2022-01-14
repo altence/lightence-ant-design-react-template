@@ -13,12 +13,11 @@ export interface TokenData {
   expirationDate: string;
 }
 
-export interface SignUpData {
+export interface SignUpRequest {
   firstName: string;
   lastName: string;
   email: string;
   password: string;
-  confirmPassword: string;
 }
 
 export interface ForgotPasswordData {
@@ -49,10 +48,8 @@ export const login = (loginPayload: LoginRequest): Promise<LoginResponse> => {
   return httpApi.post<LoginResponse>('login', { ...loginPayload }).then(({ data }) => data);
 };
 
-export const signUp = (signUpData: SignUpData): Promise<TokenData> => {
-  return httpApi.post<TokenData>('signUp', { ...signUpData }).then((res) => {
-    return res.data;
-  });
+export const signUp = (signUpData: SignUpRequest): Promise<undefined> => {
+  return httpApi.post<undefined>('signUp', { ...signUpData }).then(({ data }) => data);
 };
 
 export const forgotPassword = (forgotPasswordData: ForgotPasswordData): Promise<boolean> => {

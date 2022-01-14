@@ -17,7 +17,7 @@ httpApiMock.onPost('login').reply((config) => {
           imgUrl: avatarImg,
           userName: '@john1989',
           email: {
-            name: 'john1989@example.com',
+            name: 'christopher.johnson@altence.com',
             verified: true,
           },
           phone: {
@@ -37,13 +37,7 @@ httpApiMock.onPost('login').reply((config) => {
   } else return [401, { message: 'Invalid Credentials' }];
 });
 
-httpApiMock.onPost('/signUp').reply(() => {
-  return new Promise((res) => {
-    setTimeout(() => {
-      res([200, AUTH_RESPONSE]);
-    }, 1000);
-  });
-});
+httpApiMock.onPost('/signUp').reply(200);
 
 httpApiMock.onPost('/forgotPassword').reply(() => {
   return new Promise((res) => {
