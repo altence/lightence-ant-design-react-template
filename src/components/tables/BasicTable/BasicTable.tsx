@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { defineColorByPriority } from '@app/utils/utils';
 import { notificationController } from 'controllers/notificationController';
 import { Status } from '@app/components/profile/ProfileCard/ProfileFormNav/nav/payments/paymentHistory/Status/Status';
+import { useMounted } from '@app/hooks/useMounted';
 
 const initialPagination: Pagination = {
   current: 1,
@@ -21,15 +22,18 @@ export const BasicTable: React.FC = () => {
     loading: false,
   });
   const { t } = useTranslation();
+  const { isMounted } = useMounted();
 
   const fetch = useCallback(
     (pagination: Pagination) => {
       setTableData((tableData) => ({ ...tableData, loading: true }));
       getBasicTableData(pagination).then((res) => {
-        setTableData({ data: res.data, pagination: res.pagination, loading: false });
+        if (isMounted.current) {
+          setTableData({ data: res.data, pagination: res.pagination, loading: false });
+        }
       });
     },
-    [setTableData],
+    [isMounted],
   );
 
   useEffect(() => {

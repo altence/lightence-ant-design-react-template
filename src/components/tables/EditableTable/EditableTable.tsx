@@ -5,6 +5,7 @@ import { getEditableTableData, BasicTableRow, Pagination } from 'api/table.api';
 import { EditableCell } from './EditableCell/EditableCell';
 import { Button } from 'components/common/buttons/Button/Button';
 import { useTranslation } from 'react-i18next';
+import { useMounted } from '@app/hooks/useMounted';
 
 const initialPagination: Pagination = {
   current: 1,
@@ -20,15 +21,18 @@ export const EditableTable: React.FC = () => {
   });
   const [editingKey, setEditingKey] = useState(0);
   const { t } = useTranslation();
+  const { isMounted } = useMounted();
 
   const fetch = useCallback(
     (pagination: Pagination) => {
       setTableData((tableData) => ({ ...tableData, loading: true }));
       getEditableTableData(pagination).then((res) => {
-        setTableData({ data: res.data, pagination: res.pagination, loading: false });
+        if (isMounted.current) {
+          setTableData({ data: res.data, pagination: res.pagination, loading: false });
+        }
       });
     },
-    [setTableData],
+    [isMounted],
   );
 
   useEffect(() => {
