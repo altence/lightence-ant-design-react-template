@@ -16,7 +16,6 @@ export const DashboardCardStyled = styled(DashboardCard)`
 `;
 
 export const TitleWrapper = styled.div`
-  height: 2rem;
   display: flex;
   align-items: center;
 `;
@@ -51,7 +50,7 @@ export const Text = styled(Typography.Text)`
   margin-left: 0.5rem;
   line-height: 1;
   font-size: ${(props) => props.theme.commonFontSizes.xxs};
-  color: ${(props) => props.theme.colors.main.primary};
+  color: ${(props) => props.theme.colors.text.main};
 
   @media only screen and ${(props) => props.theme.media.md} {
     font-size: ${(props) => props.theme.commonFontSizes.xs};

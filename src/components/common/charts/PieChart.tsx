@@ -44,6 +44,7 @@ export const PieChart: React.FC<PieChartProps> = ({ option, data, name, showLege
             show: true,
             fontSize: '40',
             fontWeight: 'bold',
+            color: theme.colors.text.main,
           },
         },
         labelLine: {

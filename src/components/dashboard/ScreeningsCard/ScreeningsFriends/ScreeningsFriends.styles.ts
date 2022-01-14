@@ -12,7 +12,7 @@ export const Wrapper = styled.div<WrapperProps>`
 
   background-color: ${(props) => props.theme.colors.main.mainBackground};
 
-  box-shadow: ${(props) => props.theme.boxShadow};
+  box-shadow: ${(props) => props.theme.boxShadow.main};
 
   @media only screen and ${(props) => props.theme.media.md} {
     padding: 1.25rem;

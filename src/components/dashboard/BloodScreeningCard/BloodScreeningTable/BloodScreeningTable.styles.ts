@@ -8,7 +8,7 @@ interface TextProps {
 export const Table = styled(CommonTable)`
   thead .ant-table-cell {
     border-top: none;
-    border-bottom: ${(props) => `1px solid ${props.theme.colors.main.secondaryBackground}`};
+    border-bottom: ${(props) => `1px solid ${props.theme.colors.border.main}`};
   }
 
   .ant-table-thead > tr > th {

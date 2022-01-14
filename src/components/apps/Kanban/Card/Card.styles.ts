@@ -7,14 +7,14 @@ import {
   MovableCardWrapper,
   Footer,
 } from 'react-trello/dist/styles/Base';
-import { ReactComponent as ArrowDown } from 'assets/icons/arrow-down.svg';
+import { DownOutlined } from '@ant-design/icons';
 import { Collapse } from 'antd';
 import InlineInput from 'react-trello/dist/widgets/InlineInput';
 
 const { Panel } = Collapse;
 
 interface ArrowDownIcon {
-  expanded: number;
+  expanded: boolean;
 }
 
 export const CardContent = styled(Panel)`
@@ -46,9 +46,11 @@ export const ParticipantsWrapper = styled.div`
 export const ArrowDownWrapper = styled.span`
   padding-right: 1.25rem;
   width: 1.5rem;
+
+  color: ${(props) => props.theme.colors.text.main};
 `;
 
-export const ArrowDownIcon = styled(ArrowDown)<ArrowDownIcon>`
+export const ArrowDownIcon = styled(DownOutlined)<ArrowDownIcon>`
   transform: ${(props) => `rotate(${props.expanded ? 0 : 180}deg)`};
 `;
 
@@ -59,6 +61,8 @@ export const ThreeDotsWrapper = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  color: ${(props) => props.theme.colors.text.main};
 `;
 
 export const CardWrapper = styled(MovableCardWrapper)`

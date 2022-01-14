@@ -24,12 +24,17 @@ export const InputSearch = styled(SearchInput)`
     display: none;
   }
 
+  input {
+    background: ${(props) => props.theme.colors.main.secondaryBackground};
+  }
+
   @media only screen and ${(props) => props.theme.media.md} {
     .ant-input-group .ant-input-affix-wrapper:not(:last-child) {
       border-radius: 3.125rem;
       border: 0;
-      padding: 0.5rem 1.25rem;
-      background-color: ${(props) => props.theme.colors.main.lightBackground};
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+      background-color: ${(props) => props.theme.colors.main.secondaryBackground};
     }
   }
 `;

@@ -10,7 +10,7 @@ export const Card = styled(AntCard).withConfig({
   flex-direction: column;
   height: 100%;
 
-  box-shadow: ${(props) => props.theme.boxShadow};
+  box-shadow: ${(props) => props.theme.boxShadow.main};
 
   .ant-card-head {
     border-bottom: 0;

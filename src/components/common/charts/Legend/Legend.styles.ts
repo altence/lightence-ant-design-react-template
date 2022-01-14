@@ -1,3 +1,4 @@
+import { shadeColor } from '@app/utils/utils';
 import styled from 'styled-components';
 import { InfoCircleOutlined } from '@ant-design/icons/lib';
 
@@ -8,8 +9,8 @@ interface LegendWrapperProps {
 export const LegendWrapper = styled.div<LegendWrapperProps>`
   display: flex;
   padding: 0.5rem;
-  // TODO color from theme
-  background: ${(props) => (props.isSelected ? '#ECF6FF' : 'transparent')};
+  background: ${(props) =>
+    props.isSelected ? shadeColor(props.theme.colors.main.secondaryBackground, -5) : 'transparent'};
   border-radius: ${(props) => props.theme.border.radius};
 `;
 
