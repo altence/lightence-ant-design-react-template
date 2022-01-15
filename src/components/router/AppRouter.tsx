@@ -54,7 +54,7 @@ import NotificationsUIPage from '@app/pages/UIComponentsPages/Feedback/Notificat
 import { RequireAuth } from '@app/components/router/RequireAuth';
 import GoogleMaps from '@app/pages/maps/GoogleMapsPage/GoogleMapsPage';
 import LeafletMaps from '@app/pages/maps/LeafletMapsPage/LeafletMapsPage';
-import ReactSimpleMaps from '@app/pages/maps/EchartsBaiduMapsPage/ReactSimpleMapsPage';
+import ReactSimpleMaps from '@app/pages/maps/ReactSimpleMapsPage/ReactSimpleMapsPage';
 
 export const DASHBOARD_PATH = '/';
 
