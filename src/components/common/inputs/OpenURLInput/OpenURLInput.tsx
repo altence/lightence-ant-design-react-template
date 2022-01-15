@@ -1,30 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import { Button, Tooltip } from 'antd';
+import React, { useMemo } from 'react';
+import { Tooltip } from 'antd';
 import { SuffixInput } from '../SuffixInput/SuffixInput';
 import { useTranslation } from 'react-i18next';
 import { FileTextOutlined } from '@ant-design/icons';
 import { InputProps } from '../Input/Input';
 import { websitePattern } from 'constants/patterns';
+import { Button } from '@app/components/common/buttons/Button/Button';
 
 interface OpenURLInputProps extends InputProps {
-  href: string | undefined;
+  href?: string;
   target?: string;
 }
 
 export const OpenURLInput: React.FC<OpenURLInputProps> = ({ href, target, ...props }) => {
-  const [isMatchesRegex, setMatchesRegexp] = useState(false);
-
   const { t } = useTranslation();
 
-  useEffect(() => {
-    setMatchesRegexp(websitePattern.test(href || ' '));
-  }, [href]);
+  const isMatch = useMemo(() => new RegExp(websitePattern).test(href || ' '), [href]);
 
   return (
     <SuffixInput
       suffix={
         <Tooltip title={t('common.openInNewTab')}>
-          <Button href={href} target={target} disabled={!isMatchesRegex} type="text" icon={<FileTextOutlined />} />
+          <Button href={href} target={target} disabled={!isMatch} type="text" icon={<FileTextOutlined />} />
         </Tooltip>
       }
       {...props}
