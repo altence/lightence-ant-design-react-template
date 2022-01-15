@@ -23,7 +23,7 @@ export const SocialLinksItem: React.FC<SocialLinksItemProps> = ({ socialLinks })
         <Col key={link.id} xs={24} md={12}>
           <FormItem name={link.name}>
             <ClipboardInput
-              value={Object.entries(socialLinks).find((formLink) => formLink[0] === link.name)?.[1]}
+              valueToCopy={Object.entries(socialLinks).find((formLink) => formLink[0] === link.name)?.[1]}
               addonBefore={
                 <S.IconWrapper>
                   <link.Icon />

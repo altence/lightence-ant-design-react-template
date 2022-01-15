@@ -7,26 +7,26 @@ import { InputProps } from '../Input/Input';
 import { notificationController } from 'controllers/notificationController';
 
 interface ClipboardInputProps extends InputProps {
-  value: string | undefined;
+  valueToCopy: string | undefined;
 }
 
-export const ClipboardInput: React.FC<ClipboardInputProps> = ({ value, ...props }) => {
+export const ClipboardInput: React.FC<ClipboardInputProps> = ({ valueToCopy, ...props }) => {
   const { t } = useTranslation();
 
   const handleCopy = useCallback(
     () =>
-      value &&
-      navigator.clipboard.writeText(value).then(() => {
+      valueToCopy &&
+      navigator.clipboard.writeText(valueToCopy).then(() => {
         notificationController.info({ message: t('common.copied') });
       }),
-    [value, t],
+    [valueToCopy, t],
   );
 
   return (
     <SuffixInput
       suffix={
         <Tooltip title={t('common.copy')}>
-          <Button disabled={!value} type="text" icon={<CopyOutlined />} onClick={handleCopy} />
+          <Button disabled={!valueToCopy} type="text" icon={<CopyOutlined />} onClick={handleCopy} />
         </Tooltip>
       }
       {...props}
