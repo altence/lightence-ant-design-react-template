@@ -10,6 +10,7 @@
     "maps": "Maps",
     "googleMap": "Google Maps",
     "leafletMap": "Leaflet Maps",
+    "reactSimpleMaps": "React Simple Maps",
     "pages": "Pages",
     "feed": "Feed",
     "kanban": "Kanban",

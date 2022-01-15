@@ -103,7 +103,8 @@
     "tabsPage": "DE!!!Tabs",
     "notificationsPage": "DE!!!Notifications",
     "googleMap": "Google Maps",
-    "leafletMap": "Leaflet Maps"
+    "leafletMap": "Leaflet Maps",
+    "reactSimpleMaps": "React Simple Maps"
   },
   "header": {
     "search": "Search",

@@ -54,6 +54,7 @@ import NotificationsUIPage from '@app/pages/UIComponentsPages/Feedback/Notificat
 import { RequireAuth } from '@app/components/router/RequireAuth';
 import GoogleMaps from '@app/pages/maps/GoogleMapsPage/GoogleMapsPage';
 import LeafletMaps from '@app/pages/maps/LeafletMapsPage/LeafletMapsPage';
+import ReactSimpleMaps from '@app/pages/maps/EchartsBaiduMapsPage/ReactSimpleMapsPage';
 
 export const DASHBOARD_PATH = '/';
 
@@ -113,6 +114,7 @@ export const AppRouter: React.FC = () => {
           <Route path="maps">
             <Route path="google-maps" element={<GoogleMaps />} />
             <Route path="leaflet-maps" element={<LeafletMaps />} />
+            <Route path="react-simple-maps" element={<ReactSimpleMaps />} />
           </Route>
           <Route path="server-error" element={<ServerErrorPage />} />
           <Route path="maintenance" element={<MaintenancePage />} />

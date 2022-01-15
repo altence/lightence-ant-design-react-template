@@ -124,6 +124,11 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: 'leaflet-maps',
         url: '/maps/leaflet-maps',
       },
+      {
+        title: 'common.reactSimpleMaps',
+        key: 'react-simple-maps',
+        url: '/maps/react-simple-maps',
+      },
     ],
   },
   {
