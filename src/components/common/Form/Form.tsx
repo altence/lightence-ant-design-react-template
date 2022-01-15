@@ -1,14 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useCallback, useEffect, useState } from 'react';
-import { Col, Form as AntForm, FormInstance, FormProps as AntFormProps, Row } from 'antd';
+import { Form as AntForm, FormInstance, FormProps as AntFormProps } from 'antd';
 import { ButtonsGroup } from './ButtonsGroup/ButtonsGroup';
 import { useTranslation } from 'react-i18next';
 import { ValidateErrorEntity } from 'rc-field-form/lib/interface';
 import { notificationController } from 'controllers/notificationController';
-
-interface Error {
-  errors: string;
-}
 
 export interface FormProps extends AntFormProps {
   className?: string;
@@ -67,21 +63,17 @@ export const Form: React.FC<FormProps> = ({
     [onFinish, setLoading, setFinished],
   );
 
-  const showErrorsDefault = useCallback((error) => {
-    setLoading(false);
+  const showErrorsDefault = useCallback(
+    (error) => {
+      setLoading(false);
 
-    notificationController.error({
-      message: (
-        <Row gutter={[20, 20]}>
-          {error.errorFields.map((item: Error, index: number) => (
-            <Col key={index} span={24}>
-              {item.errors}
-            </Col>
-          ))}
-        </Row>
-      ),
-    });
-  }, []);
+      notificationController.error({
+        message: t('common.error'),
+        description: error.errorFields[0].errors,
+      });
+    },
+    [t],
+  );
 
   const onFinishFailedDefault = useCallback(
     (error) => {
