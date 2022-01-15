@@ -19,6 +19,7 @@
     "i18next": "^20.4.0",
     "leaflet": "^1.7.1",
     "patch-package": "^6.4.7",
+    "pigeon-maps": "^0.19.7",
     "postinstall-postinstall": "^2.1.0",
     "react": "^17.0.2",
     "react-country-flag": "^3.0.2",

@@ -104,7 +104,8 @@
     "notificationsPage": "DE!!!Notifications",
     "googleMap": "Google Maps",
     "leafletMap": "Leaflet Maps",
-    "reactSimpleMaps": "React Simple Maps"
+    "reactSimpleMaps": "React Simple Maps",
+    "pigeonMaps": "Pigeon Maps"
   },
   "header": {
     "search": "Search",

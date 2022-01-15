@@ -55,6 +55,7 @@ import { RequireAuth } from '@app/components/router/RequireAuth';
 import GoogleMaps from '@app/pages/maps/GoogleMapsPage/GoogleMapsPage';
 import LeafletMaps from '@app/pages/maps/LeafletMapsPage/LeafletMapsPage';
 import ReactSimpleMaps from '@app/pages/maps/ReactSimpleMapsPage/ReactSimpleMapsPage';
+import PigeonsMaps from '@app/pages/maps/PigeonsMapsPage/PigeonsMapsPage';
 
 export const DASHBOARD_PATH = '/';
 
@@ -115,6 +116,7 @@ export const AppRouter: React.FC = () => {
             <Route path="google-maps" element={<GoogleMaps />} />
             <Route path="leaflet-maps" element={<LeafletMaps />} />
             <Route path="react-simple-maps" element={<ReactSimpleMaps />} />
+            <Route path="pigeon-maps" element={<PigeonsMaps />} />
           </Route>
           <Route path="server-error" element={<ServerErrorPage />} />
           <Route path="maintenance" element={<MaintenancePage />} />
