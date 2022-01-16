@@ -9,7 +9,7 @@ import { AddNewCardButton } from '@app/components/profile/ProfileCard/ProfileFor
 interface PaymentCardsWidgetProps {
   cards: CreditCard[];
   onCardRemove: (cardNumber: string) => void;
-  onCardAdd: (card: CreditCard) => Promise<void>;
+  onCardAdd: (card: CreditCard) => void;
 }
 
 export const PaymentCardsWidget: React.FC<PaymentCardsWidgetProps> = ({ cards, onCardRemove, onCardAdd }) => {

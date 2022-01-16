@@ -6,7 +6,7 @@ import { PaymentForm } from '../paymentForm/PaymentForm/PaymentForm';
 interface PaymentModalProps {
   isModalVisible: boolean;
   closeModal: () => void;
-  onCardAdd: (card: CreditCard) => Promise<void>;
+  onCardAdd: (card: CreditCard) => void;
 }
 
 export const AddNewCardModal: React.FC<PaymentModalProps> = ({ isModalVisible, closeModal, onCardAdd }) => {

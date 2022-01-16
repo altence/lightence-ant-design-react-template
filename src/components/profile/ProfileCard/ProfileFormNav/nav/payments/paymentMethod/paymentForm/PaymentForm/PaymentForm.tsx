@@ -22,7 +22,7 @@ export const clearCardData: CreditCard = {
 
 interface PaymentFormProps {
   closeModal: () => void;
-  onFormFinish: (card: CreditCard) => Promise<void>;
+  onFormFinish: (card: CreditCard) => void;
 }
 
 export const PaymentForm: React.FC<PaymentFormProps> = ({ closeModal, onFormFinish }) => {
@@ -43,11 +43,10 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({ closeModal, onFormFini
   const onFinish = useCallback(
     async (values) => {
       const card = { ...values, background: cardData.background };
-      return onFormFinish(card).then(() => {
-        setCardData(clearCardData);
-        closeModal();
-        form.setFieldsValue(clearCardData);
-      });
+      onFormFinish(card);
+      setCardData(clearCardData);
+      closeModal();
+      form.setFieldsValue(clearCardData);
     },
     [cardData.background, closeModal, form, onFormFinish],
   );

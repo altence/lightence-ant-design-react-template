@@ -6,7 +6,6 @@ import { CreditCard } from './paymentForm/interfaces';
 import { useResponsive } from 'hooks/useResponsive';
 import { cards as initialCards } from '@app/constants/data/cards';
 import { PaymentCardsWidget } from '@app/components/profile/ProfileCard/ProfileFormNav/nav/payments/paymentMethod/PaymentCardsWidget';
-import { addCreditCard } from '@app/api/users.api';
 
 export const PaymentMethod: React.FC = () => {
   const { t } = useTranslation();
@@ -18,7 +17,7 @@ export const PaymentMethod: React.FC = () => {
   const handleCardRemove = (cardNumber: string) => setCards(cards.filter((card) => card.number !== cardNumber));
 
   const handleCardAdd = (card: CreditCard) => {
-    return addCreditCard(card).then(() => setCards([...cards, card]));
+    setCards([...cards, card]);
   };
 
   const content = (
