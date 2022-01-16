@@ -15,7 +15,7 @@ export const ProfileNav: React.FC = () => {
       {profileNavData.map((item) => (
         <S.Btn
           key={item.id}
-          icon={<item.Icon />}
+          icon={item.icon}
           type="text"
           color={item.color}
           onClick={() => navigate(item.href)}

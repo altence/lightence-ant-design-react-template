@@ -1,10 +1,10 @@
 import { BellOutlined, DollarOutlined, SecurityScanOutlined, UserOutlined } from '@ant-design/icons';
-import { FC } from 'react';
+import React from 'react';
 
 interface ProfileNavItem {
   id: number;
   name: string;
-  Icon: FC;
+  icon: React.ReactNode;
   color: 'primary' | 'error' | 'warning' | 'success';
   href: string;
 }
@@ -13,28 +13,28 @@ export const profileNavData: ProfileNavItem[] = [
   {
     id: 1,
     name: 'profile.nav.personalInfo.title',
-    Icon: UserOutlined,
+    icon: <UserOutlined />,
     color: 'primary',
     href: 'personal-info',
   },
   {
     id: 2,
     name: 'profile.nav.securitySettings.title',
-    Icon: SecurityScanOutlined,
+    icon: <SecurityScanOutlined />,
     color: 'success',
     href: 'security-settings',
   },
   {
     id: 3,
     name: 'profile.nav.notifications.title',
-    Icon: BellOutlined,
+    icon: <BellOutlined />,
     color: 'error',
     href: 'notifications',
   },
   {
     id: 4,
     name: 'profile.nav.payments.title',
-    Icon: DollarOutlined,
+    icon: <DollarOutlined />,
     color: 'warning',
     href: 'payments',
   },
