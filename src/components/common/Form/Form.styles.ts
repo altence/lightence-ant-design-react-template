@@ -89,7 +89,10 @@ export const FormItem = styled(Form.Item)<FormItemProps>`
     props.$isSuccess &&
     css`
       .ant-input {
-        border-color: ${props.theme.colors.main.success};
+        &,
+        &:hover {
+          border-color: ${props.theme.colors.main.success};
+        }
       }
 
       .ant-form-item-control-input {
