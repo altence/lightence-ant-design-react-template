@@ -6,13 +6,12 @@ import { ConfirmItemPassword } from './ConfirmPasswordItem/ConfirmPasswordItem';
 import { FormItem, Title } from 'components/common/Form/Form.styles';
 import { CurrentPasswordItem } from './CurrentPasswordItem/CurrentPasswordItem';
 import { NewPasswordItem } from './NewPasswordItem/NewPasswordItem';
-import { updatePassword } from 'api/users.api';
 import * as S from './PasswordForm.styles';
 
 export const PasswordForm: React.FC = () => {
   const { t } = useTranslation();
 
-  const onFinish = useCallback(async (values) => updatePassword(values), []);
+  const onFinish = useCallback(async (values) => console.log(values), []);
 
   return (
     <ProfileForm

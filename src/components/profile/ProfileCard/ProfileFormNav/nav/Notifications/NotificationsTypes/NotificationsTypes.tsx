@@ -6,7 +6,6 @@ import { Option } from './interfaces';
 import { CheckboxColumn } from './CheckboxColumn/CheckboxColumn';
 import { CheckboxValueType } from 'antd/lib/checkbox/Group';
 import * as S from './NotificationsTypes.styles';
-import { updateNotifications } from 'api/users.api';
 
 interface Notifications {
   1: string[];
@@ -81,7 +80,7 @@ export const NotificationsTypes: React.FC = () => {
   const onFinish = useCallback(async () => {
     setTriggered(false);
 
-    return updateNotifications(checkedElements);
+    console.log(checkedElements);
   }, [setTriggered, checkedElements]);
 
   return (

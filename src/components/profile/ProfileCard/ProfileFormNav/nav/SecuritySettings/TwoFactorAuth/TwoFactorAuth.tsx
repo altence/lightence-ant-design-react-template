@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { ProfileForm } from '../../../ProfileForm/ProfileForm';
 import { TwoFactorOptions } from './TwoFactorOptions/TwoFactorOptions';
 import { TwoFactorSwitch } from './TwoFactorSwitch/TwoFactorSwitch';
-import { update2FA } from 'api/users.api';
 import { Button } from 'components/common/buttons/Button/Button';
 
 export const TwoFactorAuth: React.FC = () => {
@@ -14,7 +13,7 @@ export const TwoFactorAuth: React.FC = () => {
 
   const { t } = useTranslation();
 
-  const onFinish = useCallback(async (values) => update2FA(values), []);
+  const onFinish = useCallback(async (values) => console.log(values), []);
 
   return (
     <ProfileForm

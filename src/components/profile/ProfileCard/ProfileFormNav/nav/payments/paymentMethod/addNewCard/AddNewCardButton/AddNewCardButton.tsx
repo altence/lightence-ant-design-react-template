@@ -5,7 +5,7 @@ import { CreditCard } from '@app/components/profile/ProfileCard/ProfileFormNav/n
 import { useTranslation } from 'react-i18next';
 
 interface AddNewCardButtonProps {
-  onCardAdd: (card: CreditCard) => Promise<void>;
+  onCardAdd: (card: CreditCard) => void;
 }
 export const AddNewCardButton: React.FC<AddNewCardButtonProps> = ({ onCardAdd }) => {
   const [isModalVisible, setModalVisible] = useState(false);
