@@ -33,9 +33,7 @@ const ProfileLayout: React.FC = () => {
   return (
     <>
       <PageTitle>
-        {isTitleShown ? (
-          t('profile.title')
-        ) : (
+        {!isTitleShown && (
           <Btn icon={<LeftOutlined />} type="text" onClick={() => navigate('/profile')}>
             {t('common.back')}
           </Btn>
@@ -74,11 +72,11 @@ const ProfileCard = styled(Card)`
 `;
 
 const Btn = styled(Button)`
-  color: inherit;
   font-size: 1rem;
   font-weight: 600;
   padding: 0;
   height: unset;
+  color: ${(props) => props.theme.colors.main.secondary};
 `;
 
 export default ProfileLayout;
