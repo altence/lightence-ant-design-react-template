@@ -75,9 +75,6 @@ const commonFontWeight = {
 const colors = {
   main: {
     primary: '#01509A',
-    //TODO replace
-    primaryLight: '#b3cbe1',
-    primaryShade: '#0661B5',
     primaryGradient: 'linear-gradient(261.31deg, #006CCF -29.57%, #00509A 121.11%)',
     light: '#C5D3E0',
     secondary: '#0085FF',

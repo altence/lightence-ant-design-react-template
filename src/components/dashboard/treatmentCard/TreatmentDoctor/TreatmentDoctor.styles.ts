@@ -13,7 +13,7 @@ export const DoctorName = styled.span`
 
 export const DoctorCard = styled(Card)`
   background: ${(props) =>
-    `linear-gradient(to bottom, ${props.theme.colors.main.primaryLight} 5rem, ${props.theme.colors.main.secondaryBackground} 5rem)`};
+    `linear-gradient(to bottom, ${props.theme.colors.main.primary} 5rem, ${props.theme.colors.main.secondaryBackground} 5rem)`};
 `;
 
 export const DoctorCardBody = styled.div`
