@@ -7,6 +7,7 @@ import { Dates } from 'constants/Dates';
 import { Status } from '../Status/Status';
 import * as S from './Payment.styles';
 import { Button } from 'components/common/buttons/Button/Button';
+import { useTheme } from 'styled-components';
 
 interface PaymentProps {
   src: string;
@@ -19,6 +20,8 @@ interface PaymentProps {
 
 export const Payment: React.FC<PaymentProps> = ({ src, recipient, date, status, price, currency }) => {
   const { t } = useTranslation();
+
+  const theme = useTheme();
 
   const paymentStatus = useMemo(() => paymentStatuses.find((item) => item.id === status), [status]);
 
@@ -37,7 +40,7 @@ export const Payment: React.FC<PaymentProps> = ({ src, recipient, date, status, 
         </S.Item>
         <S.Item>
           <S.Subtitle>{t('profile.nav.payments.status.title')}</S.Subtitle>
-          <Status color={defineColorByPriority(paymentStatus.priority)} text={t(paymentStatus.name)} />
+          <Status color={defineColorByPriority(paymentStatus.priority, theme)} text={t(paymentStatus.name)} />
         </S.Item>
         <S.Item>
           <S.Subtitle>{t('profile.nav.payments.date')}</S.Subtitle>

@@ -1,7 +1,6 @@
 import { NotificationType } from '@app/components/common/Notification/Notification';
 import { DefaultTheme } from 'styled-components';
 import { Priority } from '../constants/enums/priorities';
-import theme from '../styles/theme';
 
 export const camelize = (string: string): string => {
   return string
@@ -52,7 +51,7 @@ export const getDifference = (value: number, prevValue: number): string | null =
 export const normalizeProp = (prop: string | number | [number, number]): string =>
   typeof prop === 'number' ? `${prop}px` : (Array.isArray(prop) && `${prop[0]}px ${prop[1]}px`) || prop.toString();
 
-export const defineColorByPriority = (priority: Priority): string => {
+export const defineColorByPriority = (priority: Priority, theme: DefaultTheme): string => {
   switch (priority) {
     case Priority.INFO:
       return theme.colors.main.primary;
