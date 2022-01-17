@@ -7,6 +7,8 @@ export const CarouselWrapper = styled.div`
 
 export const SliderArrow = styled.div`
   z-index: 1;
+  width: unset;
+  height: unset;
 
   &.slick-prev {
     left: 1.25rem;
