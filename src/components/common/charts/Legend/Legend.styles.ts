@@ -53,6 +53,8 @@ export const LegendTitle = styled.div`
 export const InfoStyled = styled(InfoCircleOutlined)`
   cursor: pointer;
   margin-left: 0.5rem;
+
+  color: ${(props) => props.theme.colors.text.main};
 `;
 
 export const PopoverContent = styled.div`
