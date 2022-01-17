@@ -1,8 +1,8 @@
 import React, { ReactNode, useState, useEffect, useCallback, useMemo } from 'react';
 import { RangeValue } from 'rc-picker/lib/interface.d';
 import { useTranslation } from 'react-i18next';
-import { AppDate, Dates } from '../../../../constants/Dates';
-import { Post } from '../../../../api/news.api';
+import { AppDate, Dates } from '@app/constants/Dates';
+import { Post } from '@app/api/news.api';
 import { newsTags as defaultTags } from 'constants/newsTags';
 import { Dropdown } from 'antd';
 import { Tag, ITag } from 'components/common/Tag/Tag';
