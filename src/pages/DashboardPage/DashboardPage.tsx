@@ -40,19 +40,19 @@ const DashboardPage: React.FC = () => {
             <TreatmentCard />
           </Col>
 
-          <Col id="covid" xl={12} xxl={14}>
+          <Col id="covid" xl={24}>
             <CovidCard />
           </Col>
 
-          <Col id="activity" xl={12} xxl={10}>
+          <Col id="activity" xl={24}>
             <ActivityCard />
           </Col>
 
-          <Col id="health" xl={10} xxl={10}>
+          <Col id="health" xl={24}>
             <HealthCard />
           </Col>
 
-          <Col id="favorite-doctors" xl={14} xxl={14}>
+          <Col id="favorite-doctors" xl={24}>
             <FavoritesDoctorsCard />
           </Col>
 

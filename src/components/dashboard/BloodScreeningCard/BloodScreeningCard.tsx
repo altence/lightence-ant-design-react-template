@@ -23,7 +23,7 @@ export const BloodScreeningCard: React.FC = () => {
           </S.TitleWrapper>
         )
       }
-      padding="0 0 0.5rem"
+      padding={0}
     >
       <BloodScreeningChart data={activeItem.yearData} />
       <BloodScreeningTable activeItem={activeItem} setActiveItem={setActiveItem} />

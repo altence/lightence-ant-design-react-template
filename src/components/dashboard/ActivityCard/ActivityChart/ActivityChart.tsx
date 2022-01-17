@@ -78,5 +78,5 @@ export const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
     },
   };
 
-  return <BaseChart option={option} />;
+  return <BaseChart option={option} height="100%" />;
 };

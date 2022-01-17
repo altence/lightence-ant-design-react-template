@@ -18,6 +18,7 @@ export const breakpoints = {
   xs: 360,
   sm: 568,
   md: 768,
+  lg: 992,
   xl: 1280,
   xxl: 1920,
 };
@@ -28,6 +29,7 @@ export const media = {
   xs: getMedia(breakpoints.xs),
   sm: getMedia(breakpoints.sm),
   md: getMedia(breakpoints.md),
+  lg: getMedia(breakpoints.lg),
   xl: getMedia(breakpoints.xl),
   xxl: getMedia(breakpoints.xxl),
 };
