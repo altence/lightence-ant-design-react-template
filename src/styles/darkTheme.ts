@@ -17,7 +17,7 @@ const darkColors = {
     chartPrimaryGradient: new graphic.LinearGradient(0, 0, 0, 1, [
       {
         offset: 0,
-        color: 'rgba(0, 110, 211, 0.75)',
+        color: '#7568F6',
       },
       {
         offset: 1,
