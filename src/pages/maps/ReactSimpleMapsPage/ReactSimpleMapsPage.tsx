@@ -48,7 +48,7 @@ const ReactSimpleMaps: React.FC = () => {
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
-                  fill={theme.colors.main.lightBackground}
+                  fill={theme.colors.main.secondaryBackground}
                   stroke={theme.colors.main.primary}
                 />
               ))
