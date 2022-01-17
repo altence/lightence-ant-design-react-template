@@ -31,12 +31,12 @@ export const Menu = styled(AntMenu)`
 
   .ant-menu-submenu-selected {
     .ant-menu-submenu-title {
-      background-color: ${(props) => props.theme.colors.main.primaryShade};
+      background-color: ${(props) => props.theme.colors.main.primary};
     }
   }
 
   .ant-menu-item-selected {
-    background-color: ${(props) => props.theme.colors.main.primaryShade} !important;
+    background-color: ${(props) => props.theme.colors.main.primary} !important;
   }
 
   a {
