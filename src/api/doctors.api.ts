@@ -1,4 +1,4 @@
-import cameron from 'assets/images/doctors/cameron-richardson.png';
+import cameron from 'assets/images/doctors/cameron-bell.png';
 import annabella from 'assets/images/doctors/annabella-morton.png';
 import ryan from 'assets/images/doctors/ryan-thompson.png';
 import ruby from 'assets/images/doctors/ruby-burns.png';
@@ -26,7 +26,7 @@ export const getDoctorsData = (): Promise<Doctor[]> => {
       res([
         {
           id: 1,
-          name: 'Cameron Richardson',
+          name: 'Cameron Bell',
           specifity: 1,
           rating: 5,
           gps: {

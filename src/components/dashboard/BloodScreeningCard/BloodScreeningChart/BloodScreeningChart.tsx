@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { EChartsInstance } from 'echarts-for-react';
 import { ThemeContext } from 'styled-components';
 import { BaseChart } from '../../../common/charts/BaseChart';
@@ -11,7 +11,7 @@ interface BloodScreeningChartsProps {
 
 export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ data }) => {
   const themeContext = useContext(ThemeContext);
-  const { isTablet, isBigScreen } = useResponsive();
+  const { isTablet, isDesktop, isMobile } = useResponsive();
   const months = Dates.getMonths();
 
   const option = {
@@ -76,5 +76,10 @@ export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ data 
     ],
   };
 
-  return <BaseChart option={option} height={(isBigScreen && 200) || (isTablet && 200) || 100} />;
+  const chartHeight = useMemo(
+    () => (isDesktop && 100) || (isTablet && 200) || (isMobile && 100) || 100,
+    [isTablet, isDesktop, isMobile],
+  );
+
+  return <BaseChart option={option} height={chartHeight} />;
 };
