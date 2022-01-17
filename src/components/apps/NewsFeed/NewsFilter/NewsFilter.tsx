@@ -106,7 +106,7 @@ const Filter: React.FC<Filter> = ({
       {!!selectedTags.length && (
         <S.TagsWrapper>
           {selectedTags.map((tag) => (
-            <Tag key={tag.id} title={tag.title} bgColor={tag.bgColor} />
+            <Tag key={tag.id} title={tag.title} bgColor={tag.bgColor} removeTag={() => onTagClick(tag)} />
           ))}
         </S.TagsWrapper>
       )}
