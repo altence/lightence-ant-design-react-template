@@ -1,7 +1,8 @@
 import React from 'react';
 import * as S from './Legend.styles';
-import { getChartColors } from '../../../../styles/theme';
 import { Popover } from '@app/components/common/Popover/Popover';
+import { getChartColors } from '@app/components/common/charts/BaseChart';
+import { useTheme } from 'styled-components';
 
 export interface LegendItem {
   name: string;
@@ -14,9 +15,10 @@ interface LegendProps {
   activeItemIndex: number | null;
 }
 
-const colors = getChartColors();
-
 export const Legend: React.FC<LegendProps> = ({ legendItems, activeItemIndex }) => {
+  const theme = useTheme();
+  const colors = getChartColors(theme);
+
   return (
     <>
       {legendItems.map((item, index) => (
