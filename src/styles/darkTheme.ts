@@ -57,11 +57,7 @@ const darkColors = {
     main: '#ffffff',
   },
   dashboardMap: {
-    background:
-      'radial-gradient(at 82% 11%, hsla(213, 100%, 73%, 1) 0, transparent 47%), ' +
-      'radial-gradient(at 24% 85%, hsla(4, 100%, 75%, 1) 0, transparent 55%), ' +
-      'radial-gradient(at 32% 28%, hsla(37, 100%, 77%, 1) 0, transparent 56%),' +
-      'radial-gradient(at 84% 86%, hsla(288, 50%, 69%, 1) 0, transparent 66%)',
+    background: 'linear-gradient(315deg, #0cbaba 0%, #380036 74%)',
     dotsColor: '#FFFFFF',
     dotsHoveredColor: '#01509A',
     markerBorderColor: '#01509A',
