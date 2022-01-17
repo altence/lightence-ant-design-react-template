@@ -1,5 +1,5 @@
 import theme from 'styles/theme';
-
+// todo take colors from the current theme
 const { red, orange, lightgreen } = theme.commonColors;
 
 // TODO add i18n

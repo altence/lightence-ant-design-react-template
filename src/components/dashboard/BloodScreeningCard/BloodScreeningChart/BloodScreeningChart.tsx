@@ -2,7 +2,7 @@ import React, { useContext, useMemo } from 'react';
 import { EChartsInstance } from 'echarts-for-react';
 import { ThemeContext } from 'styled-components';
 import { BaseChart } from '../../../common/charts/BaseChart';
-import { Dates } from '../../../../constants/Dates';
+import { Dates } from '@app/constants/Dates';
 import { useResponsive } from 'hooks/useResponsive';
 
 interface BloodScreeningChartsProps {
@@ -56,7 +56,7 @@ export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ data 
         showSymbol: false,
         symbol: 'circle',
         itemStyle: {
-          color: themeContext.colors.main.error,
+          color: themeContext.colors.charts.color5,
           borderColor: themeContext.colors.main.mainBackground,
           borderWidth: 5,
           shadowColor: themeContext.colors.shadow.color,
