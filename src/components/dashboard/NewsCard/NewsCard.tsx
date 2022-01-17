@@ -1,5 +1,5 @@
 import React from 'react';
-import { dashboardNews } from '../../../constants/dashboardNews';
+import { dashboardNews } from '@app/constants/dashboardNews';
 import { DashboardCard } from '../DashboardCard/DashboardCard';
 import * as S from './NewsCard.styles';
 import { useTranslation } from 'react-i18next';
