@@ -65,7 +65,7 @@ const darkColors = {
   },
   charts: {
     tooltipLabel: '#6A7985',
-    color1: '#01509A',
+    color1: '#7568F6',
     color1Tint: '#2983D8',
     color2: '#35A0DC',
     color2Tint: '#67C5FA',

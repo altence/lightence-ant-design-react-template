@@ -2,8 +2,7 @@ import React, { CSSProperties, useEffect, useState } from 'react';
 import { EChartsOption } from 'echarts-for-react';
 import ReactECharts from 'echarts-for-react';
 import { Loading } from '../Loading';
-import { getChartColors } from '@app/styles/theme';
-import { DefaultTheme } from 'styled-components';
+import { DefaultTheme, useTheme } from 'styled-components';
 
 export interface BaseChartProps {
   option?: EChartsOption;
@@ -15,10 +14,6 @@ export interface BaseChartProps {
   classname?: string;
 }
 
-const defaultOption = {
-  color: getChartColors(),
-};
-
 interface DefaultTooltipStyles {
   borderColor: string;
   borderWidth: number;
@@ -29,6 +24,14 @@ interface DefaultTooltipStyles {
     color: string;
   };
 }
+
+export const getChartColors = (theme: DefaultTheme): string[] => [
+  theme.colors.charts.color1,
+  theme.colors.charts.color2,
+  theme.colors.charts.color3,
+  theme.colors.charts.color4,
+  theme.colors.charts.color5,
+];
 
 export const getDefaultTooltipStyles = (theme: DefaultTheme): DefaultTooltipStyles => ({
   borderColor: theme.colors.charts.color1,
@@ -42,9 +45,14 @@ export const getDefaultTooltipStyles = (theme: DefaultTheme): DefaultTooltipStyl
 });
 
 export const BaseChart: React.FC<BaseChartProps> = ({ option, width, height, onEvents, style, ...props }) => {
+  const theme = useTheme();
   const [loading, setLoading] = useState(true);
 
   const chartHeight = height || '400px';
+
+  const defaultOption = {
+    color: getChartColors(theme),
+  };
 
   useEffect(() => {
     // TODO FIXME workaround to make sure that parent container is initialized before the chart

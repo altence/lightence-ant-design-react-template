@@ -184,11 +184,3 @@ const theme: DefaultTheme = {
 };
 
 export default theme;
-
-export const getChartColors = (): string[] => [
-  theme.colors.charts.color1,
-  theme.colors.charts.color2,
-  theme.colors.charts.color3,
-  theme.colors.charts.color4,
-  theme.colors.charts.color5,
-];
