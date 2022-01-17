@@ -57,10 +57,10 @@ const darkColors = {
   dashboardMap: {
     background: 'linear-gradient(315deg, #0cbaba 0%, #380036 74%)',
     dotsColor: '#FFFFFF',
-    dotsHoveredColor: '#01509A',
-    markerBorderColor: '#01509A',
+    dotsHoveredColor: '#7568f6',
+    markerBorderColor: '#7568f6',
     controlColor: '#FFFFFF',
-    controlBackgroundColor: '#01509A',
+    controlBackgroundColor: '#7568f6',
     controlDisabledBackgroundColor: '#b3cbe1',
   },
   charts: {
