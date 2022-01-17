@@ -9,6 +9,7 @@ import { defineColorByPriority, getCurrencyPrice } from 'utils/utils';
 import { Payment } from 'api/paymentHistory.api';
 import * as S from './PaymentsTable.styles';
 import { Button } from 'components/common/buttons/Button/Button';
+import { useTheme } from 'styled-components';
 
 interface Recipient {
   name: string;
@@ -29,6 +30,7 @@ interface PaymentsTableProps {
 
 export const PaymentsTable: React.FC<PaymentsTableProps> = ({ payments }) => {
   const { t } = useTranslation();
+  const theme = useTheme();
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const columns: ColumnType<any>[] = useMemo(() => {
@@ -58,7 +60,7 @@ export const PaymentsTable: React.FC<PaymentsTableProps> = ({ payments }) => {
         dataIndex: 'status',
         key: 'status',
         render: (status: PaymentStatus) => (
-          <Status color={defineColorByPriority(status.priority)} text={t(status.name).toUpperCase()} />
+          <Status color={defineColorByPriority(status.priority, theme)} text={t(status.name).toUpperCase()} />
         ),
         align: 'center',
       },
@@ -76,7 +78,7 @@ export const PaymentsTable: React.FC<PaymentsTableProps> = ({ payments }) => {
         render: () => <Button type="link">{t('profile.nav.payments.details')}</Button>,
       },
     ];
-  }, [t]);
+  }, [t, theme]);
 
   const dataSource: Status[] = useMemo(
     () =>
