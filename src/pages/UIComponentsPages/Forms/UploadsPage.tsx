@@ -5,19 +5,19 @@ import { Button } from 'components/common/buttons/Button/Button';
 import { UploadOutlined, InboxOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
-import theme from 'styles/theme';
+import lightTheme from '@app/styles/themes/light/lightTheme';
 import * as S from '../UIComponentsPage.styles';
 
 const DraggerIconWrapper = styled.div`
   font-size: 4rem;
-  color: ${theme.colors.main.primary};
+  color: ${lightTheme.colors.main.primary};
 `;
 const DraggerTitle = styled.div`
-  font-size: ${theme.commonFontSizes.xl};
-  font-weight: ${theme.commonFontWeight.bold};
+  font-size: ${lightTheme.commonFontSizes.xl};
+  font-weight: ${lightTheme.commonFontWeight.bold};
 `;
 const DraggerDescription = styled.div`
-  font-size: ${theme.commonFontSizes.md};
+  font-size: ${lightTheme.commonFontSizes.md};
   padding: 0 1rem;
 `;
 

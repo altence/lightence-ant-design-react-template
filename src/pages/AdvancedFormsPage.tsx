@@ -7,7 +7,7 @@ import { StepForm } from 'components/forms/StepForm/StepForm';
 import { Col } from 'antd';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
-import theme from 'styles/theme';
+import lightTheme from '@app/styles/themes/light/lightTheme';
 
 const Card = styled(CommonCard)`
   margin-bottom: 1.25rem;
@@ -23,13 +23,13 @@ const Card = styled(CommonCard)`
     max-width: 35rem;
   }
 
-  @media only screen and ${theme.media.xs} {
+  @media only screen and ${lightTheme.media.xs} {
     & .ant-card-body {
       padding: 1.25rem 1rem;
     }
   }
 
-  @media only screen and ${theme.media.md} {
+  @media only screen and ${lightTheme.media.md} {
     & .ant-card-body {
       padding: 1.25rem 0;
     }

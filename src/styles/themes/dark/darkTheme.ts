@@ -1,4 +1,4 @@
-import theme from './theme';
+import lightTheme from '../light/lightTheme';
 import { graphic } from 'echarts';
 
 const darkColors = {
@@ -93,7 +93,7 @@ const boxShadow = {
 };
 
 export const darkTheme = {
-  ...theme,
+  ...lightTheme,
   colors: darkColors,
   boxShadow,
 };

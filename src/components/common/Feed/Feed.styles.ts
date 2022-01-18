@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import theme from '../../../styles/theme';
+import lightTheme from '../../../styles/themes/light/lightTheme';
 
 export const NewsWrapper = styled.div`
   display: flex;
@@ -10,11 +10,11 @@ export const NewsWrapper = styled.div`
   & > div {
     margin-bottom: 1.25rem;
 
-    @media only screen and ${theme.media.xl} {
+    @media only screen and ${lightTheme.media.xl} {
       margin-bottom: 1.5rem;
     }
 
-    @media only screen and ${theme.media.xxl} {
+    @media only screen and ${lightTheme.media.xxl} {
       margin-bottom: 2.5rem;
     }
   }

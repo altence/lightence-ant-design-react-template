@@ -168,7 +168,7 @@ const boxShadow = {
   hover: '0 8px 16px 0 rgba(0, 0, 0, 0.2)',
 };
 
-const theme: DefaultTheme = {
+const lightTheme: DefaultTheme = {
   commonColors,
   colors,
   border: {
@@ -183,4 +183,4 @@ const theme: DefaultTheme = {
   commonFontWeight,
 };
 
-export default theme;
+export default lightTheme;

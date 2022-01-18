@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { UserOutlined, AntDesignOutlined } from '@ant-design/icons';
 import * as S from '../UIComponentsPage.styles';
 import { Badge } from 'components/common/Badge/Badge';
-import theme from 'styles/theme';
+import lightTheme from '@app/styles/themes/light/lightTheme';
 
 const AvatarsPage: React.FC = () => {
   const { t } = useTranslation();
@@ -24,16 +24,16 @@ const AvatarsPage: React.FC = () => {
         <Group
           maxCount={2}
           size={45}
-          maxStyle={{ color: theme.commonColors.red, backgroundColor: theme.commonColors.orange }}
+          maxStyle={{ color: lightTheme.commonColors.red, backgroundColor: lightTheme.commonColors.orange }}
         >
           <Avatar size={45} src="https://joeschmoe.io/api/v1/random" />
-          <Avatar size={45} style={{ backgroundColor: theme.commonColors.red }}>
+          <Avatar size={45} style={{ backgroundColor: lightTheme.commonColors.red }}>
             K
           </Avatar>
           <Tooltip title={t('dataDisplay.avatars.user')} placement="top">
-            <Avatar size={45} style={{ backgroundColor: theme.commonColors.green }} icon={<UserOutlined />} />
+            <Avatar size={45} style={{ backgroundColor: lightTheme.commonColors.green }} icon={<UserOutlined />} />
           </Tooltip>
-          <Avatar size={45} style={{ backgroundColor: theme.commonColors.blue }} icon={<AntDesignOutlined />} />
+          <Avatar size={45} style={{ backgroundColor: lightTheme.commonColors.blue }} icon={<AntDesignOutlined />} />
         </Group>
       </S.Card>
       <S.Card title={t('dataDisplay.avatars.badge')}>

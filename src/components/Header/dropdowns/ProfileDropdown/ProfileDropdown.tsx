@@ -3,12 +3,12 @@ import { Avatar, Col, Dropdown, Row } from 'antd';
 import { useMediaQuery } from 'react-responsive';
 import { H6 } from 'components/common/typography/H6/H6';
 import { ProfileOverlay } from './ProfileOverlay/ProfileOverlay';
-import theme from 'styles/theme';
+import lightTheme from '@app/styles/themes/light/lightTheme';
 import * as S from './ProfileDropdown.styles';
 import { useAppSelector } from '@app/hooks/reduxHooks';
 
 export const ProfileDropdown: React.FC = () => {
-  const isTablet = useMediaQuery({ query: theme.media.md });
+  const isTablet = useMediaQuery({ query: lightTheme.media.md });
 
   const user = useAppSelector((state) => state.user.user);
 

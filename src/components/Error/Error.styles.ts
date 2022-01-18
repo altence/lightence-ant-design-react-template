@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Button, Typography, Image as AntImage } from 'antd';
-import theme from '../../styles/theme';
+import lightTheme from '../../styles/themes/light/lightTheme';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -10,11 +10,11 @@ export const Wrapper = styled.div`
 
   background-color: ${(props) => props.theme.colors.main.mainBackground};
 
-  @media only screen and ${theme.media.md} {
+  @media only screen and ${lightTheme.media.md} {
     padding: 2.5rem 6.25rem 6.25rem;
   }
 
-  @media only screen and ${theme.media.xl} {
+  @media only screen and ${lightTheme.media.xl} {
     flex-direction: row-reverse;
     justify-content: center;
     padding: 12.5rem 3.5rem;
@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
 export const Image = styled(AntImage)`
   margin-bottom: 4rem;
 
-  @media only screen and ${theme.media.xxl} {
+  @media only screen and ${lightTheme.media.xxl} {
     margin-bottom: 0;
   }
 `;
@@ -34,7 +34,7 @@ export const ContentWrapper = styled.div`
   flex-direction: column;
   align-items: center;
 
-  @media only screen and ${theme.media.xl} {
+  @media only screen and ${lightTheme.media.xl} {
     margin-right: 7.5rem;
   }
 `;
@@ -46,12 +46,12 @@ export const Title = styled(Typography.Text)`
 
   color: ${(props) => props.theme.colors.text.main};
 
-  @media only screen and ${theme.media.md} {
+  @media only screen and ${lightTheme.media.md} {
     font-size: 3rem;
     margin-bottom: 1.75rem;
   }
 
-  @media only screen and ${theme.media.xl} {
+  @media only screen and ${lightTheme.media.xl} {
     font-size: 4rem;
     margin-bottom: 2.25rem;
   }
@@ -61,12 +61,12 @@ export const Text = styled(Title)`
   font-size: 0.875rem;
   margin-bottom: 1.25rem;
 
-  @media only screen and ${theme.media.md} {
+  @media only screen and ${lightTheme.media.md} {
     font-size: 1.12rem;
     margin-bottom: 1.45rem;
   }
 
-  @media only screen and ${theme.media.xl} {
+  @media only screen and ${lightTheme.media.xl} {
     font-size: 1.5rem;
     margin-bottom: 1.8rem;
   }
@@ -75,7 +75,7 @@ export const Text = styled(Title)`
 export const Btn = styled(Button)`
   width: 100%;
 
-  @media only screen and ${theme.media.md} {
+  @media only screen and ${lightTheme.media.md} {
     font-size: 1rem;
   }
 `;
