@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 import { Outlet, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { Card } from '@app/components/common/Card/Card';
-import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import { Button } from '@app/components/common/buttons/Button/Button';
 import { ProfileInfo } from '@app/components/profile/ProfileCard/ProfileInfo/ProfileInfo';
 import { ProfileNav } from '@app/components/profile/ProfileCard/ProfileNav/ProfileNav';
@@ -32,13 +31,11 @@ const ProfileLayout: React.FC = () => {
 
   return (
     <>
-      <PageTitle>
-        {!isTitleShown && (
-          <Btn icon={<LeftOutlined />} type="text" onClick={() => navigate('/profile')}>
-            {t('common.back')}
-          </Btn>
-        )}
-      </PageTitle>
+      {!isTitleShown && (
+        <Btn icon={<LeftOutlined />} type="text" onClick={() => navigate('/profile')}>
+          {t('common.back')}
+        </Btn>
+      )}
 
       <Row gutter={[30, 30]}>
         {isTitleShown && (
@@ -73,6 +70,7 @@ const ProfileCard = styled(Card)`
 
 const Btn = styled(Button)`
   font-size: 1rem;
+  margin-bottom: 1rem;
   font-weight: 600;
   padding: 0;
   height: unset;
