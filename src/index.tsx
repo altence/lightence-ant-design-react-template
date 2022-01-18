@@ -7,7 +7,7 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import 'config/config';
 import { Provider } from 'react-redux';
 import { store } from '@app/store/store';
-import './styles/main_dark.less';
+import './styles/main.less';
 
 ReactDOM.render(
   <React.StrictMode>
