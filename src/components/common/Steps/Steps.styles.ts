@@ -26,17 +26,6 @@ export const Steps = styled(AntdSteps)`
     }
   }
 
-  .ant-steps-item .ant-steps-item-description {
-    padding-bottom: 2.1875rem;
-
-    @media only screen and ${(props) => props.theme.media.md} {
-      padding-bottom: 1rem;
-    }
-
-    @media only screen and ${(props) => props.theme.media.xl} {
-      padding-bottom: 2.1875rem;
-    }
-  }
   .ant-steps-item-container {
     display: flex;
     align-items: baseline;
