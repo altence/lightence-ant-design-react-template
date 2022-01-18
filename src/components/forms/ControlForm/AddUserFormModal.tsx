@@ -32,7 +32,7 @@ export const AddUserFormModal: React.FC<AddUserFormModalProps> = ({ visible, onC
           <Input />
         </FormItem>
         <FormItem name="age" label={t('common.age')} rules={[{ required: true, message: t('common.requiredField') }]}>
-          <InputNumber />
+          <InputNumber $block />
         </FormItem>
       </Form>
     </Modal>
