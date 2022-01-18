@@ -10,8 +10,8 @@ import { useTranslation } from 'react-i18next';
 import * as S from './ControlForm.styles';
 
 const layout = {
-  labelCol: { span: 8 },
-  wrapperCol: { span: 16 },
+  labelCol: { span: 24 },
+  wrapperCol: { span: 24 },
 };
 
 interface UserType {
