@@ -14513,6 +14513,7 @@ __metadata:
     react: ^17.0.2
     react-country-flag: ^3.0.2
     react-credit-cards: ^0.8.3
+    react-css-theme-switcher: ^0.3.0
     react-dom: ^17.0.2
     react-i18next: ^11.11.4
     react-infinite-scroll-component: ^6.1.0
@@ -14586,6 +14587,15 @@ __metadata:
     prop-types: ^15.7.2
     react: ^15.0.0 || ^16.0.0
   checksum: d2cbd5cbecf451a85841968aa5bc5a0aa1c62e26c0841852e46394559196c838f256d8cb3c3c2c21ffd6da0a83ec9ac35a003c66128e242f94533760fbb625fc
+  languageName: node
+  linkType: hard
+
+"react-css-theme-switcher@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "react-css-theme-switcher@npm:0.3.0"
+  peerDependencies:
+    react: ">=16"
+  checksum: 503ba6595d2db2d47af8a4f7f8e2441c0d5acbca95769bdc83c6695e3b242063833ad9c74ef58832ef91087ed97c8631efbfbd81404a2827bc101615d30e1890
   languageName: node
   linkType: hard
 
