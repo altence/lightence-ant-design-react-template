@@ -20,7 +20,9 @@ export const FormList = styled(Form.List)``;
 
 export const FormItem = styled(Form.Item)<FormItemProps>`
   @media only screen and ${(props) => props.theme.media.xl} {
-    margin-bottom: 2rem;
+    &:not(:last-of-type) {
+      margin-bottom: 2rem;
+    }
   }
 
   & label {
