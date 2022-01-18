@@ -5,7 +5,6 @@ import { ThemeContext } from 'styled-components';
 import { hexToRGB } from 'utils/utils';
 import { ChartSeriesData } from 'interfaces/interfaces';
 import { useTranslation } from 'react-i18next';
-import { useResponsive } from '@app/hooks/useResponsive';
 
 interface StatisticsData {
   day: number;
@@ -26,8 +25,6 @@ const xAxisData = Array.from({ length: 16 }, (_, i) => i + 1);
 
 export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, secondUser }) => {
   const theme = useContext(ThemeContext);
-
-  const { tabletOnly } = useResponsive();
 
   const { t } = useTranslation();
 
@@ -120,5 +117,5 @@ export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, sec
     ],
   };
 
-  return <BaseChart option={option} {...(tabletOnly && { height: 200 })} />;
+  return <BaseChart option={option} />;
 };

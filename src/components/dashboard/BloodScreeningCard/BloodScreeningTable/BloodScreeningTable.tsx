@@ -11,7 +11,7 @@ interface BloodScreeningTableProps {
 }
 
 export const BloodScreeningTable: React.FC<BloodScreeningTableProps> = ({ activeItem, setActiveItem }) => {
-  const { isTablet, isBigScreen, isDesktop } = useResponsive();
+  const { isTablet, isDesktop } = useResponsive();
   const { t } = useTranslation();
   const [dataSource] = useState<BloodTestResult[]>(results);
 
@@ -45,11 +45,11 @@ export const BloodScreeningTable: React.FC<BloodScreeningTableProps> = ({ active
 
   return (
     <S.Table
-      size={(isBigScreen && 'large') || (isTablet && 'middle') || 'small'}
+      size={'small'}
       pagination={false}
       columns={columns}
       dataSource={dataSource}
-      scroll={{ y: isDesktop ? 224 : 400 }}
+      scroll={{ y: isDesktop ? 300 : isTablet ? 620 : 400 }}
       onRow={(record) => {
         return {
           onClick: () => setActiveItem(record),
