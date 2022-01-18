@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Input as AntInput, Button } from 'antd';
 import { DayjsDatePicker } from 'components/common/pickers/DayjsDatePicker';
-import theme from '../../../../styles/theme';
+import lightTheme from '../../../../styles/themes/light/lightTheme';
 import { SearchOutlined, PlusCircleFilled, CloseOutlined } from '@ant-design/icons';
 import { Checkbox } from 'antd';
 
@@ -131,11 +131,11 @@ export const Btn = styled(Button)`
 export const NewsWrapper = styled.div`
   max-width: 35rem;
 
-  @media only screen and ${theme.media.xs} {
+  @media only screen and ${lightTheme.media.xs} {
     width: 100%;
   }
 
-  @media only screen and ${theme.media.md} {
+  @media only screen and ${lightTheme.media.md} {
     width: calc(100% - 21.25rem);
   }
 `;
@@ -153,11 +153,11 @@ export const FilterWrapper = styled.div`
   height: min-content;
   filter: drop-shadow(0 4px 40px rgba(0, 0, 0, 0.07));
 
-  @media only screen and ${theme.media.xs} {
+  @media only screen and ${lightTheme.media.xs} {
     position: relative;
   }
 
-  @media only screen and ${theme.media.md} {
+  @media only screen and ${lightTheme.media.md} {
     position: sticky;
   }
 `;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Typography, Image as AntImage } from 'antd';
-import theme from '../../../styles/theme';
+import lightTheme from '../../../styles/themes/light/lightTheme';
 
 export const Header = styled.div`
   height: 5.5rem;
@@ -46,11 +46,11 @@ export const Author = styled.div`
 export const InfoWrapper = styled.div`
   padding: 1.25rem;
 
-  @media only screen and ${theme.media.xl} {
+  @media only screen and ${lightTheme.media.xl} {
     padding: 1rem;
   }
 
-  @media only screen and ${theme.media.xxl} {
+  @media only screen and ${lightTheme.media.xxl} {
     padding: 1.85rem;
   }
 `;
@@ -59,11 +59,11 @@ export const InfoHeader = styled.div`
   display: flex;
   margin-bottom: 1rem;
 
-  @media only screen and ${theme.media.md} {
+  @media only screen and ${lightTheme.media.md} {
     margin-bottom: 0.625rem;
   }
 
-  @media only screen and ${theme.media.xxl} {
+  @media only screen and ${lightTheme.media.xxl} {
     margin-bottom: 1.25rem;
   }
 `;
@@ -76,7 +76,7 @@ export const Title = styled.div`
 
   color: ${(props) => props.theme.colors.text.main};
 
-  @media only screen and ${theme.media.xxl} {
+  @media only screen and ${lightTheme.media.xxl} {
     font-size: 1rem;
   }
 `;
@@ -91,7 +91,7 @@ export const Description = styled.div`
   font-size: ${(props) => props.theme.commonFontSizes.xs};
   color: ${(props) => props.theme.colors.text.main};
 
-  @media only screen and ${theme.media.xxl} {
+  @media only screen and ${lightTheme.media.xxl} {
     font-size: 1rem;
   }
 `;

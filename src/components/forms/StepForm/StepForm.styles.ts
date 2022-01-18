@@ -3,7 +3,7 @@ import { Steps as AntdSteps } from 'antd';
 import { Select as CommonSelect } from 'components/common/selects/Select/Select';
 import { Button } from '../../common/buttons/Button/Button';
 import { FormItem } from 'components/common/Form/Form.styles';
-import theme from 'styles/theme';
+import lightTheme from '@app/styles/themes/light/lightTheme';
 
 export const PhoneItem = styled(FormItem)`
   width: 100%;
@@ -84,11 +84,11 @@ export const ContentWrapper = styled.div`
 export const Content = styled.div`
   min-width: 35rem;
 
-  @media only screen and ${theme.media.xs} {
+  @media only screen and ${lightTheme.media.xs} {
     min-width: 100%;
   }
 
-  @media only screen and ${theme.media.md} {
+  @media only screen and ${lightTheme.media.md} {
     min-width: 35rem;
   }
 `;

@@ -1,6 +1,6 @@
-import theme from 'styles/theme';
+import lightTheme from '@app/styles/themes/light/lightTheme';
 
-const { red, orange, lightgreen, skyblue } = theme.commonColors;
+const { red, orange, lightgreen, skyblue } = lightTheme.commonColors;
 
 export const kanbanTags = {
   high: {

@@ -3,7 +3,7 @@ import { notification } from 'antd';
 import styled from 'styled-components';
 import { CheckCircleFilled, ExclamationCircleFilled, InfoCircleFilled } from '@ant-design/icons';
 import { ReactComponent as ErrorIcon } from 'assets/icons/error-notification.svg';
-import theme from 'styles/theme';
+import lightTheme from '@app/styles/themes/light/lightTheme';
 
 interface NotificationTitleProps {
   $color?: string;
@@ -23,21 +23,22 @@ const IconWrapper = styled.div<IconWrapperProps>`
 `;
 
 const SuccessIcon = styled(CheckCircleFilled)`
-  color: ${theme.colors.main.success};
+  color: ${lightTheme.colors.main.success};
 `;
 
 const InfoIcon = styled(InfoCircleFilled)`
-  color: ${theme.colors.main.primary};
+  color: ${lightTheme.colors.main.primary};
 `;
 
 const WarningIcon = styled(ExclamationCircleFilled)`
-  color: ${theme.colors.main.warning};
+  color: ${lightTheme.colors.main.warning};
 `;
 
 const NotificationTitle = styled.div<NotificationTitleProps>`
-  color: ${(props) => (props.$isOnlyTitle ? theme.colors.text.main : props.color)};
-  font-size: ${(props) => (props.$isOnlyTitle ? theme.commonFontSizes.md : theme.commonFontSizes.xxl)};
-  font-weight: ${(props) => (props.$isOnlyTitle ? theme.commonFontWeight.semibold : theme.commonFontWeight.bold)};
+  color: ${(props) => (props.$isOnlyTitle ? lightTheme.colors.text.main : props.color)};
+  font-size: ${(props) => (props.$isOnlyTitle ? lightTheme.commonFontSizes.md : lightTheme.commonFontSizes.xxl)};
+  font-weight: ${(props) =>
+    props.$isOnlyTitle ? lightTheme.commonFontWeight.semibold : lightTheme.commonFontWeight.bold};
   height: ${(props) => (props.$isOnlyTitle ? '2.1875rem' : '2.8125rem')};
   display: flex;
   align-items: center;
@@ -45,9 +46,9 @@ const NotificationTitle = styled.div<NotificationTitleProps>`
 `;
 
 const NotificationDescription = styled.div`
-  color: ${theme.colors.text.main};
-  font-size: ${theme.commonFontSizes.md};
-  font-weight: ${theme.commonFontWeight.semibold};
+  color: ${lightTheme.colors.text.main};
+  font-size: ${lightTheme.commonFontSizes.md};
+  font-weight: ${lightTheme.commonFontWeight.semibold};
   line-height: 1.375rem;
 `;
 
@@ -85,7 +86,7 @@ const openSuccessNotification = (config: NotificationProps): void => {
       </IconWrapper>
     ),
     message: (
-      <NotificationTitle color={theme.colors.main.success} $isOnlyTitle={!config.description}>
+      <NotificationTitle color={lightTheme.colors.main.success} $isOnlyTitle={!config.description}>
         {config.message}
       </NotificationTitle>
     ),
@@ -96,8 +97,8 @@ const openSuccessNotification = (config: NotificationProps): void => {
     ),
     style: {
       padding: config.description ? '1.9375rem 2.5rem' : '1.1875rem 2.5rem',
-      border: `1px solid ${theme.colors.main.success}`,
-      background: theme.colors.notifications.success,
+      border: `1px solid ${lightTheme.colors.main.success}`,
+      background: lightTheme.colors.notifications.success,
     },
     className: config.description ? '' : 'notification-without-description',
   });
@@ -112,7 +113,7 @@ const openInfoNotification = (config: NotificationProps): void => {
       </IconWrapper>
     ),
     message: (
-      <NotificationTitle color={theme.colors.main.primary} $isOnlyTitle={!config.description}>
+      <NotificationTitle color={lightTheme.colors.main.primary} $isOnlyTitle={!config.description}>
         {config.message}
       </NotificationTitle>
     ),
@@ -123,8 +124,8 @@ const openInfoNotification = (config: NotificationProps): void => {
     ),
     style: {
       padding: config.description ? '1.9375rem 2.5rem' : '1.1875rem 2.5rem',
-      border: `1px solid ${theme.colors.main.primary}`,
-      background: theme.colors.notifications.primary,
+      border: `1px solid ${lightTheme.colors.main.primary}`,
+      background: lightTheme.colors.notifications.primary,
     },
     className: config.description ? '' : 'notification-without-description',
   });
@@ -139,7 +140,7 @@ const openWarningNotification = (config: NotificationProps): void => {
       </IconWrapper>
     ),
     message: (
-      <NotificationTitle color={theme.colors.main.warning} $isOnlyTitle={!config.description}>
+      <NotificationTitle color={lightTheme.colors.main.warning} $isOnlyTitle={!config.description}>
         {config.message}
       </NotificationTitle>
     ),
@@ -150,8 +151,8 @@ const openWarningNotification = (config: NotificationProps): void => {
     ),
     style: {
       padding: config.description ? '1.9375rem 2.5rem' : '1.1875rem 2.5rem',
-      border: `1px solid ${theme.colors.main.warning}`,
-      background: theme.colors.notifications.warning,
+      border: `1px solid ${lightTheme.colors.main.warning}`,
+      background: lightTheme.colors.notifications.warning,
     },
     className: config.description ? '' : 'notification-without-description',
   });
@@ -166,7 +167,7 @@ const openErrorNotification = (config: NotificationProps): void => {
       </IconWrapper>
     ),
     message: (
-      <NotificationTitle color={theme.colors.main.error} $isOnlyTitle={!config.description}>
+      <NotificationTitle color={lightTheme.colors.main.error} $isOnlyTitle={!config.description}>
         {config.message}
       </NotificationTitle>
     ),
@@ -177,8 +178,8 @@ const openErrorNotification = (config: NotificationProps): void => {
     ),
     style: {
       padding: config.description ? '1.9375rem 2.5rem' : '1.1875rem 2.5rem',
-      border: `1px solid ${theme.colors.main.error}`,
-      background: theme.colors.notifications.error,
+      border: `1px solid ${lightTheme.colors.main.error}`,
+      background: lightTheme.colors.notifications.error,
     },
     className: config.description ? '' : 'notification-without-description',
   });
