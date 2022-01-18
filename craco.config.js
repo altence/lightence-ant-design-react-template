@@ -1,6 +1,5 @@
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const WebpackBar = require('webpackbar');
-const CracoAntDesignPlugin = require('craco-antd');
 const CracoAlias = require('craco-alias');
 
 process.env.BROWSER = 'none';
@@ -13,12 +12,6 @@ module.exports = {
     ],
   },
   plugins: [
-    {
-      plugin: CracoAntDesignPlugin,
-      options: {
-        // customizeThemeLessPath: path.join(__dirname, 'src/styles/_override_variables.less'),
-      },
-    },
     {
       plugin: CracoAlias,
       options: {

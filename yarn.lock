@@ -1666,21 +1666,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.15.4":
-  version: 7.16.7
-  resolution: "@babel/runtime@npm:7.16.7"
-  dependencies:
-    regenerator-runtime: ^0.13.4
-  checksum: 47912f0aaacd1cab2e2552aaf3e6eaffbcaf2d5ac9b07a89a12ac0d42029cb92c070b0d16f825e4277c4a34677c54d8ffe85e1f7c6feb57de58f700eec67ce2f
-  languageName: node
-  linkType: hard
-
 "@babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.10.1, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.10.4, @babel/runtime@npm:^7.11.1, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.0, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.14.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.16.3
   resolution: "@babel/runtime@npm:7.16.3"
   dependencies:
     regenerator-runtime: ^0.13.4
   checksum: ab8ac887096d76185ddbf291d28fb976cd32473696dc497ad4905b784acbd5aa462533ad83a5c5104e10ead28c2e0e119840ee28ed8eff90dcdde9d57f916eda
+  languageName: node
+  linkType: hard
+
+"@babel/runtime@npm:^7.15.4":
+  version: 7.16.7
+  resolution: "@babel/runtime@npm:7.16.7"
+  dependencies:
+    regenerator-runtime: ^0.13.4
+  checksum: 47912f0aaacd1cab2e2552aaf3e6eaffbcaf2d5ac9b07a89a12ac0d42029cb92c070b0d16f825e4277c4a34677c54d8ffe85e1f7c6feb57de58f700eec67ce2f
   languageName: node
   linkType: hard
 
@@ -4146,16 +4146,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-import@npm:^1.13.1":
-  version: 1.13.3
-  resolution: "babel-plugin-import@npm:1.13.3"
-  dependencies:
-    "@babel/helper-module-imports": ^7.0.0
-    "@babel/runtime": ^7.0.0
-  checksum: 1be664a34fa6cdffb08485a7094ff1a3fdfd2e95a7d367afdd7a6dcb51842c0bc717c8fdba65538561a4d3aecc39c123e6de1449c5b1b2aa5b13604c17ca7042
-  languageName: node
-  linkType: hard
-
 "babel-plugin-istanbul@npm:^6.0.0":
   version: 6.1.1
   resolution: "babel-plugin-istanbul@npm:6.1.1"
@@ -5145,13 +5135,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clone@npm:^2.1.2":
-  version: 2.1.2
-  resolution: "clone@npm:2.1.2"
-  checksum: aaf106e9bc025b21333e2f4c12da539b568db4925c0501a1bf4070836c9e848c892fa22c35548ce0d1132b08bbbfa17a00144fe58fccdab6fa900fec4250f67d
-  languageName: node
-  linkType: hard
-
 "co@npm:^4.6.0":
   version: 4.6.0
   resolution: "co@npm:4.6.0"
@@ -5476,15 +5459,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"copy-anything@npm:^2.0.1":
-  version: 2.0.3
-  resolution: "copy-anything@npm:2.0.3"
-  dependencies:
-    is-what: ^3.12.0
-  checksum: 50f6423fa7e346416c18658fd253bfbe8783ff51c4f244a3c18c39693369cc7cb84cc9e4a4e109c0ab2f81e44eb345ce9ca8f0fb4b48f4aae3a396423912d60f
-  languageName: node
-  linkType: hard
-
 "copy-concurrently@npm:^1.0.0":
   version: 1.0.5
   resolution: "copy-concurrently@npm:1.0.5"
@@ -5609,34 +5583,6 @@ __metadata:
   version: 3.0.1
   resolution: "craco-alias@npm:3.0.1"
   checksum: 8d9a2bf38fa0834f365415509b57c33fda3a0fec18382242d9c92e766029bd72cca3f8aa548ff23c8d1272dd5621c97f9ceaa7e10517f0056a64bc89bff58d1e
-  languageName: node
-  linkType: hard
-
-"craco-antd@npm:^1.19.0":
-  version: 1.19.0
-  resolution: "craco-antd@npm:1.19.0"
-  dependencies:
-    babel-plugin-import: ^1.13.1
-    craco-less: 1.17.0
-    less-vars-to-js: ^1.3.0
-  peerDependencies:
-    "@craco/craco": ^5.5.0
-    antd: ">= 3.0.0"
-    react-scripts: ^3.4.3
-  checksum: 882ff596847cc4bdc00ffda537f374679241e477466cd3afd2845a9029f2a6d01c0c202e6574351a0d3da8f188ef42d4c80b038c7ac21640127397f073fac04d
-  languageName: node
-  linkType: hard
-
-"craco-less@npm:1.17.0":
-  version: 1.17.0
-  resolution: "craco-less@npm:1.17.0"
-  dependencies:
-    less: ^3.11.1
-    less-loader: ^6.1.0
-  peerDependencies:
-    "@craco/craco": ^5.5.0
-    react-scripts: ^3.3.0
-  checksum: 629c75077d4944ca6f46a39cc36205dfa0eec2c94579aec8c8f86fe0fe28592ad27ee86de491ac7e1754f78793508f72b9e6d3b81135b52c4451107e306eb543
   languageName: node
   linkType: hard
 
@@ -6836,7 +6782,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"errno@npm:^0.1.1, errno@npm:^0.1.3, errno@npm:~0.1.7":
+"errno@npm:^0.1.3, errno@npm:~0.1.7":
   version: 0.1.8
   resolution: "errno@npm:0.1.8"
   dependencies:
@@ -8908,15 +8854,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"image-size@npm:~0.5.0":
-  version: 0.5.5
-  resolution: "image-size@npm:0.5.5"
-  bin:
-    image-size: bin/image-size.js
-  checksum: 6709d5cb73e96d5097ae5e9aa746dd36d6a9c8cf645e7eecac72ea07dbd6f312a65183752762fa92e2f3b698d4ed8d85dd55bf5207b6367245996bd16576d8fe
-  languageName: node
-  linkType: hard
-
 "immer@npm:8.0.1":
   version: 8.0.1
   resolution: "immer@npm:8.0.1"
@@ -9667,13 +9604,6 @@ __metadata:
   dependencies:
     call-bind: ^1.0.0
   checksum: fdafb7b955671dd2f9658ff47c86e4025c0650fc68a3542a40e5a75898a763b1abd6b1e1f9f13207eed49541cdd76af67d73c44989ea358b201b70274cf8f6c1
-  languageName: node
-  linkType: hard
-
-"is-what@npm:^3.12.0":
-  version: 3.14.1
-  resolution: "is-what@npm:3.14.1"
-  checksum: a9a6ce92d33799f1ae0916c7afb6f8128a23ce9d28bd69d9ec3ec88910e7a1f68432e6236c3c8a4d544cf0b864675e5d828437efde60ee0cf8102061d395c1df
   languageName: node
   linkType: hard
 
@@ -10618,63 +10548,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"less-loader@npm:^6.1.0":
-  version: 6.2.0
-  resolution: "less-loader@npm:6.2.0"
-  dependencies:
-    clone: ^2.1.2
-    less: ^3.11.3
-    loader-utils: ^2.0.0
-    schema-utils: ^2.7.0
-  peerDependencies:
-    webpack: ^4.0.0 || ^5.0.0
-  checksum: 2903a7aa73bd9d46a05f1a1cf9eee4495c89c74095a27ac1b66394bca801b52bfb39d97014367686f32209c853a2b0ae475f4e79ed3a7f17508abd32d46fbdf2
-  languageName: node
-  linkType: hard
-
-"less-vars-to-js@npm:^1.3.0":
-  version: 1.3.0
-  resolution: "less-vars-to-js@npm:1.3.0"
-  dependencies:
-    strip-json-comments: ^2.0.1
-  checksum: 43e61f9a55d3e71a801a744f76dab4fd9d091bfe9e2d763b1a20b07cc77cfa258c64472ed591f686db86561cfff35cb12a95cfc80a9070f961f1ae33e091aeb6
-  languageName: node
-  linkType: hard
-
-"less@npm:^3.11.1, less@npm:^3.11.3":
-  version: 3.13.1
-  resolution: "less@npm:3.13.1"
-  dependencies:
-    copy-anything: ^2.0.1
-    errno: ^0.1.1
-    graceful-fs: ^4.1.2
-    image-size: ~0.5.0
-    make-dir: ^2.1.0
-    mime: ^1.4.1
-    native-request: ^1.0.5
-    source-map: ~0.6.0
-    tslib: ^1.10.0
-  dependenciesMeta:
-    errno:
-      optional: true
-    graceful-fs:
-      optional: true
-    image-size:
-      optional: true
-    make-dir:
-      optional: true
-    mime:
-      optional: true
-    native-request:
-      optional: true
-    source-map:
-      optional: true
-  bin:
-    lessc: ./bin/lessc
-  checksum: cfc2c56f135bbf47d8e53a6d083640e98ed8e92ae8ef36a7103aee571949779af5ee299342a5be83eca8932625adf9ff97017a3c82018e63e8fb9f5e5ab948a5
-  languageName: node
-  linkType: hard
-
 "leven@npm:^3.1.0":
   version: 3.1.0
   resolution: "leven@npm:3.1.0"
@@ -10992,7 +10865,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"make-dir@npm:^2.0.0, make-dir@npm:^2.1.0":
+"make-dir@npm:^2.0.0":
   version: 2.1.0
   resolution: "make-dir@npm:2.1.0"
   dependencies:
@@ -11307,7 +11180,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mime@npm:1.6.0, mime@npm:^1.4.1":
+"mime@npm:1.6.0":
   version: 1.6.0
   resolution: "mime@npm:1.6.0"
   bin:
@@ -11623,13 +11496,6 @@ __metadata:
     snapdragon: ^0.8.1
     to-regex: ^3.0.1
   checksum: 54d4166d6ef08db41252eb4e96d4109ebcb8029f0374f9db873bd91a1f896c32ec780d2a2ea65c0b2d7caf1f28d5e1ea33746a470f32146ac8bba821d80d38d8
-  languageName: node
-  linkType: hard
-
-"native-request@npm:^1.0.5":
-  version: 1.1.0
-  resolution: "native-request@npm:1.1.0"
-  checksum: ab96f79c7a5e726a88eaa90c700d4d844af884e68d9784d90d42134c12224105453e4db82b5985624b458e4a304d5f664c1be760e88b63f7f247001f4e755603
   languageName: node
   linkType: hard
 
@@ -14492,7 +14358,6 @@ __metadata:
     axios-mock-adapter: ^1.20.0
     country-list: ^2.2.0
     craco-alias: ^3.0.1
-    craco-antd: ^1.19.0
     dayjs: ^1.10.6
     echarts: ^5.1.2
     echarts-for-react: ^3.0.1
@@ -16722,13 +16587,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"strip-json-comments@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "strip-json-comments@npm:2.0.1"
-  checksum: 1074ccb63270d32ca28edfb0a281c96b94dc679077828135141f27d52a5a398ef5e78bcf22809d23cadc2b81dfbe345eb5fd8699b385c8b1128907dec4a7d1e1
-  languageName: node
-  linkType: hard
-
 "strip-json-comments@npm:^3.1.0, strip-json-comments@npm:^3.1.1":
   version: 3.1.1
   resolution: "strip-json-comments@npm:3.1.1"
@@ -17382,7 +17240,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^1.10.0, tslib@npm:^1.8.1":
+"tslib@npm:^1.8.1":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
   checksum: dbe628ef87f66691d5d2959b3e41b9ca0045c3ee3c7c7b906cc1e328b39f199bb1ad9e671c39025bd56122ac57dfbf7385a94843b1cc07c60a4db74795829acd
