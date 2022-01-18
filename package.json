@@ -58,14 +58,17 @@
     "workbox-streams": "^5.1.3"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
+    "start": "yarn buildThemes && craco start",
+    "build": "yarn buildThemes && craco build",
     "test": "craco test",
     "eject": "craco eject",
     "lint": "eslint \"*/**/*.{js,ts,tsx}\" --fix",
     "lint:styles": "stylelint '*/**/*.{js,ts,tsx}'",
     "prepare": "husky install",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "buildLightTheme": "lessc --js --clean-css=\"--s1 --advanced\" src/styles/themes/light/main-light.less public/themes/main-light.css",
+    "buildDarkTheme": "lessc --js --clean-css=\"--s1 --advanced\" src/styles/themes/dark/main-dark.less public/themes/main-dark.css",
+    "buildThemes": "yarn buildLightTheme && yarn buildDarkTheme"
   },
   "browserslist": [
     ">0.2%",
@@ -96,6 +99,8 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "husky": "^6.0.0",
+    "less": "^4.1.2",
+    "less-plugin-clean-css": "^1.5.1",
     "lint-staged": "^11.0.0",
     "prettier": "^2.3.1",
     "stylelint": "^13.13.1",
