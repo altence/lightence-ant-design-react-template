@@ -58,7 +58,9 @@ export const MobileBurger = styled(BurgerIcon)`
   width: 1.75rem;
   height: 1.75rem;
   margin-right: -0.5rem;
-  color: ${(props) => props.theme.colors.text.secondary};
+  color: ${(props) => props.theme.colors.text.main};
+
+  ${(props) => props.isCross && `color: ${props.theme.colors.text.secondary}`};
 `;
 
 interface ProfileColumn {
