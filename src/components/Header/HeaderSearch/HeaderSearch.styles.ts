@@ -11,6 +11,10 @@ export const SearchIcon = styled(SearchOutlined)`
 
     color: ${(props) => props.theme.colors.text.secondary};
 
+    @media only screen and ${(props) => props.theme.media.xs} {
+      color: ${(props) => props.theme.colors.text.main};
+    }
+
     @media only screen and ${(props) => props.theme.media.md} {
       font-size: 1.625rem;
 
