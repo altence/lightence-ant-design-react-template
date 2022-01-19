@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { useThemeSwitcher } from 'react-css-theme-switcher';
 
@@ -6,8 +6,17 @@ interface ThemeSwitcherProps {
   theme: string;
 }
 
+const spinnerPath = `${process.env.PUBLIC_URL}/spinners/spinner.svg`;
+
 export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ theme, children }) => {
   const { switcher, themes, status } = useThemeSwitcher();
+  const [isThemesLoaded, setThemesLoaded] = useState(false);
+
+  useEffect(() => {
+    if (!isThemesLoaded && status === 'loaded') {
+      setThemesLoaded(true);
+    }
+  }, [isThemesLoaded, setThemesLoaded, status]);
 
   useEffect(() => {
     switcher({ theme: theme === 'dark' ? themes.dark : themes.light });
@@ -16,7 +25,9 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ theme, children })
   return (
     <>
       {children}
-      <ThemeSwitcherLoading $isShown={status !== 'loaded'}>LOADING</ThemeSwitcherLoading>
+      <ThemeSwitcherLoading $isShown={!isThemesLoaded && status !== 'loaded'}>
+        <img src={spinnerPath} alt="Styles loading..." />
+      </ThemeSwitcherLoading>
     </>
   );
 };
@@ -31,10 +42,13 @@ const ThemeSwitcherLoading = styled.div<ThemeSwitcherLoadingProps>`
   right: 0;
   height: 100%;
   width: 100%;
-  background-color: green;
+  background-color: ${(props) => props.theme.colors.main.mainBackground};
   z-index: -1;
   transition: opacity 500ms ease;
   opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   ${(props) =>
     props.$isShown &&
