@@ -3,7 +3,7 @@ import { useAppDispatch } from '@app/hooks/reduxHooks';
 import { Navigate } from 'react-router-dom';
 import { doLogout } from '@app/store/authSlice';
 
-export const Logout: React.FC = () => {
+const Logout: React.FC = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -12,3 +12,5 @@ export const Logout: React.FC = () => {
 
   return <Navigate to="/auth/login" replace />;
 };
+
+export default Logout;
