@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 import { Steps as AntdSteps } from 'antd';
-import { Select as CommonSelect } from 'components/common/selects/Select/Select';
-import { Button } from '../../common/buttons/Button/Button';
-import { FormItem } from 'components/common/Form/Form.styles';
-import lightTheme from '@app/styles/themes/light/lightTheme';
+import { Select as CommonSelect } from '@app/components/common/selects/Select/Select';
+import { Button } from '@app/components/common/buttons/Button/Button';
+import { FormItem } from '@app/components/common/Form/Form.styles';
 
 export const PhoneItem = styled(FormItem)`
   width: 100%;
@@ -71,24 +70,5 @@ export const Steps = styled(AntdSteps)`
   & .ant-steps-item > .ant-steps-item-container > .ant-steps-item-tail::after {
     height: 1.125rem;
     margin-top: 0.125rem;
-  }
-`;
-
-export const ContentWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-`;
-
-export const Content = styled.div`
-  min-width: 35rem;
-
-  @media only screen and ${lightTheme.media.xs} {
-    min-width: 100%;
-  }
-
-  @media only screen and ${lightTheme.media.md} {
-    min-width: 35rem;
   }
 `;
