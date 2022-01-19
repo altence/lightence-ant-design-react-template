@@ -7,12 +7,24 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import 'config/config';
 import { Provider } from 'react-redux';
 import { store } from '@app/store/store';
-import './styles/main.less';
+import { ThemeSwitcherProvider } from 'react-css-theme-switcher';
+import { defaultTheme } from '@app/hooks/useTheme';
+
+const themes = {
+  dark: `${process.env.PUBLIC_URL}/themes/main-dark.css`,
+  light: `${process.env.PUBLIC_URL}/themes/main-light.css`,
+};
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <ThemeSwitcherProvider
+        themeMap={themes}
+        defaultTheme={defaultTheme}
+        insertionPoint={document.getElementById('inject-styles-here')}
+      >
+        <App />
+      </ThemeSwitcherProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root'),
