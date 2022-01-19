@@ -5,14 +5,15 @@ import enUS from 'antd/lib/locale/en_US';
 import { ThemeProvider } from 'styled-components';
 import { ThemeContext } from './context/ThemeContext';
 import { NightModeContext } from './context/NightModeContext';
-import lightTheme from './styles/theme';
+import lightTheme from './styles/themes/light/lightTheme';
 import GlobalStyle from './styles/GlobalStyle';
 import 'typeface-montserrat';
 import { useTheme } from './hooks/useTheme';
 import { useNightMode } from './hooks/useNightMode';
 import { useTranslation } from 'react-i18next';
-import { darkTheme } from 'styles/darkTheme';
+import { darkTheme } from '@app/styles/themes/dark/darkTheme';
 import { AppRouter } from './components/router/AppRouter';
+import { ThemeSwitcher } from '@app/components/common/ThemeSwitcher';
 
 const App: React.FC = () => {
   const { isNightMode, setNightMode, nightTime, setNightTime } = useNightMode();
@@ -27,7 +28,9 @@ const App: React.FC = () => {
         <ThemeContext.Provider value={{ theme, setTheme }}>
           <NightModeContext.Provider value={{ isNightMode, setNightMode, nightTime, setNightTime }}>
             <ConfigProvider locale={i18n.language === 'en' ? enUS : deDe}>
-              <AppRouter />
+              <ThemeSwitcher theme={theme}>
+                <AppRouter />
+              </ThemeSwitcher>
             </ConfigProvider>
           </NightModeContext.Provider>
         </ThemeContext.Provider>
