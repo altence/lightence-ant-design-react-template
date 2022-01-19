@@ -42,7 +42,7 @@ export const StepForm: React.FC = () => {
     { name: 'zipCode', value: '435123' },
     { name: 'city', value: 'Minsk' },
     { name: 'country', value: 'Belarus' },
-    { name: 'prefix', value: '+375' },
+    { name: 'prefix', value: '+7' },
   ]);
   const [isLoading, setIsLoading] = useState(false);
   const { t } = useTranslation();
@@ -133,28 +133,24 @@ export const StepForm: React.FC = () => {
           <Step key={item.title} title={item.title} description="" />
         ))}
       </S.Steps>
-      <S.ContentWrapper>
-        <S.Content>
-          <div>{formFieldsUi[current]}</div>
-          <div>
-            {current < steps.length - 1 && (
-              <Button type="primary" onClick={() => next()}>
-                {t('forms.stepFormLabels.next')}
-              </Button>
-            )}
-            {current === steps.length - 1 && (
-              <Button type="primary" onClick={onFinish} loading={isLoading}>
-                {t('forms.stepFormLabels.done')}
-              </Button>
-            )}
-            {current > 0 && (
-              <S.PrevButton type="default" onClick={() => prev()}>
-                {t('forms.stepFormLabels.previous')}
-              </S.PrevButton>
-            )}
-          </div>
-        </S.Content>
-      </S.ContentWrapper>
+      <div>{formFieldsUi[current]}</div>
+      <div>
+        {current < steps.length - 1 && (
+          <Button type="primary" onClick={() => next()}>
+            {t('forms.stepFormLabels.next')}
+          </Button>
+        )}
+        {current === steps.length - 1 && (
+          <Button type="primary" onClick={onFinish} loading={isLoading}>
+            {t('forms.stepFormLabels.done')}
+          </Button>
+        )}
+        {current > 0 && (
+          <S.PrevButton type="default" onClick={() => prev()}>
+            {t('forms.stepFormLabels.previous')}
+          </S.PrevButton>
+        )}
+      </div>
     </Form>
   );
 };
