@@ -28,10 +28,30 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <noscript id="inject-styles-here"></noscript>
+    <style>
+      body {
+          margin: 0;
+      }
+      #initSpinner {
+          height: 100vh;
+          width: 100vw;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: fixed;
+          top: 0;
+          right: 0;
+          z-index: 99999;
+          background: #ffffff;
+      }
+    </style>
     <title>React App</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="initSpinner">
+      <img src="%PUBLIC_URL%/spinners/spinner.svg" alt="Loading..." />
+    </div>
     <div id="root"></div>
     <!--
       This HTML file is a template.
