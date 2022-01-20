@@ -10,16 +10,15 @@ import GlobalStyle from './styles/GlobalStyle';
 import 'typeface-montserrat';
 import { useTheme } from './hooks/useTheme';
 import { useNightMode } from './hooks/useNightMode';
-import { useTranslation } from 'react-i18next';
 import { darkTheme } from '@app/styles/themes/dark/darkTheme';
 import { AppRouter } from './components/router/AppRouter';
 import { ThemeSwitcher } from '@app/components/common/ThemeSwitcher';
+import { useLanguage } from './hooks/useLanguage';
 
 const App: React.FC = () => {
   const { isNightMode, setNightMode, nightTime, setNightTime } = useNightMode();
   const [theme, setTheme] = useTheme(isNightMode, nightTime);
-
-  const { i18n } = useTranslation();
+  const { language } = useLanguage();
 
   return (
     <>
@@ -27,7 +26,7 @@ const App: React.FC = () => {
         <GlobalStyle />
         <ThemeContext.Provider value={{ theme, setTheme }}>
           <NightModeContext.Provider value={{ isNightMode, setNightMode, nightTime, setNightTime }}>
-            <ConfigProvider locale={i18n.language === 'en' ? enUS : deDe}>
+            <ConfigProvider locale={language === 'en' ? enUS : deDe}>
               <ThemeSwitcher theme={theme}>
                 <AppRouter />
               </ThemeSwitcher>

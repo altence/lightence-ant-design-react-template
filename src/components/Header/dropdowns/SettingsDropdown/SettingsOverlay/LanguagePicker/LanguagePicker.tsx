@@ -1,22 +1,14 @@
 import React from 'react';
-import { Radio, RadioChangeEvent, Space } from 'antd';
-import { useTranslation } from 'react-i18next';
+import { Radio, Space } from 'antd';
 import ReactCountryFlag from 'react-country-flag';
-import { Dates } from 'constants/Dates';
 import { RadioBtn } from '../SettingsOverlay.styles';
+import { useLanguage } from '@app/hooks/useLanguage';
 
 export const LanguagePicker: React.FC = () => {
-  const { i18n } = useTranslation();
-
-  const handleChange = async (e: RadioChangeEvent) => {
-    const locale = e.target.value;
-
-    Dates.setLocale(locale);
-    await i18n.changeLanguage(locale);
-  };
+  const { language, setLanguage } = useLanguage();
 
   return (
-    <Radio.Group defaultValue={i18n.language} onChange={handleChange}>
+    <Radio.Group defaultValue={language} onChange={(e) => setLanguage(e.target.value)}>
       <Space direction="vertical">
         <RadioBtn value="en">
           <Space align="center">
