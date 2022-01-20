@@ -525,7 +525,8 @@
     "alertMessage": "DE!!!Alert message title",
     "alertDescription": "DE!!!Further details about the context of this alert.",
     "loadingState": "DE!!!Loading state：",
-    "loading": "DE!!!Loading..."
+    "loading": "DE!!!Loading...",
+    "globalAppSpinner": "DE!!!Global application spinner"
   },
   "dataDisplay": {
     "avatars": {

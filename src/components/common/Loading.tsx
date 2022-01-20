@@ -1,10 +1,19 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
+import { GlobalSpinner } from '@app/components/common/GlobalSpinner';
 
-export const Loading: React.FC = () => {
+interface LoadingProps {
+  size?: string;
+  color?: string;
+}
+
+export const Loading: React.FC<LoadingProps> = ({ size, color }) => {
+  const theme = useTheme();
+  const spinnerColor = color || theme.colors.main.primary;
+
   return (
     <SpinnerContainer>
-      <img src={`${process.env.PUBLIC_URL}/spinners/spinner.svg`} alt="Loading" />
+      <GlobalSpinner size={size} color={spinnerColor} />
     </SpinnerContainer>
   );
 };

@@ -546,7 +546,8 @@
     "alertMessage": "Alert message title",
     "alertDescription": "Further details about the context of this alert.",
     "loadingState": "Loading state：",
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "globalAppSpinner": "Global application spinner"
   },
   "dataDisplay": {
     "avatars": {

@@ -4,6 +4,7 @@ import { Spinner } from 'components/common/Spinner/Spinner';
 import { useTranslation } from 'react-i18next';
 import { LoadingOutlined, RedoOutlined, ChromeOutlined } from '@ant-design/icons';
 import * as S from './UIComponentsPage.styles';
+import { Loading } from '@app/components/common/Loading';
 
 const antIcon1 = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 const antIcon2 = <RedoOutlined style={{ fontSize: 24 }} spin />;
@@ -49,6 +50,9 @@ const SpinnersPage: React.FC = () => {
             <Switch checked={delayLoading} onChange={() => setDelayLoading(!delayLoading)} />
           </div>
         </Space>
+      </S.Card>
+      <S.Card title={t('spinners.globalAppSpinner')}>
+        <Loading />
       </S.Card>
     </Col>
   );
