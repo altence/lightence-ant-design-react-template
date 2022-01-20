@@ -14,7 +14,7 @@ import InlineInput from 'react-trello/dist/widgets/InlineInput';
 const { Panel } = Collapse;
 
 interface ArrowDownIcon {
-  expanded: boolean;
+  $expanded: boolean;
 }
 
 export const CardContent = styled(Panel)`
@@ -51,7 +51,7 @@ export const ArrowDownWrapper = styled.span`
 `;
 
 export const ArrowDownIcon = styled(DownOutlined)<ArrowDownIcon>`
-  transform: ${(props) => `rotate(${props.expanded ? 0 : 180}deg)`};
+  transform: ${(props) => `rotate(${props.$expanded ? 0 : 180}deg)`};
 `;
 
 export const ThreeDotsWrapper = styled.span`
