@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Steps as AntdSteps } from 'antd';
 import { Select as CommonSelect } from '@app/components/common/selects/Select/Select';
 import { Button } from '@app/components/common/buttons/Button/Button';
 import { FormItem } from '@app/components/common/Form/Form.styles';
@@ -52,23 +51,4 @@ export const DetailsValue = styled.div`
   color: ${(props) => props.theme.colors.text.main};
   font-size: ${(props) => props.theme.commonFontSizes.md};
   font-weight: ${(props) => props.theme.commonFontWeight.semibold};
-`;
-
-export const Steps = styled(AntdSteps)`
-  height: auto;
-  & .ant-steps-item-container,
-  .ant-steps-item .ant-steps-item-content {
-    display: flex;
-    align-items: center;
-  }
-
-  & .ant-steps-item-tail::after,
-  .ant-steps-item-title::after {
-    background: ${(props) => props.theme.colors.text.light} !important;
-  }
-
-  & .ant-steps-item > .ant-steps-item-container > .ant-steps-item-tail::after {
-    height: 1.125rem;
-    margin-top: 0.125rem;
-  }
 `;
