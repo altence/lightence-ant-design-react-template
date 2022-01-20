@@ -13,6 +13,7 @@ import LockPage from '@app/pages/LockPage';
 import MainLayout from '@app/components/layouts/main/MainLayout/MainLayout';
 import ProfileLayout from '@app/components/layouts/profile/ProfileLayout';
 import RequireAuth from '@app/components/router/RequireAuth';
+import { Loading } from '@app/components/common/Loading';
 
 const DashboardPage = React.lazy(() => import('@app/pages/DashboardPage/DashboardPage'));
 const NewsFeedPage = React.lazy(() => import('@app/pages/NewsFeedPage'));
@@ -204,7 +205,7 @@ export const AppRouter: React.FC = () => {
 
 function withFallback<T>(Component: React.ComponentType<T>) {
   return (props: T) => (
-    <Suspense fallback={<div style={{ color: 'yellow' }}>LOADING</div>}>
+    <Suspense fallback={<Loading />}>
       <Component {...props} />
     </Suspense>
   );
