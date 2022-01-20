@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Form as AntdForm, Steps } from 'antd';
+import React, { useState } from 'react';
+import { Form as AntdForm } from 'antd';
 import { notificationController } from 'controllers/notificationController';
 import { Form } from '../../common/Form/Form';
 import { useTranslation } from 'react-i18next';
@@ -11,8 +11,7 @@ import { Step1 } from './Steps/Step1';
 import { Step2 } from './Steps/Step2';
 import { Step3 } from './Steps/Step3';
 import { Step4 } from './Steps/Step4';
-
-const { Step } = Steps;
+import { Step, Steps } from '@app/components/common/Steps/Steps';
 interface FormValues {
   [key: string]: string | undefined;
 }
@@ -128,11 +127,11 @@ export const StepForm: React.FC = () => {
         setFields(uniqueData);
       }}
     >
-      <S.Steps current={current}>
+      <Steps current={current}>
         {steps.map((item) => (
           <Step key={item.title} title={item.title} description="" />
         ))}
-      </S.Steps>
+      </Steps>
       <div>{formFieldsUi[current]}</div>
       <div>
         {current < steps.length - 1 && (
