@@ -42,7 +42,7 @@ export const ForgotPasswordForm: React.FC = () => {
           <Auth.BackIcon />
           {t('common.back')}
         </Auth.BackWrapper>
-        <Auth.FormTitle>{t('forgotPassword.title')}</Auth.FormTitle>
+        <Auth.FormTitle>{t('common.resetPassword')}</Auth.FormTitle>
         <S.Description>{t('forgotPassword.description')}</S.Description>
         <Auth.FormItem
           name="email"

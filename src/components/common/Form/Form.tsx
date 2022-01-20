@@ -49,7 +49,7 @@ export const Form: React.FC<FormProps> = ({
   const setFinished = useCallback(() => {
     setFieldsChange(false);
     setLoading(false);
-    notificationController.success({ message: t('common.saved') });
+    notificationController.success({ message: t('common.success') });
   }, [setFieldsChange, setLoading, t]);
 
   const onFinishDefault = useCallback(

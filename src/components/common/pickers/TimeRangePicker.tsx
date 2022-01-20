@@ -25,7 +25,7 @@ export const TimeRangePicker: React.FC<TimePickerProps> = ({ timeRange, setTimeR
 
     setTimeRange(timeRangeSinceTodayMs);
 
-    notificationController.info({ message: t('common.saved') });
+    notificationController.success({ message: t('common.success') });
   };
 
   return (

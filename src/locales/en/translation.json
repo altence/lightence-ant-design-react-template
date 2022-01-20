@@ -39,12 +39,11 @@
     "oncologist": "Oncologist",
     "cardiologist": "Cardiologist",
     "therapist": "Therapist",
-    "ophthalmologist": "Ophtalmologist",
+    "ophthalmologist": "Ophthalmologist",
     "neurologist": "Neurologist",
     "cancel": "Cancel",
     "save": "Save",
     "edit": "Edit",
-    "saved": "Success!",
     "confirm": "Confirm",
     "ok": "Ok",
     "deleteQuestion": "Are you sure you want to delete?",
@@ -66,7 +65,7 @@
     "copy": "Copy",
     "openInNewTab": "Open in new tab",
     "copied": "Copied to clipboard",
-    "formError": "An error was occured",
+    "formError": "An error has occured",
     "info": "Information",
     "success": "Success",
     "error": "Error",
@@ -107,7 +106,10 @@
     "dropDownsPage": "Dropdowns",
     "breadcrumbsPage": "Breadcrumbs",
     "tabsPage": "Tabs",
-    "notificationsPage": "Notifications"
+    "notificationsPage": "Notifications",
+    "here": "here",
+    "verifCodeSent": "We have sent a verification code to your email",
+    "resetPassword": "Reset password"
   },
   "header": {
     "search": "Search",
@@ -137,7 +139,6 @@
     "bones": "Bones",
     "water": "Water",
     "map": {
-      "title": "Map",
       "polyclinic": "Polyclinic"
     },
     "latestScreenings": {
@@ -230,9 +231,7 @@
     "to": "To"
   },
   "login": {
-    "title": "Login",
     "rememberMe": "Remember me",
-    "forgotPassword": "Forgot password?",
     "noAccount": "Don’t have an account? Create one",
     "signupLink": "here",
     "loginInfo": "Enter your email address and password to access admin panel",
@@ -250,26 +249,17 @@
     "facebookLink": "Sign up with Facebook"
   },
   "forgotPassword": {
-    "title": "Reset password",
     "description": "Enter your email address and we’ll send an verification code to reset your password",
     "sendInstructions": "Send instructions",
     "successReset": "We've sent to your email address the reset link"
   },
   "securityCodeForm": {
     "title": "Check your mail",
-    "description": "We have sent a verification code to your email",
     "noCode": "Didn't get a verification code?"
-  },
-  "twoFactorAuth": {
-    "title": "Two-factor authentication",
-    "description": "We have sent a verification code to your email",
-    "enterCode": "Enter the code to continue",
-    "noCode": "Didn’t get a verification code?"
   },
   "newPassword": {
     "title": "Create new password",
     "description": "Your new password must be different from previous password",
-    "resetPassword": "Reset password",
     "successMessage": "New password was set",
     "successDescription": "Please, use your email with a new password to log in"
   },
@@ -279,8 +269,6 @@
     "nav": {
       "personalInfo": {
         "title": "Personal info",
-        "firstName": "First Name",
-        "lastName": "Last Name",
         "nickname": "Nickname",
         "sex": "Sex",
         "male": "Male",
@@ -288,18 +276,13 @@
         "birthday": "Birthday",
         "language": "Language",
         "contactInfo": "Contact Info",
-        "phone": "Phone",
         "wrongNumber": "Wrong number",
-        "email": "Email",
         "notValidEmail": "Please input a valid email address!",
         "verified": "Verified",
         "notVerified": "Not verified",
-        "address": "Address",
         "country": "Country",
         "city": "City",
         "zipcode": "Zipcode",
-        "address1": "Address 1",
-        "address2": "Address 2",
         "otherInfo": "Other info",
         "website": "Website",
         "notValidWebsite": "Please input a valid URL!",

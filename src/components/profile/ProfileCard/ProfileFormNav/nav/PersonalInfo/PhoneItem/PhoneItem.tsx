@@ -18,7 +18,7 @@ export const PhoneItem: React.FC<PhoneItemsProps> = ({ required, onClick, verifi
       name="phone"
       $isSuccess={verified}
       $successText={t('profile.nav.personalInfo.verified')}
-      label={t('profile.nav.personalInfo.phone')}
+      label={t('common.phone')}
       rules={[
         { required, message: t('common.requiredField') },
         () => ({

@@ -43,7 +43,7 @@ export const SecurityCodeForm: React.FC = () => {
             <Image src={VerifyEmailImage} alt="Not found" preview={false} />
           </S.ImageWrapper>
           <Auth.FormTitle>{t('securityCodeForm.title')}</Auth.FormTitle>
-          <S.VerifyEmailDescription>{t('securityCodeForm.description')}</S.VerifyEmailDescription>
+          <S.VerifyEmailDescription>{t('common.verifCodeSent')}</S.VerifyEmailDescription>
           {isLoading ? <Spin /> : <VerificationCodeInput autoFocus onChange={setSecurityCode} />}
           <Link to="/" target="_blank">
             <S.NoCodeText>{t('securityCodeForm.noCode')}</S.NoCodeText>

@@ -17,7 +17,7 @@ export const EmailItem: React.FC<EmailItemProps> = ({ required, onClick, verifie
       name="email"
       $isSuccess={verified}
       $successText={t('profile.nav.personalInfo.verified')}
-      label={t('profile.nav.personalInfo.email')}
+      label={t('common.email')}
       rules={[
         { required, message: t('common.requiredField') },
         {

@@ -78,7 +78,7 @@ export const NewPasswordForm: React.FC = () => {
         </Auth.FormItem>
         <Form.Item noStyle>
           <S.SubmitButton type="primary" htmlType="submit" loading={isLoading}>
-            {t('newPassword.resetPassword')}
+            {t('common.resetPassword')}
           </S.SubmitButton>
         </Form.Item>
       </Form>
