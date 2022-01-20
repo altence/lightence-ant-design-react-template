@@ -86,11 +86,6 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
     icon: <FormOutlined />,
     children: [
       {
-        title: 'common.payment',
-        key: 'payment',
-        url: '/forms/payment',
-      },
-      {
         title: 'common.advancedForms',
         key: 'advanced-forms',
         url: '/forms/advanced-forms',
@@ -155,11 +150,6 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         title: 'common.clientError',
         key: '404Error',
         url: '/404',
-      },
-      {
-        title: 'common.maintenance',
-        key: 'maintenance',
-        url: '/maintenance',
       },
     ],
   },
