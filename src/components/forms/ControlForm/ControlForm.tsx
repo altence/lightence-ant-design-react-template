@@ -57,7 +57,7 @@ export const ControlForm: React.FC = () => {
         footer={(loading) => (
           <FormItem>
             <Button htmlType="submit" type="primary" loading={loading}>
-              {t('forms.controlFormLabels.submit')}
+              {t('common.submit')}
             </Button>
             <S.AddUserButton type="default" htmlType="button" onClick={showUserModal}>
               {t('forms.controlFormLabels.addUser')}

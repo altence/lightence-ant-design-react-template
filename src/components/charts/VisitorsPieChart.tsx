@@ -8,7 +8,7 @@ export const VisitorsPieChart: React.FC = () => {
   const data = [
     { value: 1048, name: t('charts.search') },
     { value: 735, name: t('charts.direct') },
-    { value: 580, name: t('charts.email') },
+    { value: 580, name: t('common.email') },
     { value: 484, name: t('charts.union') },
     { value: 300, name: t('charts.video') },
   ];

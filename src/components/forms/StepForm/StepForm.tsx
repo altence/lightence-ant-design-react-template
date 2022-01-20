@@ -49,20 +49,20 @@ export const StepForm: React.FC = () => {
 
   const formLabels: FormValues = {
     login: t('forms.stepFormLabels.login'),
-    password: t('forms.stepFormLabels.password'),
-    confirmPassword: t('forms.stepFormLabels.confirmPassword'),
+    password: t('common.password'),
+    confirmPassword: t('common.confirmPassword'),
     salutation: t('forms.stepFormLabels.salutation'),
     gender: t('forms.stepFormLabels.gender'),
-    firstName: t('forms.stepFormLabels.firstName'),
-    lastName: t('forms.stepFormLabels.lastName'),
+    firstName: t('common.firstName'),
+    lastName: t('common.lastName'),
     birthday: t('forms.stepFormLabels.birthday'),
-    phone: t('forms.stepFormLabels.phone'),
-    email: t('forms.stepFormLabels.email'),
-    address1: t('forms.stepFormLabels.address1'),
-    address2: t('forms.stepFormLabels.address2'),
-    zipCode: t('forms.stepFormLabels.zipCode'),
-    city: t('forms.stepFormLabels.city'),
-    country: t('forms.stepFormLabels.country'),
+    phone: t('common.phone'),
+    email: t('common.email'),
+    address1: `${t('common.address')} 1`,
+    address2: `${t('common.address')} 2`,
+    zipCode: t('common.zipcode'),
+    city: t('common.city'),
+    country: t('common.country'),
   };
 
   const formValues = fields
@@ -93,7 +93,7 @@ export const StepForm: React.FC = () => {
 
   const steps = [
     {
-      title: t('forms.stepFormLabels.country'),
+      title: t('common.country'),
     },
     {
       title: t('forms.stepFormLabels.info'),
@@ -102,7 +102,7 @@ export const StepForm: React.FC = () => {
       title: t('forms.stepFormLabels.location'),
     },
     {
-      title: t('forms.stepFormLabels.confirmDetails'),
+      title: t('common.confirmDetails'),
     },
   ];
 

@@ -49,7 +49,7 @@ export const ValidationForm: React.FC = () => {
       footer={(loading) => (
         <FormItem>
           <Button type="primary" htmlType="submit" loading={loading}>
-            {t('forms.validationFormLabels.submit')}
+            {t('common.submit')}
           </Button>
         </FormItem>
       )}

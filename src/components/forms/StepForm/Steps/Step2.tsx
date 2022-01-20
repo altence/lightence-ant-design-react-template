@@ -42,15 +42,15 @@ export const Step2: React.FC = () => {
       </FormItem>
       <FormItem
         name="firstName"
-        label={t('forms.stepFormLabels.firstName')}
-        rules={[{ required: true, message: t('forms.stepFormLabels.firstNameError') }]}
+        label={t('common.firstName')}
+        rules={[{ required: true, message: t('common.firstNameError') }]}
       >
         <Input />
       </FormItem>
       <FormItem
         name="lastName"
-        label={t('forms.stepFormLabels.lastName')}
-        rules={[{ required: true, message: t('forms.stepFormLabels.lastNameError') }]}
+        label={t('common.lastName')}
+        rules={[{ required: true, message: t('common.lastNameError') }]}
       >
         <Input />
       </FormItem>
@@ -61,16 +61,12 @@ export const Step2: React.FC = () => {
       >
         <DatePicker format="YYYY-MM-DD" />
       </FormItem>
-      <S.PhoneItem
-        name="phone"
-        label={t('forms.stepFormLabels.phone')}
-        rules={[{ required: true, message: t('forms.stepFormLabels.phoneError') }]}
-      >
+      <S.PhoneItem name="phone" label={t('common.phone')} rules={[{ required: true, message: t('common.phoneError') }]}>
         <Input addonBefore={prefixSelector} />
       </S.PhoneItem>
       <FormItem
         name="email"
-        label={t('forms.stepFormLabels.email')}
+        label={t('common.email')}
         rules={[
           {
             type: 'email',

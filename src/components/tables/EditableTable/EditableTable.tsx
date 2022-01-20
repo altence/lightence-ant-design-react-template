@@ -83,19 +83,19 @@ export const EditableTable: React.FC = () => {
 
   const columns = [
     {
-      title: t('tables.name'),
+      title: t('common.name'),
       dataIndex: 'name',
       width: '25%',
       editable: true,
     },
     {
-      title: t('tables.age'),
+      title: t('common.age'),
       dataIndex: 'age',
       width: '15%',
       editable: true,
     },
     {
-      title: t('tables.address'),
+      title: t('common.address'),
       dataIndex: 'address',
       width: '30%',
       editable: true,

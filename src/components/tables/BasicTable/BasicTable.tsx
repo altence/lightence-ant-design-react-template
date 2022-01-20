@@ -60,14 +60,14 @@ export const BasicTable: React.FC = () => {
 
   const columns: ColumnsType<BasicTableRow> = [
     {
-      title: t('tables.name'),
+      title: t('common.name'),
       dataIndex: 'name',
       render: (text: string) => <span>{text}</span>,
       filterMode: 'tree',
       filterSearch: true,
       filters: [
         {
-          text: t('tables.firstName'),
+          text: t('common.firstName'),
           value: 'firstName',
           children: [
             {
@@ -89,7 +89,7 @@ export const BasicTable: React.FC = () => {
           ],
         },
         {
-          text: t('tables.lastName'),
+          text: t('common.lastName'),
           value: 'lastName',
           children: [
             {
@@ -110,17 +110,17 @@ export const BasicTable: React.FC = () => {
       onFilter: (value: string | number | boolean, record: BasicTableRow) => record.name.includes(value.toString()),
     },
     {
-      title: t('tables.age'),
+      title: t('common.age'),
       dataIndex: 'age',
       sorter: (a: BasicTableRow, b: BasicTableRow) => a.age - b.age,
       showSorterTooltip: false,
     },
     {
-      title: t('tables.address'),
+      title: t('common.address'),
       dataIndex: 'address',
     },
     {
-      title: t('tables.tags'),
+      title: t('common.tags'),
       key: 'tags',
       dataIndex: 'tags',
       render: (tags: Tag[]) => (

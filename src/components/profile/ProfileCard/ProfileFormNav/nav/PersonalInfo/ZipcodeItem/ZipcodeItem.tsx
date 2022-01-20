@@ -7,7 +7,7 @@ export const ZipcodeItem: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <FormItem name="zipcode" label={t('profile.nav.personalInfo.zipcode')}>
+    <FormItem name="zipcode" label={t('common.zipcode')}>
       <Input />
     </FormItem>
   );
