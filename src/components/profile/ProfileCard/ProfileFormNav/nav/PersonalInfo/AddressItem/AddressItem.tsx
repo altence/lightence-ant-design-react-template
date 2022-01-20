@@ -7,7 +7,7 @@ export const AddressItem: React.FC<{ number: number }> = ({ number }) => {
   const { t } = useTranslation();
 
   return (
-    <FormItem name={`address${number}`} label={`${t('profile.nav.personalInfo.address')} ${number}`}>
+    <FormItem name={`address${number}`} label={`${t('common.address')} ${number}`}>
       <Input />
     </FormItem>
   );

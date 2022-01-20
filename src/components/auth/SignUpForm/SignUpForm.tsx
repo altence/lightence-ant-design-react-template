@@ -148,7 +148,7 @@ export const SignUpForm: React.FC = () => {
           <Auth.Text>
             {t('signup.alreadyHaveAccount')}{' '}
             <Link to="/auth/login">
-              <Auth.LinkText>{t('signup.loginLink')}</Auth.LinkText>
+              <Auth.LinkText>{t('common.here')}</Auth.LinkText>
             </Link>
           </Auth.Text>
         </Auth.FooterWrapper>

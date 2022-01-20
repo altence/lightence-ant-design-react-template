@@ -85,7 +85,7 @@ export const StepForm: React.FC = () => {
   const onFinish = () => {
     setIsLoading(true);
     setTimeout(() => {
-      notificationController.info({ message: t('common.saved') });
+      notificationController.success({ message: t('common.success') });
       setIsLoading(false);
       setCurrent(0);
     }, 1500);

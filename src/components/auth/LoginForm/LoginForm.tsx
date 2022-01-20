@@ -70,7 +70,7 @@ export const LoginForm: React.FC = () => {
             </Auth.FormCheckbox>
           </Form.Item>
           <Link to="/auth/forgot-password">
-            <S.ForgotPasswordText>{t('login.forgotPassword')}</S.ForgotPasswordText>
+            <S.ForgotPasswordText>{t('common.forgotPass')}</S.ForgotPasswordText>
           </Link>
         </Auth.ActionsWrapper>
         <Form.Item noStyle>
@@ -98,7 +98,7 @@ export const LoginForm: React.FC = () => {
           <Auth.Text>
             {t('login.noAccount')}{' '}
             <Link to="/auth/sign-up">
-              <Auth.LinkText>{t('login.signupLink')}</Auth.LinkText>
+              <Auth.LinkText>{t('common.here')}</Auth.LinkText>
             </Link>
           </Auth.Text>
         </Auth.FooterWrapper>

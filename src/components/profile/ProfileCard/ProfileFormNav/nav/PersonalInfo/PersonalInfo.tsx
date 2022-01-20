@@ -178,7 +178,7 @@ export const PersonalInfo: React.FC = () => {
 
           <Col span={24}>
             <S.FormItem>
-              <S.Title>{t('profile.nav.personalInfo.address')}</S.Title>
+              <S.Title>{t('common.address')}</S.Title>
             </S.FormItem>
           </Col>
 

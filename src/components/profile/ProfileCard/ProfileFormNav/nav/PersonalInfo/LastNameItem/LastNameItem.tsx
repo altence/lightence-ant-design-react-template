@@ -7,7 +7,7 @@ export const LastNameItem: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <FormItem name="lastName" label={t('profile.nav.personalInfo.lastName')}>
+    <FormItem name="lastName" label={t('common.lastName')}>
       <Input />
     </FormItem>
   );
