@@ -50,6 +50,7 @@ const darkColors = {
     light: '#9A9B9F',
     superLight: '#444',
     secondary: '#ffffff',
+    dark: '#404040',
   },
   border: {
     main: '#ffffff',

@@ -17,6 +17,8 @@ export const Text = styled(Typography.Text)`
   line-height: 1.25rem;
   font-weight: ${(props) => props.theme.commonFontWeight.semibold};
   font-size: ${(props) => props.theme.commonFontSizes.xs};
+
+  color: ${(props) => props.theme.colors.text.dark};
 `;
 
 export const Title = styled(Text)`
