@@ -9,36 +9,32 @@ export const Step3: React.FC = () => {
     <S.FormContent>
       <FormItem
         name="address1"
-        label={t('forms.stepFormLabels.address1')}
+        label={`${t('common.address')} 1`}
         rules={[{ required: true, message: t('forms.stepFormLabels.addressError') }]}
       >
         <Input />
       </FormItem>
       <FormItem
         name="address2"
-        label={t('forms.stepFormLabels.address2')}
+        label={`${t('common.address')} 2`}
         rules={[{ required: true, message: t('forms.stepFormLabels.addressError') }]}
       >
         <Input />
       </FormItem>
       <FormItem
         name="zipCode"
-        label={t('forms.stepFormLabels.zipCode')}
-        rules={[{ required: true, message: t('forms.stepFormLabels.zipCodeError') }]}
+        label={t('common.zipcode')}
+        rules={[{ required: true, message: t('common.zipcodeError') }]}
       >
         <Input />
       </FormItem>
-      <FormItem
-        name="city"
-        label={t('forms.stepFormLabels.city')}
-        rules={[{ required: true, message: t('forms.stepFormLabels.cityError') }]}
-      >
+      <FormItem name="city" label={t('common.city')} rules={[{ required: true, message: t('common.cityError') }]}>
         <Input />
       </FormItem>
       <FormItem
         name="country"
-        label={t('forms.stepFormLabels.country')}
-        rules={[{ required: true, message: t('forms.stepFormLabels.countryError') }]}
+        label={t('common.country')}
+        rules={[{ required: true, message: t('common.countryError') }]}
       >
         <Input />
       </FormItem>

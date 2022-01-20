@@ -28,18 +28,10 @@ export const AddUserFormModal: React.FC<AddUserFormModalProps> = ({ visible, onC
   return (
     <Modal title={t('forms.controlFormLabels.newUser')} visible={visible} onOk={onOk} onCancel={onCancel}>
       <Form form={form} layout="vertical" name="userForm" footer={() => <div />}>
-        <FormItem
-          name="name"
-          label={t('forms.controlFormLabels.name')}
-          rules={[{ required: true, message: t('common.requiredField') }]}
-        >
+        <FormItem name="name" label={t('common.name')} rules={[{ required: true, message: t('common.requiredField') }]}>
           <Input />
         </FormItem>
-        <FormItem
-          name="age"
-          label={t('forms.controlFormLabels.age')}
-          rules={[{ required: true, message: t('common.requiredField') }]}
-        >
+        <FormItem name="age" label={t('common.age')} rules={[{ required: true, message: t('common.requiredField') }]}>
           <InputNumber />
         </FormItem>
       </Form>

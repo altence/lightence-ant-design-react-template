@@ -54,18 +54,18 @@ export const TreeTable: React.FC = () => {
 
   const columns = [
     {
-      title: t('tables.name'),
+      title: t('common.name'),
       dataIndex: 'name',
       key: 'name',
     },
     {
-      title: t('tables.age'),
+      title: t('common.age'),
       dataIndex: 'age',
       key: 'age',
       width: '12%',
     },
     {
-      title: t('tables.address'),
+      title: t('common.address'),
       dataIndex: 'address',
       width: '30%',
       key: 'address',

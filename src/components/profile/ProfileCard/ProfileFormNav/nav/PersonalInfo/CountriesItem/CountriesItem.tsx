@@ -21,7 +21,7 @@ export const CountriesItem: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <FormItem name="country" label={t('profile.nav.personalInfo.country')}>
+    <FormItem name="country" label={t('common.country')}>
       <Select showSearch filterOption={(input, option) => option?.value.toLowerCase().includes(input.toLowerCase())}>
         {selectOptions}
       </Select>

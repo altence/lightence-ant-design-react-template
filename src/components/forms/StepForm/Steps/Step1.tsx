@@ -17,14 +17,14 @@ export const Step1: React.FC = () => {
       </FormItem>
       <FormItem
         name="password"
-        label={t('forms.stepFormLabels.password')}
-        rules={[{ required: true, message: t('forms.stepFormLabels.passwordError') }]}
+        label={t('common.password')}
+        rules={[{ required: true, message: t('common.passwordError') }]}
       >
         <InputPassword />
       </FormItem>
       <FormItem
         name="confirmPassword"
-        label={t('forms.stepFormLabels.confirmPassword')}
+        label={t('common.confirmPassword')}
         dependencies={['password']}
         rules={[
           { required: true, message: t('common.confirmPasswordError') },

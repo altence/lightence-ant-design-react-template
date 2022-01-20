@@ -7,7 +7,7 @@ export const CitiesItem: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <FormItem name="city" label={t('profile.nav.personalInfo.city')}>
+    <FormItem name="city" label={t('common.city')}>
       <Input />
     </FormItem>
   );
