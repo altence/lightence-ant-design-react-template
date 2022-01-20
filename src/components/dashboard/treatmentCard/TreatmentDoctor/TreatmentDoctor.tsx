@@ -27,7 +27,7 @@ export const TreatmentDoctor: React.FC<TreatmentDoctorProps> = ({ doctor }) => {
       <S.DoctorCardBody>
         <Avatar src={imgUrl} size={128} />
 
-        <S.DoctorName>{`${name}, ${speciality}`}</S.DoctorName>
+        <S.DoctorName>{`${name}, ${t(`common.${speciality}`)}`}</S.DoctorName>
         <Row gutter={[8, 8]}>
           <S.LabelCol span={10}>{t('common.dateTime')}</S.LabelCol>
           <S.ValueCol span={14}>{Dates.format(date, 'lll')}</S.ValueCol>
