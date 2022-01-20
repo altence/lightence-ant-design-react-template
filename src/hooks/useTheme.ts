@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import { Dates } from '../constants/Dates';
 
-export const defaultTheme = localStorage.getItem('theme') || 'light';
+export const defaultTheme = localStorage.getItem('theme') || 'dark';
 
 export const useTheme = (isNightMode: boolean, nightTime: number[]): [string, (theme: string) => void] => {
   const [theme, setTheme] = useState(defaultTheme);
