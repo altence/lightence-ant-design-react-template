@@ -121,6 +121,7 @@ const colors = {
     light: '#9A9B9F',
     superLight: '#BEC0C6',
     secondary: commonColors.white,
+    dark: '#404040',
   },
   border: {
     main: '#cce1f4',

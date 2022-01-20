@@ -38,6 +38,7 @@ declare module 'styled-components' {
         light: string;
         superLight: string;
         secondary: string;
+        dark: string;
       };
       border: {
         main: string;
