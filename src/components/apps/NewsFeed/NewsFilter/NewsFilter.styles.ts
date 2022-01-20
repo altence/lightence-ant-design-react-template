@@ -146,7 +146,6 @@ export const FilterWrapper = styled.div`
   padding: 1.25rem 1rem;
   display: flex;
   flex-direction: column;
-  width: 16.875rem;
   margin-left: 1.875rem;
   background: ${(props) => props.theme.colors.main.mainBackground};
   border-radius: ${(props) => props.theme.border.radius};
