@@ -25,7 +25,7 @@ export const StatisticsCard: React.FC<StatisticsCardProps> = ({ name, value, pre
   const { t } = useTranslation();
 
   return (
-    <S.StatisticCard padding={'1rem'} color={theme.colors.main[color] as StatisticColor}>
+    <S.StatisticCard padding="0.5rem" color={theme.colors.main[color] as StatisticColor}>
       <Row wrap={false} gutter={[isTabletOrHigher ? 10 : 5, 0]}>
         <Col>
           <S.IconWrapper>
