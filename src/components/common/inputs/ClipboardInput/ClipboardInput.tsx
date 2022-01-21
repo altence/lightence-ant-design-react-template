@@ -7,7 +7,7 @@ import { InputProps } from '../Input/Input';
 import { notificationController } from 'controllers/notificationController';
 
 interface ClipboardInputProps extends InputProps {
-  valueToCopy: string | undefined;
+  valueToCopy?: string;
 }
 
 export const ClipboardInput: React.FC<ClipboardInputProps> = ({ valueToCopy, ...props }) => {
@@ -26,7 +26,7 @@ export const ClipboardInput: React.FC<ClipboardInputProps> = ({ valueToCopy, ...
     <SuffixInput
       suffix={
         <Tooltip title={t('common.copy')}>
-          <Button disabled={!valueToCopy} type="text" icon={<CopyOutlined />} onClick={handleCopy} />
+          <Button size="small" disabled={!valueToCopy} type="text" icon={<CopyOutlined />} onClick={handleCopy} />
         </Tooltip>
       }
       {...props}
