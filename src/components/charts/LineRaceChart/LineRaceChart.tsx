@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useContext, useCallback } from 'react';
-import { Card } from 'components/common/Card/Card';
-import { BaseChart } from 'components/common/charts/BaseChart';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useTheme } from 'styled-components';
 import { useTranslation } from 'react-i18next';
+import { Card } from '@app/components/common/Card/Card';
+import { BaseChart } from '@app/components/common/charts/BaseChart';
 import Data from './data.json';
-import { ThemeContext } from 'styled-components';
 
 interface DataRow {
   id: string;
@@ -45,7 +45,7 @@ export const LineRaceChart: React.FC = () => {
   const rawData = JSON.parse(JSON.stringify(Data));
   const { t } = useTranslation();
 
-  const theme = useContext(ThemeContext);
+  const theme = useTheme();
 
   const runAnimation = useCallback(() => {
     const countries = ['Finland', 'Germany', 'Iceland', 'Norway', 'United Kingdom'];

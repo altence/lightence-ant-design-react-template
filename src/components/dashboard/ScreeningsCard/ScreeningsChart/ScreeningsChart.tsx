@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
-import { BaseChart, getDefaultTooltipStyles } from 'components/common/charts/BaseChart';
-import { getMarkAreaData } from 'utils/utils';
-import { ThemeContext } from 'styled-components';
-import { hexToRGB } from 'utils/utils';
-import { ChartSeriesData } from 'interfaces/interfaces';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from 'styled-components';
+import { BaseChart, getDefaultTooltipStyles } from '@app/components/common/charts/BaseChart';
+import { hexToRGB } from '@app/utils/utils';
+import { getMarkAreaData } from '@app/utils/utils';
+import { ChartSeriesData } from '@app/interfaces/interfaces';
 
 interface StatisticsData {
   day: number;
@@ -24,7 +24,7 @@ interface ScreeningsChartProps {
 const xAxisData = Array.from({ length: 16 }, (_, i) => i + 1);
 
 export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, secondUser }) => {
-  const theme = useContext(ThemeContext);
+  const theme = useTheme();
 
   const { t } = useTranslation();
 

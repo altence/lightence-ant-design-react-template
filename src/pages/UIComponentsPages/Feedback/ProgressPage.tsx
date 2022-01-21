@@ -1,15 +1,15 @@
-import { useState, useContext, useMemo } from 'react';
-import { Col } from 'antd';
-import { Progress } from 'components/common/Progress/Progress';
-import { Button, ButtonGroup } from 'components/common/buttons/Button/Button';
+import { useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Col } from 'antd';
+import { useTheme } from 'styled-components';
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
-import { ThemeContext } from 'styled-components';
+import { Progress } from '@app/components/common/Progress/Progress';
+import { Button, ButtonGroup } from '@app/components/common/buttons/Button/Button';
 import * as S from '../UIComponentsPage.styles';
 
 const ProgressPage: React.FC = () => {
   const [percent, setPercent] = useState<number>(0);
-  const theme = useContext(ThemeContext);
+  const theme = useTheme();
   const { t } = useTranslation();
 
   const dynamicSuccessColor = useMemo(

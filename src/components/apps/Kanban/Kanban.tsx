@@ -1,16 +1,16 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
+import React from 'react';
+import { useTheme } from 'styled-components';
 import { NewCardForm } from './NewCardForm/NewCardForm';
 import { Card } from './Card/Card';
 import { LaneHeader } from './LaneHeader/LaneHeader';
 import { AddCardLink } from './AddCardLink/AddCardLink';
 import { NewLaneSection } from './NewLaneSection/NewLaneSection';
 import { NewLaneForm } from './NewLaneForm/NewLaneForm';
-import { kanbanData } from 'constants/kanbanData';
+import { kanbanData } from '@app/constants/kanbanData';
 import * as S from './Kanban.styles';
 
 export const Kanban: React.FC = () => {
-  const theme = useContext(ThemeContext);
+  const theme = useTheme();
 
   return (
     <S.Kanban

@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps';
-import styled, { ThemeContext } from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 
 import { MapsCard } from '@app/pages/maps/maps.styles';
 
@@ -29,7 +29,7 @@ const markers = [
 
 const ReactSimpleMaps: React.FC = () => {
   const { t } = useTranslation();
-  const theme = useContext(ThemeContext);
+  const theme = useTheme();
 
   return (
     <MapsCardOverride title={t('common.reactSimpleMaps')}>

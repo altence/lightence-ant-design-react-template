@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { useTheme } from 'styled-components';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
-import { CarouselArrow } from 'components/common/CarouselArrow/CarouselArrow';
+import { CarouselArrow } from '@app/components/common/CarouselArrow/CarouselArrow';
 import { ScreeningsProps } from '../interfaces';
 import * as S from './MobileScreenings.styles';
-import { ThemeContext } from 'styled-components';
 
 export const MobileScreenings: React.FC<ScreeningsProps> = ({ screeningsItems }) => {
-  const theme = useContext(ThemeContext);
+  const theme = useTheme();
 
   return (
     <S.ScreeningsCarousel

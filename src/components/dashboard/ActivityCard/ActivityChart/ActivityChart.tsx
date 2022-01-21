@@ -1,18 +1,18 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
-import { BaseChart, getDefaultTooltipStyles } from 'components/common/charts/BaseChart';
-import { Dates } from 'constants/Dates';
-import { useResponsive } from 'hooks/useResponsive';
-import { dashboardPaddings } from 'components/dashboard/DashboardCard/DashboardCard';
-import { ChartData, ChartSeriesData } from 'interfaces/interfaces';
+import React from 'react';
+import { useTheme } from 'styled-components';
 import { useTranslation } from 'react-i18next';
+import { BaseChart, getDefaultTooltipStyles } from '@app/components/common/charts/BaseChart';
+import { dashboardPaddings } from '@app/components/dashboard/DashboardCard/DashboardCard';
+import { useResponsive } from '@app/hooks/useResponsive';
+import { Dates } from '@app/constants/Dates';
+import { ChartData, ChartSeriesData } from '@app/interfaces/interfaces';
 
 interface ActivityChartProps {
   data: ChartData;
 }
 
 export const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
-  const theme = useContext(ThemeContext);
+  const theme = useTheme();
 
   const { t } = useTranslation();
 

@@ -1,14 +1,13 @@
-import React, { useContext, useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Doctor, getDoctorsData } from 'api/doctors.api';
-import { DashboardCard } from '../DashboardCard/DashboardCard';
-import { Carousel } from 'components/common/Carousel/Carousel';
+import { useTheme } from 'styled-components';
+import { DashboardCard } from '@app/components/dashboard/DashboardCard/DashboardCard';
+import { Carousel } from '@app/components/common/Carousel/Carousel';
 import { DoctorCard } from './DoctorCard/DoctorCard';
-import { ThemeContext } from 'styled-components';
-import { CalendarEvent, getUserCalendar } from 'api/calendar.api';
-import { Dates } from 'constants/Dates';
+import { Dates } from '@app/constants/Dates';
+import { CalendarEvent, getUserCalendar } from '@app/api/calendar.api';
+import { Doctor, getDoctorsData } from '@app/api/doctors.api';
 import { useAppSelector } from '@app/hooks/reduxHooks';
-
 import * as S from './FavoritesDoctorsCard.styles';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -29,7 +28,7 @@ export const FavoritesDoctorsCard: React.FC = () => {
 
   const user = useAppSelector((state) => state.user.user);
 
-  const theme = useContext(ThemeContext);
+  const theme = useTheme();
   const today = Dates.getToday();
 
   useEffect(() => {

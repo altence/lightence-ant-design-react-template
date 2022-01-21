@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
-import { BaseChart } from 'components/common/charts/BaseChart';
-import * as echarts from 'echarts';
-import { Card } from 'components/common/Card/Card';
-import { ThemeContext } from 'styled-components';
+import React from 'react';
+import { useTheme } from 'styled-components';
 import { useTranslation } from 'react-i18next';
+import * as echarts from 'echarts';
+import { BaseChart } from '@app/components/common/charts/BaseChart';
+import { Card } from '@app/components/common/Card/Card';
 
 export const GradientStackedAreaChart: React.FC = () => {
-  const theme = useContext(ThemeContext);
+  const theme = useTheme();
   const { t } = useTranslation();
 
   const chartColors = theme.colors.charts;

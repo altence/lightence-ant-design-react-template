@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { ThemeContext } from 'styled-components';
+import { useTheme } from 'styled-components';
 import { Col, Row } from 'antd';
 import { StatisticsInfo } from './StatisticsInfo/StatisticsInfo';
 import { StatisticsProgress } from './StatisticsProgress/StatisticsProgress';
-import { StatisticColor } from 'constants/config/statistics';
+import { useResponsive } from '@app/hooks/useResponsive';
+import { StatisticColor } from '@app/constants/config/statistics';
 import * as S from './StatisticsCard.styles';
-import { useResponsive } from 'hooks/useResponsive';
 
 interface StatisticsCardProps {
   name: string;
@@ -18,7 +18,7 @@ interface StatisticsCardProps {
 }
 
 export const StatisticsCard: React.FC<StatisticsCardProps> = ({ name, value, prevValue, color, unit, Icon }) => {
-  const theme = useContext(ThemeContext);
+  const theme = useTheme();
 
   const { isTablet: isTabletOrHigher } = useResponsive();
 

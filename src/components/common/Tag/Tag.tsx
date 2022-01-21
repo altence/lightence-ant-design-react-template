@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
+import React from 'react';
+import { useTheme } from 'styled-components';
 import * as S from './Tag.styles';
 
 export interface ITag {
@@ -16,7 +16,7 @@ interface TagProps {
 }
 
 export const Tag: React.FC<TagProps> = ({ title, color, bgColor, removeTag, ...otherProps }) => {
-  const theme = useContext(ThemeContext);
+  const theme = useTheme();
   const style = { color: color || theme.commonColors.white, backgroundColor: bgColor || theme.commonColors.orange };
   return (
     <S.TagWrapper style={style} {...otherProps}>

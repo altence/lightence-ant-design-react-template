@@ -1,12 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Card } from 'components/common/Card/Card';
-import { BaseChart } from 'components/common/charts/BaseChart';
+import React, { useEffect, useState } from 'react';
+import { useTheme } from 'styled-components';
 import { useTranslation } from 'react-i18next';
-import { ThemeContext } from 'styled-components';
+import { Card } from '@app/components/common/Card/Card';
+import { BaseChart } from '@app/components/common/charts/BaseChart';
 
 export const BarAnimationDelayChart: React.FC = () => {
   const { t } = useTranslation();
-  const theme = useContext(ThemeContext);
+  const theme = useTheme();
   const [data, setData] = useState<{ data1: number[]; data2: number[]; xAxisData: string[] }>({
     data1: [],
     data2: [],
