@@ -672,7 +672,10 @@
     "passwordText": "input password",
     "prePost": "Pre & post tabs",
     "prefixSuffix": "Prefix & suffix",
-    "textarea": "Textarea"
+    "textarea": "Textarea",
+    "func": "Functional inputs",
+    "clipboard": "clipboard input",
+    "openURL": "open URL input"
   },
   "checkboxes": {
     "basic": "Basic checkbox",

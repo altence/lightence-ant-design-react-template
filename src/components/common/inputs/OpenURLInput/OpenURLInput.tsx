@@ -12,7 +12,7 @@ interface OpenURLInputProps extends InputProps {
   target?: string;
 }
 
-export const OpenURLInput: React.FC<OpenURLInputProps> = ({ href, target, ...props }) => {
+export const OpenURLInput: React.FC<OpenURLInputProps> = ({ href, target = '_blank', ...props }) => {
   const { t } = useTranslation();
 
   const isMatch = useMemo(() => new RegExp(websitePattern).test(href || ' '), [href]);
@@ -21,7 +21,14 @@ export const OpenURLInput: React.FC<OpenURLInputProps> = ({ href, target, ...pro
     <SuffixInput
       suffix={
         <Tooltip title={t('common.openInNewTab')}>
-          <Button href={href} target={target} disabled={!isMatch} type="text" icon={<FileTextOutlined />} />
+          <Button
+            size="small"
+            href={href}
+            target={target}
+            disabled={!isMatch}
+            type="text"
+            icon={<FileTextOutlined />}
+          />
         </Tooltip>
       }
       {...props}

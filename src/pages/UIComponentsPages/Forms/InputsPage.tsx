@@ -13,9 +13,14 @@ import {
 } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import * as S from '../UIComponentsPage.styles';
+import { ClipboardInput } from '@app/components/common/inputs/ClipboardInput/ClipboardInput';
+import { OpenURLInput } from '@app/components/common/inputs/OpenURLInput/OpenURLInput';
+import { useState } from 'react';
 
 const InputsPage: React.FC = () => {
   const { t } = useTranslation();
+  const [clipboardValue, setClipboardValue] = useState('');
+  const [newTabValue, setNewTabValue] = useState('');
 
   const selectBefore = (
     <Select defaultValue="http://">
@@ -94,6 +99,20 @@ const InputsPage: React.FC = () => {
       <S.Card title={t('inputs.textarea')}>
         <S.InputsWrapper>
           <TextArea rows={4} />
+        </S.InputsWrapper>
+      </S.Card>
+      <S.Card title={t('inputs.func')}>
+        <S.InputsWrapper>
+          <ClipboardInput
+            placeholder={t('inputs.clipboard')}
+            valueToCopy={clipboardValue}
+            onChange={(e) => setClipboardValue(e.target.value)}
+          />
+          <OpenURLInput
+            placeholder={t('inputs.openURL')}
+            href={newTabValue}
+            onChange={(e) => setNewTabValue(e.target.value)}
+          />
         </S.InputsWrapper>
       </S.Card>
     </Col>
