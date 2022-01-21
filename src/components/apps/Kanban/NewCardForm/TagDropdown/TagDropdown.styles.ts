@@ -3,7 +3,7 @@ import { CloseOutlined } from '@ant-design/icons';
 import { Checkbox } from 'antd';
 
 interface TagProps {
-  backgroundColor: string;
+  backgroundColor: 'error' | 'warning' | 'success' | 'primary';
 }
 
 export const EditTagPopover = styled.div`
@@ -43,7 +43,7 @@ export const PopoverCheckbox = styled(Checkbox)`
 
 export const TagWrapper = styled.span<TagProps>`
   height: 1.875rem;
-  background-color: ${(props) => `${props.backgroundColor}`};
+  background-color: ${(props) => `${props.theme.colors.main[props.backgroundColor]}`};
   padding: 0.3125rem 0.625rem;
   color: ${(props) => props.theme.colors.text.secondary};
   border-radius: 0.5rem;

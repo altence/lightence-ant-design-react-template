@@ -6,6 +6,7 @@ import { kanbanTags } from 'constants/kanbanTags';
 import * as S from './TagDropdown.styles';
 import { Tag } from 'components/common/Tag/Tag';
 import { PlusCircleFilled } from '@ant-design/icons';
+import { useTheme } from 'styled-components';
 
 interface TagDropdownProps {
   selectedTags: ITag[];
@@ -14,6 +15,8 @@ interface TagDropdownProps {
 
 export const TagDropdown: React.FC<TagDropdownProps> = ({ selectedTags, setSelectedTags }) => {
   const { t } = useTranslation();
+  const theme = useTheme();
+
   const kanbanTagData = Object.values(kanbanTags);
   const selectedTagsIds = selectedTags.map((item) => item.id);
 
@@ -54,7 +57,7 @@ export const TagDropdown: React.FC<TagDropdownProps> = ({ selectedTags, setSelec
       {selectedTags && selectedTags.length > 0 ? (
         <S.TagsWrapper>
           {selectedTags.map((tag) => (
-            <Tag key={tag.id} {...tag} removeTag={() => onTagClick(tag)} />
+            <Tag key={tag.id} {...tag} bgColor={theme.colors.main[tag.bgColor]} removeTag={() => onTagClick(tag)} />
           ))}
           <S.TagPlusWrapper>
             <PlusCircleFilled />

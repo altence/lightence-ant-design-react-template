@@ -1,10 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import userSlice from '@app/store/userSlice';
-import authSlice from '@app/store/authSlice';
 import { errorLoggingMiddleware } from '@app/store/middlewares/errorLogging.middleware';
+import rootReducer from '@app/store/slices';
 
 export const store = configureStore({
-  reducer: { user: userSlice, auth: authSlice },
+  reducer: rootReducer,
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(errorLoggingMiddleware),
 });
 

@@ -6,7 +6,7 @@ import { notificationController } from 'controllers/notificationController';
 import * as S from './NewPasswordForm.styles';
 import * as Auth from 'components/layouts/auth/AuthLayout.styles';
 import { useAppDispatch } from '@app/hooks/reduxHooks';
-import { doSetNewPassword } from '@app/store/authSlice';
+import { doSetNewPassword } from '@app/store/slices/authSlice';
 
 interface NewPasswordFormData {
   password: string;

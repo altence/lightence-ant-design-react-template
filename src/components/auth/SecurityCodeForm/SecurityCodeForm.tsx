@@ -7,7 +7,7 @@ import * as Auth from 'components/layouts/auth/AuthLayout.styles';
 import { VerificationCodeInput } from 'components/common/VerificationCodeInput/VerificationCodeInput';
 import VerifyEmailImage from 'assets/images/verify-email.png';
 import { useAppDispatch } from '@app/hooks/reduxHooks';
-import { doVerifySecurityCode } from '@app/store/authSlice';
+import { doVerifySecurityCode } from '@app/store/slices/authSlice';
 import { notificationController } from '@app/controllers/notificationController';
 
 export const SecurityCodeForm: React.FC = () => {

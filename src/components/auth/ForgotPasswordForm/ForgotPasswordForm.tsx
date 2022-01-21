@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import * as S from './ForgotPasswordForm.styles';
 import * as Auth from 'components/layouts/auth/AuthLayout.styles';
 import { useAppDispatch } from '@app/hooks/reduxHooks';
-import { doResetPassword } from '@app/store/authSlice';
+import { doResetPassword } from '@app/store/slices/authSlice';
 import { notificationController } from '@app/controllers/notificationController';
 
 interface ForgotPasswordFormData {

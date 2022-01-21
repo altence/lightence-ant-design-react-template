@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 import { Typography, Checkbox, Button } from 'antd';
-import loginBackground from 'assets/images/login-bg.webp';
-import lightTheme from '@app/styles/themes/light/lightTheme';
-import { hexToRGB } from 'utils/utils';
-import { FormItem as CommonFormItem } from 'components/common/Form/Form.styles';
-import { Input as CommonInput } from 'components/common/inputs/Input/Input';
-import { InputPassword as CommonInputPassword } from 'components/common/inputs/InputPassword/InputPassword';
 import { LeftOutlined } from '@ant-design/icons';
+import { FormItem as CommonFormItem } from '@app/components/common/Form/Form.styles';
+import { Input as CommonInput } from '@app/components/common/inputs/Input/Input';
+import { InputPassword as CommonInputPassword } from '@app/components/common/inputs/InputPassword/InputPassword';
+import { hexToRGB } from '@app/utils/utils';
+import loginBackground from '@app/assets/images/login-bg.webp';
 
 export const Wrapper = styled.div`
   height: 100vh;
@@ -41,7 +40,7 @@ export const Copyright = styled(Typography.Text)`
   font-size: 0.625rem;
   color: ${(props) => hexToRGB(props.theme.colors.text.secondary, 0.7)};
 
-  @media only screen and ${lightTheme.media.xl} {
+  @media only screen and ${(props) => props.theme.media.xl} {
     color: ${(props) => props.theme.colors.text.light};
   }
 `;
@@ -53,13 +52,13 @@ export const FormWrapper = styled.div`
   background-color: ${(props) => hexToRGB(props.theme.colors.main.mainBackground, 0.93)};
   border-radius: ${(props) => props.theme.border.radius};
 
-  @media only screen and ${lightTheme.media.xs} {
+  @media only screen and ${(props) => props.theme.media.xs} {
     padding: 2.5rem 1.25rem;
     width: 20.75rem;
     max-height: calc(100vh - 3rem);
   }
 
-  @media only screen and ${lightTheme.media.md} {
+  @media only screen and ${(props) => props.theme.media.md} {
     padding: 2.5rem;
     width: 31.75rem;
     max-height: calc(100vh - 3rem);
@@ -69,21 +68,21 @@ export const FormWrapper = styled.div`
 export const FormTitle = styled.div`
   color: ${(props) => props.theme.colors.main.primary};
 
-  @media only screen and ${lightTheme.media.xs} {
+  @media only screen and ${(props) => props.theme.media.xs} {
     margin-bottom: 0.625rem;
     font-size: ${(props) => props.theme.commonFontSizes.lg};
     font-weight: ${(props) => props.theme.commonFontWeight.bold};
     line-height: 1.5625rem;
   }
 
-  @media only screen and ${lightTheme.media.md} {
+  @media only screen and ${(props) => props.theme.media.md} {
     margin-bottom: 0.875rem;
     font-size: ${(props) => props.theme.commonFontSizes.xxl};
     font-weight: ${(props) => props.theme.commonFontWeight.bold};
     line-height: 1.9375rem;
   }
 
-  @media only screen and ${lightTheme.media.xl} {
+  @media only screen and ${(props) => props.theme.media.xl} {
     margin-bottom: 0.9375rem;
     font-size: ${(props) => props.theme.commonFontSizes.xxxl};
     font-weight: ${(props) => props.theme.commonFontWeight.extraBold};
@@ -206,11 +205,11 @@ export const BackWrapper = styled.div`
 export const SocialIconWrapper = styled.div`
   display: flex;
   margin-right: 0.8125rem;
-  @media only screen and ${lightTheme.media.xs} {
+  @media only screen and ${(props) => props.theme.media.xs} {
     margin-right: 0.625rem;
   }
 
-  @media only screen and ${lightTheme.media.md} {
+  @media only screen and ${(props) => props.theme.media.md} {
     margin-right: 0.8125rem;
   }
 `;

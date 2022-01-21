@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Avatar } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { useResponsive } from 'hooks/useResponsive';
-import { Dates } from 'constants/Dates';
-import * as S from './LockForm.styles';
-import * as Auth from 'components/layouts/auth/AuthLayout.styles';
-import { useAppDispatch, useAppSelector } from '@app/hooks/reduxHooks';
 import { initValues as loginInitVal } from '@app/components/auth/LoginForm/LoginForm';
 import { notificationController } from '@app/controllers/notificationController';
-import { doLogin } from '@app/store/authSlice';
+import { useAppDispatch, useAppSelector } from '@app/hooks/reduxHooks';
+import { useResponsive } from '@app/hooks/useResponsive';
+import { Dates } from '@app/constants/Dates';
+import { doLogin } from '@app/store/slices/authSlice';
+import * as Auth from '@app/components/layouts/auth/AuthLayout.styles';
+import * as S from './LockForm.styles';
 
 interface LockFormData {
   password: string;

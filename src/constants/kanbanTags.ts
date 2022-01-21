@@ -1,31 +1,37 @@
-import lightTheme from '@app/styles/themes/light/lightTheme';
+interface Tag {
+  id: string;
+  title: string;
+  bgColor: 'error' | 'warning' | 'success' | 'primary';
+}
 
-const { red, orange, lightgreen, skyblue } = lightTheme.commonColors;
+interface KanbanTags {
+  [key: string]: Tag;
+}
 
-export const kanbanTags = {
+export const kanbanTags: KanbanTags = {
   high: {
     id: 'high',
     title: 'high',
-    bgColor: red,
+    bgColor: 'error',
   },
   medium: {
     id: 'medium',
     title: 'medium',
-    bgColor: orange,
+    bgColor: 'warning',
   },
   low: {
     id: 'low',
     title: 'low',
-    bgColor: lightgreen,
+    bgColor: 'success',
   },
   ui: {
     id: 'ui',
     title: 'ui',
-    bgColor: skyblue,
+    bgColor: 'primary',
   },
   dev: {
     id: 'dev',
     title: 'dev',
-    bgColor: skyblue,
+    bgColor: 'primary',
   },
 };

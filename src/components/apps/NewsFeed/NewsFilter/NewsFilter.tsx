@@ -1,14 +1,14 @@
 import React, { ReactNode, useState, useEffect, useCallback, useMemo } from 'react';
-import { RangeValue } from 'rc-picker/lib/interface.d';
+import { Dropdown } from 'antd';
 import { useTranslation } from 'react-i18next';
+import { RangeValue } from 'rc-picker/lib/interface.d';
+import { Tag, ITag } from '@app/components/common/Tag/Tag';
+import { AuthorValidator, TitleValidator, DatesValidator, TagsValidator } from './Validator';
+import { useResponsive } from '@app/hooks/useResponsive';
+import { newsTags as defaultTags } from '@app/constants/newsTags';
 import { AppDate, Dates } from '@app/constants/Dates';
 import { Post } from '@app/api/news.api';
-import { newsTags as defaultTags } from 'constants/newsTags';
-import { Dropdown } from 'antd';
-import { Tag, ITag } from 'components/common/Tag/Tag';
-import { useResponsive } from 'hooks/useResponsive';
 import * as S from './NewsFilter.styles';
-import { AuthorValidator, TitleValidator, DatesValidator, TagsValidator } from './Validator';
 
 interface NewsFilterProps {
   news: Post[];

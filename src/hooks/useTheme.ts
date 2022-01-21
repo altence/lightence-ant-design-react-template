@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
-import { Dates } from '../constants/Dates';
+import { Dates } from '@app/constants/Dates';
 
 export const defaultTheme = localStorage.getItem('theme') || 'dark';
 

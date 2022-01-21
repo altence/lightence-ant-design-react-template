@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Button } from 'antd';
-import lightTheme from '@app/styles/themes/light/lightTheme';
 
 export const Description = styled.div`
   margin-bottom: 1.875rem;
@@ -8,11 +7,11 @@ export const Description = styled.div`
   font-size: ${(props) => props.theme.commonFontSizes.xs};
   font-weight: ${(props) => props.theme.commonFontWeight.regular};
 
-  @media only screen and ${lightTheme.media.xs} {
+  @media only screen and ${(props) => props.theme.media.xs} {
     font-size: ${(props) => props.theme.commonFontSizes.xxs};
   }
 
-  @media only screen and ${lightTheme.media.md} {
+  @media only screen and ${(props) => props.theme.media.md} {
     font-size: ${(props) => props.theme.commonFontSizes.xs};
   }
 `;

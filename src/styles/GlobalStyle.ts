@@ -107,4 +107,24 @@ export default createGlobalStyle`
   .ant-picker svg {
     color: ${(props) => props.theme.colors.text.light};
   }
+
+  .notification-success {
+    border: ${(props) => `1px solid ${props.theme.colors.main.success}`};
+    background: ${(props) => props.theme.colors.notifications.success};
+  }
+
+  .notification-info {
+    border: ${(props) => `1px solid ${props.theme.colors.main.primary}`};
+    background: ${(props) => props.theme.colors.notifications.primary};
+  }
+
+  .notification-warning {
+    border: ${(props) => `1px solid ${props.theme.colors.main.warning}`};
+    background: ${(props) => props.theme.colors.notifications.warning};
+  }
+
+  .notification-success {
+    border: ${(props) => `1px solid ${props.theme.colors.main.error}`};
+    background: ${(props) => props.theme.colors.notifications.error};
+  }
 `;

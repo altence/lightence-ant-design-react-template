@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import VerificationInput from 'react-verification-input';
-import lightTheme from '@app/styles/themes/light/lightTheme';
 
 export const CodeInput = styled(VerificationInput)`
   display: flex;
@@ -25,7 +24,7 @@ export const CodeInput = styled(VerificationInput)`
     border: ${(props) => `3px solid${props.theme.colors.main.primary}`};
   }
 
-  @media only screen and ${lightTheme.media.xs} {
+  @media only screen and ${(props) => props.theme.media.xs} {
     gap: 0.4375rem;
     .character {
       width: 2.5625rem;
@@ -33,7 +32,7 @@ export const CodeInput = styled(VerificationInput)`
     }
   }
 
-  @media only screen and ${lightTheme.media.md} {
+  @media only screen and ${(props) => props.theme.media.md} {
     gap: 0.625rem;
     .character {
       width: 3.4375rem;
@@ -41,7 +40,7 @@ export const CodeInput = styled(VerificationInput)`
     }
   }
 
-  @media only screen and ${lightTheme.media.xl} {
+  @media only screen and ${(props) => props.theme.media.xl} {
     gap: 0.625rem;
     .character {
       width: 3.4375rem;

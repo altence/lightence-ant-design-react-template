@@ -7,7 +7,7 @@ import { ReactComponent as FacebookIcon } from 'assets/icons/facebook.svg';
 import * as S from './LoginForm.styles';
 import * as Auth from 'components/layouts/auth/AuthLayout.styles';
 import { useAppDispatch } from '@app/hooks/reduxHooks';
-import { doLogin } from '@app/store/authSlice';
+import { doLogin } from '@app/store/slices/authSlice';
 import { notificationController } from '@app/controllers/notificationController';
 
 interface LoginFormData {

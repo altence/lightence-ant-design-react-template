@@ -1,7 +1,7 @@
 export interface Tag {
   id: string;
   title: string;
-  bgColor: string;
+  bgColor: 'error' | 'warning' | 'success' | 'primary';
 }
 
 export interface Participant {
