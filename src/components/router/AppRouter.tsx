@@ -153,33 +153,33 @@ export const AppRouter: React.FC = () => {
             <Route path="payments" element={<Payments />} />
           </Route>
           <Route path="ui-components">
-            <Route path="buttons" element={<Buttons />} />
-            <Route path="spinners" element={<Spinners />} />
-            <Route path="inputs" element={<Inputs />} />
-            <Route path="checkboxes" element={<Checkboxes />} />
-            <Route path="radios" element={<Radios />} />
-            <Route path="selects" element={<Selects />} />
-            <Route path="switches" element={<Switches />} />
-            <Route path="uploads" element={<Uploads />} />
-            <Route path="rates" element={<Rates />} />
-            <Route path="auto-completes" element={<AutoCompletes />} />
+            <Route path="button" element={<Buttons />} />
+            <Route path="spinner" element={<Spinners />} />
+            <Route path="input" element={<Inputs />} />
+            <Route path="checkbox" element={<Checkboxes />} />
+            <Route path="radio" element={<Radios />} />
+            <Route path="select" element={<Selects />} />
+            <Route path="switch" element={<Switches />} />
+            <Route path="upload" element={<Uploads />} />
+            <Route path="rate" element={<Rates />} />
+            <Route path="auto-complete" element={<AutoCompletes />} />
             <Route path="steps" element={<Steps />} />
-            <Route path="date-time-pickers" element={<DateTimePickers />} />
-            <Route path="dropdowns" element={<Dropdowns />} />
+            <Route path="date-time-picker" element={<DateTimePickers />} />
+            <Route path="dropdown" element={<Dropdowns />} />
             <Route path="breadcrumbs" element={<Breadcrumbs />} />
             <Route path="tabs" element={<Tabs />} />
-            <Route path="avatars" element={<Avatars />} />
-            <Route path="badges" element={<Badges />} />
+            <Route path="avatar" element={<Avatars />} />
+            <Route path="badge" element={<Badges />} />
             <Route path="collapse" element={<Collapse />} />
             <Route path="pagination" element={<Pagination />} />
-            <Route path="modals" element={<Modals />} />
-            <Route path="popovers" element={<Popovers />} />
-            <Route path="popconfirms" element={<Popconfirms />} />
+            <Route path="modal" element={<Modals />} />
+            <Route path="popover" element={<Popovers />} />
+            <Route path="popconfirm" element={<Popconfirms />} />
             <Route path="progress" element={<Progress />} />
-            <Route path="results" element={<Results />} />
-            <Route path="alerts" element={<Alerts />} />
-            <Route path="notifications" element={<NotificationsUI />} />
-            <Route path="skeletons" element={<Skeletons />} />
+            <Route path="result" element={<Results />} />
+            <Route path="alert" element={<Alerts />} />
+            <Route path="notification" element={<NotificationsUI />} />
+            <Route path="skeleton" element={<Skeletons />} />
           </Route>
         </Route>
         <Route path="/auth" element={<AuthLayoutFallback />}>
