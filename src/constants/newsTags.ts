@@ -1,27 +1,34 @@
-import lightTheme from '@app/styles/themes/light/lightTheme';
-// todo take colors from the current theme
-const { red, orange, lightgreen } = lightTheme.commonColors;
-
 // TODO add i18n
-export const newsTags = {
+
+interface Tag {
+  id: string;
+  title: string;
+  bgColor: 'error' | 'warning' | 'success';
+}
+
+interface NewsTags {
+  [key: string]: Tag;
+}
+
+export const newsTags: NewsTags = {
   arts: {
     id: 'Arts',
     title: 'arts',
-    bgColor: red,
+    bgColor: 'error',
   },
   music: {
     id: 'music',
     title: 'music',
-    bgColor: orange,
+    bgColor: 'warning',
   },
   health: {
     id: 'health',
     title: 'health',
-    bgColor: lightgreen,
+    bgColor: 'success',
   },
   covid: {
     id: 'covid',
     title: 'COVID',
-    bgColor: red,
+    bgColor: 'error',
   },
 };

@@ -8,7 +8,7 @@ import { ReactComponent as FacebookIcon } from 'assets/icons/facebook.svg';
 import * as S from './SignUpForm.styles';
 import * as Auth from 'components/layouts/auth/AuthLayout.styles';
 import { useAppDispatch } from '@app/hooks/reduxHooks';
-import { doSignUp } from '@app/store/authSlice';
+import { doSignUp } from '@app/store/slices/authSlice';
 import { notificationController } from '@app/controllers/notificationController';
 
 interface SignUpFormData {

@@ -1,23 +1,22 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Col, message } from 'antd';
-import { Upload, UploadDragger } from 'components/common/Upload/Upload';
-import { Button } from 'components/common/buttons/Button/Button';
 import { UploadOutlined, InboxOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
-import lightTheme from '@app/styles/themes/light/lightTheme';
+import { Upload, UploadDragger } from '@app/components/common/Upload/Upload';
+import { Button } from '@app/components/common/buttons/Button/Button';
 import * as S from '../UIComponentsPage.styles';
 
 const DraggerIconWrapper = styled.div`
   font-size: 4rem;
-  color: ${lightTheme.colors.main.primary};
+  color: ${(props) => props.theme.colors.main.primary};
 `;
 const DraggerTitle = styled.div`
-  font-size: ${lightTheme.commonFontSizes.xl};
-  font-weight: ${lightTheme.commonFontWeight.bold};
+  font-size: ${(props) => props.theme.commonFontSizes.xl};
+  font-weight: ${(props) => props.theme.commonFontWeight.bold};
 `;
 const DraggerDescription = styled.div`
-  font-size: ${lightTheme.commonFontSizes.md};
+  font-size: ${(props) => props.theme.commonFontSizes.md};
   padding: 0 1rem;
 `;
 

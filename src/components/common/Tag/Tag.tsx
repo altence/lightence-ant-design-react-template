@@ -5,7 +5,7 @@ import * as S from './Tag.styles';
 export interface ITag {
   id: string;
   title: string;
-  bgColor: string;
+  bgColor: 'error' | 'success' | 'warning';
 }
 
 interface TagProps {

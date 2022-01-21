@@ -1,9 +1,7 @@
 import styled from 'styled-components';
-import { Input as AntInput, Button } from 'antd';
-import { DayjsDatePicker } from 'components/common/pickers/DayjsDatePicker';
-import lightTheme from '../../../../styles/themes/light/lightTheme';
+import { Input as AntInput, Button, Checkbox } from 'antd';
 import { SearchOutlined, PlusCircleFilled, CloseOutlined } from '@ant-design/icons';
-import { Checkbox } from 'antd';
+import { DayjsDatePicker } from '@app/components/common/pickers/DayjsDatePicker';
 
 export const AddTagText = styled.span`
   color: ${(props) => props.theme.colors.text.main};
@@ -131,11 +129,11 @@ export const Btn = styled(Button)`
 export const NewsWrapper = styled.div`
   max-width: 35rem;
 
-  @media only screen and ${lightTheme.media.xs} {
+  @media only screen and ${(props) => props.theme.media.xs} {
     width: 100%;
   }
 
-  @media only screen and ${lightTheme.media.md} {
+  @media only screen and ${(props) => props.theme.media.md} {
     width: calc(100% - 21.25rem);
   }
 `;
@@ -152,11 +150,11 @@ export const FilterWrapper = styled.div`
   height: min-content;
   filter: drop-shadow(0 4px 40px rgba(0, 0, 0, 0.07));
 
-  @media only screen and ${lightTheme.media.xs} {
+  @media only screen and ${(props) => props.theme.media.xs} {
     position: relative;
   }
 
-  @media only screen and ${lightTheme.media.md} {
+  @media only screen and ${(props) => props.theme.media.md} {
     position: sticky;
   }
 `;
