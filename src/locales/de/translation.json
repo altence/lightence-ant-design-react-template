@@ -649,7 +649,10 @@
     "passwordText": "Passwort eingeben",
     "prePost": "Pre- und Post-Tabs",
     "prefixSuffix": "Präfix & Suffix",
-    "textarea": "Textbereich"
+    "textarea": "Textbereich",
+    "func": "funktionale Eingänge",
+    "clipboard": "Eingabe in die Zwischenablage",
+    "openURL": "URL-Eingabe öffnen"
   },
   "checkboxes": {
     "basic": "Einfaches Kontrollkästchen",
