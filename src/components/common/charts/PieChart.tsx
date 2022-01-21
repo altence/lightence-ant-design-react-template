@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
-import { BaseChart, BaseChartProps } from 'components/common/charts/BaseChart';
-import { ThemeContext } from 'styled-components';
+import React from 'react';
+import { useTheme } from 'styled-components';
 import { EChartsOption } from 'echarts-for-react';
+import { BaseChart, BaseChartProps } from '@app/components/common/charts/BaseChart';
 
 interface PieChartProps extends BaseChartProps {
   option?: EChartsOption;
@@ -12,7 +12,7 @@ interface PieChartProps extends BaseChartProps {
 }
 
 export const PieChart: React.FC<PieChartProps> = ({ option, data, name, showLegend, ...props }) => {
-  const theme = useContext(ThemeContext);
+  const theme = useTheme();
   const defaultPieOption = {
     tooltip: {
       trigger: 'item',

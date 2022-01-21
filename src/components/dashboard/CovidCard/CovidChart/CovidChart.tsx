@@ -1,9 +1,8 @@
-import React, { useContext } from 'react';
-import { BaseChart, getDefaultTooltipStyles } from 'components/common/charts/BaseChart';
-import { getMarkAreaData } from 'utils/utils';
-import { ThemeContext } from 'styled-components';
-import { hexToRGB } from 'utils/utils';
-import { ChartData, xData } from 'interfaces/interfaces';
+import React from 'react';
+import { useTheme } from 'styled-components';
+import { BaseChart, getDefaultTooltipStyles } from '@app/components/common/charts/BaseChart';
+import { getMarkAreaData, hexToRGB } from '@app/utils/utils';
+import { ChartData, xData } from '@app/interfaces/interfaces';
 import { useResponsive } from '@app/hooks/useResponsive';
 
 interface CovidData {
@@ -17,7 +16,7 @@ export const CovidChart: React.FC<{
   recovered: CovidData;
   dateArr: xData;
 }> = ({ confirmed, deaths, recovered, dateArr }) => {
-  const theme = useContext(ThemeContext);
+  const theme = useTheme();
 
   const { isDesktop } = useResponsive();
 
