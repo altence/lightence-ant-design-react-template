@@ -8,7 +8,7 @@ export const Steps = styled(AntdSteps)`
     color: ${(props) => props.theme.colors.main.primary};
     font-weight: ${(props) => props.theme.commonFontWeight.semibold};
     font-size: ${(props) => props.theme.commonFontSizes.xs};
-    width: 100%;
+    /* width: 100%; */
 
     @media only screen and ${(props) => props.theme.media.md} {
       font-size: ${(props) => props.theme.commonFontSizes.md};
@@ -19,7 +19,7 @@ export const Steps = styled(AntdSteps)`
     color: ${(props) => props.theme.colors.text.main};
     font-weight: ${(props) => props.theme.commonFontWeight.semibold};
     font-size: ${(props) => props.theme.commonFontSizes.xs};
-    width: 100%;
+    /* width: 100%; */
 
     @media only screen and ${(props) => props.theme.media.md} {
       font-size: ${(props) => props.theme.commonFontSizes.md};

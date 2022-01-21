@@ -462,7 +462,7 @@
       "countryError": "Country is required",
       "info": "Info",
       "location": "Location",
-      "confirmDetails": "Confirm Details",
+      "confirm": "Confirm",
       "next": "Next",
       "done": "Done",
       "previous": "Previous",
