@@ -52,10 +52,16 @@ export const FavoritesDoctorsCard: React.FC = () => {
             arrows={true}
             nextArrow={<NextArrow />}
             prevArrow={<PrevArrow />}
-            slidesToShow={3}
+            slidesToShow={4}
             responsive={[
               {
-                breakpoint: theme.breakpoints.xxl - 1,
+                breakpoint: 1931,
+                settings: {
+                  slidesToShow: 3,
+                },
+              },
+              {
+                breakpoint: 1530,
                 settings: {
                   slidesToShow: 2,
                 },
@@ -63,17 +69,35 @@ export const FavoritesDoctorsCard: React.FC = () => {
               {
                 breakpoint: theme.breakpoints.xl - 1,
                 settings: {
+                  slidesToShow: 4,
+                },
+              },
+              {
+                breakpoint: 1140,
+                settings: {
                   slidesToShow: 3,
                 },
               },
               {
-                breakpoint: theme.breakpoints.lg - 1,
+                breakpoint: 920,
                 settings: {
                   slidesToShow: 2,
                 },
               },
               {
-                breakpoint: theme.breakpoints.sm - 1,
+                breakpoint: theme.breakpoints.md - 1,
+                settings: {
+                  slidesToShow: 3,
+                },
+              },
+              {
+                breakpoint: 720,
+                settings: {
+                  slidesToShow: 2,
+                },
+              },
+              {
+                breakpoint: 520,
                 settings: {
                   slidesToShow: 1,
                 },
