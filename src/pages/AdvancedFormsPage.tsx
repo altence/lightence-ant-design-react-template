@@ -11,13 +11,13 @@ const AdvancedFormsPage: React.FC = () => {
   const { t } = useTranslation();
   return (
     <Row gutter={[30, 30]}>
-      <Col xs={24} sm={24} lg={12}>
+      <Col xs={24} sm={24} xl={10}>
         <Card id="validation form" title={t('forms.validationForm')} padding="1.25rem">
           <ValidationForm />
         </Card>
       </Col>
 
-      <Col xs={24} sm={24} lg={12}>
+      <Col xs={24} sm={24} xl={14}>
         <Row gutter={[30, 30]}>
           <Col span={24}>
             <Card id="control-form" title={t('forms.controlForm')} padding="1.25rem">

@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
-import { Form as AntdForm } from 'antd';
-import { notificationController } from 'controllers/notificationController';
-import { Form } from '../../common/Form/Form';
+import { Form as AntdForm, Steps } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { Button } from '../../common/buttons/Button/Button';
-import { Dates } from 'constants/Dates';
+import { notificationController } from '@app/controllers/notificationController';
+import { Form } from '@app/components/common/Form/Form';
+import { Button } from '@app/components/common/buttons/Button/Button';
+import { Dates } from '@app/constants/Dates';
 import * as S from './StepForm.styles';
-import { mergeBy } from 'utils/utils';
+import { mergeBy } from '@app/utils/utils';
 import { Step1 } from './Steps/Step1';
 import { Step2 } from './Steps/Step2';
 import { Step3 } from './Steps/Step3';
 import { Step4 } from './Steps/Step4';
-import { Step, Steps } from '@app/components/common/Steps/Steps';
 interface FormValues {
   [key: string]: string | undefined;
 }
@@ -101,7 +100,7 @@ export const StepForm: React.FC = () => {
       title: t('forms.stepFormLabels.location'),
     },
     {
-      title: t('common.confirmDetails'),
+      title: t('forms.stepFormLabels.confirm'),
     },
   ];
 
@@ -127,9 +126,9 @@ export const StepForm: React.FC = () => {
         setFields(uniqueData);
       }}
     >
-      <Steps direction="vertical" current={current}>
+      <Steps labelPlacement="vertical" size="small" current={current}>
         {steps.map((item) => (
-          <Step key={item.title} title={item.title} description="" />
+          <Steps.Step key={item.title} title={item.title} description="" />
         ))}
       </Steps>
       <div>{formFieldsUi[current]}</div>
