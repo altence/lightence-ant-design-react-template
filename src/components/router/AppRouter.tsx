@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // no lazy loading for auth pages to avoid flickering
@@ -13,7 +13,7 @@ import LockPage from '@app/pages/LockPage';
 import MainLayout from '@app/components/layouts/main/MainLayout/MainLayout';
 import ProfileLayout from '@app/components/layouts/profile/ProfileLayout';
 import RequireAuth from '@app/components/router/RequireAuth';
-import { Loading } from '@app/components/common/Loading';
+import { withLoading } from '@app/hocs/withLoading.hoc';
 
 const DashboardPage = React.lazy(() => import('@app/pages/DashboardPage/DashboardPage'));
 const NewsFeedPage = React.lazy(() => import('@app/pages/NewsFeedPage'));
@@ -62,60 +62,60 @@ const Logout = React.lazy(() => import('./Logout'));
 
 export const DASHBOARD_PATH = '/';
 
-const Dashboard = withFallback(DashboardPage);
-const NewsFeed = withFallback(NewsFeedPage);
-const Kanban = withFallback(KanbanPage);
-const AdvancedForm = withFallback(AdvancedFormsPage);
+const Dashboard = withLoading(DashboardPage);
+const NewsFeed = withLoading(NewsFeedPage);
+const Kanban = withLoading(KanbanPage);
+const AdvancedForm = withLoading(AdvancedFormsPage);
 
 // UI Components
-const Buttons = withFallback(ButtonsPage);
-const Spinners = withFallback(SpinnersPage);
-const Inputs = withFallback(InputsPage);
-const Checkboxes = withFallback(CheckboxesPage);
-const Radios = withFallback(RadiosPage);
-const Selects = withFallback(SelectsPage);
-const Switches = withFallback(SwitchesPage);
-const Uploads = withFallback(UploadsPage);
-const Rates = withFallback(RatesPage);
-const AutoCompletes = withFallback(AutoCompletesPage);
-const Steps = withFallback(StepsPage);
-const DateTimePickers = withFallback(DateTimePickersPage);
-const Dropdowns = withFallback(DropdownsPage);
-const Breadcrumbs = withFallback(BreadcrumbsPage);
-const Tabs = withFallback(TabsPage);
-const Avatars = withFallback(AvatarsPage);
-const Badges = withFallback(BadgesPage);
-const Collapse = withFallback(CollapsePage);
-const Pagination = withFallback(PaginationPage);
-const Modals = withFallback(ModalsPage);
-const Popovers = withFallback(PopoversPage);
-const Popconfirms = withFallback(PopconfirmsPage);
-const Progress = withFallback(ProgressPage);
-const Results = withFallback(ResultsPage);
-const Alerts = withFallback(AlertsPage);
-const NotificationsUI = withFallback(NotificationsUIPage);
-const Skeletons = withFallback(SkeletonsPage);
+const Buttons = withLoading(ButtonsPage);
+const Spinners = withLoading(SpinnersPage);
+const Inputs = withLoading(InputsPage);
+const Checkboxes = withLoading(CheckboxesPage);
+const Radios = withLoading(RadiosPage);
+const Selects = withLoading(SelectsPage);
+const Switches = withLoading(SwitchesPage);
+const Uploads = withLoading(UploadsPage);
+const Rates = withLoading(RatesPage);
+const AutoCompletes = withLoading(AutoCompletesPage);
+const Steps = withLoading(StepsPage);
+const DateTimePickers = withLoading(DateTimePickersPage);
+const Dropdowns = withLoading(DropdownsPage);
+const Breadcrumbs = withLoading(BreadcrumbsPage);
+const Tabs = withLoading(TabsPage);
+const Avatars = withLoading(AvatarsPage);
+const Badges = withLoading(BadgesPage);
+const Collapse = withLoading(CollapsePage);
+const Pagination = withLoading(PaginationPage);
+const Modals = withLoading(ModalsPage);
+const Popovers = withLoading(PopoversPage);
+const Popconfirms = withLoading(PopconfirmsPage);
+const Progress = withLoading(ProgressPage);
+const Results = withLoading(ResultsPage);
+const Alerts = withLoading(AlertsPage);
+const NotificationsUI = withLoading(NotificationsUIPage);
+const Skeletons = withLoading(SkeletonsPage);
 
-const DataTables = withFallback(DataTablesPage);
-const Charts = withFallback(ChartsPage);
+const DataTables = withLoading(DataTablesPage);
+const Charts = withLoading(ChartsPage);
 
 // Maps
-const Google = withFallback(GoogleMaps);
-const Leaflet = withFallback(LeafletMaps);
-const ReactSimple = withFallback(ReactSimpleMaps);
-const Pigeons = withFallback(PigeonsMaps);
+const Google = withLoading(GoogleMaps);
+const Leaflet = withLoading(LeafletMaps);
+const ReactSimple = withLoading(ReactSimpleMaps);
+const Pigeons = withLoading(PigeonsMaps);
 
-const ServerError = withFallback(ServerErrorPage);
-const Error404 = withFallback(Error404Page);
+const ServerError = withLoading(ServerErrorPage);
+const Error404 = withLoading(Error404Page);
 
 // Profile
-const PersonalInfo = withFallback(PersonalInfoPage);
-const SecuritySettings = withFallback(SecuritySettingsPage);
-const Notifications = withFallback(NotificationsPage);
-const Payments = withFallback(PaymentsPage);
+const PersonalInfo = withLoading(PersonalInfoPage);
+const SecuritySettings = withLoading(SecuritySettingsPage);
+const Notifications = withLoading(NotificationsPage);
+const Payments = withLoading(PaymentsPage);
 
-const AuthLayoutFallback = withFallback(AuthLayout);
-const LogoutFallback = withFallback(Logout);
+const AuthLayoutFallback = withLoading(AuthLayout);
+const LogoutFallback = withLoading(Logout);
 
 export const AppRouter: React.FC = () => {
   const protectedLayout = (
@@ -202,11 +202,3 @@ export const AppRouter: React.FC = () => {
     </BrowserRouter>
   );
 };
-
-function withFallback<T>(Component: React.ComponentType<T>) {
-  return (props: T) => (
-    <Suspense fallback={<Loading />}>
-      <Component {...props} />
-    </Suspense>
-  );
-}

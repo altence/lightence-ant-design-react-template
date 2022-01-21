@@ -30,5 +30,5 @@ yarn-error.log*
 # IDE files
 .idea
 
-# generated filed
+# generated files
 /public/themes
