@@ -127,7 +127,7 @@ export const StepForm: React.FC = () => {
         setFields(uniqueData);
       }}
     >
-      <Steps current={current}>
+      <Steps direction="vertical" current={current}>
         {steps.map((item) => (
           <Step key={item.title} title={item.title} description="" />
         ))}
