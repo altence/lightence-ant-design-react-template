@@ -64,6 +64,7 @@ const DashboardPage: React.FC = () => {
 
       <S.RightSideCol xl={8} xxl={8}>
         <BloodScreeningCard />
+        <S.Space />
         <PatientResultsCard />
       </S.RightSideCol>
     </Row>
