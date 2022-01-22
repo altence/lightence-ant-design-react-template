@@ -22,6 +22,10 @@ export const RightSideCol = styled(Col)`
     margin-top: -${(props) => props.theme.desktopLayout.paddingVertical};
     left: 0;
   }
+
+  #patient-timeline {
+    overflow-y: auto;
+  }
 `;
 
 export const LeftSideCol = styled(Col)`

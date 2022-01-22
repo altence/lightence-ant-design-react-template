@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BloodScreeningChart } from './BloodScreeningChart/BloodScreeningChart';
 import { BloodScreeningTable } from './BloodScreeningTable/BloodScreeningTable';
-import { useResponsive } from 'hooks/useResponsive';
+import { useResponsive } from '@app/hooks/useResponsive';
+import { BloodTestResult, results } from '@app/constants/dashboard/bloodTestResults';
 import * as S from './BloodScreeningCard.styles';
-import { BloodTestResult, results } from '../../../constants/dashboard/bloodTestResults';
 
-export const BloodScreeningCard: React.FC = () => {
+export const BloodScreeningCard: React.FC<{ id?: string }> = ({ id }) => {
   const { t } = useTranslation();
 
   const [activeItem, setActiveItem] = useState<BloodTestResult>(results[0]);
@@ -15,6 +15,7 @@ export const BloodScreeningCard: React.FC = () => {
 
   return (
     <S.BloodScreeningCard
+      id={id}
       title={
         mobileOnly && (
           <S.TitleWrapper>
