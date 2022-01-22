@@ -1,19 +1,20 @@
 import React from 'react';
-import { Steps, Step } from 'components/common/Steps/Steps';
 import { BarChartOutlined, CheckOutlined, FileTextOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
-import { patientResultStatus } from '@app/constants/patientResultStatus';
-import { patientResultsData } from '@app/constants/patientResultsData';
+import { Steps, Step } from '@app/components/common/Steps/Steps';
 import { Dates } from '@app/constants/Dates';
+import { patientResultsData } from '@app/constants/patientResultsData';
+import { patientResultStatus } from '@app/constants/patientResultStatus';
+import { DashboardCard } from '@app/components/dashboard/DashboardCard/DashboardCard';
 import * as S from './PatientResultsCard.styles';
 
 const icons = [<CheckOutlined key={0} />, <BarChartOutlined key={1} />, <FileTextOutlined key={2} />];
 
-export const PatientResultsCard: React.FC = () => {
+export const PatientResultsCard: React.FC<{ id?: string }> = ({ id }) => {
   const { t } = useTranslation();
 
   return (
-    <S.DashboardCardStyled>
+    <DashboardCard id={id}>
       <Steps direction="vertical" current={0}>
         {patientResultStatus.map((status, index) => {
           const patientResult = patientResultsData.find((item) => item.status === status.id) || {
@@ -38,6 +39,6 @@ export const PatientResultsCard: React.FC = () => {
           );
         })}
       </Steps>
-    </S.DashboardCardStyled>
+    </DashboardCard>
   );
 };
