@@ -108,4 +108,4 @@ As our admin system with a medical dashboard is fully customizable, we understan
 - 🔥 Follow us on [Twitter](https://twitter.com/altence_team) and [LinkedIn](https://linkedin.com/company/altence)
 
 ### Need developers’ help?
-At Altence, we are always ready to get your feedback or give you advice if needed. We can also become your partner in development in case you need help with your projects. Drop us a line ([email](mailto:lightence.admin@altence.com)) and we’ll get back to you shortly.
+At [Altence](https://altence.com), we are always ready to get your feedback or give you advice if needed. We can also become your partner in development in case you need help with your projects. Drop us a line ([email](mailto:lightence.admin@altence.com)) and we’ll get back to you shortly.
