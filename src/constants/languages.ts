@@ -1,4 +1,4 @@
-export type LanguageType = 'en' | 'de';
+import { LanguageType } from '@app/interfaces/interfaces';
 
 interface Language {
   id: number;

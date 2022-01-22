@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import enUS from 'antd/lib/calendar/locale/en_US';
+import deDe from 'antd/es/calendar/locale/de_DE';
 import { Col, Row } from 'antd';
-import { CalendarEvent } from 'api/calendar.api';
-import { AppDate, Dates } from 'constants/Dates';
+import { CalendarSwitch } from '@app/components/common/CalendarSwitch/CalendarSwitch';
+import { useLanguage } from '@app/hooks/useLanguage';
+import { CalendarEvent } from '@app/api/calendar.api';
+import { AppDate, Dates } from '@app/constants/Dates';
 import * as S from './TreatmentCalendar.styles';
-import { CalendarSwitch } from '../../../common/CalendarSwitch/CalendarSwitch';
 
 interface TreatmentCalendarProps {
   date: AppDate;
@@ -24,6 +27,9 @@ export const TreatmentCalendar: React.FC<TreatmentCalendarProps> = ({
   setDateClicked,
   onToday,
 }) => {
+  const { language } = useLanguage();
+  const locale = useMemo(() => (language === 'de' ? deDe : enUS), [language]);
+
   const handleSelect = (value: AppDate) => {
     setDate(value);
     setDateClicked(true);
@@ -45,6 +51,7 @@ export const TreatmentCalendar: React.FC<TreatmentCalendarProps> = ({
 
         <Col span={24}>
           <S.Calendar
+            locale={locale}
             dateCellRender={(value) => {
               const today = Dates.getToday();
 
