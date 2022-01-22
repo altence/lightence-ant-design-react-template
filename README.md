@@ -41,8 +41,7 @@ Check out a [live demo](https://altence.com/lightence-admin-demo).
 #### To go with the latest version please copy and past in your terminal the following steps
 
 ```
-git clone https://github.com/altence/lightence-admin.git my-awesome-project
-&& cd my-awesome-project
+git clone https://github.com/altence/lightence-admin.git my-awesome-project && cd my-awesome-project
 ```
 
 yarn, development mode
@@ -76,13 +75,12 @@ npm
 npm install && npm run build --stats
 ```
 
-And then go to the [localhost:8888](http://localhost:8888) and review the bundle
+And then use the [webpack-bundle-analyzer](https://www.npmjs.com/package/webpack-bundle-analyzer) to open _build/bundle-stats.json_.
 
 #### How to build your project based on Lightence
 
 ```
-git clone -b starter https://github.com/altence/lightence-admin.git my-awesome-project
-&& cd my-awesome-project
+git clone -b starter https://github.com/altence/lightence-admin.git my-awesome-project && cd my-awesome-project
 ```
 And you will see a demos-free template.
 
