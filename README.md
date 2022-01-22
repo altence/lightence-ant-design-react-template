@@ -1,6 +1,6 @@
 # Lightence
 
-React-powered 100% FREE Admin Dashboard Template for building rich user interfaces significantly faster. For developers of all levels. Open-sourced and maintained by the [Altence](https://altence.com) team.
+React-powered **100% FREE** Admin Dashboard Template for building rich user interfaces significantly faster. For developers of all levels. Open-sourced and maintained by the [Altence](https://altence.com) team.
 
 ## Key Features
 - 🚀 This solution allows you to reduce MVP development costs by up to 40%
@@ -86,14 +86,14 @@ git clone -b starter https://github.com/altence/lightence-admin.git my-awesome-p
 ```
 And you will see a demos-free template.
 
-## Where to get help
+### Where to get help
 [<img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white">](mailto:lightence.admin@altence.com)
 [<img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white">](https://twitter.com/altence_team)
 [<img src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white">](https://discord.gg/YBSrDrGe)
 [<img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white">](https://www.facebook.com/groups/altence)
 
 ### Contribution
-Let’s create great products together! We encourage and welcome collaboration and any type of contribution. 👉 Learn the [contributing docs]() on how to contribute the right way.
+Let’s create great products together! We encourage and welcome collaboration and any type of contribution. 👉 Learn the [contributing docs](CONTRIBUTING.md) on how to contribute the right way.
 
 ### Want to get popular?
 If you use **Lightence** in your app development, please, let us know, and we’ll showcase your work to provide more awareness to your product.
