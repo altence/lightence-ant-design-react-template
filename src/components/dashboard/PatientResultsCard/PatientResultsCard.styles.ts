@@ -8,11 +8,7 @@ interface IconProps {
 }
 
 export const DashboardCardStyled = styled(DashboardCard)`
-  @media only screen and ${(props) => props.theme.media.xl} {
-    flex-grow: 1;
-    margin-top: 30px;
-    overflow-y: auto;
-  }
+  overflow-y: auto;
 `;
 
 export const TitleWrapper = styled.div`

@@ -3,13 +3,9 @@ import { Layout } from 'antd';
 
 const { Content } = Layout;
 
-interface Content {
-  $twoColumnsLayout: boolean;
-}
-
-export default styled(Content)<Content>`
+export default styled(Content)`
   padding: ${(props) => `${props.theme.mobileLayout.paddingVertical} ${props.theme.mobileLayout.paddingHorizontal}`};
-  overflow: ${(props) => (props?.$twoColumnsLayout ? 'hidden' : 'overlay')};
+  overflow: overlay;
 
   @media only screen and ${(props) => props.theme.media.md} {
     padding: ${(props) =>

@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { Col } from 'antd';
 
 export const RightSideCol = styled(Col)`
+  position: sticky;
+  top: 0;
   display: flex;
   flex-direction: column;
   height: calc(
@@ -23,7 +25,9 @@ export const RightSideCol = styled(Col)`
 `;
 
 export const LeftSideCol = styled(Col)`
-  max-height: calc(100vh - ${(props) => props.theme.desktopLayout.headerHeight});
-  overflow: auto;
   padding-right: 1rem;
+`;
+
+export const Space = styled.div`
+  margin: 1rem 0;
 `;
