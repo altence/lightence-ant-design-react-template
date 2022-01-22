@@ -1,7 +1,15 @@
 {
-  "name": "react-antd-reactence-admin",
-  "version": "0.1.0",
-  "private": true,
+  "name": "lightence-admin",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "Free and easy-to-use admin template based on React 17+",
+  "repository": {
+    "type": "git",
+    "url": "git+github.com:altence/lightence-admin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/altence/lightence-admin/issues"
+  },
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
     "@craco/craco": "^6.1.2",
@@ -73,7 +81,8 @@
   "browserslist": [
     ">0.2%",
     "not dead",
-    "not op_mini all"
+    "not op_mini all",
+    "not IE 11"
   ],
   "devDependencies": {
     "@types/country-list": "^2.1.0",
@@ -116,5 +125,6 @@
   "engines": {
     "node": ">=16.0.0"
   },
-  "packageManager": "yarn@3.1.1"
+  "packageManager": "yarn@3.1.1",
+  "keywords": ["lightence", "admin", "admin-dashboard", "ant-design", "react"]
 }
