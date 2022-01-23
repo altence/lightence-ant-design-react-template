@@ -14,6 +14,7 @@ import { useResponsive } from '@app/hooks/useResponsive';
 import { StatisticsCards } from '@app/components/dashboard/StatisticsCards/StatisticsCards';
 
 import * as S from './DashboardPage.styles';
+import { References } from '@app/components/common/References/References';
 
 const DashboardPage: React.FC = () => {
   const { isTablet, isDesktop } = useResponsive();
@@ -60,6 +61,7 @@ const DashboardPage: React.FC = () => {
             <NewsCard />
           </Col>
         </Row>
+        <References />
       </S.LeftSideCol>
 
       <S.RightSideCol xl={8} xxl={8}>
