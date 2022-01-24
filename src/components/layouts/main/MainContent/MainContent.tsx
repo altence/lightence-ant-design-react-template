@@ -4,7 +4,7 @@ import { Layout } from 'antd';
 const { Content } = Layout;
 
 interface HeaderProps {
-  isTwoColumnsLayout: boolean;
+  $isTwoColumnsLayout: boolean;
 }
 
 export default styled(Content)<HeaderProps>`
@@ -21,7 +21,7 @@ export default styled(Content)<HeaderProps>`
 
   @media only screen and ${(props) => props.theme.media.xl} {
     ${(props) =>
-      props?.isTwoColumnsLayout &&
+      props?.$isTwoColumnsLayout &&
       css`
         padding: 0;
       `}

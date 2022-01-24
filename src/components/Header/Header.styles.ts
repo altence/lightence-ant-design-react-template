@@ -65,15 +65,8 @@ interface TwoColumnsLayoutColumn {
   $isTwoColumnsLayout: boolean;
 }
 
-export const SearchColumn = styled(Col)<TwoColumnsLayoutColumn>`
-  @media only screen and ${(props) => props.theme.media.md} {
-    ${(props) =>
-      props?.$isTwoColumnsLayout &&
-      css`
-        padding: ${(props) =>
-          `${props.theme.desktopLayout.paddingVertical} ${props.theme.desktopLayout.paddingHorizontal}`};
-      `}
-  }
+export const SearchColumn = styled(Col)`
+  padding: ${(props) => `${props.theme.desktopLayout.paddingVertical} ${props.theme.desktopLayout.paddingHorizontal}`};
 `;
 
 export const ProfileColumn = styled(Col)<TwoColumnsLayoutColumn>`
@@ -89,7 +82,6 @@ export const ProfileColumn = styled(Col)<TwoColumnsLayoutColumn>`
 `;
 
 export const GHButton = styled(GitHubButton)`
-  margin-right: 15px;
   display: none;
 
   @media only screen and ${(props) => props.theme.media.lg} {
