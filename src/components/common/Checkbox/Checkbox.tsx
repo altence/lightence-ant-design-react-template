@@ -1,6 +1,7 @@
-import { Checkbox as AntdCheckbox, CheckboxProps } from 'antd';
+import { CheckboxProps } from 'antd';
 import * as S from './Checkbox.styles';
-export const { Group: CheckboxGroup } = AntdCheckbox;
+import React from 'react';
+export const { CheckboxGroup } = S;
 
 interface CheckboxChangeEventTarget extends CheckboxProps {
   checked: boolean;
