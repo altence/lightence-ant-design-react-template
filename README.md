@@ -35,7 +35,7 @@ Check out a [live demo](https://altence.com/lightence-admin-demo).
 
 #### Requirements
 - [Node.js](https://nodejs.org/en/) version _>=16.0.0_
-- [yarn](https://yarnpkg.com/) or [npm](https://www.npmjs.com/)
+- [yarn](https://yarnpkg.com/)
 - [git](https://git-scm.com/)
 
 #### To go with the latest version please copy and past in your terminal the following steps
@@ -44,35 +44,19 @@ Check out a [live demo](https://altence.com/lightence-admin-demo).
 git clone https://github.com/altence/lightence-admin.git my-awesome-project && cd my-awesome-project
 ```
 
-yarn, development mode
+Development mode
 ```
 yarn install && yarn start
 ```
 
-yarn, production mode
+Production mode
 ```
 yarn install && yarn build
 ```
 
-npm, development mode
-```
-npm install && npm run start
-```
-
-npm, production mode
-```
-npm install && npm run build
-```
-
 #### How to analyze the bundle size
-yarn
 ```
 yarn install && yarn build --stats
-```
-
-npm
-```
-npm install && npm run build --stats
 ```
 
 And then use the [webpack-bundle-analyzer](https://www.npmjs.com/package/webpack-bundle-analyzer) to open _build/bundle-stats.json_.
