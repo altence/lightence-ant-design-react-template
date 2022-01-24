@@ -1,8 +1,6 @@
 import React, { useMemo } from 'react';
-import { DayjsDatePicker } from './DayjsDatePicker';
-import { AppDate, Dates } from 'constants/Dates';
-import { notificationController } from 'controllers/notificationController';
-import { useTranslation } from 'react-i18next';
+import { DayjsDatePicker } from '@app/components/common/pickers/DayjsDatePicker';
+import { AppDate, Dates } from '@app/constants/Dates';
 
 const clearDate = Dates.getToday().hour(0).minute(0).second(0).millisecond(0);
 const clearDateMs = +clearDate;
@@ -13,8 +11,6 @@ interface TimePickerProps {
 }
 
 export const TimeRangePicker: React.FC<TimePickerProps> = ({ timeRange, setTimeRange }) => {
-  const { t } = useTranslation();
-
   const timeRangePrepared = useMemo(() => timeRange.map((time) => clearDate.add(time)), [timeRange]);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -24,8 +20,6 @@ export const TimeRangePicker: React.FC<TimePickerProps> = ({ timeRange, setTimeR
       .map((time: AppDate) => +time);
 
     setTimeRange(timeRangeSinceTodayMs);
-
-    notificationController.success({ message: t('common.success') });
   };
 
   return (
