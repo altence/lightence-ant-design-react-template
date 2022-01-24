@@ -2772,15 +2772,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-credit-cards@npm:^0.8.1":
-  version: 0.8.1
-  resolution: "@types/react-credit-cards@npm:0.8.1"
-  dependencies:
-    "@types/react": "*"
-  checksum: 10a09663860481f1e3315ec93c699a176d2bfd0644674a42a004a15bbd817e1e33f3cc9cf282e4948c6085e44a757f6b47d58fad87700867e299c9b206e8d869
-  languageName: node
-  linkType: hard
-
 "@types/react-dom@npm:^17.0.0":
   version: 17.0.11
   resolution: "@types/react-dom@npm:17.0.11"
@@ -6694,6 +6685,18 @@ __metadata:
     minimalistic-assert: ^1.0.1
     minimalistic-crypto-utils: ^1.0.1
   checksum: d56d21fd04e97869f7ffcc92e18903b9f67f2d4637a23c860492fbbff5a3155fd9ca0184ce0c865dd6eb2487d234ce9551335c021c376cd2d3b7cb749c7d10f4
+  languageName: node
+  linkType: hard
+
+"elt-react-credit-cards@npm:^0.0.1":
+  version: 0.0.1
+  resolution: "elt-react-credit-cards@npm:0.0.1"
+  dependencies:
+    payment: ^2.3.0
+  peerDependencies:
+    prop-types: ^15.7.2
+    react: ^15.0.0 || ^16.0.0 || ^17.0.2
+  checksum: d36adba37ef3e4438f8ababa11379a263d4d0354e31f612995862b4e271837986078ad84c9cc5db2cf4af39146e7298f781ef8bc7d0a1d852922c54f3187aae7
   languageName: node
   linkType: hard
 
@@ -10697,7 +10700,6 @@ __metadata:
     "@types/google-map-react": ^2.1.3
     "@types/leaflet": ^1.7.8
     "@types/react": ^17.0.0
-    "@types/react-credit-cards": ^0.8.1
     "@types/react-dom": ^17.0.0
     "@types/react-phone-number-input": ^3.0.13
     "@types/react-responsive": ^8.0.2
@@ -10718,6 +10720,7 @@ __metadata:
     dayjs: ^1.10.6
     echarts: ^5.1.2
     echarts-for-react: ^3.0.1
+    elt-react-credit-cards: ^0.0.1
     eslint: ^7.28.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-prettier: ^3.4.0
@@ -10736,7 +10739,6 @@ __metadata:
     prettier: ^2.3.1
     react: ^17.0.2
     react-country-flag: ^3.0.2
-    react-credit-cards: ^0.8.3
     react-css-theme-switcher: ^0.3.0
     react-dom: ^17.0.2
     react-i18next: ^11.11.4
@@ -14566,18 +14568,6 @@ __metadata:
   peerDependencies:
     react: ">=16"
   checksum: 3510e96302a136e0fc70cbb3a5492d3088548a3e43f05b75a600740733522b140a75dee5ce5a0b9776e20941597e4232d9fd2b60e61b5f00f2ae8a4ac6f1d9a4
-  languageName: node
-  linkType: hard
-
-"react-credit-cards@npm:^0.8.3":
-  version: 0.8.3
-  resolution: "react-credit-cards@npm:0.8.3"
-  dependencies:
-    payment: ^2.3.0
-  peerDependencies:
-    prop-types: ^15.7.2
-    react: ^15.0.0 || ^16.0.0
-  checksum: d2cbd5cbecf451a85841968aa5bc5a0aa1c62e26c0841852e46394559196c838f256d8cb3c3c2c21ffd6da0a83ec9ac35a003c66128e242f94533760fbb625fc
   languageName: node
   linkType: hard
 
