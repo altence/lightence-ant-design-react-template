@@ -40,4 +40,5 @@ const Button = styled(BaseButton)<{ $isDark: boolean }>`
 
 const GithubIcon = styled(GithubOutlined)`
   font-size: 1.5rem;
+  vertical-align: middle;
 `;
