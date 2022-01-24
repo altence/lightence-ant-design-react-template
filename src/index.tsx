@@ -8,7 +8,7 @@ import 'config/config';
 import { Provider } from 'react-redux';
 import { store } from '@app/store/store';
 import { ThemeSwitcherProvider } from 'react-css-theme-switcher';
-import { currentTheme } from '@app/hooks/useEntry';
+import { defaultTheme } from '@app/store/slices/themeSlice';
 
 const themes = {
   dark: `${process.env.PUBLIC_URL}/themes/main-dark.css`,
@@ -20,7 +20,7 @@ ReactDOM.render(
     <Provider store={store}>
       <ThemeSwitcherProvider
         themeMap={themes}
-        defaultTheme={currentTheme}
+        defaultTheme={defaultTheme}
         insertionPoint={document.getElementById('inject-styles-here')}
       >
         <App />

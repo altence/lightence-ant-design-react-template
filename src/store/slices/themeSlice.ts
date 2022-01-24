@@ -5,11 +5,13 @@ interface ThemeState {
   theme: ThemeType;
 }
 
+export const defaultTheme = (localStorage.getItem('theme') as ThemeType) || 'dark';
+
 const initialState: ThemeState = {
-  theme: (localStorage.getItem('theme') as ThemeType) || 'dark',
+  theme: defaultTheme,
 };
 
-export const setTheme = createAction<PrepareAction<ThemeType>>('setTheme', (theme: ThemeType) => {
+export const setTheme = createAction<PrepareAction<ThemeType>>('theme/setTheme', (theme: ThemeType) => {
   localStorage.setItem('theme', theme);
   return {
     payload: theme,
@@ -17,7 +19,7 @@ export const setTheme = createAction<PrepareAction<ThemeType>>('setTheme', (them
 });
 
 export const themeSlice = createSlice({
-  name: 'nightMode',
+  name: 'theme',
   initialState,
   reducers: {},
   extraReducers: (builder) => {

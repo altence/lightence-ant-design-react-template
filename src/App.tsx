@@ -11,7 +11,6 @@ import { AppRouter } from './components/router/AppRouter';
 import { ThemeSwitcher } from '@app/components/common/ThemeSwitcher';
 import { useLanguage } from './hooks/useLanguage';
 import { useAppSelector } from './hooks/reduxHooks';
-import { useEntry } from './hooks/useEntry';
 import { useNightMode } from './hooks/useNightMode';
 
 const App: React.FC = () => {
@@ -19,7 +18,6 @@ const App: React.FC = () => {
 
   const { language } = useLanguage();
 
-  useEntry();
   useNightMode();
 
   return (
