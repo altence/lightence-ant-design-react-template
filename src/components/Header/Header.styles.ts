@@ -61,15 +61,15 @@ export const MobileBurger = styled(BurgerIcon)`
   ${(props) => props.isCross && `color: ${props.theme.colors.text.secondary}`};
 `;
 
-interface TwoColumnsLayoutColumn {
-  $isTwoColumnsLayout: boolean;
-}
-
 export const SearchColumn = styled(Col)`
   padding: ${(props) => `${props.theme.desktopLayout.paddingVertical} ${props.theme.desktopLayout.paddingHorizontal}`};
 `;
 
-export const ProfileColumn = styled(Col)<TwoColumnsLayoutColumn>`
+interface ProfileColumn {
+  $isTwoColumnsLayout: boolean;
+}
+
+export const ProfileColumn = styled(Col)<ProfileColumn>`
   @media only screen and ${(props) => props.theme.media.md} {
     ${(props) =>
       props?.$isTwoColumnsLayout &&

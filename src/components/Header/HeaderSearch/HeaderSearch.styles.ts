@@ -28,7 +28,7 @@ export const InputSearch = styled(SearchInput)`
     .ant-input-group .ant-input-affix-wrapper:not(:last-child) {
       border-radius: 3.125rem;
       border: 0;
-      padding: 9px 1.25rem;
+      padding: 0.5625rem 1.25rem;
       background-color: ${(props) => props.theme.colors.main.secondaryBackground};
     }
   }
