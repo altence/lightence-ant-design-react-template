@@ -26,6 +26,7 @@ declare module 'styled-components' {
         error: string;
         warning: string;
         success: string;
+        spinnerBase: string;
         angularGradient: string;
         mainBackground: string;
         secondaryBackground: string;

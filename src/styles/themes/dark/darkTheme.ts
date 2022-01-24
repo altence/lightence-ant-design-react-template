@@ -6,7 +6,7 @@ const darkColors = {
     primary: '#7568f6',
     primaryGradient: 'linear-gradient(261.31deg, #006CCF -29.57%, #00509A 121.11%)',
     light: '#696969',
-    secondary: '#35A0DC',
+    secondary: '#dc88f5',
     error: '#ff3d71',
     warning: '#ffaa00',
     success: '#62d7c6',
@@ -14,6 +14,7 @@ const darkColors = {
       'conic-gradient(from -35.18deg at 50% 50%, #006CCF -154.36deg, #FF5252 24.13deg, #FFB155 118.76deg, #006CCF 205.64deg, #FF5252 384.13deg)',
     mainBackground: '#2D2C3E',
     secondaryBackground: '#1c2137',
+    spinnerBase: '#7568f6',
     chartPrimaryGradient: new graphic.LinearGradient(0, 0, 0, 1, [
       {
         offset: 0,
