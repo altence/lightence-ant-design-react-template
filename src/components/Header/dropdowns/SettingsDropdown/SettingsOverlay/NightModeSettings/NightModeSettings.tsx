@@ -1,21 +1,31 @@
 import React, { useContext } from 'react';
 import { NightModeContext } from 'context/NightModeContext';
-import { MoonIcon } from 'components/common/icons/MoonIcon';
-import { SunIcon } from 'components/common/icons/SunIcon';
 import { NightTimePicker } from './NightTimePicker/NightTimePicker';
-import * as S from './NightModeSettings.styles';
+import { Switch } from '@app/components/common/Switch/Switch';
+import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 export const NightModeSettings: React.FC = () => {
   const { isNightMode, setNightMode, nightTime, setNightTime } = useContext(NightModeContext);
 
+  const handleChange = (checked: boolean) => {
+    setNightMode(checked);
+  };
+
+  const { t } = useTranslation();
+
   return (
     <>
-      <S.ButtonGroup isNightMode={isNightMode}>
-        <S.Btn size="small" type="link" icon={<MoonIcon />} onClick={() => setNightMode(true)} />
-        <S.Btn size="small" type="link" icon={<SunIcon />} onClick={() => setNightMode(false)} />
-      </S.ButtonGroup>
-
+      <SwitchContainer>
+        <span>{t('common.auto')}</span>
+        <Switch checkedChildren="On" unCheckedChildren="Off" defaultChecked={isNightMode} onChange={handleChange} />
+      </SwitchContainer>
       {isNightMode && <NightTimePicker nightTime={nightTime} setNightTime={setNightTime} />}
     </>
   );
 };
+
+export const SwitchContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;

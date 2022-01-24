@@ -3,7 +3,7 @@ import { hexToRGB } from 'utils/utils';
 import styled, { css } from 'styled-components';
 
 interface BtnProps {
-  isNightMode: boolean;
+  $isFirstActive: boolean;
 }
 
 export const Btn = styled(Button)`
@@ -26,7 +26,7 @@ export const ButtonGroup = styled.div<BtnProps>`
   background-color: ${(props) => hexToRGB(props.theme.colors.main.primary, 0.1)};
 
   ${(props) =>
-    props.isNightMode
+    props.$isFirstActive
       ? css`
           & > ${Btn}:first-of-type {
             background: ${props.theme.colors.main.primary};

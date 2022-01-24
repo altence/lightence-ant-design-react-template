@@ -15,14 +15,14 @@ export const SettingsOverlay: React.FC = () => {
 
   return (
     <S.SettingsOverlayMenu mode="inline" selectable={false}>
-      <DropdownCollapse bordered={false} expandIconPosition="right" ghost defaultActiveKey="nightMode">
+      <DropdownCollapse bordered={false} expandIconPosition="right" ghost defaultActiveKey="themePicker">
         <DropdownCollapse.Panel header={t('header.changeLanguage')} key="languagePicker">
           <LanguagePicker />
         </DropdownCollapse.Panel>
         <DropdownCollapse.Panel header={t('header.changeTheme')} key="themePicker">
           <ThemePicker />
         </DropdownCollapse.Panel>
-        <DropdownCollapse.Panel header={t('header.nightMode.title')} key="nightMode" collapsible="disabled">
+        <DropdownCollapse.Panel header={t('header.nightMode.title')} key="nightMode">
           <NightModeSettings />
         </DropdownCollapse.Panel>
       </DropdownCollapse>
