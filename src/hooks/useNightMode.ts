@@ -50,9 +50,9 @@ export const useNightMode = (): void => {
     const now = Dates.getToday();
 
     if (isNight(nightTime)) {
-      return startDate.isAfter(now) ? startDate.diff(now) : startDate.add(1, 'day').diff(now);
-    } else {
       return endDate.diff(now);
+    } else {
+      return startDate.isAfter(now) ? startDate.diff(now) : startDate.add(1, 'day').diff(now);
     }
   }, [nightTime]);
 
