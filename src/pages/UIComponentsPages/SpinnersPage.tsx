@@ -1,10 +1,11 @@
-import { useState } from 'react';
-import { Col, Alert, Switch, Space } from 'antd';
+import React, { useState } from 'react';
+import { Col, Switch, Space } from 'antd';
 import { Spinner } from 'components/common/Spinner/Spinner';
 import { useTranslation } from 'react-i18next';
 import { LoadingOutlined, RedoOutlined, ChromeOutlined } from '@ant-design/icons';
 import * as S from './UIComponentsPage.styles';
 import { Loading } from '@app/components/common/Loading';
+import { Alert } from '@app/components/common/Alert/Alert';
 
 const antIcon1 = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 const antIcon2 = <RedoOutlined style={{ fontSize: 24 }} spin />;
