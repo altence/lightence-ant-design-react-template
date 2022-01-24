@@ -221,11 +221,10 @@
   },
   "error404": {
     "notFound": "Sorry, page not found!",
-    "comeBack": "Come back"
+    "comeBack": "Return to Home"
   },
   "serverError": {
-    "main": "Internal server error",
-    "tryAgain": "Try again"
+    "main": "Internal server error"
   },
   "newsFeed": {
     "filter": "Filter",

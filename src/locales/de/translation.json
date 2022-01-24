@@ -220,11 +220,10 @@
   },
   "error404": {
     "notFound": "Entschuldigung, Seite nicht gefunden!",
-    "comeBack": "Komm zurück"
+    "comeBack": "Zur Startseite zurückkehren"
   },
   "serverError": {
-    "main": "Interner Server-Fehler",
-    "tryAgain": "Versuch es noch einmal"
+    "main": "Interner Server-Fehler"
   },
   "newsFeed": {
     "filter": "Filter",

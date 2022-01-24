@@ -1,11 +1,12 @@
 import styled from 'styled-components';
-import { Button, Typography, Image as AntImage } from 'antd';
+import { Typography, Image as AntImage } from 'antd';
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 3.75rem 1.25rem;
+  border-radius: ${(props) => props.theme.border.radius};
 
   background-color: ${(props) => props.theme.colors.main.mainBackground};
 
@@ -68,13 +69,5 @@ export const Text = styled(Title)`
   @media only screen and ${(props) => props.theme.media.xl} {
     font-size: 1.5rem;
     margin-bottom: 1.8rem;
-  }
-`;
-
-export const Btn = styled(Button)`
-  width: 100%;
-
-  @media only screen and ${(props) => props.theme.media.md} {
-    font-size: 1rem;
   }
 `;

@@ -6,7 +6,7 @@ import serverError from '../assets/images/server-error.svg';
 const ServerErrorPage: React.FC = () => {
   const { t } = useTranslation();
 
-  return <Error img={serverError} msg={t('serverError.main')} btnText={t('serverError.tryAgain')} />;
+  return <Error img={serverError} msg={t('serverError.main')} />;
 };
 
 export default ServerErrorPage;
