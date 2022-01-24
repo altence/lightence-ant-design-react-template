@@ -116,7 +116,8 @@
     "submit": "Submit",
     "country": "Country",
     "city": "City",
-    "zipcode": "Zipcode"
+    "zipcode": "Zipcode",
+    "auto": "Auto"
   },
   "header": {
     "search": "Search",

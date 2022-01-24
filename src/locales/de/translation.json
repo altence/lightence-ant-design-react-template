@@ -7,7 +7,7 @@
     "advancedForms": "Erweiterte Formulare",
     "dataTables": "Datentabellen",
     "charts": "Diagramme",
-    "map": "Karte", 
+    "map": "Karte",
     "maps": "Karten",
     "pages": "Seiten",
     "feed": "Futter",
@@ -115,7 +115,8 @@
     "submit": "Einreichen",
     "country": "Land",
     "city": "Stadt",
-    "zipcode": "Postleitzahl"
+    "zipcode": "Postleitzahl",
+    "auto": "Auto"
   },
   "header": {
     "search": "Suche",
