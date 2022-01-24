@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Col, Collapse, Menu } from 'antd';
 import { BurgerIcon } from '../common/Burger/BurgerIcon';
+import { GitHubButton } from '@app/components/Header/GitHubButton';
 
 export const DropdownMenu = styled(Menu)`
   background-color: ${(props) => props.theme.colors.main.mainBackground};
@@ -83,5 +84,14 @@ export const ProfileColumn = styled(Col)<ProfileColumn>`
           margin-top: -${props.theme.desktopLayout.paddingVertical};
         }
       `}
+  }
+`;
+
+export const GHButton = styled(GitHubButton)`
+  margin-right: 15px;
+  display: none;
+
+  @media only screen and ${(props) => props.theme.media.lg} {
+    display: block;
   }
 `;
