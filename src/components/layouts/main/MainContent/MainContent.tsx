@@ -6,6 +6,9 @@ const { Content } = Layout;
 export default styled(Content)`
   padding: ${(props) => `${props.theme.mobileLayout.paddingVertical} ${props.theme.mobileLayout.paddingHorizontal}`};
   overflow: overlay;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   @media only screen and ${(props) => props.theme.media.md} {
     padding: ${(props) =>
