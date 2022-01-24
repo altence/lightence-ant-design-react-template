@@ -6,12 +6,8 @@ import { ThemeType } from '@app/interfaces/interfaces';
 
 const getStartDate = (nightTime: number[]) => {
   const clearDate = Dates.getClearDate();
-  const now = Dates.getToday();
 
-  let startDate = clearDate.add(nightTime[0], 'ms');
-  startDate = startDate.isAfter(now) ? startDate : startDate.add(1, 'day');
-
-  return startDate;
+  return clearDate.add(nightTime[0], 'ms');
 };
 
 const getEndDate = (nightTime: number[]) => {
@@ -53,7 +49,11 @@ export const useNightMode = (): void => {
     const endDate = getEndDate(nightTime);
     const now = Dates.getToday();
 
-    return isNight(nightTime) ? endDate.diff(now) : startDate.diff(now);
+    if (isNight(nightTime)) {
+      return startDate.isAfter(now) ? startDate.diff(now) : startDate.add(1, 'day').diff(now);
+    } else {
+      return endDate.diff(now);
+    }
   }, [nightTime]);
 
   const checkNightMode = useCallback(() => {
