@@ -7,26 +7,25 @@ export const defaultTheme: ThemeType = (localStorage.getItem('theme') as ThemeTy
 export const useTheme = (isNightMode: boolean, nightTime: number[]): [ThemeType, (theme: ThemeType) => void] => {
   const [theme, setTheme] = useState(defaultTheme);
 
-  const selectTheme = (theme: ThemeType): void => {
-    setTheme(theme);
-    localStorage.setItem('theme', theme);
-  };
+  const selectTheme = useCallback(
+    (newTheme: ThemeType): void => {
+      if (theme !== newTheme) {
+        setTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+      }
+    },
+    [theme],
+  );
 
   const checkNightMode = useCallback(() => {
     if (isNightMode) {
       selectTheme(isNight(nightTime) ? 'dark' : 'light');
     }
-  }, [isNightMode, nightTime]);
+  }, [isNightMode, nightTime, selectTheme]);
 
   useEffect(() => {
     checkNightMode();
   }, [isNightMode, nightTime, checkNightMode]);
-
-  useEffect(() => {
-    const id = setInterval(checkNightMode, 60 * 1000);
-
-    return () => clearInterval(id);
-  }, [checkNightMode]);
 
   return [theme, selectTheme];
 };
