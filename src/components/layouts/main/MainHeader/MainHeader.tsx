@@ -1,6 +1,10 @@
 import React from 'react';
 import * as S from './MainHeader.styles';
 
-export const MainHeader: React.FC = ({ children }) => {
-  return <S.Header>{children}</S.Header>;
+interface MainHeaderProps {
+  isTwoColumnsLayout: boolean;
+}
+
+export const MainHeader: React.FC<MainHeaderProps> = ({ isTwoColumnsLayout, children }) => {
+  return <S.Header $isTwoColumnsLayoutHeader={isTwoColumnsLayout}>{children}</S.Header>;
 };

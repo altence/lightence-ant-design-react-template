@@ -13,7 +13,7 @@ export const Header: React.FC<HeaderProps> = ({ toggleSider, isSiderOpened, isTw
   const { isTablet } = useResponsive();
 
   return isTablet ? (
-    <DesktopHeader withDivider={isTwoColumnsLayout} />
+    <DesktopHeader isTwoColumnsLayout={isTwoColumnsLayout} />
   ) : (
     <MobileHeader toggleSider={toggleSider} isSiderOpened={isSiderOpened} />
   );

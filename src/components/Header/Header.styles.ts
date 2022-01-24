@@ -5,11 +5,8 @@ import { GitHubButton } from '@app/components/Header/GitHubButton';
 
 export const DropdownMenu = styled(Menu)`
   background-color: ${(props) => props.theme.colors.main.mainBackground};
-
   box-shadow: 0 4px 40px rgba(0, 0, 0, 0.07) !important;
-
   border-radius: ${(props) => props.theme.border.radius};
-
   line-height: 1.5715;
 `;
 
@@ -64,25 +61,29 @@ export const MobileBurger = styled(BurgerIcon)`
   ${(props) => props.isCross && `color: ${props.theme.colors.text.secondary}`};
 `;
 
-interface ProfileColumn {
-  $withDivider: boolean;
+interface TwoColumnsLayoutColumn {
+  $isTwoColumnsLayout: boolean;
 }
 
-export const ProfileColumn = styled(Col)<ProfileColumn>`
+export const SearchColumn = styled(Col)<TwoColumnsLayoutColumn>`
   @media only screen and ${(props) => props.theme.media.md} {
     ${(props) =>
-      props?.$withDivider &&
+      props?.$isTwoColumnsLayout &&
       css`
-        &:before {
-          height: ${props.theme.desktopLayout.headerHeight};
-          display: block;
-          width: 1px;
-          background: ${(props) => props.theme.colors.border.main};
-          content: '';
-          position: absolute;
-          // TODO fix header inputs height
-          margin-top: -${props.theme.desktopLayout.paddingVertical};
-        }
+        padding: ${(props) =>
+          `${props.theme.desktopLayout.paddingVertical} ${props.theme.desktopLayout.paddingHorizontal}`};
+      `}
+  }
+`;
+
+export const ProfileColumn = styled(Col)<TwoColumnsLayoutColumn>`
+  @media only screen and ${(props) => props.theme.media.md} {
+    ${(props) =>
+      props?.$isTwoColumnsLayout &&
+      css`
+        background-color: ${(props) => props.theme.colors.main.mainBackground};
+        padding: ${(props) =>
+          `${props.theme.desktopLayout.paddingVertical} ${props.theme.desktopLayout.paddingHorizontal}`};
       `}
   }
 `;

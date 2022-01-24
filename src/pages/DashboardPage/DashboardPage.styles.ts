@@ -2,26 +2,16 @@ import styled from 'styled-components';
 import { Col } from 'antd';
 
 export const RightSideCol = styled(Col)`
+  padding-top: ${(props) => props.theme.desktopLayout.paddingVertical};
+  padding-bottom: ${(props) => props.theme.desktopLayout.paddingVertical};
+  padding-right: ${(props) => props.theme.desktopLayout.paddingHorizontal};
+  padding-left: ${(props) => props.theme.desktopLayout.paddingHorizontal};
   position: sticky;
   top: 0;
   display: flex;
   flex-direction: column;
-  height: calc(
-    100vh - ${(props) => props.theme.desktopLayout.headerHeight} -
-      ${(props) => props.theme.desktopLayout.paddingVertical} * 2
-  );
-  padding-left: 1.875rem;
-
-  &:before {
-    height: 100vh;
-    display: block;
-    width: 1px;
-    background: ${(props) => props.theme.colors.border.main};
-    content: '';
-    position: absolute;
-    margin-top: -${(props) => props.theme.desktopLayout.paddingVertical};
-    left: 0;
-  }
+  height: calc(100vh - ${(props) => props.theme.desktopLayout.headerHeight});
+  background-color: ${(props) => props.theme.colors.main.mainBackground};
 
   #patient-timeline {
     overflow-y: auto;
@@ -29,7 +19,10 @@ export const RightSideCol = styled(Col)`
 `;
 
 export const LeftSideCol = styled(Col)`
-  padding-right: 1rem;
+  @media only screen and ${(props) => props.theme.media.xl} {
+    padding: ${(props) =>
+      `${props.theme.desktopLayout.paddingVertical} ${props.theme.desktopLayout.paddingHorizontal} ${props.theme.desktopLayout.paddingVertical} ${props.theme.desktopLayout.paddingHorizontal}`};
+  }
 `;
 
 export const Space = styled.div`

@@ -8,12 +8,12 @@ import { SettingsDropdown } from '../dropdowns/SettingsDropdown/SettingsDropdown
 import * as S from '../Header.styles';
 
 interface DesktopHeaderProps {
-  withDivider: boolean;
+  isTwoColumnsLayout: boolean;
 }
 
-export const DesktopHeader: React.FC<DesktopHeaderProps> = ({ withDivider }) => {
-  const leftSide = withDivider ? (
-    <Col lg={16}>
+export const DesktopHeader: React.FC<DesktopHeaderProps> = ({ isTwoColumnsLayout }) => {
+  const leftSide = isTwoColumnsLayout ? (
+    <S.SearchColumn lg={16}>
       <Row justify="space-between">
         <Col xl={15} xxl={12}>
           <HeaderSearch />
@@ -22,7 +22,7 @@ export const DesktopHeader: React.FC<DesktopHeaderProps> = ({ withDivider }) => 
           <S.GHButton />
         </Col>
       </Row>
-    </Col>
+    </S.SearchColumn>
   ) : (
     <>
       <Col lg={10} xxl={8}>
@@ -38,7 +38,7 @@ export const DesktopHeader: React.FC<DesktopHeaderProps> = ({ withDivider }) => 
     <Row justify="space-between" align="middle">
       {leftSide}
 
-      <S.ProfileColumn xl={8} xxl={8} $withDivider={withDivider}>
+      <S.ProfileColumn xl={8} xxl={8} $isTwoColumnsLayout={isTwoColumnsLayout}>
         <Row align="middle" justify="end" gutter={[30, 30]}>
           <Col>
             <NotificationsDropdown />

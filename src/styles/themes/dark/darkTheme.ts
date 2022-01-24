@@ -89,8 +89,8 @@ const darkColors = {
 };
 
 const boxShadow = {
-  main: '0 4px 8px 0 rgba(255, 255, 255, 0.07)',
-  hover: '0 8px 16px 0 rgba(255, 255, 255, 0.2)',
+  main: '0 2px 8px 0 rgba(255, 255, 255, 0.07)',
+  hover: '0 4px 16px 0 rgba(255, 255, 255, 0.2)',
 };
 
 export const darkTheme = {
