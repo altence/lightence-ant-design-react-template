@@ -9,7 +9,6 @@ const AuthLayout: React.FC = () => {
         <S.LoginWrapper>
           <Outlet />
         </S.LoginWrapper>
-        {<S.Copyright>2021 &copy; Altence. All Rights Reserved</S.Copyright>}
       </S.BackgroundWrapper>
     </S.Wrapper>
   );
