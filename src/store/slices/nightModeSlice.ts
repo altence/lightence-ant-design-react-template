@@ -12,8 +12,13 @@ const currentNightTime: number[] = currentNightTimeJSON
   ? (JSON.parse(currentNightTimeJSON) as number[])
   : DEFAULT_NIGHT_MODE_INTERVAL;
 
+const isNightMode = localStorage.getItem('nightMode') === 'true';
+
+localStorage.setItem('nightTime', JSON.stringify(currentNightTime));
+localStorage.setItem('nightMode', JSON.stringify(isNightMode));
+
 const initialState: NightModeState = {
-  isNightMode: localStorage.getItem('nightMode') === 'true',
+  isNightMode,
   nightTime: currentNightTime,
 };
 
