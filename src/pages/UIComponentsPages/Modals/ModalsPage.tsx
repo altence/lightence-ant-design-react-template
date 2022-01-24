@@ -121,16 +121,16 @@ const ModalsPage: React.FC = () => {
         </Modal>
       </S.Card>
       <S.Card title={t('modals.infoModal')}>
-        <Button type="default" onClick={success}>
+        <Button $severity="success" type="default" onClick={success}>
           {t('modals.success')}
         </Button>
-        <Button type="default" onClick={info}>
+        <Button $severity="info" type="default" onClick={info}>
           {t('modals.info')}
         </Button>
-        <Button type="default" onClick={warning}>
+        <Button $severity="warning" type="default" onClick={warning}>
           {t('modals.warning')}
         </Button>
-        <Button type="default" onClick={error}>
+        <Button $severity="error" type="default" onClick={error}>
           {t('modals.error')}
         </Button>
       </S.Card>
