@@ -98,7 +98,7 @@
     "@types/react-slick": "^0.23.8",
     "@types/styled-components": "^5.1.10",
     "@types/uuid": "^8.3.4",
-    "@typescript-eslint/eslint-plugin": "^4.27.0",
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
     "@typescript-eslint/parser": "^5.8.0",
     "craco-alias": "^3.0.1",
     "eslint": "^7.28.0",
