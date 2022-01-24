@@ -3,16 +3,26 @@ import { NightTimePicker } from './NightTimePicker/NightTimePicker';
 import { Switch } from '@app/components/common/Switch/Switch';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
-import { useNightMode } from '@app/hooks/useNightMode';
+import { useAppDispatch, useAppSelector } from '@app/hooks/reduxHooks';
+import { setNightMode, setNightTime } from '@app/store/slices/nightModeSlice';
 
 export const NightModeSettings: React.FC = () => {
-  const { isNightMode, setNightMode, nightTime, setNightTime } = useNightMode();
+  const { t } = useTranslation();
 
-  const handleChange = (checked: boolean) => {
-    setNightMode(checked);
+  const dispatch = useAppDispatch();
+  const nightModeState = useAppSelector((state) => state.nightMode);
+  const isNightMode = nightModeState.isNightMode;
+  const nightTime = nightModeState.nightTime;
+
+  const handleChange = (isNightMode: boolean) => {
+    dispatch(setNightMode(isNightMode));
+    localStorage.setItem('nightMode', JSON.stringify(isNightMode));
   };
 
-  const { t } = useTranslation();
+  const handleNightTime = (nightTime: number[]) => {
+    dispatch(setNightTime(nightTime));
+    localStorage.setItem('nightTime', JSON.stringify(nightTime));
+  };
 
   return (
     <>
@@ -20,7 +30,7 @@ export const NightModeSettings: React.FC = () => {
         <span>{t('common.auto')}</span>
         <Switch checkedChildren="On" unCheckedChildren="Off" checked={isNightMode} onChange={handleChange} />
       </SwitchContainer>
-      {isNightMode && <NightTimePicker nightTime={nightTime} setNightTime={setNightTime} />}
+      {isNightMode && <NightTimePicker nightTime={nightTime} setNightTime={handleNightTime} />}
     </>
   );
 };
