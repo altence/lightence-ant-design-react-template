@@ -19,6 +19,7 @@ export const useNightMode = (): UseNightModeReturnValue => {
   const setNightMode = (isNightMode: boolean) => {
     setMode(isNightMode);
     localStorage.setItem('nightMode', JSON.stringify(isNightMode));
+    localStorage.setItem('nightTime', JSON.stringify(nightTime));
   };
 
   const [nightTime, setTime] = useState(currentNightTime);
