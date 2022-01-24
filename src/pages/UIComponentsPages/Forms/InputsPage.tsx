@@ -19,8 +19,8 @@ import { useState } from 'react';
 
 const InputsPage: React.FC = () => {
   const { t } = useTranslation();
-  const [clipboardValue, setClipboardValue] = useState('');
-  const [newTabValue, setNewTabValue] = useState('');
+  const [clipboardValue, setClipboardValue] = useState('@altence_team');
+  const [newTabValue, setNewTabValue] = useState('https://altence.com');
 
   const selectBefore = (
     <Select defaultValue="http://">
@@ -104,11 +104,13 @@ const InputsPage: React.FC = () => {
       <S.Card title={t('inputs.func')}>
         <S.InputsWrapper>
           <ClipboardInput
+            value={clipboardValue}
             placeholder={t('inputs.clipboard')}
             valueToCopy={clipboardValue}
             onChange={(e) => setClipboardValue(e.target.value)}
           />
           <OpenURLInput
+            value={newTabValue}
             placeholder={t('inputs.openURL')}
             href={newTabValue}
             onChange={(e) => setNewTabValue(e.target.value)}
