@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Typography, Divider } from 'antd';
-import { DropdownMenu } from 'components/Header/Header.styles';
+import { MenuItem as MenuItemBase } from '@app/components/common/Menu/Menu';
 
 export const Text = styled(Typography.Text)`
   font-size: 0.875rem;
@@ -15,12 +15,8 @@ export const Text = styled(Typography.Text)`
   }
 `;
 
-export const ProfileDropdownOverlay = styled(DropdownMenu)`
-  .ant-menu-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+export const MenuItem = styled(MenuItemBase)`
+  height: 50px;
 `;
 
 export const ItemsDivider = styled(Divider).withConfig({
