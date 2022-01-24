@@ -4,8 +4,10 @@ import { ThemeType } from '@app/interfaces/interfaces';
 
 const getStartDate = (nightTime: number[]) => {
   const clearDate = Dates.getClearDate();
+  const now = Dates.getToday();
 
-  const startDate = clearDate.add(nightTime[0], 'ms');
+  let startDate = clearDate.add(nightTime[0], 'ms');
+  startDate = startDate.isAfter(now) ? startDate : startDate.add(1, 'day');
 
   return startDate;
 };
@@ -45,11 +47,7 @@ export const useTheme = (isNightMode: boolean, nightTime: number[]): [ThemeType,
     const endDate = getEndDate(nightTime);
     const now = Dates.getToday();
 
-    if (isNight(nightTime)) {
-      return endDate.diff(now);
-    } else {
-      return startDate.isAfter(now) ? startDate.diff(now) : startDate.add(1, 'day').diff(now);
-    }
+    return isNight(nightTime) ? endDate.diff(now) : startDate.diff(now);
   }, [nightTime]);
 
   const checkNightMode = useCallback(() => {
@@ -61,6 +59,8 @@ export const useTheme = (isNightMode: boolean, nightTime: number[]): [ThemeType,
       if (timeoutId) {
         clearTimeout(timeoutId);
       }
+
+      console.log(`setted timeout in ${timeToChange} `);
 
       timeoutId = setTimeout(() => {
         checkNightMode();
