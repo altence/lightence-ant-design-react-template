@@ -5,9 +5,13 @@ import { Menu, MenuItem } from 'components/common/Menu/Menu';
 import { HomeOutlined, UserOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import * as S from '../UIComponentsPage.styles';
+import { useLocation } from 'react-router-dom';
+import React from 'react';
 
 const BreadcrumbsPage: React.FC = () => {
   const { t } = useTranslation();
+
+  const { pathname } = useLocation();
 
   const menu = (
     <Menu>
@@ -32,40 +36,40 @@ const BreadcrumbsPage: React.FC = () => {
     <Col>
       <S.Card title={t('breadcrumbs.basic')}>
         <Breadcrumb>
-          <BreadcrumbItem>{t('breadcrumbs.home')}</BreadcrumbItem>
-          <BreadcrumbItem>{t('breadcrumbs.applicationCenter')}</BreadcrumbItem>
-          <BreadcrumbItem>{t('breadcrumbs.applicationList')}</BreadcrumbItem>
-          <BreadcrumbItem>{t('breadcrumbs.application')}</BreadcrumbItem>
+          <BreadcrumbItem href={pathname}>{t('breadcrumbs.home')}</BreadcrumbItem>
+          <BreadcrumbItem href={pathname}>{t('breadcrumbs.applicationCenter')}</BreadcrumbItem>
+          <BreadcrumbItem href={pathname}>{t('breadcrumbs.applicationList')}</BreadcrumbItem>
+          <BreadcrumbItem href={pathname}>{t('breadcrumbs.application')}</BreadcrumbItem>
         </Breadcrumb>
       </S.Card>
       <S.Card title={t('breadcrumbs.withIcon')}>
         <Breadcrumb>
-          <BreadcrumbItem>
+          <BreadcrumbItem href={pathname}>
             <HomeOutlined />
           </BreadcrumbItem>
-          <BreadcrumbItem>
+          <BreadcrumbItem href={pathname}>
             <Space>
               <UserOutlined />
               <span>{t('breadcrumbs.applicationList')}</span>
             </Space>
           </BreadcrumbItem>
-          <BreadcrumbItem>{t('breadcrumbs.application')}</BreadcrumbItem>
+          <BreadcrumbItem href={pathname}>{t('breadcrumbs.application')}</BreadcrumbItem>
         </Breadcrumb>
       </S.Card>
       <S.Card title={t('breadcrumbs.customSeparator')}>
         <Breadcrumb separator=">">
-          <BreadcrumbItem>{t('breadcrumbs.home')}</BreadcrumbItem>
-          <BreadcrumbItem>{t('breadcrumbs.applicationCenter')}</BreadcrumbItem>
-          <BreadcrumbItem>{t('breadcrumbs.applicationList')}</BreadcrumbItem>
-          <BreadcrumbItem>{t('breadcrumbs.application')}</BreadcrumbItem>
+          <BreadcrumbItem href={pathname}>{t('breadcrumbs.home')}</BreadcrumbItem>
+          <BreadcrumbItem href={pathname}>{t('breadcrumbs.applicationCenter')}</BreadcrumbItem>
+          <BreadcrumbItem href={pathname}>{t('breadcrumbs.applicationList')}</BreadcrumbItem>
+          <BreadcrumbItem href={pathname}>{t('breadcrumbs.application')}</BreadcrumbItem>
         </Breadcrumb>
       </S.Card>
       <S.Card title={t('breadcrumbs.withDropdown')}>
         <Breadcrumb>
-          <BreadcrumbItem>{t('breadcrumbs.antd')}</BreadcrumbItem>
-          <BreadcrumbItem>{t('breadcrumbs.component')}</BreadcrumbItem>
+          <BreadcrumbItem href={pathname}>{t('breadcrumbs.antd')}</BreadcrumbItem>
+          <BreadcrumbItem href={pathname}>{t('breadcrumbs.component')}</BreadcrumbItem>
           <BreadcrumbItem overlay={menu}>{t('breadcrumbs.general')}</BreadcrumbItem>
-          <BreadcrumbItem>{t('breadcrumbs.button')}</BreadcrumbItem>
+          <BreadcrumbItem href={pathname}>{t('breadcrumbs.button')}</BreadcrumbItem>
         </Breadcrumb>
       </S.Card>
     </Col>
