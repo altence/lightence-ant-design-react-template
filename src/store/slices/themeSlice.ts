@@ -1,24 +1,30 @@
 import { ThemeType } from '@app/interfaces/interfaces';
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, createAction, PrepareAction } from '@reduxjs/toolkit';
 
 interface ThemeState {
-  value: ThemeType;
+  theme: ThemeType;
 }
 
 const initialState: ThemeState = {
-  value: 'dark',
+  theme: (localStorage.getItem('theme') as ThemeType) || 'dark',
 };
+
+export const setTheme = createAction<PrepareAction<ThemeType>>('setTheme', (theme: ThemeType) => {
+  localStorage.setItem('theme', theme);
+  return {
+    payload: theme,
+  };
+});
 
 export const themeSlice = createSlice({
   name: 'nightMode',
   initialState,
-  reducers: {
-    setTheme: (state, action: PayloadAction<ThemeType>) => {
-      state.value = action.payload;
-    },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(setTheme, (state, action) => {
+      state.theme = action.payload;
+    });
   },
 });
-
-export const { setTheme } = themeSlice.actions;
 
 export default themeSlice.reducer;

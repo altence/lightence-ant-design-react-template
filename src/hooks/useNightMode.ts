@@ -1,4 +1,4 @@
-import { useEffect, useCallback, useMemo } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { setTheme } from '@app/store/slices/themeSlice';
 import { useAppDispatch, useAppSelector } from '@app/hooks/reduxHooks';
 import { Dates } from '@app/constants/Dates';
@@ -12,11 +12,9 @@ const getStartDate = (nightTime: number[]) => {
 
 const getEndDate = (nightTime: number[]) => {
   const clearDate = Dates.getClearDate();
-
   const endTimeOffset = nightTime[0] < nightTime[1] ? nightTime[1] : nightTime[1] + 24 * 3600 * 1000;
-  const endDate = clearDate.add(endTimeOffset, 'ms');
 
-  return endDate;
+  return clearDate.add(endTimeOffset, 'ms');
 };
 
 const isNight = (nightTime: number[]) => {

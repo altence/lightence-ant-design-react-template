@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { useAppSelector } from '@app/hooks/reduxHooks';
 
 export const GitHubButton: React.FC = (props) => {
-  const theme = useAppSelector((state) => state.theme.value);
+  const theme = useAppSelector((state) => state.theme.theme);
 
   return (
     <Button

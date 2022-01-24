@@ -13,6 +13,7 @@ const currentNightTime: number[] = currentNightTimeJSON
   ? (JSON.parse(currentNightTimeJSON) as number[])
   : DEFAULT_NIGHT_MODE_INTERVAL;
 
+// TODO duplicate theme reading
 export const currentTheme = (localStorage.getItem('theme') as ThemeType) || 'dark';
 
 export const useEntry = (): void => {

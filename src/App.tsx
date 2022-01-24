@@ -15,7 +15,7 @@ import { useEntry } from './hooks/useEntry';
 import { useNightMode } from './hooks/useNightMode';
 
 const App: React.FC = () => {
-  const theme = useAppSelector((state) => state.theme.value);
+  const theme = useAppSelector((state) => state.theme.theme);
 
   const { language } = useLanguage();
 
