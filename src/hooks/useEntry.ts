@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { setNightMode, setNightTime } from '@app/store/slices/nightModeSlice';
-import { useAppDispatch } from '@app/hooks/reduxHooks';
 import { setTheme } from '@app/store/slices/themeSlice';
+import { useAppDispatch } from '@app/hooks/reduxHooks';
+import { useNightMode } from '@app/hooks/useNightMode';
 import { ThemeType } from '@app/interfaces/interfaces';
 
 const DEFAULT_NIGHT_MODE_INTERVAL = [20 * 3600 * 1000, 8 * 3600 * 1000];
@@ -12,10 +13,12 @@ const currentNightTime: number[] = currentNightTimeJSON
   ? (JSON.parse(currentNightTimeJSON) as number[])
   : DEFAULT_NIGHT_MODE_INTERVAL;
 
-const currentTheme = (localStorage.getItem('theme') as ThemeType) || 'dark';
+export const currentTheme = (localStorage.getItem('theme') as ThemeType) || 'dark';
 
 export const useEntry = (): void => {
   const dispatch = useAppDispatch();
+
+  useNightMode();
 
   useEffect(() => {
     dispatch(setNightMode(currentNightMode));

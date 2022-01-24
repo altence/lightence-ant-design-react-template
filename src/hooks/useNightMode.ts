@@ -1,4 +1,6 @@
-import { useEffect, useState, useCallback, useMemo } from 'react';
+import { useEffect, useCallback, useMemo } from 'react';
+import { setTheme } from '@app/store/slices/themeSlice';
+import { useAppDispatch, useAppSelector } from '@app/hooks/reduxHooks';
 import { Dates } from '@app/constants/Dates';
 import { ThemeType } from '@app/interfaces/interfaces';
 
@@ -30,17 +32,21 @@ const isNight = (nightTime: number[]) => {
   return now.isBetween(startTime, endTime, null, '[)');
 };
 
-export const defaultTheme: ThemeType = (localStorage.getItem('theme') as ThemeType) || 'dark';
-
 let timeoutId: null | ReturnType<typeof setTimeout> = null;
 
-export const useTheme = (isNightMode: boolean, nightTime: number[]): [ThemeType, (theme: ThemeType) => void] => {
-  const [theme, setTheme] = useState(defaultTheme);
+export const useNightMode = (): void => {
+  const dispatch = useAppDispatch();
+  const nightModeState = useAppSelector((state) => state.nightMode);
+  const isNightMode = nightModeState.isNightMode;
+  const nightTime = nightModeState.nightTime;
 
-  const selectTheme = useCallback((newTheme: ThemeType): void => {
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-  }, []);
+  const selectTheme = useCallback(
+    (newTheme: ThemeType): void => {
+      dispatch(setTheme(newTheme));
+      localStorage.setItem('theme', newTheme);
+    },
+    [dispatch],
+  );
 
   const timeToChange = useMemo(() => {
     const startDate = getStartDate(nightTime);
@@ -71,6 +77,4 @@ export const useTheme = (isNightMode: boolean, nightTime: number[]): [ThemeType,
   useEffect(() => {
     checkNightMode();
   }, [checkNightMode]);
-
-  return [theme, selectTheme];
 };

@@ -12,6 +12,7 @@ import { ThemeSwitcher } from '@app/components/common/ThemeSwitcher';
 import { useLanguage } from './hooks/useLanguage';
 import { useAppSelector } from './hooks/reduxHooks';
 import { useEntry } from './hooks/useEntry';
+import { useNightMode } from './hooks/useNightMode';
 
 const App: React.FC = () => {
   const theme = useAppSelector((state) => state.theme.value);
@@ -19,6 +20,7 @@ const App: React.FC = () => {
   const { language } = useLanguage();
 
   useEntry();
+  useNightMode();
 
   return (
     <>
