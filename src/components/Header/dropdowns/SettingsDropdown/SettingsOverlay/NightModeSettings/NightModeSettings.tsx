@@ -17,6 +17,7 @@ export const NightModeSettings: React.FC = () => {
   const handleChange = (isNightMode: boolean) => {
     dispatch(setNightMode(isNightMode));
     localStorage.setItem('nightMode', JSON.stringify(isNightMode));
+    localStorage.setItem('nightTime', JSON.stringify(nightTime));
   };
 
   const handleNightTime = (nightTime: number[]) => {

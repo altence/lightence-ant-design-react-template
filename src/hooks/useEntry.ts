@@ -27,5 +27,6 @@ export const useEntry = (): void => {
 
   useEffect(() => {
     dispatch(setTheme(currentTheme));
+    localStorage.setItem('theme', currentTheme);
   }, [dispatch]);
 };

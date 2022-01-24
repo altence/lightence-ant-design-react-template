@@ -13,6 +13,7 @@ export const ThemePicker: React.FC = () => {
     dispatch(setTheme(theme));
     dispatch(setNightMode(false));
     localStorage.setItem('theme', theme);
+    localStorage.removeItem('nightMode');
   };
 
   return (
