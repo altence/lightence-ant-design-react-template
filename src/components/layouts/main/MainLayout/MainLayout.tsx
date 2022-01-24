@@ -29,7 +29,9 @@ const MainLayout: React.FC = () => {
           <Header toggleSider={toggleSider} isSiderOpened={!siderCollapsed} isTwoColumnsLayout={isTwoColumnsLayout} />
         </MainHeader>
         <MainContent id="main-content">
-          <Outlet />
+          <div>
+            <Outlet />
+          </div>
           {!isTwoColumnsLayout && <References />}
         </MainContent>
       </S.LayoutMain>
