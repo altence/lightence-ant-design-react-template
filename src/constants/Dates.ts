@@ -19,6 +19,10 @@ export class Dates {
     return dayjs();
   }
 
+  static getClearDate(): AppDate {
+    return this.getToday().hour(0).minute(0).second(0).millisecond(0);
+  }
+
   static getMonths(): string[] {
     return dayjs.months();
   }
