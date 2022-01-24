@@ -64,7 +64,7 @@ const AlertsPage: React.FC = () => {
           description={t('alerts.errorDescription')}
           type="error"
           action={
-            <Button size="small" danger>
+            <Button size="small" danger type="primary">
               {t('alerts.detail')}
             </Button>
           }
@@ -90,7 +90,7 @@ const AlertsPage: React.FC = () => {
               <Button size="small" type="primary">
                 {t('alerts.accept')}
               </Button>
-              <Button size="small" danger type="ghost">
+              <Button size="small" danger type="primary">
                 {t('alerts.decline')}
               </Button>
             </Space>
