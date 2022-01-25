@@ -1,6 +1,6 @@
 # Lightence
 
-React-powered **100% FREE** Admin Dashboard Template for building rich user interfaces significantly faster. For developers of all levels. Open-sourced and maintained by the [Altence](https://altence.com) team.
+React-powered **100% FREE** Admin Dashboard Template for building rich user interfaces significantly faster. For developers of all levels. Open-source and maintained by the [Altence](https://altence.com) team.
 
 ## Key Features
 - 🚀 This solution allows you to reduce MVP development costs by up to 40%
@@ -9,21 +9,21 @@ React-powered **100% FREE** Admin Dashboard Template for building rich user inte
 - 💊 Medical dashboard includes: customizable medical dashboard for data-driven applications
 - 🦸 Easy-to-start: check out a `starter` branch to skip demos and start building your next great project
 - 💻 Any backend supported: the dashboard supports any kind of backend by just updating an API
-- ⭐ Modern & great for projects of tomorrow: built with [React](https://reactjs.org/), [Redux](https://redux.js.org/) and [Ant Design](https://ant.design/); _Bootstrap_ and _jQuery_ free
+- ⭐ Modern & great for projects of tomorrow: built with [React](https://reactjs.org/), [Redux](https://redux.js.org/) and [Ant Design](https://ant.design/); _Bootstrap_ and _jQuery_ 100% free
 - 🇺🇳 Internationalized: built-in internationalization support
-- 📱 Mobile first: approach to reduce traffic on mobile devices
-- 🔥 Responsive & Adaptive: supports mobile, tablet, and desktop screens
+- 📱 Mobile first: optimized to reduce data usage on mobile devices
+- 🔥 Responsive & adaptive: supports mobile, tablet, and desktop screens
 - ☎️ Supports PWA to get all advantages of native mobile apps
 - 🎨 Theming: use built-in light and dark themes or implement your own theme with just lines of code
 - 🏋️ Optimized bundle size: use the latest features of building tools to reduce the final bundle size
 
 ## Under the Hood
-- 💯 60+ ready-to-use stunning UI components
+- 💯 60+ ready-to-use customizable UI components
 - 🚄 All-set business flow: login, sign up, forgot password, profile flows
 - 🐝 Custom pages: 400 error, 500 error, profile
 - 🗞️ Built-in apps: News Feed, Kanban
 - 👍 Fully typescripted
-- ✅ Clean code: enjoy the  world-recognized code style with our own enhancements
+- ✅ Clean code: enjoy the world-recognized code style with our own enhancements
 - 🧱 Solid architecture: in compliance with the  best architectural practices
 - 📃 [MIT](LICENSE) License
 
