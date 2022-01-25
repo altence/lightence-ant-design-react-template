@@ -19,7 +19,10 @@ export const SliderArrow = styled.div`
   }
 
   &:before {
-    color: ${(props) => props.theme.colors.main.primary};
-    font-size: 2rem;
+    color: ${(props) => props.theme.colors.main.primary} !important;
+    font-size: 2rem !important;
+    position: absolute;
+    left: -6px;
+    top: -6px;
   }
 `;
