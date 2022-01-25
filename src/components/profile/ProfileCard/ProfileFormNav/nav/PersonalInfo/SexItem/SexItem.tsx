@@ -10,7 +10,7 @@ export const SexItem: React.FC = () => {
 
   return (
     <FormItem name="sex" label={t('profile.nav.personalInfo.sex')}>
-      <Select showSearch filterOption={(input, option) => option?.value.toLowerCase().includes(input.toLowerCase())}>
+      <Select>
         <Option value="male">
           <Space align="center">
             <ManOutlined />
