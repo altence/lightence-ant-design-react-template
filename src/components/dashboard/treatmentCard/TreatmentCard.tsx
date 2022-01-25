@@ -61,7 +61,7 @@ export const TreatmentCard: React.FC = () => {
 
   return (
     <DashboardCard title={t('dashboard.treatmentPlan.title')}>
-      <Row gutter={[10, 10]} wrap={false}>
+      <RowStyled gutter={[10, 10]} wrap={false}>
         {isTablet ? (
           <>
             <Col md={12}>{calendarItem}</Col>
@@ -75,7 +75,7 @@ export const TreatmentCard: React.FC = () => {
         ) : (
           <Col span={24}>{calendarItem}</Col>
         )}
-      </Row>
+      </RowStyled>
     </DashboardCard>
   );
 };
@@ -88,5 +88,9 @@ const BackButton = styled(Button)`
   position: absolute;
   top: 0;
   left: 0;
-  color: ${(props) => props.theme.colors.main.primary};
+  color: ${(props) => props.theme.commonColors.white};
+`;
+
+const RowStyled = styled(Row)`
+  min-height: 21.75rem;
 `;
