@@ -3,7 +3,6 @@ import { useTheme } from 'styled-components';
 import { BaseChart, getDefaultTooltipStyles } from '@app/components/common/charts/BaseChart';
 import { getMarkAreaData, hexToRGB } from '@app/utils/utils';
 import { ChartData, xData } from '@app/interfaces/interfaces';
-import { useResponsive } from '@app/hooks/useResponsive';
 
 interface CovidData {
   title: string;
@@ -13,12 +12,9 @@ interface CovidData {
 export const CovidChart: React.FC<{
   confirmed: CovidData;
   deaths: CovidData;
-  recovered: CovidData;
   dateArr: xData;
-}> = ({ confirmed, deaths, recovered, dateArr }) => {
+}> = ({ confirmed, deaths, dateArr }) => {
   const theme = useTheme();
-
-  const { isDesktop } = useResponsive();
 
   const option = {
     color: [
@@ -26,32 +22,48 @@ export const CovidChart: React.FC<{
       theme.colors.main.chartSecondaryGradient,
       theme.colors.main.chartAdditionalGradient,
     ],
-    legend: {
-      left: '10%',
-      top: '10%',
-      orient: 'vertical',
-      textStyle: {
-        fontSize: 16,
-        padding: 10,
-        color: theme.colors.text.main,
+    grid: [
+      {
+        top: 10,
+        left: 10,
+        right: 0,
+        height: '50%',
+        containLabel: true,
       },
-    },
-    grid: {
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-    },
-    xAxis: {
-      show: false,
-      type: 'category',
-      boundaryGap: false,
-      data: dateArr,
-    },
-    yAxis: {
-      show: false,
-      type: 'value',
-    },
+      {
+        left: 26.5,
+        right: 0,
+        top: '50%',
+        height: '45%',
+        containLabel: true,
+      },
+    ],
+    xAxis: [
+      {
+        show: false,
+        type: 'category',
+        boundaryGap: false,
+        data: dateArr,
+      },
+      {
+        gridIndex: 1,
+        show: false,
+        type: 'category',
+        boundaryGap: false,
+        data: dateArr,
+        position: 'top',
+      },
+    ],
+    yAxis: [
+      {
+        type: 'value',
+      },
+      {
+        gridIndex: 1,
+        type: 'value',
+        inverse: true,
+      },
+    ],
     series: [
       {
         name: confirmed.title,
@@ -72,6 +84,8 @@ export const CovidChart: React.FC<{
         },
       },
       {
+        xAxisIndex: 1,
+        yAxisIndex: 1,
         name: deaths.title,
         data: deaths.data,
         type: 'line',
@@ -87,41 +101,6 @@ export const CovidChart: React.FC<{
         lineStyle: {
           width: 2,
           color: theme.colors.charts.color5,
-        },
-      },
-      {
-        name: recovered.title,
-        data: recovered.data,
-        type: 'line',
-        areaStyle: {},
-        markArea: {
-          itemStyle: {
-            color: hexToRGB(theme.colors.charts.color4, 0.02),
-          },
-          data: dateArr && getMarkAreaData(dateArr),
-        },
-        showSymbol: false,
-        smooth: true,
-        lineStyle: {
-          width: 2,
-          color: theme.colors.charts.color4,
-        },
-      },
-      {
-        data: [
-          { name: confirmed.title, value: confirmed.data },
-          { name: deaths.title, value: deaths.data },
-          { name: recovered.title, value: recovered.data },
-        ],
-        label: {
-          show: isDesktop,
-          color: theme.colors.text.main,
-        },
-        type: 'pie',
-        radius: '30%',
-        center: ['70%', '25%'],
-        emphasis: {
-          show: false,
         },
       },
     ],
