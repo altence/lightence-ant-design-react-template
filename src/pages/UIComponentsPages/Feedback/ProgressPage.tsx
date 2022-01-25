@@ -65,15 +65,15 @@ const ProgressPage: React.FC = () => {
         <div>
           <Progress
             strokeColor={{
-              '0%': theme.commonColors.blue,
-              '100%': theme.commonColors.green,
+              '0%': theme.colors.main.primary,
+              '100%': theme.colors.main.secondary,
             }}
             percent={99.9}
           />
           <Progress
             strokeColor={{
-              from: theme.commonColors.blue,
-              to: theme.commonColors.green,
+              from: theme.colors.main.primary,
+              to: theme.colors.main.secondary,
             }}
             percent={99.9}
             status="active"
@@ -81,16 +81,16 @@ const ProgressPage: React.FC = () => {
           <Progress
             type="circle"
             strokeColor={{
-              '0%': theme.commonColors.blue,
-              '100%': theme.commonColors.green,
+              '0%': theme.colors.main.primary,
+              '100%': theme.colors.main.secondary,
             }}
             percent={90}
           />
           <Progress
             type="circle"
             strokeColor={{
-              '0%': theme.commonColors.blue,
-              '100%': theme.commonColors.green,
+              '0%': theme.colors.main.primary,
+              '100%': theme.colors.main.secondary,
             }}
             percent={100}
           />

@@ -62,4 +62,8 @@ export const Table = styled(AntdTable)`
     top: 100%;
     font-size: 0.75rem;
   }
+
+  .ant-table-column-sort {
+    background-color: transparent;
+  }
 `;

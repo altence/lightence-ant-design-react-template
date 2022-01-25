@@ -39,6 +39,8 @@ export default createGlobalStyle`
   }
 
   .search-dropdown {
+    box-shadow: ${(props) => props.theme.boxShadow.main};
+
     @media only screen and ${(props) =>
       `${props.theme.media.xs} and (max-width: ${props.theme.breakpoints.md - 0.02}px)`} {
       width: calc(100vw - 16px);
@@ -126,5 +128,9 @@ export default createGlobalStyle`
   .notification-success {
     border: ${(props) => `1px solid ${props.theme.colors.main.error}`};
     background: ${(props) => props.theme.colors.notifications.error};
+  }
+  
+  .ant-menu-inline, .ant-menu-vertical {
+    border-right: 0;
   }
 `;

@@ -9,11 +9,12 @@ export const SearchInput = styled(Search)`
   }
 
   & .ant-input-search-button {
-    height: 3.125rem;
+    height: 3.54875rem;
+    box-shadow: none;
   }
 
   &.ant-input-search-large .ant-input-search-button {
-    height: 0.625rem;
+    height: 4.36125rem;
   }
 
   & input {

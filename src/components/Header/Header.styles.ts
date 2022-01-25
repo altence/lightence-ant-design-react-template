@@ -5,7 +5,7 @@ import { GitHubButton } from '@app/components/Header/GitHubButton';
 
 export const DropdownMenu = styled(Menu)`
   background-color: ${(props) => props.theme.colors.main.mainBackground};
-  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.07) !important;
+  box-shadow: ${(props) => props.theme.boxShadow.main};
   border-radius: ${(props) => props.theme.border.radius};
   line-height: 1.5715;
 `;
