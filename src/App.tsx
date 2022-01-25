@@ -11,14 +11,14 @@ import { AppRouter } from './components/router/AppRouter';
 import { ThemeSwitcher } from '@app/components/common/ThemeSwitcher';
 import { useLanguage } from './hooks/useLanguage';
 import { useAppSelector } from './hooks/reduxHooks';
-import { useNightMode } from './hooks/useNightMode';
+import { useAutoNightMode } from './hooks/useAutoNightMode';
 
 const App: React.FC = () => {
   const theme = useAppSelector((state) => state.theme.theme);
 
   const { language } = useLanguage();
 
-  useNightMode();
+  useAutoNightMode();
 
   return (
     <>
