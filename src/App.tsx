@@ -12,11 +12,14 @@ import { ThemeSwitcher } from '@app/components/common/ThemeSwitcher';
 import { useLanguage } from './hooks/useLanguage';
 import { useAppSelector } from './hooks/reduxHooks';
 import { useAutoNightMode } from './hooks/useAutoNightMode';
+import { usePWA } from './hooks/usePWA';
 
 const App: React.FC = () => {
   const theme = useAppSelector((state) => state.theme.theme);
 
   const { language } = useLanguage();
+
+  usePWA();
 
   useAutoNightMode();
 
