@@ -4,14 +4,14 @@ import { useTranslation } from 'react-i18next';
 import { LanguagePicker } from './LanguagePicker/LanguagePicker';
 import { NightModeSettings } from './NightModeSettings/NightModeSettings';
 import { ThemePicker } from './ThemePicker/ThemePicker';
-import * as S from './SettingsOverlay.styles';
 import { Button } from '@app/components/common/buttons/Button/Button';
-import { usePWA } from '@app/hooks/usePWA';
+import { useAppSelector } from '@app/hooks/reduxHooks';
+import * as S from './SettingsOverlay.styles';
 
 export const SettingsOverlay: React.FC = () => {
   const { t } = useTranslation();
 
-  const { promptInstall, isPWASupported } = usePWA();
+  const { isPWASupported, event } = useAppSelector((state) => state.pwa);
 
   return (
     <S.SettingsOverlayMenu mode="inline" selectable={false}>
@@ -27,11 +27,7 @@ export const SettingsOverlay: React.FC = () => {
         </DropdownCollapse.Panel>
       </DropdownCollapse>
       {isPWASupported && (
-        <Button
-          block
-          type="primary"
-          onClick={() => promptInstall && (promptInstall as BeforeInstallPromptEvent).prompt()}
-        >
+        <Button block type="primary" onClick={() => event && (event as BeforeInstallPromptEvent).prompt()}>
           {t('common.pwa')}
         </Button>
       )}

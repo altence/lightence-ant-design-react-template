@@ -1,31 +1,16 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { addDeferredPrompt } from '@app/store/slices/pwaSlice';
 
-interface UsePwaReturn {
-  isPWASupported: boolean;
-  promptInstall: Event | null;
-  isStandalone: boolean;
-}
-
-export const usePWA = (): UsePwaReturn => {
-  const [isPWASupported, setPWASupported] = useState(false);
-  const [promptInstall, setPromptInstall] = useState<BeforeInstallPromptEvent | null>(null);
+export const usePWA = () => {
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const handler = (e: Event) => {
       e.preventDefault();
-      setPWASupported(true);
-      setPromptInstall(e as BeforeInstallPromptEvent);
+      dispatch(addDeferredPrompt(e));
     };
 
     window.addEventListener('beforeinstallprompt', handler);
-  }, []);
-
-  return useMemo(
-    () => ({
-      isPWASupported,
-      promptInstall,
-      isStandalone: window.matchMedia('(display-mode: standalone)').matches,
-    }),
-    [isPWASupported, promptInstall],
-  );
+  }, [dispatch]);
 };
