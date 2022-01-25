@@ -45,5 +45,10 @@ export const useAutoNightMode = (): void => {
 
       timeoutNightEnds = setTimeout(runTimeoutEnd, nextEndTime);
     }
+
+    return () => {
+      timeoutNightStarts && clearTimeout(timeoutNightStarts);
+      timeoutNightEnds && clearTimeout(timeoutNightEnds);
+    };
   }, [dispatch, isNightMode, nightTime]);
 };
