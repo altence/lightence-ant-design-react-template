@@ -1,5 +1,5 @@
 import React from 'react';
-import { Kanban } from 'components/apps/Kanban/Kanban';
+import { Kanban } from '@app/components/apps/kanban/Kanban/Kanban';
 
 const KanbanPage: React.FC = () => <Kanban />;
 

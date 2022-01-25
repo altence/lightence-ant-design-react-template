@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import * as Auth from '@app/components/layouts/auth/AuthLayout.styles';
+import * as Auth from '@app/components/layouts/AuthLayout/AuthLayout.styles';
 
 export const FormItem = styled(Auth.FormItem)`
   margin-bottom: 1rem;

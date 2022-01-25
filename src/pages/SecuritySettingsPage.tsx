@@ -1,5 +1,5 @@
 import React from 'react';
-import { SecuritySettings } from '@app/components/profile/ProfileCard/ProfileFormNav/nav/SecuritySettings/SecuritySettings';
+import { SecuritySettings } from '@app/components/profile/profileCard/profileFormNav/nav/SecuritySettings/SecuritySettings';
 
 const SecuritySettingsPage: React.FC = () => <SecuritySettings />;
 

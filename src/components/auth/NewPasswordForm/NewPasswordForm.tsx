@@ -4,7 +4,7 @@ import { Form } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { notificationController } from 'controllers/notificationController';
 import * as S from './NewPasswordForm.styles';
-import * as Auth from 'components/layouts/auth/AuthLayout.styles';
+import * as Auth from 'components/layouts/AuthLayout/AuthLayout.styles';
 import { useAppDispatch } from '@app/hooks/reduxHooks';
 import { doSetNewPassword } from '@app/store/slices/authSlice';
 

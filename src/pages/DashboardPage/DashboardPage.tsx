@@ -1,17 +1,17 @@
 import React from 'react';
 import { Col, Row } from 'antd';
-import { MapCard } from '@app/components/dashboard/MapCard/MapCard';
-import { ScreeningsCard } from '@app/components/dashboard/ScreeningsCard/ScreeningsCard';
-import { ActivityCard } from '@app/components/dashboard/ActivityCard/ActivityCard';
+import { MapCard } from '@app/components/dashboard/mapCard/MapCard';
+import { ScreeningsCard } from '@app/components/dashboard/screeningsCard/ScreeningsCard/ScreeningsCard';
+import { ActivityCard } from '@app/components/dashboard/activityCard/ActivityCard';
 import { TreatmentCard } from '@app/components/dashboard/treatmentCard/TreatmentCard';
-import { CovidCard } from '@app/components/dashboard/CovidCard/CovidCard';
+import { CovidCard } from '@app/components/dashboard/covidCard/CovidCard';
 import { HealthCard } from '@app/components/dashboard/HealthCard/HealthCard';
-import { FavoritesDoctorsCard } from '@app/components/dashboard/favoriteDoctors/FavoritesDoctorsCard';
+import { FavoritesDoctorsCard } from '@app/components/dashboard/favoriteDoctors/FavoriteDoctorsCard/FavoritesDoctorsCard';
 import { PatientResultsCard } from '@app/components/dashboard/PatientResultsCard/PatientResultsCard';
-import { BloodScreeningCard } from '@app/components/dashboard/BloodScreeningCard/BloodScreeningCard';
+import { BloodScreeningCard } from '@app/components/dashboard/bloodScreeningCard/BloodScreeningCard/BloodScreeningCard';
 import { NewsCard } from '@app/components/dashboard/NewsCard/NewsCard';
 import { useResponsive } from '@app/hooks/useResponsive';
-import { StatisticsCards } from '@app/components/dashboard/StatisticsCards/StatisticsCards';
+import { StatisticsCards } from '@app/components/dashboard/statisticsCards/StatisticsCards';
 
 import * as S from './DashboardPage.styles';
 import { References } from '@app/components/common/References/References';
