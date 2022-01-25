@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Button as BaseButton } from 'antd';
 import { GithubOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
-import { ThemeContext } from '@app/context/ThemeContext';
+import { useAppSelector } from '@app/hooks/reduxHooks';
 
 export const GitHubButton: React.FC = (props) => {
-  const { theme } = useContext(ThemeContext);
+  const theme = useAppSelector((state) => state.theme.theme);
 
   return (
     <Button

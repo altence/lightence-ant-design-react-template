@@ -9,6 +9,9 @@ import { LineRaceChart } from 'components/charts/LineRaceChart/LineRaceChart';
 const ChartsPage: React.FC = () => {
   return (
     <Row gutter={[30, 30]}>
+      <Col id="line-race" xs={24}>
+        <LineRaceChart />
+      </Col>
       <Col id="gradient-stacked-area" xs={24}>
         <GradientStackedAreaChart />
       </Col>
@@ -20,9 +23,6 @@ const ChartsPage: React.FC = () => {
       </Col>
       <Col id="scatter" xs={24} lg={12}>
         <ScatterChart />
-      </Col>
-      <Col id="line-race" xs={24}>
-        <LineRaceChart />
       </Col>
     </Row>
   );

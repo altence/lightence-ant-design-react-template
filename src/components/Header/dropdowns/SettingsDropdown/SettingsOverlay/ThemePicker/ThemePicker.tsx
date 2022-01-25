@@ -1,15 +1,24 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from 'context/ThemeContext';
+import React from 'react';
 import { MoonSunSwitch } from '@app/components/common/MoonSunSwitch/MoonSunSwitch';
+import { ThemeType } from '@app/interfaces/interfaces';
+import { useAppDispatch, useAppSelector } from '@app/hooks/reduxHooks';
+import { setTheme } from '@app/store/slices/themeSlice';
+import { setNightMode } from '@app/store/slices/nightModeSlice';
 
 export const ThemePicker: React.FC = () => {
-  const { theme: currentTheme, setTheme } = useContext(ThemeContext);
+  const dispatch = useAppDispatch();
+  const theme = useAppSelector((state) => state.theme.theme);
+
+  const handleClickButton = (theme: ThemeType) => {
+    dispatch(setTheme(theme));
+    dispatch(setNightMode(false));
+  };
 
   return (
     <MoonSunSwitch
-      isMoonActive={currentTheme === 'dark'}
-      onClickMoon={() => setTheme('dark')}
-      onClickSun={() => setTheme('light')}
+      isMoonActive={theme === 'dark'}
+      onClickMoon={() => handleClickButton('dark')}
+      onClickSun={() => handleClickButton('light')}
     />
   );
 };
