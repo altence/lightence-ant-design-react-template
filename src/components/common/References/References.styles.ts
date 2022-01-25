@@ -6,6 +6,7 @@ export const ReferencesWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: nowrap;
   margin-top: ${(props) => `${props.theme.mobileLayout.paddingVertical}`};
 
   @media only screen and ${(props) => props.theme.media.md} {
@@ -17,11 +18,14 @@ export const Text = styled.span`
   display: flex;
   align-items: center;
   white-space: pre-wrap;
+  flex-wrap: wrap;
 `;
 
 export const Icons = styled.div`
   margin-left: -0.5rem;
   margin-right: -0.5rem;
+  display: flex;
+  flex-wrap: nowrap;
 `;
 
 type ReturnType<T> = (props: T) => JSX.Element;
