@@ -8,7 +8,7 @@ import { useAppDispatch, useAppSelector } from '@app/hooks/reduxHooks';
 import { useResponsive } from '@app/hooks/useResponsive';
 import { Dates } from '@app/constants/Dates';
 import { doLogin } from '@app/store/slices/authSlice';
-import * as Auth from '@app/components/layouts/auth/AuthLayout.styles';
+import * as Auth from '@app/components/layouts/AuthLayout/AuthLayout.styles';
 import * as S from './LockForm.styles';
 
 interface LockFormData {

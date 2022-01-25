@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Form } from 'antd';
 import { useTranslation } from 'react-i18next';
 import * as S from './ForgotPasswordForm.styles';
-import * as Auth from 'components/layouts/auth/AuthLayout.styles';
+import * as Auth from 'components/layouts/AuthLayout/AuthLayout.styles';
 import { useAppDispatch } from '@app/hooks/reduxHooks';
 import { doResetPassword } from '@app/store/slices/authSlice';
 import { notificationController } from '@app/controllers/notificationController';

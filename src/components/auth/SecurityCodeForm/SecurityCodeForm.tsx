@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { Form, Image, Spin } from 'antd';
 import { useTranslation } from 'react-i18next';
 import * as S from './SecurityCodeForm.styles';
-import * as Auth from 'components/layouts/auth/AuthLayout.styles';
+import * as Auth from 'components/layouts/AuthLayout/AuthLayout.styles';
 import { VerificationCodeInput } from 'components/common/VerificationCodeInput/VerificationCodeInput';
 import VerifyEmailImage from 'assets/images/verify-email.png';
 import { useAppDispatch } from '@app/hooks/reduxHooks';

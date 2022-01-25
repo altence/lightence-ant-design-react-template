@@ -1,7 +1,7 @@
 import React from 'react';
 import { BasicTable } from '../BasicTable/BasicTable';
 import { TreeTable } from '../TreeTable/TreeTable';
-import { EditableTable } from '../EditableTable/EditableTable';
+import { EditableTable } from '../editableTable/EditableTable';
 import { useTranslation } from 'react-i18next';
 import * as S from './Tables.styles';
 

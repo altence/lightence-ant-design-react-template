@@ -1,5 +1,5 @@
 import React from 'react';
-import { NewsFeed } from '../components/apps/NewsFeed/NewsFeed';
+import { NewsFeed } from '../components/apps/newsFeed/NewsFeed';
 
 const NewsFeedPage: React.FC = () => <NewsFeed />;
 

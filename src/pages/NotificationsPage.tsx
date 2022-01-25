@@ -1,5 +1,5 @@
 import React from 'react';
-import { Notifications } from '@app/components/profile/ProfileCard/ProfileFormNav/nav/Notifications/Notifications';
+import { Notifications } from '@app/components/profile/profileCard/profileFormNav/nav/notifications/Notifications/Notifications';
 
 const NotificationsPage: React.FC = () => <Notifications />;
 

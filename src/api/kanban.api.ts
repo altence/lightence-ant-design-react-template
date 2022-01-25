@@ -1,4 +1,4 @@
-import { CardState, Tag } from 'components/apps/Kanban/interfaces';
+import { CardState, Tag } from 'components/apps/kanban/interfaces';
 
 export const addCard = (card: CardState): Promise<CardState> => {
   return new Promise((res) => {
