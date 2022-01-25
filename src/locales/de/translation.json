@@ -175,8 +175,7 @@
     "covid": {
       "title": "COVID-19",
       "casesPerDay": "Fälle/Tag",
-      "deaths": "Todesfälle",
-      "recovered": "erholt"
+      "deaths": "Todesfälle"
     },
     "health": {
       "title": "Die Gesundheit",

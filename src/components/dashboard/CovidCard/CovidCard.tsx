@@ -14,33 +14,30 @@ export const CovidCard: React.FC = () => {
 
   useEffect(() => {
     getCovidData()
-      .then((res) => setData(res?.data.reverse()))
+      .then((res) => setData(res?.data.splice(0, 100).reverse()))
       .catch((e) => notification.error({ message: e.message }));
   }, []);
 
-  const { confirmedArr, deathsArr, recoveredArr, dateArr } = useMemo(() => {
+  const { confirmedArr, deathsArr, dateArr } = useMemo(() => {
     const confirmedArr: number[] = [];
     const deathsArr: number[] = [];
-    const recoveredArr: number[] = [];
     const dateArr: string[] = [];
 
     data &&
       data?.forEach((el) => {
         confirmedArr.push(el.new_confirmed);
         deathsArr.push(el.new_deaths);
-        recoveredArr.push(el.new_recovered);
         dateArr.push(Dates.getDate(el.date).format('LL'));
       });
 
     return {
       confirmedArr,
       deathsArr,
-      recoveredArr,
       dateArr,
     };
   }, [data]);
 
-  const { confirmed, deaths, recovered } = useMemo(
+  const { confirmed, deaths } = useMemo(
     () => ({
       confirmed: {
         title: t('dashboard.covid.casesPerDay'),
@@ -50,21 +47,13 @@ export const CovidCard: React.FC = () => {
         title: t('dashboard.covid.deaths'),
         data: deathsArr,
       },
-      recovered: {
-        title: t('dashboard.covid.recovered'),
-        data: recoveredArr,
-      },
     }),
-    [confirmedArr, deathsArr, recoveredArr, t],
+    [confirmedArr, deathsArr, t],
   );
 
   return (
     <DashboardCard id="covid" title={t('dashboard.covid.title')} padding={0}>
-      {data ? (
-        <CovidChart confirmed={confirmed} deaths={deaths} recovered={recovered} dateArr={dateArr} />
-      ) : (
-        <NotFound />
-      )}
+      {data ? <CovidChart confirmed={confirmed} deaths={deaths} dateArr={dateArr} /> : <NotFound />}
     </DashboardCard>
   );
 };
