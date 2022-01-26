@@ -1,10 +1,11 @@
 import cameron from 'assets/images/doctors/cameron-bell.png';
 import annabella from 'assets/images/doctors/annabella-morton.png';
-import ryan from 'assets/images/doctors/ryan-thompson.png';
+import francisco from '@app/assets/images/doctors/francisco-venancio.png';
 import ruby from 'assets/images/doctors/ruby-burns.png';
 import james from 'assets/images/doctors/james-moss.png';
 import sara from 'assets/images/doctors/sara-mills.png';
 import jorden from 'assets/images/doctors/jorden-cannon.png';
+import kayden from 'assets/images/doctors/kayden-hunter.png';
 
 export interface Doctor {
   id: number;
@@ -39,8 +40,21 @@ export const getDoctorsData = (): Promise<Doctor[]> => {
         },
         {
           id: 2,
-          name: 'Annabella Morton',
+          name: 'Kayden Hunter',
           specifity: 2,
+          rating: 5,
+          gps: {
+            latitude: 41.732438,
+            longitude: 44.7688134,
+          },
+          imgUrl: kayden,
+          phone: '+X-XXX-XXX-XXXX',
+          address: '850 South Tunnel St. Newburgh, NY 12550',
+        },
+        {
+          id: 3,
+          name: 'Annabella Morton',
+          specifity: 3,
           rating: 5,
           gps: {
             latitude: 40.73061,
@@ -49,19 +63,6 @@ export const getDoctorsData = (): Promise<Doctor[]> => {
           imgUrl: annabella,
           phone: '+X-XXX-XXX-XXXX',
           address: '111 Foxrun Street Conyers, GA 30012',
-        },
-        {
-          id: 3,
-          name: 'Ryan Thompson',
-          specifity: 3,
-          rating: 4,
-          gps: {
-            latitude: 55.17111,
-            longitude: -118.796928,
-          },
-          imgUrl: ryan,
-          phone: '+X-XXX-XXX-XXXX',
-          address: '9540 South Del Monte Rd. West Hempstead, NY 11552',
         },
         {
           id: 4,
@@ -104,8 +105,21 @@ export const getDoctorsData = (): Promise<Doctor[]> => {
         },
         {
           id: 7,
-          name: 'Jorden Cannon',
+          name: 'Francisco Venancio',
           specifity: 7,
+          rating: 5,
+          gps: {
+            latitude: 55.17111,
+            longitude: -118.796928,
+          },
+          imgUrl: francisco,
+          phone: '+X-XXX-XXX-XXXX',
+          address: '322 South Del Monte Rd. West Hempstead, NY 11552',
+        },
+        {
+          id: 8,
+          name: 'Jorden Cannon',
+          specifity: 8,
           rating: 4,
           gps: {
             latitude: -22.908333,
