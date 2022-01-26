@@ -251,7 +251,7 @@
       "covid": {
           "casesPerDay": "cases/day",
           "deaths": "deaths",
-          "title": "COVID-19"
+          "title": "Real COVID-19 Statistics"
       },
       "fat": "Fat",
       "favoriteDoctors": {
