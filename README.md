@@ -19,6 +19,7 @@ React-powered **100% FREE** Admin Dashboard Template for building rich user inte
 - 🔥 Responsive & adaptive: supports mobile, tablet, and desktop screens
 - ☎️ Supports PWA to get all advantages of native mobile apps
 - 🎨 Theming: use built-in light and dark themes or implement your own theme with just lines of code
+- 🌓 Day & night mode: dark theme is automatically activated
 - 🏋️ Optimized bundle size: use the latest features of building tools to reduce the final bundle size
 
 ## Under the Hood
