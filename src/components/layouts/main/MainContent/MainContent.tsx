@@ -9,7 +9,7 @@ interface HeaderProps {
 
 export default styled(Content)<HeaderProps>`
   padding: ${(props) => `${props.theme.mobileLayout.paddingVertical} ${props.theme.mobileLayout.paddingHorizontal}`};
-  overflow: overlay;
+  overflow: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
