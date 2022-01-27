@@ -1,3 +1,10 @@
+import gradient1 from '@app/assets/images/card-themes/gradient-1.jpeg';
+import blueGradient from '@app/assets/images/card-themes/blue-gradient.png';
+import yellow from '@app/assets/images/card-themes/yellow.png';
+import black from '@app/assets/images/card-themes/black.png';
+import gradient2 from '@app/assets/images/card-themes/gradient-2.png';
+import blue from '@app/assets/images/card-themes/blue.png';
+
 interface CardTheme {
   id: number;
   background: string;
@@ -6,29 +13,26 @@ interface CardTheme {
 export const cardThemes: CardTheme[] = [
   {
     id: 1,
-    background:
-      'https://res.cloudinary.com/lapkinthegod/image/upload/v1633425628/horizontal-wide-red-pink-blue-blurred-background_136277-125_bk9drb.jpg',
+    background: gradient1,
   },
   {
     id: 2,
-    background:
-      'https://res.cloudinary.com/lapkinthegod/image/upload/v1633007324/vivid-blurred-colorful-wallpaper-background_1_h1k9sc.png',
+    background: blueGradient,
   },
   {
     id: 3,
-    background: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1633007328/43064_1_z6kdji.png',
+    background: yellow,
   },
   {
     id: 4,
-    background:
-      'https://res.cloudinary.com/lapkinthegod/image/upload/v1633007330/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1_x81z7y.png',
+    background: black,
   },
   {
     id: 5,
-    background: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1633102260/Mask_Group_1_cr4x7l.png',
+    background: gradient2,
   },
   {
     id: 6,
-    background: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1633102263/Rectangle_917_1_ssqdbc.png',
+    background: blue,
   },
 ];
