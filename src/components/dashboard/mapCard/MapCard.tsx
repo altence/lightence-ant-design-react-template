@@ -1,16 +1,11 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { DashboardCard } from '../DashboardCard/DashboardCard';
-import { DoctorsMap } from './DoctorsMap/DoctorsMap';
-import { Doctor, getDoctorsData } from 'api/doctors.api';
+import React, { useMemo } from 'react';
 import { useTheme } from 'styled-components';
+import { DashboardCard } from '@app/components/dashboard/DashboardCard/DashboardCard';
+import { DoctorsMap } from './DoctorsMap/DoctorsMap';
+import { useAppSelector } from '@app/hooks/reduxHooks';
 
 export const MapCard: React.FC = () => {
-  const [doctors, setDoctors] = useState<Doctor[]>([]);
-
-  useEffect(() => {
-    getDoctorsData().then((res) => setDoctors(res));
-  }, []);
-
+  const doctors = useAppSelector((state) => state.doctors.data);
   const theme = useTheme();
 
   // eslint-disable-next-line react-hooks/exhaustive-deps

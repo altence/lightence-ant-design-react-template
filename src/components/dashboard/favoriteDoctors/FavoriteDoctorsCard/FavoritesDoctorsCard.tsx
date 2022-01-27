@@ -6,7 +6,6 @@ import { Carousel } from '@app/components/common/Carousel/Carousel';
 import { DoctorCard } from '../DoctorCard/DoctorCard';
 import { Dates } from '@app/constants/Dates';
 import { CalendarEvent, getUserCalendar } from '@app/api/calendar.api';
-import { Doctor, getDoctorsData } from '@app/api/doctors.api';
 import { useAppSelector } from '@app/hooks/reduxHooks';
 import * as S from './FavoritesDoctorsCard.styles';
 
@@ -23,17 +22,13 @@ const PrevArrow = (props: any) => {
 
 export const FavoritesDoctorsCard: React.FC = () => {
   const { t } = useTranslation();
-  const [doctors, setDoctors] = useState<Doctor[]>([]);
   const [calendar, setCalendar] = useState<CalendarEvent[]>([]);
 
   const user = useAppSelector((state) => state.user.user);
+  const doctors = useAppSelector((state) => state.doctors.data);
 
   const theme = useTheme();
   const today = Dates.getToday();
-
-  useEffect(() => {
-    getDoctorsData().then((res) => setDoctors(res));
-  }, []);
 
   useEffect(() => {
     user && getUserCalendar(user.id).then((res) => setCalendar(res));

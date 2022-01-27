@@ -13,6 +13,7 @@ import { useLanguage } from './hooks/useLanguage';
 import { useAppSelector } from './hooks/reduxHooks';
 import { useAutoNightMode } from './hooks/useAutoNightMode';
 import { usePWA } from './hooks/usePWA';
+import { useDoctors } from './hooks/useDoctors';
 
 const App: React.FC = () => {
   const theme = useAppSelector((state) => state.theme.theme);
@@ -20,8 +21,8 @@ const App: React.FC = () => {
   const { language } = useLanguage();
 
   usePWA();
-
   useAutoNightMode();
+  useDoctors();
 
   return (
     <>

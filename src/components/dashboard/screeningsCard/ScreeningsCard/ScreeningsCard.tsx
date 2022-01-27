@@ -2,11 +2,11 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { ScreeningsHeader } from '../ScreeningsHeader/ScreeningsHeader';
 import { ScreeningsFriends } from '../screeningsFriends/ScreeningsFriends/ScreeningsFriends';
 import { ScreeningsChart } from '../ScreeningsChart/ScreeningsChart';
-import { getScreenings, Screening } from '@app/api/screenings.api';
-import { Dates } from '@app/constants/Dates';
-import { getStatistics, Statistic } from '@app/api/statistics.api';
+import { useAppSelector } from '@app/hooks/reduxHooks';
 import { getSmoothRandom } from '@app/utils/utils';
-import { Doctor, getDoctorsData } from '@app/api/doctors.api';
+import { Dates } from '@app/constants/Dates';
+import { getScreenings, Screening } from '@app/api/screenings.api';
+import { getStatistics, Statistic } from '@app/api/statistics.api';
 import * as S from './ScreeningsCard.styles';
 
 export interface CurrentStatisticsState {
@@ -19,7 +19,6 @@ export interface CurrentStatisticsState {
 export type ScreeningWithDoctors = Screening & { name: string; imgUrl: string };
 
 export const ScreeningsCard: React.FC = () => {
-  const [doctors, setDoctors] = useState<Doctor[]>([]);
   const [statistics, setStatistics] = useState<Statistic[]>([]);
   const [screenings, setScreenings] = useState<Screening[]>([]);
   const [currentStatistics, setCurrentStatistics] = useState<CurrentStatisticsState>({
@@ -30,16 +29,14 @@ export const ScreeningsCard: React.FC = () => {
   });
   const [isFirstClick, setFirstClick] = useState(true);
 
+  const doctors = useAppSelector((state) => state.doctors.data);
+
   useEffect(() => {
     getScreenings().then((res) => setScreenings(res));
   }, []);
 
   useEffect(() => {
     getStatistics().then((res) => setStatistics(res));
-  }, []);
-
-  useEffect(() => {
-    getDoctorsData().then((res) => setDoctors(res));
   }, []);
 
   const months = useMemo(() => Array.from({ length: 12 }, (_, i) => i), []);
