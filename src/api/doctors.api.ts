@@ -1,11 +1,11 @@
 import cameron from 'assets/images/doctors/cameron-bell.png';
 import annabella from 'assets/images/doctors/annabella-morton.png';
 import francisco from '@app/assets/images/doctors/francisco-venancio.png';
-import ruby from 'assets/images/doctors/ruby-burns.png';
 import james from 'assets/images/doctors/james-moss.png';
 import sara from 'assets/images/doctors/sara-mills.png';
 import jorden from 'assets/images/doctors/jorden-cannon.png';
 import kayden from 'assets/images/doctors/kayden-hunter.png';
+import steve from '@app/assets/images/doctors/steve.jpeg';
 
 export interface Doctor {
   id: number;
@@ -66,14 +66,14 @@ export const getDoctorsData = (): Promise<Doctor[]> => {
         },
         {
           id: 4,
-          name: 'Ruby Burns',
+          name: 'Steve Wolfe',
           specifity: 4,
           rating: 5,
           gps: {
             latitude: 35.652832,
             longitude: 139.839478,
           },
-          imgUrl: ruby,
+          imgUrl: steve,
           phone: '+X-XXX-XXX-XXXX',
           address: '9 Wagon Street Ravenna, OH 44266',
         },
