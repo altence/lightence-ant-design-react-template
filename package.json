@@ -124,6 +124,9 @@
   "engines": {
     "node": ">=16.0.0"
   },
+  "resolutions": {
+    "react-error-overlay": "6.0.9"
+  },
   "packageManager": "yarn@3.1.1",
   "keywords": [
     "lightence",

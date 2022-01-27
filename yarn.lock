@@ -2696,14 +2696,14 @@ __metadata:
   linkType: hard
 
 "@types/react-simple-maps@npm:^1.0.7":
-  version: 1.0.7
-  resolution: "@types/react-simple-maps@npm:1.0.7"
+  version: 1.0.8
+  resolution: "@types/react-simple-maps@npm:1.0.8"
   dependencies:
     "@types/d3-geo": ^1
     "@types/d3-zoom": ^1
     "@types/geojson": "*"
     "@types/react": "*"
-  checksum: e49846271b2cad4ed138e443622e19d2ffe476b16e8912c4f7f248222ac43634726878b896995e365cf3e25ebaaf41d77312b4a1f1736aa03b4e3e39d41ba25f
+  checksum: af4c34da0f34a9347c4efcb42ca8e7a812d58ae130bd8c2f6942d002aa35b563871a6f35ce25473fd65e1ca297b28eee0a156cc62eafdb61f448372daa509d1c
   languageName: node
   linkType: hard
 
@@ -4798,9 +4798,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30000981, caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001125, caniuse-lite@npm:^1.0.30001286":
-  version: 1.0.30001301
-  resolution: "caniuse-lite@npm:1.0.30001301"
-  checksum: 0e359f2c682bed35521902ce7fc91136c485de4c1e1e33272d6fbb7cdf77178df7649960a9b69ce9da12022aadd7a0037b3c9b3594c41146d58216654dc9a236
+  version: 1.0.30001303
+  resolution: "caniuse-lite@npm:1.0.30001303"
+  checksum: fe77fb680c94c875be2fb78c9507a69d3ed6be8894832d3ee8a7d24e4c5c7599bf217f030fcdfd761ea211065042679bf697a57eefe114058a3208561e2fd042
   languageName: node
   linkType: hard
 
@@ -6573,12 +6573,12 @@ __metadata:
   linkType: hard
 
 "echarts@npm:^5.1.2":
-  version: 5.2.2
-  resolution: "echarts@npm:5.2.2"
+  version: 5.3.0
+  resolution: "echarts@npm:5.3.0"
   dependencies:
     tslib: 2.3.0
-    zrender: 5.2.1
-  checksum: ab08a52895ce8e49acccb81673f78400aa5c5a4ae7c0b0bdaeae22036e6e34f94da9d43166718e3b1e1fb1e29e02f419702e21b8b84371747201e7ab01744fca
+    zrender: 5.3.0
+  checksum: aa3992d7d9bc22b76971e66241015f413410657cc473e0703bc7b48634e2e3684c36df6c90c446ca61173397d290e3edc5bcab1cf5bfe2a331394e02a9495e7f
   languageName: node
   linkType: hard
 
@@ -6597,9 +6597,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.3.564, electron-to-chromium@npm:^1.4.17":
-  version: 1.4.52
-  resolution: "electron-to-chromium@npm:1.4.52"
-  checksum: 31e8e38f0a4dd45e86f3b9905f3b1f915ec2f3831226dc15542764b3a435dd8025fe1ab546ed0a8ed6c46d87ac49724e80cd074bdbaf926657568ee76105fcd3
+  version: 1.4.54
+  resolution: "electron-to-chromium@npm:1.4.54"
+  checksum: 4c078dc6d5e664d14c166e966e013144a774ab3dd1a853a10fc7bab57c6dafcfc1c451c329ad7c4d45da6ac463fab463e079a32f250b37e7954bbe2ed83ad52e
   languageName: node
   linkType: hard
 
@@ -7750,9 +7750,9 @@ __metadata:
   linkType: hard
 
 "flatted@npm:^3.1.0":
-  version: 3.2.4
-  resolution: "flatted@npm:3.2.4"
-  checksum: 7d33846428ab337ec81ef9b8b9103894c1c81f5f67feb32bd4ed106fbc47da60d56edb42efd36c9f1f30a010272aeccd34ec1ffacfe9dfdff19673b1d4df481b
+  version: 3.2.5
+  resolution: "flatted@npm:3.2.5"
+  checksum: 3c436e9695ccca29620b4be5671dd72e5dd0a7500e0856611b7ca9bd8169f177f408c3b9abfa78dfe1493ee2d873e2c119080a8a9bee4e1a186a9e60ca6c89f1
   languageName: node
   linkType: hard
 
@@ -8967,12 +8967,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"input-format@npm:^0.3.6":
-  version: 0.3.6
-  resolution: "input-format@npm:0.3.6"
+"input-format@npm:^0.3.7":
+  version: 0.3.7
+  resolution: "input-format@npm:0.3.7"
   dependencies:
     prop-types: ^15.7.2
-  checksum: f4a533a09061238ee7a973d78e83c925c0ae358885d168c15738d21a9291907cbf882e4b346fb33b337c3305ed4ea7ced3075f991d49ae72a1aa044894809407
+  checksum: e465f968738fc152207997491f827daf4b71f3991d221fdfb0d128c56c459a75d2561a5e2c555e92e5992c8b1d4a80056bb4db39b44d9aee14a14813388102da
   languageName: node
   linkType: hard
 
@@ -10581,10 +10581,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"libphonenumber-js@npm:^1.9.43":
-  version: 1.9.44
-  resolution: "libphonenumber-js@npm:1.9.44"
-  checksum: cac1f8c4d37a35f1763720d5dbd247ce70a2f7a7d045ab2c99d75bdd170ed00ea8a38ddbd68b481fee3f57b9292218e412a20aa8a2a9b871091ed93809f61f95
+"libphonenumber-js@npm:^1.9.46":
+  version: 1.9.46
+  resolution: "libphonenumber-js@npm:1.9.46"
+  checksum: 0ae1f46e0ff33fc30605a68d6112822a5f51c24e28a2ba369b6d4e9680183c5ff171d1007c55186ab42baeaeafcdac7c12ba654e0de54da5c7f582dfd10ae084
   languageName: node
   linkType: hard
 
@@ -14531,10 +14531,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-error-overlay@npm:^6.0.9":
-  version: 6.0.10
-  resolution: "react-error-overlay@npm:6.0.10"
-  checksum: e7384f086a0162eecac8e081fe3c79b32f4ac8690c56bde35ab6b6380d10e6c8375bbb689a450902b6615261fcf6c95ea016fc0b200934667089ca83536bc4a7
+"react-error-overlay@npm:6.0.9":
+  version: 6.0.9
+  resolution: "react-error-overlay@npm:6.0.9"
+  checksum: 695853bc885e798008a00c10d8d94e5ac91626e8130802fea37345f9c037f41b80104345db2ee87f225feb4a4ef71b0df572b17c378a6d397b6815f6d4a84293
   languageName: node
   linkType: hard
 
@@ -14603,18 +14603,18 @@ __metadata:
   linkType: hard
 
 "react-phone-number-input@npm:^3.1.27":
-  version: 3.1.44
-  resolution: "react-phone-number-input@npm:3.1.44"
+  version: 3.1.45
+  resolution: "react-phone-number-input@npm:3.1.45"
   dependencies:
     classnames: ^2.2.5
     country-flag-icons: ^1.0.2
-    input-format: ^0.3.6
-    libphonenumber-js: ^1.9.43
+    input-format: ^0.3.7
+    libphonenumber-js: ^1.9.46
     prop-types: ^15.7.2
   peerDependencies:
     react: ">=0.16.8"
     react-dom: ">=0.16.8"
-  checksum: bb230264b1ca5c9f56724d02d8847727fc44789ba1c4f808808962030b7dee5937a7f6596604a5bf99404de40b7b8b34895cf7c8ae49f35f93b6f87cde2f1d6a
+  checksum: da68073d5ea0db07db2bc61003e75470c007a3ad8ec55db28784d4d4ef9859e54a76c0c04ba2ef93e0d12c3d665618ff075c1d4cb92efcd86f1eb9c13e22e12b
   languageName: node
   linkType: hard
 
@@ -18667,12 +18667,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zrender@npm:5.2.1":
-  version: 5.2.1
-  resolution: "zrender@npm:5.2.1"
+"zrender@npm:5.3.0":
+  version: 5.3.0
+  resolution: "zrender@npm:5.3.0"
   dependencies:
     tslib: 2.3.0
-  checksum: 4252ca7bd638d23cfef115b9d6a42c6eb893af3e37f25416afc65214139298817d2d3221022b3b2359d36fe7dacc887c8d21cbea454e3d6105f8263d579919e1
+  checksum: 4a5d95d9ccea104d443c36445cefbb0d66cb20cc93610c4c72cac974ef446b5381c297918a3c643696f7e405fad13c98309ea525c8283ed529422b6f1c1fce43
   languageName: node
   linkType: hard
 
