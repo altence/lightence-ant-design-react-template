@@ -12,7 +12,7 @@ export interface Doctor {
   name: string;
   specifity: number;
   rating: number;
-  gps: {
+  gps?: {
     latitude: number;
     longitude: number;
   };
@@ -69,10 +69,6 @@ export const getDoctorsData = (): Promise<Doctor[]> => {
           name: 'Steve Wolfe',
           specifity: 4,
           rating: 5,
-          gps: {
-            latitude: 35.652832,
-            longitude: 139.839478,
-          },
           imgUrl: steve,
           phone: '+X-XXX-XXX-XXXX',
           address: '9 Wagon Street Ravenna, OH 44266',

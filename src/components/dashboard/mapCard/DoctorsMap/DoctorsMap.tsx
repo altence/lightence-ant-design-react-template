@@ -35,10 +35,12 @@ interface DoctorsMapProps {
 export const DoctorsMap: React.FC<DoctorsMapProps> = ({ doctors }) => {
   const { isDesktop } = useResponsive();
 
+  const mapDoctors = doctors.filter(({ gps }) => gps);
+
   return (
     <S.DoctorsMap>
       <MapBackgroundIcon />
-      {doctors.map((marker) => (
+      {mapDoctors.map((marker) => (
         <Marker
           key={marker.id}
           icon={
@@ -50,7 +52,7 @@ export const DoctorsMap: React.FC<DoctorsMapProps> = ({ doctors }) => {
               isDesktop,
             )
           }
-          position={[marker.gps.latitude, marker.gps.longitude]}
+          position={[marker.gps?.latitude || 0, marker.gps?.longitude || 0]}
         >
           <Popup>
             <DoctorProfile
