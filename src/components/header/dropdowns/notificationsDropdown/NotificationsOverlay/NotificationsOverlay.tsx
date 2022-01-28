@@ -8,6 +8,7 @@ import { capitalize } from 'utils/utils';
 import { Mention, Notification as NotificationType } from 'api/notifications.api';
 import { notificationsSeverities } from 'constants/notificationsSeverities';
 import * as S from './NotificationsOverlay.styles';
+import { useAppSelector } from '@app/hooks/reduxHooks';
 
 interface NotificationsOverlayProps {
   notifications: NotificationType[];
@@ -16,11 +17,13 @@ interface NotificationsOverlayProps {
 
 export const NotificationsOverlay: React.FC<NotificationsOverlayProps> = ({ notifications, setNotifications }) => {
   const { t } = useTranslation();
+  const doctors = useAppSelector((state) => state.doctors.data);
 
   const noticesList = useMemo(
     () =>
       notifications.map((notification, index) => {
         const type = notificationsSeverities.find((dbSeverity) => dbSeverity.id === notification.id)?.name;
+        const currentDoctor = doctors.find((doc) => doc.id === (notification as Mention).userId);
 
         return (
           <Notification
@@ -29,8 +32,8 @@ export const NotificationsOverlay: React.FC<NotificationsOverlayProps> = ({ noti
             title={capitalize(type || 'warning')}
             description={t(notification.description)}
             {...(type === 'mention' && {
-              mentionIconSrc: (notification as Mention).userIcon,
-              title: (notification as Mention).userName,
+              mentionIconSrc: currentDoctor?.imgUrl,
+              title: currentDoctor?.name,
               description: (
                 <Trans i18nKey={(notification as Mention).description}>
                   <S.LinkBtn type="link" href={(notification as Mention).href}>
@@ -42,7 +45,7 @@ export const NotificationsOverlay: React.FC<NotificationsOverlayProps> = ({ noti
           />
         );
       }),
-    [notifications, t],
+    [notifications, doctors, t],
   );
 
   return (

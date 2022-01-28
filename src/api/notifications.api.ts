@@ -4,8 +4,7 @@ export interface Message {
 }
 
 export interface Mention extends Message {
-  userName: string;
-  userIcon: string;
+  userId: number;
   place: string;
   href: string;
 }
