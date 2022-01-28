@@ -17,11 +17,13 @@ export interface CurrentOption {
   isVerified: boolean;
 }
 
+export type TwoFactorAuthOptionState = TwoFactorAuthOption | null;
+
 export const TwoFactorAuth: React.FC = () => {
   const user = useAppSelector((state) => state.user.user);
 
   const [isEnabled, setEnabled] = useState(Boolean(user?.email.verified || user?.phone.verified));
-  const [selectedOption, setSelectedOption] = useState<TwoFactorAuthOption | null>('email');
+  const [selectedOption, setSelectedOption] = useState<TwoFactorAuthOptionState>('email');
   const [isClickedVerify, setClickedVerify] = useState(false);
 
   const dispatch = useAppDispatch();
