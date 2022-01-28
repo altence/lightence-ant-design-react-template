@@ -22,7 +22,6 @@ type NotificationProps = ArgsProps;
 const openSuccessNotification = (config: NotificationProps): void => {
   notification.success({
     ...config,
-    duration: 0,
     icon: (
       <IconWrapper $isOnlyTitle={!config.description}>
         <CheckCircleFilled className="success-icon" />
