@@ -67,7 +67,7 @@
   },
   "scripts": {
     "start": "lessc --js --clean-css=\"--s1 --advanced\" src/styles/themes/light/main-light.less public/themes/main-light.css && lessc --js --clean-css=\"--s1 --advanced\" src/styles/themes/dark/main-dark.less public/themes/main-dark.css && patch-package && craco start",
-    "build": "lessc --js --clean-css=\"--s1 --advanced\" src/styles/themes/light/main-light.less public/themes/main-light.css && lessc --js --clean-css=\"--s1 --advanced\" src/styles/themes/dark/main-dark.less public/themes/main-dark.css && craco build",
+    "build": "lessc --js --clean-css=\"--s1 --advanced\" src/styles/themes/light/main-light.less public/themes/main-light.css && lessc --js --clean-css=\"--s1 --advanced\" src/styles/themes/dark/main-dark.less public/themes/main-dark.css && patch-package && craco build",
     "test": "craco test",
     "eject": "craco eject",
     "lint": "eslint \"*/**/*.{js,ts,tsx}\" --fix",
