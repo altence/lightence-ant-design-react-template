@@ -1,15 +1,15 @@
 import React from 'react';
-import { Input } from 'components/common/inputs/Input/Input';
+import { FormItemProps } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { FormItem } from '../../../../../../common/Form/Form.styles';
+import { Input } from '@app/components/common/inputs/Input/Input';
+import { FormItem } from '@app/components/common/Form/Form.styles';
 
-interface EmailItemProps {
-  required?: boolean;
-  onClick?: () => void;
+interface EmailItemProps extends FormItemProps {
   verified?: boolean;
+  onClick?: () => void;
 }
 
-export const EmailItem: React.FC<EmailItemProps> = ({ required, onClick, verified }) => {
+export const EmailItem: React.FC<EmailItemProps> = ({ required, onClick, verified, ...props }) => {
   const { t } = useTranslation();
 
   return (
@@ -25,6 +25,7 @@ export const EmailItem: React.FC<EmailItemProps> = ({ required, onClick, verifie
           message: t('common.notValidEmail'),
         },
       ]}
+      {...props}
     >
       <Input disabled={verified} onClick={onClick} />
     </FormItem>
