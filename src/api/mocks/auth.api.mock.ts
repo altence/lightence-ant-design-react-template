@@ -18,11 +18,11 @@ httpApiMock.onPost('login').reply((config) => {
           userName: '@john1989',
           email: {
             name: 'christopher.johnson@altence.com',
-            verified: true,
+            verified: false,
           },
           phone: {
             number: '+18143519459',
-            verified: true,
+            verified: false,
           },
           sex: 'male',
           birthday: '01/26/2022',

@@ -15,6 +15,7 @@ export interface FormProps extends AntFormProps {
   onFinish?: (values: any) => Promise<any>;
   onFinishFailed?: <T>(error: ValidateErrorEntity<[]>) => Promise<T>;
   name: string;
+  withoutSuccess?: boolean;
 }
 
 export const Form: React.FC<FormProps> = ({
@@ -27,6 +28,7 @@ export const Form: React.FC<FormProps> = ({
   onFinishFailed,
   name,
   children,
+  withoutSuccess,
   ...props
 }) => {
   const [isFieldsChange, setFieldsChange] = useState(false);
@@ -49,8 +51,8 @@ export const Form: React.FC<FormProps> = ({
   const setFinished = useCallback(() => {
     setFieldsChange(false);
     setLoading(false);
-    notificationController.success({ message: t('common.success') });
-  }, [setFieldsChange, setLoading, t]);
+    !withoutSuccess && notificationController.success({ message: t('common.success') });
+  }, [setFieldsChange, setLoading, t, withoutSuccess]);
 
   const onFinishDefault = useCallback(
     (values) => {
