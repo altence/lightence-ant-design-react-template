@@ -4,11 +4,12 @@ import { EmailItem } from '@app/components/profile/profileCard/profileFormNav/na
 import { PhoneItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/PhoneItem/PhoneItem';
 import { useAppSelector } from '@app/hooks/reduxHooks';
 import { TwoFactorAuthOption } from '@app/interfaces/interfaces';
+import { TwoFactorAuthOptionState } from '../TwoFactorAuth';
 import * as S from './TwoFactorOptions.styles';
 
 interface TwoFactorOptionsProps {
-  selectedOption: TwoFactorAuthOption | null;
-  setSelectedOption: (state: TwoFactorAuthOption | null) => void;
+  selectedOption: TwoFactorAuthOptionState;
+  setSelectedOption: (state: TwoFactorAuthOptionState) => void;
 }
 
 export const TwoFactorOptions: React.FC<TwoFactorOptionsProps> = ({ selectedOption, setSelectedOption }) => {
