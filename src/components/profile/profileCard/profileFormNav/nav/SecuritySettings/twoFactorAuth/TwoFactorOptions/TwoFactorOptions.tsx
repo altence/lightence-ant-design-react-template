@@ -1,43 +1,44 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { Radio, FormInstance } from 'antd';
-import { EmailItem } from '../../../PersonalInfo/EmailItem/EmailItem';
-import { PhoneItem } from '../../../PersonalInfo/PhoneItem/PhoneItem';
+import React, { useCallback, useMemo } from 'react';
+import { RadioGroup } from '@app/components/common/Radio/Radio';
+import { EmailItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/EmailItem/EmailItem';
+import { PhoneItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/PhoneItem/PhoneItem';
+import { useAppSelector } from '@app/hooks/reduxHooks';
+import { TwoFactorAuthOption } from '@app/interfaces/interfaces';
 import * as S from './TwoFactorOptions.styles';
 
-export const TwoFactorOptions: React.FC<{ form: FormInstance }> = ({ form }) => {
-  const [currentOption, setCurrentOption] = useState<string>('phone');
+interface TwoFactorOptionsProps {
+  selectedOption: TwoFactorAuthOption;
+  setSelectedOption: (state: TwoFactorAuthOption) => void;
+}
 
-  const onChange = useCallback(
-    (event) => {
-      setCurrentOption(event.target.value);
-    },
-    [setCurrentOption],
+export const TwoFactorOptions: React.FC<TwoFactorOptionsProps> = ({ selectedOption, setSelectedOption }) => {
+  const user = useAppSelector((state) => state.user.user);
+
+  const { isEmailActive, isPhoneActive } = useMemo(
+    () => ({
+      isPhoneActive: selectedOption === 'phone',
+      isEmailActive: selectedOption === 'email',
+    }),
+    [selectedOption],
   );
 
   const onClickInput = useCallback(
-    (mode: string) => () => {
-      setCurrentOption(mode);
+    (mode: TwoFactorAuthOption) => () => {
+      setSelectedOption(mode);
     },
-    [setCurrentOption],
+    [setSelectedOption],
   );
-
-  useEffect(() => {
-    form.setFieldsValue({
-      email: '',
-      phone: '',
-    });
-  }, [currentOption, form]);
 
   return (
     <>
-      <Radio.Group value={currentOption} defaultValue={1} onChange={onChange}>
-        <S.RadioBtn value="phone" isActive={currentOption === 'phone'}>
-          <PhoneItem required={currentOption === 'phone'} onClick={onClickInput('phone')} />
+      <RadioGroup value={selectedOption} onChange={(e) => setSelectedOption(e.target.value)}>
+        <S.RadioBtn value="phone" $isActive={isPhoneActive} disabled={user?.phone.verified}>
+          <PhoneItem required={isPhoneActive} onClick={onClickInput('phone')} verified={user?.phone.verified} />
         </S.RadioBtn>
-        <S.RadioBtn value="email" isActive={currentOption === 'email'}>
-          <EmailItem required={currentOption === 'email'} onClick={onClickInput('email')} />
+        <S.RadioBtn value="email" $isActive={isEmailActive} disabled={user?.email.verified}>
+          <EmailItem required={isEmailActive} onClick={onClickInput('email')} verified={user?.email.verified} />
         </S.RadioBtn>
-      </Radio.Group>
+      </RadioGroup>
     </>
   );
 };

@@ -12,10 +12,10 @@ import {
   setNewPassword,
 } from '@app/api/auth.api';
 import { setUser } from '@app/store/slices/userSlice';
-import { deleteToken, deleteUser, persistToken, persistUser, readToken } from '@app/services/localStorage.service';
+import { deleteToken, deleteUser, persistToken, readToken } from '@app/services/localStorage.service';
 
 export interface AuthSlice {
-  token: string;
+  token: string | null;
 }
 
 const initialState: AuthSlice = {
@@ -26,7 +26,6 @@ export const doLogin = createAsyncThunk('auth/doLogin', async (loginPayload: Log
   login(loginPayload).then((res) => {
     dispatch(setUser(res.user));
     persistToken(res.token);
-    persistUser(res.user);
 
     return res.token;
   }),
