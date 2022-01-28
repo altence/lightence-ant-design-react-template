@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { ProfileForm } from '../../../ProfileForm/ProfileForm';
@@ -26,6 +26,11 @@ export const TwoFactorAuth: React.FC = () => {
 
   const dispatch = useAppDispatch();
 
+  const isNeedToShowVerifyBtn = useMemo(
+    () => (user?.email.name && !user?.email.verified) || (user?.phone.number && !user?.phone.verified),
+    [user],
+  );
+
   const { t } = useTranslation();
 
   const onClickVerify = async () => {
@@ -52,6 +57,7 @@ export const TwoFactorAuth: React.FC = () => {
           email: user?.email.name,
           phone: user?.phone.number,
         }}
+        trigger={isNeedToShowVerifyBtn}
         footer={(loading) =>
           (isEnabled && (
             <Button type="link" loading={loading} htmlType="submit">
