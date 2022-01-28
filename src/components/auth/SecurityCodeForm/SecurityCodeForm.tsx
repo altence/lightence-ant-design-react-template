@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Form, Image, Spin } from 'antd';
 import { useTranslation } from 'react-i18next';
@@ -10,10 +10,18 @@ import { useAppDispatch } from '@app/hooks/reduxHooks';
 import { doVerifySecurityCode } from '@app/store/slices/authSlice';
 import { notificationController } from '@app/controllers/notificationController';
 
-export const SecurityCodeForm: React.FC = () => {
+interface SecurityCodeFormProps {
+  onBack?: () => void;
+  onFinish?: () => void;
+}
+
+export const SecurityCodeForm: React.FC<SecurityCodeFormProps> = ({ onBack, onFinish }) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
+
+  const navigateBack = useCallback(() => navigate(-1), [navigate]);
+  const navigateForward = useCallback(() => navigate('/auth/new-password'), [navigate]);
 
   const [securityCode, setSecurityCode] = useState('');
   const [isLoading, setLoading] = useState(false);
@@ -23,18 +31,18 @@ export const SecurityCodeForm: React.FC = () => {
       setLoading(true);
       dispatch(doVerifySecurityCode({ code: securityCode }))
         .unwrap()
-        .then(() => navigate('/auth/new-password'))
+        .then(onFinish || navigateForward)
         .catch((err) => {
           notificationController.error({ message: err.message });
           setLoading(false);
         });
     }
-  }, [securityCode, navigate, dispatch]);
+  }, [securityCode, navigateForward, onFinish, dispatch]);
 
   return (
     <Auth.FormWrapper>
       <Form layout="vertical" requiredMark="optional">
-        <Auth.BackWrapper onClick={() => navigate(-1)}>
+        <Auth.BackWrapper onClick={onBack || navigateBack}>
           <Auth.BackIcon />
           {t('common.back')}
         </Auth.BackWrapper>
