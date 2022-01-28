@@ -21,7 +21,7 @@ export const TwoFactorAuth: React.FC = () => {
   const user = useAppSelector((state) => state.user.user);
 
   const [isEnabled, setEnabled] = useState(Boolean(user?.email.verified || user?.phone.verified));
-  const [selectedOption, setSelectedOption] = useState<TwoFactorAuthOption>('email');
+  const [selectedOption, setSelectedOption] = useState<TwoFactorAuthOption | null>('email');
   const [isClickedVerify, setClickedVerify] = useState(false);
 
   const dispatch = useAppDispatch();
@@ -38,7 +38,7 @@ export const TwoFactorAuth: React.FC = () => {
   };
 
   const onVerify = () => {
-    if (user) {
+    if (user && selectedOption) {
       notificationController.success({ message: t('common.success') });
       setClickedVerify(false);
 

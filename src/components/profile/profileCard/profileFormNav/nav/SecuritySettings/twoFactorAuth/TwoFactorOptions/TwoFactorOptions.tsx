@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo } from 'react';
 import { RadioGroup } from '@app/components/common/Radio/Radio';
 import { EmailItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/EmailItem/EmailItem';
 import { PhoneItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/PhoneItem/PhoneItem';
@@ -7,8 +7,8 @@ import { TwoFactorAuthOption } from '@app/interfaces/interfaces';
 import * as S from './TwoFactorOptions.styles';
 
 interface TwoFactorOptionsProps {
-  selectedOption: TwoFactorAuthOption;
-  setSelectedOption: (state: TwoFactorAuthOption) => void;
+  selectedOption: TwoFactorAuthOption | null;
+  setSelectedOption: (state: TwoFactorAuthOption | null) => void;
 }
 
 export const TwoFactorOptions: React.FC<TwoFactorOptionsProps> = ({ selectedOption, setSelectedOption }) => {
@@ -28,6 +28,12 @@ export const TwoFactorOptions: React.FC<TwoFactorOptionsProps> = ({ selectedOpti
     },
     [setSelectedOption],
   );
+
+  useEffect(() => {
+    if (user?.email.verified && user?.phone.verified) {
+      setSelectedOption(null);
+    }
+  }, [setSelectedOption, user?.email.verified, user?.phone.verified]);
 
   return (
     <>
