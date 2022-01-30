@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { Button } from '../../common/buttons/Button/Button';
-import { FormItem } from 'components/common/Form/Form.styles';
+import { Button } from '@app/components/common/buttons/Button/Button';
+import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
 
-export const UserList = styled(FormItem)`
+export const UserList = styled(BaseForm.Item)`
   & label {
     font-size: ${(props) => props.theme.commonFontSizes.md};
     font-weight: ${(props) => props.theme.commonFontWeight.semibold};

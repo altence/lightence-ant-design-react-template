@@ -1,21 +1,20 @@
 import styled from 'styled-components';
-import { Form as CommonForm } from 'components/common/Form/Form';
-import { FormItem } from 'components/common/Form/Form.styles';
-import { ButtonsGroup } from 'components/common/Form/ButtonsGroup/ButtonsGroup';
+import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
+import { BaseButtonsGroup } from '@app/components/common/forms/components/BaseButtonsGroup/BaseButtonsGroup';
 
-export const Form = styled(CommonForm)`
+export const Form = styled(BaseButtonsForm)`
   width: 16rem;
   border-radius: ${(props) => props.theme.border.radius};
   background-color: ${(props) => props.theme.colors.main.mainBackground};
   padding: 1.25rem 1rem;
 `;
 
-export const FooterButtons = styled(ButtonsGroup)`
+export const FooterButtons = styled(BaseButtonsGroup)`
   margin-top: 1rem;
   margin-bottom: 0.625rem;
 `;
 
-export const FormInput = styled(FormItem)`
+export const FormInput = styled(BaseButtonsForm.Item)`
   @media only screen and ${(props) => props.theme.media.xl} {
     margin-bottom: 1.5rem;
   }

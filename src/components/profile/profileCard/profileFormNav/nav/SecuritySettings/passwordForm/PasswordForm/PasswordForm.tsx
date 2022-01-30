@@ -1,33 +1,46 @@
-import React, { useCallback } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'antd';
-import { ProfileForm } from '../../../../ProfileForm/ProfileForm';
-import { ConfirmItemPassword } from '../ConfirmPasswordItem/ConfirmPasswordItem';
-import { FormItem, Title } from '@app/components/common/Form/Form.styles';
-import { CurrentPasswordItem } from '../CurrentPasswordItem/CurrentPasswordItem';
-import { NewPasswordItem } from '../NewPasswordItem/NewPasswordItem';
+import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
+import { ConfirmItemPassword } from '@app/components/profile/profileCard/profileFormNav/nav/SecuritySettings/passwordForm/ConfirmPasswordItem/ConfirmPasswordItem';
+import { CurrentPasswordItem } from '@app/components/profile/profileCard/profileFormNav/nav/SecuritySettings/passwordForm/CurrentPasswordItem/CurrentPasswordItem';
+import { NewPasswordItem } from '@app/components/profile/profileCard/profileFormNav/nav/SecuritySettings/passwordForm/NewPasswordItem/NewPasswordItem';
+import { notificationController } from '@app/controllers/notificationController';
 import * as S from './PasswordForm.styles';
 
 export const PasswordForm: React.FC = () => {
+  const [isFieldsChanged, setFieldsChanged] = useState(false);
+  const [isLoading, setLoading] = useState(false);
   const { t } = useTranslation();
 
-  const onFinish = useCallback(async (values) => console.log(values), []);
+  const onFinish = (values: []) => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setFieldsChanged(false);
+      notificationController.success({ message: t('common.success') });
+      console.log(values);
+    }, 1000);
+  };
 
   return (
-    <ProfileForm
+    <BaseButtonsForm
       name="newPassword"
-      footer={(loading) => (
-        <S.Btn loading={loading} type="primary" htmlType="submit">
+      requiredMark="optional"
+      isFieldsChanged={isFieldsChanged}
+      onFieldsChange={() => setFieldsChanged(true)}
+      footer={
+        <S.Btn loading={isLoading} type="primary" htmlType="submit">
           {t('common.confirm')}
         </S.Btn>
-      )}
+      }
       onFinish={onFinish}
     >
       <Row gutter={{ md: 15, xl: 30 }}>
         <Col span={24}>
-          <FormItem>
-            <Title>{t('profile.nav.securitySettings.changePassword')}</Title>
-          </FormItem>
+          <BaseButtonsForm.Item>
+            <BaseButtonsForm.Title>{t('profile.nav.securitySettings.changePassword')}</BaseButtonsForm.Title>
+          </BaseButtonsForm.Item>
         </Col>
 
         <Col xs={24} md={12} xl={24}>
@@ -42,6 +55,6 @@ export const PasswordForm: React.FC = () => {
           <ConfirmItemPassword />
         </Col>
       </Row>
-    </ProfileForm>
+    </BaseButtonsForm>
   );
 };

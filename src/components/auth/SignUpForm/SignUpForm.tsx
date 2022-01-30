@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Form } from 'antd';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ReactComponent as GoogleIcon } from 'assets/icons/google.svg';
-import { ReactComponent as FacebookIcon } from 'assets/icons/facebook.svg';
-import * as S from './SignUpForm.styles';
-import * as Auth from 'components/layouts/AuthLayout/AuthLayout.styles';
+import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
 import { useAppDispatch } from '@app/hooks/reduxHooks';
 import { doSignUp } from '@app/store/slices/authSlice';
 import { notificationController } from '@app/controllers/notificationController';
+import { ReactComponent as GoogleIcon } from '@app/assets/icons/google.svg';
+import { ReactComponent as FacebookIcon } from '@app/assets/icons/facebook.svg';
+import * as Auth from '@app/components/layouts/AuthLayout/AuthLayout.styles';
+import * as S from './SignUpForm.styles';
 
 interface SignUpFormData {
   firstName: string;
@@ -53,7 +53,7 @@ export const SignUpForm: React.FC = () => {
 
   return (
     <Auth.FormWrapper>
-      <Form layout="vertical" onFinish={handleSubmit} requiredMark="optional" initialValues={initValues}>
+      <BaseForm layout="vertical" onFinish={handleSubmit} requiredMark="optional" initialValues={initValues}>
         <S.Title>{t('common.signUp')}</S.Title>
         <Auth.FormItem
           name="firstName"
@@ -108,7 +108,7 @@ export const SignUpForm: React.FC = () => {
           <Auth.FormInputPassword placeholder={t('common.confirmPassword')} />
         </Auth.FormItem>
         <Auth.ActionsWrapper>
-          <Form.Item name="termOfUse" valuePropName="checked" noStyle>
+          <BaseForm.Item name="termOfUse" valuePropName="checked" noStyle>
             <Auth.FormCheckbox>
               <Auth.Text>
                 {t('signup.agree')}{' '}
@@ -121,29 +121,29 @@ export const SignUpForm: React.FC = () => {
                 </Link>
               </Auth.Text>
             </Auth.FormCheckbox>
-          </Form.Item>
+          </BaseForm.Item>
         </Auth.ActionsWrapper>
-        <Form.Item noStyle>
+        <BaseForm.Item noStyle>
           <Auth.SubmitButton type="primary" htmlType="submit" loading={isLoading}>
             {t('common.signUp')}
           </Auth.SubmitButton>
-        </Form.Item>
-        <Form.Item noStyle>
+        </BaseForm.Item>
+        <BaseForm.Item noStyle>
           <Auth.SocialButton type="default" htmlType="submit">
             <Auth.SocialIconWrapper>
               <GoogleIcon />
             </Auth.SocialIconWrapper>
             {t('signup.googleLink')}
           </Auth.SocialButton>
-        </Form.Item>
-        <Form.Item noStyle>
+        </BaseForm.Item>
+        <BaseForm.Item noStyle>
           <Auth.SocialButton type="default" htmlType="submit">
             <Auth.SocialIconWrapper>
               <FacebookIcon />
             </Auth.SocialIconWrapper>
             {t('signup.facebookLink')}
           </Auth.SocialButton>
-        </Form.Item>
+        </BaseForm.Item>
         <Auth.FooterWrapper>
           <Auth.Text>
             {t('signup.alreadyHaveAccount')}{' '}
@@ -152,7 +152,7 @@ export const SignUpForm: React.FC = () => {
             </Link>
           </Auth.Text>
         </Auth.FooterWrapper>
-      </Form>
+      </BaseForm>
     </Auth.FormWrapper>
   );
 };

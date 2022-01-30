@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Form } from 'antd';
 import { useTranslation } from 'react-i18next';
+import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
 import * as S from './ForgotPasswordForm.styles';
-import * as Auth from 'components/layouts/AuthLayout/AuthLayout.styles';
+import * as Auth from '@app/components/layouts/AuthLayout/AuthLayout.styles';
 import { useAppDispatch } from '@app/hooks/reduxHooks';
 import { doResetPassword } from '@app/store/slices/authSlice';
 import { notificationController } from '@app/controllers/notificationController';
@@ -37,7 +37,7 @@ export const ForgotPasswordForm: React.FC = () => {
 
   return (
     <Auth.FormWrapper>
-      <Form layout="vertical" onFinish={handleSubmit} requiredMark="optional" initialValues={initValues}>
+      <BaseForm layout="vertical" onFinish={handleSubmit} requiredMark="optional" initialValues={initValues}>
         <Auth.BackWrapper onClick={() => navigate(-1)}>
           <Auth.BackIcon />
           {t('common.back')}
@@ -51,12 +51,12 @@ export const ForgotPasswordForm: React.FC = () => {
         >
           <Auth.FormInput placeholder={t('common.email')} />
         </Auth.FormItem>
-        <Form.Item noStyle>
+        <BaseForm.Item noStyle>
           <S.SubmitButton type="primary" htmlType="submit" loading={isLoading}>
             {t('forgotPassword.sendInstructions')}
           </S.SubmitButton>
-        </Form.Item>
-      </Form>
+        </BaseForm.Item>
+      </BaseForm>
     </Auth.FormWrapper>
   );
 };

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Checkbox, Button } from 'antd';
 import { LeftOutlined } from '@ant-design/icons';
-import { FormItem as CommonFormItem } from '@app/components/common/Form/Form.styles';
+import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
 import { Input as CommonInput } from '@app/components/common/inputs/Input/Input';
 import { InputPassword as CommonInputPassword } from '@app/components/common/inputs/InputPassword/InputPassword';
 import { hexToRGB } from '@app/utils/utils';
@@ -90,7 +90,7 @@ export const FormCheckbox = styled(Checkbox)`
   }
 `;
 
-export const FormItem = styled(CommonFormItem)`
+export const FormItem = styled(BaseForm.Item)`
   margin-bottom: 0.75rem;
   & .ant-form-item-control-input {
     min-height: 3.125rem;

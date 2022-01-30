@@ -1,10 +1,9 @@
 import React, { useMemo, useState } from 'react';
+import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
 import { Input } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { Form } from '@app/components/common/Form/Form';
 import { CardState, Tag, Participant } from '../../interfaces';
 import { TagDropdown } from '../TagDropdown/TagDropdown';
-import { addCard } from '@app/api/kanban.api';
 import * as S from './NewCardForm.styles';
 import { ParticipantsDropdown } from '../ParticipantsDropdown/ParticipantsDropdown';
 
@@ -27,13 +26,16 @@ interface NewCardFormProps {
 export const NewCardForm: React.FC<NewCardFormProps> = ({ onAdd, onCancel }) => {
   const [selectedTags, setSelectedTags] = useState<Tag[]>([]);
   const [selectedParticipants, setSelectedParticipants] = useState<Participant[]>([]);
+  const [isLoading, setLoading] = useState(false);
 
   const { t } = useTranslation();
 
-  const onFinish = async (values: []) => {
-    const card = await addCard({ ...values, tags: selectedTags, participants: selectedParticipants });
-
-    onAdd(card);
+  const onFinish = (values: []) => {
+    setLoading(true);
+    setTimeout(() => {
+      onAdd({ ...values, tags: selectedTags, participants: selectedParticipants });
+      setLoading(false);
+    }, 1000);
   };
 
   const formItems = useMemo(
@@ -48,12 +50,11 @@ export const NewCardForm: React.FC<NewCardFormProps> = ({ onAdd, onCancel }) => 
 
   return (
     <S.CardWrapper>
-      <Form
+      <BaseButtonsForm
         name="addCard"
+        isFieldsChanged
+        footer={<S.FooterButtons loading={isLoading} size="small" onCancel={onCancel} />}
         onFinish={onFinish}
-        onCancel={onCancel}
-        footer={(loading, onCancel) => <S.FooterButtons size="small" loading={loading} onCancel={onCancel} />}
-        trigger
       >
         {formItems}
         <TagDropdown selectedTags={selectedTags} setSelectedTags={setSelectedTags} />
@@ -61,7 +62,7 @@ export const NewCardForm: React.FC<NewCardFormProps> = ({ onAdd, onCancel }) => 
           selectedParticipants={selectedParticipants}
           setSelectedParticipants={setSelectedParticipants}
         />
-      </Form>
+      </BaseButtonsForm>
     </S.CardWrapper>
   );
 };

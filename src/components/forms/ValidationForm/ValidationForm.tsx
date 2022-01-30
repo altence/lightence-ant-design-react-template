@@ -1,17 +1,18 @@
 import { Row, Col } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { UploadOutlined, InboxOutlined } from '@ant-design/icons';
-import { Form } from '@app/components/common/Form/Form';
+import { useState } from 'react';
+import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
 import { InputNumber } from '@app/components/common/inputs/InputNumber/InputNumber';
 import { Select, Option } from '@app/components/common/selects/Select/Select';
 import { Button } from '@app/components/common/buttons/Button/Button';
-import { FormItem } from '@app/components/common/Form/Form.styles';
 import { Switch } from '@app/components/common/Switch/Switch';
 import { Radio, RadioButton, RadioGroup } from '@app/components/common/Radio/Radio';
 import { Slider } from '@app/components/common/Slider/Slider';
 import { Upload, UploadDragger } from '@app/components/common/Upload/Upload';
 import { Rate } from '@app/components/common/Rate/Rate';
 import { Checkbox, CheckboxGroup } from '@app/components/common/Checkbox/Checkbox';
+import { notificationController } from '@app/controllers/notificationController';
 
 const formItemLayout = {
   labelCol: { span: 24 },
@@ -26,35 +27,41 @@ const normFile = (e = { fileList: [] }) => {
 };
 
 export const ValidationForm: React.FC = () => {
+  const [isFieldsChanged, setFieldsChanged] = useState(false);
+  const [isLoading, setLoading] = useState(false);
   const { t } = useTranslation();
 
   const onFinish = async (values = {}) => {
-    return new Promise((res) => {
-      setTimeout(() => {
-        res(values);
-      }, 1000);
-    });
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setFieldsChanged(false);
+      notificationController.success({ message: t('common.success') });
+      console.log(values);
+    }, 1000);
   };
 
   return (
-    <Form
-      name="validateForm"
+    <BaseButtonsForm
       {...formItemLayout}
-      onFinish={onFinish}
+      isFieldsChanged={isFieldsChanged}
+      onFieldsChange={() => setFieldsChanged(true)}
+      name="validateForm"
       initialValues={{
         'input-number': 3,
         'checkbox-group': ['A', 'B'],
         rate: 3.5,
       }}
-      footer={(loading) => (
-        <FormItem>
-          <Button type="primary" htmlType="submit" loading={loading}>
+      footer={
+        <BaseButtonsForm.Item>
+          <Button type="primary" htmlType="submit" loading={isLoading}>
             {t('common.submit')}
           </Button>
-        </FormItem>
-      )}
+        </BaseButtonsForm.Item>
+      }
+      onFinish={onFinish}
     >
-      <FormItem
+      <BaseButtonsForm.Item
         name="select"
         label={t('forms.validationFormLabels.select')}
         hasFeedback
@@ -64,9 +71,9 @@ export const ValidationForm: React.FC = () => {
           <Option value="china">{t('forms.validationFormLabels.china')}</Option>
           <Option value="usa">{t('forms.validationFormLabels.usa')}</Option>
         </Select>
-      </FormItem>
+      </BaseButtonsForm.Item>
 
-      <FormItem
+      <BaseButtonsForm.Item
         name="select-multiple"
         label={t('forms.validationFormLabels.selectMultiple')}
         rules={[{ required: true, message: t('forms.validationFormLabels.colorError'), type: 'array' }]}
@@ -76,20 +83,20 @@ export const ValidationForm: React.FC = () => {
           <Option value="green">{t('forms.validationFormLabels.green')}</Option>
           <Option value="blue">{t('forms.validationFormLabels.blue')}</Option>
         </Select>
-      </FormItem>
+      </BaseButtonsForm.Item>
 
-      <FormItem label={t('forms.validationFormLabels.inputNumber')}>
-        <FormItem name="input-number" noStyle>
+      <BaseButtonsForm.Item label={t('forms.validationFormLabels.inputNumber')}>
+        <BaseButtonsForm.Item name="input-number" noStyle>
           <InputNumber min={1} max={10} />
-        </FormItem>
+        </BaseButtonsForm.Item>
         <span> {t('forms.validationFormLabels.machines')}</span>
-      </FormItem>
+      </BaseButtonsForm.Item>
 
-      <FormItem name="switch" label={t('forms.validationFormLabels.switch')} valuePropName="checked">
+      <BaseButtonsForm.Item name="switch" label={t('forms.validationFormLabels.switch')} valuePropName="checked">
         <Switch />
-      </FormItem>
+      </BaseButtonsForm.Item>
 
-      <FormItem name="slider" label={t('forms.validationFormLabels.slider')}>
+      <BaseButtonsForm.Item name="slider" label={t('forms.validationFormLabels.slider')}>
         <Slider
           tooltipVisible={false}
           marks={{
@@ -101,17 +108,17 @@ export const ValidationForm: React.FC = () => {
             100: 'F',
           }}
         />
-      </FormItem>
+      </BaseButtonsForm.Item>
 
-      <FormItem name="radio-group" label={t('forms.validationFormLabels.radioGroup')}>
+      <BaseButtonsForm.Item name="radio-group" label={t('forms.validationFormLabels.radioGroup')}>
         <RadioGroup>
           <Radio value="a">{t('forms.validationFormLabels.item')} 1</Radio>
           <Radio value="b">{t('forms.validationFormLabels.item')} 2</Radio>
           <Radio value="c">{t('forms.validationFormLabels.item')} 3</Radio>
         </RadioGroup>
-      </FormItem>
+      </BaseButtonsForm.Item>
 
-      <FormItem
+      <BaseButtonsForm.Item
         name="radio-button"
         label={t('forms.validationFormLabels.radioButton')}
         rules={[{ required: true, message: t('forms.validationFormLabels.itemError') }]}
@@ -121,9 +128,9 @@ export const ValidationForm: React.FC = () => {
           <RadioButton value="b">{t('forms.validationFormLabels.item')} 2</RadioButton>
           <RadioButton value="c">{t('forms.validationFormLabels.item')} 3</RadioButton>
         </RadioGroup>
-      </FormItem>
+      </BaseButtonsForm.Item>
 
-      <FormItem name="checkbox-group" label={t('forms.validationFormLabels.checkboxGroup')}>
+      <BaseButtonsForm.Item name="checkbox-group" label={t('forms.validationFormLabels.checkboxGroup')}>
         <CheckboxGroup>
           <Row>
             <Col span={8}>
@@ -148,13 +155,13 @@ export const ValidationForm: React.FC = () => {
             </Col>
           </Row>
         </CheckboxGroup>
-      </FormItem>
+      </BaseButtonsForm.Item>
 
-      <FormItem name="rate" label={t('forms.validationFormLabels.rate')}>
+      <BaseButtonsForm.Item name="rate" label={t('forms.validationFormLabels.rate')}>
         <Rate />
-      </FormItem>
+      </BaseButtonsForm.Item>
 
-      <FormItem
+      <BaseButtonsForm.Item
         name="upload"
         label={t('forms.validationFormLabels.upload')}
         valuePropName="fileList"
@@ -165,10 +172,10 @@ export const ValidationForm: React.FC = () => {
             {t('forms.validationFormLabels.clickToUpload')}
           </Button>
         </Upload>
-      </FormItem>
+      </BaseButtonsForm.Item>
 
-      <FormItem label={t('forms.validationFormLabels.dragger')}>
-        <FormItem name="dragger" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
+      <BaseButtonsForm.Item label={t('forms.validationFormLabels.dragger')}>
+        <BaseButtonsForm.Item name="dragger" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
           <UploadDragger name="files" action="/upload.do">
             <p>
               <InboxOutlined />
@@ -176,8 +183,8 @@ export const ValidationForm: React.FC = () => {
             <p>{t('forms.validationFormLabels.clickToDrag')}</p>
             <p>{t('forms.validationFormLabels.supportSingle')}</p>
           </UploadDragger>
-        </FormItem>
-      </FormItem>
-    </Form>
+        </BaseButtonsForm.Item>
+      </BaseButtonsForm.Item>
+    </BaseButtonsForm>
   );
 };
