@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { isValidPhoneNumber } from 'react-phone-number-input';
-import { FormItem } from '@app/components/common/Form/Form.styles';
+import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
 import * as S from './PhoneItem.styles';
 
 interface PhoneItemsProps {
@@ -14,7 +14,7 @@ export const PhoneItem: React.FC<PhoneItemsProps> = ({ required, onClick, verifi
   const { t } = useTranslation();
 
   return (
-    <FormItem
+    <BaseButtonsForm.Item
       name="phone"
       $isSuccess={verified}
       $successText={t('profile.nav.personalInfo.verified')}
@@ -32,6 +32,6 @@ export const PhoneItem: React.FC<PhoneItemsProps> = ({ required, onClick, verifi
       ]}
     >
       <S.PhoneNumberInput disabled={verified} className="ant-input" onClick={onClick} />
-    </FormItem>
+    </BaseButtonsForm.Item>
   );
 };

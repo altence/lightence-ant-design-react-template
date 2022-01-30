@@ -1,9 +1,9 @@
 import React, { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'antd';
-import { FormItem } from 'components/common/Form/Form.styles';
-import { cardThemes } from 'constants/cardThemes';
-import { CreditCard } from '../interfaces';
+import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
+import { cardThemes } from '@app/constants/cardThemes';
+import { CreditCard } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentMethod/paymentForm/interfaces';
 import * as S from './CardThemeItem.styles';
 
 interface CardThemeItemProps {
@@ -34,8 +34,8 @@ export const CardThemeItem: React.FC<CardThemeItemProps> = ({ cardData, setCardD
   );
 
   return (
-    <FormItem label={t('profile.nav.payments.cardTheme')}>
+    <BaseButtonsForm.Item label={t('profile.nav.payments.cardTheme')}>
       <Row gutter={[10, 10]}>{themes}</Row>
-    </FormItem>
+    </BaseButtonsForm.Item>
   );
 };

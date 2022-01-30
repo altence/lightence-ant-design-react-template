@@ -1,14 +1,14 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { FormItem } from 'components/common/Form/Form.styles';
-import { passwordPattern } from 'constants/patterns';
-import { InputPassword } from 'components/common/inputs/InputPassword/InputPassword';
+import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
+import { InputPassword } from '@app/components/common/inputs/InputPassword/InputPassword';
+import { passwordPattern } from '@app/constants/patterns';
 
 export const NewPasswordItem: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <FormItem
+    <BaseButtonsForm.Item
       name="newPassword"
       label={t('profile.nav.securitySettings.newPassword')}
       dependencies={['password']}
@@ -32,6 +32,6 @@ export const NewPasswordItem: React.FC = () => {
       ]}
     >
       <InputPassword />
-    </FormItem>
+    </BaseButtonsForm.Item>
   );
 };

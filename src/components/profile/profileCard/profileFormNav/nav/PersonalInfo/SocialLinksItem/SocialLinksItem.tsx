@@ -1,62 +1,76 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { FormItem } from '@app/components/common/Form/Form.styles';
 import { Col, Row } from 'antd';
-import { ClipboardInput } from 'components/common/inputs/ClipboardInput/ClipboardInput';
 import { TwitterOutlined } from '@ant-design/icons';
-import { websitePattern } from '@app/constants/patterns';
+import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
+import { ClipboardInput } from 'components/common/inputs/ClipboardInput/ClipboardInput';
 import { OpenURLInput } from '@app/components/common/inputs/OpenURLInput/OpenURLInput';
 import { LinkedinIcon } from '@app/components/common/icons/LinkedinIcon';
 import { FacebookIcon } from '@app/components/common/icons/FacebookIcon';
+import { websitePattern } from '@app/constants/patterns';
 
-interface SocialLinksItemProps {
-  socialLinks: {
-    facebook?: string;
-    twitter?: string;
-    linkedin?: string;
-  };
-}
-
-export const SocialLinksItem: React.FC<SocialLinksItemProps> = ({ socialLinks }) => {
+export const SocialLinksItem: React.FC = () => {
   const { t } = useTranslation();
 
-  const { twitter, facebook, linkedin } = socialLinks;
-
   return (
-    <FormItem label={t('profile.nav.personalInfo.socialLinks')}>
+    <BaseButtonsForm.Item label={t('profile.nav.personalInfo.socialLinks')}>
       <Row gutter={[20, 0]}>
         <Col xs={24} md={12}>
-          <FormItem name="twitter">
-            <ClipboardInput valueToCopy={twitter} addonBefore={<TwitterOutlined />} />
-          </FormItem>
+          <BaseButtonsForm.Item shouldUpdate>
+            {({ getFieldValue }) => {
+              const twitter = getFieldValue('twitter');
+
+              return (
+                <BaseButtonsForm.Item name="twitter">
+                  <ClipboardInput valueToCopy={twitter} addonBefore={<TwitterOutlined />} />
+                </BaseButtonsForm.Item>
+              );
+            }}
+          </BaseButtonsForm.Item>
         </Col>
         <Col xs={24} md={12}>
-          <FormItem
-            name="linkedin"
-            rules={[
-              {
-                pattern: new RegExp(websitePattern),
-                message: t('profile.nav.personalInfo.notValidWebsite'),
-              },
-            ]}
-          >
-            <OpenURLInput href={linkedin} target="_blank" addonBefore={<LinkedinIcon />} />
-          </FormItem>
+          <BaseButtonsForm.Item shouldUpdate>
+            {({ getFieldValue }) => {
+              const linkedin = getFieldValue('linkedin');
+
+              return (
+                <BaseButtonsForm.Item
+                  name="linkedin"
+                  rules={[
+                    {
+                      pattern: new RegExp(websitePattern),
+                      message: t('profile.nav.personalInfo.notValidWebsite'),
+                    },
+                  ]}
+                >
+                  <OpenURLInput href={linkedin} target="_blank" addonBefore={<LinkedinIcon />} />
+                </BaseButtonsForm.Item>
+              );
+            }}
+          </BaseButtonsForm.Item>
         </Col>
         <Col xs={24} md={12}>
-          <FormItem
-            name="facebook"
-            rules={[
-              {
-                pattern: new RegExp(websitePattern),
-                message: t('profile.nav.personalInfo.notValidWebsite'),
-              },
-            ]}
-          >
-            <OpenURLInput href={facebook} target="_blank" addonBefore={<FacebookIcon />} />
-          </FormItem>
+          <BaseButtonsForm.Item shouldUpdate>
+            {({ getFieldValue }) => {
+              const facebook = getFieldValue('facebook');
+
+              return (
+                <BaseButtonsForm.Item
+                  name="facebook"
+                  rules={[
+                    {
+                      pattern: new RegExp(websitePattern),
+                      message: t('profile.nav.personalInfo.notValidWebsite'),
+                    },
+                  ]}
+                >
+                  <OpenURLInput href={facebook} target="_blank" addonBefore={<FacebookIcon />} />
+                </BaseButtonsForm.Item>
+              );
+            }}
+          </BaseButtonsForm.Item>
         </Col>
       </Row>
-    </FormItem>
+    </BaseButtonsForm.Item>
   );
 };

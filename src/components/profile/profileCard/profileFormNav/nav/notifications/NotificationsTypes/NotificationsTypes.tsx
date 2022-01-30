@@ -1,11 +1,13 @@
 import React, { useCallback, useState } from 'react';
 import { Checkbox } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { ProfileForm } from '../../../ProfileForm/ProfileForm';
-import { Option } from '../interfaces';
-import { CheckboxColumn } from '../CheckboxColumn/CheckboxColumn';
 import { CheckboxValueType } from 'antd/lib/checkbox/Group';
+import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
+import { CheckboxColumn } from '@app/components/profile/profileCard/profileFormNav/nav/notifications/CheckboxColumn/CheckboxColumn';
+import { Option } from '@app/components/profile/profileCard/profileFormNav/nav/notifications/interfaces';
 import * as S from './NotificationsTypes.styles';
+import { BaseButtonsGroup } from '@app/components/common/forms/components/BaseButtonsGroup/BaseButtonsGroup';
+import { notificationController } from '@app/controllers/notificationController';
 
 interface Notifications {
   1: string[];
@@ -15,6 +17,7 @@ interface Notifications {
 
 export const NotificationsTypes: React.FC = () => {
   const { t } = useTranslation();
+  const [isLoading, setLoading] = useState(false);
   const [checkedElements, setCheckedElements] = useState<Notifications>({
     1: [],
     2: [],
@@ -78,18 +81,28 @@ export const NotificationsTypes: React.FC = () => {
   }, [setTriggered]);
 
   const onFinish = useCallback(async () => {
-    setTriggered(false);
-
-    console.log(checkedElements);
-  }, [setTriggered, checkedElements]);
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setTriggered(false);
+      notificationController.success({ message: t('common.success') });
+      console.log(checkedElements);
+    }, 1000);
+  }, [setTriggered, checkedElements, t]);
 
   return (
-    <ProfileForm name="notifications" onCancel={onCancel} onFinish={onFinish} trigger={isTriggered}>
+    <BaseButtonsForm
+      name="notifications"
+      onFinish={onFinish}
+      isFieldsChanged={isTriggered}
+      setFieldsChanged={setTriggered}
+      footer={<BaseButtonsGroup loading={isLoading} onCancel={onCancel} />}
+    >
       <S.Wrapper>
         {options.map((item) => (
           <CheckboxColumn key={item.id} column={item} handleCheck={handleCheck(item.id)} setTriggered={setTriggered} />
         ))}
       </S.Wrapper>
-    </ProfileForm>
+    </BaseButtonsForm>
   );
 };

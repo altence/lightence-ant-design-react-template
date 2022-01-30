@@ -2,14 +2,14 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ManOutlined, WomanOutlined } from '@ant-design/icons';
 import { Space } from 'antd';
-import { Select, Option } from 'components/common/selects/Select/Select';
-import { FormItem } from 'components/common/Form/Form.styles';
+import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
+import { Select, Option } from '@app/components/common/selects/Select/Select';
 
 export const SexItem: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <FormItem name="sex" label={t('profile.nav.personalInfo.sex')}>
+    <BaseButtonsForm.Item name="sex" label={t('profile.nav.personalInfo.sex')}>
       <Select>
         <Option value="male">
           <Space align="center">
@@ -24,6 +24,6 @@ export const SexItem: React.FC = () => {
           </Space>
         </Option>
       </Select>
-    </FormItem>
+    </BaseButtonsForm.Item>
   );
 };

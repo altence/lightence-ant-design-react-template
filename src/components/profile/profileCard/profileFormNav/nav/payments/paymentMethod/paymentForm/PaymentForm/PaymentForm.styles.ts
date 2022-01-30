@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { PaymentCard } from '../../PaymentCard/PaymentCard';
-import { ButtonsGroup } from '@app/components/common/Form/ButtonsGroup/ButtonsGroup';
+import { PaymentCard } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentMethod/PaymentCard/PaymentCard';
 
 export const PayCard = styled(PaymentCard)`
   position: absolute;
@@ -11,10 +10,4 @@ export const PayCard = styled(PaymentCard)`
 
 export const FormItemsWrapper = styled.div`
   padding-top: 7.5rem;
-`;
-
-export const PaymentButtons = styled(ButtonsGroup)`
-  @media only screen and ${(props) => props.theme.media.md} {
-    width: unset;
-  }
 `;

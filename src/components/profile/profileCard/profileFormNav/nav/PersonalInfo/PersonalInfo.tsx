@@ -1,27 +1,27 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Col, Row, Form as AntForm } from 'antd';
-import { ProfileForm } from '../../ProfileForm/ProfileForm';
-import { Card } from 'components/common/Card/Card';
-import { FirstNameItem } from './FirstNameItem/FirstNameItem';
-import { LastNameItem } from './LastNameItem/LastNameItem';
-import { NicknameItem } from './NicknameItem/NicknameItem';
-import { SexItem } from './SexItem/SexItem';
-import { BirthdayItem } from './BirthdayItem/BirthdayItem';
-import { LanguageItem } from './LanguageItem/LanguageItem';
-import { PhoneItem } from './PhoneItem/PhoneItem';
-import { EmailItem } from './EmailItem/EmailItem';
-import { CountriesItem } from './CountriesItem/CountriesItem';
-import { CitiesItem } from './CitiesItem/CitiesItem';
-import { ZipcodeItem } from './ZipcodeItem/ZipcodeItem';
-import { AddressItem } from './AddressItem/AddressItem';
-import { WebsiteItem } from './WebsiteItem/WebsiteItem';
-import { SocialLinksItem } from './SocialLinksItem/SocialLinksItem';
-import * as S from '../../../../../common/Form/Form.styles';
-import { Dates } from '@app/constants/Dates';
+import { Col, Row } from 'antd';
+import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
+import { Card } from '@app/components/common/Card/Card';
+import { FirstNameItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/FirstNameItem/FirstNameItem';
+import { LastNameItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/LastNameItem/LastNameItem';
+import { NicknameItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/NicknameItem/NicknameItem';
+import { SexItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/SexItem/SexItem';
+import { BirthdayItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/BirthdayItem/BirthdayItem';
+import { LanguageItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/LanguageItem/LanguageItem';
+import { PhoneItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/PhoneItem/PhoneItem';
+import { EmailItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/EmailItem/EmailItem';
+import { CountriesItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/CountriesItem/CountriesItem';
+import { CitiesItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/CitiesItem/CitiesItem';
+import { ZipcodeItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/ZipcodeItem/ZipcodeItem';
+import { AddressItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/AddressItem/AddressItem';
+import { WebsiteItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/WebsiteItem/WebsiteItem';
+import { SocialLinksItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/SocialLinksItem/SocialLinksItem';
 import { useAppSelector } from '@app/hooks/reduxHooks';
+import { Dates } from '@app/constants/Dates';
+import { notificationController } from '@app/controllers/notificationController';
 
-interface PersonalInfoForm {
+interface PersonalInfoFormValues {
   birthday?: string;
   lastName: string;
   country?: string;
@@ -41,7 +41,7 @@ interface PersonalInfoForm {
   email: string;
 }
 
-const initialPersonalInfoValues = {
+const initialPersonalInfoValues: PersonalInfoFormValues = {
   firstName: '',
   lastName: '',
   nickName: '',
@@ -63,10 +63,9 @@ const initialPersonalInfoValues = {
 
 export const PersonalInfo: React.FC = () => {
   const user = useAppSelector((state) => state.user.user);
-  const [website, setWebsite] = useState(user?.website);
-  const [twitter, setTwitter] = useState(user?.socials?.twitter);
-  const [linkedin, setLinkedin] = useState(user?.socials?.linkedin);
-  const [facebook, setFacebook] = useState(user?.socials?.facebook);
+
+  const [isFieldsChanged, setFieldsChanged] = useState(false);
+  const [isLoading, setLoading] = useState(false);
 
   const userFormValues = useMemo(
     () =>
@@ -94,48 +93,41 @@ export const PersonalInfo: React.FC = () => {
     [user],
   );
 
-  const [form] = AntForm.useForm();
+  const [form] = BaseButtonsForm.useForm();
 
   const { t } = useTranslation();
 
-  const onFinish = useCallback(async (values) => {
-    // todo dispatch an action here
-    console.log(values);
-  }, []);
-
-  const onCancel = () => {
-    form.resetFields();
-
-    setWebsite(userFormValues.website);
-    setTwitter(userFormValues.twitter);
-    setLinkedin(userFormValues.linkedin);
-    setFacebook(userFormValues.facebook);
-  };
-
-  const onChange = (values: PersonalInfoForm) => {
-    const { website, twitter, linkedin, facebook } = values;
-
-    website && setWebsite(website);
-    twitter && setTwitter(twitter);
-    linkedin && setLinkedin(linkedin);
-    facebook && setFacebook(facebook);
-  };
+  const onFinish = useCallback(
+    (values) => {
+      // todo dispatch an action here
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+        setFieldsChanged(false);
+        notificationController.success({ message: t('common.success') });
+        console.log(values);
+      }, 1000);
+    },
+    [t],
+  );
 
   return (
     <Card>
-      <ProfileForm
+      <BaseButtonsForm
         form={form}
         name="info"
-        onValuesChange={onChange}
-        onCancel={onCancel}
-        onFinish={onFinish}
+        loading={isLoading}
         initialValues={userFormValues}
+        isFieldsChanged={isFieldsChanged}
+        setFieldsChanged={setFieldsChanged}
+        onFieldsChange={() => setFieldsChanged(true)}
+        onFinish={onFinish}
       >
         <Row gutter={{ xs: 10, md: 15, xl: 30 }}>
           <Col span={24}>
-            <S.FormItem>
-              <S.Title>{t('profile.nav.personalInfo.title')}</S.Title>
-            </S.FormItem>
+            <BaseButtonsForm.Item>
+              <BaseButtonsForm.Title>{t('profile.nav.personalInfo.title')}</BaseButtonsForm.Title>
+            </BaseButtonsForm.Item>
           </Col>
 
           <Col xs={24} md={12}>
@@ -163,9 +155,9 @@ export const PersonalInfo: React.FC = () => {
           </Col>
 
           <Col span={24}>
-            <S.FormItem>
-              <S.Title>{t('profile.nav.personalInfo.contactInfo')}</S.Title>
-            </S.FormItem>
+            <BaseButtonsForm.Item>
+              <BaseButtonsForm.Title>{t('profile.nav.personalInfo.contactInfo')}</BaseButtonsForm.Title>
+            </BaseButtonsForm.Item>
           </Col>
 
           <Col xs={24} md={12}>
@@ -177,9 +169,9 @@ export const PersonalInfo: React.FC = () => {
           </Col>
 
           <Col span={24}>
-            <S.FormItem>
-              <S.Title>{t('common.address')}</S.Title>
-            </S.FormItem>
+            <BaseButtonsForm.Item>
+              <BaseButtonsForm.Title>{t('common.address')}</BaseButtonsForm.Title>
+            </BaseButtonsForm.Item>
           </Col>
 
           <Col xs={24} md={12}>
@@ -203,26 +195,20 @@ export const PersonalInfo: React.FC = () => {
           </Col>
 
           <Col span={24}>
-            <S.FormItem>
-              <S.Title>{t('profile.nav.personalInfo.otherInfo')}</S.Title>
-            </S.FormItem>
+            <BaseButtonsForm.Item>
+              <BaseButtonsForm.Title>{t('profile.nav.personalInfo.otherInfo')}</BaseButtonsForm.Title>
+            </BaseButtonsForm.Item>
           </Col>
 
           <Col xs={24} md={12}>
-            <WebsiteItem website={website} />
+            <WebsiteItem />
           </Col>
 
           <Col span={24}>
-            <SocialLinksItem
-              socialLinks={{
-                twitter,
-                linkedin,
-                facebook,
-              }}
-            />
+            <SocialLinksItem />
           </Col>
         </Row>
-      </ProfileForm>
+      </BaseButtonsForm>
     </Card>
   );
 };

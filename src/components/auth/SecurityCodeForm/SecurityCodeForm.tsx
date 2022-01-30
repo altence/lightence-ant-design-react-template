@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Form, Image, Spin } from 'antd';
+import { Image, Spin } from 'antd';
 import { useTranslation } from 'react-i18next';
-import * as S from './SecurityCodeForm.styles';
-import * as Auth from 'components/layouts/AuthLayout/AuthLayout.styles';
-import { VerificationCodeInput } from 'components/common/VerificationCodeInput/VerificationCodeInput';
-import VerifyEmailImage from 'assets/images/verify-email.png';
+import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
+import { VerificationCodeInput } from '@app/components/common/VerificationCodeInput/VerificationCodeInput';
 import { useAppDispatch } from '@app/hooks/reduxHooks';
 import { doVerifySecurityCode } from '@app/store/slices/authSlice';
 import { notificationController } from '@app/controllers/notificationController';
+import VerifyEmailImage from '@app/assets/images/verify-email.png';
+import * as Auth from '@app/components/layouts/AuthLayout/AuthLayout.styles';
+import * as S from './SecurityCodeForm.styles';
 
 interface SecurityCodeFormProps {
   onBack?: () => void;
@@ -41,7 +42,7 @@ export const SecurityCodeForm: React.FC<SecurityCodeFormProps> = ({ onBack, onFi
 
   return (
     <Auth.FormWrapper>
-      <Form layout="vertical" requiredMark="optional">
+      <BaseForm layout="vertical" requiredMark="optional">
         <Auth.BackWrapper onClick={onBack || navigateBack}>
           <Auth.BackIcon />
           {t('common.back')}
@@ -57,7 +58,7 @@ export const SecurityCodeForm: React.FC<SecurityCodeFormProps> = ({ onBack, onFi
             <S.NoCodeText>{t('securityCodeForm.noCode')}</S.NoCodeText>
           </Link>
         </S.ContentWrapper>
-      </Form>
+      </BaseForm>
     </Auth.FormWrapper>
   );
 };

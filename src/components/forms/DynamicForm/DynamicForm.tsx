@@ -1,11 +1,12 @@
-import { Col, Form as AntdForm, Row } from 'antd';
+import React, { useState } from 'react';
+import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { PlusOutlined } from '@ant-design/icons';
-import { Form } from '@app/components/common/Form/Form';
-import { FormItem, FormList } from 'components/common/Form/Form.styles';
+import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
 import { Input } from '@app/components/common/inputs/Input/Input';
 import { Select, Option } from '@app/components/common/selects/Select/Select';
 import { Button } from '@app/components/common/buttons/Button/Button';
+import { notificationController } from '@app/controllers/notificationController';
 import * as S from './DynamicForm.styles';
 
 interface Sight {
@@ -13,7 +14,9 @@ interface Sight {
 }
 
 export const DynamicForm: React.FC = () => {
-  const [form] = AntdForm.useForm();
+  const [isFieldsChanged, setFieldsChanged] = useState(false);
+  const [isLoading, setLoading] = useState(false);
+  const [form] = BaseButtonsForm.useForm();
   const { t } = useTranslation();
 
   const areas = [
@@ -27,11 +30,13 @@ export const DynamicForm: React.FC = () => {
   };
 
   const onFinish = (values = {}) => {
-    return new Promise((res) => {
-      setTimeout(() => {
-        res(values);
-      }, 1000);
-    });
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setFieldsChanged(false);
+      notificationController.success({ message: t('common.success') });
+      console.log(values);
+    }, 1000);
   };
 
   const handleChange = () => {
@@ -39,21 +44,29 @@ export const DynamicForm: React.FC = () => {
   };
 
   return (
-    <Form form={form} name="dynamicForm" onFinish={onFinish} autoComplete="off">
-      <FormItem
+    <BaseButtonsForm
+      form={form}
+      name="dynamicForm"
+      isFieldsChanged={isFieldsChanged}
+      loading={isLoading}
+      onFinish={onFinish}
+      autoComplete="off"
+      onFieldsChange={() => setFieldsChanged(true)}
+    >
+      <BaseButtonsForm.Item
         name="area"
         label={t('forms.dynamicFormLabels.area')}
         rules={[{ required: true, message: t('forms.dynamicFormLabels.areaError') }]}
       >
         <Select options={areas} onChange={handleChange} />
-      </FormItem>
-      <FormList name="sights">
+      </BaseButtonsForm.Item>
+      <BaseButtonsForm.List name="sights">
         {(fields, { add, remove }) => (
           <>
             {fields.map((field) => (
               <Row key={field.key} wrap={false} gutter={[10, 10]} align="middle" justify="space-between">
                 <Col span={12}>
-                  <FormItem
+                  <BaseButtonsForm.Item
                     noStyle
                     // eslint-disable-next-line
                     shouldUpdate={(prevValues: any, curValues: any) =>
@@ -61,7 +74,7 @@ export const DynamicForm: React.FC = () => {
                     }
                   >
                     {() => (
-                      <FormItem
+                      <BaseButtonsForm.Item
                         {...field}
                         label={t('forms.dynamicFormLabels.sight')}
                         name={[field.name, 'sight']}
@@ -75,12 +88,12 @@ export const DynamicForm: React.FC = () => {
                             </Option>
                           ))}
                         </Select>
-                      </FormItem>
+                      </BaseButtonsForm.Item>
                     )}
-                  </FormItem>
+                  </BaseButtonsForm.Item>
                 </Col>
                 <Col span={12}>
-                  <FormItem
+                  <BaseButtonsForm.Item
                     {...field}
                     label={t('forms.dynamicFormLabels.price')}
                     name={[field.name, 'price']}
@@ -91,19 +104,19 @@ export const DynamicForm: React.FC = () => {
                       <Input />
                       <S.RemoveBtn onClick={() => remove(field.name)} />
                     </S.Wrapper>
-                  </FormItem>
+                  </BaseButtonsForm.Item>
                 </Col>
               </Row>
             ))}
 
-            <FormItem>
+            <BaseButtonsForm.Item>
               <Button type="dashed" onClick={() => add()} block icon={<PlusOutlined />}>
                 {t('forms.dynamicFormLabels.addSights')}
               </Button>
-            </FormItem>
+            </BaseButtonsForm.Item>
           </>
         )}
-      </FormList>
-    </Form>
+      </BaseButtonsForm.List>
+    </BaseButtonsForm>
   );
 };

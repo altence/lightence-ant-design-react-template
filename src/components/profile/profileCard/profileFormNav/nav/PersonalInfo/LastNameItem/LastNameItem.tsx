@@ -1,14 +1,14 @@
 import React from 'react';
-import { Input } from 'components/common/inputs/Input/Input';
+import { Input } from '@app/components/common/inputs/Input/Input';
 import { useTranslation } from 'react-i18next';
-import { FormItem } from '../../../../../../common/Form/Form.styles';
+import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
 
 export const LastNameItem: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <FormItem name="lastName" label={t('common.lastName')}>
+    <BaseButtonsForm.Item name="lastName" label={t('common.lastName')}>
       <Input />
-    </FormItem>
+    </BaseButtonsForm.Item>
   );
 };
