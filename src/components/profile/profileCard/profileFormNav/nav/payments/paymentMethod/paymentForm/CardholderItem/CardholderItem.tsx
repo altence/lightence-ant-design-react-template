@@ -1,14 +1,14 @@
 import React from 'react';
-import { Input } from 'components/common/inputs/Input/Input';
 import { useTranslation } from 'react-i18next';
-import { FormItem } from 'components/common/Form/Form.styles';
-import { CardInputProps } from '../interfaces';
+import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
+import { Input } from '@app/components/common/inputs/Input/Input';
+import { CardInputProps } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentMethod/paymentForm/interfaces';
 
 export const CardholderItem: React.FC<CardInputProps> = ({ disabled, handleInputFocus }) => {
   const { t } = useTranslation();
 
   return (
-    <FormItem
+    <BaseButtonsForm.Item
       name="name"
       label={t('profile.nav.payments.cardholderName')}
       rules={[
@@ -24,6 +24,6 @@ export const CardholderItem: React.FC<CardInputProps> = ({ disabled, handleInput
         onFocus={handleInputFocus}
         disabled={disabled}
       />
-    </FormItem>
+    </BaseButtonsForm.Item>
   );
 };

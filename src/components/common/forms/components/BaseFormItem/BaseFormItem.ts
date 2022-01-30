@@ -1,61 +1,48 @@
-import { Typography, Form } from 'antd';
 import styled, { css } from 'styled-components';
+import { Form } from 'antd';
 
 interface FormItemProps {
   $isSuccess?: boolean;
   $successText?: string;
 }
 
-export const Title = styled(Typography.Text)`
-  font-weight: 700;
-  font-size: 1rem;
-  display: block;
-
-  @media only screen and ${(props) => props.theme.media.md} {
-    font-size: 1.125rem;
-  }
-`;
-
-export const FormList = styled(Form.List)``;
-
-export const FormItem = styled(Form.Item)<FormItemProps>`
-  @media only screen and ${(props) => props.theme.media.xl} {
-    &:not(:last-of-type) {
-      margin-bottom: 2rem;
-    }
-  }
-
-  & label {
+export const BaseFormItem = styled(Form.Item)<FormItemProps>`
+  .ant-form-item-label > label {
     color: ${(props) => props.theme.colors.main.primary};
   }
 
-  & .ant-input-group-addon:first-of-type {
+  .ant-input-group-addon:first-of-type {
     font-weight: 600;
     width: 5rem;
 
     color: ${(props) => props.theme.colors.main.primary};
 
+    .anticon,
+    svg {
+      font-size: 1.25rem;
+    }
+
     @media only screen and ${(props) => props.theme.media.md} {
       width: 5.5rem;
+      font-size: 1.125rem;
+    }
+
+    @media only screen and ${(props) => props.theme.media.xl} {
+      font-size: 1.5rem;
     }
   }
 
-  & .ant-input-suffix {
-    margin: 0 0.5rem;
-
-    & button,
-    & a {
-      padding: 0;
-      width: unset;
-      height: unset;
-      line-height: 1;
-    }
+  .ant-input-suffix .ant-btn {
+    padding: 0;
+    width: unset;
+    height: unset;
+    line-height: 1;
   }
 
-  & div[role='alert'] {
+  .ant-form-item-explain-error {
+    display: flex;
     margin: 0.5rem 0;
     line-height: 1;
-    display: flex;
 
     &:before {
       content: 'X';
@@ -73,16 +60,6 @@ export const FormItem = styled(Form.Item)<FormItemProps>`
     }
 
     &:not(:first-of-type) {
-      display: none;
-    }
-  }
-
-  &.ant-form-item-has-feedback {
-    .ant-input-suffix {
-      padding-right: 0;
-    }
-
-    & .ant-form-item-children-icon {
       display: none;
     }
   }
@@ -107,30 +84,19 @@ export const FormItem = styled(Form.Item)<FormItemProps>`
       }
     `}
 
-  & .ant-picker-suffix {
+  &.ant-form-item-has-feedback .ant-form-item-children-icon {
+    display: none;
+  }
+
+  .ant-picker-suffix {
     font-size: 1rem;
   }
 
-  & .ant-select-arrow {
+  .ant-select-arrow {
     font-size: 1rem;
     width: unset;
     height: unset;
     top: 50%;
-  }
-
-  & .ant-input-group-addon {
-    @media only screen and ${(props) => props.theme.media.md} {
-      font-size: 1.125rem;
-    }
-
-    & > .anticon,
-    & > svg {
-      font-size: 1.25rem;
-
-      @media only screen and ${(props) => props.theme.media.md} {
-        font-size: 1.5rem;
-      }
-    }
   }
 
   &.ant-form-item-has-error .ant-input,

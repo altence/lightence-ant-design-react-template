@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { Form as AntdForm, Avatar } from 'antd';
+import { Avatar } from 'antd';
 import { SmileOutlined, UserOutlined } from '@ant-design/icons';
-import { Form } from '../../common/Form/Form';
-import { FormItem } from 'components/common/Form/Form.styles';
+import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
 import { AddUserFormModal } from './AddUserFormModal';
 import { Input } from '../../common/inputs/Input/Input';
 import { Button } from '../../common/buttons/Button/Button';
 import { useTranslation } from 'react-i18next';
 import * as S from './ControlForm.styles';
+import { notificationController } from '@app/controllers/notificationController';
 
 const layout = {
   labelCol: { span: 24 },
@@ -21,6 +21,8 @@ interface UserType {
 
 export const ControlForm: React.FC = () => {
   const [visible, setVisible] = useState(false);
+  const [isFieldsChanged, setFieldsChanged] = useState(false);
+  const [isLoading, setLoading] = useState(false);
   const { t } = useTranslation();
 
   const showUserModal = () => {
@@ -31,16 +33,18 @@ export const ControlForm: React.FC = () => {
     setVisible(false);
   };
 
-  const onFinish = async (values = {}) => {
-    return new Promise((res) => {
-      setTimeout(() => {
-        res(values);
-      }, 1000);
-    });
+  const onFinish = (values = {}) => {
+    setLoading(true);
+    setTimeout(() => {
+      setFieldsChanged(false);
+      setLoading(false);
+      notificationController.success({ message: t('common.success') });
+      console.log(values);
+    }, 1000);
   };
 
   return (
-    <AntdForm.Provider
+    <BaseButtonsForm.Provider
       onFormFinish={(name, { values, forms }) => {
         if (name === 'userForm') {
           const { controlForm } = forms;
@@ -50,28 +54,30 @@ export const ControlForm: React.FC = () => {
         }
       }}
     >
-      <Form
+      <BaseButtonsForm
         {...layout}
         name="controlForm"
-        onFinish={onFinish}
-        footer={(loading) => (
-          <FormItem>
-            <Button htmlType="submit" type="primary" loading={loading}>
+        isFieldsChanged={isFieldsChanged}
+        footer={
+          <BaseButtonsForm.Item>
+            <Button htmlType="submit" type="primary" loading={isLoading}>
               {t('common.submit')}
             </Button>
             <S.AddUserButton type="default" htmlType="button" onClick={showUserModal}>
               {t('forms.controlFormLabels.addUser')}
             </S.AddUserButton>
-          </FormItem>
-        )}
+          </BaseButtonsForm.Item>
+        }
+        onFinish={onFinish}
+        onFieldsChange={() => setFieldsChanged(true)}
       >
-        <FormItem
+        <BaseButtonsForm.Item
           name="group"
           label={t('forms.controlFormLabels.groupName')}
           rules={[{ required: true, message: t('forms.controlFormLabels.groupNameError') }]}
         >
           <Input />
-        </FormItem>
+        </BaseButtonsForm.Item>
         <S.UserList
           label={t('forms.controlFormLabels.userList')}
           // eslint-disable-next-line
@@ -97,8 +103,8 @@ export const ControlForm: React.FC = () => {
             );
           }}
         </S.UserList>
-      </Form>
+      </BaseButtonsForm>
       <AddUserFormModal visible={visible} onCancel={hideUserModal} />
-    </AntdForm.Provider>
+    </BaseButtonsForm.Provider>
   );
 };

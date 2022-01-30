@@ -1,10 +1,10 @@
 import React from 'react';
-import { Select, Option } from 'components/common/selects/Select/Select';
-import { useTranslation } from 'react-i18next';
-import { languages } from 'constants/languages';
-import { FormItem } from 'components/common/Form/Form.styles';
 import { Space } from 'antd';
 import ReactCountryFlag from 'react-country-flag';
+import { useTranslation } from 'react-i18next';
+import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
+import { Select, Option } from '@app/components/common/selects/Select/Select';
+import { languages } from '@app/constants/languages';
 
 const languageOptions = languages.map((lang) => (
   <Option key={lang.id} value={lang.name}>
@@ -19,8 +19,8 @@ export const LanguageItem: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <FormItem name="language" label={t('profile.nav.personalInfo.language')}>
+    <BaseButtonsForm.Item name="language" label={t('profile.nav.personalInfo.language')}>
       <Select>{languageOptions}</Select>
-    </FormItem>
+    </BaseButtonsForm.Item>
   );
 };

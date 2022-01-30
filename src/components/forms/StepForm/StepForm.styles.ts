@@ -1,17 +1,14 @@
 import styled from 'styled-components';
 import { Select as CommonSelect } from '@app/components/common/selects/Select/Select';
 import { Button } from '@app/components/common/buttons/Button/Button';
-import { FormItem } from '@app/components/common/Form/Form.styles';
+import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
 
-export const PhoneItem = styled(FormItem)`
-  width: 100%;
-
-  & .ant-input-group-addon {
-    width: 5.5rem;
+export const PhoneItem = styled(BaseForm.Item)`
+  .ant-input-group-addon {
     padding: 0;
   }
 
-  & .ant-input-group-addon > div {
+  .ant-input-group-addon > div {
     width: 100% !important;
   }
 `;

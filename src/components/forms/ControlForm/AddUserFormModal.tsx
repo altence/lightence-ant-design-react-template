@@ -1,10 +1,9 @@
 import React from 'react';
-import { Form as AntdForm, Modal } from 'antd';
-import { Form } from '../../common/Form/Form';
-import { FormItem } from 'components/common/Form/Form.styles';
-import { Input } from '../../common/inputs/Input/Input';
-import { InputNumber } from '../../common/inputs/InputNumber/InputNumber';
+import { Modal } from 'antd';
 import { useTranslation } from 'react-i18next';
+import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
+import { Input } from '@app/components/common/inputs/Input/Input';
+import { InputNumber } from '@app/components/common/inputs/InputNumber/InputNumber';
 import { useResetFormOnCloseModal } from './useResetFormOnCloseModal';
 
 interface AddUserFormModalProps {
@@ -13,7 +12,7 @@ interface AddUserFormModalProps {
 }
 
 export const AddUserFormModal: React.FC<AddUserFormModalProps> = ({ visible, onCancel }) => {
-  const [form] = AntdForm.useForm();
+  const [form] = BaseForm.useForm();
   const { t } = useTranslation();
 
   useResetFormOnCloseModal({
@@ -27,14 +26,22 @@ export const AddUserFormModal: React.FC<AddUserFormModalProps> = ({ visible, onC
 
   return (
     <Modal title={t('forms.controlFormLabels.newUser')} visible={visible} onOk={onOk} onCancel={onCancel}>
-      <Form form={form} layout="vertical" name="userForm" footer={() => <div />}>
-        <FormItem name="name" label={t('common.name')} rules={[{ required: true, message: t('common.requiredField') }]}>
+      <BaseForm form={form} layout="vertical" name="userForm">
+        <BaseForm.Item
+          name="name"
+          label={t('common.name')}
+          rules={[{ required: true, message: t('common.requiredField') }]}
+        >
           <Input />
-        </FormItem>
-        <FormItem name="age" label={t('common.age')} rules={[{ required: true, message: t('common.requiredField') }]}>
+        </BaseForm.Item>
+        <BaseForm.Item
+          name="age"
+          label={t('common.age')}
+          rules={[{ required: true, message: t('common.requiredField') }]}
+        >
           <InputNumber $block />
-        </FormItem>
-      </Form>
+        </BaseForm.Item>
+      </BaseForm>
     </Modal>
   );
 };
