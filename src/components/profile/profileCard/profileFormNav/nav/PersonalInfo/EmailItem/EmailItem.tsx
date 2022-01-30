@@ -2,7 +2,7 @@ import React from 'react';
 import { FormItemProps } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { Input } from '@app/components/common/inputs/Input/Input';
-import { FormItem } from '@app/components/common/Form/Form.styles';
+import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
 
 interface EmailItemProps extends FormItemProps {
   verified?: boolean;
@@ -13,7 +13,7 @@ export const EmailItem: React.FC<EmailItemProps> = ({ required, onClick, verifie
   const { t } = useTranslation();
 
   return (
-    <FormItem
+    <BaseButtonsForm.Item
       name="email"
       $isSuccess={verified}
       $successText={t('profile.nav.personalInfo.verified')}
@@ -28,6 +28,6 @@ export const EmailItem: React.FC<EmailItemProps> = ({ required, onClick, verifie
       {...props}
     >
       <Input disabled={verified} onClick={onClick} />
-    </FormItem>
+    </BaseButtonsForm.Item>
   );
 };

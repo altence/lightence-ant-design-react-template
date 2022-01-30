@@ -1,14 +1,15 @@
 import React, { useCallback, useState } from 'react';
 import { Col, Form, Row } from 'antd';
-import { CardNumberItem } from '../CardNumberItem/CardNumberItem';
-import { CardholderItem } from '../CardholderItem/CardholderItem';
-import { ExpDateItem } from '../ExpDateItem/ExpDateItem';
-import { CVVItem } from '../CVVItem/CVVItem';
-import { CardThemeItem } from '../CardThemeItem/CardThemeItem';
-import { CreditCard } from '../interfaces';
-import * as S from './PaymentForm.styles';
-import { ProfileForm } from '@app/components/profile/profileCard/profileFormNav/ProfileForm/ProfileForm';
+import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
+import { BaseButtonsGroup } from '@app/components/common/forms/components/BaseButtonsGroup/BaseButtonsGroup';
+import { CardNumberItem } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentMethod/paymentForm/CardNumberItem/CardNumberItem';
+import { CardholderItem } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentMethod/paymentForm/CardholderItem/CardholderItem';
+import { ExpDateItem } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentMethod/paymentForm/ExpDateItem/ExpDateItem';
+import { CVVItem } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentMethod/paymentForm/CVVItem/CVVItem';
+import { CardThemeItem } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentMethod/paymentForm/CardThemeItem/CardThemeItem';
+import { CreditCard } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentMethod/paymentForm/interfaces';
 import { cardThemes } from '@app/constants/cardThemes';
+import * as S from './PaymentForm.styles';
 
 export const clearCardData: CreditCard = {
   name: '',
@@ -27,6 +28,8 @@ interface PaymentFormProps {
 
 export const PaymentForm: React.FC<PaymentFormProps> = ({ closeModal, onFormFinish }) => {
   const [cardData, setCardData] = useState<CreditCard>(clearCardData);
+  const [isLoading, setLoading] = useState(false);
+  const [isFieldsChanged, setFieldsChanged] = useState(false);
 
   const [form] = Form.useForm();
 
@@ -41,29 +44,36 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({ closeModal, onFormFini
   );
 
   const onFinish = useCallback(
-    async (values) => {
-      const card = { ...values, background: cardData.background };
-      onFormFinish(card);
-      setCardData(clearCardData);
-      closeModal();
-      form.setFieldsValue(clearCardData);
+    (values) => {
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+        setFieldsChanged(false);
+        const card = { ...values, background: cardData.background };
+        onFormFinish(card);
+        setCardData(clearCardData);
+        closeModal();
+        form.setFieldsValue(clearCardData);
+      }, 1000);
     },
     [cardData.background, closeModal, form, onFormFinish],
   );
 
   return (
-    <ProfileForm
+    <BaseButtonsForm
       form={form}
+      requiredMark="optional"
       name="paymentCard"
-      trigger={cardData}
       onFinish={onFinish}
-      footer={(loading) => <S.PaymentButtons loading={loading} onCancel={closeModal} />}
+      footer={<BaseButtonsGroup loading={isLoading} onCancel={closeModal} />}
       initialValues={clearCardData}
       onValuesChange={(field) => {
         const values = Object.entries(field)[0];
 
         setCardData({ ...cardData, [values[0]]: values[1] });
       }}
+      isFieldsChanged={isFieldsChanged}
+      onFieldsChange={() => setFieldsChanged(true)}
     >
       <S.PayCard cardData={cardData} />
       <S.FormItemsWrapper>
@@ -79,6 +89,6 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({ closeModal, onFormFini
         </Row>
         <CardThemeItem cardData={cardData} setCardData={setCardData} />
       </S.FormItemsWrapper>
-    </ProfileForm>
+    </BaseButtonsForm>
   );
 };

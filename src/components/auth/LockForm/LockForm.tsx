@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Form, Avatar } from 'antd';
+import { Avatar } from 'antd';
 import { useTranslation } from 'react-i18next';
+import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
 import { initValues as loginInitVal } from '@app/components/auth/LoginForm/LoginForm';
 import { notificationController } from '@app/controllers/notificationController';
 import { useAppDispatch, useAppSelector } from '@app/hooks/reduxHooks';
@@ -54,7 +55,7 @@ export const LockForm: React.FC = () => {
 
   return (
     <Auth.FormWrapper>
-      <Form layout="vertical" onFinish={handleSubmit} requiredMark="optional" initialValues={initValues}>
+      <BaseForm layout="vertical" onFinish={handleSubmit} requiredMark="optional" initialValues={initValues}>
         <S.ContentWrapper>
           <S.Time>{currentTime}</S.Time>
           <S.Date>{currentDate}</S.Date>
@@ -70,12 +71,12 @@ export const LockForm: React.FC = () => {
         >
           <Auth.FormInputPassword placeholder={t('common.password')} />
         </S.FormItem>
-        <Form.Item noStyle>
+        <BaseForm.Item noStyle>
           <Auth.SubmitButton type="primary" htmlType="submit" loading={isLoading}>
             {t('common.login')}
           </Auth.SubmitButton>
-        </Form.Item>
-      </Form>
+        </BaseForm.Item>
+      </BaseForm>
     </Auth.FormWrapper>
   );
 };

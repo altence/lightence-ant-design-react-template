@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Form } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { notificationController } from 'controllers/notificationController';
-import * as S from './NewPasswordForm.styles';
-import * as Auth from 'components/layouts/AuthLayout/AuthLayout.styles';
+import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
+import { notificationController } from '@app/controllers/notificationController';
 import { useAppDispatch } from '@app/hooks/reduxHooks';
 import { doSetNewPassword } from '@app/store/slices/authSlice';
+import * as S from './NewPasswordForm.styles';
+import * as Auth from '@app/components/layouts/AuthLayout/AuthLayout.styles';
 
 interface NewPasswordFormData {
   password: string;
@@ -43,7 +43,7 @@ export const NewPasswordForm: React.FC = () => {
 
   return (
     <Auth.FormWrapper>
-      <Form layout="vertical" onFinish={handleSubmit} requiredMark="optional" initialValues={initStates}>
+      <BaseForm layout="vertical" onFinish={handleSubmit} requiredMark="optional" initialValues={initStates}>
         <Auth.BackWrapper onClick={() => navigate(-1)}>
           <Auth.BackIcon />
           {t('common.back')}
@@ -76,12 +76,12 @@ export const NewPasswordForm: React.FC = () => {
         >
           <Auth.FormInputPassword placeholder={t('common.confirmPassword')} />
         </Auth.FormItem>
-        <Form.Item noStyle>
+        <BaseForm.Item noStyle>
           <S.SubmitButton type="primary" htmlType="submit" loading={isLoading}>
             {t('common.resetPassword')}
           </S.SubmitButton>
-        </Form.Item>
-      </Form>
+        </BaseForm.Item>
+      </BaseForm>
     </Auth.FormWrapper>
   );
 };

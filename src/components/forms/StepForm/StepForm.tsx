@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { Form as AntdForm, Steps } from 'antd';
+import { Steps } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { notificationController } from '@app/controllers/notificationController';
-import { Form } from '@app/components/common/Form/Form';
+import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
 import { Button } from '@app/components/common/buttons/Button/Button';
-import { Dates } from '@app/constants/Dates';
-import * as S from './StepForm.styles';
-import { mergeBy } from '@app/utils/utils';
 import { Step1 } from './Steps/Step1';
 import { Step2 } from './Steps/Step2';
 import { Step3 } from './Steps/Step3';
 import { Step4 } from './Steps/Step4';
+import { notificationController } from '@app/controllers/notificationController';
+import { Dates } from '@app/constants/Dates';
+import { mergeBy } from '@app/utils/utils';
+import * as S from './StepForm.styles';
 interface FormValues {
   [key: string]: string | undefined;
 }
@@ -23,7 +23,7 @@ interface FieldData {
 
 export const StepForm: React.FC = () => {
   const [current, setCurrent] = useState(0);
-  const [form] = AntdForm.useForm();
+  const [form] = BaseForm.useForm();
   const [fields, setFields] = useState<FieldData[]>([
     { name: 'login', value: 'Jerri' },
     { name: 'password', value: '123456' },
@@ -112,10 +112,9 @@ export const StepForm: React.FC = () => {
   ];
 
   return (
-    <Form
+    <BaseForm
       name="stepForm"
       form={form}
-      footer={() => <div />}
       fields={fields}
       onFieldsChange={(_, allFields) => {
         const currentFields = allFields.map((item) => ({
@@ -149,6 +148,6 @@ export const StepForm: React.FC = () => {
           </S.PrevButton>
         )}
       </div>
-    </Form>
+    </BaseForm>
   );
 };

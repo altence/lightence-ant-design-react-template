@@ -1,28 +1,28 @@
-import { FormItem } from 'components/common/Form/Form.styles';
-import { Input } from 'components/common/inputs/Input/Input';
-import { InputPassword } from 'components/common/inputs/InputPassword/InputPassword';
 import { useTranslation } from 'react-i18next';
+import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
+import { Input } from '@app/components/common/inputs/Input/Input';
+import { InputPassword } from '@app/components/common/inputs/InputPassword/InputPassword';
 import * as S from '../StepForm.styles';
 
 export const Step1: React.FC = () => {
   const { t } = useTranslation();
   return (
     <S.FormContent>
-      <FormItem
+      <BaseForm.Item
         name="login"
         label={t('forms.stepFormLabels.login')}
         rules={[{ required: true, message: t('forms.stepFormLabels.loginError') }]}
       >
         <Input />
-      </FormItem>
-      <FormItem
+      </BaseForm.Item>
+      <BaseForm.Item
         name="password"
         label={t('common.password')}
         rules={[{ required: true, message: t('forms.stepFormLabels.passwordError') }]}
       >
         <InputPassword />
-      </FormItem>
-      <FormItem
+      </BaseForm.Item>
+      <BaseForm.Item
         name="confirmPassword"
         label={t('common.confirmPassword')}
         dependencies={['password']}
@@ -39,7 +39,7 @@ export const Step1: React.FC = () => {
         ]}
       >
         <InputPassword />
-      </FormItem>
+      </BaseForm.Item>
     </S.FormContent>
   );
 };

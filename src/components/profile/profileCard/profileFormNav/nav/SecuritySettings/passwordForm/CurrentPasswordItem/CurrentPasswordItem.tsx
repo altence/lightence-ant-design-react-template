@@ -1,13 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { FormItem } from 'components/common/Form/Form.styles';
-import { InputPassword } from 'components/common/inputs/InputPassword/InputPassword';
+import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
+import { InputPassword } from '@app/components/common/inputs/InputPassword/InputPassword';
 
 export const CurrentPasswordItem: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <FormItem
+    <BaseButtonsForm.Item
       name="password"
       label={t('profile.nav.securitySettings.currentPassword')}
       rules={[
@@ -18,6 +18,6 @@ export const CurrentPasswordItem: React.FC = () => {
       ]}
     >
       <InputPassword />
-    </FormItem>
+    </BaseButtonsForm.Item>
   );
 };

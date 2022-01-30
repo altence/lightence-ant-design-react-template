@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Row, Switch } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { FormItem, Title } from '@app/components/common/Form/Form.styles';
+import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
 
 interface TwoFactorSwitchProps {
   isEnabled: boolean;
@@ -12,21 +12,21 @@ export const TwoFactorSwitch: React.FC<TwoFactorSwitchProps> = ({ isEnabled, set
   const { t } = useTranslation();
 
   return (
-    <FormItem>
+    <BaseButtonsForm.Item>
       <Row gutter={[10, 10]} justify="space-between" align="middle">
         <Col span={20}>
-          <Title>{t('profile.nav.securitySettings.twoFactorAuth')}</Title>
+          <BaseButtonsForm.Title>{t('profile.nav.securitySettings.twoFactorAuth')}</BaseButtonsForm.Title>
         </Col>
         <Col span={4}>
           <Row justify="end">
             <Col>
-              <FormItem name="2fa">
+              <BaseButtonsForm.Item name="2fa">
                 <Switch checked={isEnabled} onChange={setEnabled} />
-              </FormItem>
+              </BaseButtonsForm.Item>
             </Col>
           </Row>
         </Col>
       </Row>
-    </FormItem>
+    </BaseButtonsForm.Item>
   );
 };
