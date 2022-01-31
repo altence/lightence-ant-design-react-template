@@ -27,27 +27,31 @@ export const ScreeningsHeader: React.FC<ScreeningsHeaderProps> = ({ currentStati
           ]}
         >
           <Col xs={12}>
-            <MonthSelect
-              value={currentStatistics.month}
-              width="100%"
-              bordered={false}
-              shadow
-              placeholder={t('dashboard.latestScreenings.month')}
-              onChange={(month) => setCurrentStatistics((prev) => ({ ...prev, month } as CurrentStatisticsState))}
-            />
+            <label>
+              <MonthSelect
+                value={currentStatistics.month}
+                width="100%"
+                bordered={false}
+                shadow
+                placeholder={t('dashboard.latestScreenings.month')}
+                onChange={(month) => setCurrentStatistics((prev) => ({ ...prev, month } as CurrentStatisticsState))}
+              />
+            </label>
           </Col>
 
           <Col xs={12}>
-            <StatisticsSelect
-              value={currentStatistics.statistic}
-              width="100%"
-              bordered={false}
-              shadow
-              placeholder={t('dashboard.latestScreenings.statistics')}
-              onChange={(statistic) =>
-                setCurrentStatistics((prev) => ({ ...prev, statistic } as CurrentStatisticsState))
-              }
-            />
+            <label>
+              <StatisticsSelect
+                value={currentStatistics.statistic}
+                width="100%"
+                bordered={false}
+                shadow
+                placeholder={t('dashboard.latestScreenings.statistics')}
+                onChange={(statistic) =>
+                  setCurrentStatistics((prev) => ({ ...prev, statistic } as CurrentStatisticsState))
+                }
+              />
+            </label>
           </Col>
         </Row>
       </Col>
