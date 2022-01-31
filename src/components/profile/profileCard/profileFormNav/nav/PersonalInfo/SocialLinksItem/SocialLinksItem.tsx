@@ -21,9 +21,11 @@ export const SocialLinksItem: React.FC = () => {
               const twitter = getFieldValue('twitter');
 
               return (
-                <BaseButtonsForm.Item name="twitter">
-                  <ClipboardInput valueToCopy={twitter} addonBefore={<TwitterOutlined />} />
-                </BaseButtonsForm.Item>
+                <label>
+                  <BaseButtonsForm.Item name="twitter">
+                    <ClipboardInput valueToCopy={twitter} addonBefore={<TwitterOutlined />} />
+                  </BaseButtonsForm.Item>
+                </label>
               );
             }}
           </BaseButtonsForm.Item>
@@ -34,17 +36,19 @@ export const SocialLinksItem: React.FC = () => {
               const linkedin = getFieldValue('linkedin');
 
               return (
-                <BaseButtonsForm.Item
-                  name="linkedin"
-                  rules={[
-                    {
-                      pattern: new RegExp(websitePattern),
-                      message: t('profile.nav.personalInfo.notValidWebsite'),
-                    },
-                  ]}
-                >
-                  <OpenURLInput href={linkedin} target="_blank" addonBefore={<LinkedinIcon />} />
-                </BaseButtonsForm.Item>
+                <label>
+                  <BaseButtonsForm.Item
+                    name="linkedin"
+                    rules={[
+                      {
+                        pattern: new RegExp(websitePattern),
+                        message: t('profile.nav.personalInfo.notValidWebsite'),
+                      },
+                    ]}
+                  >
+                    <OpenURLInput href={linkedin} target="_blank" addonBefore={<LinkedinIcon />} />
+                  </BaseButtonsForm.Item>
+                </label>
               );
             }}
           </BaseButtonsForm.Item>
@@ -55,17 +59,20 @@ export const SocialLinksItem: React.FC = () => {
               const facebook = getFieldValue('facebook');
 
               return (
-                <BaseButtonsForm.Item
-                  name="facebook"
-                  rules={[
-                    {
-                      pattern: new RegExp(websitePattern),
-                      message: t('profile.nav.personalInfo.notValidWebsite'),
-                    },
-                  ]}
-                >
-                  <OpenURLInput href={facebook} target="_blank" addonBefore={<FacebookIcon />} />
-                </BaseButtonsForm.Item>
+                <label>
+                  {' '}
+                  <BaseButtonsForm.Item
+                    name="facebook"
+                    rules={[
+                      {
+                        pattern: new RegExp(websitePattern),
+                        message: t('profile.nav.personalInfo.notValidWebsite'),
+                      },
+                    ]}
+                  >
+                    <OpenURLInput href={facebook} target="_blank" addonBefore={<FacebookIcon />} />
+                  </BaseButtonsForm.Item>
+                </label>
               );
             }}
           </BaseButtonsForm.Item>
