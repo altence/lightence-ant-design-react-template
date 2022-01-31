@@ -88,26 +88,32 @@ const AutoCompletesPage: React.FC = () => {
   return (
     <Col>
       <S.Card title={t('autoCompletes.basic')}>
-        <AutoComplete
-          options={options}
-          style={{ width: 200 }}
-          onSearch={handleSearch}
-          placeholder={t('autoCompletes.inputHere')}
-        />
+        <label>
+          <AutoComplete
+            options={options}
+            style={{ width: 200 }}
+            onSearch={handleSearch}
+            placeholder={t('autoCompletes.inputHere')}
+          />
+        </label>
       </S.Card>
       <S.Card title={t('autoCompletes.customOptions')}>
-        <AutoComplete style={{ width: 200 }} onSearch={handleCustomSearch} placeholder={t('autoCompletes.inputHere')}>
-          {result.map((email: string) => (
-            <Option key={email} value={email}>
-              {email}
-            </Option>
-          ))}
-        </AutoComplete>
+        <label>
+          <AutoComplete style={{ width: 200 }} onSearch={handleCustomSearch} placeholder={t('autoCompletes.inputHere')}>
+            {result.map((email: string) => (
+              <Option key={email} value={email}>
+                {email}
+              </Option>
+            ))}
+          </AutoComplete>
+        </label>
       </S.Card>
       <S.Card title={t('autoCompletes.categories')}>
-        <AutoComplete dropdownClassName="certain-category-search-dropdown" options={categories}>
-          <SearchInput placeholder={t('autoCompletes.inputHere')} prefix={null} />
-        </AutoComplete>
+        <label>
+          <AutoComplete dropdownClassName="certain-category-search-dropdown" options={categories}>
+            <SearchInput placeholder={t('autoCompletes.inputHere')} prefix={null} />
+          </AutoComplete>
+        </label>
       </S.Card>
     </Col>
   );
