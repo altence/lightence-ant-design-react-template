@@ -57,15 +57,12 @@ export default createGlobalStyle`
   }
 
   .ant-picker-cell {
-    color: ${(props) => props.theme.colors.text.superLight};
-
-    &:hover .ant-picker-cell-inner {
-      background: ${(props) => props.theme.colors.main.secondaryBackground} !important;
-    }
+    color: ${(props) => props.theme.colors.text.main};
   }
 
-  .ant-picker-cell-in-view {
+  .ant-picker-cell-in-view .ant-picker-calendar-date-value {
     color: ${(props) => props.theme.colors.text.main};
+    font-weight: ${(props) => props.theme.commonFontWeight.bold};
   }
 
   .ant-picker svg {
