@@ -34,7 +34,7 @@ export const ScreeningsFriend: React.FC<ScreeningsFriendProps> = ({
     <S.ScreeningsRow
       onClick={onClick}
       justify={isVisibleMenu ? 'space-between' : 'center'}
-      isActive={isPrimary || isSecondary}
+      $isActive={isPrimary || isSecondary}
       wrap={false}
     >
       <Col>
@@ -45,14 +45,16 @@ export const ScreeningsFriend: React.FC<ScreeningsFriendProps> = ({
               shape="square"
               src={src}
               alt="Friend avatar"
-              isPrimary={isPrimary}
-              isSecondary={isSecondary}
+              $isPrimary={isPrimary}
+              $isSecondary={isSecondary}
             />
           </Col>
 
           {isTabletOrHigher && isVisibleMenu && (
             <Col>
-              <S.Name>{name}</S.Name>
+              <S.Name $isPrimary={isPrimary} $isSecondary={isSecondary}>
+                {name}
+              </S.Name>
             </Col>
           )}
         </Row>
@@ -60,7 +62,7 @@ export const ScreeningsFriend: React.FC<ScreeningsFriendProps> = ({
 
       {isTabletOrHigher && isVisibleMenu && (
         <Col>
-          <S.Percentage isDowngrade={isDowngrade}>
+          <S.Percentage $isDowngrade={isDowngrade}>
             <Space size={0}>
               {isDowngrade ? <CaretDownOutlined /> : <CaretUpOutlined />}
               {getDifference(value, prevValue)}
