@@ -25,7 +25,7 @@ export const TreatmentDoctor: React.FC<TreatmentDoctorProps> = ({ doctor }) => {
   return (
     <S.DoctorCard padding={'1rem'}>
       <S.DoctorCardBody>
-        <Avatar src={imgUrl} size={128} />
+        <Avatar src={imgUrl} alt={doctor.name} size={128} />
 
         <S.DoctorName>{`${name}, ${t(`common.${speciality}`)}`}</S.DoctorName>
         <Row gutter={[8, 8]}>
