@@ -51,6 +51,7 @@ export const SearchDropdown: React.FC<SearchOverlayProps> = ({
               <Btn
                 size="small"
                 type={isFilterVisible ? 'ghost' : 'text'}
+                aria-label="Filter"
                 icon={<FilterIcon />}
                 onClick={() => setFilterActive(!isFilterVisible)}
               />
