@@ -86,9 +86,11 @@ export const ValidationForm: React.FC = () => {
       </BaseButtonsForm.Item>
 
       <BaseButtonsForm.Item label={t('forms.validationFormLabels.inputNumber')}>
-        <BaseButtonsForm.Item name="input-number" noStyle>
-          <InputNumber min={1} max={10} />
-        </BaseButtonsForm.Item>
+        <label>
+          <BaseButtonsForm.Item name="input-number" noStyle>
+            <InputNumber min={1} max={10} />
+          </BaseButtonsForm.Item>
+        </label>
         <span> {t('forms.validationFormLabels.machines')}</span>
       </BaseButtonsForm.Item>
 
