@@ -9,6 +9,7 @@ import { newsTags as defaultTags } from '@app/constants/newsTags';
 import { AppDate, Dates } from '@app/constants/Dates';
 import { Post } from '@app/api/news.api';
 import * as S from './NewsFilter.styles';
+import { useTheme } from 'styled-components';
 
 interface NewsFilterProps {
   news: Post[];
@@ -43,6 +44,7 @@ const Filter: React.FC<Filter> = ({
 }) => {
   const { t } = useTranslation();
   const { mobileOnly } = useResponsive();
+  const theme = useTheme();
 
   const applyFilter = () => {
     onApply();
@@ -88,7 +90,7 @@ const Filter: React.FC<Filter> = ({
                 }}
               >
                 <S.PopoverCheckbox checked={selectedTagsIds.includes(tag.id)} />
-                <Tag title={tag.title} bgColor={tag.bgColor} />
+                <Tag title={tag.title} bgColor={theme.colors.main[tag.bgColor]} />
               </S.TagPopoverLine>
             ))}
             <S.ClosePopoverWrapper>
@@ -106,7 +108,12 @@ const Filter: React.FC<Filter> = ({
       {!!selectedTags.length && (
         <S.TagsWrapper>
           {selectedTags.map((tag) => (
-            <Tag key={tag.id} title={tag.title} bgColor={tag.bgColor} removeTag={() => onTagClick(tag)} />
+            <Tag
+              key={tag.id}
+              title={tag.title}
+              bgColor={theme.colors.main[tag.bgColor]}
+              removeTag={() => onTagClick(tag)}
+            />
           ))}
         </S.TagsWrapper>
       )}
