@@ -100,7 +100,7 @@ export const Text = styled(Typography.Text)`
   font-size: 0.75rem;
   text-align: left;
 
-  color: ${(props) => props.theme.colors.text.light};
+  color: ${(props) => props.theme.colors.text.main};
 
   @media only screen and ${(props) => props.theme.media.md} {
     text-align: center;
