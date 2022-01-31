@@ -60,7 +60,7 @@ export const LockForm: React.FC = () => {
           <S.Time>{currentTime}</S.Time>
           <S.Date>{currentDate}</S.Date>
           <S.AvatarCircle>
-            <Avatar src={user?.imgUrl} size={mobileOnly ? 59 : 77} />
+            <Avatar src={user?.imgUrl} alt="user avatar" size={mobileOnly ? 59 : 77} />
           </S.AvatarCircle>
           <S.Name>{fullName}</S.Name>
         </S.ContentWrapper>
