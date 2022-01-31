@@ -26,10 +26,12 @@ export const Event = styled.div<Event>`
   height: 100%;
   box-shadow: 0 5px 15px rgba(0, 89, 171, 0.3);
 
+  font-weight: ${(props) => props.theme.commonFontWeight.bold};
+
   background: ${(props) => props.theme.colors.main.secondaryBackground};
 
   ${(props) =>
-    props.$isPast ? `color: ${props.theme.colors.main.light}` : `color: ${props.theme.colors.main.primary}`};
+    props.$isPast ? `color: ${props.theme.colors.text.main}` : `color: ${props.theme.colors.main.primary}`};
 
   border-radius: ${(props) => props.theme.border.radius};
 `;
@@ -70,13 +72,14 @@ export const Calendar = styled(AntCalendar)`
 
         background: ${(props) => props.theme.colors.main.primary};
 
+        .ant-picker-calendar-date-value,
+        ${Event} {
+          color: ${(props) => props.theme.commonColors.white};
+        }
+
         .ant-picker-calendar-date-content > div {
           background: ${(props) => props.theme.colors.main.primary};
         }
-      }
-
-      ${Event} {
-        color: ${(props) => props.theme.commonColors.white};
       }
     }
 
