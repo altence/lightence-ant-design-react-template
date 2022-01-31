@@ -29,7 +29,7 @@ export const Table = styled(CommonTable)`
 `;
 
 export const Text = styled.span<TextProps>`
-  color: ${(props) => (props.$isActive ? props.theme.colors.text.main : props.theme.colors.text.light)};
+  color: ${(props) => props.theme.colors.text.main};
   font-weight: ${(props) =>
     props.$isActive ? props.theme.commonFontWeight.semibold : props.theme.commonFontWeight.regular};
 `;

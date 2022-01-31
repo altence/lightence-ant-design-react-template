@@ -18,7 +18,10 @@ export const ScreeningsRow = styled(Row)<ScreeningsRowProps>`
   cursor: pointer;
   transition: all 0.3s ease;
 
-  opacity: ${(props) => (props.$isActive ? 1 : 0.5)};
+  .ant-typography {
+    font-weight: ${(props) =>
+      props.$isActive ? props.theme.commonFontWeight.bold : props.theme.commonFontWeight.regular};
+  }
 `;
 
 export const Avatar = styled(AntAvatar)<Importance>`

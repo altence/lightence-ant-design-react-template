@@ -77,10 +77,10 @@ const colors = {
     primary: '#01509A',
     primaryGradient: 'linear-gradient(261.31deg, #006CCF -29.57%, #00509A 121.11%)',
     light: '#C5D3E0',
-    secondary: '#0085FF',
-    error: '#FF5252',
+    secondary: '#0475dd',
+    error: '#ed0505',
     warning: '#FFB155',
-    success: '#57D682',
+    success: '#076626',
     angularGradient:
       'conic-gradient(from -35.18deg at 50% 50%, #006CCF -154.36deg, #FF5252 24.13deg, #FFB155 118.76deg, #006CCF 205.64deg, #FF5252 384.13deg)',
     mainBackground: commonColors.white,
