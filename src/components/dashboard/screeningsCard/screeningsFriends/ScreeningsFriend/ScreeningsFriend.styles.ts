@@ -1,57 +1,53 @@
 import { Typography, Avatar as AntAvatar, Row } from 'antd';
 import styled from 'styled-components';
-import { hexToRGB } from 'utils/utils';
 
 interface ScreeningsRowProps {
-  isActive: boolean;
+  $isActive: boolean;
 }
 
 interface PercentageProps {
-  isDowngrade: boolean;
+  $isDowngrade: boolean;
 }
 
-interface AvatarProps {
-  isPrimary: boolean;
-  isSecondary: boolean;
+interface Importance {
+  $isPrimary: boolean;
+  $isSecondary: boolean;
 }
 
-export const ScreeningsRow = styled(Row).withConfig({
-  shouldForwardProp: (prop) => !['isActive'].includes(prop),
-})<ScreeningsRowProps>`
+export const ScreeningsRow = styled(Row)<ScreeningsRowProps>`
   cursor: pointer;
   transition: all 0.3s ease;
 
-  opacity: ${(props) => (props.isActive ? 1 : 0.5)};
+  opacity: ${(props) => (props.$isActive ? 1 : 0.5)};
 `;
 
-export const Avatar = styled(AntAvatar).withConfig({
-  shouldForwardProp: (prop) => !['isPrimary', 'isSecondary'].includes(prop),
-})<AvatarProps>`
+export const Avatar = styled(AntAvatar)<Importance>`
   position: relative;
 
   ${(props) =>
-    (props.isPrimary && `border: 2px solid ${props.theme.colors.main.primary}`) ||
-    (props.isSecondary && `border 2px solid ${hexToRGB(props.theme.colors.main.error, 0.7)}`)}
+    (props.$isPrimary && `border: 2px solid ${props.theme.colors.main.primary}`) ||
+    (props.$isSecondary && `border 2px solid ${props.theme.colors.main.error}`)}
 `;
 
-export const Name = styled(Typography.Text)`
+export const Name = styled(Typography.Text)<Importance>`
   white-space: nowrap;
 
   font-size: ${(props) => props.theme.commonFontSizes.xs};
 
   font-weight: ${(props) => props.theme.commonFontWeight.semibold};
 
+  color: ${(props) =>
+    (props.$isPrimary && props.theme.colors.main.primary) || (props.$isSecondary && props.theme.colors.main.error)};
+
   @media only screen and ${(props) => props.theme.media.xl} {
     font-size: ${(props) => props.theme.commonFontSizes.md};
   }
 `;
 
-export const Percentage = styled(Typography.Text).withConfig({
-  shouldForwardProp: (prop) => !['isDowngrade'].includes(prop),
-})<PercentageProps>`
+export const Percentage = styled(Typography.Text)<PercentageProps>`
   font-size: ${(props) => props.theme.commonFontSizes.xs};
 
-  color: ${(props) => (props.isDowngrade ? props.theme.colors.main.error : props.theme.colors.main.success)};
+  color: ${(props) => (props.$isDowngrade ? props.theme.colors.main.error : props.theme.colors.main.success)};
 
   @media only screen and ${(props) => props.theme.media.xl} {
     font-size: ${(props) => props.theme.commonFontSizes.md};
