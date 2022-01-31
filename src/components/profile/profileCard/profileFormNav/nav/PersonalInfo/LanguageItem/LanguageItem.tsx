@@ -9,7 +9,7 @@ import { languages } from '@app/constants/languages';
 const languageOptions = languages.map((lang) => (
   <Option key={lang.id} value={lang.name}>
     <Space align="center">
-      <ReactCountryFlag svg countryCode={lang.countryCode} />
+      <ReactCountryFlag svg countryCode={lang.countryCode} alt="country flag" />
       {lang.title}
     </Space>
   </Option>
