@@ -48,7 +48,12 @@ export const SearchDropdown: React.FC<SearchOverlayProps> = ({
             value={query}
             placeholder={t('header.search')}
             filter={
-              <Btn size="small" type="text" icon={<FilterIcon />} onClick={() => setFilterActive(!isFilterVisible)} />
+              <Btn
+                size="small"
+                type={isFilterVisible ? 'ghost' : 'text'}
+                icon={<FilterIcon />}
+                onClick={() => setFilterActive(!isFilterVisible)}
+              />
             }
             onChange={(event) => setQuery(event.target.value)}
             enterButton={null}
