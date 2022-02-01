@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { ConfigProvider } from 'antd';
 import deDe from 'antd/lib/locale/de_DE';
 import enUS from 'antd/lib/locale/en_US';
@@ -16,6 +16,7 @@ import { usePWA } from './hooks/usePWA';
 
 const App: React.FC = () => {
   const theme = useAppSelector((state) => state.theme.theme);
+  const currentTheme = useMemo(() => (theme === 'dark' ? darkTheme : lightTheme), [theme]);
 
   const { language } = useLanguage();
 
@@ -25,7 +26,8 @@ const App: React.FC = () => {
 
   return (
     <>
-      <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
+      <meta name="theme-color" content={currentTheme.colors.main.primary} />
+      <ThemeProvider theme={currentTheme}>
         <GlobalStyle />
         <ConfigProvider locale={language === 'en' ? enUS : deDe}>
           <ThemeSwitcher theme={theme}>
