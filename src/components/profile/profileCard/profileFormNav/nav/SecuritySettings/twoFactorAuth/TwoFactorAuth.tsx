@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
@@ -22,7 +22,12 @@ export type TwoFactorAuthOptionState = TwoFactorAuthOption | null;
 export const TwoFactorAuth: React.FC = () => {
   const user = useAppSelector((state) => state.user.user);
 
-  const [isFieldsChanged, setFieldsChanged] = useState(false);
+  const isNeedToShowVerifyBtn = useMemo(
+    () => (user?.email.name && !user?.email.verified) || (user?.phone.number && !user?.phone.verified),
+    [user],
+  );
+
+  const [isFieldsChanged, setFieldsChanged] = useState(Boolean(isNeedToShowVerifyBtn));
   const [isLoading, setLoading] = useState(false);
 
   const [isEnabled, setEnabled] = useState(Boolean(user?.email.verified || user?.phone.verified));
@@ -31,32 +36,30 @@ export const TwoFactorAuth: React.FC = () => {
 
   const dispatch = useAppDispatch();
 
-  const isNeedToShowVerifyBtn = useMemo(
-    () => (user?.email.name && !user?.email.verified) || (user?.phone.number && !user?.phone.verified),
-    [user],
-  );
-
   const { t } = useTranslation();
 
-  const onClickVerify = async () => {
+  const onClickVerify = () => {
     setClickedVerify(true);
   };
 
-  const onVerify = () => {
+  const onVerify = useCallback(() => {
     if (user && selectedOption) {
-      notificationController.success({ message: t('common.success') });
+      setLoading(false);
+      setFieldsChanged(false);
       setClickedVerify(false);
+      notificationController.success({ message: t('common.success') });
 
       const newUser = { ...user, [selectedOption]: { ...user[selectedOption], verified: true } };
 
       dispatch(setUser(newUser));
     }
-  };
+  }, [dispatch, selectedOption, t, user]);
 
   return (
     <>
       <BaseButtonsForm
         name="twoFactorAuth"
+        requiredMark="optional"
         isFieldsChanged={isFieldsChanged}
         onFieldsChange={() => setFieldsChanged(true)}
         initialValues={{
