@@ -68,15 +68,15 @@ export const InfoHeader = styled.div`
 `;
 
 export const Title = styled.div`
-  font-size: ${(props) => props.theme.commonFontSizes.md};
+  font-size: ${(props) => props.theme.commonFontSizes.xl};
   font-weight: ${(props) => props.theme.commonFontWeight.semibold};
   width: 80%;
   line-height: 1.375rem;
 
   color: ${(props) => props.theme.colors.text.main};
 
-  @media only screen and ${(props) => props.theme.media.xxl} {
-    font-size: 1rem;
+  @media only screen and ${(props) => props.theme.media.md} {
+    font-size: ${(props) => props.theme.commonFontSizes.xxl};
   }
 `;
 
