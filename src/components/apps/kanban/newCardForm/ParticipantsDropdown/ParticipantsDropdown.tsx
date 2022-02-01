@@ -57,16 +57,15 @@ export const ParticipantsDropdown: React.FC<ParticipantsDropdownProps> = ({
       {selectedParticipants && selectedParticipants.length > 0 ? (
         <S.ParticipantsWrapper>
           {selectedParticipants.map((participant) => (
-            <S.ParticipantRow
-              key={participant.id}
-              onClick={(e) => {
-                onPeopleClick(participant);
-                e.stopPropagation();
-              }}
-            >
+            <S.ParticipantRow key={participant.id}>
               <S.ParticipantAvatar src={participant.avatar ? participant.avatar : StubAvatar} />
               <S.ParticipantName>{participant.name}</S.ParticipantName>
-              <S.RemoveParticipant onClick={() => onPeopleClick(participant)} />
+              <S.RemoveParticipant
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onPeopleClick(participant);
+                }}
+              />
             </S.ParticipantRow>
           ))}
         </S.ParticipantsWrapper>
