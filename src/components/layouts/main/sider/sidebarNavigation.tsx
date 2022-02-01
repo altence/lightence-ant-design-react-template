@@ -139,7 +139,7 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
       {
         title: 'common.profilePage',
         key: 'profile',
-        url: '/profile/personal-info',
+        url: '/profile',
       },
       {
         title: 'common.serverError',
