@@ -43,14 +43,14 @@ export const Step2: React.FC = () => {
       <FormItem
         name="firstName"
         label={t('common.firstName')}
-        rules={[{ required: true, message: t('common.firstNameError') }]}
+        rules={[{ required: true, message: t('forms.stepFormLabels.firstNameError') }]}
       >
         <Input />
       </FormItem>
       <FormItem
         name="lastName"
         label={t('common.lastName')}
-        rules={[{ required: true, message: t('common.lastNameError') }]}
+        rules={[{ required: true, message: t('forms.stepFormLabels.lastNameError') }]}
       >
         <Input />
       </FormItem>
@@ -61,7 +61,11 @@ export const Step2: React.FC = () => {
       >
         <DatePicker format="YYYY-MM-DD" />
       </FormItem>
-      <S.PhoneItem name="phone" label={t('common.phone')} rules={[{ required: true, message: t('common.phoneError') }]}>
+      <S.PhoneItem
+        name="phone"
+        label={t('common.phone')}
+        rules={[{ required: true, message: t('forms.stepFormLabels.phoneError') }]}
+      >
         <Input addonBefore={prefixSelector} />
       </S.PhoneItem>
       <FormItem
@@ -70,7 +74,7 @@ export const Step2: React.FC = () => {
         rules={[
           {
             type: 'email',
-            message: t('profile.nav.personalInfo.notValidEmail'),
+            message: t('common.notValidEmail'),
           },
         ]}
       >

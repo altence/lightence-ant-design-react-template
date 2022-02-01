@@ -18,7 +18,7 @@ export const Step1: React.FC = () => {
       <FormItem
         name="password"
         label={t('common.password')}
-        rules={[{ required: true, message: t('common.passwordError') }]}
+        rules={[{ required: true, message: t('forms.stepFormLabels.passwordError') }]}
       >
         <InputPassword />
       </FormItem>

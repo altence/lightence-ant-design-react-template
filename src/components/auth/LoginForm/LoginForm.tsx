@@ -50,7 +50,7 @@ export const LoginForm: React.FC = () => {
             { required: true, message: t('common.requiredField') },
             {
               type: 'email',
-              message: t('profile.nav.personalInfo.notValidEmail'),
+              message: t('common.notValidEmail'),
             },
           ]}
         >

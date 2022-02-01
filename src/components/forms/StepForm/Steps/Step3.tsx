@@ -24,17 +24,21 @@ export const Step3: React.FC = () => {
       <FormItem
         name="zipCode"
         label={t('common.zipcode')}
-        rules={[{ required: true, message: t('common.zipcodeError') }]}
+        rules={[{ required: true, message: t('forms.stepFormLabels.zipCodeError') }]}
       >
         <Input />
       </FormItem>
-      <FormItem name="city" label={t('common.city')} rules={[{ required: true, message: t('common.cityError') }]}>
+      <FormItem
+        name="city"
+        label={t('common.city')}
+        rules={[{ required: true, message: t('forms.stepFormLabels.cityError') }]}
+      >
         <Input />
       </FormItem>
       <FormItem
         name="country"
         label={t('common.country')}
-        rules={[{ required: true, message: t('common.countryError') }]}
+        rules={[{ required: true, message: t('forms.stepFormLabels.countryError') }]}
       >
         <Input />
       </FormItem>
