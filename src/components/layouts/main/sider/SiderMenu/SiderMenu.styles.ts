@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Menu as AntMenu } from 'antd';
+import { hexToRGB } from '@app/utils/utils';
 
 export const Menu = styled(AntMenu)`
   background: transparent;
@@ -27,6 +28,11 @@ export const Menu = styled(AntMenu)`
   .ant-menu-item-selected a:hover,
   .ant-menu-item a:hover {
     color: ${(props) => props.theme.colors.text.secondary};
+  }
+
+  .ant-menu-item:hover,
+  .ant-menu-submenu-title:hover {
+    background-color: ${(props) => hexToRGB(props.theme.colors.main.primary, 0.7)};
   }
 
   .ant-menu-submenu-selected {
