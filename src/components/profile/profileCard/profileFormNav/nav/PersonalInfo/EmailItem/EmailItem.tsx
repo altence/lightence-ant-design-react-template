@@ -22,7 +22,7 @@ export const EmailItem: React.FC<EmailItemProps> = ({ required, onClick, verifie
         { required, message: t('common.requiredField') },
         {
           type: 'email',
-          message: t('profile.nav.personalInfo.notValidEmail'),
+          message: t('common.notValidEmail'),
         },
       ]}
     >

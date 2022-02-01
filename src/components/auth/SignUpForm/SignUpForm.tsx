@@ -76,7 +76,7 @@ export const SignUpForm: React.FC = () => {
             { required: true, message: t('common.requiredField') },
             {
               type: 'email',
-              message: t('profile.nav.personalInfo.notValidEmail'),
+              message: t('common.notValidEmail'),
             },
           ]}
         >
