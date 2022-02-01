@@ -28,10 +28,12 @@ interface EditPopoverProps {
 }
 
 const EditPopover: React.FC<EditPopoverProps> = ({ onDelete, onArchive }) => {
+  const { t } = useTranslation();
+
   return (
     <S.EditPopover>
-      <S.EditPopoverLine onClick={onDelete}>Delete</S.EditPopoverLine>
-      <S.EditPopoverLine onClick={onArchive}>Archivate</S.EditPopoverLine>
+      <S.EditPopoverLine onClick={onDelete}>{t('common.delete')}</S.EditPopoverLine>
+      <S.EditPopoverLine onClick={onArchive}>{t('kanban.archive')}</S.EditPopoverLine>
     </S.EditPopover>
   );
 };

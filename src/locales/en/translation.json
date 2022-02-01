@@ -231,7 +231,8 @@
       "verifCodeSent": "We have sent a verification code to your email",
       "verifyEmailPage": "Verify email page",
       "warning": "Warning",
-      "zipcode": "Zipcode"
+      "zipcode": "Zipcode",
+      "delete":"Delete"
   },
   "dashboard": {
       "activity": {
@@ -520,7 +521,8 @@
       "sameTag": "You can't add the same tag!",
       "tags": "Tags",
       "title": "Title",
-      "unnamedLabel": "Unnamed label"
+      "unnamedLabel": "Unnamed label",
+      "archive": "Archive"
   },
   "login": {
       "facebookLink": "Continue with Facebook",
@@ -591,7 +593,6 @@
       "async": "Asynchronously close",
       "basic": "Basic Popconfirm",
       "content": "Are you sure to delete this task?",
-      "delete": "Delete",
       "no": "No",
       "openAsync": "Open Popconfirm with async logic",
       "positions": "Popconfirm positions",

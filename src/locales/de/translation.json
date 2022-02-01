@@ -229,7 +229,8 @@
       "verifCodeSent": "Wir haben einen Bestätigungscode an Ihre E-Mail gesendet",
       "verifyEmailPage": "E-Mail-Seite bestätigen",
       "warning": "Warnung",
-      "zipcode": "Postleitzahl"
+      "zipcode": "Postleitzahl",
+      "delete":"Löschen"
   },
   "dashboard": {
       "activity": {
@@ -499,7 +500,8 @@
       "label": "Etikett",
       "sameTag": "Sie können nicht dasselbe Tag hinzufügen!",
       "title": "Titel",
-      "unnamedLabel": "Unbenanntes Etikett"
+      "unnamedLabel": "Unbenanntes Etikett",
+      "archive": "Archivieren"
   },
   "login": {
       "facebookLink": "Weiter mit Facebook",
@@ -570,7 +572,6 @@
       "async": "Asynchron schließen",
       "basic": "Grundlegendes Popconfirm",
       "content": "Are you sure to delete this task?",
-      "delete": "Löschen",
       "no": "Nein",
       "openAsync": "Öffnen Sie Popconfirm mit asynchroner Logik",
       "positions": "Popconfirm-Positionen",
