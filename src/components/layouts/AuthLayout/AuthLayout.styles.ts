@@ -112,8 +112,6 @@ export const FormItem = styled(BaseForm.Item)`
 `;
 
 export const FormInput = styled(CommonInput)`
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
-  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
   color: ${(props) => props.theme.colors.text.main};
   background: transparent;
 
@@ -123,9 +121,7 @@ export const FormInput = styled(CommonInput)`
 `;
 
 export const FormInputPassword = styled(CommonInputPassword)`
-  font-size: ${(props) => props.theme.commonFontSizes.md};
   color: ${(props) => props.theme.colors.text.main};
-  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
   background: transparent;
 
   & input.ant-input {
