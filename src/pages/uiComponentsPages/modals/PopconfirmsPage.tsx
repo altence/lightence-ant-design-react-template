@@ -39,7 +39,7 @@ const PopconfirmsPage: React.FC = () => {
     <Col>
       <S.Card title={t('popconfirm.basic')}>
         <Popconfirm title={text}>
-          <Button type="primary">{t('popconfirm.delete')}</Button>
+          <Button type="primary">{t('common.delete')}</Button>
         </Popconfirm>
       </S.Card>
       <S.Card title={t('popconfirm.positions')}>
