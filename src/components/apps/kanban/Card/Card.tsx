@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { CardState, Tag as ITag, Participant as IParticipant } from '../interfaces';
-import { MoreOutlined } from '@ant-design/icons';
-import * as S from './Card.styles';
 import { Dropdown } from 'antd';
-import { ParticipantsDropdown } from '../newCardForm/ParticipantsDropdown/ParticipantsDropdown';
-import { TagDropdown } from '../newCardForm/TagDropdown/TagDropdown';
 import { useTranslation } from 'react-i18next';
+import { MoreOutlined } from '@ant-design/icons';
+import { Button } from '@app/components/common/buttons/Button/Button';
+import { ParticipantsDropdown } from '@app/components/apps/kanban/newCardForm/ParticipantsDropdown/ParticipantsDropdown';
+import { TagDropdown } from '@app/components/apps/kanban/newCardForm/TagDropdown/TagDropdown';
+import { CardState, Tag as ITag, Participant as IParticipant } from '@app/components/apps/kanban/interfaces';
+import * as S from './Card.styles';
 
 interface CardProps {
   style: CSSStyleSheet;
@@ -104,21 +105,20 @@ export const Card: React.FC<CardProps> = ({
                 )}
               </S.CardTitle>
               <S.CardRightContent>
-                <S.ArrowDownWrapper>
-                  <S.ArrowDownIcon $expanded={isExpanded} />
-                </S.ArrowDownWrapper>
+                <Button noStyle type="text" icon={<S.ArrowDownIcon $expanded={isExpanded} />} />
                 <Dropdown
                   overlay={<EditPopover onDelete={onDeleteCard} onArchive={onDeleteCard} />}
                   placement="bottomRight"
                   trigger={['click']}
                 >
-                  <S.ThreeDotsWrapper
+                  <Button
+                    noStyle
+                    type="text"
+                    icon={<MoreOutlined />}
                     onClick={(e) => {
                       e.stopPropagation();
                     }}
-                  >
-                    <MoreOutlined />
-                  </S.ThreeDotsWrapper>
+                  />
                 </Dropdown>
               </S.CardRightContent>
             </S.CardHeader>

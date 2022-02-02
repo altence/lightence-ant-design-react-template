@@ -11,7 +11,7 @@ const NotificationsPage: React.FC = () => {
     <Col>
       <S.Card title={t('notifications.basic')}>
         <Button
-          $severity="info"
+          severity="info"
           onClick={() =>
             notificationController.info({
               message: t('notifications.infoTitle'),
@@ -24,7 +24,7 @@ const NotificationsPage: React.FC = () => {
       </S.Card>
       <S.Card title={t('notifications.types')}>
         <Button
-          $severity="success"
+          severity="success"
           onClick={() =>
             notificationController.success({
               message: t('notifications.successTitle'),
@@ -35,7 +35,7 @@ const NotificationsPage: React.FC = () => {
           {t('notifications.success')}
         </Button>
         <Button
-          $severity="info"
+          severity="info"
           onClick={() =>
             notificationController.info({
               message: t('notifications.infoTitle'),
@@ -46,7 +46,7 @@ const NotificationsPage: React.FC = () => {
           {t('notifications.info')}
         </Button>
         <Button
-          $severity="warning"
+          severity="warning"
           onClick={() =>
             notificationController.warning({
               message: t('notifications.warningTitle'),
@@ -57,7 +57,7 @@ const NotificationsPage: React.FC = () => {
           {t('notifications.warning')}
         </Button>
         <Button
-          $severity="error"
+          severity="error"
           onClick={() =>
             notificationController.error({
               message: t('notifications.errorTitle'),
@@ -70,7 +70,7 @@ const NotificationsPage: React.FC = () => {
       </S.Card>
       <S.Card title={t('notifications.withoutDescription')}>
         <Button
-          $severity="success"
+          severity="success"
           onClick={() =>
             notificationController.success({
               message: t('notifications.successTitle'),
@@ -80,7 +80,7 @@ const NotificationsPage: React.FC = () => {
           {t('notifications.success')}
         </Button>
         <Button
-          $severity="info"
+          severity="info"
           onClick={() =>
             notificationController.info({
               message: t('notifications.infoTitle'),
@@ -90,7 +90,7 @@ const NotificationsPage: React.FC = () => {
           {t('notifications.info')}
         </Button>
         <Button
-          $severity="warning"
+          severity="warning"
           onClick={() =>
             notificationController.warning({
               message: t('notifications.warningTitle'),
@@ -100,7 +100,7 @@ const NotificationsPage: React.FC = () => {
           {t('notifications.warning')}
         </Button>
         <Button
-          $severity="error"
+          severity="error"
           onClick={() =>
             notificationController.error({
               message: t('notifications.errorTitle'),

@@ -7,9 +7,18 @@ import { defineColorBySeverity, hexToRGB, shadeColor } from '@app/utils/utils';
 interface BtnProps {
   type: ButtonType;
   $severity?: Severity;
+  $noStyle?: boolean;
 }
 
 export const Button = styled(AntButton)<BtnProps>`
+  ${(props) =>
+    props.$noStyle &&
+    css`
+      width: unset;
+      padding: 0;
+      height: unset;
+    `}
+
   ${(props) =>
     !props.danger &&
     css`

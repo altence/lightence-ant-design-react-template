@@ -43,26 +43,8 @@ export const ParticipantsWrapper = styled.div`
   gap: 1rem;
 `;
 
-export const ArrowDownWrapper = styled.span`
-  padding-right: 1.25rem;
-  width: 1.5rem;
-
-  color: ${(props) => props.theme.colors.text.main};
-`;
-
 export const ArrowDownIcon = styled(DownOutlined)<ArrowDownIcon>`
   transform: ${(props) => `rotate(${props.$expanded ? 0 : 180}deg)`};
-`;
-
-export const ThreeDotsWrapper = styled.span`
-  width: 1.5rem;
-  font-size: ${(props) => props.theme.commonFontSizes.xl};
-  height: 1.375rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  color: ${(props) => props.theme.colors.text.main};
 `;
 
 export const CardWrapper = styled(MovableCardWrapper)`
@@ -72,8 +54,9 @@ export const CardWrapper = styled(MovableCardWrapper)`
 export const CardRightContent = styled(RightContent)`
   display: flex;
   justify-content: flex-end;
-  padding-right: 0;
   align-items: center;
+  gap: 1rem;
+  padding-right: 0;
 `;
 
 export const CardTitle = styled(Title)`
