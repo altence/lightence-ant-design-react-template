@@ -6,11 +6,7 @@ import { websitePattern } from '@app/constants/patterns';
 
 const scheme = 'https://';
 
-interface WebsiteItemProps {
-  website?: string;
-}
-
-export const WebsiteItem: React.FC<WebsiteItemProps> = () => {
+export const WebsiteItem: React.FC = () => {
   const { t } = useTranslation();
 
   return (

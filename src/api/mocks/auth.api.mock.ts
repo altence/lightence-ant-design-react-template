@@ -22,7 +22,7 @@ httpApiMock.onPost('login').reply((config) => {
           },
           phone: {
             number: '+18143519459',
-            verified: true,
+            verified: false,
           },
           sex: 'male',
           birthday: '01/26/2022',

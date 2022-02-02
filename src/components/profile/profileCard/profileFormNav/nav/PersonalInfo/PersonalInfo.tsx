@@ -17,6 +17,7 @@ import { ZipcodeItem } from '@app/components/profile/profileCard/profileFormNav/
 import { AddressItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/AddressItem/AddressItem';
 import { WebsiteItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/WebsiteItem/WebsiteItem';
 import { SocialLinksItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/SocialLinksItem/SocialLinksItem';
+import { VerifyItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/VerifyItem/VerifyItem';
 import { useAppSelector } from '@app/hooks/reduxHooks';
 import { Dates } from '@app/constants/Dates';
 import { notificationController } from '@app/controllers/notificationController';
@@ -161,11 +162,15 @@ export const PersonalInfo: React.FC = () => {
           </Col>
 
           <Col xs={24} md={12}>
-            <PhoneItem verified={user?.phone.verified} />
+            <VerifyItem option="phone" condition={Boolean(!user?.phone.verified)}>
+              <PhoneItem verified={user?.phone.verified} />
+            </VerifyItem>
           </Col>
 
           <Col xs={24} md={12}>
-            <EmailItem verified={user?.email.verified} />
+            <VerifyItem option="email" condition={Boolean(!user?.email.verified)}>
+              <EmailItem verified={user?.email.verified} />
+            </VerifyItem>
           </Col>
 
           <Col span={24}>
