@@ -8,7 +8,6 @@ interface EmailItemProps extends FormItemProps {
   isSuccess?: boolean;
   successText?: string;
   onClick?: () => void;
-  verified?: boolean;
   inputProps?: InputProps;
 }
 
@@ -17,7 +16,6 @@ export const EmailItem: React.FC<EmailItemProps> = ({
   isSuccess,
   successText,
   onClick,
-  verified,
   inputProps,
   ...props
 }) => {
@@ -26,8 +24,8 @@ export const EmailItem: React.FC<EmailItemProps> = ({
   return (
     <BaseButtonsForm.Item
       name="email"
-      $isSuccess={isSuccess || verified}
-      $successText={successText || t('profile.nav.personalInfo.verified')}
+      $isSuccess={isSuccess}
+      $successText={successText}
       label={t('common.email')}
       rules={[
         { required, message: t('common.requiredField') },

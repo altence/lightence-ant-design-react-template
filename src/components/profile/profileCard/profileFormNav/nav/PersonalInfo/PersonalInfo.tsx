@@ -147,13 +147,13 @@ export const PersonalInfo: React.FC = () => {
 
           <Col xs={24} md={12}>
             <VerifyItem option="phone" condition={Boolean(!user?.phone.verified)}>
-              <PhoneItem verified={user?.phone.verified} />
+              <PhoneItem isSuccess={user?.phone.verified} successText={t('profile.nav.personalInfo.verified')} />
             </VerifyItem>
           </Col>
 
           <Col xs={24} md={12}>
             <VerifyItem option="email" condition={Boolean(!user?.email.verified)}>
-              <EmailItem verified={user?.email.verified} />
+              <EmailItem isSuccess={user?.email.verified} successText={t('profile.nav.personalInfo.verified')} />
             </VerifyItem>
           </Col>
 

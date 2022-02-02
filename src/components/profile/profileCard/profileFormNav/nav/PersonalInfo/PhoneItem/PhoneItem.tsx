@@ -10,7 +10,6 @@ interface PhoneItemsProps extends FormItemProps {
   isSuccess?: boolean;
   successText?: string;
   onClick?: () => void;
-  verified?: boolean;
   inputProps?: InputProps;
 }
 
@@ -19,7 +18,6 @@ export const PhoneItem: React.FC<PhoneItemsProps> = ({
   isSuccess,
   successText,
   onClick,
-  verified,
   inputProps,
   ...props
 }) => {
@@ -28,8 +26,8 @@ export const PhoneItem: React.FC<PhoneItemsProps> = ({
   return (
     <BaseButtonsForm.Item
       name="phone"
-      $isSuccess={isSuccess || verified}
-      $successText={successText || t('profile.nav.personalInfo.verified')}
+      $isSuccess={isSuccess}
+      $successText={successText}
       label={t('common.phone')}
       rules={[
         { required, message: t('common.requiredField') },
