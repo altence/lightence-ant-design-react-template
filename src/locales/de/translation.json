@@ -103,8 +103,6 @@
       "disable": "Deaktivieren",
       "disabled": "Behindert",
       "disabledCheckbox": "Kontrollkästchen deaktiviert",
-      "enable": "Ermöglichen",
-      "enabled": "Ermöglicht",
       "group": "Checkbox-Gruppe",
       "orange": "Orange",
       "pear": "Birne",
@@ -229,7 +227,11 @@
       "verifyEmailPage": "E-Mail-Seite bestätigen",
       "warning": "Warnung",
       "zipcode": "Postleitzahl",
-      "delete":"Löschen"
+      "delete":"Löschen",
+      "verify": "Verifizieren",
+      "notVerified": "Nicht verifiziert",
+      "enable": "Ermöglichen",
+      "enabled": "Ermöglicht"
   },
   "dashboard": {
       "activity": {
@@ -651,7 +653,6 @@
               "nickname": "Spitzname",
               "notValidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein!",
               "notValidWebsite": "Bitte geben Sie eine gültige URL ein!",
-              "notVerified": "Nicht verifiziert",
               "otherInfo": "Andere Info",
               "sex": "Geschlecht",
               "socialLinks": "Soziale Verbindungen",
@@ -671,7 +672,7 @@
               "samePassword": "Ihr neues Passwort darf nicht mit dem vorherigen Passwort identisch sein",
               "title": "Sicherheitseinstellungen",
               "twoFactorAuth": "Zwei-Faktor-Authentifizierung",
-              "verify": "Verifizieren"
+              "enable": "Ermöglichen"
           }
       },
       "title": "Profil"

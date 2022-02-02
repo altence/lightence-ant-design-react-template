@@ -1,3 +1,5 @@
+import { TwoFactorAuthOption } from '@app/interfaces/interfaces';
+
 export interface UserModel {
   id: number;
   firstName: string;
@@ -11,6 +13,10 @@ export interface UserModel {
   phone: {
     number: string;
     verified: boolean;
+  };
+  twoFactorAuth: {
+    enabled: boolean;
+    type: TwoFactorAuthOption;
   };
   sex: 'male' | 'female';
   birthday: string;

@@ -24,6 +24,10 @@ httpApiMock.onPost('login').reply((config) => {
             number: '+18143519459',
             verified: false,
           },
+          twoFactorAuth: {
+            enabled: false,
+            type: null,
+          },
           sex: 'male',
           birthday: '01/26/2022',
           lang: 'en',

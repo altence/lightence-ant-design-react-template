@@ -10,7 +10,7 @@ const CheckboxesPage: React.FC = () => {
   const [checked, setChecked] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const label = `${checked ? t('checkboxes.checked') : t('checkboxes.unchecked')}-${
-    disabled ? t('checkboxes.disabled') : t('checkboxes.enabled')
+    disabled ? t('checkboxes.disabled') : t('common.enable')
   }`;
   const groupOptions = [t('checkboxes.apple'), t('checkboxes.pear'), t('checkboxes.orange')];
 
@@ -37,7 +37,7 @@ const CheckboxesPage: React.FC = () => {
               {!checked ? t('checkboxes.check') : t('checkboxes.uncheck')}
             </Button>
             <Button type="primary" size="small" onClick={() => setDisabled(!disabled)}>
-              {!disabled ? t('checkboxes.disable') : t('checkboxes.enable')}
+              {!disabled ? t('checkboxes.disable') : t('common.enable')}
             </Button>
           </Space>
         </Space>

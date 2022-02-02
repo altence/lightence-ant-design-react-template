@@ -2,12 +2,12 @@ import React, { useCallback, useState } from 'react';
 import { Button } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
-import { Modal } from '@app/components/common/Modal/Modal';
 import { SecurityCodeForm } from '@app/components/auth/SecurityCodeForm/SecurityCodeForm';
 import { notificationController } from '@app/controllers/notificationController';
 import { setUser } from '@app/store/slices/userSlice';
 import { useAppSelector } from '@app/hooks/reduxHooks';
 import { TwoFactorAuthOption } from '@app/interfaces/interfaces';
+import * as S from './VerifyItem.styles';
 
 interface VerifyItemProps {
   option: TwoFactorAuthOption;
@@ -44,12 +44,12 @@ export const VerifyItem: React.FC<VerifyItemProps> = ({ option, condition, child
 
       {condition && (
         <Button type="link" loading={isLoading} onClick={handleClickVerify}>
-          {t('profile.nav.securitySettings.verify')}
+          {t('common.verify')}
         </Button>
       )}
 
       {condition && (
-        <Modal
+        <S.TwoFactorAuthModal
           destroyOnClose
           footer={false}
           closable={false}
@@ -57,7 +57,7 @@ export const VerifyItem: React.FC<VerifyItemProps> = ({ option, condition, child
           onCancel={() => setModalVisible(false)}
         >
           <SecurityCodeForm onBack={() => setModalVisible(false)} onFinish={onVerify} />
-        </Modal>
+        </S.TwoFactorAuthModal>
       )}
     </>
   );

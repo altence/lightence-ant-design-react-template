@@ -1,23 +1,35 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { isValidPhoneNumber } from 'react-phone-number-input';
+import { FormItemProps } from 'antd';
+import { InputProps } from '@app/components/common/inputs/Input/Input';
 import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
 import * as S from './PhoneItem.styles';
 
-interface PhoneItemsProps {
-  required?: boolean;
+interface PhoneItemsProps extends FormItemProps {
+  isSuccess?: boolean;
+  successText?: string;
   onClick?: () => void;
   verified?: boolean;
+  inputProps?: InputProps;
 }
 
-export const PhoneItem: React.FC<PhoneItemsProps> = ({ required, onClick, verified }) => {
+export const PhoneItem: React.FC<PhoneItemsProps> = ({
+  required,
+  isSuccess,
+  successText,
+  onClick,
+  verified,
+  inputProps,
+  ...props
+}) => {
   const { t } = useTranslation();
 
   return (
     <BaseButtonsForm.Item
       name="phone"
-      $isSuccess={verified}
-      $successText={t('profile.nav.personalInfo.verified')}
+      $isSuccess={isSuccess || verified}
+      $successText={successText || t('profile.nav.personalInfo.verified')}
       label={t('common.phone')}
       rules={[
         { required, message: t('common.requiredField') },
@@ -30,8 +42,9 @@ export const PhoneItem: React.FC<PhoneItemsProps> = ({ required, onClick, verifi
           },
         }),
       ]}
+      {...props}
     >
-      <S.PhoneNumberInput disabled={verified} className="ant-input" onClick={onClick} />
+      <S.PhoneNumberInput className="ant-input" onClick={onClick} {...inputProps} />
     </BaseButtonsForm.Item>
   );
 };

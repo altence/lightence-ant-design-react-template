@@ -20,7 +20,7 @@ export const TwoFactorSwitch: React.FC<TwoFactorSwitchProps> = ({ isEnabled, set
         <Col span={4}>
           <Row justify="end">
             <Col>
-              <BaseButtonsForm.Item name="2fa">
+              <BaseButtonsForm.Item>
                 <Switch checked={isEnabled} onChange={setEnabled} />
               </BaseButtonsForm.Item>
             </Col>
