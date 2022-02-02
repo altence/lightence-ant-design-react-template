@@ -223,7 +223,7 @@
       "twoFactorAuthPage": "Zwei-Faktor-Authseite",
       "ui": "Komponenten der Benutzeroberfläche",
       "upload": "Hochladen",
-      "verifCodeSent": "Wir haben einen Bestätigungscode an Ihre E-Mail gesendet",
+      "verifCodeSent": "Wir haben einen Bestätigungscode an Ihre {{option}} gesendet",
       "verifyEmailPage": "E-Mail-Seite bestätigen",
       "warning": "Warnung",
       "zipcode": "Postleitzahl",
@@ -720,7 +720,7 @@
   },
   "securityCodeForm": {
       "noCode": "Sie haben keinen Bestätigungscode erhalten?",
-      "title": "Prüfe deine Mails"
+      "title": "Prüfe deine {{option}}"
   },
   "selects": {
       "basic": "Grundauswahl",

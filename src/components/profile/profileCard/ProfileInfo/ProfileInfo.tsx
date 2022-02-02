@@ -19,7 +19,7 @@ export const ProfileInfo: React.FC<ProfileInfoProps> = ({ profileData }) => {
         <Avatar shape="circle" src={profileData?.imgUrl} alt="Profile" />
       </S.ImgWrapper>
       <S.Title>{`${profileData?.firstName} ${profileData?.lastName}`}</S.Title>
-      <S.Subtitle>{profileData?.userName}</S.Subtitle>
+      <S.Subtitle>{profileData?.nickName}</S.Subtitle>
       <S.FullnessWrapper>
         <S.FullnessLine width={fullness}>{fullness}%</S.FullnessLine>
       </S.FullnessWrapper>

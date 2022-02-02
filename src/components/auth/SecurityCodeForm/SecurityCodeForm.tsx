@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Image, Spin } from 'antd';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
 import { VerificationCodeInput } from '@app/components/common/VerificationCodeInput/VerificationCodeInput';
 import { useAppDispatch } from '@app/hooks/reduxHooks';
@@ -12,11 +12,12 @@ import * as Auth from '@app/components/layouts/AuthLayout/AuthLayout.styles';
 import * as S from './SecurityCodeForm.styles';
 
 interface SecurityCodeFormProps {
+  option?: string;
   onBack?: () => void;
   onFinish?: () => void;
 }
 
-export const SecurityCodeForm: React.FC<SecurityCodeFormProps> = ({ onBack, onFinish }) => {
+export const SecurityCodeForm: React.FC<SecurityCodeFormProps> = ({ option, onBack, onFinish }) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
@@ -51,8 +52,12 @@ export const SecurityCodeForm: React.FC<SecurityCodeFormProps> = ({ onBack, onFi
           <S.ImageWrapper>
             <Image src={VerifyEmailImage} alt="Not found" preview={false} />
           </S.ImageWrapper>
-          <Auth.FormTitle>{t('securityCodeForm.title')}</Auth.FormTitle>
-          <S.VerifyEmailDescription>{t('common.verifCodeSent')}</S.VerifyEmailDescription>
+          <Auth.FormTitle>
+            <Trans i18nKey="securityCodeForm.title">{{ option: option || t('common.email') }}</Trans>
+          </Auth.FormTitle>
+          <S.VerifyEmailDescription>
+            <Trans i18nKey="common.verifCodeSent">{{ option: option || t('common.email') }}</Trans>
+          </S.VerifyEmailDescription>
           {isLoading ? <Spin /> : <VerificationCodeInput autoFocus onChange={setSecurityCode} />}
           <Link to="/" target="_blank">
             <S.NoCodeText>{t('securityCodeForm.noCode')}</S.NoCodeText>

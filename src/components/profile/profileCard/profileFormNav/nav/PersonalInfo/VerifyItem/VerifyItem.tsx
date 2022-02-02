@@ -56,7 +56,7 @@ export const VerifyItem: React.FC<VerifyItemProps> = ({ option, condition, child
           visible={isModalVisible}
           onCancel={() => setModalVisible(false)}
         >
-          <SecurityCodeForm onBack={() => setModalVisible(false)} onFinish={onVerify} />
+          <SecurityCodeForm onBack={() => setModalVisible(false)} onFinish={onVerify} option={t(`common.${option}`)} />
         </S.TwoFactorAuthModal>
       )}
     </>

@@ -225,7 +225,7 @@
       "twoFactorAuthPage": "Two-Factor auth page",
       "ui": "UI Components",
       "upload": "Upload",
-      "verifCodeSent": "We have sent a verification code to your email",
+      "verifCodeSent": "We have sent a verification code to your {{option}}",
       "verifyEmailPage": "Verify email page",
       "warning": "Warning",
       "zipcode": "Zipcode",
@@ -740,7 +740,7 @@
   },
   "securityCodeForm": {
       "noCode": "Didn't get a verification code?",
-      "title": "Check your mail"
+      "title": "Check your {{option}}"
   },
   "selects": {
       "basic": "Basic select",

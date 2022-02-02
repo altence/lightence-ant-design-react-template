@@ -15,7 +15,7 @@ httpApiMock.onPost('login').reply((config) => {
           firstName: 'Christopher',
           lastName: 'Johnson',
           imgUrl: avatarImg,
-          userName: '@john1989',
+          nickName: '@john1989',
           email: {
             name: 'christopher.johnson@altence.com',
             verified: false,

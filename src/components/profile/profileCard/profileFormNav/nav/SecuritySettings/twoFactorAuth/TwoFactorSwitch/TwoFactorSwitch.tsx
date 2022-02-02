@@ -13,18 +13,12 @@ export const TwoFactorSwitch: React.FC<TwoFactorSwitchProps> = ({ isEnabled, set
 
   return (
     <BaseButtonsForm.Item>
-      <Row gutter={[10, 10]} justify="space-between" align="middle">
-        <Col span={20}>
+      <Row justify="space-between">
+        <Col>
           <BaseButtonsForm.Title>{t('profile.nav.securitySettings.twoFactorAuth')}</BaseButtonsForm.Title>
         </Col>
-        <Col span={4}>
-          <Row justify="end">
-            <Col>
-              <BaseButtonsForm.Item>
-                <Switch checked={isEnabled} onChange={setEnabled} />
-              </BaseButtonsForm.Item>
-            </Col>
-          </Row>
+        <Col>
+          <Switch checked={isEnabled} onChange={setEnabled} />
         </Col>
       </Row>
     </BaseButtonsForm.Item>

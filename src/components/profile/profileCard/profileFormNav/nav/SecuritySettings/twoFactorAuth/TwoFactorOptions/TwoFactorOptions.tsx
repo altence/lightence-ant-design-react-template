@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { RadioChangeEvent } from 'antd';
 import { RadioGroup } from '@app/components/common/Radio/Radio';
 import { useAppSelector } from '@app/hooks/reduxHooks';
 import { TwoFactorAuthOptionState } from '../TwoFactorAuth';
@@ -23,13 +24,13 @@ export const TwoFactorOptions: React.FC<TwoFactorOptionsProps> = ({ selectedOpti
     [selectedOption],
   );
 
+  const handleRadio = user?.twoFactorAuth.enabled
+    ? () => null
+    : (e: RadioChangeEvent) => setSelectedOption(e.target.value);
+
   return (
     <>
-      <RadioGroup
-        value={selectedOption}
-        onChange={(e) => setSelectedOption(e.target.value)}
-        disabled={user?.twoFactorAuth.enabled}
-      >
+      <RadioGroup value={selectedOption} onChange={handleRadio}>
         <S.RadioBtn value="phone" $isActive={isPhoneActive}>
           {t('common.phone')}
         </S.RadioBtn>

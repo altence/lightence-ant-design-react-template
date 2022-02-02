@@ -6,12 +6,12 @@ import { TwoFactorAuth } from './twoFactorAuth/TwoFactorAuth';
 
 export const SecuritySettings: React.FC = () => (
   <Card>
-    <Row gutter={[30, 0]}>
-      <Col xs={24} xl={10}>
+    <Row gutter={[50, 10]}>
+      <Col xs={24} xl={12}>
         <PasswordForm />
       </Col>
 
-      <Col xs={24} xl={14}>
+      <Col xs={24} xl={12}>
         <TwoFactorAuth />
       </Col>
     </Row>
