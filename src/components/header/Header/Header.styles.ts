@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Col, Collapse, Menu } from 'antd';
-import { BurgerIcon } from '../../common/Burger/BurgerIcon';
+import { BurgerIcon } from '@app/components/common/Burger/BurgerIcon';
 import { GitHubButton } from '@app/components/header/GitHubButton';
 
 export const DropdownMenu = styled(Menu)`
@@ -13,19 +13,17 @@ export const DropdownMenu = styled(Menu)`
 export const DropdownHeader = styled.div`
   cursor: pointer;
 
-  & > span[role='img'],
+  & > .ant-btn > span[role='img'],
   .ant-badge {
-    display: block;
     font-size: 1.25rem;
-    transition: color 0.3s ease;
-
-    &:hover {
-      color: ${(props) => props.theme.colors.main.secondary};
-    }
 
     @media only screen and ${(props) => props.theme.media.md} {
       font-size: 1.625rem;
     }
+  }
+
+  & .ant-badge {
+    display: inline-block;
   }
 `;
 

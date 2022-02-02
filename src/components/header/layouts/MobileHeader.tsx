@@ -19,7 +19,7 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({ toggleSider, isSider
       </Col>
 
       <Col>
-        <Row gutter={[30, 30]} align="middle">
+        <Row align="middle">
           <Col>
             <NotificationsDropdown />
           </Col>
