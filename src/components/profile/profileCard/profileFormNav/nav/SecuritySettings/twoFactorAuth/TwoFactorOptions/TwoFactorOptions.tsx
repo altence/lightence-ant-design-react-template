@@ -1,10 +1,7 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RadioGroup } from '@app/components/common/Radio/Radio';
-import { EmailItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/EmailItem/EmailItem';
-import { PhoneItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/PhoneItem/PhoneItem';
 import { useAppSelector } from '@app/hooks/reduxHooks';
-import { TwoFactorAuthOption } from '@app/interfaces/interfaces';
 import { TwoFactorAuthOptionState } from '../TwoFactorAuth';
 import * as S from './TwoFactorOptions.styles';
 
@@ -26,13 +23,6 @@ export const TwoFactorOptions: React.FC<TwoFactorOptionsProps> = ({ selectedOpti
     [selectedOption],
   );
 
-  const onClickInput = useCallback(
-    (mode: TwoFactorAuthOption) => () => {
-      setSelectedOption(mode);
-    },
-    [setSelectedOption],
-  );
-
   return (
     <>
       <RadioGroup
@@ -41,26 +31,10 @@ export const TwoFactorOptions: React.FC<TwoFactorOptionsProps> = ({ selectedOpti
         disabled={user?.twoFactorAuth.enabled}
       >
         <S.RadioBtn value="phone" $isActive={isPhoneActive}>
-          <PhoneItem
-            required={isPhoneActive}
-            onClick={onClickInput('phone')}
-            isSuccess={user?.twoFactorAuth.type === 'phone'}
-            successText={t('common.enabled')}
-            inputProps={{
-              disabled: true,
-            }}
-          />
+          {t('common.phone')}
         </S.RadioBtn>
         <S.RadioBtn value="email" $isActive={isEmailActive}>
-          <EmailItem
-            required={isEmailActive}
-            onClick={onClickInput('email')}
-            isSuccess={user?.twoFactorAuth.type === 'email'}
-            successText={t('common.enabled')}
-            inputProps={{
-              disabled: true,
-            }}
-          />
+          {t('common.email')}
         </S.RadioBtn>
       </RadioGroup>
     </>

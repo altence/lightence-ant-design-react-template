@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
@@ -48,6 +48,11 @@ export const TwoFactorAuth: React.FC = () => {
     });
   };
 
+  const showEnableButton = useMemo(
+    () => user && selectedOption && user[selectedOption].verified,
+    [selectedOption, user],
+  );
+
   return (
     <>
       <BaseButtonsForm
@@ -63,11 +68,9 @@ export const TwoFactorAuth: React.FC = () => {
           user?.twoFactorAuth.enabled ? (
             <span />
           ) : (
-            (user && selectedOption && user[selectedOption].verified && (
-              <Button type="link" loading={isLoading} htmlType="submit">
-                {t('common.enable')}
-              </Button>
-            )) || <span>{t('common.notVerified')}</span>
+            <Button type="link" loading={isLoading} htmlType="submit" disabled={!showEnableButton}>
+              {showEnableButton ? t('common.enable') : t('common.notVerified')}
+            </Button>
           )
         }
       >
