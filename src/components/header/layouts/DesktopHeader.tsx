@@ -41,11 +41,15 @@ export const DesktopHeader: React.FC<DesktopHeaderProps> = ({ isTwoColumnsLayout
       <S.ProfileColumn xl={8} xxl={8} $isTwoColumnsLayout={isTwoColumnsLayout}>
         <Row align="middle" justify="end" gutter={[30, 30]}>
           <Col>
-            <NotificationsDropdown />
-          </Col>
+            <Row gutter={[15, 15]}>
+              <Col>
+                <NotificationsDropdown />
+              </Col>
 
-          <Col>
-            <SettingsDropdown />
+              <Col>
+                <SettingsDropdown />
+              </Col>
+            </Row>
           </Col>
 
           <Col>

@@ -5,6 +5,7 @@ import { useResponsive } from 'hooks/useResponsive';
 import { components as configComponents, Component } from '@app/constants/config/components';
 import { categoriesList, CategoryType } from 'constants/categoriesList';
 import * as S from './HeaderSearch.styles';
+import { Button } from '@app/components/common/buttons/Button/Button';
 
 export interface CategoryComponents {
   category: CategoryType;
@@ -43,7 +44,10 @@ export const HeaderSearch: React.FC = () => {
     <>
       {mobileOnly && (
         <>
-          <S.SearchIcon onClick={() => setModalVisible(true)} />
+          <Button
+            type={isModalVisible ? 'ghost' : 'text'}
+            icon={<S.SearchIcon onClick={() => setModalVisible(true)} />}
+          />
           <S.SearchModal
             visible={isModalVisible}
             closable={false}
