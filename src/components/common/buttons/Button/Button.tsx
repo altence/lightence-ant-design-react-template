@@ -9,12 +9,20 @@ export const { Group: ButtonGroup } = AntdButton;
 export interface ButtonProps extends AntButtonProps {
   className?: string;
   type?: ButtonType;
-  $severity?: Severity;
+  severity?: Severity;
+  noStyle?: boolean;
 }
 
 export const Button = React.forwardRef<HTMLElement, ButtonProps>(
-  ({ className, type = 'ghost', $severity, children, ...props }, ref) => (
-    <S.Button ref={ref} type={$severity ? 'primary' : type} className={className} {...props} $severity={$severity}>
+  ({ className, type = 'ghost', severity, noStyle, children, ...props }, ref) => (
+    <S.Button
+      ref={ref}
+      type={severity ? 'primary' : type}
+      className={className}
+      $noStyle={noStyle}
+      {...props}
+      $severity={severity}
+    >
       {children}
     </S.Button>
   ),

@@ -43,10 +43,10 @@ const ButtonsPage: React.FC = () => {
         <Button type="link">{t('buttons.link')}</Button>
       </S.Card>
       <S.Card title={t('buttons.severities')}>
-        <Button $severity="info">{t('common.info')}</Button>
-        <Button $severity="success">{t('common.success')}</Button>
-        <Button $severity="warning">{t('common.warning')}</Button>
-        <Button $severity="error">{t('common.error')}</Button>
+        <Button severity="info">{t('common.info')}</Button>
+        <Button severity="success">{t('common.success')}</Button>
+        <Button severity="warning">{t('common.warning')}</Button>
+        <Button severity="error">{t('common.error')}</Button>
       </S.Card>
       <S.Card title={t('buttons.sizes')}>
         <Button type="ghost" size="small">
