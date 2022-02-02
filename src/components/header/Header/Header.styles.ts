@@ -17,8 +17,11 @@ export const DropdownHeader = styled.div`
   .ant-badge {
     display: block;
     font-size: 1.25rem;
+    transition: color 0.3s ease;
 
-    color: ${(props) => props.theme.colors.text.main};
+    &:hover {
+      color: ${(props) => props.theme.colors.main.secondary};
+    }
 
     @media only screen and ${(props) => props.theme.media.md} {
       font-size: 1.625rem;
