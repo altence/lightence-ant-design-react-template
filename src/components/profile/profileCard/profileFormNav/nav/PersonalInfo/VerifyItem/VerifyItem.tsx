@@ -30,6 +30,8 @@ export const VerifyItem: React.FC<VerifyItemProps> = ({ option, condition, child
   }, []);
 
   const onVerify = useCallback(() => {
+    setModalVisible(false);
+
     if (user) {
       notificationController.success({ message: t('common.success') });
 
