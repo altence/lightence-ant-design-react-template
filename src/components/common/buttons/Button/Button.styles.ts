@@ -41,6 +41,31 @@ export const Button = styled(AntButton)<BtnProps>`
         }
       `}
 
+      ${props.type === 'text' &&
+      css`
+        &:hover {
+          color: ${props.theme.colors.main.secondary};
+        }
+      `}
+
+      ${props.type === 'ghost' &&
+      css`
+        &:hover {
+          color: ${props.theme.colors.main.secondary};
+
+          border-color: ${props.theme.colors.main.secondary};
+        }
+      `}
+
+      ${props.type === 'primary' &&
+      css`
+        &:hover {
+          background: ${props.theme.colors.main.secondary};
+
+          border-color: ${props.theme.colors.main.secondary};
+        }
+      `}
+
       ${props.type === 'link' &&
       css`
         & span,
