@@ -44,6 +44,7 @@ export const Button = styled(AntButton)<BtnProps>`
       ${props.type === 'text' &&
       css`
         &:hover {
+          background: transparent;
           color: ${props.theme.colors.main.secondary};
         }
       `}
