@@ -78,6 +78,8 @@ export const BaseFormItem = styled(Form.Item)<FormItemProps>`
         display: block;
 
         &::after {
+          display: block;
+          margin-top: 0.5rem;
           content: '✓ ${props.$successText}';
           color: ${props.theme.colors.main.success};
         }

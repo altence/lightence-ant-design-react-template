@@ -41,7 +41,7 @@ export const VerifyItem: React.FC<VerifyItemProps> = ({ option, condition, child
   }, [dispatch, t, option, user]);
 
   return (
-    <>
+    <S.VerifyWrapper>
       {children}
 
       {condition && (
@@ -61,6 +61,6 @@ export const VerifyItem: React.FC<VerifyItemProps> = ({ option, condition, child
           <SecurityCodeForm onBack={() => setModalVisible(false)} onFinish={onVerify} option={t(`common.${option}`)} />
         </S.TwoFactorAuthModal>
       )}
-    </>
+    </S.VerifyWrapper>
   );
 };

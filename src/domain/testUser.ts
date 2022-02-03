@@ -13,7 +13,7 @@ export const testUser: UserModel = {
   },
   phone: {
     value: '+18143519459',
-    verified: false,
+    verified: true,
   },
   twoFactorAuth: {
     enabled: false,
