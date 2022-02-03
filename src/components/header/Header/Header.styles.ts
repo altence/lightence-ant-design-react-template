@@ -4,7 +4,6 @@ import { BurgerIcon } from '@app/components/common/Burger/BurgerIcon';
 import { GitHubButton } from '@app/components/header/GitHubButton';
 
 export const DropdownMenu = styled(Menu)`
-  background-color: ${(props) => props.theme.colors.main.mainBackground};
   box-shadow: ${(props) => props.theme.boxShadow.main};
   border-radius: ${(props) => props.theme.border.radius};
   line-height: 1.5715;
