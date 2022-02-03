@@ -2633,6 +2633,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-helmet@npm:^6.1.5":
+  version: 6.1.5
+  resolution: "@types/react-helmet@npm:6.1.5"
+  dependencies:
+    "@types/react": "*"
+  checksum: d059cc084d3b3071cce3421bb1170dd42819cf39b81afe60d4fbd66c5ef9ffeaadf1802df80efd9553258f621678f69ceb5a21d73df0d8539d40ae9a0f995485
+  languageName: node
+  linkType: hard
+
 "@types/react-phone-number-input@npm:^3.0.13":
   version: 3.0.13
   resolution: "@types/react-phone-number-input@npm:3.0.13"
@@ -10600,6 +10609,7 @@ __metadata:
     "@types/leaflet": ^1.7.8
     "@types/react": ^17.0.0
     "@types/react-dom": ^17.0.0
+    "@types/react-helmet": ^6.1.5
     "@types/react-phone-number-input": ^3.0.13
     "@types/react-responsive": ^8.0.2
     "@types/react-router-dom": ^5.1.7
@@ -10640,6 +10650,7 @@ __metadata:
     react-country-flag: ^3.0.2
     react-css-theme-switcher: ^0.3.0
     react-dom: ^17.0.2
+    react-helmet: ^6.1.0
     react-i18next: ^11.11.4
     react-infinite-scroll-component: ^6.1.0
     react-leaflet: ^3.2.2
@@ -14538,6 +14549,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-fast-compare@npm:^3.1.1":
+  version: 3.2.0
+  resolution: "react-fast-compare@npm:3.2.0"
+  checksum: 8ef272c825ae329f61633ce4ce7f15aa5b84e5214d88bc0823880236e03e985a13195befa2c7a4eda7db3b017dc7985729152d88445823f652403cf36c2b86aa
+  languageName: node
+  linkType: hard
+
+"react-helmet@npm:^6.1.0":
+  version: 6.1.0
+  resolution: "react-helmet@npm:6.1.0"
+  dependencies:
+    object-assign: ^4.1.1
+    prop-types: ^15.7.2
+    react-fast-compare: ^3.1.1
+    react-side-effect: ^2.1.0
+  peerDependencies:
+    react: ">=16.3.0"
+  checksum: a4998479dab7fc1c2799eddefb1870a9d881b5f71cfdf97979a9882e42f4bb50402d55335f308f461e735e01a06f46b16cc7b4e6bcb22c7a4a6f85a753c5c106
+  languageName: node
+  linkType: hard
+
 "react-i18next@npm:^11.11.4":
   version: 11.15.3
   resolution: "react-i18next@npm:11.15.3"
@@ -14807,6 +14839,15 @@ __metadata:
   bin:
     react-scripts: ./bin/react-scripts.js
   checksum: a05a46ce3145b42ac8b57633d3b90b6689c24697c1449bccf219349996d718a3cd0796e4910f4ab6abb5b024982cafd62345e88c8e7b42a45efca3bef1a0eb87
+  languageName: node
+  linkType: hard
+
+"react-side-effect@npm:^2.1.0":
+  version: 2.1.1
+  resolution: "react-side-effect@npm:2.1.1"
+  peerDependencies:
+    react: ^16.3.0 || ^17.0.0
+  checksum: 324511ea8f6669555e166b4af280cdf46034bf0e33c486711e3ce17f88f6f21fed17055098408be1347657d0cbcd614bca944cf9f8e4ecfa96a21d13893fe9fc
   languageName: node
   linkType: hard
 

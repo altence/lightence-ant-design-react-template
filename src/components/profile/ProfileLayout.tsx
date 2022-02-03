@@ -8,6 +8,7 @@ import styled from 'styled-components';
 import { Card } from '@app/components/common/Card/Card';
 import { Button } from '@app/components/common/buttons/Button/Button';
 import { ProfileInfo } from '@app/components/profile/profileCard/ProfileInfo/ProfileInfo';
+import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import { ProfileNav } from '@app/components/profile/profileCard/ProfileNav/ProfileNav';
 import { useResponsive } from '@app/hooks/useResponsive';
 import { useAppSelector } from '@app/hooks/reduxHooks';
@@ -31,6 +32,7 @@ const ProfileLayout: React.FC = () => {
 
   return (
     <>
+      <PageTitle>{t('profile.title')}</PageTitle>
       {!isTitleShown && (
         <Btn icon={<LeftOutlined />} type="text" onClick={() => navigate('/profile')}>
           {t('common.back')}
