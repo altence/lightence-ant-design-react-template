@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Col, Space } from 'antd';
-import { Checkbox, CheckboxGroup, CheckboxChangeEvent } from 'components/common/Checkbox/Checkbox';
-import { Button } from 'components/common/buttons/Button/Button';
 import { useTranslation } from 'react-i18next';
-import * as S from '../UIComponentsPage.styles';
+import { Checkbox, CheckboxGroup, CheckboxChangeEvent } from '@app/components/common/Checkbox/Checkbox';
+import { Button } from '@app/components/common/buttons/Button/Button';
+import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
+import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
 
 const CheckboxesPage: React.FC = () => {
   const { t } = useTranslation();
@@ -19,33 +20,36 @@ const CheckboxesPage: React.FC = () => {
   };
 
   return (
-    <Col>
-      <S.Card title={t('checkboxes.basic')}>
-        <Checkbox>{t('checkboxes.checkbox')}</Checkbox>
-      </S.Card>
-      <S.Card title={t('checkboxes.disabledCheckbox')}>
-        <Checkbox defaultChecked={false} disabled />
-        <Checkbox defaultChecked disabled />
-      </S.Card>
-      <S.Card title={t('checkboxes.controlled')}>
-        <Space direction="vertical" size={20}>
-          <Checkbox checked={checked} disabled={disabled} onChange={onChange}>
-            {label}
-          </Checkbox>
-          <Space>
-            <Button type="primary" size="small" onClick={() => setChecked(!checked)}>
-              {!checked ? t('checkboxes.check') : t('checkboxes.uncheck')}
-            </Button>
-            <Button type="primary" size="small" onClick={() => setDisabled(!disabled)}>
-              {!disabled ? t('checkboxes.disable') : t('checkboxes.enable')}
-            </Button>
+    <>
+      <PageTitle>{t('common.checkbox')}</PageTitle>
+      <Col>
+        <S.Card title={t('checkboxes.basic')}>
+          <Checkbox>{t('checkboxes.checkbox')}</Checkbox>
+        </S.Card>
+        <S.Card title={t('checkboxes.disabledCheckbox')}>
+          <Checkbox defaultChecked={false} disabled />
+          <Checkbox defaultChecked disabled />
+        </S.Card>
+        <S.Card title={t('checkboxes.controlled')}>
+          <Space direction="vertical" size={20}>
+            <Checkbox checked={checked} disabled={disabled} onChange={onChange}>
+              {label}
+            </Checkbox>
+            <Space>
+              <Button type="primary" size="small" onClick={() => setChecked(!checked)}>
+                {!checked ? t('checkboxes.check') : t('checkboxes.uncheck')}
+              </Button>
+              <Button type="primary" size="small" onClick={() => setDisabled(!disabled)}>
+                {!disabled ? t('checkboxes.disable') : t('checkboxes.enable')}
+              </Button>
+            </Space>
           </Space>
-        </Space>
-      </S.Card>
-      <S.Card title={t('checkboxes.group')}>
-        <CheckboxGroup options={groupOptions} defaultValue={[`${t('checkboxes.apple')}`]} />
-      </S.Card>
-    </Col>
+        </S.Card>
+        <S.Card title={t('checkboxes.group')}>
+          <CheckboxGroup options={groupOptions} defaultValue={[`${t('checkboxes.apple')}`]} />
+        </S.Card>
+      </Col>
+    </>
   );
 };
 

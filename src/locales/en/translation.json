@@ -114,7 +114,7 @@
   },
   "common": {
       "address": "Address",
-      "advancedForms": "Advanced forms",
+      "advancedForms": "Advanced Forms",
       "age": "Age",
       "alert": "Alert",
       "apps": "Apps",
@@ -143,7 +143,7 @@
       "country": "Country",
       "dashboard": "Dashboard",
       "dataDisplay": "Data display",
-      "dataTables": "Data tables",
+      "dataTables": "Data Tables",
       "dateTime": "Date & Time",
       "dateTimePicker": "DateTime Picker",
       "day": "day",
@@ -182,7 +182,7 @@
       "moreDetails": "More details",
       "name": "Name",
       "neurologist": "Neurologist",
-      "newPassword": "New password",
+      "newPassword": "New Password",
       "notFound": "Sorry, there’s nothing found",
       "notification": "Notification",
       "ok": "Ok",
@@ -676,7 +676,7 @@
               "otherInfo": "Other info",
               "sex": "Sex",
               "socialLinks": "Social links",
-              "title": "Personal info",
+              "title": "Personal Info",
               "verified": "Verified",
               "website": "Website",
               "wrongNumber": "Wrong number"
@@ -690,7 +690,7 @@
               "notValidPassword": "Your password should be minimum eight characters and contain at least one uppercase letter, one lowercase letter and one number",
               "requiredPassword": "Please input your password!",
               "samePassword": "Your new password can't be same as previous password",
-              "title": "Security settings",
+              "title": "Security Settings",
               "twoFactorAuth": "Two–factor authentication",
               "verify": "Verify"
           }

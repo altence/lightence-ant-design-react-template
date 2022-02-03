@@ -6,7 +6,8 @@ import { Option } from 'components/common/selects/Select/Select';
 import { UserOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
-import * as S from '../UIComponentsPage.styles';
+import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
+import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
 
 const Link = styled.a`
   float: right;
@@ -86,36 +87,39 @@ const AutoCompletesPage: React.FC = () => {
   ];
 
   return (
-    <Col>
-      <S.Card title={t('autoCompletes.basic')}>
-        <label>
-          <AutoComplete
-            options={options}
-            style={{ width: 200 }}
-            onSearch={handleSearch}
-            placeholder={t('autoCompletes.inputHere')}
-          />
-        </label>
-      </S.Card>
-      <S.Card title={t('autoCompletes.customOptions')}>
-        <label>
-          <AutoComplete style={{ width: 200 }} onSearch={handleCustomSearch} placeholder={t('autoCompletes.inputHere')}>
-            {result.map((email: string) => (
-              <Option key={email} value={email}>
-                {email}
-              </Option>
-            ))}
-          </AutoComplete>
-        </label>
-      </S.Card>
-      <S.Card title={t('autoCompletes.categories')}>
-        <label>
-          <AutoComplete dropdownClassName="certain-category-search-dropdown" options={categories}>
-            <SearchInput placeholder={t('autoCompletes.inputHere')} prefix={null} />
-          </AutoComplete>
-        </label>
-      </S.Card>
-    </Col>
+    <>
+      <PageTitle>{t('common.autocomplete')}</PageTitle>
+      <Col>
+        <S.Card title={t('autoCompletes.basic')}>
+          <label>
+            <AutoComplete
+              options={options}
+              style={{ width: 200 }}
+              onSearch={handleSearch}
+              placeholder={t('autoCompletes.inputHere')}
+            />
+          </label>
+        </S.Card>
+        <S.Card title={t('autoCompletes.customOptions')}>
+          <label>
+            <AutoComplete style={{ width: 200 }} onSearch={handleCustomSearch} placeholder={t('autoCompletes.inputHere')}>
+              {result.map((email: string) => (
+                <Option key={email} value={email}>
+                  {email}
+                </Option>
+              ))}
+            </AutoComplete>
+          </label>
+        </S.Card>
+        <S.Card title={t('autoCompletes.categories')}>
+          <label>
+            <AutoComplete dropdownClassName="certain-category-search-dropdown" options={categories}>
+              <SearchInput placeholder={t('autoCompletes.inputHere')} prefix={null} />
+            </AutoComplete>
+          </label>
+        </S.Card>
+      </Col>
+    </>
   );
 };
 

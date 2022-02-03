@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps';
 import styled, { useTheme } from 'styled-components';
 
+import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import { MapsCard } from '@app/pages/maps/maps.styles';
 
 const geoUrl = 'https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json';
@@ -32,52 +33,55 @@ const ReactSimpleMaps: React.FC = () => {
   const theme = useTheme();
 
   return (
-    <MapsCardOverride title={t('common.reactSimpleMaps')}>
-      <ComposableMap
-        projection="geoAzimuthalEqualArea"
-        projectionConfig={{
-          rotate: [58, 20, 0],
-          scale: 500,
-        }}
-      >
-        <Geographies geography={geoUrl}>
-          {({ geographies }) =>
-            geographies
-              .filter((d) => d.properties.REGION_UN === 'Americas')
-              .map((geo) => (
-                <Geography
-                  key={geo.rsmKey}
-                  geography={geo}
-                  fill={theme.colors.main.secondaryBackground}
-                  stroke={theme.colors.main.primary}
-                />
-              ))
-          }
-        </Geographies>
-        {markers.map(({ name, coordinates, markerOffset }) => (
-          <Marker key={name} coordinates={coordinates as [number, number]}>
-            <g
-              fill="none"
-              stroke={theme.colors.main.primary}
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              transform="translate(-12, -24)"
-            >
-              <circle cx="12" cy="10" r="3" />
-              <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
-            </g>
-            <text
-              textAnchor="middle"
-              y={markerOffset}
-              style={{ fontFamily: 'system-ui', fill: theme.colors.text.main }}
-            >
-              {name}
-            </text>
-          </Marker>
-        ))}
-      </ComposableMap>
-    </MapsCardOverride>
+    <>
+      <PageTitle>{t('common.reactSimpleMaps')}</PageTitle>
+      <MapsCardOverride title={t('common.reactSimpleMaps')}>
+        <ComposableMap
+          projection="geoAzimuthalEqualArea"
+          projectionConfig={{
+            rotate: [58, 20, 0],
+            scale: 500,
+          }}
+        >
+          <Geographies geography={geoUrl}>
+            {({ geographies }) =>
+              geographies
+                .filter((d) => d.properties.REGION_UN === 'Americas')
+                .map((geo) => (
+                  <Geography
+                    key={geo.rsmKey}
+                    geography={geo}
+                    fill={theme.colors.main.secondaryBackground}
+                    stroke={theme.colors.main.primary}
+                  />
+                ))
+            }
+          </Geographies>
+          {markers.map(({ name, coordinates, markerOffset }) => (
+            <Marker key={name} coordinates={coordinates as [number, number]}>
+              <g
+                fill="none"
+                stroke={theme.colors.main.primary}
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                transform="translate(-12, -24)"
+              >
+                <circle cx="12" cy="10" r="3" />
+                <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
+              </g>
+              <text
+                textAnchor="middle"
+                y={markerOffset}
+                style={{ fontFamily: 'system-ui', fill: theme.colors.text.main }}
+              >
+                {name}
+              </text>
+            </Marker>
+          ))}
+        </ComposableMap>
+      </MapsCardOverride>
+    </>
   );
 };
 
