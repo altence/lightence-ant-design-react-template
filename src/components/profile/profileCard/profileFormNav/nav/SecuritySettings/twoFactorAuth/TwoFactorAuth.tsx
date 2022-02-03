@@ -60,8 +60,8 @@ export const TwoFactorAuth: React.FC = () => {
         requiredMark={false}
         isFieldsChanged={Boolean(isEnabled && selectedOption)}
         initialValues={{
-          email: user?.email.name,
-          phone: user?.phone.number,
+          email: user?.email.value,
+          phone: user?.phone.value,
         }}
         onFinish={onFinish}
         footer={

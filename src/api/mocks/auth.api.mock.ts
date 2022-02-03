@@ -17,11 +17,11 @@ httpApiMock.onPost('login').reply((config) => {
           imgUrl: avatarImg,
           nickName: '@john1989',
           email: {
-            name: 'christopher.johnson@altence.com',
+            value: 'christopher.johnson@altence.com',
             verified: false,
           },
           phone: {
-            number: '+18143519459',
+            value: '+18143519459',
             verified: false,
           },
           twoFactorAuth: {

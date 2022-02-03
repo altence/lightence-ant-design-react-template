@@ -7,11 +7,11 @@ export interface UserModel {
   imgUrl: string;
   nickName: string;
   email: {
-    name: string;
+    value: string;
     verified: boolean;
   };
   phone: {
-    number: string;
+    value: string;
     verified: boolean;
   };
   twoFactorAuth: {

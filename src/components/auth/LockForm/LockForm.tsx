@@ -42,7 +42,7 @@ export const LockForm: React.FC = () => {
 
   const handleSubmit = ({ password }: LockFormData) => {
     setLoading(true);
-    dispatch(doLogin({ email: user?.email.name || '', password }))
+    dispatch(doLogin({ email: user?.email.value || '', password }))
       .unwrap()
       .then(() => {
         navigate(-1);
