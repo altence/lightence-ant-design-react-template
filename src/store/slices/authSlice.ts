@@ -12,14 +12,14 @@ import {
   setNewPassword,
 } from '@app/api/auth.api';
 import { setUser } from '@app/store/slices/userSlice';
-import { deleteToken, deleteUser, persistToken, readToken } from '@app/services/localStorage.service';
+import { deleteToken, deleteUser, persistToken, readAndPersistToken } from '@app/services/localStorage.service';
 
 export interface AuthSlice {
   token: string | null;
 }
 
 const initialState: AuthSlice = {
-  token: readToken(),
+  token: readAndPersistToken(), // Please, do not use this function! Use readToken() instead.
 };
 
 export const doLogin = createAsyncThunk('auth/doLogin', async (loginPayload: LoginRequest, { dispatch }) =>
