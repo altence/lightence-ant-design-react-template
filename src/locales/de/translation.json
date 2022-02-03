@@ -672,7 +672,8 @@
               "samePassword": "Ihr neues Passwort darf nicht mit dem vorherigen Passwort identisch sein",
               "title": "Sicherheitseinstellungen",
               "twoFactorAuth": "Zwei-Faktor-Authentifizierung",
-              "enable": "Ermöglichen"
+              "enableTwoFactorAuth": "Möchten Sie die Zwei-Faktor-Authentifizierung wirklich aktivieren?",
+              "disableTwoFactorAuth": "Möchten Sie die Zwei-Faktor-Authentifizierung wirklich deaktivieren?"
           }
       },
       "title": "Profil"

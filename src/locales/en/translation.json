@@ -692,7 +692,9 @@
               "requiredPassword": "Please input your password!",
               "samePassword": "Your new password can't be same as previous password",
               "title": "Security settings",
-              "twoFactorAuth": "Two–factor authentication"
+              "twoFactorAuth": "Two–factor authentication",
+              "enableTwoFactorAuth": "Are you sure you want to enable two-factor authentication?",
+              "disableTwoFactorAuth": "Are you sure you want to disable two-factor authentication?"
           }
       },
       "title": "Profile"
