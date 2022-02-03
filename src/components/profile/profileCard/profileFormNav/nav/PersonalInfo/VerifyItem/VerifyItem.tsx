@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
-import { Button } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
+import { Button } from '@app/components/common/buttons/Button/Button';
 import { SecurityCodeForm } from '@app/components/auth/SecurityCodeForm/SecurityCodeForm';
 import { notificationController } from '@app/controllers/notificationController';
 import { setUser } from '@app/store/slices/userSlice';
@@ -45,7 +45,7 @@ export const VerifyItem: React.FC<VerifyItemProps> = ({ option, condition, child
       {children}
 
       {condition && (
-        <Button type="link" loading={isLoading} onClick={handleClickVerify}>
+        <Button type="link" noStyle loading={isLoading} onClick={handleClickVerify}>
           {t('common.verify')}
         </Button>
       )}

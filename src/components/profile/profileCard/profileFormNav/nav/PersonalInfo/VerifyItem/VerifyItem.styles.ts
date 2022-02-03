@@ -3,7 +3,7 @@ import { Modal } from '@app/components/common/Modal/Modal';
 
 export const VerifyWrapper = styled.div`
   .ant-form-item {
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
   }
 `;
 
