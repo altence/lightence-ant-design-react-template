@@ -14,7 +14,7 @@ export const PhoneNumberInput = styled(PhoneInput)`
   border-radius: ${(props) => props.theme.border.radius};
 
   &:hover {
-    border-color: #1d72b8;
+    border-color: ${(props) => props.theme.colors.main.primary};
   }
 
   &:focus {

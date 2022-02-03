@@ -54,7 +54,7 @@ const darkColors = {
     dark: '#404040',
   },
   border: {
-    main: '#ffffff',
+    main: '#a9a9a9',
   },
   dashboardMap: {
     background: 'linear-gradient(315deg, #0cbaba 0%, #380036 74%)',

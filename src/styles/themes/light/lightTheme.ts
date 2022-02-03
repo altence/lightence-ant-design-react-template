@@ -125,7 +125,7 @@ const colors = {
     dark: '#404040',
   },
   border: {
-    main: '#cce1f4',
+    main: '#bec0c6',
   },
   dashboardMap: {
     background:
