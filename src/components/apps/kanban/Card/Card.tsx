@@ -24,18 +24,23 @@ interface CardProps {
 }
 
 interface EditPopoverProps {
-  onDelete: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  onArchive: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onDelete: () => void;
+  onArchive: () => void;
 }
 
-const EditPopover: React.FC<EditPopoverProps> = ({ onDelete, onArchive }) => {
+const EditPopover: React.FC<EditPopoverProps> = ({ onDelete, onArchive, ...props }) => {
   const { t } = useTranslation();
 
   return (
-    <S.EditPopover>
-      <S.EditPopoverLine onClick={onDelete}>{t('common.delete')}</S.EditPopoverLine>
-      <S.EditPopoverLine onClick={onArchive}>{t('kanban.archive')}</S.EditPopoverLine>
-    </S.EditPopover>
+    <S.CardMenu selectable={false} {...props}>
+      <S.MenuItem key="1" onClick={onDelete}>
+        {t('common.delete')}
+      </S.MenuItem>
+
+      <S.MenuItem key="2" onClick={onArchive}>
+        {t('kanban.archive')}
+      </S.MenuItem>
+    </S.CardMenu>
   );
 };
 
@@ -64,9 +69,8 @@ export const Card: React.FC<CardProps> = ({
     onChange({ ...card, id });
   };
 
-  const onDeleteCard = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const onDeleteCard = () => {
     onDelete();
-    event.stopPropagation();
   };
 
   const updateTags = (tags: ITag[]) => {

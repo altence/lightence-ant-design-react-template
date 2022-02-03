@@ -8,7 +8,7 @@ import {
   Footer,
 } from 'react-trello/dist/styles/Base';
 import { DownOutlined } from '@ant-design/icons';
-import { Collapse } from 'antd';
+import { Collapse, Menu } from 'antd';
 import InlineInput from 'react-trello/dist/widgets/InlineInput';
 
 const { Panel } = Collapse;
@@ -94,26 +94,12 @@ export const CardFooter = styled(Footer)`
   justify-content: flex-start;
 `;
 
-export const EditPopover = styled.div`
-  display: flex;
-  background: ${(props) => props.theme.colors.main.mainBackground};
-  flex-direction: column;
-  border-radius: 0.625rem;
-  padding: 1rem;
-  z-index: 1;
-  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.2));
+export const CardMenu = styled(Menu)`
+  box-shadow: ${(props) => props.theme.boxShadow.hover};
 `;
 
-export const EditPopoverLine = styled.span`
+export const MenuItem = styled(Menu.Item)`
   font-size: ${(props) => props.theme.commonFontSizes.xs};
-  line-height: 1.25rem;
-  padding-bottom: 0.625rem;
-  display: flex;
-  &:last-child {
-    padding-bottom: 0;
-  }
-  color: ${(props) => props.theme.colors.text.main};
-  cursor: pointer;
 `;
 
 export const Input = styled(InlineInput)`
