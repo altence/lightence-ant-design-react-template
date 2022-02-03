@@ -20,7 +20,7 @@ export const TwoFactorSwitch: React.FC<TwoFactorSwitchProps> = ({ isEnabled, set
   const handleSwitch = () => {
     setEnabled(!isEnabled);
 
-    if (!isEnabled) {
+    if (isEnabled) {
       const newUser = {
         ...user,
         twoFactorAuth: {
