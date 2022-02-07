@@ -5,6 +5,7 @@ import { RadioButton, RadioGroup } from '@app/components/common/Radio/Radio';
 import { DatePicker } from '@app/components/common/pickers/DatePicker';
 import { Select, Option } from '@app/components/common/selects/Select/Select';
 import * as S from '../StepForm.styles';
+import React from 'react';
 
 export const Step2: React.FC = () => {
   const { t } = useTranslation();
@@ -61,7 +62,11 @@ export const Step2: React.FC = () => {
       >
         <DatePicker format="YYYY-MM-DD" />
       </BaseForm.Item>
-      <S.PhoneItem name="phone" label={t('common.phone')} rules={[{ required: true, message: t('forms.stepFormLabels.phoneError') }]}>
+      <S.PhoneItem
+        name="phone"
+        label={t('common.phone')}
+        rules={[{ required: true, message: t('forms.stepFormLabels.phoneError') }]}
+      >
         <Input addonBefore={prefixSelector} />
       </S.PhoneItem>
       <BaseForm.Item

@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
 import { Input } from '@app/components/common/inputs/Input/Input';
 import * as S from '../StepForm.styles';
+import React from 'react';
 
 export const Step3: React.FC = () => {
   const { t } = useTranslation();
@@ -28,7 +29,11 @@ export const Step3: React.FC = () => {
       >
         <Input />
       </BaseForm.Item>
-      <BaseForm.Item name="city" label={t('common.city')} rules={[{ required: true, message: t('forms.stepFormLabels.cityError') }]}>
+      <BaseForm.Item
+        name="city"
+        label={t('common.city')}
+        rules={[{ required: true, message: t('forms.stepFormLabels.cityError') }]}
+      >
         <Input />
       </BaseForm.Item>
       <BaseForm.Item
