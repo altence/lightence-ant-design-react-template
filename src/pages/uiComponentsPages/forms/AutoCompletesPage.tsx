@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Col } from 'antd';
 import { AutoComplete } from 'components/common/AutoComplete/AutoComplete';
 import { SearchInput as CommonSearchInput } from 'components/common/inputs/SearchInput/SearchInput';
@@ -34,7 +34,7 @@ const AutoCompletesPage: React.FC = () => {
   const [result, setResult] = useState<string[]>([]);
 
   const handleCustomSearch = (value: string) => {
-    let res: string[] = [];
+    let res: string[];
     if (!value || value.indexOf('@') >= 0) {
       res = [];
     } else {
@@ -102,7 +102,11 @@ const AutoCompletesPage: React.FC = () => {
         </S.Card>
         <S.Card title={t('autoCompletes.customOptions')}>
           <label>
-            <AutoComplete style={{ width: 200 }} onSearch={handleCustomSearch} placeholder={t('autoCompletes.inputHere')}>
+            <AutoComplete
+              style={{ width: 200 }}
+              onSearch={handleCustomSearch}
+              placeholder={t('autoCompletes.inputHere')}
+            >
               {result.map((email: string) => (
                 <Option key={email} value={email}>
                   {email}
