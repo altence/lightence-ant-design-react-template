@@ -232,7 +232,7 @@
       "zipcode": "Postleitzahl",
       "delete":"Löschen"
   },
-  "dashboard": {
+  "medical-dashboard": {
       "activity": {
           "kcalBurned": "Kalorienverbrauch am",
           "title": "Aktivität"

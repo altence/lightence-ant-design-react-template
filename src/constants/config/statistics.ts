@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import { BonesIcon } from 'components/dashboard/statisticsCards/statisticsCard/icons/BonesIcon';
-import { FatIcon } from 'components/dashboard/statisticsCards/statisticsCard/icons/FatIcon';
-import { ProteinIcon } from 'components/dashboard/statisticsCards/statisticsCard/icons/ProteinIcon';
-import { WaterBalanceIcon } from 'components/dashboard/statisticsCards/statisticsCard/icons/WaterBalanceIcon';
+import { BonesIcon } from 'components/medical-dashboard/statisticsCards/statisticsCard/icons/BonesIcon';
+import { FatIcon } from 'components/medical-dashboard/statisticsCards/statisticsCard/icons/FatIcon';
+import { ProteinIcon } from 'components/medical-dashboard/statisticsCards/statisticsCard/icons/ProteinIcon';
+import { WaterBalanceIcon } from 'components/medical-dashboard/statisticsCards/statisticsCard/icons/WaterBalanceIcon';
 
 export type StatisticColor = 'primary' | 'error' | 'secondary' | 'warning';
 
@@ -18,28 +18,28 @@ export const statistics: ConfigStatistic[] = [
   {
     id: 1,
     name: 'protein',
-    title: 'dashboard.protein',
+    title: 'medical-dashboard.protein',
     color: 'primary',
     Icon: ProteinIcon,
   },
   {
     id: 2,
     name: 'fat',
-    title: 'dashboard.fat',
+    title: 'medical-dashboard.fat',
     color: 'error',
     Icon: FatIcon,
   },
   {
     id: 3,
     name: 'bones',
-    title: 'dashboard.bones',
+    title: 'medical-dashboard.bones',
     color: 'secondary',
     Icon: BonesIcon,
   },
   {
     id: 4,
     name: 'water',
-    title: 'dashboard.water',
+    title: 'medical-dashboard.water',
     color: 'warning',
     Icon: WaterBalanceIcon,
   },

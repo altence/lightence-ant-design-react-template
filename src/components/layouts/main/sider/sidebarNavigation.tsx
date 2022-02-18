@@ -21,9 +21,16 @@ export interface SidebarNavigationItem {
 
 export const sidebarNavigation: SidebarNavigationItem[] = [
   {
-    title: 'common.dashboard',
-    key: 'dashboard',
+    title: 'common.nft-dashboard',
+    key: 'nft-dashboard',
+    // TODO use path variable
     url: '/',
+    icon: <DashboardOutlined />,
+  },
+  {
+    title: 'common.medical-dashboard',
+    key: 'medical-dashboard',
+    url: '/medical-dashboard',
     icon: <DashboardOutlined />,
   },
   {
