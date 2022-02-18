@@ -12,12 +12,12 @@ httpApiMock.onPost('login').reply((config) => {
         token: 'bearerToken',
         user: {
           id: 1,
-          firstName: 'Christopher',
+          firstName: 'Chris',
           lastName: 'Johnson',
           imgUrl: avatarImg,
           userName: '@john1989',
           email: {
-            name: 'christopher.johnson@altence.com',
+            name: 'chris.johnson@altence.com',
             verified: false,
           },
           phone: {

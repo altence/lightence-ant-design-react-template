@@ -25,7 +25,9 @@ export const Sider = styled(Layout.Sider)`
 `;
 
 export const CollapseButton = styled(Button)<{ $isCollapsed: boolean }>`
-  background: var(--primary-color);
+  background: ${(props) =>
+    props.theme.name === 'light' ? 'rgb(0, 108, 207)' : props.theme.colors.main.additionalBackground};
+  border: 1px solid var(--border-color);
   transition: all 0.2s ease;
   position: absolute;
   right: 0.5rem;
@@ -41,11 +43,13 @@ export const CollapseButton = styled(Button)<{ $isCollapsed: boolean }>`
   &:hover {
     color: var(--text-secondary-color);
     background: var(--primary-color);
+    border: 1px solid var(--border-color);
   }
 
   &:focus {
     color: var(--text-secondary-color);
     background: var(--primary-color);
+    border: 1px solid var(--border-color);;
   }
 `;
 

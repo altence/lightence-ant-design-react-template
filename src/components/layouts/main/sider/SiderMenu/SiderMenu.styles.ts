@@ -1,57 +1,76 @@
 import styled from 'styled-components';
 import { Menu as AntMenu } from 'antd';
+import { FONT_SIZE } from '@app/styles/themes/constants';
 
 export const Menu = styled(AntMenu)`
   background: transparent;
   border-right: 0;
 
-  color: var(--text-secondary-color);
+  a {
+    width: 100%;
+    display: block;
+  }
+
+  .ant-menu-item,
+  .ant-menu-submenu {
+    font-size: ${FONT_SIZE.xs};
+  }
+
+  .ant-menu-item-icon {
+    width: 1.25rem;
+  }
 
   .ant-menu-submenu-expand-icon,
   .ant-menu-submenu-arrow,
-  span[role='img'] {
-    color: var(--text-secondary-color);
-  }
-
-  .ant-menu-item:hover,
-  .ant-menu-item-active,
-  .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
-  .ant-menu-submenu-active,
-  .ant-menu-submenu-title:hover,
-  .ant-menu-item.ant-menu-item-selected,
-  .ant-menu-submenu.ant-menu-submenu-selected,
-  .ant-menu-submenu:hover > .ant-menu-submenu-title > .ant-menu-submenu-expand-icon,
-  .ant-menu-submenu:hover > .ant-menu-submenu-title > .ant-menu-submenu-arrow,
-  .ant-menu-submenu:hover span[role='img'],
-  .ant-menu-item-selected a,
-  .ant-menu-item-selected a:hover,
-  .ant-menu-item a:hover {
-    color: var(--text-secondary-color);
-  }
-
-  .ant-menu-item::after {
-    border-color: var(--primary-color);
+  span[role='img'],
+  a,
+  .ant-menu-item,
+  .ant-menu-submenu {
+    color: var(--text-siderSecondary-color);
+    fill: var(--text-siderSecondary-color);
   }
 
   .ant-menu-item:hover,
   .ant-menu-submenu-title:hover {
-    background-color: rgba(var(--primary-rgb-color), 0.7);
+    .ant-menu-submenu-expand-icon,
+    .ant-menu-submenu-arrow,
+    span[role='img'],
+    a,
+    .ant-menu-item-icon,
+    .ant-menu-title-content {
+      color: var(--text-siderPrimary-color);
+      fill: var(--text-siderPrimary-color);
+    }
   }
 
   .ant-menu-submenu-selected {
     .ant-menu-submenu-title {
-      background-color: var(--primary-color);
+      color: var(--text-siderPrimary-color);
+
+      .ant-menu-submenu-expand-icon,
+      .ant-menu-submenu-arrow,
+      span[role='img'] {
+        color: var(--text-siderPrimary-color);
+        fill: var(--text-siderPrimary-color);
+      }
     }
   }
 
   .ant-menu-item-selected {
-    background-color: var(--primary-color) !important;
+    background-color: transparent !important;
+
+    .ant-menu-submenu-expand-icon,
+    .ant-menu-submenu-arrow,
+    span[role='img'],
+    .ant-menu-item-icon,
+    a {
+      color: var(--text-siderPrimary-color);
+      fill: var(--text-siderPrimary-color);
+    }
   }
 
-  a {
-    width: 100%;
-    display: block;
-
-    color: var(--text-secondary-color);
+  .ant-menu-item-active,
+  .ant-menu-submenu-active .ant-menu-submenu-title {
+    background-color: transparent !important;
   }
 `;

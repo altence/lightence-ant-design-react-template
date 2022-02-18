@@ -1,15 +1,20 @@
 import styled from 'styled-components';
 import { Card as AntCard } from 'antd';
-import { CardProps } from './Card';
 import { normalizeProp } from 'utils/utils';
 import { FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
+import { ThemeType } from '@app/interfaces/interfaces';
 
-export const Card = styled(AntCard).withConfig({
-  shouldForwardProp: (prop) => !['padding'].includes(prop),
-})<CardProps>`
+interface CardInternalProps {
+  $padding: string | number | [number, number];
+  $autoHeight: boolean;
+  $theme: ThemeType;
+}
+
+export const Card = styled(AntCard)<CardInternalProps>`
   display: flex;
   flex-direction: column;
-  height: 100%;
+
+  ${(props) => props.$autoHeight && 'height: 100%'};
 
   box-shadow: var(--box-shadow);
 
@@ -36,7 +41,7 @@ export const Card = styled(AntCard).withConfig({
   .ant-card-body {
     flex-grow: 1;
 
-    padding: ${(props) => props.padding && normalizeProp(props.padding)};
+    padding: ${(props) => props.$padding && normalizeProp(props.$padding)};
   }
 
   .ant-card-bordered {

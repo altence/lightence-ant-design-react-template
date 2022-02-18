@@ -1,22 +1,25 @@
 import styled, { css } from 'styled-components';
 import { Button as AntButton } from 'antd';
-import { ButtonType } from 'antd/lib/button';
 import { Severity } from '@app/interfaces/interfaces';
 import { defineColorBySeverity } from '@app/utils/utils';
 
 interface BtnProps {
-  type: ButtonType;
   $severity?: Severity;
   $noStyle?: boolean;
 }
 
 export const Button = styled(AntButton)<BtnProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+
   ${(props) =>
     props.$noStyle &&
     css`
-      width: unset;
-      padding: 0;
-      height: unset;
+      width: unset !important;
+      padding: 0 !important;
+      height: unset !important;
     `}
 
   &[disabled],
@@ -32,26 +35,26 @@ export const Button = styled(AntButton)<BtnProps>`
       css`
         box-shadow: none;
         text-shadow: none;
-        background: rgba(${defineColorBySeverity(props.$severity, true)}, 0.2);
+        background: rgba(${defineColorBySeverity(props.$severity, true)}, 0.2) !important;
 
-        border-color: ${defineColorBySeverity(props.$severity)};
+        border-color: ${defineColorBySeverity(props.$severity)} !important;
 
-        color: ${defineColorBySeverity(props.$severity)};
+        color: ${defineColorBySeverity(props.$severity)} !important;
 
         &:hover {
-          background: var(--background-color);
+          background: var(--background-color) !important;
 
-          border-color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9);
+          border-color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9) !important;
 
-          color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9);
+          color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9) !important;
         }
 
         &:focus {
-          background: var(--background-color);
+          background: var(--background-color) !important;
 
-          border-color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9);
+          border-color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9) !important;
 
-          color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9);
+          color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9) !important;
         }
       `}
 
@@ -74,6 +77,8 @@ export const Button = styled(AntButton)<BtnProps>`
 
       ${props.type === 'primary' &&
       css`
+        background: ${(props) => props.theme.colors.main.primaryGradient};
+
         &:hover {
           background: var(--secondary-color);
 

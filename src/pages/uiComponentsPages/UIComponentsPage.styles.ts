@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Card as CommonCard } from 'components/common/Card/Card.styles';
+import { Card as CommonCard } from 'components/common/Card/Card';
 import { Collapse } from 'components/common/Collapse/Collapse';
 
 export const Card = styled(CommonCard)`

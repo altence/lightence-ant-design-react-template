@@ -15,7 +15,8 @@ import ProfileLayout from '@app/components/profile/ProfileLayout';
 import RequireAuth from '@app/components/router/RequireAuth';
 import { withLoading } from '@app/hocs/withLoading.hoc';
 
-const DashboardPage = React.lazy(() => import('@app/pages/DashboardPage/DashboardPage'));
+const MedicalDashboardPage = React.lazy(() => import('@app/pages/DashboardPages/MedicalDashboardPage'));
+const NftDashboardPage = React.lazy(() => import('@app/pages/DashboardPages/NftDashboardPage'));
 const NewsFeedPage = React.lazy(() => import('@app/pages/NewsFeedPage'));
 const KanbanPage = React.lazy(() => import('@app/pages/KanbanPage'));
 const DataTablesPage = React.lazy(() => import('@app/pages/DataTablesPage'));
@@ -60,9 +61,11 @@ const ReactSimpleMaps = React.lazy(() => import('@app/pages/maps/ReactSimpleMaps
 const PigeonsMaps = React.lazy(() => import('@app/pages/maps/PigeonsMapsPage/PigeonsMapsPage'));
 const Logout = React.lazy(() => import('./Logout'));
 
-export const DASHBOARD_PATH = '/';
+export const NFT_DASHBOARD_PATH = '/';
+export const MEDICAL_DASHBOARD_PATH = '/medical-dashboard';
 
-const Dashboard = withLoading(DashboardPage);
+const MedicalDashboard = withLoading(MedicalDashboardPage);
+const NftDashboard = withLoading(NftDashboardPage);
 const NewsFeed = withLoading(NewsFeedPage);
 const Kanban = withLoading(KanbanPage);
 const AdvancedForm = withLoading(AdvancedFormsPage);
@@ -127,8 +130,9 @@ export const AppRouter: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={DASHBOARD_PATH} element={protectedLayout}>
-          <Route index element={<Dashboard />} />
+        <Route path={NFT_DASHBOARD_PATH} element={protectedLayout}>
+          <Route index element={<NftDashboard />} />
+          <Route path={MEDICAL_DASHBOARD_PATH} element={<MedicalDashboard />} />
           <Route path="apps">
             <Route path="feed" element={<NewsFeed />} />
             <Route path="kanban" element={<Kanban />} />
