@@ -232,7 +232,7 @@
       "zipcode": "Postleitzahl",
       "delete":"Löschen"
   },
-  "dashboard": {
+  "medical-dashboard": {
       "activity": {
           "kcalBurned": "Kalorienverbrauch am",
           "title": "Aktivität"
@@ -835,5 +835,25 @@
       "dragUpload": "Klicken oder ziehen Sie die Datei zum Hochladen in diesen Bereich",
       "failedUpload": "{{name}} Datei-Upload fehlgeschlagen.",
       "successUpload": "{{name}} Datei erfolgreich hochgeladen. "
+  },
+  "nft": {
+    "yourBalance": "Dein Kontostand",
+    "topUpBalance": "Guthaben aufladen",
+    "totalEarning": "Gesamtverdienst",
+    "status": {
+        "sold": "Verkauft",
+        "added": "Hinzugefügt",
+        "booked": "Gebucht"
+    },
+    "activityStory": "Ihre Aktivitätsgeschichte",
+    "by": "von",
+    "recentActivity": "Letzte Aktivität",
+    "viewAll": "Alle ansehen",
+    "filter": "Filter",
+    "show": "Show",
+    "bid": "Gebot",
+    "trendingCollections": "Trendige Sammlungen",
+    "recentlyAddedNFTs": "Kürzlich hinzugefügte NFTs",
+    "trendingCreators": "Angesagte Creator"
   }
 }

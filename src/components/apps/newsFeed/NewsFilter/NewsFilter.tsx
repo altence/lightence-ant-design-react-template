@@ -1,5 +1,4 @@
 import React, { ReactNode, useState, useEffect, useCallback, useMemo } from 'react';
-import { Dropdown } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { RangeValue } from 'rc-picker/lib/interface.d';
 import { Tag, ITag } from '@app/components/common/Tag/Tag';
@@ -9,6 +8,7 @@ import { newsTags as defaultTags } from '@app/constants/newsTags';
 import { AppDate, Dates } from '@app/constants/Dates';
 import { Post } from '@app/api/news.api';
 import * as S from './NewsFilter.styles';
+import { Dropdown } from '@app/components/common/Dropdown/Dropdown';
 
 interface NewsFilterProps {
   news: Post[];

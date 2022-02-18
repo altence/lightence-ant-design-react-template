@@ -1,6 +1,6 @@
 import React from 'react';
-import { Dropdown } from 'antd';
 import { useTranslation } from 'react-i18next';
+import { Dropdown } from '@app/components/common/Dropdown/Dropdown';
 import { Tag as ITag } from '../../interfaces';
 import { kanbanTags } from 'constants/kanbanTags';
 import * as S from './TagDropdown.styles';
@@ -31,7 +31,6 @@ export const TagDropdown: React.FC<TagDropdownProps> = ({ selectedTags, setSelec
 
   return (
     <Dropdown
-      placement="bottomCenter"
       trigger={['click']}
       overlay={
         <S.EditTagPopover>

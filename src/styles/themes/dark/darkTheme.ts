@@ -5,12 +5,12 @@ import { ITheme } from '../types';
 
 const chartColors = {
   chartTooltipLabel: '#6a7985',
-  chartColor1: '#7568f6',
-  chartColor1Tint: '#7568f6', // update
+  chartColor1: '#339CFD',
+  chartColor1Tint: '#339CFD', // update
   chartColor2: '#dc88f5',
   chartColor2Tint: '#dc88f5', // update
-  chartColor3: '#62d7c6',
-  chartColor3Tint: '#62d7c6', // update
+  chartColor3: '#FFB765',
+  chartColor3Tint: '#FFB765', // update
   chartColor4: '#306955',
   chartColor4Tint: '#306955', // update
   chartColor5: '#ff3d71',
@@ -18,66 +18,71 @@ const chartColors = {
   chartPrimaryGradient: new graphic.LinearGradient(0, 0, 0, 1, [
     {
       offset: 0,
-      color: '#7568f6',
+      color: 'rgba(51, 156, 253, 0.35)',
     },
     {
       offset: 1,
-      color: 'rgba(193, 225, 255, 0)',
+      color: 'rgba(51, 156, 253, 0)',
     },
   ]),
   chartSecondaryGradient: new graphic.LinearGradient(0, 0, 0, 1, [
     {
       offset: 0,
-      color: '#a42218',
+      color: 'rgba(255, 82, 82, 0.35)',
     },
     {
       offset: 1,
-      color: 'rgba(255, 255, 255, 0)',
+      color: 'rgba(255, 82, 82, 0)',
     },
   ]),
-  chartAdditionalGradient: new graphic.LinearGradient(0, 0, 0, 1, [
+  chartSecondaryGradientSpecular: new graphic.LinearGradient(0, 0, 0, 1, [
     {
       offset: 0,
-      color: '#306955',
+      color: 'rgba(255, 255, 255, 0)',
     },
     {
       offset: 1,
-      color: 'rgba(255, 255, 255, 0)',
+      color: 'rgba(255, 82, 82, 0.5)',
     },
   ]),
 };
 
 export const darkColorsTheme: ITheme = {
-  primary: '#7568f6',
+  primary: '#339CFD',
   primary1: '#7568f6',
-  primaryGradient: 'linear-gradient(261.31deg, #006CCF -29.57%, #00509A 121.11%)',
+  primaryGradient: 'linear-gradient(211.49deg, #dc88f5 15.89%, #339CFD 48.97%)',
   light: '#696969',
-  secondary: '#dc88f5',
-  error: '#ff3d71',
-  warning: '#ffaa00',
-  success: '#00d68f',
-  angularGradient:
-    'conic-gradient(from -35.18deg at 50% 50%, #006CCF -154.36deg, #FF5252 24.13deg, #FFB155 118.76deg, #006CCF 205.64deg, #FF5252 384.13deg)',
-  background: '#2D2C3E',
+  secondary: '#0072DD',
+  error: '#FF5252',
+  warning: '#FFB765',
+  success: '#57D682',
+  background: '#25284B',
   secondaryBackground: '#1c2137',
   secondaryBackgroundSelected: shadeColor('#1c2137', -5),
-  spinnerBase: '#7568f6',
+  additionalBackground: '#1D203E',
+  timelineBackground: '#f5f5f5',
+  siderBackground: '#121430',
+  spinnerBase: '#339CFD',
+  scroll: '#797C9A',
   border: '#ffffff',
+  borderNft: '#797C9A',
   textMain: '#ffffff',
   textLight: '#9A9B9F',
   textSuperLight: '#444',
   textSecondary: '#ffffff',
   textDark: '#404040',
+  textNftLight: '#797C9A',
+  textSiderPrimary: '#339CFD',
+  textSiderSecondary: '#797C9A',
   shadow: 'rgba(0, 0, 0, 0.07)',
-  boxShadow: '0 2px 8px 0 rgba(255, 255, 255, 0.07)',
-  boxShadowHover: '0 4px 16px 0 rgba(255, 255, 255, 0.2)',
-  dashboardMapBackground: 'linear-gradient(315deg, #0cbaba 0%, #380036 74%)',
-  dashboardMapDots: '#FFFFFF',
-  dashboardMapDotsHover: '#7568f6',
-  dashboardMapMarkerBorder: '#7568f6',
-  dashboardMapControl: '#FFFFFF',
-  dashboardMapControlBackground: '#7568f6',
-  dashboardMapControlDisabledBackground: '#b3cbe1',
+  boxShadow: 'none',
+  boxShadowHover: 'none',
+  boxShadowNft: '0px 16px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04)',
+  boxShadowNftSecondary:
+    '0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04)',
+  dashboardMapBackground: '#25284b',
+  dashboardMapCircleColor: '#ACAEC1',
+  dashboardMapControlDisabledBackground: '#7e7e7e',
   notificationSuccess: '#EFFFF4',
   notificationPrimary: '#D7EBFF',
   notificationWarning: '#FFF4E7',
@@ -86,9 +91,9 @@ export const darkColorsTheme: ITheme = {
   borderBase: '#a9a9a9',
   disable: '#7e7e7e',
   disabledBg: '#1c2137',
-  layoutBodyBg: '#1c2137',
-  layoutHeaderBg: 'linear-gradient(0deg, #2d2b47, #2d2b47)',
-  layoutSiderBg: 'linear-gradient(197.79deg, #2c2c36 -7.21%, #312f43 34.7%)',
+  layoutBodyBg: '#1e2142',
+  layoutHeaderBg: '#1e2142',
+  layoutSiderBg: '#121430',
   inputPlaceholder: 'rgba(255, 255, 255, 0.5)',
   itemHoverBg: '#1c2137',
   backgroundColorBase: '#1c2137',

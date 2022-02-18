@@ -141,7 +141,8 @@
       "copied": "Copied to clipboard",
       "copy": "Copy",
       "country": "Country",
-      "dashboard": "Dashboard",
+      "nft-dashboard": "NFT Dashboard",
+      "medical-dashboard": "Medical Dashboard",
       "dataDisplay": "Data display",
       "dataTables": "Data Tables",
       "dateTime": "Date & Time",
@@ -234,7 +235,7 @@
       "zipcode": "Zipcode",
       "delete":"Delete"
   },
-  "dashboard": {
+  "medical-dashboard": {
       "activity": {
           "kcalBurned": "kcal burned on",
           "title": "Activity"
@@ -857,5 +858,25 @@
       "dragUpload": "Click or drag file to this area to upload",
       "failedUpload": "{{name}} file upload failed.",
       "successUpload": "{{name}} file uploaded successfully."
+  },
+  "nft": {
+      "yourBalance": "Your Balance",
+      "topUpBalance": "Top Up Balance",
+      "totalEarning": "Total Earning",
+      "status": {
+          "sold": "Sold",
+          "added": "Added",
+          "booked": "Booked"
+      },
+      "activityStory": "Your Activity Story",
+      "by": "by",
+      "recentActivity": "Recent Activity",
+      "viewAll": "View all",
+      "filter": "Filter",
+      "show": "Show",
+      "bid": "Bid",
+      "trendingCollections": "Trending Collections",
+      "recentlyAddedNFTs": "Recently Added NFTs",
+      "trendingCreators": "Trending Creators"
   }
 }

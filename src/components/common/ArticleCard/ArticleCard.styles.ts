@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
   position: relative;
   max-width: 42.5rem;
   box-shadow: var(--box-shadow);
-  background: var(--background-color);
+  background: ${(props) => props.theme.name === 'dark' && props.theme.colors.main.secondaryBackground};
   border-radius: ${BORDER_RADIUS};
   transition: 0.3s;
 
