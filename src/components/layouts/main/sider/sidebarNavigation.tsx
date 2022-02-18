@@ -10,6 +10,7 @@ import {
   UserOutlined,
   BlockOutlined,
 } from '@ant-design/icons';
+import { ReactComponent as NftIcon } from '@app/assets/icons/nft-icon.svg';
 
 export interface SidebarNavigationItem {
   title: string;
@@ -21,9 +22,16 @@ export interface SidebarNavigationItem {
 
 export const sidebarNavigation: SidebarNavigationItem[] = [
   {
-    title: 'common.dashboard',
-    key: 'dashboard',
+    title: 'common.nft-dashboard',
+    key: 'nft-dashboard',
+    // TODO use path variable
     url: '/',
+    icon: <NftIcon />,
+  },
+  {
+    title: 'common.medical-dashboard',
+    key: 'medical-dashboard',
+    url: '/medical-dashboard',
     icon: <DashboardOutlined />,
   },
   {

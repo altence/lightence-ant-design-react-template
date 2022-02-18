@@ -35,6 +35,7 @@
     "react-helmet": "^6.1.0",
     "react-i18next": "^11.11.4",
     "react-infinite-scroll-component": "^6.1.0",
+    "react-insta-stories": "^2.3.0",
     "react-leaflet": "next",
     "react-phone-number-input": "^3.1.27",
     "react-redux": "^7.2.6",
@@ -48,6 +49,7 @@
     "react-verification-input": "^2.0.3",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.0",
+    "typeface-lato": "^1.1.13",
     "typeface-montserrat": "^1.1.13",
     "typescript": "^4.1.2",
     "uuid": "^8.3.2",
@@ -121,7 +123,7 @@
     "*/**/*.{js,ts,tsx}": "yarn lint"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": "16.x"
   },
   "resolutions": {
     "react-error-overlay": "6.0.9"
