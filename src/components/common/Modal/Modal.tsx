@@ -13,7 +13,7 @@ export const Modal: React.FC<ModalProps> = ({ size = 'medium', children, ...prop
   const modalSize = Object.entries(modalSizes).find((sz) => sz[0] === size)?.[1];
 
   return (
-    <S.Modal width={modalSize} {...props}>
+    <S.Modal getContainer={false} width={modalSize} {...props}>
       {children}
     </S.Modal>
   );

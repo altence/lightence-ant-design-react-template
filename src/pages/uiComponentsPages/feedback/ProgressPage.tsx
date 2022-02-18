@@ -60,7 +60,7 @@ const ProgressPage: React.FC = () => {
             </ButtonGroup>
           </div>
         </S.Card>
-        <S.Card title={t('progress.dashboard')}>
+        <S.Card title={t('progress.medical-dashboard')}>
           <Progress type="dashboard" percent={75} strokeColor={primaryColor} />
           <Progress type="dashboard" percent={75} gapDegree={30} strokeColor={primaryColor} />
         </S.Card>

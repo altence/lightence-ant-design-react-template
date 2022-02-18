@@ -1,10 +1,12 @@
+import { CurrencyType } from '@app/interfaces/interfaces';
+
 export interface Payment {
   id: number;
   recipient: string;
   date: number;
   status: number;
   amount: number;
-  currency: string;
+  currency: CurrencyType;
   imgUrl: string;
 }
 

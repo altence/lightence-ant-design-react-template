@@ -10683,6 +10683,7 @@ __metadata:
     react-helmet: ^6.1.0
     react-i18next: ^11.11.4
     react-infinite-scroll-component: ^6.1.0
+    react-insta-stories: ^2.3.0
     react-leaflet: next
     react-phone-number-input: ^3.1.27
     react-redux: ^7.2.6
@@ -10700,6 +10701,7 @@ __metadata:
     stylelint-config-recommended: ^5.0.0
     stylelint-config-styled-components: ^0.1.1
     stylelint-processor-styled-components: ^1.10.0
+    typeface-lato: ^1.1.13
     typeface-montserrat: ^1.1.13
     typescript: ^4.1.2
     uuid: ^8.3.2
@@ -14725,6 +14727,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-insta-stories@npm:^2.3.0":
+  version: 2.3.0
+  resolution: "react-insta-stories@npm:2.3.0"
+  peerDependencies:
+    react: ^16.8.2
+  checksum: 55d1acb72f5be4934172f8568cbf2223112ac67cc4e8520a8bb72e2853e6285fbcf612051f0287239221936090a77e012dca9c22964d8d6936f19b8c4074c418
+  languageName: node
+  linkType: hard
+
 "react-is@npm:^16.12.0, react-is@npm:^16.13.1, react-is@npm:^16.6.0, react-is@npm:^16.7.0":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
@@ -17646,6 +17657,13 @@ __metadata:
   version: 0.0.6
   resolution: "typedarray@npm:0.0.6"
   checksum: 33b39f3d0e8463985eeaeeacc3cb2e28bc3dfaf2a5ed219628c0b629d5d7b810b0eb2165f9f607c34871d5daa92ba1dc69f49051cf7d578b4cbd26c340b9d1b1
+  languageName: node
+  linkType: hard
+
+"typeface-lato@npm:^1.1.13":
+  version: 1.1.13
+  resolution: "typeface-lato@npm:1.1.13"
+  checksum: 682b3cae914928d23a274385b281977f61db1436f387134a6b6467a29c432a95405ec9c70ce7bd63f6f84ee276c095b1282f2c61bd430d089a232ff46f296ec1
   languageName: node
   linkType: hard
 

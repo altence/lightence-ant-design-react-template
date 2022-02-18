@@ -14,7 +14,7 @@ export const resetCss = css`
     background-color: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: var(--lightgrey);
+    background-color: var(--scroll-color);
     border-radius: 1.25rem;
     border: 0.375rem solid transparent;
     background-clip: content-box;

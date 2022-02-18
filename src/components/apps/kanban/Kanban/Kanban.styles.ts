@@ -14,8 +14,4 @@ export const Kanban = styled(Board)`
     padding: 0 ${LAYOUT.desktop.paddingHorizontal};
     margin: 0 -${LAYOUT.desktop.paddingHorizontal};
   }
-
-  div:first-child {
-    height: 100%;
-  }
 `;

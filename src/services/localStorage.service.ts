@@ -3,12 +3,12 @@ import avatarImg from '@app/assets/avatars/avatar5.png';
 
 const testUser = {
   id: 1,
-  firstName: 'Christopher',
+  firstName: 'Chris',
   lastName: 'Johnson',
   imgUrl: avatarImg,
   userName: '@john1989',
   email: {
-    name: 'christopher.johnson@altence.com',
+    name: 'chris.johnson@altence.com',
     verified: true,
   },
   phone: {
