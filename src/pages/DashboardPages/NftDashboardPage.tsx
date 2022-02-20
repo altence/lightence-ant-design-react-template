@@ -18,6 +18,8 @@ import { useResponsive } from '@app/hooks/useResponsive';
 import * as S from './DashboardPage.styles';
 import { TrendingCreators } from '@app/components/nft-dashboard/trending-creators/TrendingCreators';
 import { RecentlyAddedNft } from '@app/components/nft-dashboard/recently-added/RecentlyAddedNft';
+import { TrendingCollection } from '@app/components/nft-dashboard/trending-collections/collection/TrendingCollection';
+import { TrendingCollections } from '@app/components/nft-dashboard/trending-collections/TrendingCollections';
 
 const MedicalDashboardPage: React.FC = () => {
   const { isTablet, isDesktop } = useResponsive();
@@ -41,6 +43,7 @@ const MedicalDashboardPage: React.FC = () => {
     <Row gutter={[20, 20]}>
       <TrendingCreators />
       <RecentlyAddedNft />
+      <TrendingCollections />
     </Row>
   );
 

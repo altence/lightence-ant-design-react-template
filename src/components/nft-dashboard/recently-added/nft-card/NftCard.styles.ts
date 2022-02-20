@@ -12,6 +12,7 @@ export const CardStyled = styled(Card)`
 export const NftImage = styled.img`
   width: 100%;
   height: 195px;
+  object-fit: cover;
   border-top-left-radius: ${(props) => props.theme.border.radius};
   border-top-right-radius: ${(props) => props.theme.border.radius};
 `;

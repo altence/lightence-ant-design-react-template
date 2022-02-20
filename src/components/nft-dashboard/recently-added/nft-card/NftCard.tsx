@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './NftCard.styles';
-import nft from 'assets/images/nft/nft-image.png';
+import nft from '@app/assets/images/nft/nft/nft-image.png';
 
 interface NftCardProps {
   author?: string;
