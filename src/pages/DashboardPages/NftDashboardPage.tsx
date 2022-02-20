@@ -20,6 +20,7 @@ import { TrendingCreators } from '@app/components/nft-dashboard/trending-creator
 import { RecentlyAddedNft } from '@app/components/nft-dashboard/recently-added/RecentlyAddedNft';
 import { TrendingCollection } from '@app/components/nft-dashboard/trending-collections/collection/TrendingCollection';
 import { TrendingCollections } from '@app/components/nft-dashboard/trending-collections/TrendingCollections';
+import { RecentActivites } from '@app/components/nft-dashboard/recent-activities/RecentActivites';
 
 const MedicalDashboardPage: React.FC = () => {
   const { isTablet, isDesktop } = useResponsive();
@@ -44,6 +45,7 @@ const MedicalDashboardPage: React.FC = () => {
       <TrendingCreators />
       <RecentlyAddedNft />
       <TrendingCollections />
+      <RecentActivites />
     </Row>
   );
 

@@ -17,7 +17,7 @@ export const dashboardNews: Array<Post> = [
   },
   {
     title: 'Advancing our understanding of T cells to improve cancer therapies',
-    text: 'Non-small cell lung cancer (NSCLC) is a leading cause of cancer-related death both around the world and in the United States. Like many cancers, NSCLC is not one disease but a heterogeneous collection of multiple cancer subtypes. The most common subtype of NSCLC is adenocarcinoma, which is also the subtype of NSCLC that we modeled in our study.',
+    text: 'Non-small cell lung cancer (NSCLC) is a leading cause of cancer-related death both around the world and in the United States. Like many cancers, NSCLC is not one disease but a heterogeneous activity-card of multiple cancer subtypes. The most common subtype of NSCLC is adenocarcinoma, which is also the subtype of NSCLC that we modeled in our study.',
     date: Date.now(),
     img: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1628873607/Rectangle_742_azba4d.jpg',
     avatarUrl: avatar2,
