@@ -52,4 +52,8 @@ export const results: BloodTestResult[] = [
     return { ...rest, result, min, max, flag };
   });
 
-export const flags = ['medical-dashboard.bloodScreening.norm', 'medical-dashboard.bloodScreening.low', 'medical-dashboard.bloodScreening.high'];
+export const flags = [
+  'medical-dashboard.bloodScreening.norm',
+  'medical-dashboard.bloodScreening.low',
+  'medical-dashboard.bloodScreening.high',
+];

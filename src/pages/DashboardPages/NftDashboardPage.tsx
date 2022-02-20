@@ -16,6 +16,7 @@ import { NewsCard } from '@app/components/medical-dashboard/NewsCard/NewsCard';
 import { References } from '@app/components/common/References/References';
 import { useResponsive } from '@app/hooks/useResponsive';
 import * as S from './DashboardPage.styles';
+import { TrendingCreators } from '@app/components/nft-dashboard/trending-creators/TrendingCreators';
 
 const MedicalDashboardPage: React.FC = () => {
   const { isTablet, isDesktop } = useResponsive();
@@ -35,7 +36,11 @@ const MedicalDashboardPage: React.FC = () => {
     </Row>
   );
 
-  const mobileAndTabletLayout = <Row gutter={[20, 20]}>asdasd</Row>;
+  const mobileAndTabletLayout = (
+    <Row gutter={[20, 20]}>
+      <TrendingCreators />
+    </Row>
+  );
 
   return (
     <>
