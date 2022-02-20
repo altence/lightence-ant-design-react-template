@@ -17,7 +17,12 @@ export const h1 = styled.h1`
   margin-bottom: 0;
 `;
 
-export const ViewAll = styled.a`
+export const ViewAll = styled.div`
+  padding: 0 15px;
+  border-bottom: 0.2px solid #a3a3b3;
+`;
+
+export const ViewAllLink = styled.a`
   font-family: Lato;
   font-weight: 400;
   font-size: 12px;
@@ -25,6 +30,9 @@ export const ViewAll = styled.a`
 `;
 
 export const SectionContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 1.5rem 0;
   width: 100%;
 `;

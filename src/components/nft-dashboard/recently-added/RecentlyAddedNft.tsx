@@ -10,6 +10,9 @@ export const RecentlyAddedNft: React.FC = () => {
       </S.SectionHeader>
       <S.SectionContent>
         <NftCard />
+        <S.ViewAll>
+          <S.ViewAllLink>View All</S.ViewAllLink>
+        </S.ViewAll>
       </S.SectionContent>
     </>
   );
