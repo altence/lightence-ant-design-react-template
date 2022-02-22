@@ -3,9 +3,9 @@ import { Col, Row } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { Card } from '@app/components/common/Card/Card';
 import { Button } from '@app/components/common/buttons/Button/Button';
-import * as S from './BalanceCard.styles';
+import * as S from './Balance.styles';
 
-export const BalanceCard: React.FC = () => {
+export const Balance: React.FC = () => {
   return (
     <Card autoHeight={false}>
       <Row gutter={[30, 30]}>
