@@ -9,7 +9,7 @@ export const camelize = (string: string): string => {
     .join('');
 };
 
-export const getCurrencyPrice = (price: number, currency: string): string => {
+export const getCurrencyPrice = (price: number | string, currency: string): string => {
   switch (currency) {
     case 'USD': {
       return `$${price}`;
@@ -153,4 +153,8 @@ export const hexToHSL = (hex: string): { h: number; s: number; l: number } => {
   } else {
     throw new Error('Non valid HEX color');
   }
+};
+
+export const formatNumberWithCommas = (value: number): string => {
+  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 };
