@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Col, Row } from 'antd';
-import { Card } from '@app/components/common/Card/Card';
+import { NFTCard } from '@app/components/NFT/NFTCard/NFTCard';
 import { TotalEarningChart } from '@app/components/NFT/totalEarning/TotalEarningChart/TotalEarningChart';
 import { TotalEarningInfo } from '@app/components/NFT/totalEarning/TotalEarningInfo/TotalEarningInfo';
 import { Dates } from '@app/constants/Dates';
@@ -29,7 +29,7 @@ export const TotalEarning: React.FC = () => {
     otherData.data.reduce((acc, nextValue) => acc + nextValue, 0);
 
   return (
-    <Card autoHeight={false} padding={20}>
+    <NFTCard>
       <Row wrap={false}>
         <Col span={10}>
           <TotalEarningInfo value={totalEarning} />
@@ -39,6 +39,6 @@ export const TotalEarning: React.FC = () => {
           <TotalEarningChart xAxisData={days} firstLine={nftData} secondLine={otherData} />
         </Col>
       </Row>
-    </Card>
+    </NFTCard>
   );
 };
