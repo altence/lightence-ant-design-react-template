@@ -1,6 +1,7 @@
-import { NotificationType } from '@app/components/common/Notification/Notification';
 import { DefaultTheme } from 'styled-components';
-import { Priority } from '../constants/enums/priorities';
+import { NotificationType } from '@app/components/common/Notification/Notification';
+import { CurrencyType } from '@app/interfaces/interfaces';
+import { Priority } from '@app//constants/enums/priorities';
 
 export const camelize = (string: string): string => {
   return string
@@ -9,10 +10,18 @@ export const camelize = (string: string): string => {
     .join('');
 };
 
-export const getCurrencyPrice = (price: number | string, currency: string): string => {
+export const getCurrencyPrice = (price: number | string, currency: CurrencyType): string => {
   switch (currency) {
     case 'USD': {
       return `$${price}`;
+    }
+
+    case 'BTC': {
+      return `${price} BTC`;
+    }
+
+    case 'ETH': {
+      return `${price} ETH`;
     }
 
     default: {
