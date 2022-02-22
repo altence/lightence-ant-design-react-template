@@ -94,11 +94,11 @@ const colors = {
     chartPrimaryGradient: new graphic.LinearGradient(0, 0, 0, 1, [
       {
         offset: 0,
-        color: 'rgba(0, 110, 211, 0.95)',
+        color: 'rgba(0, 110, 211, 0.5)',
       },
       {
         offset: 1,
-        color: 'rgba(193, 225, 255, 0.2)',
+        color: 'rgba(255, 225, 255, 0)',
       },
     ]),
     chartSecondaryGradient: new graphic.LinearGradient(0, 0, 0, 1, [
