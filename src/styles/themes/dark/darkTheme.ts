@@ -52,6 +52,7 @@ const darkColors = {
     superLight: '#444',
     secondary: '#ffffff',
     dark: '#404040',
+    nftMain: '#13264D',
   },
   border: {
     main: '#ffffff',
