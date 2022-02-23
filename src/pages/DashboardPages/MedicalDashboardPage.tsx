@@ -71,11 +71,13 @@ const MedicalDashboardPage: React.FC = () => {
       </S.LeftSideCol>
 
       <S.RightSideCol xl={8} xxl={8}>
-        <Balance />
+        <div id="blood-screening">
+          <BloodScreeningCard />
+        </div>
         <S.Space />
-        <TotalEarning />
-        <S.Space />
-        <ActivityStory />
+        <S.ScrollWrapper id="patient-timeline">
+          <PatientResultsCard />
+        </S.ScrollWrapper>
       </S.RightSideCol>
     </Row>
   );
