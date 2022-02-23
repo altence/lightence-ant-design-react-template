@@ -1,20 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Row, Typography } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@app/components/common/buttons/Button/Button';
 import { NFTCard } from '@app/components/NFT/NFTCard/NFTCard';
+import { useAppSelector } from '@app/hooks/reduxHooks';
 import { formatNumberWithCommas, getCurrencyPrice } from '@app/utils/utils';
+import { getBalance } from '@app/api/earnings.api';
 import * as S from './Balance.styles';
 
 const { Title } = Typography;
 
 export const Balance: React.FC = () => {
-  const { t } = useTranslation();
+  const [balance, setBalance] = useState({
+    usd_balance: 0,
+    eth_balance: 0,
+    btc_balance: 0,
+  });
 
-  const usdValue = 3040.51;
-  const ethValue = 1040.51;
-  const btcValue = 5373.51;
+  const userId = useAppSelector((state) => state.user.user?.id);
+
+  useEffect(() => {
+    userId && getBalance(userId).then((res) => setBalance(res));
+  }, [userId]);
+
+  const { t } = useTranslation();
 
   return (
     <Row>
@@ -29,7 +39,7 @@ export const Balance: React.FC = () => {
               <Row gutter={[14, 14]}>
                 <Col span={24}>
                   <S.TitleBalanceText level={3}>
-                    {getCurrencyPrice(formatNumberWithCommas(usdValue), 'USD')}
+                    {getCurrencyPrice(formatNumberWithCommas(balance.usd_balance), 'USD')}
                   </S.TitleBalanceText>
                 </Col>
 
@@ -37,13 +47,13 @@ export const Balance: React.FC = () => {
                   <Row gutter={[26, 26]} wrap={false}>
                     <Col>
                       <S.SubtitleBalanceText>
-                        {getCurrencyPrice(formatNumberWithCommas(ethValue), 'ETH')}
+                        {getCurrencyPrice(formatNumberWithCommas(balance.eth_balance), 'ETH')}
                       </S.SubtitleBalanceText>
                     </Col>
 
                     <Col>
                       <S.SubtitleBalanceText>
-                        {getCurrencyPrice(formatNumberWithCommas(btcValue), 'BTC')}
+                        {getCurrencyPrice(formatNumberWithCommas(balance.btc_balance), 'BTC')}
                       </S.SubtitleBalanceText>
                     </Col>
                   </Row>
