@@ -10,8 +10,11 @@ export const RightSideCol = styled(Col)`
   height: calc(100vh - ${(props) => props.theme.desktopLayout.headerHeight});
   background-color: ${(props) => props.theme.colors.main.mainBackground};
 
-  #patient-timeline {
+  #patient-timeline,
+  #activity-story {
+    // Temporary solution
     overflow-y: auto;
+    overflow-x: hidden;
   }
 `;
 

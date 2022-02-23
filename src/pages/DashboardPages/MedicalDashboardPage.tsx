@@ -16,6 +16,9 @@ import { NewsCard } from '@app/components/medical-dashboard/NewsCard/NewsCard';
 import { References } from '@app/components/common/References/References';
 import { useResponsive } from '@app/hooks/useResponsive';
 import * as S from './DashboardPage.styles';
+import { Balance } from '@app/components/NFT/Balance/Balance';
+import { TotalEarning } from '@app/components/NFT/totalEarning/TotalEarning';
+import { ActivityStory } from '@app/components/NFT/activityStory/ActivityStory';
 
 const MedicalDashboardPage: React.FC = () => {
   const { isTablet, isDesktop } = useResponsive();
@@ -68,9 +71,11 @@ const MedicalDashboardPage: React.FC = () => {
       </S.LeftSideCol>
 
       <S.RightSideCol xl={8} xxl={8}>
-        <BloodScreeningCard id="blood-screening" />
+        <Balance />
         <S.Space />
-        <PatientResultsCard id="patient-timeline" />
+        <TotalEarning />
+        <S.Space />
+        <ActivityStory />
       </S.RightSideCol>
     </Row>
   );
