@@ -3,7 +3,7 @@ import { Col, Row, Typography } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@app/components/common/buttons/Button/Button';
-import { NFTCard } from '@app/components/NFT/NFTCard/NFTCard';
+import { NFTCard } from '@app/components/nft-dashboard/NFTCard/NFTCard';
 import { useAppSelector } from '@app/hooks/reduxHooks';
 import { formatNumberWithCommas, getCurrencyPrice } from '@app/utils/utils';
 import { getBalance } from '@app/api/earnings.api';
