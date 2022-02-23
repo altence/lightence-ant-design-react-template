@@ -40,6 +40,7 @@ declare module 'styled-components' {
         superLight: string;
         secondary: string;
         dark: string;
+        nftMain: string;
       };
       border: {
         main: string;
@@ -109,6 +110,9 @@ declare module 'styled-components' {
       paddingVertical: string;
       paddingHorizontal: string;
       headerHeight: string;
+    };
+    fonts: {
+      secondaryFont: string;
     };
     commonFontSizes: {
       xxs: string;

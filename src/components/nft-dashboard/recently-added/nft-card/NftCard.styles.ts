@@ -17,6 +17,13 @@ export const NftImage = styled.img`
   border-top-right-radius: ${(props) => props.theme.border.radius};
 `;
 
+export const Title = styled.span`
+  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+  font-weight: ${(props) => props.theme.commonFontSizes.md};
+  margin-bottom: 0;
+  color: ${(props) => props.theme.colors.text.nftMain};
+`;
+
 export const NftInfo = styled.div`
   padding: 1rem 1.25rem 1.5rem;
 `;

@@ -9,12 +9,12 @@ export const SectionHeader = styled.div`
   padding-bottom: 0.875rem;
 `;
 
-// TODO refactor typings
+// TODO probably refactor h1
 export const h1 = styled.h1`
-  font-family: 'Montserrat';
-  font-weight: 600;
-  font-size: 1rem;
+  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+  font-weight: ${(props) => props.theme.commonFontSizes.md};
   margin-bottom: 0;
+  color: ${(props) => props.theme.colors.text.nftMain};
 `;
 
 export const ViewAll = styled.div`
@@ -23,7 +23,7 @@ export const ViewAll = styled.div`
 `;
 
 export const ViewAllLink = styled.a`
-  font-family: Lato;
+  font-family: ${(props) => props.theme.fonts.secondaryFont};
   font-weight: 400;
   font-size: 12px;
   color: #475164;

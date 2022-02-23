@@ -13,8 +13,8 @@ export const getRecentlyAddedNfts = (): Promise<NftItem[]> => {
     res([
       {
         image: nft,
-        title: 'string',
-        author: 'string',
+        title: 'Birth of Universe',
+        author: '@jakeparker',
         currentBid: 10,
         currentBidCrypto: 10,
       },

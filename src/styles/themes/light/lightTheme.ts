@@ -49,6 +49,10 @@ const commonColors = {
   red: '#ff5252',
 };
 
+const fonts = {
+  secondaryFont: 'Montserrat',
+};
+
 const commonFontSizes = {
   xxs: '0.75rem',
   xs: '0.875rem',
@@ -123,6 +127,7 @@ const colors = {
     superLight: '#BEC0C6',
     secondary: commonColors.white,
     dark: '#404040',
+    nftMain: '#13264D',
   },
   border: {
     main: '#cce1f4',
@@ -173,6 +178,7 @@ const boxShadow = {
 const lightTheme: DefaultTheme = {
   commonColors,
   colors,
+  fonts,
   border: {
     radius: '7px',
   },

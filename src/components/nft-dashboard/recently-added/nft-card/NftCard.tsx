@@ -11,7 +11,7 @@ export const NftCard: React.FC<NftCardProps> = ({ nftItem }) => {
     <S.CardStyled>
       <S.NftImage src={nftItem.image} alt="nftImage" />
       <S.NftInfo>
-        <h4>Birth of Universe</h4>
+        <S.Title>{nftItem.title}</S.Title>
         <S.InfoRow>
           <span>{nftItem.author}</span>
           <span>{nftItem.currentBidCrypto}</span>

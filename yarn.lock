@@ -10671,6 +10671,7 @@ __metadata:
     stylelint-config-recommended: ^5.0.0
     stylelint-config-styled-components: ^0.1.1
     stylelint-processor-styled-components: ^1.10.0
+    typeface-lato: ^1.1.13
     typeface-montserrat: ^1.1.13
     typescript: ^4.1.2
     uuid: ^8.3.2
@@ -17513,6 +17514,13 @@ __metadata:
   version: 0.0.6
   resolution: "typedarray@npm:0.0.6"
   checksum: 33b39f3d0e8463985eeaeeacc3cb2e28bc3dfaf2a5ed219628c0b629d5d7b810b0eb2165f9f607c34871d5daa92ba1dc69f49051cf7d578b4cbd26c340b9d1b1
+  languageName: node
+  linkType: hard
+
+"typeface-lato@npm:^1.1.13":
+  version: 1.1.13
+  resolution: "typeface-lato@npm:1.1.13"
+  checksum: 682b3cae914928d23a274385b281977f61db1436f387134a6b6467a29c432a95405ec9c70ce7bd63f6f84ee276c095b1282f2c61bd430d089a232ff46f296ec1
   languageName: node
   linkType: hard
 
