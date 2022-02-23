@@ -868,6 +868,8 @@
           "added": "Added",
           "booked": "Booked"
       },
-      "activityStory": "Your Activity Story"
+      "activityStory": "Your Activity Story",
+      "nft": "NFT",
+      "other": "Other"
   }
 }
