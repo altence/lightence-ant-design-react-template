@@ -21,9 +21,9 @@ import { RecentlyAddedNft } from '@app/components/nft-dashboard/recently-added/R
 import { TrendingCollection } from '@app/components/nft-dashboard/trending-collections/collection/TrendingCollection';
 import { TrendingCollections } from '@app/components/nft-dashboard/trending-collections/TrendingCollections';
 import { RecentActivites } from '@app/components/nft-dashboard/recent-activities/RecentActivites';
-import { Balance } from '@app/components/NFT/Balance/Balance';
-import { TotalEarning } from '@app/components/NFT/totalEarning/TotalEarning';
-import { ActivityStory } from '@app/components/NFT/activityStory/ActivityStory';
+import { Balance } from '@app/components/nft-dashboard/Balance/Balance';
+import { TotalEarning } from '@app/components/nft-dashboard/totalEarning/TotalEarning';
+import { ActivityStory } from '@app/components/nft-dashboard/activityStory/ActivityStory';
 
 const MedicalDashboardPage: React.FC = () => {
   const { isTablet, isDesktop } = useResponsive();
