@@ -835,5 +835,16 @@
       "dragUpload": "Klicken oder ziehen Sie die Datei zum Hochladen in diesen Bereich",
       "failedUpload": "{{name}} Datei-Upload fehlgeschlagen.",
       "successUpload": "{{name}} Datei erfolgreich hochgeladen. "
-  }
+  },
+  "nft": {
+    "yourBalance": "Dein Kontostand",
+    "topUpBalance": "Guthaben aufladen",
+    "totalEarning": "Gesamtverdienst",
+    "status": {
+        "sold": "Verkauft",
+        "added": "Hinzugefügt",
+        "booked": "Gebucht"
+    },
+    "activityStory": "Ihre Aktivitätsgeschichte"
+}
 }

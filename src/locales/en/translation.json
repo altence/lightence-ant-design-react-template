@@ -858,5 +858,16 @@
       "dragUpload": "Click or drag file to this area to upload",
       "failedUpload": "{{name}} file upload failed.",
       "successUpload": "{{name}} file uploaded successfully."
+  },
+  "nft": {
+      "yourBalance": "Your Balance",
+      "topUpBalance": "Top Up Balance",
+      "totalEarning": "Total Earning",
+      "status": {
+          "sold": "Sold",
+          "added": "Added",
+          "booked": "Booked"
+      },
+      "activityStory": "Your Activity Story"
   }
 }
