@@ -3,6 +3,11 @@ import { Card } from '@app/components/common/Card/Card';
 
 export const CardStyled = styled(Card)`
   width: 100%;
+  margin-bottom: 1.25rem;
+
+  &:last-child {
+    margin-bottom: 1.5rem;
+  }
 
   .ant-card-body {
     padding: 0;

@@ -41,7 +41,7 @@ const MedicalDashboardPage: React.FC = () => {
   );
 
   const mobileAndTabletLayout = (
-    <Row gutter={[20, 20]}>
+    <Row gutter={[20, 24]}>
       <TrendingCreators />
       <RecentlyAddedNft />
       <TrendingCollections />
