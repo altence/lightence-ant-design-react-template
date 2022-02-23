@@ -1,26 +1,24 @@
 import React from 'react';
 import * as S from './NftCard.styles';
-import nft from '@app/assets/images/nft/nft/nft-image.png';
+import { NftItem } from '@app/api/nftDashboard.api';
 
 interface NftCardProps {
-  author?: string;
-  price?: string;
-  currentBid?: string;
+  nftItem: NftItem;
 }
 
-export const NftCard: React.FC<NftCardProps> = ({ author, price, currentBid }) => {
+export const NftCard: React.FC<NftCardProps> = ({ nftItem }) => {
   return (
     <S.CardStyled>
-      <S.NftImage src={nft} alt="nft" />
+      <S.NftImage src={nftItem.image} alt="nftImage" />
       <S.NftInfo>
         <h4>Birth of Universe</h4>
         <S.InfoRow>
-          <span>{author}</span>
-          <span>{price}</span>
+          <span>{nftItem.author}</span>
+          <span>{nftItem.currentBidCrypto}</span>
         </S.InfoRow>
         <S.InfoRow>
-          <span>bid</span>
-          <span>{currentBid}</span>
+          <span>Current Bid</span>
+          <span>{nftItem.currentBid}</span>
         </S.InfoRow>
       </S.NftInfo>
     </S.CardStyled>
