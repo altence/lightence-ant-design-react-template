@@ -21,6 +21,9 @@ import { RecentlyAddedNft } from '@app/components/nft-dashboard/recently-added/R
 import { TrendingCollection } from '@app/components/nft-dashboard/trending-collections/collection/TrendingCollection';
 import { TrendingCollections } from '@app/components/nft-dashboard/trending-collections/TrendingCollections';
 import { RecentActivites } from '@app/components/nft-dashboard/recent-activities/RecentActivites';
+import { Balance } from '@app/components/NFT/Balance/Balance';
+import { TotalEarning } from '@app/components/NFT/totalEarning/TotalEarning';
+import { ActivityStory } from '@app/components/NFT/activityStory/ActivityStory';
 
 const MedicalDashboardPage: React.FC = () => {
   const { isTablet, isDesktop } = useResponsive();
@@ -35,7 +38,17 @@ const MedicalDashboardPage: React.FC = () => {
       </S.LeftSideCol>
 
       <S.RightSideCol xl={8} xxl={8}>
-        right
+        <div id="balance">
+          <Balance />
+        </div>
+        <S.Space />
+        <div id="total-earning">
+          <TotalEarning />
+        </div>
+        <S.Space />
+        <S.ScrollWrapper id="activity-story">
+          <ActivityStory />
+        </S.ScrollWrapper>
       </S.RightSideCol>
     </Row>
   );

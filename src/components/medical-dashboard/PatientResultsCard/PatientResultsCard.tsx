@@ -10,11 +10,11 @@ import * as S from './PatientResultsCard.styles';
 
 const icons = [<CheckOutlined key={0} />, <BarChartOutlined key={1} />, <FileTextOutlined key={2} />];
 
-export const PatientResultsCard: React.FC<{ id?: string }> = ({ id }) => {
+export const PatientResultsCard: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <DashboardCard id={id}>
+    <DashboardCard>
       <Steps direction="vertical" current={0}>
         {patientResultStatus.map((status, index) => {
           const patientResult = patientResultsData.find((item) => item.status === status.id) || {

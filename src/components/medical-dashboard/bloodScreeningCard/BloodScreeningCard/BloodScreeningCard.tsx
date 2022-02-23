@@ -6,7 +6,7 @@ import { useResponsive } from '@app/hooks/useResponsive';
 import { BloodTestResult, results } from '@app/constants/bloodTestResults';
 import * as S from './BloodScreeningCard.styles';
 
-export const BloodScreeningCard: React.FC<{ id?: string }> = ({ id }) => {
+export const BloodScreeningCard: React.FC = () => {
   const { t } = useTranslation();
 
   const [activeItem, setActiveItem] = useState<BloodTestResult>(results[0]);
@@ -15,7 +15,6 @@ export const BloodScreeningCard: React.FC<{ id?: string }> = ({ id }) => {
 
   return (
     <S.BloodScreeningCard
-      id={id}
       title={
         mobileOnly && (
           <S.TitleWrapper>

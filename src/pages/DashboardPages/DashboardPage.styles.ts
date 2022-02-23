@@ -9,13 +9,6 @@ export const RightSideCol = styled(Col)`
   flex-direction: column;
   height: calc(100vh - ${(props) => props.theme.desktopLayout.headerHeight});
   background-color: ${(props) => props.theme.colors.main.mainBackground};
-
-  #patient-timeline,
-  #activity-story {
-    // Temporary solution
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
 `;
 
 export const LeftSideCol = styled(Col)`
@@ -29,4 +22,9 @@ export const LeftSideCol = styled(Col)`
 
 export const Space = styled.div`
   margin: 1rem 0;
+`;
+
+export const ScrollWrapper = styled.div`
+  overflow-y: auto;
+  overflow-x: hidden;
 `;
