@@ -50,7 +50,7 @@ const commonColors = {
 };
 
 const fonts = {
-  secondaryFont: 'Montserrat',
+  secondaryFont: 'Lato',
 };
 
 const commonFontSizes = {
@@ -78,6 +78,7 @@ const commonFontWeight = {
 
 const colors = {
   main: {
+    primaryNft: '#01509A',
     primary: '#01509A',
     primaryGradient: 'linear-gradient(261.31deg, #006CCF -29.57%, #00509A 121.11%)',
     light: '#C5D3E0',
@@ -128,6 +129,7 @@ const colors = {
     secondary: commonColors.white,
     dark: '#404040',
     nftMain: '#13264D',
+    nftInfo: '#52607D',
   },
   border: {
     main: '#cce1f4',

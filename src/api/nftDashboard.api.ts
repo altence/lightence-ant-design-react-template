@@ -4,8 +4,8 @@ export interface NftItem {
   image: string;
   title: string;
   author: string;
-  currentBid: number;
-  currentBidCrypto: number;
+  currentBid: string;
+  currentBidCrypto: string;
 }
 
 export const getRecentlyAddedNfts = (): Promise<NftItem[]> => {
@@ -14,9 +14,9 @@ export const getRecentlyAddedNfts = (): Promise<NftItem[]> => {
       {
         image: nft,
         title: 'Birth of Universe',
-        author: '@jakeparker',
-        currentBid: 10,
-        currentBidCrypto: 10,
+        author: 'jakeparker',
+        currentBid: '3,150',
+        currentBidCrypto: '1,02',
       },
     ]);
   });

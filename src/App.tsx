@@ -6,6 +6,7 @@ import { ThemeProvider } from 'styled-components';
 import lightTheme from './styles/themes/light/lightTheme';
 import GlobalStyle from './styles/GlobalStyle';
 import 'typeface-montserrat';
+import 'typeface-lato';
 import { darkTheme } from '@app/styles/themes/dark/darkTheme';
 import { AppRouter } from './components/router/AppRouter';
 import { ThemeSwitcher } from '@app/components/common/ThemeSwitcher';
