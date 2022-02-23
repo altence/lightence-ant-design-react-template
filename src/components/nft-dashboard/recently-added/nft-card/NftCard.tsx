@@ -13,12 +13,12 @@ export const NftCard: React.FC<NftCardProps> = ({ nftItem }) => {
       <S.NftInfo>
         <S.Title>{nftItem.title}</S.Title>
         <S.InfoRow>
-          <span>{nftItem.author}</span>
-          <span>{nftItem.currentBidCrypto}</span>
+          <S.InfoText>@{nftItem.author}</S.InfoText>
+          <S.BidCrypto>{nftItem.currentBidCrypto} ETH</S.BidCrypto>
         </S.InfoRow>
         <S.InfoRow>
-          <span>Current Bid</span>
-          <span>{nftItem.currentBid}</span>
+          <S.CurrentBid>Current Bid</S.CurrentBid>
+          <S.Bid>${nftItem.currentBid}</S.Bid>
         </S.InfoRow>
       </S.NftInfo>
     </S.CardStyled>

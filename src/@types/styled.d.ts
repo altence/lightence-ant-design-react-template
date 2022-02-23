@@ -19,6 +19,7 @@ declare module 'styled-components' {
     };
     colors: {
       main: {
+        primaryNft: string;
         primary: string;
         primaryGradient: string;
         light: string;
@@ -41,6 +42,7 @@ declare module 'styled-components' {
         secondary: string;
         dark: string;
         nftMain: string;
+        nftInfo: string;
       };
       border: {
         main: string;

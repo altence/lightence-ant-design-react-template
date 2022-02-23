@@ -31,4 +31,30 @@ export const NftInfo = styled.div`
 export const InfoRow = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 0.375rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
+
+export const InfoText = styled.span`
+  font-family: ${(props) => props.theme.fonts.secondaryFont};
+  font-weight: ${(props) => props.theme.commonFontWeight.regular};
+  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  color: ${(props) => props.theme.colors.text.nftMain};
+`;
+
+export const CurrentBid = styled(InfoText)`
+  color: ${(props) => props.theme.colors.text.nftInfo};
+`;
+
+export const BidCrypto = styled.span`
+  font-size: 0.875rem;
+  color: ${(props) => props.theme.colors.text.nftMain};
+`;
+
+export const Bid = styled(CurrentBid)`
+  color: ${(props) => props.theme.colors.main.primaryNft};
+  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
 `;

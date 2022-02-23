@@ -3,6 +3,7 @@ import { graphic } from 'echarts';
 
 const darkColors = {
   main: {
+    primaryNft: '#01509A',
     primary: '#7568f6',
     primaryGradient: 'linear-gradient(261.31deg, #006CCF -29.57%, #00509A 121.11%)',
     light: '#696969',
@@ -53,6 +54,7 @@ const darkColors = {
     secondary: '#ffffff',
     dark: '#404040',
     nftMain: '#13264D',
+    nftInfo: '#13264D',
   },
   border: {
     main: '#ffffff',
