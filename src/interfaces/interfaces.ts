@@ -28,4 +28,4 @@ export type TwoFactorAuthOption = 'email' | 'phone';
 
 export type CurrencyType = 'USD' | 'ETH' | 'BTC';
 
-export type ActivityType = 'sold' | 'booked' | 'added';
+export type ActivityStatusType = 'sold' | 'booked' | 'added';
