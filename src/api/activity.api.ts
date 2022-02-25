@@ -9,7 +9,7 @@ export interface Activity {
   currency: CurrencyType;
 }
 
-export const getActivities = (): Promise<Activity[]> => {
+export const getUserActivities = (): Promise<Activity[]> => {
   return new Promise((res) => {
     setTimeout(() => {
       res([
