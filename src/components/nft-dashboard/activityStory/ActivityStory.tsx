@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { ActivityStoryItem } from './ActivityStoryItem/ActivityStoryItem';
-import { Activity, getActivities } from '@app/api/activity.api';
+import { Activity, getUserActivities } from '@app/api/activity.api';
 import * as S from './ActivityStory.styles';
 
 export const ActivityStory: React.FC = () => {
@@ -11,7 +11,7 @@ export const ActivityStory: React.FC = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    getActivities().then((res) => setStory(res));
+    getUserActivities().then((res) => setStory(res));
   }, []);
 
   const activityStory = useMemo(
