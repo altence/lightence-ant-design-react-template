@@ -1,7 +1,7 @@
-import { ActivityType } from '@app/interfaces/interfaces';
+import { ActivityStatusType } from '@app/interfaces/interfaces';
 
 interface ActivityStatusItem {
-  name: ActivityType;
+  name: ActivityStatusType;
   title: string;
   color: 'success' | 'warning' | 'secondary';
 }

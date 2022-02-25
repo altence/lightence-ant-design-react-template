@@ -1,9 +1,9 @@
-import { CurrencyType } from '@app/interfaces/interfaces';
+import { ActivityStatusType, CurrencyType } from '@app/interfaces/interfaces';
 
 export interface Activity {
   image: string;
   title: string;
-  status: string;
+  status: ActivityStatusType;
   date: number;
   price: number;
   currency: CurrencyType;
