@@ -847,6 +847,10 @@
     },
     "activityStory": "Ihre Aktivitätsgeschichte",
     "nft": "NFT",
-    "other": "Andere"
+    "other": "Andere",
+    "by": "von",
+    "recentActivity": "Letzte Aktivität",
+    "viewAll": "Alle ansehen",
+    "filter": "Filter"
 }
 }

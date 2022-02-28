@@ -43,9 +43,11 @@ declare module 'styled-components' {
         dark: string;
         nftMain: string;
         nftInfo: string;
+        nftLight: string;
       };
       border: {
         main: string;
+        nft: string;
       };
       dashboardMap: {
         background: string;

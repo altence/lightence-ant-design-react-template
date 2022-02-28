@@ -54,10 +54,12 @@ const darkColors = {
     secondary: '#ffffff',
     dark: '#404040',
     nftMain: '#13264D',
+    nftLight: '#7C7E83',
     nftInfo: '#13264D',
   },
   border: {
     main: '#ffffff',
+    nft: '#ffffff',
   },
   dashboardMap: {
     background: 'linear-gradient(315deg, #0cbaba 0%, #380036 74%)',

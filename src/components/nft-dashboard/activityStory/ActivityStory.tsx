@@ -2,11 +2,11 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { ActivityStoryItem } from './ActivityStoryItem/ActivityStoryItem';
-import { Activity, getUserActivities } from '@app/api/activity.api';
+import { UserActivity, getUserActivities } from '@app/api/activity.api';
 import * as S from './ActivityStory.styles';
 
 export const ActivityStory: React.FC = () => {
-  const [story, setStory] = useState<Activity[]>([]);
+  const [story, setStory] = useState<UserActivity[]>([]);
 
   const { t } = useTranslation();
 
