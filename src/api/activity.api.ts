@@ -5,11 +5,15 @@ export interface Activity {
   title: string;
   status: ActivityStatusType;
   date: number;
+  owner: string;
+}
+
+export interface UserActivity extends Omit<Activity, 'owner'> {
   price: number;
   currency: CurrencyType;
 }
 
-export const getUserActivities = (): Promise<Activity[]> => {
+export const getUserActivities = (): Promise<UserActivity[]> => {
   return new Promise((res) => {
     setTimeout(() => {
       res([
@@ -47,5 +51,42 @@ export const getUserActivities = (): Promise<Activity[]> => {
         },
       ]);
     }, 0);
+  });
+};
+
+export const getActivities = (): Promise<Activity[]> => {
+  return new Promise((res) => {
+    setTimeout(() => {
+      res([
+        {
+          image: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1645813445/unsplash_d2w-_1LJioQ_urzhuj.png',
+          title: 'Yellow Light',
+          status: 'sold',
+          date: Date.now() - 1000 * 60 * 24,
+          owner: '@chingu98',
+        },
+        {
+          image: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1645813449/unsplash_1rBg5YSi00c_1_mpz3a7.png',
+          title: 'Cult of Nature',
+          status: 'added',
+          date: Date.now() - 1000 * 60 * 60 * 2,
+          owner: '@azukaru1X',
+        },
+        {
+          image: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1645813452/unsplash_GfQEdpIkkuw_vid9mb.png',
+          title: 'Match the Eyes',
+          status: 'booked',
+          date: Date.now() - 1000 * 60 * 60 * 22,
+          owner: '@samsamdon',
+        },
+        {
+          image: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1645813455/unsplash_3MAmj1ZKSZA_rfbw6u.png',
+          title: 'Plan A & CUSTOM X3',
+          status: 'sold',
+          date: Date.now() - 1000 * 60 * 60 * 8,
+          owner: '@mikke_swartz',
+        },
+      ]);
+    }, 1000);
   });
 };

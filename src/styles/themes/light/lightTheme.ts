@@ -129,10 +129,12 @@ const colors = {
     secondary: commonColors.white,
     dark: '#404040',
     nftMain: '#13264D',
+    nftLight: '#7C7E83',
     nftInfo: '#52607D',
   },
   border: {
     main: '#cce1f4',
+    nft: '#A3A3B3',
   },
   dashboardMap: {
     background:

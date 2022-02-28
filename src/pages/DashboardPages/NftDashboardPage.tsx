@@ -24,6 +24,7 @@ import { RecentActivites } from '@app/components/nft-dashboard/recent-activities
 import { Balance } from '@app/components/nft-dashboard/Balance/Balance';
 import { TotalEarning } from '@app/components/nft-dashboard/totalEarning/TotalEarning';
 import { ActivityStory } from '@app/components/nft-dashboard/activityStory/ActivityStory';
+import { RecentActivity } from '@app/components/nft-dashboard/recentActivity/RecentActivity';
 
 const MedicalDashboardPage: React.FC = () => {
   const { isTablet, isDesktop } = useResponsive();
@@ -59,6 +60,7 @@ const MedicalDashboardPage: React.FC = () => {
       <RecentlyAddedNft />
       <TrendingCollections />
       <RecentActivites />
+      <RecentActivity />
     </Row>
   );
 

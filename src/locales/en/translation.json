@@ -870,6 +870,10 @@
       },
       "activityStory": "Your Activity Story",
       "nft": "NFT",
-      "other": "Other"
+      "other": "Other",
+      "by": "by",
+      "recentActivity": "Recent Activity",
+      "viewAll": "View all",
+      "filter": "Filter"
   }
 }
