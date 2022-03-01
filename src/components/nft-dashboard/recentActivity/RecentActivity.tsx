@@ -5,6 +5,7 @@ import { RecentActivityFeed } from '@app/components/nft-dashboard/recentActivity
 import { RecentActivityFilter } from '@app/components/nft-dashboard/recentActivity/recentActivityFilters/RecentActivityFilter';
 import { useResponsive } from '@app/hooks/useResponsive';
 import { Activity, getActivities } from '@app/api/activity.api';
+import * as S from './RecentActivity.styles';
 
 export interface RecentActivityFilterState {
   status: string[];
@@ -48,9 +49,9 @@ export const RecentActivity: React.FC = () => {
       </Col>
 
       {isDesktop && (
-        <Col span={8}>
+        <S.FilterCol span={8}>
           <RecentActivityFilter filters={filters} setFilters={setFilters} withWrapper />
-        </Col>
+        </S.FilterCol>
       )}
     </Row>
   );
