@@ -33,8 +33,28 @@ const MedicalDashboardPage: React.FC = () => {
 
   const desktopLayout = (
     <Row>
-      <S.LeftSideCol xl={16} xxl={16}>
-        <Row gutter={[30, 30]}>asdad</Row>
+      <S.LeftSideCol xl={16} xxl={16} id="desktop-content">
+        <Row gutter={[60, 60]}>
+          <Col span={24}>
+            <TrendingCreators />
+          </Col>
+
+          <Col span={24}>
+            <RecentlyAddedNft />
+          </Col>
+
+          <Col span={24}>
+            <TrendingCollections />
+          </Col>
+
+          <Col span={24}>
+            <RecentActivites />
+          </Col>
+
+          <Col span={24}>
+            <RecentActivity />
+          </Col>
+        </Row>
         <References />
       </S.LeftSideCol>
 
@@ -56,11 +76,25 @@ const MedicalDashboardPage: React.FC = () => {
 
   const mobileAndTabletLayout = (
     <Row gutter={[20, 24]}>
-      <TrendingCreators />
-      <RecentlyAddedNft />
-      <TrendingCollections />
-      <RecentActivites />
-      <RecentActivity />
+      <Col span={24}>
+        <TrendingCreators />
+      </Col>
+
+      <Col span={24}>
+        <RecentlyAddedNft />
+      </Col>
+
+      <Col span={24}>
+        <TrendingCollections />
+      </Col>
+
+      <Col span={24}>
+        <RecentActivites />
+      </Col>
+
+      <Col span={24}>
+        <RecentActivity />
+      </Col>
     </Row>
   );
 

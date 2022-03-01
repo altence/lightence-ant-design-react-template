@@ -33,6 +33,10 @@ export const Title = styled(Typography.Title)`
     margin-bottom: 0;
 
     font-size: ${(props) => props.theme.commonFontSizes.xs};
+
+    @media only screen and ${(props) => props.theme.media.xl} {
+      font-size: ${(props) => props.theme.commonFontSizes.md};
+    }
   }
 `;
 

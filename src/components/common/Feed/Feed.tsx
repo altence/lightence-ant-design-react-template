@@ -7,9 +7,10 @@ export interface FeedProps {
   next: () => void;
   hasMore: boolean;
   children: React.ReactNode[];
+  target?: string;
 }
 
-export const Feed: React.FC<FeedProps> = ({ next, hasMore, children }) => {
+export const Feed: React.FC<FeedProps> = ({ next, hasMore, target = 'main-content', children }) => {
   return (
     <InfiniteScroll
       dataLength={children.length}
@@ -20,7 +21,7 @@ export const Feed: React.FC<FeedProps> = ({ next, hasMore, children }) => {
           <Spin size="large" />
         </S.SpinnerWrapper>
       }
-      scrollableTarget="main-content"
+      scrollableTarget={target}
     >
       <S.NewsWrapper>{children}</S.NewsWrapper>
     </InfiniteScroll>
