@@ -22,7 +22,7 @@ export const RecentActivityItem: React.FC<Activity> = ({ image, title, date, sta
           <S.IconWrapper>{currentActivity?.icon}</S.IconWrapper>
         </Col>
 
-        <Col>
+        <Col flex={1}>
           <Row gutter={[10, 10]}>
             <Col span={24}>
               <Row gutter={[0, 0]}>
@@ -44,7 +44,7 @@ export const RecentActivityItem: React.FC<Activity> = ({ image, title, date, sta
             <Col span={24}>
               <Row justify="end">
                 <Col>
-                  <S.DateText>{Dates.getDate(date).format('LT')}</S.DateText>
+                  <S.DateText>{Dates.getDate(date).format('lll')}</S.DateText>
                 </Col>
               </Row>
             </Col>
