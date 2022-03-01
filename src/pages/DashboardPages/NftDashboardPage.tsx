@@ -20,7 +20,6 @@ import { TrendingCreators } from '@app/components/nft-dashboard/trending-creator
 import { RecentlyAddedNft } from '@app/components/nft-dashboard/recently-added/RecentlyAddedNft';
 import { TrendingCollection } from '@app/components/nft-dashboard/trending-collections/collection/TrendingCollection';
 import { TrendingCollections } from '@app/components/nft-dashboard/trending-collections/TrendingCollections';
-import { RecentActivites } from '@app/components/nft-dashboard/recent-activities/RecentActivites';
 import { Balance } from '@app/components/nft-dashboard/Balance/Balance';
 import { TotalEarning } from '@app/components/nft-dashboard/totalEarning/TotalEarning';
 import { ActivityStory } from '@app/components/nft-dashboard/activityStory/ActivityStory';
@@ -45,10 +44,6 @@ const MedicalDashboardPage: React.FC = () => {
 
           <Col span={24}>
             <TrendingCollections />
-          </Col>
-
-          <Col span={24}>
-            <RecentActivites />
           </Col>
 
           <Col span={24}>
@@ -86,10 +81,6 @@ const MedicalDashboardPage: React.FC = () => {
 
       <Col span={24}>
         <TrendingCollections />
-      </Col>
-
-      <Col span={24}>
-        <RecentActivites />
       </Col>
 
       <Col span={24}>
