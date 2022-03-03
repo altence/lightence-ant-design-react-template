@@ -21,7 +21,7 @@ interface Status {
   recipient: Recipient;
   date: number;
   status: PaymentStatus | undefined;
-  totalAmount: string;
+  totalAmount: string | React.ReactNode;
 }
 
 interface PaymentsTableProps {

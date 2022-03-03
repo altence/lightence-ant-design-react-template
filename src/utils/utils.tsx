@@ -1,7 +1,9 @@
 import { DefaultTheme } from 'styled-components';
+import { Col, Row } from 'antd';
 import { NotificationType } from '@app/components/common/Notification/Notification';
 import { CurrencyType } from '@app/interfaces/interfaces';
 import { Priority } from '@app//constants/enums/priorities';
+import { ReactComponent as ETHIcon } from '@app/assets/icons/eth.svg';
 
 export const camelize = (string: string): string => {
   return string
@@ -10,22 +12,36 @@ export const camelize = (string: string): string => {
     .join('');
 };
 
-export const getCurrencyPrice = (price: number | string, currency: CurrencyType, iconOnly = true): string => {
+export const getCurrencyPrice = (
+  price: number | string,
+  currency: CurrencyType,
+  isIcon = true,
+): string | React.ReactNode => {
   switch (currency) {
     case 'USD': {
-      return iconOnly ? `$${price}` : `${price} USD`;
+      return isIcon ? `$${price}` : `${price} USD`;
     }
 
     case 'BTC': {
-      return iconOnly ? `₿${price}` : `${price} BTC`;
+      return isIcon ? `₿${price}` : `${price} BTC`;
     }
 
     case 'ETH': {
-      return iconOnly ? `Ξ${price}` : `${price} ETH`;
+      return isIcon ? (
+        <Row align="middle">
+          <Col>{price}</Col>
+
+          <Col style={{ display: 'flex' }}>
+            <ETHIcon />
+          </Col>
+        </Row>
+      ) : (
+        `${price} ETH`
+      );
     }
 
     default: {
-      return iconOnly ? `$${price}` : `${price} USD`;
+      return isIcon ? `$${price}` : `${price} USD`;
     }
   }
 };

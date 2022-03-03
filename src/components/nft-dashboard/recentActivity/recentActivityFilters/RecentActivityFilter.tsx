@@ -1,5 +1,5 @@
 import React from 'react';
-import { NFTCard } from '@app/components/nft-dashboard/NFTCard/NFTCard';
+import { NFTCard } from '@app/components/nft-dashboard/common/NFTCard/NFTCard';
 import { RecentActivityStatusFilter } from '@app/components/nft-dashboard/recentActivity/recentActivityFilters/RecentActivityStatusFilter/RecentActivityStatusFilter';
 import { RecentActivityFilterState } from '@app/components/nft-dashboard/recentActivity/RecentActivity';
 

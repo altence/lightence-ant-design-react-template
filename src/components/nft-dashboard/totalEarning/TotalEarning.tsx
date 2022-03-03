@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { NFTCard } from '@app/components/nft-dashboard/NFTCard/NFTCard';
+import { NFTCard } from '@app/components/nft-dashboard/common/NFTCard/NFTCard';
 import { TotalEarningChart } from '@app/components/nft-dashboard/totalEarning/TotalEarningChart/TotalEarningChart';
 import { TotalEarningInfo } from '@app/components/nft-dashboard/totalEarning/TotalEarningInfo/TotalEarningInfo';
 import { useAppSelector } from '@app/hooks/reduxHooks';
