@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Col, Row } from 'antd';
+import { Col } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { ActivityStoryItem } from './ActivityStoryItem/ActivityStoryItem';
 import { UserActivity, getUserActivities } from '@app/api/activity.api';
@@ -25,14 +25,9 @@ export const ActivityStory: React.FC = () => {
   );
 
   return (
-    <Row gutter={[20, 20]} id="activity-story">
-      <Col span={24}>
-        <S.Title>{t('nft.activityStory')}</S.Title>
-      </Col>
-
-      <Col span={24}>
-        <Row gutter={[25, 25]}>{activityStory}</Row>
-      </Col>
-    </Row>
+    <S.Wrapper>
+      <S.Title>{t('nft.activityStory')}</S.Title>
+      <S.ActivityRow gutter={[25, 25]}>{activityStory}</S.ActivityRow>
+    </S.Wrapper>
   );
 };
