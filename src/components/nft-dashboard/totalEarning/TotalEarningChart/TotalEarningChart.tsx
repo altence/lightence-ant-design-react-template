@@ -50,7 +50,7 @@ export const TotalEarningChart: React.FC<TotalEarningChartProps> = ({ xAxisData,
         smooth: true,
         showSymbol: false,
         lineStyle: {
-          width: 2,
+          width: 3,
           color: theme.colors.charts.color1,
         },
         areaStyle: {
@@ -66,7 +66,7 @@ export const TotalEarningChart: React.FC<TotalEarningChartProps> = ({ xAxisData,
         type: 'line',
         smooth: true,
         lineStyle: {
-          width: 2,
+          width: 3,
           color: theme.colors.charts.color5,
         },
         showSymbol: false,

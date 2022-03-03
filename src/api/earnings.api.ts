@@ -9,8 +9,7 @@ export interface Balance {
 
 export interface Earning {
   date: number;
-  value: number;
-  currency: CurrencyType;
+  usd_value: number;
 }
 
 export const getBalance = (id: number): Promise<Balance> => {
@@ -25,88 +24,74 @@ export const getBalance = (id: number): Promise<Balance> => {
   });
 };
 
-export const getNFTEarnings = (id: number): Promise<Earning[]> => {
+export const getNFTEarnings = (id: number, currency: CurrencyType): Promise<Earning[]> => {
   return new Promise((res) => {
     setTimeout(() => {
       res([
         {
           date: Date.now() - 1000 * 60 * 60 * 24 * 7,
-          value: 100,
-          currency: 'USD',
+          usd_value: 100,
         },
         {
           date: Date.now() - 1000 * 60 * 60 * 24 * 6,
-          value: 250,
-          currency: 'USD',
+          usd_value: 150,
         },
         {
           date: Date.now() - 1000 * 60 * 60 * 24 * 5,
-          value: 370,
-          currency: 'USD',
+          usd_value: 370,
         },
         {
           date: Date.now() - 1000 * 60 * 60 * 24 * 4,
-          value: 300,
-          currency: 'USD',
+          usd_value: 260,
         },
         {
           date: Date.now() - 1000 * 60 * 60 * 24 * 3,
-          value: 260,
-          currency: 'USD',
+          usd_value: 190,
         },
         {
           date: Date.now() - 1000 * 60 * 60 * 24 * 2,
-          value: 230,
-          currency: 'USD',
+          usd_value: 220,
         },
         {
           date: Date.now() - 1000 * 60 * 60 * 24,
-          value: 270,
-          currency: 'USD',
+          usd_value: 140,
         },
       ]);
     }, 0);
   });
 };
 
-export const getOtherEarnings = (id: number): Promise<Earning[]> => {
+export const getOtherEarnings = (id: number, currency: CurrencyType): Promise<Earning[]> => {
   return new Promise((res) => {
     setTimeout(() => {
       res([
         {
           date: Date.now() - 1000 * 60 * 60 * 24 * 7,
-          value: 144,
-          currency: 'USD',
+          usd_value: 100,
         },
         {
           date: Date.now() - 1000 * 60 * 60 * 24 * 6,
-          value: 122,
-          currency: 'USD',
+          usd_value: 200,
         },
         {
           date: Date.now() - 1000 * 60 * 60 * 24 * 5,
-          value: 270,
-          currency: 'USD',
+          usd_value: 220,
         },
         {
           date: Date.now() - 1000 * 60 * 60 * 24 * 4,
-          value: 292,
-          currency: 'USD',
+          usd_value: 230,
         },
         {
           date: Date.now() - 1000 * 60 * 60 * 24 * 3,
-          value: 320,
-          currency: 'USD',
+          usd_value: 350,
         },
         {
           date: Date.now() - 1000 * 60 * 60 * 24 * 2,
-          value: 167,
-          currency: 'USD',
+          usd_value: 280,
         },
         {
           date: Date.now() - 1000 * 60 * 60 * 24,
-          value: 140,
-          currency: 'USD',
+          usd_value: 140,
         },
       ]);
     }, 0);

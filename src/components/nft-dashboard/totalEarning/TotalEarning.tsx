@@ -16,25 +16,25 @@ export const TotalEarning: React.FC = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    userId && getNFTEarnings(userId).then((res) => setNFTEarnings(res));
+    userId && getNFTEarnings(userId, 'USD').then((res) => setNFTEarnings(res));
   }, [userId]);
 
   useEffect(() => {
-    userId && getOtherEarnings(userId).then((res) => setOtherEarnings(res));
+    userId && getOtherEarnings(userId, 'USD').then((res) => setOtherEarnings(res));
   }, [userId]);
 
   const { totalEarning, nftData, otherData, days } = useMemo(
     () => ({
       totalEarning:
-        NFTEarnings.reduce((acc, nextValue) => acc + nextValue.value, 0) +
-        otherEarnings.reduce((acc, nextValue) => acc + nextValue.value, 0),
+        NFTEarnings.reduce((acc, nextValue) => acc + nextValue.usd_value, 0) +
+        otherEarnings.reduce((acc, nextValue) => acc + nextValue.usd_value, 0),
       nftData: {
         name: t('nft.nft'),
-        data: NFTEarnings.map((item) => item.value),
+        data: NFTEarnings.map((item) => item.usd_value),
       },
       otherData: {
         name: t('nft.other'),
-        data: otherEarnings.map((item) => item.value),
+        data: otherEarnings.map((item) => item.usd_value),
       },
       days: NFTEarnings.map((item) => Dates.getDate(item.date).format('L')), // We can use any of arrays, they return last 7 days
     }),

@@ -3,22 +3,14 @@ import { useTranslation } from 'react-i18next';
 import { Card } from '@app/components/common/Card/Card';
 import { Avatar } from '@app/components/common/Avatar/Avatar';
 import { formatNumberWithCommas, getCurrencyPrice } from '@app/utils/utils';
+import { TrendingActivity } from '@app/api/activity.api';
 import * as S from './TrendingCollection.styles';
 
-interface NftCollectionProps {
-  title: string;
-  owner: string;
-  usd_price: number;
-  eth_price: number;
-  image: string;
-  avatar: string;
-}
-
-export const TrendingCollection: React.FC<NftCollectionProps> = ({
+export const TrendingCollection: React.FC<TrendingActivity> = ({
   title,
   owner,
-  usd_price,
-  eth_price,
+  usd_value,
+  eth_value,
   image,
   avatar,
 }) => {
@@ -34,13 +26,13 @@ export const TrendingCollection: React.FC<NftCollectionProps> = ({
         </S.AuthorAvatarWrapper>
         <S.InfoRow>
           <S.Title level={5}>{title}</S.Title>
-          <S.Text>{getCurrencyPrice(formatNumberWithCommas(eth_price), 'ETH')}</S.Text>
+          <S.Text>{getCurrencyPrice(formatNumberWithCommas(eth_value), 'ETH')}</S.Text>
         </S.InfoRow>
         <S.InfoRow>
           <S.OwnerText>
             {t('nft.by')} {owner}
           </S.OwnerText>
-          <S.USDText>{getCurrencyPrice(formatNumberWithCommas(usd_price), 'USD')}</S.USDText>
+          <S.USDText>{getCurrencyPrice(formatNumberWithCommas(usd_value), 'USD')}</S.USDText>
         </S.InfoRow>
       </S.NftCollectionInfo>
     </Card>

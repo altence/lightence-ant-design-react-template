@@ -8,7 +8,7 @@ import { Dates } from '@app/constants/Dates';
 import { formatNumberWithCommas, getCurrencyPrice } from '@app/utils/utils';
 import * as S from './ActivityStoryItem.styles';
 
-export const ActivityStoryItem: React.FC<UserActivity> = ({ image, title, status, date, price, currency }) => {
+export const ActivityStoryItem: React.FC<UserActivity> = ({ image, title, status, date, usd_value }) => {
   const { t } = useTranslation();
   const theme = useTheme();
 
@@ -43,7 +43,7 @@ export const ActivityStoryItem: React.FC<UserActivity> = ({ image, title, status
               </Col>
 
               <Col span={24}>
-                <S.Text>{getCurrencyPrice(formatNumberWithCommas(price), currency)}</S.Text>
+                <S.Text>{getCurrencyPrice(formatNumberWithCommas(usd_value), 'USD')}</S.Text>
               </Col>
             </Row>
           </Col>
