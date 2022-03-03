@@ -1,9 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Card } from '@app/components/common/Card/Card';
-import * as S from './TrendingCollection.styles';
 import { Avatar } from '@app/components/common/Avatar/Avatar';
 import { formatNumberWithCommas, getCurrencyPrice } from '@app/utils/utils';
+import * as S from './TrendingCollection.styles';
 
 interface NftCollectionProps {
   title: string;
@@ -34,13 +34,13 @@ export const TrendingCollection: React.FC<NftCollectionProps> = ({
         </S.AuthorAvatarWrapper>
         <S.InfoRow>
           <S.Title level={5}>{title}</S.Title>
-          <span>{getCurrencyPrice(formatNumberWithCommas(eth_price), 'ETH')}</span>
+          <S.Text>{getCurrencyPrice(formatNumberWithCommas(eth_price), 'ETH')}</S.Text>
         </S.InfoRow>
         <S.InfoRow>
-          <S.Text>
+          <S.OwnerText>
             {t('nft.by')} {owner}
-          </S.Text>
-          <span>{getCurrencyPrice(formatNumberWithCommas(usd_price), 'USD')}</span>
+          </S.OwnerText>
+          <S.USDText>{getCurrencyPrice(formatNumberWithCommas(usd_price), 'USD')}</S.USDText>
         </S.InfoRow>
       </S.NftCollectionInfo>
     </Card>
