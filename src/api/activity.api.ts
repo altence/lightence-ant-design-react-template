@@ -1,4 +1,4 @@
-import { ActivityStatusType, CurrencyType } from '@app/interfaces/interfaces';
+import { ActivityStatusType } from '@app/interfaces/interfaces';
 
 export interface Activity {
   image: string;
@@ -9,8 +9,7 @@ export interface Activity {
 }
 
 export interface UserActivity extends Omit<Activity, 'owner'> {
-  price: number;
-  currency: CurrencyType;
+  usd_value: number;
 }
 
 export interface TrendingActivity {
@@ -18,8 +17,8 @@ export interface TrendingActivity {
   owner: string;
   image: string;
   avatar: string;
-  usd_price: number;
-  eth_price: number;
+  usd_value: number;
+  eth_value: number;
 }
 
 export const getUserActivities = (): Promise<UserActivity[]> => {
@@ -31,32 +30,28 @@ export const getUserActivities = (): Promise<UserActivity[]> => {
           title: 'Cubic#1',
           status: 'sold',
           date: Date.now() - 1000 * 60 * 60 * 24 * 5,
-          price: 240,
-          currency: 'USD',
+          usd_value: 240,
         },
         {
           image: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1645568179/unsplash_1rBg5YSi00c_ctycjc.png',
           title: 'Ancient Nature',
           status: 'added',
           date: Date.now() - 1000 * 60 * 60 * 24 * 22,
-          price: 1360,
-          currency: 'USD',
+          usd_value: 1360,
         },
         {
           image: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1645568182/unsplash_t55GeRpETn0_s8myd3.png',
           title: 'Art of Mind',
           status: 'booked',
           date: Date.now() - 1000 * 60 * 60 * 24 * 156,
-          price: 1895,
-          currency: 'USD',
+          usd_value: 1895,
         },
         {
           image: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1645568184/unsplash_geJHvrH-CgA_n6mmkv.png',
           title: 'CryptoBox',
           status: 'sold',
           date: Date.now() - 1000 * 60 * 60 * 24 * 31,
-          price: 3920,
-          currency: 'USD',
+          usd_value: 3920,
         },
       ]);
     }, 0);
@@ -109,24 +104,24 @@ export const getTrendingActivities = (): Promise<TrendingActivity[]> => {
           owner: '@akura',
           image: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1646228769/unsplash_yhIsPgLfVNU_1_hdauhp.png',
           avatar: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1646228774/unsplash_tmRuRPBiPcA_dlpsh0.png',
-          usd_price: 1045,
-          eth_price: 321,
+          usd_value: 1045,
+          eth_value: 321,
         },
         {
           title: 'TownYTraveler',
           owner: '@akura',
           image: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1646228777/unsplash_eHUMDkv4q1w_xchurr.png',
           avatar: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1646228780/unsplash_Tgq8oggf0EY_mwyjub.png',
-          usd_price: 1045,
-          eth_price: 321,
+          usd_value: 1045,
+          eth_value: 321,
         },
         {
           title: 'TownYTraveler',
           owner: '@akura',
           image: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1646228783/unsplash_6JQn1G0lMgY_zqqd7q.png',
           avatar: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1646228786/unsplash_nR-rzu8--5M_qwhnht.png',
-          usd_price: 1045,
-          eth_price: 321,
+          usd_value: 1045,
+          eth_value: 321,
         },
       ]);
     }, 0);
