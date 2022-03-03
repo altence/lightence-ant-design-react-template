@@ -10,22 +10,22 @@ export const camelize = (string: string): string => {
     .join('');
 };
 
-export const getCurrencyPrice = (price: number | string, currency: CurrencyType): string => {
+export const getCurrencyPrice = (price: number | string, currency: CurrencyType, iconOnly = true): string => {
   switch (currency) {
     case 'USD': {
-      return `$${price}`;
+      return iconOnly ? `$${price}` : `${price} USD`;
     }
 
     case 'BTC': {
-      return `${price} BTC`;
+      return iconOnly ? `₿${price}` : `${price} BTC`;
     }
 
     case 'ETH': {
-      return `${price} ETH`;
+      return iconOnly ? `Ξ${price}` : `${price} ETH`;
     }
 
     default: {
-      return `$${price}`;
+      return iconOnly ? `$${price}` : `${price} USD`;
     }
   }
 };

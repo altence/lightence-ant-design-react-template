@@ -1,12 +1,11 @@
 import styled from 'styled-components';
-import Stories from 'react-insta-stories';
 
 export const SectionHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  border-bottom: 0.2px solid #a3a3b3;
+  border-bottom: 0.2px solid ${(props) => props.theme.colors.border.nft};
   padding-bottom: 0.875rem;
 `;
 
@@ -36,4 +35,5 @@ export const SectionContent = styled.div`
   align-items: center;
   margin: 1.5rem 0;
   width: 100%;
+  gap: 1.25rem;
 `;

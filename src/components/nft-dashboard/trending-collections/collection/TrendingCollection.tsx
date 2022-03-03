@@ -1,32 +1,48 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { Card } from '@app/components/common/Card/Card';
 import * as S from './TrendingCollection.styles';
-import nftCollection from '@app/assets/images/nft/collection/collection.png';
+import { Avatar } from '@app/components/common/Avatar/Avatar';
+import { formatNumberWithCommas, getCurrencyPrice } from '@app/utils/utils';
 
 interface NftCollectionProps {
-  name?: string;
-  author?: string;
-  price?: string;
-  count?: number;
+  title: string;
+  owner: string;
+  usd_price: number;
+  eth_price: number;
+  image: string;
+  avatar: string;
 }
 
-export const TrendingCollection: React.FC<NftCollectionProps> = ({ name, author, price, count }) => {
+export const TrendingCollection: React.FC<NftCollectionProps> = ({
+  title,
+  owner,
+  usd_price,
+  eth_price,
+  image,
+  avatar,
+}) => {
+  const { t } = useTranslation();
+
   return (
-    <S.CardStyled>
-      <S.CollectionImage src={nftCollection} alt="nft" />
-      <S.BidButton>Bid</S.BidButton>
+    <Card padding={0}>
+      <S.CollectionImage src={image} alt="nft" />
+      <S.BidButton type="ghost">{t('nft.bid')}</S.BidButton>
       <S.NftCollectionInfo>
         <S.AuthorAvatarWrapper>
-          <S.AuthorImg src={nftCollection} />
+          <Avatar shape="circle" size={64} src={avatar} alt={owner} />
         </S.AuthorAvatarWrapper>
         <S.InfoRow>
-          <span>{name}</span>
-          <span>{count}</span>
+          <S.Title level={5}>{title}</S.Title>
+          <span>{getCurrencyPrice(formatNumberWithCommas(eth_price), 'ETH')}</span>
         </S.InfoRow>
         <S.InfoRow>
-          <span>by {author}</span>
-          <span>$ {price}</span>
+          <S.Text>
+            {t('nft.by')} {owner}
+          </S.Text>
+          <span>{getCurrencyPrice(formatNumberWithCommas(usd_price), 'USD')}</span>
         </S.InfoRow>
       </S.NftCollectionInfo>
-    </S.CardStyled>
+    </Card>
   );
 };
