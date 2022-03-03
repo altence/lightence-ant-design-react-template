@@ -13,6 +13,15 @@ export interface UserActivity extends Omit<Activity, 'owner'> {
   currency: CurrencyType;
 }
 
+export interface TrendingActivity {
+  title: string;
+  owner: string;
+  image: string;
+  avatar: string;
+  usd_price: number;
+  eth_price: number;
+}
+
 export const getUserActivities = (): Promise<UserActivity[]> => {
   return new Promise((res) => {
     setTimeout(() => {
@@ -88,5 +97,38 @@ export const getActivities = (): Promise<Activity[]> => {
         },
       ]);
     }, 1000);
+  });
+};
+
+export const getTrendingActivities = (): Promise<TrendingActivity[]> => {
+  return new Promise((res) => {
+    setTimeout(() => {
+      res([
+        {
+          title: 'TownYTraveler',
+          owner: '@akura',
+          image: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1646228769/unsplash_yhIsPgLfVNU_1_hdauhp.png',
+          avatar: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1646228774/unsplash_tmRuRPBiPcA_dlpsh0.png',
+          usd_price: 1045,
+          eth_price: 321,
+        },
+        {
+          title: 'TownYTraveler',
+          owner: '@akura',
+          image: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1646228777/unsplash_eHUMDkv4q1w_xchurr.png',
+          avatar: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1646228780/unsplash_Tgq8oggf0EY_mwyjub.png',
+          usd_price: 1045,
+          eth_price: 321,
+        },
+        {
+          title: 'TownYTraveler',
+          owner: '@akura',
+          image: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1646228783/unsplash_6JQn1G0lMgY_zqqd7q.png',
+          avatar: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1646228786/unsplash_nR-rzu8--5M_qwhnht.png',
+          usd_price: 1045,
+          eth_price: 321,
+        },
+      ]);
+    }, 0);
   });
 };

@@ -1,14 +1,6 @@
 import styled from 'styled-components';
-import { Card } from '@app/components/common/Card/Card';
 import { Button } from '@app/components/common/buttons/Button/Button';
-
-export const CardStyled = styled(Card)`
-  width: 100%;
-
-  .ant-card-body {
-    padding: 0;
-  }
-`;
+import { Typography } from 'antd';
 
 export const CollectionImage = styled.img`
   width: 100%;
@@ -20,12 +12,25 @@ export const CollectionImage = styled.img`
 
 export const NftCollectionInfo = styled.div`
   position: relative;
-  padding: 1rem 1.25rem 1.5rem;
+  padding: 2rem 1.25rem 1.5rem;
 `;
 
 export const InfoRow = styled.div`
   display: flex;
+  align-items: center;
   justify-content: space-between;
+`;
+
+export const Title = styled(Typography.Title)`
+  &.ant-typography {
+    margin-bottom: 0;
+
+    font-size: ${(props) => props.theme.commonFontSizes.md};
+  }
+`;
+
+export const Text = styled(Typography.Text)`
+  font-size: ${(props) => props.theme.commonFontSizes.xxs};
 `;
 
 export const AuthorAvatarWrapper = styled.div`
@@ -33,14 +38,10 @@ export const AuthorAvatarWrapper = styled.div`
   top: -45px;
   height: 70px;
   width: 70px;
-  border: 3px solid white;
+  border: 3px solid ${(props) => props.theme.colors.text.secondary};
   border-radius: 50%;
-`;
 
-export const AuthorImg = styled.img`
-  height: 64px;
-  width: 64px;
-  border-radius: 50%;
+  box-shadow: ${(props) => props.theme.boxShadow.hover};
 `;
 
 export const BidButton = styled(Button)`
@@ -48,11 +49,7 @@ export const BidButton = styled(Button)`
   top: 20px;
   right: 20px;
   padding: 12px 33px;
-  color: white;
-  border-color: white;
+  color: ${(props) => props.theme.colors.text.secondary};
+  border-color: ${(props) => props.theme.colors.text.secondary};
   border-radius: 14px;
-  //font-family: Lato;
-  //font-weight: 500;
-  //font-size: 12px;
-  //line-height: 14px;
 `;
