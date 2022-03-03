@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from 'styled-components';
 import { Col, Row } from 'antd';
-import { NFTCard } from '@app/components/nft-dashboard//NFTCard/NFTCard';
+import { NFTCard } from '@app/components/nft-dashboard/common/NFTCard/NFTCard';
 import { activityStatuses } from '@app/constants/config/activityStatuses';
 import { Dates } from '@app/constants/Dates';
 import { Activity } from '@app/api/activity.api';

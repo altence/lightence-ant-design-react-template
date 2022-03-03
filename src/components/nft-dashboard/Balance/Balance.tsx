@@ -3,7 +3,7 @@ import { Col, Row, Typography } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@app/components/common/buttons/Button/Button';
-import { NFTCard } from '@app/components/nft-dashboard/NFTCard/NFTCard';
+import { NFTCard } from '@app/components/nft-dashboard/common/NFTCard/NFTCard';
 import { useAppSelector } from '@app/hooks/reduxHooks';
 import { formatNumberWithCommas, getCurrencyPrice } from '@app/utils/utils';
 import { getBalance } from '@app/api/earnings.api';
@@ -47,13 +47,13 @@ export const Balance: React.FC = () => {
                   <Row gutter={[26, 26]} wrap={false}>
                     <Col>
                       <S.SubtitleBalanceText>
-                        {getCurrencyPrice(formatNumberWithCommas(balance.eth_balance), 'ETH')}
+                        {getCurrencyPrice(formatNumberWithCommas(balance.eth_balance), 'ETH', false)}
                       </S.SubtitleBalanceText>
                     </Col>
 
                     <Col>
                       <S.SubtitleBalanceText>
-                        {getCurrencyPrice(formatNumberWithCommas(balance.btc_balance), 'BTC')}
+                        {getCurrencyPrice(formatNumberWithCommas(balance.btc_balance), 'BTC', false)}
                       </S.SubtitleBalanceText>
                     </Col>
                   </Row>
