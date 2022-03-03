@@ -8,6 +8,10 @@ export const CollectionImage = styled.img`
   object-fit: cover;
   border-top-left-radius: ${(props) => props.theme.border.radius};
   border-top-right-radius: ${(props) => props.theme.border.radius};
+
+  @media only screen and ${(props) => props.theme.media.sm} {
+    height: 186px;
+  }
 `;
 
 export const NftCollectionInfo = styled.div`
@@ -30,7 +34,17 @@ export const Title = styled(Typography.Title)`
 `;
 
 export const Text = styled(Typography.Text)`
+  color: ${(props) => props.theme.colors.text.nftLight};
+`;
+
+export const OwnerText = styled(Text)`
   font-size: ${(props) => props.theme.commonFontSizes.xxs};
+
+  font-weight: ${(props) => props.theme.commonFontWeight.regular};
+`;
+
+export const USDText = styled(Typography.Text)`
+  color: ${(props) => props.theme.colors.main.primary};
 `;
 
 export const AuthorAvatarWrapper = styled.div`
