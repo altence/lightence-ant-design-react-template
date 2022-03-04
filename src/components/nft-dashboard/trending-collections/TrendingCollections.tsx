@@ -62,7 +62,7 @@ export const TrendingCollections: React.FC = () => {
       </NFTCardHeader>
 
       <S.SectionContent>
-        {mobileOnly && <S.SectionContent>{trendingList.mobile}</S.SectionContent>}
+        {mobileOnly && <S.SectionWrapper>{trendingList.mobile}</S.SectionWrapper>}
 
         {isTabletOrHigher && (
           <Carousel ref={sliderRef} slidesToShow={2}>
