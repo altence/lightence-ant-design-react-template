@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
-import { Empty } from 'antd';
 import { Feed } from '@app/components/common/Feed/Feed';
+import { NotFound } from '@app/components/common/NotFound/NotFound';
 import { RecentActivityItem } from '@app/components/nft-dashboard/recentActivity/recentActivityFeed/RecentActivityItem/RecentActivityItem';
 import { Activity } from '@app/api/activity.api';
 import * as S from './RecentActivityFeed.styles';
@@ -24,6 +24,6 @@ export const RecentActivityFeed: React.FC<RecentActivityFeedProps> = ({ activity
       </Feed>
     </S.FeedWrapper>
   ) : (
-    <Empty />
+    <NotFound />
   );
 };

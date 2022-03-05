@@ -78,7 +78,6 @@ const commonFontWeight = {
 
 const colors = {
   main: {
-    primaryNft: '#01509A',
     primary: '#01509A',
     primaryGradient: 'linear-gradient(261.31deg, #006CCF -29.57%, #00509A 121.11%)',
     light: '#C5D3E0',
@@ -128,9 +127,7 @@ const colors = {
     superLight: '#BEC0C6',
     secondary: commonColors.white,
     dark: '#404040',
-    nftMain: '#13264D',
     nftLight: '#7C7E83',
-    nftInfo: '#52607D',
   },
   border: {
     main: '#cce1f4',
