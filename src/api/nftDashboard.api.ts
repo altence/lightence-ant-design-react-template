@@ -6,8 +6,8 @@ export interface NftItem {
   image: string;
   title: string;
   author: string;
-  currentBid: string;
-  currentBidCrypto: string;
+  currentBid: number;
+  currentBidCrypto: number;
 }
 
 export const getRecentlyAddedNfts = (): Promise<NftItem[]> => {
@@ -17,22 +17,22 @@ export const getRecentlyAddedNfts = (): Promise<NftItem[]> => {
         image: birthOfUniverse,
         title: 'Borth of Universe',
         author: 'jakeparker',
-        currentBid: '3,150',
-        currentBidCrypto: '1,02',
+        currentBid: 3150,
+        currentBidCrypto: 1.02,
       },
       {
         image: starAway,
         title: 'Star Away',
         author: 'nick_johnson',
-        currentBid: '7,210',
-        currentBidCrypto: '2,08',
+        currentBid: 7210,
+        currentBidCrypto: 2.08,
       },
       {
         image: nightDeprivation,
         title: 'Night Deprivation',
         author: 'mikeAdamson',
-        currentBid: '740',
-        currentBidCrypto: '1,56',
+        currentBid: 740,
+        currentBidCrypto: 1.56,
       },
     ]);
   });

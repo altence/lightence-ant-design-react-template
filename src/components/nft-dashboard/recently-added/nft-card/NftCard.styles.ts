@@ -1,18 +1,5 @@
+import { Typography } from 'antd';
 import styled from 'styled-components';
-import { Card } from '@app/components/common/Card/Card';
-
-export const CardStyled = styled(Card)`
-  width: 100%;
-  margin-bottom: 1.25rem;
-
-  &:last-child {
-    margin-bottom: 1.5rem;
-  }
-
-  .ant-card-body {
-    padding: 0;
-  }
-`;
 
 export const NftImage = styled.img`
   width: 100%;
@@ -22,11 +9,12 @@ export const NftImage = styled.img`
   border-top-right-radius: ${(props) => props.theme.border.radius};
 `;
 
-export const Title = styled.span`
-  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
-  font-weight: ${(props) => props.theme.commonFontSizes.md};
-  margin-bottom: 0;
-  color: ${(props) => props.theme.colors.text.nftMain};
+export const Title = styled(Typography.Title)`
+  &.ant-typography {
+    margin-bottom: 0;
+
+    font-size: ${(props) => props.theme.commonFontSizes.md};
+  }
 `;
 
 export const NftInfo = styled.div`
@@ -35,6 +23,7 @@ export const NftInfo = styled.div`
 
 export const InfoRow = styled.div`
   display: flex;
+  align-items: center;
   justify-content: space-between;
   margin-bottom: 0.375rem;
 
@@ -43,23 +32,49 @@ export const InfoRow = styled.div`
   }
 `;
 
+export const InfoHeader = styled.div`
+  margin-bottom: 1.25rem;
+`;
+
+export const InfoFooter = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const CurrentBidWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+`;
+
 export const InfoText = styled.span`
-  font-family: ${(props) => props.theme.fonts.secondaryFont};
   font-weight: ${(props) => props.theme.commonFontWeight.regular};
+
   font-size: ${(props) => props.theme.commonFontSizes.xs};
-  color: ${(props) => props.theme.colors.text.nftMain};
 `;
 
 export const CurrentBid = styled(InfoText)`
-  color: ${(props) => props.theme.colors.text.nftInfo};
+  color: ${(props) => props.theme.colors.text.nftLight};
+
+  font-size: ${(props) => props.theme.commonFontSizes.xxs};
 `;
 
 export const BidCrypto = styled.span`
-  font-size: 0.875rem;
-  color: ${(props) => props.theme.colors.text.nftMain};
+  font-size: ${(props) => props.theme.commonFontSizes.xs};
+
+  @media only screen and ${(props) => props.theme.media.xl} {
+    font-size: ${(props) => props.theme.commonFontSizes.md};
+  }
 `;
 
 export const Bid = styled(CurrentBid)`
-  color: ${(props) => props.theme.colors.main.primaryNft};
+  font-size: ${(props) => props.theme.commonFontSizes.xs};
+
+  color: ${(props) => props.theme.colors.main.primary};
+
   font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+
+  @media only screen and ${(props) => props.theme.media.xl} {
+    font-size: ${(props) => props.theme.commonFontSizes.md};
+  }
 `;
