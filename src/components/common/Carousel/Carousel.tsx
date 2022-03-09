@@ -3,8 +3,7 @@ import Slider, { Settings } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const Carousel = React.forwardRef<any, Settings>(
+export const Carousel = React.forwardRef<Slider, Settings>(
   ({ slidesToShow = 1, arrows = false, dots = false, infinite = true, centerMode = true, children, ...props }, ref) => {
     return (
       <Slider
