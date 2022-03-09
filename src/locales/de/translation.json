@@ -855,6 +855,7 @@
     "show": "Show",
     "bid": "Gebot",
     "trendingCollections": "Trendige Sammlungen",
-    "recentlyAddedNFTs": "Kürzlich hinzugefügte NFTs"
-}
+    "recentlyAddedNFTs": "Kürzlich hinzugefügte NFTs",
+    "trendingCreators": "Angesagte Creator"
+  }
 }
