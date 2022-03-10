@@ -7,8 +7,22 @@ export const SectionContent = styled.div`
 `;
 
 export const StoriesModal = styled(Modal)`
+  @media only screen and (max-width: ${(props) => props.theme.breakpoints.md - 0.02}px) {
+    top: 0;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+  }
+
   .ant-modal-body {
     padding: 0;
+  }
+
+  .ant-modal-close {
+    z-index: 999999;
+    top: 1rem;
+
+    color: ${(props) => props.theme.colors.text.secondary};
   }
 `;
 

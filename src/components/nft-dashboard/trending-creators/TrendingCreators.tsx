@@ -123,8 +123,10 @@ export const TrendingCreators: React.FC = () => {
             setKey(Math.random());
           }}
           footer={null}
-          closable={false}
           destroyOnClose
+          maskStyle={{
+            background: 'rgba(0, 0, 0, 0.85)',
+          }}
         >
           <Stories
             key={key}
@@ -133,7 +135,7 @@ export const TrendingCreators: React.FC = () => {
             defaultInterval={2000}
             keyboardNavigation
             width="100%"
-            height={500}
+            height={isTabletOrHigher ? 500 : '100vh'}
             onStoryStart={(storyNumber: number) => {
               setStories((prevStories) => {
                 const storiesCopy = [...prevStories];
