@@ -53,59 +53,61 @@ export const TrendingCreators: React.FC = () => {
       </NFTCardHeader>
 
       <S.SectionContent>
-        <Carousel
-          slidesToShow={9}
-          ref={sliderRef}
-          centerMode={false}
-          infinite={false}
-          responsive={[
-            {
-              breakpoint: 1200,
-              settings: {
-                slidesToShow: 8,
+        {stories.length > 0 && (
+          <Carousel
+            slidesToShow={9}
+            ref={sliderRef}
+            centerMode={false}
+            infinite={false}
+            responsive={[
+              {
+                breakpoint: 1200,
+                settings: {
+                  slidesToShow: 8,
+                },
               },
-            },
-            {
-              breakpoint: 1000,
-              settings: {
-                slidesToShow: 7,
+              {
+                breakpoint: 1000,
+                settings: {
+                  slidesToShow: 7,
+                },
               },
-            },
-            {
-              breakpoint: 800,
-              settings: {
-                slidesToShow: 6,
+              {
+                breakpoint: 800,
+                settings: {
+                  slidesToShow: 6,
+                },
               },
-            },
-            {
-              breakpoint: 600,
-              settings: {
-                slidesToShow: 5,
+              {
+                breakpoint: 600,
+                settings: {
+                  slidesToShow: 5,
+                },
               },
-            },
-            {
-              breakpoint: 500,
-              settings: {
-                slidesToShow: 4,
+              {
+                breakpoint: 500,
+                settings: {
+                  slidesToShow: 4,
+                },
               },
-            },
-          ]}
-        >
-          {stories.map((story, index) => (
-            <div key={index}>
-              <S.CardWrapper>
-                <TrendingCreatorsStory
-                  img={story.header.profileImage}
-                  viewed={story.viewed}
-                  onStoryOpen={() => {
-                    setStoryIndex(index);
-                    setStoryOpened(true);
-                  }}
-                />
-              </S.CardWrapper>
-            </div>
-          ))}
-        </Carousel>
+            ]}
+          >
+            {stories.map((story, index) => (
+              <div key={index}>
+                <S.CardWrapper>
+                  <TrendingCreatorsStory
+                    img={story.header.profileImage}
+                    viewed={story.viewed}
+                    onStoryOpen={() => {
+                      setStoryIndex(index);
+                      setStoryOpened(true);
+                    }}
+                  />
+                </S.CardWrapper>
+              </div>
+            ))}
+          </Carousel>
+        )}
       </S.SectionContent>
 
       {isStoryOpened && (
