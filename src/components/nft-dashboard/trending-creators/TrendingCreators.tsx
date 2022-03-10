@@ -134,14 +134,14 @@ export const TrendingCreators: React.FC = () => {
             keyboardNavigation
             width="100%"
             height={500}
-            onStoryEnd={(storyNumber: number) =>
+            onStoryStart={(storyNumber: number) => {
               setStories((prevStories) => {
                 const storiesCopy = [...prevStories];
                 storiesCopy.splice(storyNumber, 1, { ...prevStories[storyNumber], viewed: true });
 
                 return storiesCopy;
-              })
-            }
+              });
+            }}
             onAllStoriesEnd={() => {
               setStoryOpened(false);
             }}
