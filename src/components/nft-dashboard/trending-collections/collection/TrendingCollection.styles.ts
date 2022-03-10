@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Button } from '@app/components/common/buttons/Button/Button';
 import { Typography } from 'antd';
 import { NFTCard } from '@app/components/nft-dashboard/common/NFTCard/NFTCard';
-
+import { hexToRGB } from '@app/utils/utils';
 interface CardInternalProps {
   $img: string;
 }
@@ -71,6 +71,11 @@ export const BidButton = styled(Button)`
   color: ${(props) => props.theme.colors.text.secondary};
   border-color: ${(props) => props.theme.colors.text.secondary};
   border-radius: 14px;
+  background: ${(props) => hexToRGB(props.theme.colors.main.primary, 0.7)};
+
+  &:hover {
+    border-color: ${(props) => props.theme.colors.text.secondary};
+  }
 `;
 
 export const Card = styled(NFTCard)<CardInternalProps>`
