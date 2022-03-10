@@ -1,5 +1,6 @@
 export interface TrendingCreator {
   url: string;
+  type?: 'video';
   header: {
     heading: string;
     subheading: string;
@@ -29,6 +30,35 @@ export const getTrendingCreators = (): Promise<TrendingCreator[]> => {
             subheading: 'Leporalebru',
             profileImage:
               'https://res.cloudinary.com/lapkinthegod/image/upload/v1646831474/unsplash_27QcqVqgVg4_dlbok9.png',
+          },
+          viewed: false,
+        },
+        {
+          url: 'https://res.cloudinary.com/lapkinthegod/video/upload/v1646926409/pexels-artem-podrez-7049260_1_zzntn7.mp4',
+          type: 'video',
+          header: {
+            heading: 'May Gauthier',
+            subheading: 'Pigeon',
+            profileImage: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1628436647/Rectangle_463_4_gep4lc.jpg',
+          },
+          viewed: false,
+        },
+        {
+          url: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1646926630/roma-kaiuk-u1vda3HaAJE-unsplash_qkeobi.jpg',
+          header: {
+            heading: 'Christianna Buehner',
+            subheading: 'Metro',
+            profileImage: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1628436647/Rectangle_463_1_d1omr2.jpg',
+          },
+          viewed: false,
+        },
+        {
+          url: 'https://res.cloudinary.com/lapkinthegod/video/upload/v1646926524/pexels-beytlik-9959514_1_ajz1h4.mp4',
+          type: 'video',
+          header: {
+            heading: 'Charles Deluvio',
+            subheading: 'Rain',
+            profileImage: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1628436646/Rectangle_463_3_gl0gcr.jpg',
           },
           viewed: false,
         },
