@@ -14,6 +14,13 @@ export const getRecentlyAddedNfts = (): Promise<NftItem[]> => {
   return new Promise((res) => {
     res([
       {
+        image: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1646942362/ezgif.com-gif-maker_1_na4ogi.gif',
+        title: 'XCopy Humano',
+        author: 'neithanwolf',
+        currentBid: 3521,
+        currentBidCrypto: 1.63,
+      },
+      {
         image: birthOfUniverse,
         title: 'Borth of Universe',
         author: 'jakeparker',
@@ -33,6 +40,13 @@ export const getRecentlyAddedNfts = (): Promise<NftItem[]> => {
         author: 'mikeAdamson',
         currentBid: 740,
         currentBidCrypto: 1.56,
+      },
+      {
+        image: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1646942358/ezgif.com-gif-maker_t2caul.gif',
+        title: 'Spiral Hole',
+        author: 'jo_wo_le',
+        currentBid: 311,
+        currentBidCrypto: 1.04,
       },
     ]);
   });
