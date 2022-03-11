@@ -14,10 +14,13 @@ export const Carousel = React.forwardRef<Slider, Settings>(
     const handleScroll = useCallback(
       (event) => {
         const x = event.deltaX;
+        const y = event.deltaY;
 
-        if (x > 0) {
+        if (x > 20 && -5 < y < 5) {
           return totalRef?.current?.slickNext();
-        } else {
+        }
+
+        if (x < -20 && -5 < y < 5) {
           return totalRef?.current?.slickPrev();
         }
       },
