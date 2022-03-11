@@ -1,13 +1,8 @@
 import { Image, Typography } from 'antd';
 import styled from 'styled-components';
-import { NFTCard } from '@app/components/nft-dashboard/common/NFTCard/NFTCard';
 
 interface StatusProps {
   $color: string;
-}
-
-interface CardInternalProps {
-  $coords: number[];
 }
 
 export const Img = styled(Image)`
@@ -60,28 +55,4 @@ export const Text = styled(Typography.Text)`
 
 export const DateText = styled(Text)`
   font-style: italic;
-`;
-
-export const Card = styled(NFTCard)<CardInternalProps>`
-  ${Img} {
-    transform: ${(props) => `translate3d(calc(${props.$coords[1]} * 1px), calc(${props.$coords[0]} * 1px), 0)`};
-  }
-
-  ${IconWrapper} {
-    transform: ${(props) => `translate3d(calc(${props.$coords[1]} * 1px), calc(${props.$coords[0]} * 1px), 0)`};
-  }
-
-  ${Title} {
-    transform: ${(props) =>
-      `translate3d(calc(${props.$coords[1]} * 1px), calc(${props.$coords[0]} * -1px), calc(${props.$coords[1]} * 1px))`};
-  }
-
-  ${Text} {
-    transform: ${(props) =>
-      `translate3d(calc(${props.$coords[1]} * 1px), calc(${props.$coords[0]} * -1px), calc(${props.$coords[1]} * 1px))`};
-  }
-
-  ${DateText} {
-    transform: ${(props) => `translate3d(calc(${props.$coords[1]} * 1px), calc(${props.$coords[0]} * 1px), 0)`};
-  }
 `;
