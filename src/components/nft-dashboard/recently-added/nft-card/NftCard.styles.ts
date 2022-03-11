@@ -1,5 +1,10 @@
 import { Typography } from 'antd';
 import styled from 'styled-components';
+import { NFTCard } from '@app/components/nft-dashboard/common/NFTCard/NFTCard';
+
+interface CardInternalProps {
+  $img: string;
+}
 
 export const NftImage = styled.img`
   width: 100%;
@@ -48,6 +53,8 @@ export const CurrentBidWrapper = styled.div`
 `;
 
 export const InfoText = styled.span`
+  display: block;
+
   font-weight: ${(props) => props.theme.commonFontWeight.regular};
 
   font-size: ${(props) => props.theme.commonFontSizes.xs};
@@ -76,5 +83,41 @@ export const Bid = styled(CurrentBid)`
 
   @media only screen and ${(props) => props.theme.media.xl} {
     font-size: ${(props) => props.theme.commonFontSizes.md};
+  }
+`;
+
+export const Card = styled(NFTCard)<CardInternalProps>`
+  & * {
+    transition: all 0.5s ease;
+  }
+
+  &:hover {
+    & {
+      background: ${(props) => `url(${props.$img})`};
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    ${NftImage} {
+      opacity: 0;
+      transform: scale(0);
+    }
+
+    ${Title} {
+      position: relative;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1.5);
+      color: ${(props) => props.theme.colors.text.secondary};
+    }
+
+    ${InfoText} {
+      color: ${(props) => props.theme.colors.text.secondary};
+    }
+
+    ${BidCrypto} {
+      color: ${(props) => props.theme.colors.text.secondary};
+    }
   }
 `;
