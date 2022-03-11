@@ -1,6 +1,5 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Card } from '@app/components/common/Card/Card';
 import { Avatar } from '@app/components/common/Avatar/Avatar';
 import { formatNumberWithCommas, getCurrencyPrice } from '@app/utils/utils';
 import { TrendingActivity } from '@app/api/activity.api';
@@ -17,7 +16,7 @@ export const TrendingCollection: React.FC<TrendingActivity> = ({
   const { t } = useTranslation();
 
   return (
-    <Card padding={0}>
+    <S.Card padding={0} $img={image}>
       <S.CollectionImage src={image} alt="nft" />
       <S.BidButton type="ghost">{t('nft.bid')}</S.BidButton>
       <S.NftCollectionInfo>
@@ -35,6 +34,6 @@ export const TrendingCollection: React.FC<TrendingActivity> = ({
           <S.USDText>{getCurrencyPrice(formatNumberWithCommas(usd_value), 'USD')}</S.USDText>
         </S.InfoRow>
       </S.NftCollectionInfo>
-    </Card>
+    </S.Card>
   );
 };

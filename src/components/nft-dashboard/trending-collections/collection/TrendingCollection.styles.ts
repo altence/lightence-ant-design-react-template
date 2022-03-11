@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 import { Button } from '@app/components/common/buttons/Button/Button';
 import { Typography } from 'antd';
+import { NFTCard } from '@app/components/nft-dashboard/common/NFTCard/NFTCard';
+
+interface CardInternalProps {
+  $img: string;
+}
 
 export const CollectionImage = styled.img`
   width: 100%;
@@ -49,7 +54,7 @@ export const USDText = styled(Typography.Text)`
 
 export const AuthorAvatarWrapper = styled.div`
   position: absolute;
-  top: -45px;
+  bottom: 80px;
   height: 70px;
   width: 70px;
   border: 3px solid ${(props) => props.theme.colors.text.secondary};
@@ -66,4 +71,57 @@ export const BidButton = styled(Button)`
   color: ${(props) => props.theme.colors.text.secondary};
   border-color: ${(props) => props.theme.colors.text.secondary};
   border-radius: 14px;
+`;
+
+export const Card = styled(NFTCard)<CardInternalProps>`
+  ${CollectionImage} {
+    transition: all 0.5s ease;
+  }
+
+  ${Title}, ${Text}, ${USDText} {
+    transition: all 0.5s ease;
+  }
+
+  ${AuthorAvatarWrapper} {
+    transition: all 0.5s ease;
+  }
+
+  ${BidButton} {
+    transition: all 0.5s ease;
+  }
+
+  &:hover {
+    & {
+      background: ${(props) => `url(${props.$img})`};
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    ${CollectionImage} {
+      opacity: 0;
+      transform: scale(0);
+    }
+
+    ${Title}, ${Text}, ${USDText} {
+      color: ${(props) => props.theme.colors.text.secondary};
+    }
+
+    ${NftCollectionInfo} {
+      position: unset;
+    }
+
+    ${AuthorAvatarWrapper} {
+      bottom: 90%;
+      transform: translateY(100%);
+    }
+
+    ${BidButton} {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1.2);
+      position: absolute;
+    }
+  }
 `;
