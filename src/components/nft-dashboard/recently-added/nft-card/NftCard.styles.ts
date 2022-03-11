@@ -153,14 +153,14 @@ export const Card = styled(NFTCard)<CardInternalProps>`
 
     100% {
       left: 50%;
-      transform: translateX(-50%) scale(1.5);
+      transform: translate(-50%, -50%) scale(1.5);
     }
   }
 
   @keyframes titleOut {
     0% {
       left: 50%;
-      transform: translateX(-50%) scale(1.5);
+      transform: translate(-50%, -50%) scale(1.5);
     }
 
     100% {
