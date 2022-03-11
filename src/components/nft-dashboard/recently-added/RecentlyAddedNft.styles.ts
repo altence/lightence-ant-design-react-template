@@ -2,7 +2,11 @@ import styled from 'styled-components';
 import { Button } from '@app/components/common/buttons/Button/Button';
 
 export const SectionContent = styled.div`
-  margin: 1.5rem 0;
+  margin: 1.5rem 0 0;
+
+  .slick-slide > div {
+    display: flex;
+  }
 `;
 
 export const SectionWrapper = styled.div`
