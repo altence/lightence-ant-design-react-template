@@ -7,6 +7,7 @@ interface CardInternalProps {
 }
 
 export const NftImage = styled.img`
+  animation: imgOut 0.5s;
   width: 100%;
   height: 195px;
   object-fit: cover;
@@ -15,6 +16,9 @@ export const NftImage = styled.img`
 `;
 
 export const Title = styled(Typography.Title)`
+  position: relative;
+  animation: titleOut 0.5s;
+
   &.ant-typography {
     margin-bottom: 0;
 
@@ -54,6 +58,7 @@ export const CurrentBidWrapper = styled.div`
 
 export const InfoText = styled.span`
   display: block;
+  transition: all 0.5s ease;
 
   font-weight: ${(props) => props.theme.commonFontWeight.regular};
 
@@ -67,6 +72,8 @@ export const CurrentBid = styled(InfoText)`
 `;
 
 export const BidCrypto = styled.span`
+  transition: all 0.5s ease;
+
   font-size: ${(props) => props.theme.commonFontSizes.xs};
 
   @media only screen and ${(props) => props.theme.media.xl} {
@@ -87,9 +94,7 @@ export const Bid = styled(CurrentBid)`
 `;
 
 export const Card = styled(NFTCard)<CardInternalProps>`
-  & * {
-    transition: all 0.5s ease;
-  }
+  overflow: hidden;
 
   &:hover {
     & {
@@ -101,14 +106,14 @@ export const Card = styled(NFTCard)<CardInternalProps>`
     }
 
     ${NftImage} {
-      opacity: 0;
-      transform: scale(0);
+      animation: imgIn 0.5s;
+      animation-fill-mode: forwards;
     }
 
     ${Title} {
-      position: relative;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(1.5);
+      animation: titleIn 0.5s ease;
+      animation-fill-mode: forwards;
+
       color: ${(props) => props.theme.colors.text.secondary};
     }
 
@@ -118,6 +123,48 @@ export const Card = styled(NFTCard)<CardInternalProps>`
 
     ${BidCrypto} {
       color: ${(props) => props.theme.colors.text.secondary};
+    }
+  }
+
+  @keyframes imgIn {
+    99% {
+      transform: scale(2);
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes imgOut {
+    0% {
+      transform: scale(2);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes titleIn {
+    0% {
+      left: 0;
+    }
+
+    100% {
+      left: 50%;
+      transform: translateX(-50%) scale(1.5);
+    }
+  }
+
+  @keyframes titleOut {
+    0% {
+      left: 50%;
+      transform: translateX(-50%) scale(1.5);
+    }
+
+    100% {
+      left: 0;
     }
   }
 `;
