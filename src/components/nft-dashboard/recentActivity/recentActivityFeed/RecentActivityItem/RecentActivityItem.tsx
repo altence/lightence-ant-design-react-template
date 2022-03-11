@@ -1,31 +1,21 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from 'styled-components';
 import { Col, Row } from 'antd';
+import { NFTCard } from '@app/components/nft-dashboard/common/NFTCard/NFTCard';
 import { activityStatuses } from '@app/constants/config/activityStatuses';
 import { Dates } from '@app/constants/Dates';
 import { Activity } from '@app/api/activity.api';
 import * as S from './RecentActivityItem.styles';
 
 export const RecentActivityItem: React.FC<Activity> = ({ image, title, date, status, owner }) => {
-  const [coords, setCoords] = useState([0, 0]);
-
   const { t } = useTranslation();
   const theme = useTheme();
 
   const currentActivity = useMemo(() => activityStatuses.find((dbStatus) => dbStatus.name === status), [status]);
 
   return (
-    <S.Card
-      onMouseMove={(e) => {
-        const wh = window.innerHeight / 2;
-        const ww = window.innerWidth / 2;
-
-        setCoords([(e.clientX - ww) / 25, (e.clientY - wh) / 25]);
-      }}
-      $coords={coords}
-      onMouseLeave={() => setCoords([0, 0])}
-    >
+    <NFTCard>
       <Row gutter={[20, 0]} wrap={false}>
         <Col>
           <S.Img width={80} height={80} preview={false} src={image} alt={title} />
@@ -61,6 +51,6 @@ export const RecentActivityItem: React.FC<Activity> = ({ image, title, date, sta
           </Row>
         </Col>
       </Row>
-    </S.Card>
+    </NFTCard>
   );
 };
