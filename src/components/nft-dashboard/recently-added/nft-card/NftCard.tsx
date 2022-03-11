@@ -1,5 +1,4 @@
 import React from 'react';
-import { NFTCard } from '@app/components/nft-dashboard/common/NFTCard/NFTCard';
 import { useResponsive } from '@app/hooks/useResponsive';
 import { NftItem } from '@app/api/nftDashboard.api';
 import { formatNumberWithCommas, getCurrencyPrice } from '@app/utils/utils';
@@ -46,7 +45,7 @@ export const NftCard: React.FC<NftCardProps> = ({ nftItem }) => {
   );
 
   return (
-    <NFTCard padding={0}>
+    <S.Card padding={0} $img={nftItem.image}>
       <S.NftImage src={nftItem.image} alt="nftImage" />
       <S.NftInfo>
         <S.InfoRow>
@@ -54,6 +53,6 @@ export const NftCard: React.FC<NftCardProps> = ({ nftItem }) => {
         </S.InfoRow>
         {isTablet ? tabletLayout : mobileLayout}
       </S.NftInfo>
-    </NFTCard>
+    </S.Card>
   );
 };
