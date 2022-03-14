@@ -174,6 +174,8 @@ const colors = {
 const boxShadow = {
   main: '0 2px 8px 0 rgba(0, 0, 0, 0.07)',
   hover: '0 4px 16px 0 rgba(0, 0, 0, 0.2)',
+  nftMain: '0px 16px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04)',
+  nftSecondary: '0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04)',
 };
 
 const lightTheme: DefaultTheme = {
