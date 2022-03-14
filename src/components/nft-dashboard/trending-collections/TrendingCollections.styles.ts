@@ -4,6 +4,10 @@ import styled from 'styled-components';
 export const SectionContent = styled.div`
   margin: 1.5rem 0 0;
 
+  @media only screen and ${(props) => props.theme.media.md} {
+    margin: 1.625rem 0 0;
+  }
+
   .slick-slide > div {
     display: flex;
   }
