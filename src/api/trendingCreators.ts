@@ -53,11 +53,11 @@ export const getTrendingCreators = (): Promise<TrendingCreator[]> => {
           viewed: false,
         },
         {
-          url: 'https://res.cloudinary.com/lapkinthegod/video/upload/v1646926524/pexels-beytlik-9959514_1_ajz1h4.mp4',
+          url: 'https://res.cloudinary.com/lapkinthegod/video/upload/v1647286752/pexels-rostislav-uzunov-5680034_1_oun2f5.mp4',
           type: 'video',
           header: {
             heading: 'Charles Deluvio',
-            subheading: 'Rain',
+            subheading: 'Render',
             profileImage: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1628436646/Rectangle_463_3_gl0gcr.jpg',
           },
           viewed: false,
