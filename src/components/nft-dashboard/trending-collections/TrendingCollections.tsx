@@ -64,8 +64,19 @@ export const TrendingCollections: React.FC = () => {
       <S.SectionContent>
         {mobileOnly && <S.SectionWrapper>{trendingList.mobile}</S.SectionWrapper>}
 
-        {isTabletOrHigher && (
-          <Carousel ref={sliderRef} slidesToShow={2}>
+        {isTabletOrHigher && trending.length > 0 && (
+          <Carousel
+            ref={sliderRef}
+            slidesToShow={3}
+            responsive={[
+              {
+                breakpoint: 1900,
+                settings: {
+                  slidesToShow: 2,
+                },
+              },
+            ]}
+          >
             {trendingList.tablet}
           </Carousel>
         )}

@@ -66,8 +66,19 @@ export const RecentlyAddedNft: React.FC = () => {
       <S.SectionContent>
         {mobileOnly && <S.SectionWrapper>{nfts.length > 0 ? cards.mobile : <NotFound />}</S.SectionWrapper>}
 
-        {isTablet && (
-          <Carousel ref={sliderRef} slidesToShow={2}>
+        {isTablet && nfts.length > 0 && (
+          <Carousel
+            ref={sliderRef}
+            slidesToShow={3}
+            responsive={[
+              {
+                breakpoint: 1900,
+                settings: {
+                  slidesToShow: 2,
+                },
+              },
+            ]}
+          >
             {cards.tablet}
           </Carousel>
         )}

@@ -123,6 +123,26 @@ export const getTrendingActivities = (): Promise<TrendingActivity[]> => {
           usd_value: 1045,
           eth_value: 321,
         },
+        {
+          title: 'TownYTraveler',
+          owner: '@akura',
+          image:
+            'https://res.cloudinary.com/lapkinthegod/image/upload/v1647286450/milad-fakurian-bMSA5-tLFao-unsplash_js8utz.jpg',
+          avatar:
+            'https://res.cloudinary.com/lapkinthegod/image/upload/v1647286511/salvatore-andrea-santacroce-wGICoyAhEs4-unsplash_dfo8do.jpg',
+          usd_value: 1045,
+          eth_value: 321,
+        },
+        {
+          title: 'TownYTraveler',
+          owner: '@akura',
+          image:
+            'https://res.cloudinary.com/lapkinthegod/image/upload/v1647286453/javier-miranda-xB2XP29gn10-unsplash_klwx4d.jpg',
+          avatar:
+            'https://res.cloudinary.com/lapkinthegod/image/upload/v1647286517/simon-lee-hbFKxsIqclc-unsplash_vcv07z.jpg',
+          usd_value: 1045,
+          eth_value: 321,
+        },
       ]);
     }, 0);
   });
