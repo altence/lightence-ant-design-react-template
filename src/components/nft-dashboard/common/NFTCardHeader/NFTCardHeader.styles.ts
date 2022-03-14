@@ -5,6 +5,10 @@ export const WrapperRow = styled(Row)`
   padding-bottom: 0.875rem;
 
   border-bottom: ${(props) => `0.2px solid ${props.theme.colors.border.nft}`};
+
+  @media only screen and ${(props) => props.theme.media.md} {
+    padding-bottom: 1rem;
+  }
 `;
 
 export const Title = styled(Typography.Title)`

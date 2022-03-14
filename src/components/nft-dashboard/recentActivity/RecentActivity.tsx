@@ -39,7 +39,12 @@ export const RecentActivity: React.FC = () => {
   }, [filters.status, activity]);
 
   return (
-    <Row gutter={[24, 24]}>
+    <Row
+      gutter={[
+        { xs: 24, sm: 24, md: 26 },
+        { xs: 24, sm: 24, md: 26 },
+      ]}
+    >
       <Col span={24}>
         <RecentActivityHeader filters={filters} setFilters={setFilters} />
       </Col>
