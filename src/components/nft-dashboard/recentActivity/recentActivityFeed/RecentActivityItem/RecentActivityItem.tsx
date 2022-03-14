@@ -2,7 +2,6 @@ import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from 'styled-components';
 import { Col, Row } from 'antd';
-import { NFTCard } from '@app/components/nft-dashboard/common/NFTCard/NFTCard';
 import { activityStatuses } from '@app/constants/config/activityStatuses';
 import { Dates } from '@app/constants/Dates';
 import { Activity } from '@app/api/activity.api';
@@ -15,7 +14,7 @@ export const RecentActivityItem: React.FC<Activity> = ({ image, title, date, sta
   const currentActivity = useMemo(() => activityStatuses.find((dbStatus) => dbStatus.name === status), [status]);
 
   return (
-    <NFTCard>
+    <S.ActivityCard>
       <Row gutter={[20, 0]} wrap={false}>
         <Col>
           <S.Img width={80} height={80} preview={false} src={image} alt={title} />
@@ -51,6 +50,6 @@ export const RecentActivityItem: React.FC<Activity> = ({ image, title, date, sta
           </Row>
         </Col>
       </Row>
-    </NFTCard>
+    </S.ActivityCard>
   );
 };

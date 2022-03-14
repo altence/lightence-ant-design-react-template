@@ -1,9 +1,14 @@
 import { Image, Typography } from 'antd';
 import styled from 'styled-components';
+import { NFTCard } from '@app/components/nft-dashboard/common/NFTCard/NFTCard';
 
 interface StatusProps {
   $color: string;
 }
+
+export const ActivityCard = styled(NFTCard)`
+  box-shadow: ${(props) => props.theme.boxShadow.nftSecondary};
+`;
 
 export const Img = styled(Image)`
   position: relative;

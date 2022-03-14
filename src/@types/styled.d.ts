@@ -84,6 +84,8 @@ declare module 'styled-components' {
     boxShadow: {
       main: string;
       hover: string;
+      nftMain: string;
+      nftSecondary: string;
     };
     breakpoints: {
       xs: number;
