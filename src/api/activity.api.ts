@@ -88,7 +88,7 @@ export const getActivities = (): Promise<Activity[]> => {
           title: 'Plan A & CUSTOM X3',
           status: 'sold',
           date: Date.now() - 1000 * 60 * 60 * 8,
-          owner: '@mikke_swartz',
+          owner: '@mikke_swar',
         },
       ]);
     }, 1000);

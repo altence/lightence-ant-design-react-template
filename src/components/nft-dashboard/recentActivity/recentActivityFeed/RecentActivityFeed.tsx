@@ -18,7 +18,7 @@ export const RecentActivityFeed: React.FC<RecentActivityFeedProps> = ({ activity
   );
 
   return activityItems.length > 0 ? (
-    <S.FeedWrapper id="recent-activity-feed">
+    <S.FeedWrapper id="recent-activity-feed" $length={activity.length}>
       <Feed hasMore={hasMore} next={next} target="recent-activity-feed">
         {activityItems}
       </Feed>
