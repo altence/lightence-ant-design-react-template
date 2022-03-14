@@ -55,11 +55,23 @@ export const TrendingCreators: React.FC = () => {
       <S.SectionContent>
         {stories.length > 0 && (
           <Carousel
-            slidesToShow={9}
+            slidesToShow={12}
             ref={sliderRef}
             centerMode={false}
             infinite={false}
             responsive={[
+              {
+                breakpoint: 1900,
+                settings: {
+                  slidesToShow: 10,
+                },
+              },
+              {
+                breakpoint: 1600,
+                settings: {
+                  slidesToShow: 9,
+                },
+              },
               {
                 breakpoint: 1200,
                 settings: {

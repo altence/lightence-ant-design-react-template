@@ -132,6 +132,15 @@ export const getTrendingCreators = (): Promise<TrendingCreator[]> => {
           },
           viewed: false,
         },
+        {
+          url: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1647285408/milad-fakurian-wNsHBf_bTBo-unsplash_j5lzpg.jpg',
+          header: {
+            heading: 'Rihanna Ritter',
+            subheading: 'Lorem Ipsum',
+            profileImage: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1628436647/Rectangle_463_2_hgqjsp.jpg',
+          },
+          viewed: false,
+        },
       ]);
     }, 0);
   });
