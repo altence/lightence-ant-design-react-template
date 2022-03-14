@@ -42,23 +42,25 @@ export const RecentlyAddedNft: React.FC = () => {
   return (
     <>
       <NFTCardHeader title={t('nft.recentlyAddedNFTs')}>
-        <Row align="middle">
-          <Col>
-            <ViewAll bordered={false} />
-          </Col>
+        {isTablet && (
+          <Row align="middle">
+            <Col>
+              <ViewAll bordered={false} />
+            </Col>
 
-          <Col>
-            <S.ArrowBtn type="text" size="small" onClick={() => sliderRef.current && sliderRef.current.slickPrev()}>
-              <LeftOutlined />
-            </S.ArrowBtn>
-          </Col>
+            <Col>
+              <S.ArrowBtn type="text" size="small" onClick={() => sliderRef.current && sliderRef.current.slickPrev()}>
+                <LeftOutlined />
+              </S.ArrowBtn>
+            </Col>
 
-          <Col>
-            <S.ArrowBtn type="text" size="small" onClick={() => sliderRef.current && sliderRef.current.slickNext()}>
-              <RightOutlined />
-            </S.ArrowBtn>
-          </Col>
-        </Row>
+            <Col>
+              <S.ArrowBtn type="text" size="small" onClick={() => sliderRef.current && sliderRef.current.slickNext()}>
+                <RightOutlined />
+              </S.ArrowBtn>
+            </Col>
+          </Row>
+        )}
       </NFTCardHeader>
 
       <S.SectionContent>
