@@ -10,7 +10,12 @@ export const ActivityCard = styled(NFTCard)`
   box-shadow: ${(props) => props.theme.boxShadow.nftSecondary};
 `;
 
-export const Img = styled.img`
+export const Wrapper = styled.div`
+  display: flex;
+  gap: 1.625rem;
+`;
+
+export const ImgWrapper = styled.div`
   position: relative;
 `;
 
@@ -18,9 +23,9 @@ export const IconWrapper = styled.div`
   position: absolute;
   left: 0;
   bottom: 0;
-  transform: translate(50%, 25%);
-  width: 1.5rem;
-  height: 1.5rem;
+  transform: translate(25%, 25%);
+  width: 1.4375rem;
+  height: 1.4375rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -31,6 +36,24 @@ export const IconWrapper = styled.div`
   background-color: ${(props) => props.theme.colors.main.primary};
 
   font-size: ${(props) => props.theme.commonFontSizes.xs};
+`;
+
+export const InfoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+`;
+
+export const InfoHeaderWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+`;
+
+export const InfoBottomWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
 `;
 
 export const Title = styled(Typography.Title)`
@@ -48,14 +71,27 @@ export const Title = styled(Typography.Title)`
 export const StatusText = styled(Typography.Text)<StatusProps>`
   color: ${(props) => props.$color};
 
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  font-size: ${(props) => props.theme.commonFontSizes.xxs};
+
+  font-family: ${(props) => props.theme.fonts.secondaryFont};
+
+  @media only screen and ${(props) => props.theme.media.xl} {
+    font-size: ${(props) => props.theme.commonFontSizes.xs};
+  }
 `;
 
 export const Text = styled(Typography.Text)`
   display: block;
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
+
+  font-size: ${(props) => props.theme.commonFontSizes.xxs};
 
   color: ${(props) => props.theme.colors.text.nftLight};
+
+  font-family: ${(props) => props.theme.fonts.secondaryFont};
+
+  @media only screen and ${(props) => props.theme.media.xl} {
+    font-size: ${(props) => props.theme.commonFontSizes.xs};
+  }
 `;
 
 export const DateText = styled(Text)`

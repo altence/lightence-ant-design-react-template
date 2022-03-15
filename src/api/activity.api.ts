@@ -81,7 +81,7 @@ export const getActivities = (): Promise<Activity[]> => {
           title: 'Match the Eyes',
           status: 'booked',
           date: Date.now() - 1000 * 60 * 60 * 22,
-          owner: '@samsamdon',
+          owner: '@samsam',
         },
         {
           image: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1645813455/unsplash_3MAmj1ZKSZA_rfbw6u.png',

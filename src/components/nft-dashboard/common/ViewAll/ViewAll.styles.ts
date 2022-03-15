@@ -12,5 +12,7 @@ export const ViewAllBtn = styled(Button)<ViewAllInternalProps>`
 
   color: ${(props) => props.theme.colors.text.nftLight};
 
+  font-family: ${(props) => props.theme.fonts.secondaryFont};
+
   ${(props) => props.$bordered && `border-bottom: 0.2px solid ${props.theme.colors.border.nft}`};
 `;
