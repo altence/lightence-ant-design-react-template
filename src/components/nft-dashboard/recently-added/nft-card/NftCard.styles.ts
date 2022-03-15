@@ -34,7 +34,11 @@ export const InfoRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0.375rem;
+  margin-bottom: 0.625rem;
+
+  @media only screen and ${(props) => props.theme.media.md} {
+    margin-bottom: 0.25rem;
+  }
 
   &:last-child {
     margin-bottom: 0;
@@ -62,13 +66,17 @@ export const InfoText = styled.span`
 
   font-weight: ${(props) => props.theme.commonFontWeight.regular};
 
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  font-size: ${(props) => props.theme.commonFontSizes.xxs};
+
+  font-family: ${(props) => props.theme.fonts.secondaryFont};
 `;
 
 export const CurrentBid = styled(InfoText)`
   color: ${(props) => props.theme.colors.text.nftLight};
 
   font-size: ${(props) => props.theme.commonFontSizes.xxs};
+
+  font-family: ${(props) => props.theme.fonts.secondaryFont};
 `;
 
 export const BidCrypto = styled.span`
