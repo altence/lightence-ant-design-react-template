@@ -17,6 +17,7 @@ export const TrendingCreators: React.FC = () => {
   const [storyIndex, setStoryIndex] = useState(0);
   const [stories, setStories] = useState<TrendingCreator[]>([]);
   const [key, setKey] = useState(Math.random());
+  const [dragging, setDragging] = useState(false);
 
   const { isTablet: isTabletOrHigher } = useResponsive();
   const { t } = useTranslation();
@@ -55,51 +56,107 @@ export const TrendingCreators: React.FC = () => {
       <S.SectionContent>
         {stories.length > 0 && (
           <Carousel
-            slidesToShow={12}
+            beforeChange={() => setDragging(true)}
+            afterChange={() => setDragging(false)}
+            slidesToShow={11}
             ref={sliderRef}
             centerMode={false}
             infinite={false}
             responsive={[
               {
-                breakpoint: 1900,
+                breakpoint: 1920,
                 settings: {
                   slidesToShow: 10,
                 },
               },
               {
-                breakpoint: 1600,
+                breakpoint: 1870,
                 settings: {
                   slidesToShow: 9,
                 },
               },
               {
-                breakpoint: 1200,
+                breakpoint: 1700,
                 settings: {
                   slidesToShow: 8,
                 },
               },
               {
-                breakpoint: 1000,
+                breakpoint: 1530,
                 settings: {
                   slidesToShow: 7,
                 },
               },
               {
-                breakpoint: 800,
+                breakpoint: 1370,
                 settings: {
                   slidesToShow: 6,
                 },
               },
               {
-                breakpoint: 600,
+                breakpoint: 1279,
                 settings: {
-                  slidesToShow: 5,
+                  slidesToShow: 13,
+                },
+              },
+              {
+                breakpoint: 1200,
+                settings: {
+                  slidesToShow: 12,
+                },
+              },
+              {
+                breakpoint: 1120,
+                settings: {
+                  slidesToShow: 11,
+                },
+              },
+              {
+                breakpoint: 1020,
+                settings: {
+                  slidesToShow: 10,
+                },
+              },
+              {
+                breakpoint: 920,
+                settings: {
+                  slidesToShow: 9,
+                },
+              },
+              {
+                breakpoint: 820,
+                settings: {
+                  slidesToShow: 8,
+                },
+              },
+              {
+                breakpoint: 767,
+                settings: {
+                  slidesToShow: 9,
+                },
+              },
+              {
+                breakpoint: 650,
+                settings: {
+                  slidesToShow: 8,
+                },
+              },
+              {
+                breakpoint: 550,
+                settings: {
+                  slidesToShow: 7,
                 },
               },
               {
                 breakpoint: 500,
                 settings: {
-                  slidesToShow: 4,
+                  slidesToShow: 6,
+                },
+              },
+              {
+                breakpoint: 450,
+                settings: {
+                  slidesToShow: 5,
                 },
               },
             ]}
@@ -111,8 +168,10 @@ export const TrendingCreators: React.FC = () => {
                     img={story.header.profileImage}
                     viewed={story.viewed}
                     onStoryOpen={() => {
-                      setStoryIndex(index);
-                      setStoryOpened(true);
+                      if (!dragging) {
+                        setStoryIndex(index);
+                        setStoryOpened(true);
+                      }
                     }}
                   />
                 </S.CardWrapper>
