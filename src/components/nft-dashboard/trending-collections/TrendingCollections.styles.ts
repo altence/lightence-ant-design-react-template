@@ -1,5 +1,5 @@
-import { Button } from '@app/components/common/buttons/Button/Button';
 import styled from 'styled-components';
+import { Button } from '@app/components/common/buttons/Button/Button';
 
 export const SectionContent = styled.div`
   margin: 1.5rem 0 0;
@@ -18,6 +18,7 @@ export const SectionWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   gap: 1.25rem;
+  margin: 1.5rem 0;
 `;
 
 export const ViewAllWrapper = styled.div`
