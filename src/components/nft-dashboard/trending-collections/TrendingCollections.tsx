@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'antd';
+import Slider from 'react-slick';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { Carousel } from '@app/components/common/Carousel/Carousel';
 import { ViewAll } from '@app/components/nft-dashboard/common/ViewAll/ViewAll';
@@ -34,8 +35,7 @@ export const TrendingCollections: React.FC = () => {
     };
   }, [trending]);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const sliderRef = useRef<any>(null);
+  const sliderRef = useRef<Slider>(null);
 
   return (
     <>
