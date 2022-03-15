@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import { Feed } from '@app/components/common/Feed/Feed';
 import { NotFound } from '@app/components/common/NotFound/NotFound';
 import { RecentActivityItem } from '@app/components/nft-dashboard/recentActivity/recentActivityFeed/RecentActivityItem/RecentActivityItem';
@@ -17,8 +17,16 @@ export const RecentActivityFeed: React.FC<RecentActivityFeedProps> = ({ activity
     [activity],
   );
 
+  const feedRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (activity.length < 4) {
+      feedRef.current?.dispatchEvent(new CustomEvent('scroll'));
+    }
+  }, [activity]);
+
   return activityItems.length > 0 ? (
-    <S.FeedWrapper id="recent-activity-feed" $length={activity.length}>
+    <S.FeedWrapper ref={feedRef} id="recent-activity-feed">
       <Feed hasMore={hasMore} next={next} target="recent-activity-feed">
         {activityItems}
       </Feed>
