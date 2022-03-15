@@ -1,4 +1,4 @@
-import { Image, Typography } from 'antd';
+import { Typography } from 'antd';
 import styled from 'styled-components';
 import { NFTCard } from '@app/components/nft-dashboard/common/NFTCard/NFTCard';
 
@@ -10,7 +10,7 @@ export const ActivityCard = styled(NFTCard)`
   box-shadow: ${(props) => props.theme.boxShadow.nftSecondary};
 `;
 
-export const Img = styled(Image)`
+export const Img = styled.img`
   position: relative;
 `;
 
@@ -18,7 +18,7 @@ export const IconWrapper = styled.div`
   position: absolute;
   left: 0;
   bottom: 0;
-  transform: translate(50%, 0);
+  transform: translate(50%, 25%);
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 50%;
