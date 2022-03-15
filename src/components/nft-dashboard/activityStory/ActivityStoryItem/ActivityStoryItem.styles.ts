@@ -5,10 +5,28 @@ interface StatusProps {
   $color: string;
 }
 
-export const Title = styled(Typography.Text)``;
+export const Title = styled(Typography.Text)`
+  font-size: ${(props) => props.theme.commonFontSizes.xs};
+
+  font-family: ${(props) => props.theme.fonts.secondaryFont};
+`;
 
 export const Status = styled(Typography.Text)<StatusProps>`
   color: ${(props) => props.$color};
+
+  font-size: ${(props) => props.theme.commonFontSizes.xs};
+
+  font-family: ${(props) => props.theme.fonts.secondaryFont};
 `;
 
-export const Text = styled(Typography.Text)``;
+export const DateText = styled(Title)`
+  font-weight: ${(props) => props.theme.commonFontWeight.regular};
+`;
+
+export const Text = styled(Typography.Text)`
+  font-size: ${(props) => props.theme.commonFontSizes.xs};
+
+  font-weight: ${(props) => props.theme.commonFontWeight.regular};
+
+  font-family: ${(props) => props.theme.fonts.secondaryFont};
+`;

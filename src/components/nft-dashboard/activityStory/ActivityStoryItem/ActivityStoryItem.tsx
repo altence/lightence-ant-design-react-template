@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Image, Row } from 'antd';
+import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from 'styled-components';
 import { activityStatuses } from '@app/constants/config/activityStatuses';
@@ -17,13 +17,13 @@ export const ActivityStoryItem: React.FC<UserActivity> = ({ image, title, status
   return (
     <Row gutter={[20, 20]} wrap={false} align="middle">
       <Col>
-        <Image preview={false} width={80} src={image} alt={title} />
+        <img width={80} height={80} src={image} alt={title} />
       </Col>
 
       <Col flex={1}>
         <Row justify="space-between" wrap={false}>
           <Col>
-            <Row gutter={[15, 15]}>
+            <Row gutter={[16, 16]}>
               <Col span={24}>
                 <S.Title>{title}</S.Title>
               </Col>
@@ -37,9 +37,9 @@ export const ActivityStoryItem: React.FC<UserActivity> = ({ image, title, status
           </Col>
 
           <Col span={8}>
-            <Row gutter={[15, 15]}>
+            <Row gutter={[16, 16]}>
               <Col span={24}>
-                <S.Title>{Dates.getDate(date).format('L')}</S.Title>
+                <S.DateText>{Dates.getDate(date).format('L')}</S.DateText>
               </Col>
 
               <Col span={24}>
