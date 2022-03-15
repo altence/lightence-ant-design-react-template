@@ -29,6 +29,11 @@ export const InfoRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 0.625rem;
+
+  &:nth-last-of-type(1) {
+    margin-bottom: 0;
+  }
 `;
 
 export const Title = styled(Typography.Title)`
@@ -45,18 +50,24 @@ export const Text = styled(Typography.Text)`
   transition: all 0.5s ease;
 
   color: ${(props) => props.theme.colors.text.nftLight};
+
+  font-size: ${(props) => props.theme.commonFontSizes.xs};
 `;
 
 export const OwnerText = styled(Text)`
   font-size: ${(props) => props.theme.commonFontSizes.xxs};
 
   font-weight: ${(props) => props.theme.commonFontWeight.regular};
+
+  font-family: ${(props) => props.theme.fonts.secondaryFont};
 `;
 
 export const USDText = styled(Typography.Text)`
   transition: all 0.5s ease;
 
   color: ${(props) => props.theme.colors.main.primary};
+
+  font-size: ${(props) => props.theme.commonFontSizes.xs};
 `;
 
 export const AuthorAvatarWrapper = styled.div`
@@ -77,10 +88,15 @@ export const BidButton = styled(Button)`
   top: 20px;
   right: 20px;
   padding: 12px 33px;
-  color: ${(props) => props.theme.colors.text.secondary};
-  border-color: ${(props) => props.theme.colors.text.secondary};
   border-radius: 14px;
+
+  color: ${(props) => props.theme.colors.text.secondary};
+
   background: ${(props) => hexToRGB(props.theme.colors.main.primary, 0.7)};
+
+  border-color: ${(props) => props.theme.colors.text.secondary};
+
+  font-size: ${(props) => props.theme.commonFontSizes.xxs};
 
   &:hover {
     border-color: ${(props) => props.theme.colors.text.secondary};

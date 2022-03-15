@@ -24,7 +24,7 @@ export const TrendingCollections: React.FC = () => {
 
   const trendingList = useMemo(() => {
     return {
-      mobile: trending.map((item, index) => <TrendingCollection key={index} {...item} />),
+      mobile: trending.map((item, index) => <TrendingCollection key={index} {...item} />).slice(0, 3),
       tablet: trending.map((item, index) => (
         <div key={index}>
           <S.CardWrapper>
