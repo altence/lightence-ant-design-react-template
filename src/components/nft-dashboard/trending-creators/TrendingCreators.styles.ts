@@ -31,5 +31,9 @@ export const ArrowBtn = styled(Button)`
 `;
 
 export const CardWrapper = styled.div`
-  margin: 0 0.3rem;
+  margin: 0 0.40625rem;
+
+  @media only screen and ${(props) => props.theme.media.xl} {
+    margin: 0 0.625rem;
+  }
 `;
