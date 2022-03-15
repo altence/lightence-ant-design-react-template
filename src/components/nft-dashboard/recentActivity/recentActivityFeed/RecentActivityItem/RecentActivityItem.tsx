@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from 'styled-components';
-import { Col, Row } from 'antd';
 import { activityStatuses } from '@app/constants/config/activityStatuses';
 import { Dates } from '@app/constants/Dates';
 import { Activity } from '@app/api/activity.api';
@@ -15,41 +14,29 @@ export const RecentActivityItem: React.FC<Activity> = ({ image, title, date, sta
 
   return (
     <S.ActivityCard>
-      <Row gutter={[20, 0]} wrap={false}>
-        <Col>
-          <S.Img src={image} alt={title} width={80} height={80} />
+      <S.Wrapper>
+        <S.ImgWrapper>
+          <img src={image} alt={title} width={84} height={84} />
           <S.IconWrapper>{currentActivity?.icon}</S.IconWrapper>
-        </Col>
+        </S.ImgWrapper>
 
-        <Col flex={1}>
-          <Row gutter={[0, 0]}>
-            <Col span={24}>
-              <Row gutter={[10, 10]}>
-                <Col span={24}>
-                  <S.Title level={5}>{title}</S.Title>
-                </Col>
+        <S.InfoWrapper>
+          <S.InfoHeaderWrapper>
+            <S.Title level={5}>{title}</S.Title>
 
-                <Col span={24}>
-                  <S.Text>
-                    <S.StatusText $color={theme.colors.main[currentActivity?.color || 'secondary']}>
-                      {t(currentActivity?.title || '')}
-                    </S.StatusText>{' '}
-                    {t('nft.by')} {owner}
-                  </S.Text>
-                </Col>
-              </Row>
-            </Col>
+            <S.Text>
+              <S.StatusText $color={theme.colors.main[currentActivity?.color || 'secondary']}>
+                {t(currentActivity?.title || '')}
+              </S.StatusText>{' '}
+              {t('nft.by')} {owner}
+            </S.Text>
+          </S.InfoHeaderWrapper>
 
-            <Col span={24}>
-              <Row justify="end">
-                <Col>
-                  <S.DateText>{Dates.getDate(date).format('lll')}</S.DateText>
-                </Col>
-              </Row>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
+          <S.InfoBottomWrapper>
+            <S.DateText>{Dates.getDate(date).format('lll')}</S.DateText>
+          </S.InfoBottomWrapper>
+        </S.InfoWrapper>
+      </S.Wrapper>
     </S.ActivityCard>
   );
 };
