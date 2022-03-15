@@ -141,6 +141,15 @@ export const getTrendingCreators = (): Promise<TrendingCreator[]> => {
           },
           viewed: false,
         },
+        {
+          url: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1647347377/maryna-yazbeck-rnwDiYrHtM0-unsplash_rn3fhj.jpg',
+          header: {
+            heading: 'Joanna Hammer',
+            subheading: 'Silver',
+            profileImage: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1644234637/Ellipse_8_y0rdfd.png',
+          },
+          viewed: false,
+        },
       ]);
     }, 0);
   });
