@@ -17,14 +17,14 @@ export const RecentActivityItem: React.FC<Activity> = ({ image, title, date, sta
     <S.ActivityCard>
       <Row gutter={[20, 0]} wrap={false}>
         <Col>
-          <S.Img width={80} height={80} preview={false} src={image} alt={title} />
+          <S.Img src={image} alt={title} width={80} height={80} />
           <S.IconWrapper>{currentActivity?.icon}</S.IconWrapper>
         </Col>
 
         <Col flex={1}>
-          <Row gutter={[10, 10]}>
+          <Row gutter={[0, 0]}>
             <Col span={24}>
-              <Row gutter={[0, 0]}>
+              <Row gutter={[10, 10]}>
                 <Col span={24}>
                   <S.Title level={5}>{title}</S.Title>
                 </Col>
