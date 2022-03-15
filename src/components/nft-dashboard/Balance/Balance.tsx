@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Row, Typography } from 'antd';
+import { Col, Row } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@app/components/common/buttons/Button/Button';
@@ -8,8 +8,6 @@ import { useAppSelector } from '@app/hooks/reduxHooks';
 import { formatNumberWithCommas, getCurrencyPrice } from '@app/utils/utils';
 import { getBalance } from '@app/api/earnings.api';
 import * as S from './Balance.styles';
-
-const { Title } = Typography;
 
 export const Balance: React.FC = () => {
   const [balance, setBalance] = useState({
@@ -29,7 +27,7 @@ export const Balance: React.FC = () => {
   return (
     <Row>
       <Col span={24}>
-        <Title level={5}>{t('nft.yourBalance')}:</Title>
+        <S.TitleText level={5}>{t('nft.yourBalance')}:</S.TitleText>
       </Col>
 
       <Col span={24}>
