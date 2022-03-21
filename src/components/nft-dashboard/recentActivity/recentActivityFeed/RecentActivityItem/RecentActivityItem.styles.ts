@@ -2,10 +2,6 @@ import { Typography } from 'antd';
 import styled from 'styled-components';
 import { NFTCard } from '@app/components/nft-dashboard/common/NFTCard/NFTCard';
 
-interface StatusProps {
-  $color: string;
-}
-
 export const ActivityCard = styled(NFTCard)`
   box-shadow: ${(props) => props.theme.boxShadow.nftSecondary};
 `;
@@ -68,18 +64,6 @@ export const Title = styled(Typography.Title)`
   }
 `;
 
-export const StatusText = styled(Typography.Text)<StatusProps>`
-  color: ${(props) => props.$color};
-
-  font-size: ${(props) => props.theme.commonFontSizes.xxs};
-
-  font-family: ${(props) => props.theme.fonts.secondaryFont};
-
-  @media only screen and ${(props) => props.theme.media.xl} {
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
-  }
-`;
-
 export const Text = styled(Typography.Text)`
   display: block;
 
@@ -87,7 +71,7 @@ export const Text = styled(Typography.Text)`
 
   color: ${(props) => props.theme.colors.text.nftLight};
 
-  font-family: ${(props) => props.theme.fonts.secondaryFont};
+  font-family: ${(props) => props.theme.fonts.secondary};
 
   @media only screen and ${(props) => props.theme.media.xl} {
     font-size: ${(props) => props.theme.commonFontSizes.xs};
@@ -96,4 +80,6 @@ export const Text = styled(Typography.Text)`
 
 export const DateText = styled(Text)`
   font-style: italic;
+
+  font-family: ${(props) => props.theme.fonts.main};
 `;

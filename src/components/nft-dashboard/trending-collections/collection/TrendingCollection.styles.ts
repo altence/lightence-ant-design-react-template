@@ -14,10 +14,6 @@ export const CollectionImage = styled.img`
   object-fit: cover;
   border-top-left-radius: ${(props) => props.theme.border.radius};
   border-top-right-radius: ${(props) => props.theme.border.radius};
-
-  @media only screen and ${(props) => props.theme.media.md} {
-    height: 186px;
-  }
 `;
 
 export const NftCollectionInfo = styled.div`
@@ -49,23 +45,25 @@ export const Title = styled(Typography.Title)`
 export const Text = styled(Typography.Text)`
   transition: all 0.5s ease;
 
-  color: ${(props) => props.theme.colors.text.nftLight};
-
   font-size: ${(props) => props.theme.commonFontSizes.xs};
+
+  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
 `;
 
 export const OwnerText = styled(Text)`
+  letter-spacing: 0.02em;
+
   font-size: ${(props) => props.theme.commonFontSizes.xxs};
 
   font-weight: ${(props) => props.theme.commonFontWeight.regular};
 
-  font-family: ${(props) => props.theme.fonts.secondaryFont};
+  font-family: ${(props) => props.theme.fonts.secondary};
 `;
 
 export const USDText = styled(Typography.Text)`
   transition: all 0.5s ease;
 
-  color: ${(props) => props.theme.colors.main.primary};
+  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
 
   font-size: ${(props) => props.theme.commonFontSizes.xs};
 `;
@@ -76,10 +74,8 @@ export const AuthorAvatarWrapper = styled.div`
   top: -45px;
   height: 70px;
   width: 70px;
-  border: 3px solid ${(props) => props.theme.colors.text.secondary};
+  border: 2px solid ${(props) => props.theme.colors.text.secondary};
   border-radius: 50%;
-
-  box-shadow: ${(props) => props.theme.boxShadow.hover};
 `;
 
 export const BidButton = styled(Button)`
@@ -87,7 +83,7 @@ export const BidButton = styled(Button)`
   position: absolute;
   top: 20px;
   right: 20px;
-  padding: 12px 33px;
+  padding: 10px 14px;
   border-radius: 14px;
 
   color: ${(props) => props.theme.colors.text.secondary};
@@ -96,11 +92,7 @@ export const BidButton = styled(Button)`
 
   border-color: ${(props) => props.theme.colors.text.secondary};
 
-  font-size: ${(props) => props.theme.commonFontSizes.xxs};
-
-  &:hover {
-    border-color: ${(props) => props.theme.colors.text.secondary};
-  }
+  font-size: ${(props) => props.theme.commonFontSizes.md};
 `;
 
 export const Card = styled(NFTCard)<CardInternalProps>`
@@ -125,17 +117,13 @@ export const Card = styled(NFTCard)<CardInternalProps>`
     }
 
     ${AuthorAvatarWrapper} {
-      transform: translateY(-70px) scale(1.2);
-
-      @media only screen and ${(props) => props.theme.media.md} {
-        transform: translateY(-120px) scale(1.2);
-      }
+      transform: translateY(-70px) scale(1.1);
     }
 
     ${BidButton} {
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%) scale(1.2);
+      transform: translate(-50%, -50%) scale(1.1);
       position: absolute;
     }
   }

@@ -1,15 +1,14 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { NotFound } from '@app/components/common/NotFound/NotFound';
+import { Col, Row } from 'antd';
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import { Carousel } from '@app/components/common/Carousel/Carousel';
 import { NFTCardHeader } from '@app/components/nft-dashboard/common/NFTCardHeader/NFTCardHeader';
 import { ViewAll } from '@app/components/nft-dashboard/common/ViewAll/ViewAll';
 import { NftCard } from '@app/components/nft-dashboard/recently-added/nft-card/NftCard';
 import { getRecentlyAddedNfts, NftItem } from '@app/api/nftDashboard.api';
-import * as S from './RecentlyAddedNft.styles';
-import { Carousel } from '@app/components/common/Carousel/Carousel';
 import { useResponsive } from '@app/hooks/useResponsive';
-import { Col, Row } from 'antd';
-import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import * as S from './RecentlyAddedNft.styles';
 
 export const RecentlyAddedNft: React.FC = () => {
   const [nfts, setNfts] = useState<NftItem[]>([]);
@@ -63,8 +62,8 @@ export const RecentlyAddedNft: React.FC = () => {
         )}
       </NFTCardHeader>
 
-      <S.SectionContent>
-        {mobileOnly && <S.SectionWrapper>{nfts.length > 0 ? cards.mobile : <NotFound />}</S.SectionWrapper>}
+      <S.SectionWrapper>
+        {mobileOnly && cards.mobile}
 
         {isTablet && nfts.length > 0 && (
           <Carousel
@@ -82,7 +81,7 @@ export const RecentlyAddedNft: React.FC = () => {
             {cards.tablet}
           </Carousel>
         )}
-      </S.SectionContent>
+      </S.SectionWrapper>
 
       {mobileOnly && (
         <S.ViewAllWrapper>

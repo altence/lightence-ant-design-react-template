@@ -2,10 +2,6 @@ import styled from 'styled-components';
 import { Modal } from '@app/components/common/Modal/Modal';
 import { Button } from '@app/components/common/buttons/Button/Button';
 
-export const SectionContent = styled.div`
-  margin: 1.5rem 0 0;
-`;
-
 export const StoriesModal = styled(Modal)`
   @media only screen and (max-width: ${(props) => props.theme.breakpoints.md - 0.02}px) {
     top: 0;

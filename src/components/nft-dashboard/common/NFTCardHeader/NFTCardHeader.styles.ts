@@ -2,12 +2,10 @@ import { Row, Typography } from 'antd';
 import styled from 'styled-components';
 
 export const WrapperRow = styled(Row)`
-  padding-bottom: 0.875rem;
+  margin-bottom: 1.5rem;
 
-  border-bottom: ${(props) => `0.2px solid ${props.theme.colors.border.nft}`};
-
-  @media only screen and ${(props) => props.theme.media.md} {
-    padding-bottom: 1rem;
+  @media only screen and ${(props) => props.theme.media.xl} {
+    margin-bottom: 2.625rem;
   }
 `;
 

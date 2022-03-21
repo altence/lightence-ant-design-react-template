@@ -115,7 +115,8 @@ declare module 'styled-components' {
       headerHeight: string;
     };
     fonts: {
-      secondaryFont: string;
+      main: string;
+      secondary: string;
     };
     commonFontSizes: {
       xxs: string;

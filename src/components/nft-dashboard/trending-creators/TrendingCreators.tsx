@@ -53,133 +53,131 @@ export const TrendingCreators: React.FC = () => {
         </Row>
       </NFTCardHeader>
 
-      <S.SectionContent>
-        {stories.length > 0 && (
-          <Carousel
-            beforeChange={() => setDragging(true)}
-            afterChange={() => setDragging(false)}
-            slidesToShow={11}
-            ref={sliderRef}
-            centerMode={false}
-            infinite={false}
-            responsive={[
-              {
-                breakpoint: 1920,
-                settings: {
-                  slidesToShow: 10,
-                },
+      {stories.length > 0 && (
+        <Carousel
+          beforeChange={() => setDragging(true)}
+          afterChange={() => setDragging(false)}
+          slidesToShow={11}
+          ref={sliderRef}
+          centerMode={false}
+          infinite={false}
+          responsive={[
+            {
+              breakpoint: 1920,
+              settings: {
+                slidesToShow: 10,
               },
-              {
-                breakpoint: 1870,
-                settings: {
-                  slidesToShow: 9,
-                },
+            },
+            {
+              breakpoint: 1870,
+              settings: {
+                slidesToShow: 9,
               },
-              {
-                breakpoint: 1700,
-                settings: {
-                  slidesToShow: 8,
-                },
+            },
+            {
+              breakpoint: 1700,
+              settings: {
+                slidesToShow: 8,
               },
-              {
-                breakpoint: 1530,
-                settings: {
-                  slidesToShow: 7,
-                },
+            },
+            {
+              breakpoint: 1530,
+              settings: {
+                slidesToShow: 7,
               },
-              {
-                breakpoint: 1370,
-                settings: {
-                  slidesToShow: 6,
-                },
+            },
+            {
+              breakpoint: 1370,
+              settings: {
+                slidesToShow: 6,
               },
-              {
-                breakpoint: 1279,
-                settings: {
-                  slidesToShow: 13,
-                },
+            },
+            {
+              breakpoint: 1279,
+              settings: {
+                slidesToShow: 13,
               },
-              {
-                breakpoint: 1200,
-                settings: {
-                  slidesToShow: 12,
-                },
+            },
+            {
+              breakpoint: 1200,
+              settings: {
+                slidesToShow: 12,
               },
-              {
-                breakpoint: 1120,
-                settings: {
-                  slidesToShow: 11,
-                },
+            },
+            {
+              breakpoint: 1120,
+              settings: {
+                slidesToShow: 11,
               },
-              {
-                breakpoint: 1020,
-                settings: {
-                  slidesToShow: 10,
-                },
+            },
+            {
+              breakpoint: 1020,
+              settings: {
+                slidesToShow: 10,
               },
-              {
-                breakpoint: 920,
-                settings: {
-                  slidesToShow: 9,
-                },
+            },
+            {
+              breakpoint: 920,
+              settings: {
+                slidesToShow: 9,
               },
-              {
-                breakpoint: 820,
-                settings: {
-                  slidesToShow: 8,
-                },
+            },
+            {
+              breakpoint: 820,
+              settings: {
+                slidesToShow: 8,
               },
-              {
-                breakpoint: 767,
-                settings: {
-                  slidesToShow: 9,
-                },
+            },
+            {
+              breakpoint: 767,
+              settings: {
+                slidesToShow: 9,
               },
-              {
-                breakpoint: 650,
-                settings: {
-                  slidesToShow: 8,
-                },
+            },
+            {
+              breakpoint: 650,
+              settings: {
+                slidesToShow: 8,
               },
-              {
-                breakpoint: 550,
-                settings: {
-                  slidesToShow: 7,
-                },
+            },
+            {
+              breakpoint: 550,
+              settings: {
+                slidesToShow: 7,
               },
-              {
-                breakpoint: 500,
-                settings: {
-                  slidesToShow: 6,
-                },
+            },
+            {
+              breakpoint: 500,
+              settings: {
+                slidesToShow: 6,
               },
-              {
-                breakpoint: 450,
-                settings: {
-                  slidesToShow: 5,
-                },
+            },
+            {
+              breakpoint: 450,
+              settings: {
+                slidesToShow: 5,
               },
-            ]}
-          >
-            {stories.map((story, index) => (
-              <div key={index}>
-                <S.CardWrapper>
-                  <TrendingCreatorsStory
-                    img={story.header.profileImage}
-                    viewed={story.viewed}
-                    onStoryOpen={() => {
-                      if (!dragging) {
-                        setStoryIndex(index);
-                        setStoryOpened(true);
-                      }
-                    }}
-                  />
-                </S.CardWrapper>
-              </div>
-            ))}
-          </Carousel>
-        )}
-      </S.SectionContent>
+            },
+          ]}
+        >
+          {stories.map((story, index) => (
+            <div key={index}>
+              <S.CardWrapper>
+                <TrendingCreatorsStory
+                  img={story.header.profileImage}
+                  viewed={story.viewed}
+                  onStoryOpen={() => {
+                    if (!dragging) {
+                      setStoryIndex(index);
+                      setStoryOpened(true);
+                    }
+                  }}
+                />
+              </S.CardWrapper>
+            </div>
+          ))}
+        </Carousel>
+      )}
 
       {isStoryOpened && (
         <S.StoriesModal
