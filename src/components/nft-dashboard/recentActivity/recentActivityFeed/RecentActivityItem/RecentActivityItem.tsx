@@ -1,6 +1,5 @@
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from 'styled-components';
 import { activityStatuses } from '@app/constants/config/activityStatuses';
 import { Dates } from '@app/constants/Dates';
 import { Activity } from '@app/api/activity.api';
@@ -8,7 +7,6 @@ import * as S from './RecentActivityItem.styles';
 
 export const RecentActivityItem: React.FC<Activity> = ({ image, title, date, status, owner }) => {
   const { t } = useTranslation();
-  const theme = useTheme();
 
   const currentActivity = useMemo(() => activityStatuses.find((dbStatus) => dbStatus.name === status), [status]);
 
@@ -25,10 +23,7 @@ export const RecentActivityItem: React.FC<Activity> = ({ image, title, date, sta
             <S.Title level={5}>{title}</S.Title>
 
             <S.Text>
-              <S.StatusText $color={theme.colors.main[currentActivity?.color || 'secondary']}>
-                {t(currentActivity?.title || '')}
-              </S.StatusText>{' '}
-              {t('nft.by')} {owner}
+              {t(currentActivity?.title || '')} {t('nft.by')} {owner}
             </S.Text>
           </S.InfoHeaderWrapper>
 

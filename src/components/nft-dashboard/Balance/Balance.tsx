@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Row } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@app/components/common/buttons/Button/Button';
 import { NFTCard } from '@app/components/nft-dashboard/common/NFTCard/NFTCard';
@@ -45,13 +44,13 @@ export const Balance: React.FC = () => {
                   <Row gutter={[26, 26]} wrap={false}>
                     <Col>
                       <S.SubtitleBalanceText>
-                        {getCurrencyPrice(formatNumberWithCommas(balance.eth_balance), 'ETH', false)}
+                        {getCurrencyPrice(formatNumberWithCommas(balance.eth_balance), 'ETH')}
                       </S.SubtitleBalanceText>
                     </Col>
 
                     <Col>
                       <S.SubtitleBalanceText>
-                        {getCurrencyPrice(formatNumberWithCommas(balance.btc_balance), 'BTC', false)}
+                        {getCurrencyPrice(formatNumberWithCommas(balance.btc_balance), 'BTC')}
                       </S.SubtitleBalanceText>
                     </Col>
                   </Row>
@@ -60,7 +59,7 @@ export const Balance: React.FC = () => {
             </Col>
 
             <Col span={24}>
-              <Button type="primary" icon={<PlusOutlined />} block>
+              <Button type="ghost" block>
                 {t('nft.topUpBalance')}
               </Button>
             </Col>

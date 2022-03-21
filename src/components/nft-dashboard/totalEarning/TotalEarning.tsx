@@ -1,55 +1,66 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
+import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
 import { NFTCard } from '@app/components/nft-dashboard/common/NFTCard/NFTCard';
 import { TotalEarningChart } from '@app/components/nft-dashboard/totalEarning/TotalEarningChart/TotalEarningChart';
-import { TotalEarningInfo } from '@app/components/nft-dashboard/totalEarning/TotalEarningInfo/TotalEarningInfo';
 import { useAppSelector } from '@app/hooks/reduxHooks';
-import { Earning, getNFTEarnings, getOtherEarnings } from '@app/api/earnings.api';
+import { getTotalEarning, TotalEarning as ITotalEarning } from '@app/api/earnings.api';
 import { Dates } from '@app/constants/Dates';
+import { formatNumberWithCommas, getCurrencyPrice, getDifference } from '@app/utils/utils';
+import * as S from './TotalEarning.styles';
 
 export const TotalEarning: React.FC = () => {
-  const [NFTEarnings, setNFTEarnings] = useState<Earning[]>([]);
-  const [otherEarnings, setOtherEarnings] = useState<Earning[]>([]);
+  const [totalEarning, setTotalEarning] = useState<ITotalEarning | null>(null);
 
   const userId = useAppSelector((state) => state.user.user?.id);
+
   const { t } = useTranslation();
 
   useEffect(() => {
-    userId && getNFTEarnings(userId, 'USD').then((res) => setNFTEarnings(res));
+    userId && getTotalEarning(userId, 'USD').then((res) => setTotalEarning(res));
   }, [userId]);
 
-  useEffect(() => {
-    userId && getOtherEarnings(userId, 'USD').then((res) => setOtherEarnings(res));
-  }, [userId]);
-
-  const { totalEarning, nftData, otherData, days } = useMemo(
+  const { totalEarningData, days } = useMemo(
     () => ({
-      totalEarning:
-        NFTEarnings.reduce((acc, nextValue) => acc + nextValue.usd_value, 0) +
-        otherEarnings.reduce((acc, nextValue) => acc + nextValue.usd_value, 0),
-      nftData: {
-        name: t('nft.nft'),
-        data: NFTEarnings.map((item) => item.usd_value),
+      totalEarningData: {
+        data: totalEarning ? totalEarning.timeline.map((item) => item.usd_value) : [],
       },
-      otherData: {
-        name: t('nft.other'),
-        data: otherEarnings.map((item) => item.usd_value),
-      },
-      days: NFTEarnings.map((item) => Dates.getDate(item.date).format('L')), // We can use any of arrays, they return last 7 days
+      days: totalEarning ? totalEarning.timeline.map((item) => Dates.getDate(item.date).format('L')) : [],
     }),
-    [NFTEarnings, otherEarnings, t],
+    [totalEarning],
   );
+
+  const isIncreased = Number(totalEarning?.total) > Number(totalEarning?.prevTotal);
 
   return (
     <NFTCard>
-      <Row wrap={false}>
-        <Col span={10}>
-          <TotalEarningInfo value={totalEarning} />
+      <Row gutter={[14, 14]}>
+        <Col span={24}>
+          <Row wrap={false} justify="space-between">
+            <Col>
+              <S.Title level={5}>{t('nft.totalEarning')}</S.Title>
+            </Col>
+
+            <Col>
+              <S.ValueText $color={isIncreased ? 'success' : 'error'}>
+                {isIncreased ? <CaretUpOutlined /> : <CaretDownOutlined />}{' '}
+                {totalEarning && getDifference(totalEarning?.total, totalEarning?.prevTotal)}
+              </S.ValueText>
+            </Col>
+          </Row>
         </Col>
 
-        <Col span={14}>
-          <TotalEarningChart xAxisData={days} firstLine={nftData} secondLine={otherData} />
+        <Col span={24}>
+          <Row wrap={false} justify="space-between" gutter={[20, 20]}>
+            <Col>
+              <S.Text>{getCurrencyPrice(formatNumberWithCommas(totalEarning?.total ?? 0), 'USD')}</S.Text>
+            </Col>
+
+            <Col flex={1}>
+              <TotalEarningChart xAxisData={days} earningData={totalEarningData} />
+            </Col>
+          </Row>
         </Col>
       </Row>
     </NFTCard>

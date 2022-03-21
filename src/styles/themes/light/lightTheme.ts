@@ -50,7 +50,8 @@ const commonColors = {
 };
 
 const fonts = {
-  secondaryFont: 'Lato',
+  main: 'Montserrat',
+  secondary: 'Lato',
 };
 
 const commonFontSizes = {

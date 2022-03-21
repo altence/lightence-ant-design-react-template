@@ -23,17 +23,17 @@ export const getCurrencyPrice = (
     }
 
     case 'BTC': {
-      return isIcon ? `₿${price}` : `${price} BTC`;
+      return isIcon ? `₿ ${price}` : `${price} BTC`;
     }
 
     case 'ETH': {
       return isIcon ? (
         <Row align="middle">
-          <Col>{price}</Col>
-
           <Col style={{ display: 'flex' }}>
             <ETHIcon />
           </Col>
+
+          <Col>{price}</Col>
         </Row>
       ) : (
         `${price} ETH`

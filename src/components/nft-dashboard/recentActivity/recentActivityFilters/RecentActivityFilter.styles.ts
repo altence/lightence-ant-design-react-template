@@ -6,7 +6,7 @@ export const Title = styled(Typography.Text)`
 
   font-size: ${(props) => props.theme.commonFontSizes.xs};
 
-  font-family: ${(props) => props.theme.fonts.secondaryFont};
+  font-family: ${(props) => props.theme.fonts.secondary};
 
   border-bottom: ${(props) => `0.2px solid ${props.theme.colors.border.nft}`};
 

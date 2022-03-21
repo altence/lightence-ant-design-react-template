@@ -1,24 +1,18 @@
 import styled from 'styled-components';
 import { Button } from '@app/components/common/buttons/Button/Button';
 
-export const SectionContent = styled.div`
-  margin: 1.5rem 0 0;
-
-  @media only screen and ${(props) => props.theme.media.md} {
-    margin: 1.625rem 0 0;
-  }
-
+export const SectionWrapper = styled.div`
   .slick-slide > div {
     display: flex;
   }
-`;
 
-export const SectionWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin: 1.5rem 0;
-  gap: 1.25rem;
+  @media only screen and (max-width: ${(props) => props.theme.breakpoints.md - 0.02}px) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
 `;
 
 export const ViewAllWrapper = styled.div`
@@ -27,7 +21,7 @@ export const ViewAllWrapper = styled.div`
 `;
 
 export const CardWrapper = styled.div`
-  margin: 0 1rem;
+  margin: 0 0.625rem;
 `;
 
 export const ArrowBtn = styled(Button)`

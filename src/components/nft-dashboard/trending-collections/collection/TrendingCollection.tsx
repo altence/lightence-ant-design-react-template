@@ -25,7 +25,7 @@ export const TrendingCollection: React.FC<TrendingActivity> = ({
         </S.AuthorAvatarWrapper>
         <S.InfoRow>
           <S.Title level={5}>{title}</S.Title>
-          <S.Text>{getCurrencyPrice(formatNumberWithCommas(eth_value), 'ETH')}</S.Text>
+          <S.Text>{getCurrencyPrice(formatNumberWithCommas(eth_value), 'ETH', false)}</S.Text>
         </S.InfoRow>
         <S.InfoRow>
           <S.OwnerText>

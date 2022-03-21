@@ -63,20 +63,19 @@ export const CurrentBidWrapper = styled.div`
 export const InfoText = styled.span`
   display: block;
   transition: all 0.5s ease;
+  letter-spacing: 0.02em;
 
   font-weight: ${(props) => props.theme.commonFontWeight.regular};
 
   font-size: ${(props) => props.theme.commonFontSizes.xxs};
 
-  font-family: ${(props) => props.theme.fonts.secondaryFont};
+  font-family: ${(props) => props.theme.fonts.secondary};
 `;
 
 export const CurrentBid = styled(InfoText)`
-  color: ${(props) => props.theme.colors.text.nftLight};
-
   font-size: ${(props) => props.theme.commonFontSizes.xxs};
 
-  font-family: ${(props) => props.theme.fonts.secondaryFont};
+  font-family: ${(props) => props.theme.fonts.secondary};
 `;
 
 export const BidCrypto = styled.span`
@@ -92,9 +91,11 @@ export const BidCrypto = styled.span`
 export const Bid = styled(CurrentBid)`
   font-size: ${(props) => props.theme.commonFontSizes.xs};
 
-  color: ${(props) => props.theme.colors.main.primary};
+  color: ${(props) => props.theme.colors.text.main};
 
   font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+
+  font-family: ${(props) => props.theme.fonts.main};
 
   @media only screen and ${(props) => props.theme.media.xl} {
     font-size: ${(props) => props.theme.commonFontSizes.md};

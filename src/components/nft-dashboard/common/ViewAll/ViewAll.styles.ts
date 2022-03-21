@@ -8,11 +8,9 @@ interface ViewAllInternalProps {
 export const ViewAllBtn = styled(Button)<ViewAllInternalProps>`
   font-size: ${(props) => props.theme.commonFontSizes.xs};
 
-  font-weight: ${(props) => props.theme.commonFontWeight.regular};
+  font-weight: ${(props) => props.theme.commonFontWeight.medium};
 
-  color: ${(props) => props.theme.colors.text.nftLight};
-
-  font-family: ${(props) => props.theme.fonts.secondaryFont};
+  color: ${(props) => props.theme.colors.text.main};
 
   ${(props) => props.$bordered && `border-bottom: 0.2px solid ${props.theme.colors.border.nft}`};
 `;

@@ -1,27 +1,33 @@
 import React from 'react';
 import { useTheme } from 'styled-components';
 import { BaseChart, getDefaultTooltipStyles } from '@app/components/common/charts/BaseChart';
-import { ChartData } from '@app/interfaces/interfaces';
+import { ChartData, ChartSeriesData } from '@app/interfaces/interfaces';
+import { formatNumberWithCommas, getCurrencyPrice } from '@app/utils/utils';
 
 interface LineData {
-  name: string;
   data: ChartData;
 }
 
 interface TotalEarningChartProps {
   xAxisData: number[] | string[];
-  firstLine: LineData;
-  secondLine: LineData;
+  earningData: LineData;
 }
 
-export const TotalEarningChart: React.FC<TotalEarningChartProps> = ({ xAxisData, firstLine, secondLine }) => {
+export const TotalEarningChart: React.FC<TotalEarningChartProps> = ({ xAxisData, earningData }) => {
   const theme = useTheme();
 
   const option = {
-    color: [theme.colors.main.chartPrimaryGradient, theme.colors.main.chartSecondaryGradient],
     tooltip: {
       ...getDefaultTooltipStyles(theme),
       trigger: 'axis',
+      crossStyle: {
+        color: 'red',
+      },
+      formatter: (data: ChartSeriesData) => {
+        const currentSeries = data[0];
+
+        return `${currentSeries.name} - ${getCurrencyPrice(formatNumberWithCommas(currentSeries.value), 'USD')}`;
+      },
     },
     grid: {
       top: 0,
@@ -45,41 +51,20 @@ export const TotalEarningChart: React.FC<TotalEarningChartProps> = ({ xAxisData,
     ],
     series: [
       {
-        name: `${firstLine?.name}`,
         type: 'line',
         smooth: true,
         showSymbol: false,
         lineStyle: {
           width: 3,
-          color: theme.colors.charts.color1,
-        },
-        areaStyle: {
-          opacity: 1,
+          color: theme.colors.charts.color3,
         },
         emphasis: {
           focus: 'series',
         },
-        data: firstLine?.data,
-      },
-      {
-        name: `${secondLine?.name}`,
-        type: 'line',
-        smooth: true,
-        lineStyle: {
-          width: 3,
-          color: theme.colors.charts.color5,
-        },
-        showSymbol: false,
-        areaStyle: {
-          opacity: 1,
-        },
-        emphasis: {
-          focus: 'series',
-        },
-        data: secondLine?.data,
+        data: earningData?.data,
       },
     ],
   };
 
-  return <BaseChart option={option} width="100%" height={100} />;
+  return <BaseChart option={option} width="100%" height={75} />;
 };
