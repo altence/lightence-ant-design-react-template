@@ -1966,6 +1966,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lit-labs/react@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@lit-labs/react@npm:1.0.2"
+  checksum: 5bba6752d6ae0abef9caafb7e20243374bfacd5991fa241988cc721cd06c3d2c19ec6e53675a2898088cae9db532b33f4ff76c95a30eb7f5d453e3d62df817af
+  languageName: node
+  linkType: hard
+
+"@lit/reactive-element@npm:^1.3.0":
+  version: 1.3.1
+  resolution: "@lit/reactive-element@npm:1.3.1"
+  checksum: 6aea5975555c42fd4e3fc0efb9fb46d2984c4fde61fc405f927e81c5518a895e0844340514b6d559173b62b3bbe28bdbc293f62997c43d8dfc70caa624cc5a48
+  languageName: node
+  linkType: hard
+
 "@jridgewell/gen-mapping@npm:^0.1.0":
   version: 0.1.1
   resolution: "@jridgewell/gen-mapping@npm:0.1.1"
@@ -2923,6 +2937,13 @@ __metadata:
   version: 1.0.8
   resolution: "@types/tapable@npm:1.0.8"
   checksum: b4b754dd0822c407b8f29ef6b766490721c276880f9e976d92ee2b3ef915f11a05a2442ae36c8978bcd872ad6bc833b0a2c4d267f2d611590668a366bad50652
+  languageName: node
+  linkType: hard
+
+"@types/trusted-types@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@types/trusted-types@npm:2.0.2"
+  checksum: 3371eef5f1c50e1c3c07a127c1207b262ba65b83dd167a1c460fc1b135a3fb0c97b9f508efebd383f239cc5dd5b7169093686a692a501fde9c3f7208657d9b0d
   languageName: node
   linkType: hard
 
@@ -10865,6 +10886,7 @@ __metadata:
   dependencies:
     "@ant-design/icons": ^4.6.2
     "@craco/craco": ^6.1.2
+    "@lit-labs/react": ^1.0.2
     "@reduxjs/toolkit": ^1.7.1
     "@types/country-list": ^2.1.0
     "@types/google-map-react": ^2.1.3
@@ -10926,6 +10948,7 @@ __metadata:
     react-slick: ^0.28.1
     react-trello: ^2.2.11
     react-verification-input: ^2.0.3
+    round-slider: "altence/round-slider#refactor/slider"
     slick-carousel: ^1.8.1
     styled-components: ^5.3.0
     stylelint: ^13.13.1
@@ -11003,6 +11026,36 @@ __metadata:
     enquirer:
       optional: true
   checksum: fdb8b2d6bdf5df9371ebd5082bee46c6d0ca3d1e5f2b11fbb5a127839855d5f3da9d4968fce94f0a5ec67cac2459766abbb1faeef621065ebb1829b11ef9476d
+  languageName: node
+  linkType: hard
+
+"lit-element@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "lit-element@npm:3.2.0"
+  dependencies:
+    "@lit/reactive-element": ^1.3.0
+    lit-html: ^2.2.0
+  checksum: 64bd0f05f7a93921a5853e92f4b86b75affc088805f5ce0249c62a02a1d44445dea5c8319badc4cae6e5663afeb60296e3e0f63fd3af265b89fa482c8a846c3d
+  languageName: node
+  linkType: hard
+
+"lit-html@npm:^2.2.0":
+  version: 2.2.1
+  resolution: "lit-html@npm:2.2.1"
+  dependencies:
+    "@types/trusted-types": ^2.0.2
+  checksum: 8f81d6342de530e689b9be14c634f3e101625039b858b067ba356f586ee67ce3f21b68138c39196ffd6cf6a5e24302f21b1d4e2523e493b8cdc42320317f3d20
+  languageName: node
+  linkType: hard
+
+"lit@npm:^2.0.0-rc.2":
+  version: 2.2.1
+  resolution: "lit@npm:2.2.1"
+  dependencies:
+    "@lit/reactive-element": ^1.3.0
+    lit-element: ^3.2.0
+    lit-html: ^2.2.0
+  checksum: a987111ca9fbff3237bd13b659790fef4511fd366ee024ce89dc91309a2c048f600caded9444b97762e075e8a978f3b268656816bab736f534da89a313b2880d
   languageName: node
   linkType: hard
 
@@ -15851,6 +15904,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"round-slider@altence/round-slider#refactor/slider":
+  version: 0.5.4
+  resolution: "round-slider@https://github.com/altence/round-slider.git#commit=7ff271458c98d7d975f66963c929c4f2051489de"
+  dependencies:
+    lit: ^2.0.0-rc.2
+    tslib: ^2.2.0
+  checksum: 560676924d0166b76a20f5b4f5f6ad4ad1f15da97bb06d207ea06a2c686bf420515e04b7ca690a0624f915679b4bc50fcb9f0e19e96a797ebafc1a279a316fe7
+  languageName: node
+  linkType: hard
+
 "rsvp@npm:^4.8.4":
   version: 4.8.5
   resolution: "rsvp@npm:4.8.5"
@@ -17687,7 +17750,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.3.0":
+"tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.2.0, tslib@npm:^2.3.0":
   version: 2.4.1
   resolution: "tslib@npm:2.4.1"
   checksum: 19480d6e0313292bd6505d4efe096a6b31c70e21cf08b5febf4da62e95c265c8f571f7b36fcc3d1a17e068032f59c269fab3459d6cd3ed6949eafecf64315fca

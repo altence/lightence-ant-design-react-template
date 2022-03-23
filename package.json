@@ -13,6 +13,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
     "@craco/craco": "^6.1.2",
+    "@lit-labs/react": "^1.0.2",
     "@reduxjs/toolkit": "^1.7.1",
     "antd": "^4.22.4",
     "antd-mask-input": "^0.1.15",
@@ -47,6 +48,7 @@
     "react-slick": "^0.28.1",
     "react-trello": "^2.2.11",
     "react-verification-input": "^2.0.3",
+    "round-slider": "altence/round-slider#refactor/slider",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.0",
     "typeface-lato": "^1.1.13",
