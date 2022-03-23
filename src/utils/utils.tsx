@@ -191,3 +191,6 @@ export const hexToHSL = (hex: string): { h: number; s: number; l: number } => {
 export const formatNumberWithCommas = (value: number): string => {
   return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 };
+export const msToH = (ms: number): number => Math.floor(ms / 3600000);
+
+export const hToMS = (h: number): number => h * 3600000;
