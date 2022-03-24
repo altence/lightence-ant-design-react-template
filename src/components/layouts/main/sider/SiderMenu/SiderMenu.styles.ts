@@ -14,6 +14,11 @@ export const Menu = styled(AntMenu)`
     color: ${(props) => props.theme.colors.text.secondary};
   }
 
+  .ant-menu-item,
+  .ant-menu-submenu {
+    font-size: ${(props) => props.theme.commonFontSizes.xs};
+  }
+
   .ant-menu-item:hover,
   .ant-menu-item-active,
   .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
