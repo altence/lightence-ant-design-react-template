@@ -74,8 +74,13 @@ export const Button = styled(AntButton)<BtnProps>`
 
       ${props.type === 'primary' &&
       css`
+        background: ${(props) => props.theme.colors.main.primaryGradient};
+
         &:hover {
-          background: ${props.theme.colors.main.secondary};
+          background: linear-gradient(
+            ${props.theme.colors.main.secondary} 100%,
+            ${props.theme.colors.main.secondary} 100%
+          );
 
           border-color: ${props.theme.colors.main.secondary};
         }
