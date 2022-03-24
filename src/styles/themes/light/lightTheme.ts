@@ -83,13 +83,14 @@ const colors = {
     primaryGradient: 'linear-gradient(211.49deg, #006CCF 15.89%, #00509A 48.97%)',
     light: '#C5D3E0',
     secondary: '#0085FF',
-    error: '#ed0505',
+    error: '#FF5252',
     warning: '#FFB155',
-    success: '#076626',
+    success: '#57D682',
     angularGradient:
       'conic-gradient(from -35.18deg at 50% 50%, #006CCF -154.36deg, #FF5252 24.13deg, #FFB155 118.76deg, #006CCF 205.64deg, #FF5252 384.13deg)',
     mainBackground: commonColors.white,
     secondaryBackground: '#F8FBFF',
+    additionalBackground: '#ffffff',
     spinnerBase: '#f42f25',
     chartPrimaryGradient: new graphic.LinearGradient(0, 0, 0, 1, [
       {
@@ -128,11 +129,14 @@ const colors = {
     superLight: '#BEC0C6',
     secondary: commonColors.white,
     dark: '#404040',
-    nftLight: '#7C7E83',
+    nftLight: '#79819A',
   },
   border: {
     main: '#cce1f4',
-    nft: '#A3A3B3',
+    nft: '#79819A',
+  },
+  sider: {
+    background: '#ffffff',
   },
   dashboardMap: {
     background:
@@ -154,7 +158,7 @@ const colors = {
     color1Tint: '#2983D8',
     color2: '#35A0DC',
     color2Tint: '#67C5FA',
-    color3: '#FFDA92',
+    color3: '#FFB155',
     color3Tint: '#FFA800',
     color4: '#31A652',
     color4Tint: '#89DCA0',

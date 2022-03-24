@@ -30,6 +30,7 @@ declare module 'styled-components' {
         angularGradient: string;
         mainBackground: string;
         secondaryBackground: string;
+        additionalBackground: string;
         chartPrimaryGradient: LinearGradientObject;
         chartSecondaryGradient: LinearGradientObject;
         chartAdditionalGradient: LinearGradientObject;
@@ -45,6 +46,9 @@ declare module 'styled-components' {
       border: {
         main: string;
         nft: string;
+      };
+      sider: {
+        background: string;
       };
       dashboardMap: {
         background: string;

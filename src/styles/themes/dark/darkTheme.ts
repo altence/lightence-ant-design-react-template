@@ -3,17 +3,18 @@ import { graphic } from 'echarts';
 
 const darkColors = {
   main: {
-    primary: '#7568f6',
+    primary: '#4F89FF',
     primaryGradient: 'linear-gradient(211.49deg, #dc88f5 15.89%, #7568f6 48.97%)',
     light: '#696969',
     secondary: '#dc88f5',
-    error: '#ff3d71',
-    warning: '#ffaa00',
-    success: '#62d7c6',
+    error: '#FF5252',
+    warning: '#FFB765',
+    success: '#57D682',
     angularGradient:
       'conic-gradient(from -35.18deg at 50% 50%, #006CCF -154.36deg, #FF5252 24.13deg, #FFB155 118.76deg, #006CCF 205.64deg, #FF5252 384.13deg)',
-    mainBackground: '#2D2C3E',
+    mainBackground: '#25284B',
     secondaryBackground: '#1c2137',
+    additionalBackground: '#1D203E',
     spinnerBase: '#7568f6',
     chartPrimaryGradient: new graphic.LinearGradient(0, 0, 0, 1, [
       {
@@ -52,11 +53,14 @@ const darkColors = {
     superLight: '#444',
     secondary: '#ffffff',
     dark: '#404040',
-    nftLight: '#7C7E83',
+    nftLight: '#797C9A',
   },
   border: {
     main: '#ffffff',
-    nft: '#ffffff',
+    nft: '#797C9A',
+  },
+  sider: {
+    background: '#121430',
   },
   dashboardMap: {
     background: 'linear-gradient(315deg, #0cbaba 0%, #380036 74%)',
@@ -73,7 +77,7 @@ const darkColors = {
     color1Tint: '#7568f6', // update
     color2: '#dc88f5',
     color2Tint: '#dc88f5', // update
-    color3: '#62d7c6',
+    color3: '#FFB765',
     color3Tint: '#62d7c6', // update
     color4: '#306955',
     color4Tint: '#306955', // update

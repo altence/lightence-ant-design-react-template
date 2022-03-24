@@ -30,7 +30,7 @@ export const Balance: React.FC = () => {
       </Col>
 
       <Col span={24}>
-        <NFTCard>
+        <NFTCard isSider>
           <Row gutter={[30, 30]}>
             <Col span={24}>
               <Row gutter={[14, 14]}>

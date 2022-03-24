@@ -8,8 +8,6 @@ export const ProfileDropdownHeader = styled(DropdownHeader)`
   @media only screen and ${(props) => props.theme.media.md} {
     border-radius: 50px;
     padding: 0.3125rem 0.2rem;
-
-    background-color: ${(props) => props.theme.colors.main.secondaryBackground};
   }
 `;
 
