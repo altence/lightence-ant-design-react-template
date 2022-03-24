@@ -34,7 +34,7 @@ export const TotalEarning: React.FC = () => {
   const isIncreased = Number(totalEarning?.total) > Number(totalEarning?.prevTotal);
 
   return (
-    <NFTCard>
+    <NFTCard isSider>
       <Row gutter={[14, 14]}>
         <Col span={24}>
           <Row wrap={false} justify="space-between">

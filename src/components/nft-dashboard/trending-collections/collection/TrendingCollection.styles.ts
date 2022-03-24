@@ -57,6 +57,8 @@ export const OwnerText = styled(Text)`
   font-weight: ${(props) => props.theme.commonFontWeight.regular};
 
   font-family: ${(props) => props.theme.fonts.secondary};
+
+  color: ${(props) => props.theme.colors.text.nftLight};
 `;
 
 export const USDText = styled(Typography.Text)`

@@ -70,12 +70,16 @@ export const InfoText = styled.span`
   font-size: ${(props) => props.theme.commonFontSizes.xxs};
 
   font-family: ${(props) => props.theme.fonts.secondary};
+
+  color: ${(props) => props.theme.colors.text.nftLight};
 `;
 
 export const CurrentBid = styled(InfoText)`
   font-size: ${(props) => props.theme.commonFontSizes.xxs};
 
   font-family: ${(props) => props.theme.fonts.secondary};
+
+  color: ${(props) => props.theme.colors.text.main};
 `;
 
 export const BidCrypto = styled.span`
