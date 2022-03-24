@@ -71,10 +71,9 @@ export const AuthorAvatarWrapper = styled.div`
   transition: all 0.5s ease;
   position: absolute;
   top: -45px;
-  height: 70px;
-  width: 70px;
-  border: 2px solid ${(props) => props.theme.colors.text.secondary};
   border-radius: 50%;
+
+  border: 2px solid ${(props) => props.theme.colors.text.secondary};
 `;
 
 export const BidButton = styled(Button)`
