@@ -4,6 +4,7 @@ import { NotificationType } from '@app/components/common/Notification/Notificati
 import { CurrencyType } from '@app/interfaces/interfaces';
 import { Priority } from '@app//constants/enums/priorities';
 import { ReactComponent as ETHIcon } from '@app/assets/icons/eth.svg';
+import { ReactComponent as BTCIcon } from '@app/assets/icons/btc.svg';
 
 export const camelize = (string: string): string => {
   return string
@@ -23,12 +24,22 @@ export const getCurrencyPrice = (
     }
 
     case 'BTC': {
-      return isIcon ? `₿ ${price}` : `${price} BTC`;
+      return isIcon ? (
+        <Row align="middle" gutter={[8, 8]}>
+          <Col style={{ display: 'flex' }}>
+            <BTCIcon />
+          </Col>
+
+          <Col>{price}</Col>
+        </Row>
+      ) : (
+        `${price} BTC`
+      );
     }
 
     case 'ETH': {
       return isIcon ? (
-        <Row align="middle">
+        <Row align="middle" gutter={[8, 8]}>
           <Col style={{ display: 'flex' }}>
             <ETHIcon />
           </Col>
