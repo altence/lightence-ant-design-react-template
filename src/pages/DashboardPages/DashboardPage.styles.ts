@@ -8,7 +8,7 @@ export const RightSideCol = styled(Col)`
   display: flex;
   flex-direction: column;
   height: calc(100vh - ${(props) => props.theme.desktopLayout.headerHeight});
-  background-color: ${(props) => props.theme.colors.main.mainBackground};
+  background-color: ${(props) => props.theme.colors.sider.background};
 `;
 
 export const LeftSideCol = styled(Col)`
@@ -27,4 +27,9 @@ export const Space = styled.div`
 export const ScrollWrapper = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
+
+  .ant-card-body {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 `;
