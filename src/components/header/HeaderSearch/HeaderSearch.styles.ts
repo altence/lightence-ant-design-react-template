@@ -21,15 +21,10 @@ export const InputSearch = styled(SearchInput)`
   }
 
   @media only screen and ${(props) => props.theme.media.md} {
-    input {
-      background-color: ${(props) => props.theme.colors.main.secondaryBackground};
-    }
-
     .ant-input-group .ant-input-affix-wrapper:not(:last-child) {
       border-radius: 3.125rem;
       border: 0;
       padding: 0.5625rem 1.25rem;
-      background-color: ${(props) => props.theme.colors.main.secondaryBackground};
     }
   }
 `;
