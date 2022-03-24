@@ -26,7 +26,7 @@ export const Balance: React.FC = () => {
   return (
     <Row>
       <Col span={24}>
-        <S.TitleText level={5}>{t('nft.yourBalance')}:</S.TitleText>
+        <S.TitleText level={5}>{t('nft.yourBalance')}</S.TitleText>
       </Col>
 
       <Col span={24}>
