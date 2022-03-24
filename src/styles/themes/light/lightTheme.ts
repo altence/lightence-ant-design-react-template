@@ -80,9 +80,9 @@ const commonFontWeight = {
 const colors = {
   main: {
     primary: '#01509A',
-    primaryGradient: 'linear-gradient(261.31deg, #006CCF -29.57%, #00509A 121.11%)',
+    primaryGradient: 'linear-gradient(211.49deg, #006CCF 15.89%, #00509A 48.97%)',
     light: '#C5D3E0',
-    secondary: '#0475dd',
+    secondary: '#0085FF',
     error: '#ed0505',
     warning: '#FFB155',
     success: '#076626',
