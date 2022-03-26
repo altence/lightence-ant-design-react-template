@@ -5,7 +5,9 @@ interface ThemeState {
   theme: ThemeType;
 }
 
-export const defaultTheme = (localStorage.getItem('theme') as ThemeType) || 'dark';
+const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
+export const defaultTheme = (localStorage.getItem('theme') as ThemeType) || preferredTheme;
 
 localStorage.setItem('theme', defaultTheme);
 
