@@ -481,7 +481,8 @@
       "nightMode": {
           "from": "From",
           "title": "Nightmode",
-          "to": "To"
+          "to": "To",
+          "h": "h"
       },
       "notifications": {
           "loginAttempt": "There was an attempt to log in to your account from another device",

@@ -481,7 +481,8 @@
       "nightMode": {
           "from": "Ab",
           "title": "Nacht-Modus",
-          "to": "Bis"
+          "to": "Bis",
+          "h": "s"
       },
       "notifications": {
           "loginAttempt": "Es wurde versucht, sich von einem anderen Gerät aus bei Ihrem Konto anzumelden",
