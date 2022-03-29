@@ -38,38 +38,65 @@ export const NightTimeSlider: React.FC<NightTimeSliderProps> = ({ from, to, setN
   const { t } = useTranslation();
 
   return (
-    <S.Wrapper>
-      <RoundSliderComponent
-        min={0}
-        max={23}
-        step={1}
-        arcLength={360}
-        startAngle={-90}
-        low={fromValue}
-        high={toValue}
-        onChange={(event) => handleSlider(event, setFromValue, setToValue)}
-        onValueChanged={(event) =>
-          handleSlider(
-            event,
-            (value) => setNightTime([hToMS(value), to]),
-            (value) => setNightTime([from, hToMS(value)]),
-          )
-        }
-      />
+    <>
+      <S.Wrapper>
+        <RoundSliderComponent
+          min={0}
+          max={23}
+          handleSize={12}
+          step={1}
+          arcLength={360}
+          startAngle={-97}
+          low={fromValue}
+          high={toValue}
+          onChange={(event) => handleSlider(event, setFromValue, setToValue)}
+          onValueChanged={(event) =>
+            handleSlider(
+              event,
+              (value) => setNightTime([hToMS(value), to]),
+              (value) => setNightTime([from, hToMS(value)]),
+            )
+          }
+        />
+        <S.InnerWrapper>
+          <S.TopText>24</S.TopText>
 
-      <S.TextWrapper>
-        <S.TextColumn>
-          <S.Label>{t('header.nightMode.from').toUpperCase()}</S.Label>
+          <S.RightText>6</S.RightText>
 
-          <S.Text>{fromValue}</S.Text>
-        </S.TextColumn>
+          <S.CenterText>
+            {toValue > fromValue ? toValue - fromValue : 24 - fromValue + toValue}
+            {t('header.nightMode.h')}
+          </S.CenterText>
 
-        <S.TextColumn>
-          <S.Label>{t('header.nightMode.to').toUpperCase()}</S.Label>
+          <S.BotText>12</S.BotText>
 
-          <S.Text>{toValue}</S.Text>
-        </S.TextColumn>
-      </S.TextWrapper>
-    </S.Wrapper>
+          <S.LeftText>18</S.LeftText>
+        </S.InnerWrapper>
+      </S.Wrapper>
+
+      <S.TimeRow>
+        <S.TimeWrapper>
+          <S.Text>{t('header.nightMode.from').toUpperCase()}</S.Text>
+          <S.NumberInput
+            size="small"
+            min={0}
+            max={23}
+            value={fromValue}
+            onChange={(value) => setFromValue(Number(value))}
+          />
+        </S.TimeWrapper>
+
+        <S.TimeWrapper>
+          <S.Text>{t('header.nightMode.to').toUpperCase()}</S.Text>
+          <S.NumberInput
+            size="small"
+            min={0}
+            max={23}
+            value={toValue}
+            onChange={(value) => setToValue(Number(value))}
+          />
+        </S.TimeWrapper>
+      </S.TimeRow>
+    </>
   );
 };
