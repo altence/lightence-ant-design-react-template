@@ -58,7 +58,9 @@ export const NightTimeSlider: React.FC<NightTimeSliderProps> = ({ from, to, setN
             )
           }
         />
-        <S.InnerWrapper>
+        <S.ShadowWrapper />
+
+        <S.BackgroundWrapper>
           <S.TopText>24</S.TopText>
 
           <S.RightText>6</S.RightText>
@@ -71,13 +73,14 @@ export const NightTimeSlider: React.FC<NightTimeSliderProps> = ({ from, to, setN
           <S.BotText>12</S.BotText>
 
           <S.LeftText>18</S.LeftText>
-        </S.InnerWrapper>
+        </S.BackgroundWrapper>
       </S.Wrapper>
 
       <S.TimeRow>
         <S.TimeWrapper>
           <S.Text>{t('header.nightMode.from').toUpperCase()}</S.Text>
           <S.NumberInput
+            type="number"
             size="small"
             min={0}
             max={23}
@@ -89,6 +92,7 @@ export const NightTimeSlider: React.FC<NightTimeSliderProps> = ({ from, to, setN
         <S.TimeWrapper>
           <S.Text>{t('header.nightMode.to').toUpperCase()}</S.Text>
           <S.NumberInput
+            type="number"
             size="small"
             min={0}
             max={23}
