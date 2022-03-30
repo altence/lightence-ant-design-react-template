@@ -7810,6 +7810,7 @@ __metadata:
 =======
 "electron-to-chromium@npm:^1.3.564, electron-to-chromium@npm:^1.4.84":
 <<<<<<< HEAD
+<<<<<<< HEAD
   version: 1.4.91
   resolution: "electron-to-chromium@npm:1.4.91"
   checksum: 48396dc8b1aff87671853c9b39432402079e99f62da1c5f136231c292c43012965f0bc14ff7ae8fcad5a8af437c21912b0fc5399bde98ed3d4c2b871a0ae781d
@@ -7819,6 +7820,11 @@ __metadata:
   resolution: "electron-to-chromium@npm:1.4.99"
   checksum: 7efb73368db78b55bc1c9563364f69f2715f085ac2a0e9b8dab0f319025fbd6464e0eaf47eb5e447f1d4e76f9de919bec5e338bf87443ad8dcb34b2829fc82b7
 >>>>>>> fe15f957 (refactor(slider): set theme on load)
+=======
+  version: 1.4.102
+  resolution: "electron-to-chromium@npm:1.4.102"
+  checksum: 0df8d3d349e33f454b7b98db8397fffd29f17814a88bba82b9d49f562d3b87fba017115fed074ff2ee89ef00db0dfb5765eac35929fb0e03bc203dd1fa33d5a3
+>>>>>>> 0d3c577c (feat(slider): add border and shadow)
   languageName: node
   linkType: hard
 
@@ -8342,11 +8348,19 @@ __metadata:
   linkType: hard
 
 "eslint-plugin-react-hooks@npm:^4.2.0, eslint-plugin-react-hooks@npm:^4.3.0":
+<<<<<<< HEAD
   version: 4.6.0
   resolution: "eslint-plugin-react-hooks@npm:4.6.0"
   peerDependencies:
     eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0
   checksum: 23001801f14c1d16bf0a837ca7970d9dd94e7b560384b41db378b49b6e32dc43d6e2790de1bd737a652a86f81a08d6a91f402525061b47719328f586a57e86c3
+=======
+  version: 4.4.0
+  resolution: "eslint-plugin-react-hooks@npm:4.4.0"
+  peerDependencies:
+    eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0
+  checksum: 350b50d45677cb2df682b9e54475912746bd2f56fc342e4d47fad78d71eb1b2b742e702f1e6c04ab2196346d3d7a2e327b5eee826f5b96bfb84b5c41d35e44e9
+>>>>>>> 0d3c577c (feat(slider): add border and shadow)
   languageName: node
   linkType: hard
 
@@ -12435,6 +12449,7 @@ __metadata:
 <<<<<<< HEAD
 <<<<<<< HEAD
 "lru-cache@npm:^7.7.1":
+<<<<<<< HEAD
   version: 7.14.1
   resolution: "lru-cache@npm:7.14.1"
   checksum: d72c6713c6a6d86836a7a6523b3f1ac6764768cca47ec99341c3e76db06aacd4764620e5e2cda719a36848785a52a70e531822dc2b33fb071fa709683746c104
@@ -12447,6 +12462,11 @@ __metadata:
   resolution: "lru-cache@npm:7.7.1"
   checksum: f362c5a2cfa8ad6fe557ec43dc1b7a9695cce84a5652a43ff813609f782f5da576631e7dfad41878bf19a7a69438f38375178635ee80de269aa314280ca2f59e
 >>>>>>> bd6e7577 (feat(app): update yarn lock and fix ref errors in inputs)
+=======
+  version: 7.7.3
+  resolution: "lru-cache@npm:7.7.3"
+  checksum: 1789743a68a8db052564a9dd020f04ba0712327a43e08babc94f05e1c56ef75a03514cf4acab75ae90e3d5d16ae02c7bf0f34754968dc5b8c2c3bc2d92c21745
+>>>>>>> 0d3c577c (feat(slider): add border and shadow)
   languageName: node
   linkType: hard
 
@@ -12488,6 +12508,7 @@ __metadata:
 "make-fetch-happen@npm:^10.0.3":
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   version: 10.2.1
   resolution: "make-fetch-happen@npm:10.2.1"
   dependencies:
@@ -12503,6 +12524,10 @@ __metadata:
 =======
   version: 10.1.0
   resolution: "make-fetch-happen@npm:10.1.0"
+=======
+  version: 10.1.1
+  resolution: "make-fetch-happen@npm:10.1.1"
+>>>>>>> 0d3c577c (feat(slider): add border and shadow)
   dependencies:
     agentkeepalive: ^4.2.1
     cacache: ^16.0.2
@@ -12535,11 +12560,15 @@ __metadata:
     socks-proxy-agent: ^6.1.1
     ssri: ^8.0.1
 <<<<<<< HEAD
+<<<<<<< HEAD
   checksum: cf3e745567f114bf161e13dbde402cff916482930936c102543b5c6e5e6409921b05d38d6400c92ed0b43011b185c8f39a9f504c9a1bdb956eeeed39929451a6
 >>>>>>> bd6e7577 (feat(app): update yarn lock and fix ref errors in inputs)
 =======
   checksum: fae1c2f255f6467bf6731344c2c04dd0e1f1899d8ae4698d98e2c86131ba899a418746ebc564493b85d1651d43c93b49f7825a2773edda4285a1c4c5e5ba9168
 >>>>>>> fe15f957 (refactor(slider): set theme on load)
+=======
+  checksum: 3f1b0acc2032061a01bb44458e07bbd5721e3fbfb5a1620eef38e7c7d022f2141373fc41a8056685441c70444d94e1479485492ac6e9e8ad5de87ea29ca9d9e4
+>>>>>>> 0d3c577c (feat(slider): add border and shadow)
   languageName: node
   linkType: hard
 
@@ -15062,12 +15091,21 @@ __metadata:
   linkType: hard
 
 "postcss-selector-parser@npm:^6.0.0, postcss-selector-parser@npm:^6.0.2, postcss-selector-parser@npm:^6.0.5":
+<<<<<<< HEAD
   version: 6.0.11
   resolution: "postcss-selector-parser@npm:6.0.11"
   dependencies:
     cssesc: ^3.0.0
     util-deprecate: ^1.0.2
   checksum: 0b01aa9c2d2c8dbeb51e9b204796b678284be9823abc8d6d40a8b16d4149514e922c264a8ed4deb4d6dbced564b9be390f5942c058582d8656351516d6c49cde
+=======
+  version: 6.0.10
+  resolution: "postcss-selector-parser@npm:6.0.10"
+  dependencies:
+    cssesc: ^3.0.0
+    util-deprecate: ^1.0.2
+  checksum: 46afaa60e3d1998bd7adf6caa374baf857cc58d3ff944e29459c9a9e4680a7fe41597bd5b755fc81d7c388357e9bf67c0251d047c640a09f148e13606b8a8608
+>>>>>>> 0d3c577c (feat(slider): add border and shadow)
   languageName: node
   linkType: hard
 
@@ -16270,6 +16308,7 @@ __metadata:
   linkType: hard
 
 "react-dom@npm:>= 16.3":
+<<<<<<< HEAD
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
   dependencies:
@@ -16278,6 +16317,16 @@ __metadata:
   peerDependencies:
     react: ^18.2.0
   checksum: 7d323310bea3a91be2965f9468d552f201b1c27891e45ddc2d6b8f717680c95a75ae0bc1e3f5cf41472446a2589a75aed4483aee8169287909fcd59ad149e8cc
+=======
+  version: 18.0.0
+  resolution: "react-dom@npm:18.0.0"
+  dependencies:
+    loose-envify: ^1.1.0
+    scheduler: ^0.21.0
+  peerDependencies:
+    react: ^18.0.0
+  checksum: dd0ba9f2f31dd728076c892a95b2f5a8dfe79136431b0289afb46eec39d0ca6b6f0f40a60fd8aa6ef702c98ce7c26100d3d4dbc35c7c9e87429cd04f84cb58bd
+>>>>>>> 0d3c577c (feat(slider): add border and shadow)
   languageName: node
   linkType: hard
 
@@ -16738,6 +16787,7 @@ __metadata:
 
 "react-verification-input@npm:^2.0.3":
 <<<<<<< HEAD
+<<<<<<< HEAD
   version: 2.0.8
   resolution: "react-verification-input@npm:2.0.8"
   peerDependencies:
@@ -16752,15 +16802,31 @@ __metadata:
     react-dom: 16.8.0 - 17.x.x
   checksum: e224ffaf41e9b294b53026f9239987ca90b0d54db961245738f1fed8075979debe1f8657b65084995cc88fe44a81874e028823427833452c145d591f204bed46
 >>>>>>> fe15f957 (refactor(slider): set theme on load)
+=======
+  version: 2.0.6
+  resolution: "react-verification-input@npm:2.0.6"
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  checksum: e6452a46239764c88be9df922f790f66995d450dae0dabb9c4a06c4d62bab3da61a8b448cec85b605e03f33df80744a230d2024f52065a84dae96a5f1584bc83
+>>>>>>> 0d3c577c (feat(slider): add border and shadow)
   languageName: node
   linkType: hard
 
 "react@npm:>= 16.3":
+<<<<<<< HEAD
   version: 18.2.0
   resolution: "react@npm:18.2.0"
   dependencies:
     loose-envify: ^1.1.0
   checksum: 88e38092da8839b830cda6feef2e8505dec8ace60579e46aa5490fc3dc9bba0bd50336507dc166f43e3afc1c42939c09fe33b25fae889d6f402721dcd78fca1b
+=======
+  version: 18.0.0
+  resolution: "react@npm:18.0.0"
+  dependencies:
+    loose-envify: ^1.1.0
+  checksum: 293020b96536b3c7113ee57ca5c990a3f25649d1751b1c7a3aabd16dff0691fe9f1eed1206616d0906d05933536052037340a0c8d0941ff870b0eb469a2f975b
+>>>>>>> 0d3c577c (feat(slider): add border and shadow)
   languageName: node
   linkType: hard
 
@@ -17462,11 +17528,11 @@ __metadata:
 
 "round-slider@altence/round-slider#refactor/slider":
   version: 0.5.4
-  resolution: "round-slider@https://github.com/altence/round-slider.git#commit=4f9195cd271878f57a1808ccf87f0c0ac2c6435e"
+  resolution: "round-slider@https://github.com/altence/round-slider.git#commit=d59576da285891f40766ee4766068938d9b19764"
   dependencies:
     lit: ^2.0.0-rc.2
     tslib: ^2.2.0
-  checksum: ca7cfb67d1646186ae87172786b8c8b00af90be0d4d108513090c20e4a9ed94bf7d7c619538d2c189f0739bb8fdee73f5c07f1b9db2b2b8d1934962ce333a407
+  checksum: af7cf468184e4ee12b9b4189ed358c940d5a27f0b7b238524d64f0d99581269ee096f5ea132371664f65c7441289ae12539e490ff9c6e7f9891fbc40aa81caf8
   languageName: node
   linkType: hard
 
@@ -17630,12 +17696,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "scheduler@npm:^0.23.0":
   version: 0.23.0
   resolution: "scheduler@npm:0.23.0"
   dependencies:
     loose-envify: ^1.1.0
   checksum: d79192eeaa12abef860c195ea45d37cbf2bbf5f66e3c4dcd16f54a7da53b17788a70d109ee3d3dde1a0fd50e6a8fc171f4300356c5aee4fc0171de526bf35f8a
+=======
+"scheduler@npm:^0.21.0":
+  version: 0.21.0
+  resolution: "scheduler@npm:0.21.0"
+  dependencies:
+    loose-envify: ^1.1.0
+  checksum: 4f8285076041ed2c81acdd1faa987f1655fdbd30554bc667c1ea64743fc74fb3a04ca7d27454b3d678735df5a230137a3b84756061b43dc5796e80701b66d124
+>>>>>>> 0d3c577c (feat(slider): add border and shadow)
   languageName: node
   linkType: hard
 
