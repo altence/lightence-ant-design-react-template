@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
   --round-slider-handle-border-color: ${(props) => props.theme.colors.main.primary};
 
   round-slider {
-    z-index: 1;
+    z-index: 1; // To make it under InnerWrapper
   }
 `;
 
@@ -26,20 +26,24 @@ export const InnerWrapper = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 0;
   pointer-events: none;
-
+  border-radius: 50%;
   width: calc(100% - ${pathWidth * 2}px);
   height: calc(100% - ${pathWidth * 2}px);
+`;
 
+export const BackgroundWrapper = styled(InnerWrapper)`
   background: linear-gradient(
     270deg,
     rgba(1, 53, 154, 0.3) 0%,
     rgba(96, 126, 233, 0.4) 0.01%,
     rgba(79, 192, 255, 0.05) 100%
   );
+`;
+
+export const ShadowWrapper = styled(InnerWrapper)`
   box-shadow: 0px -4px 16px rgba(1, 80, 154, 0.1), 0px 4px 16px rgba(1, 80, 154, 0.1);
-  border-radius: 50%;
+  z-index: 2; // To make it under slider
 `;
 
 export const Text = styled(Typography.Text)`
