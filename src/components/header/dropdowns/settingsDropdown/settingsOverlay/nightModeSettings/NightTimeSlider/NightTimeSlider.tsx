@@ -83,9 +83,9 @@ export const NightTimeSlider: React.FC<NightTimeSliderProps> = ({ from, to, setN
             type="number"
             size="small"
             min={0}
-            max={23}
+            max={24}
             value={fromValue}
-            onChange={(value) => setFromValue(Number(value))}
+            onChange={(value) => setFromValue(Number(value == 24 ? 0 : value))}
           />
         </S.TimeWrapper>
 
@@ -95,9 +95,9 @@ export const NightTimeSlider: React.FC<NightTimeSliderProps> = ({ from, to, setN
             type="number"
             size="small"
             min={0}
-            max={23}
+            max={24}
             value={toValue}
-            onChange={(value) => setToValue(Number(value))}
+            onChange={(value) => setToValue(Number(value == 24 ? 0 : value))}
           />
         </S.TimeWrapper>
       </S.TimeRow>
