@@ -15,12 +15,15 @@ export const RecentActivityItem: React.FC<Activity> = ({ image, title, date, sta
       <S.Wrapper>
         <S.ImgWrapper>
           <img src={image} alt={title} width={84} height={84} />
-          <S.IconWrapper>{currentActivity?.icon}</S.IconWrapper>
         </S.ImgWrapper>
 
         <S.InfoWrapper>
           <S.InfoHeaderWrapper>
-            <S.Title level={5}>{title}</S.Title>
+            <S.TitleWrapper>
+              <S.Title level={5}>{title}</S.Title>
+
+              <S.IconWrapper>{currentActivity?.icon}</S.IconWrapper>
+            </S.TitleWrapper>
 
             <S.Text>
               {t(currentActivity?.title || '')} {t('nft.by')} {owner}
