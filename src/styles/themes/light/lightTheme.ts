@@ -110,16 +110,6 @@ const colors = {
         color: 'rgba(255, 255, 255, 0)',
       },
     ]),
-    chartAdditionalGradient: new graphic.LinearGradient(0, 0, 0, 1, [
-      {
-        offset: 0,
-        color: 'rgba(11, 156, 49, 0.9)',
-      },
-      {
-        offset: 1,
-        color: 'rgba(255, 255, 255, 0)',
-      },
-    ]),
   },
   text: {
     main: '#404040',
