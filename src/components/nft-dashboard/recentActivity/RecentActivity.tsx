@@ -39,7 +39,7 @@ export const RecentActivity: React.FC = () => {
   }, [filters.status, activity]);
 
   return (
-    <Row>
+    <Row gutter={[30, 0]}>
       <Col span={24}>
         <RecentActivityHeader filters={filters} setFilters={setFilters} />
       </Col>

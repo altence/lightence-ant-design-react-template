@@ -16,10 +16,6 @@ export const ImgWrapper = styled.div`
 `;
 
 export const IconWrapper = styled.div`
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  transform: translate(25%, 25%);
   width: 1.4375rem;
   height: 1.4375rem;
   border-radius: 50%;
@@ -50,6 +46,12 @@ export const InfoHeaderWrapper = styled.div`
 export const InfoBottomWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
+`;
+
+export const TitleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const Title = styled(Typography.Title)`
