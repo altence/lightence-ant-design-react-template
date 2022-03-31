@@ -30,6 +30,7 @@ declare module 'styled-components' {
         mainBackground: string;
         secondaryBackground: string;
         additionalBackground: string;
+        timelineBackground: string;
         chartPrimaryGradient: LinearGradientObject;
         chartSecondaryGradient: LinearGradientObject;
       };

@@ -65,7 +65,7 @@ export const IconWrapper = styled.div<IconProps>`
   justify-content: center;
   align-items: center;
   background-color: ${(props) =>
-    props.isActive ? props.theme.colors.main.primary : props.theme.colors.main.secondaryBackground};
+    props.isActive ? props.theme.colors.main.primary : props.theme.colors.main.timelineBackground};
   color: ${(props) => (props.isActive ? props.theme.colors.text.secondary : props.theme.colors.main.primary)};
   font-size: 1.15rem;
 `;

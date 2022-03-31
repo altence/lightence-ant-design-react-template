@@ -13,6 +13,7 @@ const darkColors = {
     mainBackground: '#25284B',
     secondaryBackground: '#1c2137',
     additionalBackground: '#1D203E',
+    timelineBackground: '#f5f5f5',
     spinnerBase: '#339CFD',
     chartPrimaryGradient: new graphic.LinearGradient(0, 0, 0, 1, [
       {

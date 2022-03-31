@@ -89,6 +89,7 @@ const colors = {
     mainBackground: commonColors.white,
     secondaryBackground: '#F8FBFF',
     additionalBackground: '#ffffff',
+    timelineBackground: '#F8FBFF',
     spinnerBase: '#f42f25',
     chartPrimaryGradient: new graphic.LinearGradient(0, 0, 0, 1, [
       {
