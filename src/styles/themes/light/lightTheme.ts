@@ -86,8 +86,6 @@ const colors = {
     error: '#FF5252',
     warning: '#FFB155',
     success: '#57D682',
-    angularGradient:
-      'conic-gradient(from -35.18deg at 50% 50%, #006CCF -154.36deg, #FF5252 24.13deg, #FFB155 118.76deg, #006CCF 205.64deg, #FF5252 384.13deg)',
     mainBackground: commonColors.white,
     secondaryBackground: '#F8FBFF',
     additionalBackground: '#ffffff',
@@ -146,13 +144,7 @@ const colors = {
       'radial-gradient(at 24% 85%, hsla(4, 100%, 75%, 1) 0, transparent 55%), ' +
       'radial-gradient(at 32% 28%, hsla(37, 100%, 77%, 1) 0, transparent 56%),' +
       'radial-gradient(at 84% 86%, hsla(288, 50%, 69%, 1) 0, transparent 66%)',
-    dotsColor: commonColors.white,
-    //TODO use primary
-    dotsHoveredColor: '#b3cbe1',
-    markerBorderColor: '#01509A',
-    controlColor: commonColors.white,
-    controlBackgroundColor: '#01509A',
-    controlDisabledBackgroundColor: '#b3cbe1',
+    controlDisabledBackgroundColor: '#c5d3e0',
   },
   charts: {
     tooltipLabel: '#6A7985',

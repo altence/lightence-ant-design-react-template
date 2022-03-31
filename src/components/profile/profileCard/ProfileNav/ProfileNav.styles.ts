@@ -18,6 +18,7 @@ export const Btn = styled(Button).withConfig({
 })<BtnProps>`
   display: flex;
   align-items: center;
+  justify-content: unset;
   width: 100%;
 
   &:hover {
