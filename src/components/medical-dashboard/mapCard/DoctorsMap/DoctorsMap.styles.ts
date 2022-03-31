@@ -7,7 +7,7 @@ export const DoctorsMap = styled(CountryMap)`
   height: 19rem;
 
   &.leaflet-container {
-    background-image: ${(props) => props.theme.colors.dashboardMap.background};
+    background: ${(props) => props.theme.colors.dashboardMap.background};
     border-radius: ${(props) => props.theme.border.radius};
 
     svg {
@@ -23,11 +23,11 @@ export const DoctorsMap = styled(CountryMap)`
     }
 
     #pattern-circle {
-      fill: ${(props) => props.theme.colors.dashboardMap.dotsColor};
+      fill: ${(props) => props.theme.colors.main.secondaryBackground};
     }
 
     #pattern-circle-hovered {
-      fill: ${(props) => props.theme.colors.dashboardMap.dotsHoveredColor};
+      fill: ${(props) => props.theme.colors.main.primary};
     }
   }
 
@@ -37,7 +37,7 @@ export const DoctorsMap = styled(CountryMap)`
 
   .leaflet-marker-icon {
     border-radius: 50%;
-    border: 2px solid ${(props) => props.theme.colors.dashboardMap.markerBorderColor};
+    border: 2px solid ${(props) => props.theme.colors.main.primary};
   }
 
   .leaflet-control-zoom {
@@ -52,17 +52,17 @@ export const DoctorsMap = styled(CountryMap)`
 
   .leaflet-control-zoom-out,
   .leaflet-control-zoom-in {
-    background-color: ${(props) => props.theme.colors.dashboardMap.controlBackgroundColor};
-    color: ${(props) => props.theme.colors.dashboardMap.controlColor};
+    background-color: ${(props) => props.theme.colors.main.primary};
+    color: ${(props) => props.theme.colors.text.secondary};
 
     &:hover {
-      background-color: ${(props) => props.theme.colors.dashboardMap.controlBackgroundColor};
-      color: ${(props) => props.theme.colors.dashboardMap.dotsHoveredColor};
+      background-color: ${(props) => props.theme.colors.main.mainBackground};
+      color: ${(props) => props.theme.colors.main.primary};
     }
 
     &.leaflet-disabled {
       background-color: ${(props) => props.theme.colors.dashboardMap.controlDisabledBackgroundColor};
-      color: ${(props) => props.theme.colors.dashboardMap.controlColor};
+      color: ${(props) => props.theme.colors.text.secondary};
     }
   }
 

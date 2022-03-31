@@ -19,7 +19,14 @@ export const ImgWrapper = styled.div`
   justify-content: center;
   border-radius: 50%;
 
-  background: ${(props) => props.theme.colors.main.angularGradient};
+  background: conic-gradient(
+    from -35.18deg at 50% 50%,
+    #006ccf -154.36deg,
+    #ff5252 24.13deg,
+    #ffb155 118.76deg,
+    #006ccf 205.64deg,
+    #ff5252 384.13deg
+  );
 
   @media only screen and ${(props) => props.theme.media.xl} {
     width: 11.125rem;

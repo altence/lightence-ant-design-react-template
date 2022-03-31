@@ -27,7 +27,6 @@ declare module 'styled-components' {
         warning: string;
         success: string;
         spinnerBase: string;
-        angularGradient: string;
         mainBackground: string;
         secondaryBackground: string;
         additionalBackground: string;
@@ -54,11 +53,6 @@ declare module 'styled-components' {
       };
       dashboardMap: {
         background: string;
-        dotsColor: string;
-        dotsHoveredColor: string;
-        markerBorderColor: string;
-        controlColor: string;
-        controlBackgroundColor: string;
         controlDisabledBackgroundColor: string;
       };
       charts: {

@@ -4,36 +4,34 @@ import { graphic } from 'echarts';
 const darkColors = {
   main: {
     primary: '#339CFD',
-    primaryGradient: 'linear-gradient(211.49deg, #dc88f5 15.89%, #7568f6 48.97%)',
+    primaryGradient: 'linear-gradient(211.49deg, #dc88f5 15.89%, #339CFD 48.97%)',
     light: '#696969',
     secondary: '#dc88f5',
     error: '#FF5252',
     warning: '#FFB765',
     success: '#57D682',
-    angularGradient:
-      'conic-gradient(from -35.18deg at 50% 50%, #006CCF -154.36deg, #FF5252 24.13deg, #FFB155 118.76deg, #006CCF 205.64deg, #FF5252 384.13deg)',
     mainBackground: '#25284B',
     secondaryBackground: '#1c2137',
     additionalBackground: '#1D203E',
-    spinnerBase: '#7568f6',
+    spinnerBase: '#339CFD',
     chartPrimaryGradient: new graphic.LinearGradient(0, 0, 0, 1, [
       {
         offset: 0,
-        color: '#7568f6',
+        color: 'rgba(51, 156, 253, 0.35)',
       },
       {
         offset: 1,
-        color: 'rgba(193, 225, 255, 0)',
+        color: 'rgba(51, 156, 253, 0)',
       },
     ]),
     chartSecondaryGradient: new graphic.LinearGradient(0, 0, 0, 1, [
       {
         offset: 0,
-        color: '#a42218',
+        color: 'rgba(255, 82, 82, 0.35)',
       },
       {
         offset: 1,
-        color: 'rgba(255, 255, 255, 0)',
+        color: 'rgba(255, 82, 82, 0)',
       },
     ]),
     chartAdditionalGradient: new graphic.LinearGradient(0, 0, 0, 1, [
@@ -65,18 +63,13 @@ const darkColors = {
     background: '#121430',
   },
   dashboardMap: {
-    background: 'linear-gradient(315deg, #0cbaba 0%, #380036 74%)',
-    dotsColor: '#FFFFFF',
-    dotsHoveredColor: '#7568f6',
-    markerBorderColor: '#7568f6',
-    controlColor: '#FFFFFF',
-    controlBackgroundColor: '#7568f6',
-    controlDisabledBackgroundColor: '#b3cbe1',
+    background: '#2D3055',
+    controlDisabledBackgroundColor: '#7e7e7e',
   },
   charts: {
     tooltipLabel: '#6a7985',
-    color1: '#7568f6',
-    color1Tint: '#7568f6', // update
+    color1: '#339CFD',
+    color1Tint: '#339CFD', // update
     color2: '#dc88f5',
     color2Tint: '#dc88f5', // update
     color3: '#FFB765',
