@@ -111,4 +111,8 @@ export const TimeWrapper = styled.div`
 
 export const NumberInput = styled(InputNumber)`
   width: unset;
+
+  input {
+    font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+  }
 `;
