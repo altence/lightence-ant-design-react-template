@@ -130,6 +130,8 @@ const colors = {
     secondary: commonColors.white,
     dark: '#404040',
     nftLight: '#79819A',
+    siderPrimary: '#FFB765',
+    siderSecondary: '#ffffff',
   },
   border: {
     main: '#cce1f4',

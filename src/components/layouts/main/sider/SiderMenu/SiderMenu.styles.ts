@@ -1,17 +1,13 @@
 import styled from 'styled-components';
 import { Menu as AntMenu } from 'antd';
-import { hexToRGB } from '@app/utils/utils';
 
 export const Menu = styled(AntMenu)`
   background: transparent;
   border-right: 0;
 
-  color: ${(props) => props.theme.colors.text.secondary};
-
-  .ant-menu-submenu-expand-icon,
-  .ant-menu-submenu-arrow,
-  span[role='img'] {
-    color: ${(props) => props.theme.colors.text.secondary};
+  a {
+    width: 100%;
+    display: block;
   }
 
   .ant-menu-item,
@@ -19,41 +15,51 @@ export const Menu = styled(AntMenu)`
     font-size: ${(props) => props.theme.commonFontSizes.xs};
   }
 
-  .ant-menu-item:hover,
-  .ant-menu-item-active,
-  .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
-  .ant-menu-submenu-active,
-  .ant-menu-submenu-title:hover,
-  .ant-menu-item.ant-menu-item-selected,
-  .ant-menu-submenu.ant-menu-submenu-selected,
-  .ant-menu-submenu:hover > .ant-menu-submenu-title > .ant-menu-submenu-expand-icon,
-  .ant-menu-submenu:hover > .ant-menu-submenu-title > .ant-menu-submenu-arrow,
-  .ant-menu-submenu:hover span[role='img'],
-  .ant-menu-item-selected a,
-  .ant-menu-item-selected a:hover,
-  .ant-menu-item a:hover {
-    color: ${(props) => props.theme.colors.text.secondary};
+  .ant-menu-submenu-expand-icon,
+  .ant-menu-submenu-arrow,
+  span[role='img'],
+  a,
+  .ant-menu-item,
+  .ant-menu-submenu {
+    color: ${(props) => props.theme.colors.text.siderSecondary};
   }
 
   .ant-menu-item:hover,
   .ant-menu-submenu-title:hover {
-    background-color: ${(props) => hexToRGB(props.theme.colors.main.primary, 0.7)};
+    .ant-menu-submenu-expand-icon,
+    .ant-menu-submenu-arrow,
+    span[role='img'],
+    a,
+    .ant-menu-title-content {
+      color: ${(props) => props.theme.colors.text.siderPrimary};
+    }
   }
 
   .ant-menu-submenu-selected {
     .ant-menu-submenu-title {
-      background-color: ${(props) => props.theme.colors.main.primary};
+      color: ${(props) => props.theme.colors.text.siderPrimary};
+
+      .ant-menu-submenu-expand-icon,
+      .ant-menu-submenu-arrow,
+      span[role='img'] {
+        color: ${(props) => props.theme.colors.text.siderPrimary};
+      }
     }
   }
 
   .ant-menu-item-selected {
-    background-color: ${(props) => props.theme.colors.main.primary} !important;
+    background-color: transparent !important;
+
+    .ant-menu-submenu-expand-icon,
+    .ant-menu-submenu-arrow,
+    span[role='img'],
+    a {
+      color: ${(props) => props.theme.colors.text.siderPrimary};
+    }
   }
 
-  a {
-    width: 100%;
-    display: block;
-
-    color: ${(props) => props.theme.colors.text.secondary};
+  .ant-menu-item-active,
+  .ant-menu-submenu-active .ant-menu-submenu-title {
+    background-color: transparent !important;
   }
 `;

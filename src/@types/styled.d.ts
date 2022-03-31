@@ -42,6 +42,8 @@ declare module 'styled-components' {
         secondary: string;
         dark: string;
         nftLight: string;
+        siderPrimary: string;
+        siderSecondary: string;
       };
       border: {
         main: string;
