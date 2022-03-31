@@ -1,10 +1,10 @@
 import { FC } from 'react';
-import { BonesIcon } from 'components/medical-dashboard/statisticsCards/statisticsCard/icons/BonesIcon';
-import { FatIcon } from 'components/medical-dashboard/statisticsCards/statisticsCard/icons/FatIcon';
-import { ProteinIcon } from 'components/medical-dashboard/statisticsCards/statisticsCard/icons/ProteinIcon';
-import { WaterBalanceIcon } from 'components/medical-dashboard/statisticsCards/statisticsCard/icons/WaterBalanceIcon';
+import { ReactComponent as BonesIcon } from '@app/assets/icons/bones.svg';
+import { ReactComponent as FatIcon } from '@app/assets/icons/fat.svg';
+import { ReactComponent as ProteinIcon } from '@app/assets/icons/protein.svg';
+import { ReactComponent as WaterBalanceIcon } from '@app/assets/icons/water.svg';
 
-export type StatisticColor = 'primary' | 'error' | 'secondary' | 'warning';
+export type StatisticColor = 'primary' | 'error' | 'secondary' | 'success';
 
 interface ConfigStatistic {
   id: number;
@@ -19,7 +19,7 @@ export const statistics: ConfigStatistic[] = [
     id: 1,
     name: 'protein',
     title: 'medical-dashboard.protein',
-    color: 'primary',
+    color: 'success',
     Icon: ProteinIcon,
   },
   {
@@ -33,14 +33,14 @@ export const statistics: ConfigStatistic[] = [
     id: 3,
     name: 'bones',
     title: 'medical-dashboard.bones',
-    color: 'secondary',
+    color: 'primary',
     Icon: BonesIcon,
   },
   {
     id: 4,
     name: 'water',
     title: 'medical-dashboard.water',
-    color: 'warning',
+    color: 'secondary',
     Icon: WaterBalanceIcon,
   },
 ];
