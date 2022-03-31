@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input as AntInput, InputProps as AntInputProps } from 'antd';
+import { Input as AntInput, InputProps as AntInputProps, InputRef } from 'antd';
 import * as S from './Input.styles';
 
 export interface InputProps extends AntInputProps {
@@ -8,7 +8,7 @@ export interface InputProps extends AntInputProps {
 
 export const { TextArea } = AntInput;
 
-export const Input = React.forwardRef<AntInput, InputProps>(({ className, children, ...props }, ref) => (
+export const Input = React.forwardRef<InputRef, InputProps>(({ className, children, ...props }, ref) => (
   <S.Input ref={ref} className={className} {...props}>
     {children}
   </S.Input>
