@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 import { default as AntIcon } from '@ant-design/icons';
-import { Title, Text } from '../StatisticsInfo/StatisticsInfo.styles';
-import { ValueText, UnitText } from '../StatisticsProgress/StatisticsProgress.styles';
+import { DashboardCard } from '@app/components/medical-dashboard/DashboardCard/DashboardCard';
 import { StatisticColor } from '@app/constants/config/statistics';
-import { DashboardCard } from '../../../DashboardCard/DashboardCard';
+import { Text } from '../StatisticsInfo/StatisticsInfo.styles';
 
 interface StatisticsProps {
-  color: StatisticColor;
+  $color: StatisticColor;
 }
 
 export const IconWrapper = styled.div`
@@ -17,14 +16,11 @@ export const Icon = styled(AntIcon)`
   font-size: 1.5rem;
 `;
 
-export const StatisticCard = styled(DashboardCard).withConfig({
-  shouldForwardProp: (prop) => !['color'].includes(prop),
-})<StatisticsProps>`
+export const StatisticCard = styled(DashboardCard)<StatisticsProps>`
   line-height: 1;
   overflow: hidden;
-  border: 1px solid ${(props) => props.color};
 
-  & ${Icon}, ${Title}, ${Text}, ${ValueText}, ${UnitText} {
-    color: ${(props) => props.color};
+  ${Text} {
+    color: ${(props) => props.$color};
   }
 `;
