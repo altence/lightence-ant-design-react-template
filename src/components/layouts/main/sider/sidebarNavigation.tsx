@@ -9,6 +9,7 @@ import {
   TableOutlined,
   UserOutlined,
   BlockOutlined,
+  PictureOutlined,
 } from '@ant-design/icons';
 
 export interface SidebarNavigationItem {
@@ -25,7 +26,7 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
     key: 'nft-dashboard',
     // TODO use path variable
     url: '/',
-    icon: <DashboardOutlined />,
+    icon: <PictureOutlined />,
   },
   {
     title: 'common.medical-dashboard',
