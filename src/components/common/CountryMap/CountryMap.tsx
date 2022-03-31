@@ -1,7 +1,7 @@
 import React from 'react';
 import { LatLngExpression } from 'leaflet';
 import { GeoJSON, ZoomControl } from 'react-leaflet';
-import { MapContainerProps } from 'react-leaflet/types/MapContainer';
+import { MapContainerProps } from 'react-leaflet';
 
 import geoData from '../../../assets/map-data/countries.geo.json';
 import { FeatureCollection } from 'geojson';

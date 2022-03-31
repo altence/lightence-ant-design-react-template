@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './i18n';
@@ -19,19 +19,19 @@ const themes = {
   light: `${process.env.PUBLIC_URL}/themes/main-light.css`,
 };
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <ThemeSwitcherProvider
-        themeMap={themes}
-        defaultTheme={defaultTheme}
-        insertionPoint={document.getElementById('inject-styles-here')}
-      >
-        <App />
-      </ThemeSwitcherProvider>
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById('root'),
+const container = document.getElementById('root') as HTMLElement;
+const root = createRoot(container);
+
+root.render(
+  <Provider store={store}>
+    <ThemeSwitcherProvider
+      themeMap={themes}
+      defaultTheme={defaultTheme}
+      insertionPoint={document.getElementById('inject-styles-here')}
+    >
+      <App />
+    </ThemeSwitcherProvider>
+  </Provider>,
 );
 
 serviceWorkerRegistration.register({
