@@ -46,7 +46,7 @@ export const NightTimeSlider: React.FC<NightTimeSliderProps> = ({ from, to, setN
           handleSize={12}
           step={1}
           arcLength={360}
-          startAngle={-97}
+          startAngle={-90}
           low={fromValue}
           high={toValue}
           onChange={(event) => handleSlider(event, setFromValue, setToValue)}
