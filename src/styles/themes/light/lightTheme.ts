@@ -111,6 +111,16 @@ const colors = {
         color: 'rgba(255, 255, 255, 0)',
       },
     ]),
+    chartSecondaryGradientSpecular: new graphic.LinearGradient(0, 0, 0, 1, [
+      {
+        offset: 0,
+        color: 'rgba(255, 255, 255, 0)',
+      },
+      {
+        offset: 1,
+        color: 'rgba(255, 82, 82, 0.5)',
+      },
+    ]),
   },
   text: {
     main: '#404040',
