@@ -173,6 +173,7 @@ const boxShadow = {
 
 const lightTheme: DefaultTheme = {
   commonColors,
+  name: 'light',
   colors,
   fonts,
   border: {
