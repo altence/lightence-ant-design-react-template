@@ -6,6 +6,7 @@ import { dashboardPaddings } from '@app/components/medical-dashboard/DashboardCa
 import { useResponsive } from '@app/hooks/useResponsive';
 import { Dates } from '@app/constants/Dates';
 import { ChartData, ChartSeriesData } from '@app/interfaces/interfaces';
+import { graphic } from 'echarts';
 
 interface ActivityChartProps {
   data: ChartData;
@@ -23,7 +24,16 @@ export const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
   const size = isDesktop ? 'xl' : isTablet ? 'md' : isMobile ? 'xs' : 'xs';
 
   const option = {
-    color: theme.colors.main.chartPrimaryGradient,
+    color: new graphic.LinearGradient(0, 0, 0, 1, [
+      {
+        offset: 0,
+        color: 'rgba(51, 156, 253, 0.7)',
+      },
+      {
+        offset: 1,
+        color: 'rgba(51, 156, 253, 0.15)',
+      },
+    ]),
     grid: {
       top: dashboardPaddings[size][0],
       right: dashboardPaddings[size][1],
