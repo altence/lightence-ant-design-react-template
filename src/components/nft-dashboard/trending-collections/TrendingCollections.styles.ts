@@ -6,6 +6,13 @@ export const SectionWrapper = styled.div`
     display: flex;
   }
 
+  .slick-list {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+    margin-top: -40px;
+    margin-bottom: -40px;
+  }
+
   @media only screen and (max-width: ${(props) => props.theme.breakpoints.md - 0.02}px) {
     display: flex;
     flex-direction: column;
