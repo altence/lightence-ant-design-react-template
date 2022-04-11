@@ -14,7 +14,7 @@ export default createGlobalStyle`
     background-color: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: ${(props) => props.theme.commonColors.lightgrey};
+    background-color: ${(props) => props.theme.colors.scroll.main};
     border-radius: 1.25rem;
     border: 0.375rem solid transparent;
     background-clip: content-box;
