@@ -39,9 +39,9 @@ export const DesktopHeader: React.FC<DesktopHeaderProps> = ({ isTwoColumnsLayout
       {leftSide}
 
       <S.ProfileColumn xl={8} xxl={8} $isTwoColumnsLayout={isTwoColumnsLayout}>
-        <Row align="middle" justify="end" gutter={[30, 30]}>
+        <Row align="middle" justify="end" gutter={[10, 10]}>
           <Col>
-            <Row gutter={[15, 15]}>
+            <Row gutter={[5, 5]}>
               <Col>
                 <NotificationsDropdown />
               </Col>
