@@ -21,9 +21,10 @@ export const Wrapper = styled.div`
   position: relative;
   max-width: 42.5rem;
   box-shadow: ${(props) => props.theme.boxShadow.main};
-  background: ${(props) => props.theme.colors.main.mainBackground};
   border-radius: ${(props) => props.theme.border.radius};
   transition: 0.3s;
+
+  background: ${(props) => props.theme.name === 'dark' && props.theme.colors.main.secondaryBackground};
 
   &:hover {
     box-shadow: ${(props) => props.theme.boxShadow.hover};
