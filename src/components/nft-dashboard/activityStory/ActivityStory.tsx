@@ -26,7 +26,7 @@ export const ActivityStory: React.FC = () => {
 
   return (
     <S.Wrapper>
-      <S.Title>{t('nft.activityStory')}</S.Title>
+      <S.Title level={2}>{t('nft.activityStory')}</S.Title>
       <S.ActivityRow gutter={[26, 26]}>{activityStory}</S.ActivityRow>
     </S.Wrapper>
   );

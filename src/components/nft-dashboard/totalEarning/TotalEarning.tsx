@@ -39,7 +39,7 @@ export const TotalEarning: React.FC = () => {
         <Col span={24}>
           <Row wrap={false} justify="space-between">
             <Col>
-              <S.Title level={5}>{t('nft.totalEarning')}</S.Title>
+              <S.Title level={2}>{t('nft.totalEarning')}</S.Title>
             </Col>
 
             <Col>
