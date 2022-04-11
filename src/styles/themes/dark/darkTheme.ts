@@ -96,7 +96,7 @@ const darkColors = {
 
 const boxShadow = {
   main: 'none',
-  hover: '0 4px 16px 0 rgba(255, 255, 255, 0.2)',
+  hover: 'none',
   nftMain: '0px 16px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04)',
   nftSecondary: '0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04)',
 };
