@@ -1,10 +1,14 @@
 import { Row, Typography } from 'antd';
 import styled from 'styled-components';
 
-export const Title = styled(Typography.Text)`
-  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+export const Title = styled(Typography.Title)`
+  &.ant-typography {
+    margin-bottom: 0;
 
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
+    font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+
+    font-size: ${(props) => props.theme.commonFontSizes.xs};
+  }
 `;
 
 export const ActivityRow = styled(Row)`
