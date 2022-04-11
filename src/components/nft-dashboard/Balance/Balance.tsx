@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { Button } from '@app/components/common/buttons/Button/Button';
 import { NFTCard } from '@app/components/nft-dashboard/common/NFTCard/NFTCard';
 import { useAppSelector } from '@app/hooks/reduxHooks';
 import { formatNumberWithCommas, getCurrencyPrice } from '@app/utils/utils';
@@ -16,6 +15,7 @@ export const Balance: React.FC = () => {
   });
 
   const userId = useAppSelector((state) => state.user.user?.id);
+  const { theme } = useAppSelector((state) => state.theme);
 
   useEffect(() => {
     userId && getBalance(userId).then((res) => setBalance(res));
@@ -41,7 +41,7 @@ export const Balance: React.FC = () => {
                 </Col>
 
                 <Col span={24}>
-                  <Row gutter={[26, 26]} wrap={false}>
+                  <Row gutter={[55, 10]} wrap={false}>
                     <Col>
                       <S.SubtitleBalanceText>
                         {getCurrencyPrice(formatNumberWithCommas(balance.eth_balance), 'ETH')}
@@ -59,9 +59,9 @@ export const Balance: React.FC = () => {
             </Col>
 
             <Col span={24}>
-              <Button type="ghost" block>
+              <S.TopUpButton type={theme === 'dark' ? 'ghost' : 'primary'} block>
                 {t('nft.topUpBalance')}
-              </Button>
+              </S.TopUpButton>
             </Col>
           </Row>
         </NFTCard>
