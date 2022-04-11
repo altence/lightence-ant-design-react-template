@@ -12,10 +12,6 @@ export const NoticesOverlayMenu = styled(DropdownMenu)`
   max-width: 15rem;
   border-right: 0;
 
-  &.ant-menu {
-    box-shadow: ${(props) => props.theme.boxShadow.main};
-  }
-
   @media only screen and ${(props) => props.theme.media.md} {
     max-width: 25rem;
   }

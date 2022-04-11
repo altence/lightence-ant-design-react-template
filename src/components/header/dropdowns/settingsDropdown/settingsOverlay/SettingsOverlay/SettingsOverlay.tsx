@@ -8,13 +8,13 @@ import { Button } from '@app/components/common/buttons/Button/Button';
 import { useAppSelector } from '@app/hooks/reduxHooks';
 import * as S from './SettingsOverlay.styles';
 
-export const SettingsOverlay: React.FC = () => {
+export const SettingsOverlay: React.FC = ({ ...props }) => {
   const { t } = useTranslation();
 
   const { isPWASupported, event } = useAppSelector((state) => state.pwa);
 
   return (
-    <S.SettingsOverlayMenu mode="inline" selectable={false}>
+    <S.SettingsOverlayMenu mode="inline" selectable={false} {...props}>
       <DropdownCollapse bordered={false} expandIconPosition="right" ghost defaultActiveKey="themePicker">
         <DropdownCollapse.Panel header={t('header.changeLanguage')} key="languagePicker">
           <LanguagePicker />

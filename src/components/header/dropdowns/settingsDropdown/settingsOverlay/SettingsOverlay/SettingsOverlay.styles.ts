@@ -4,10 +4,6 @@ import { Radio } from 'antd';
 
 export const SettingsOverlayMenu = styled(DropdownMenu)`
   width: 13rem;
-
-  &.ant-menu {
-    box-shadow: ${(props) => props.theme.boxShadow.main};
-  }
 `;
 
 export const RadioBtn = styled(Radio)`

@@ -14,7 +14,11 @@ interface NotificationsOverlayProps {
   setNotifications: (state: NotificationType[]) => void;
 }
 
-export const NotificationsOverlay: React.FC<NotificationsOverlayProps> = ({ notifications, setNotifications }) => {
+export const NotificationsOverlay: React.FC<NotificationsOverlayProps> = ({
+  notifications,
+  setNotifications,
+  ...props
+}) => {
   const { t } = useTranslation();
 
   const noticesList = useMemo(
@@ -46,7 +50,7 @@ export const NotificationsOverlay: React.FC<NotificationsOverlayProps> = ({ noti
   );
 
   return (
-    <S.NoticesOverlayMenu mode="inline">
+    <S.NoticesOverlayMenu mode="inline" {...props}>
       <S.MenuRow gutter={[20, 20]}>
         <Col span={24}>
           {notifications.length > 0 ? (

@@ -93,6 +93,7 @@ const boxShadow = {
 
 export const darkTheme = {
   ...lightTheme,
+  name: 'dark',
   colors: darkColors,
   boxShadow,
 };

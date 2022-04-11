@@ -4,9 +4,13 @@ import { BurgerIcon } from '@app/components/common/Burger/BurgerIcon';
 import { GitHubButton } from '@app/components/header/GitHubButton';
 
 export const DropdownMenu = styled(Menu)`
-  box-shadow: ${(props) => props.theme.boxShadow.main};
-  border-radius: ${(props) => props.theme.border.radius};
   line-height: 1.5715;
+
+  border-radius: ${(props) => props.theme.border.radius};
+
+  &.ant-dropdown-menu {
+    box-shadow: ${(props) => (props.theme.name === 'light' ? props.theme.boxShadow.main : 'none')};
+  }
 `;
 
 export const DropdownHeader = styled.div`
