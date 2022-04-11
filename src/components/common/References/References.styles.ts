@@ -7,7 +7,7 @@ export const ReferencesWrapper = styled.div`
   flex-direction: column;
   align-items: start;
   flex-wrap: nowrap;
-  margin-top: ${(props) => `${props.theme.mobileLayout.paddingVertical}`};
+  margin-top: 2rem;
 
   @media only screen and ${(props) => props.theme.media.sm} {
     align-items: center;
