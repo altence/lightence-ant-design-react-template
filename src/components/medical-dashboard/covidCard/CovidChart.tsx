@@ -17,7 +17,7 @@ export const CovidChart: React.FC<{
   const theme = useTheme();
 
   const option = {
-    color: [theme.colors.main.chartPrimaryGradient, theme.colors.main.chartSecondaryGradient],
+    color: [theme.colors.main.chartPrimaryGradient, theme.colors.main.chartSecondaryGradientSpecular],
     grid: [
       {
         top: 10,

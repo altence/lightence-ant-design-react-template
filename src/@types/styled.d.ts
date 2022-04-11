@@ -34,6 +34,7 @@ declare module 'styled-components' {
         timelineBackground: string;
         chartPrimaryGradient: LinearGradientObject;
         chartSecondaryGradient: LinearGradientObject;
+        chartSecondaryGradientSpecular: LinearGradientObject;
       };
       text: {
         main: string;

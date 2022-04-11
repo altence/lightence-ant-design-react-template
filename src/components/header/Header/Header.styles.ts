@@ -9,7 +9,7 @@ export const DropdownMenu = styled(Menu)`
   border-radius: ${(props) => props.theme.border.radius};
 
   &.ant-dropdown-menu {
-    box-shadow: ${(props) => (props.theme.name === 'light' ? props.theme.boxShadow.main : 'none')};
+    box-shadow: ${(props) => props.theme.boxShadow.main};
   }
 `;
 

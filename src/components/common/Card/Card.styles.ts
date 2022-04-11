@@ -15,7 +15,7 @@ export const Card = styled(AntCard)<CardInternalProps>`
 
   ${(props) => props.$autoHeight && 'height: 100%'};
 
-  ${(props) => props.$theme === 'light' && `box-shadow: ${props.theme.boxShadow.main}`};
+  box-shadow: ${(props) => props.theme.boxShadow.main};
 
   .ant-card-head {
     border-bottom: 0;
