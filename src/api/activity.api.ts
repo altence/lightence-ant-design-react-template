@@ -18,7 +18,6 @@ export interface TrendingActivity {
   image: string;
   avatar: string;
   usd_value: number;
-  eth_value: number;
 }
 
 export const getUserActivities = (): Promise<UserActivity[]> => {
@@ -105,7 +104,6 @@ export const getTrendingActivities = (): Promise<TrendingActivity[]> => {
           image: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1646228769/unsplash_yhIsPgLfVNU_1_hdauhp.png',
           avatar: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1646228774/unsplash_tmRuRPBiPcA_dlpsh0.png',
           usd_value: 1045,
-          eth_value: 321,
         },
         {
           title: 'TownYTraveler',
@@ -113,7 +111,6 @@ export const getTrendingActivities = (): Promise<TrendingActivity[]> => {
           image: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1646228777/unsplash_eHUMDkv4q1w_xchurr.png',
           avatar: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1646228780/unsplash_Tgq8oggf0EY_mwyjub.png',
           usd_value: 1045,
-          eth_value: 321,
         },
         {
           title: 'TownYTraveler',
@@ -121,7 +118,6 @@ export const getTrendingActivities = (): Promise<TrendingActivity[]> => {
           image: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1646228783/unsplash_6JQn1G0lMgY_zqqd7q.png',
           avatar: 'https://res.cloudinary.com/lapkinthegod/image/upload/v1646228786/unsplash_nR-rzu8--5M_qwhnht.png',
           usd_value: 1045,
-          eth_value: 321,
         },
         {
           title: 'TownYTraveler',
@@ -131,7 +127,6 @@ export const getTrendingActivities = (): Promise<TrendingActivity[]> => {
           avatar:
             'https://res.cloudinary.com/lapkinthegod/image/upload/v1647286511/salvatore-andrea-santacroce-wGICoyAhEs4-unsplash_dfo8do.jpg',
           usd_value: 1045,
-          eth_value: 321,
         },
         {
           title: 'TownYTraveler',
@@ -141,7 +136,6 @@ export const getTrendingActivities = (): Promise<TrendingActivity[]> => {
           avatar:
             'https://res.cloudinary.com/lapkinthegod/image/upload/v1647286517/simon-lee-hbFKxsIqclc-unsplash_vcv07z.jpg',
           usd_value: 1045,
-          eth_value: 321,
         },
       ]);
     }, 0);

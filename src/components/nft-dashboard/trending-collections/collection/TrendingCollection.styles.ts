@@ -24,11 +24,6 @@ export const InfoRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0.625rem;
-
-  &:nth-last-of-type(1) {
-    margin-bottom: 0;
-  }
 `;
 
 export const Title = styled(Typography.Title)`

@@ -5,14 +5,7 @@ import { formatNumberWithCommas, getCurrencyPrice } from '@app/utils/utils';
 import { TrendingActivity } from '@app/api/activity.api';
 import * as S from './TrendingCollection.styles';
 
-export const TrendingCollection: React.FC<TrendingActivity> = ({
-  title,
-  owner,
-  usd_value,
-  eth_value,
-  image,
-  avatar,
-}) => {
+export const TrendingCollection: React.FC<TrendingActivity> = ({ title, owner, usd_value, image, avatar }) => {
   const { t } = useTranslation();
 
   return (
@@ -25,7 +18,6 @@ export const TrendingCollection: React.FC<TrendingActivity> = ({
         </S.AuthorAvatarWrapper>
         <S.InfoRow>
           <S.Title level={5}>{title}</S.Title>
-          <S.Text>{getCurrencyPrice(formatNumberWithCommas(eth_value), 'ETH', false)}</S.Text>
         </S.InfoRow>
         <S.InfoRow>
           <S.OwnerText>
