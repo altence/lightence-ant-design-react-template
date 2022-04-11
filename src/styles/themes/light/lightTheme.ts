@@ -85,7 +85,7 @@ const colors = {
     secondary: '#0085FF',
     error: '#FF5252',
     warning: '#FFB155',
-    success: '#57D682',
+    success: '#30AF5B',
     mainBackground: commonColors.white,
     secondaryBackground: '#F8FBFF',
     additionalBackground: '#ffffff',
