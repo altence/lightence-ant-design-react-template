@@ -36,6 +36,12 @@ export const InfoRow = styled.div`
   justify-content: space-between;
   margin-bottom: 0.625rem;
 
+  @media only screen and (max-width: ${(props) => props.theme.breakpoints.md - 0.02}px) {
+    &:first-of-type {
+      margin-bottom: 0;
+    }
+  }
+
   @media only screen and ${(props) => props.theme.media.md} {
     margin-bottom: 0.25rem;
   }
@@ -72,11 +78,13 @@ export const InfoText = styled.span`
   font-family: ${(props) => props.theme.fonts.secondary};
 
   color: ${(props) => props.theme.colors.text.nftLight};
+
+  @media only screen and ${(props) => props.theme.media.xl} {
+    font-size: ${(props) => props.theme.commonFontSizes.xs};
+  }
 `;
 
 export const CurrentBid = styled(InfoText)`
-  font-size: ${(props) => props.theme.commonFontSizes.xxs};
-
   font-family: ${(props) => props.theme.fonts.secondary};
 
   color: ${(props) => props.theme.colors.text.main};
