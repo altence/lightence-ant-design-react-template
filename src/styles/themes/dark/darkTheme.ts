@@ -6,7 +6,7 @@ const darkColors = {
     primary: '#339CFD',
     primaryGradient: 'linear-gradient(211.49deg, #dc88f5 15.89%, #339CFD 48.97%)',
     light: '#696969',
-    secondary: '#dc88f5',
+    secondary: '#0072DD',
     error: '#FF5252',
     warning: '#FFB765',
     success: '#57D682',
@@ -78,6 +78,9 @@ const darkColors = {
     primary: '#D7EBFF',
     warning: '#FFF4E7',
     error: '#FFE2E2',
+  },
+  scroll: {
+    main: '#797C9A',
   },
 };
 

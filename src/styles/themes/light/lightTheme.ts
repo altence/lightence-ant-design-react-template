@@ -159,6 +159,9 @@ const colors = {
     warning: '#FFF4E7',
     error: '#FFE2E2',
   },
+  scroll: {
+    main: '#c5d3e0',
+  },
 };
 
 const boxShadow = {

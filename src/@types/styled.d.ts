@@ -77,6 +77,9 @@ declare module 'styled-components' {
         warning: string;
         error: string;
       };
+      scroll: {
+        main: string;
+      };
     };
     border: {
       radius: string;
