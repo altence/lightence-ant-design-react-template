@@ -52,7 +52,7 @@ export const InfoRow = styled.div`
 `;
 
 export const InfoHeader = styled.div`
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 `;
 
 export const InfoFooter = styled.div`
