@@ -1,11 +1,9 @@
 import styled, { css } from 'styled-components';
 import { Button as AntButton } from 'antd';
-import { ButtonType } from 'antd/lib/button';
 import { Severity } from '@app/interfaces/interfaces';
 import { defineColorBySeverity, hexToRGB, shadeColor } from '@app/utils/utils';
 
 interface BtnProps {
-  type: ButtonType;
   $severity?: Severity;
   $noStyle?: boolean;
 }
@@ -32,26 +30,26 @@ export const Button = styled(AntButton)<BtnProps>`
         box-shadow: none;
         text-shadow: none;
 
-        background: ${hexToRGB(defineColorBySeverity(props.$severity, props.theme), 0.2)};
+        background: ${hexToRGB(defineColorBySeverity(props.$severity, props.theme), 0.2)} !important;
 
-        border-color: ${defineColorBySeverity(props.$severity, props.theme)};
+        border-color: ${defineColorBySeverity(props.$severity, props.theme)} !important;
 
-        color: ${defineColorBySeverity(props.$severity, props.theme)};
+        color: ${defineColorBySeverity(props.$severity, props.theme)} !important;
 
         &:hover {
-          background: ${props.theme.colors.main.mainBackground};
+          background: ${props.theme.colors.main.mainBackground} !important;
 
-          border-color: ${shadeColor(defineColorBySeverity(props.$severity, props.theme), 10)};
+          border-color: ${shadeColor(defineColorBySeverity(props.$severity, props.theme), 10)} !important;
 
-          color: ${shadeColor(defineColorBySeverity(props.$severity, props.theme), 10)};
+          color: ${shadeColor(defineColorBySeverity(props.$severity, props.theme), 10)} !important;
         }
 
         &:focus {
-          background: ${props.theme.colors.main.mainBackground};
+          background: ${props.theme.colors.main.mainBackground} !important;
 
-          border-color: ${shadeColor(defineColorBySeverity(props.$severity, props.theme), 10)};
+          border-color: ${shadeColor(defineColorBySeverity(props.$severity, props.theme), 10)} !important;
 
-          color: ${shadeColor(defineColorBySeverity(props.$severity, props.theme), 10)};
+          color: ${shadeColor(defineColorBySeverity(props.$severity, props.theme), 10)} !important;
         }
       `}
 
