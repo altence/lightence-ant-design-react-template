@@ -24,7 +24,7 @@ const MedicalDashboardPage: React.FC = () => {
 
   const desktopLayout = (
     <Row>
-      <S.LeftSideCol xl={16} xxl={16}>
+      <S.LeftSideCol xl={16} xxl={17}>
         <Row gutter={[30, 30]}>
           <Col span={24}>
             <Row gutter={[30, 30]}>
@@ -67,7 +67,7 @@ const MedicalDashboardPage: React.FC = () => {
         <References />
       </S.LeftSideCol>
 
-      <S.RightSideCol xl={8} xxl={8}>
+      <S.RightSideCol xl={8} xxl={7}>
         <div id="blood-screening">
           <BloodScreeningCard />
         </div>
