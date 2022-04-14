@@ -19,9 +19,9 @@ interface SignUpFormData {
 }
 
 const initValues = {
-  firstName: 'Christopher',
+  firstName: 'Chris',
   lastName: 'Johnson',
-  email: 'christopher.johnson@altence.com',
+  email: 'chris.johnson@altence.com',
   password: 'test-pass',
   confirmPassword: 'test-pass',
   termOfUse: true,

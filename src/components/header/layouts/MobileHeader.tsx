@@ -1,10 +1,11 @@
 import React from 'react';
 import { Col, Row } from 'antd';
-import { NotificationsDropdown } from '../dropdowns/notificationsDropdown/NotificationsDropdown';
-import { ProfileDropdown } from '../dropdowns/profileDropdown/ProfileDropdown/ProfileDropdown';
-import { HeaderSearch } from '../HeaderSearch/HeaderSearch';
-import { SettingsDropdown } from '../dropdowns/settingsDropdown/SettingsDropdown';
-import * as S from '../Header/Header.styles';
+import { NotificationsDropdown } from '../components/notificationsDropdown/NotificationsDropdown';
+import { ProfileDropdown } from '../components/profileDropdown/ProfileDropdown/ProfileDropdown';
+import { HeaderSearch } from '../components/HeaderSearch/HeaderSearch';
+import { SettingsDropdown } from '../components/settingsDropdown/SettingsDropdown';
+import * as S from '../Header.styles';
+import { HeaderFullscreen } from '../components/HeaderFullscreen/HeaderFullscreen';
 
 interface MobileHeaderProps {
   toggleSider: () => void;
@@ -20,6 +21,10 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({ toggleSider, isSider
 
       <Col>
         <Row align="middle">
+          <Col>
+            <HeaderFullscreen />
+          </Col>
+
           <Col>
             <NotificationsDropdown />
           </Col>

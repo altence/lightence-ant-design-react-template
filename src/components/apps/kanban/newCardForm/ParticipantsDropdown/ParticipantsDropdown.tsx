@@ -1,6 +1,6 @@
 import React from 'react';
-import { Dropdown } from 'antd';
 import { useTranslation } from 'react-i18next';
+import { Dropdown } from '@app/components/common/Dropdown/Dropdown';
 import { Participant as IParticipant } from '../../interfaces';
 import { kanbanPeople } from 'constants/kanbanPeople';
 import StubAvatar from '../../../../../assets/images/stub-avatar.png';

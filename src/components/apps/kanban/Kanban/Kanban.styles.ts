@@ -12,8 +12,4 @@ export const Kanban = styled(Board)`
     padding: ${(props) => `0 ${props.theme.desktopLayout.paddingHorizontal}`};
     margin: ${(props) => `0 -${props.theme.desktopLayout.paddingHorizontal}`};
   }
-
-  div:first-child {
-    height: 100%;
-  }
 `;

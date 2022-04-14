@@ -1,11 +1,11 @@
 import React from 'react';
 import { Col, Row } from 'antd';
-import { NotificationsDropdown } from '../dropdowns/notificationsDropdown/NotificationsDropdown';
-import { ProfileDropdown } from '../dropdowns/profileDropdown/ProfileDropdown/ProfileDropdown';
-import { HeaderSearch } from '../HeaderSearch/HeaderSearch';
-import { SettingsDropdown } from '../dropdowns/settingsDropdown/SettingsDropdown';
-
-import * as S from '../Header/Header.styles';
+import { NotificationsDropdown } from '../components/notificationsDropdown/NotificationsDropdown';
+import { ProfileDropdown } from '../components/profileDropdown/ProfileDropdown/ProfileDropdown';
+import { HeaderSearch } from '../components/HeaderSearch/HeaderSearch';
+import { SettingsDropdown } from '../components/settingsDropdown/SettingsDropdown';
+import { HeaderFullscreen } from '../components/HeaderFullscreen/HeaderFullscreen';
+import * as S from '../Header.styles';
 
 interface DesktopHeaderProps {
   isTwoColumnsLayout: boolean;
@@ -41,7 +41,11 @@ export const DesktopHeader: React.FC<DesktopHeaderProps> = ({ isTwoColumnsLayout
       <S.ProfileColumn xl={8} xxl={8} $isTwoColumnsLayout={isTwoColumnsLayout}>
         <Row align="middle" justify="end" gutter={[10, 10]}>
           <Col>
-            <Row gutter={[5, 5]}>
+            <Row gutter={[{ xxl: 10 }, { xxl: 10 }]}>
+              <Col>
+                <HeaderFullscreen />
+              </Col>
+
               <Col>
                 <NotificationsDropdown />
               </Col>

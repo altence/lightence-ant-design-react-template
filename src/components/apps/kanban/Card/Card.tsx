@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Dropdown } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { MoreOutlined } from '@ant-design/icons';
+import { Dropdown } from '@app/components/common/Dropdown/Dropdown';
 import { Button } from '@app/components/common/buttons/Button/Button';
 import { ParticipantsDropdown } from '@app/components/apps/kanban/newCardForm/ParticipantsDropdown/ParticipantsDropdown';
 import { TagDropdown } from '@app/components/apps/kanban/newCardForm/TagDropdown/TagDropdown';
