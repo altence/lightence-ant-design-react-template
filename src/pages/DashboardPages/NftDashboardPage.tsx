@@ -20,7 +20,7 @@ const MedicalDashboardPage: React.FC = () => {
 
   const desktopLayout = (
     <Row>
-      <S.LeftSideCol xl={16} xxl={16} id="desktop-content">
+      <S.LeftSideCol xl={16} xxl={17} id="desktop-content">
         <Row gutter={[60, 60]}>
           <Col span={24}>
             <TrendingCreators />
@@ -41,7 +41,7 @@ const MedicalDashboardPage: React.FC = () => {
         <References />
       </S.LeftSideCol>
 
-      <S.RightSideCol xl={8} xxl={8}>
+      <S.RightSideCol xl={8} xxl={7}>
         <div id="balance">
           <Balance />
         </div>
