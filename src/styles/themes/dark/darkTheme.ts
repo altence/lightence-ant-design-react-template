@@ -64,7 +64,8 @@ const darkColors = {
     background: '#121430',
   },
   dashboardMap: {
-    background: '#2D3055',
+    background: '#25284b',
+    circleColor: '#ACAEC1',
     controlDisabledBackgroundColor: '#7e7e7e',
   },
   charts: {

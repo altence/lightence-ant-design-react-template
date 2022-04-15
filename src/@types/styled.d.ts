@@ -55,6 +55,7 @@ declare module 'styled-components' {
       };
       dashboardMap: {
         background: string;
+        circleColor: string;
         controlDisabledBackgroundColor: string;
       };
       charts: {

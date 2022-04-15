@@ -23,7 +23,7 @@ export const DoctorsMap = styled(CountryMap)`
     }
 
     #pattern-circle {
-      fill: ${(props) => props.theme.colors.main.secondaryBackground};
+      fill: ${(props) => props.theme.colors.dashboardMap.circleColor};
     }
 
     #pattern-circle-hovered {
