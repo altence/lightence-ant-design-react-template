@@ -15,6 +15,10 @@ export const Menu = styled(AntMenu)`
     font-size: ${(props) => props.theme.commonFontSizes.xs};
   }
 
+  .ant-menu-item-icon {
+    width: 1.25rem;
+  }
+
   .ant-menu-submenu-expand-icon,
   .ant-menu-submenu-arrow,
   span[role='img'],
@@ -22,6 +26,7 @@ export const Menu = styled(AntMenu)`
   .ant-menu-item,
   .ant-menu-submenu {
     color: ${(props) => props.theme.colors.text.siderSecondary};
+    fill: ${(props) => props.theme.colors.text.siderSecondary};
   }
 
   .ant-menu-item:hover,
@@ -30,8 +35,10 @@ export const Menu = styled(AntMenu)`
     .ant-menu-submenu-arrow,
     span[role='img'],
     a,
+    .ant-menu-item-icon,
     .ant-menu-title-content {
       color: ${(props) => props.theme.colors.text.siderPrimary};
+      fill: ${(props) => props.theme.colors.text.siderPrimary};
     }
   }
 
@@ -43,6 +50,7 @@ export const Menu = styled(AntMenu)`
       .ant-menu-submenu-arrow,
       span[role='img'] {
         color: ${(props) => props.theme.colors.text.siderPrimary};
+        fill: ${(props) => props.theme.colors.text.siderPrimary};
       }
     }
   }
@@ -53,8 +61,10 @@ export const Menu = styled(AntMenu)`
     .ant-menu-submenu-expand-icon,
     .ant-menu-submenu-arrow,
     span[role='img'],
+    .ant-menu-item-icon,
     a {
       color: ${(props) => props.theme.colors.text.siderPrimary};
+      fill: ${(props) => props.theme.colors.text.siderPrimary};
     }
   }
 
