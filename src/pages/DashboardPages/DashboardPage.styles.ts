@@ -33,7 +33,7 @@ export const ScrollWrapper = styled.div`
   .ant-card-body {
     overflow-y: auto;
     overflow-x: hidden;
-    min-height: 100%;
+    height: 100%;
   }
 `;
 
