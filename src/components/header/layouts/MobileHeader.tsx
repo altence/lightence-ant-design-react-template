@@ -5,7 +5,6 @@ import { ProfileDropdown } from '../components/profileDropdown/ProfileDropdown/P
 import { HeaderSearch } from '../components/HeaderSearch/HeaderSearch';
 import { SettingsDropdown } from '../components/settingsDropdown/SettingsDropdown';
 import * as S from '../Header.styles';
-import { HeaderFullscreen } from '../components/HeaderFullscreen/HeaderFullscreen';
 
 interface MobileHeaderProps {
   toggleSider: () => void;
@@ -21,10 +20,6 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({ toggleSider, isSider
 
       <Col>
         <Row align="middle">
-          <Col>
-            <HeaderFullscreen />
-          </Col>
-
           <Col>
             <NotificationsDropdown />
           </Col>
