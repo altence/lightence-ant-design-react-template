@@ -17,7 +17,7 @@ export const TopUpBalanceModal: React.FC<TopUpBalanceModalProps> = ({
   onFinish,
 }) => {
   return (
-    <Modal size="small" visible={isVisible} onCancel={onVisibleChange} footer={null} destroyOnClose>
+    <Modal width={500} visible={isVisible} onCancel={onVisibleChange} footer={null} destroyOnClose>
       <Spinner spinning={loading}>
         <TopUpBalanceForm cards={cards} loading={loading} onFinish={onFinish} />
       </Spinner>

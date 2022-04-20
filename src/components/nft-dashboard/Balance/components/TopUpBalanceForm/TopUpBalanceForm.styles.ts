@@ -1,5 +1,34 @@
 import styled from 'styled-components';
 import { RadioGroup } from '@app/components/common/Radio/Radio';
+import { Typography } from 'antd';
+
+export const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+`;
+
+export const BlockWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
+export const Label = styled(Typography.Text)`
+  color: ${(props) => props.theme.colors.text.nftLight};
+  font-size: ${(props) => props.theme.commonFontSizes.xs};
+`;
+
+export const ButtonsWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  button {
+    width: calc(100% / 3 - 0.2rem);
+    margin: 0.2rem 0;
+  }
+`;
 
 export const PaymentRadio = styled(RadioGroup)`
   display: block;
