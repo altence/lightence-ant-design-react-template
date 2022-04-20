@@ -862,6 +862,8 @@
   "nft": {
       "yourBalance": "Your Balance",
       "topUpBalance": "Top Up Balance",
+      "amount": "Amount",
+      "selectCard": "Select card",
       "totalEarning": "Total Earning",
       "status": {
           "sold": "Sold",

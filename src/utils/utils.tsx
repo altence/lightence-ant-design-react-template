@@ -1,10 +1,14 @@
 import { DefaultTheme } from 'styled-components';
 import { Col, Row } from 'antd';
 import { NotificationType } from '@app/components/common/Notification/Notification';
-import { CurrencyType } from '@app/interfaces/interfaces';
+import { CurrencyTypeEnum } from '@app/interfaces/interfaces';
 import { Priority } from '@app//constants/enums/priorities';
 import { ReactComponent as ETHIcon } from '@app/assets/icons/eth.svg';
 import { ReactComponent as BTCIcon } from '@app/assets/icons/btc.svg';
+
+import visa from '@app/assets/images/card-issuers/visa.png';
+import mastercard from '@app/assets/images/card-issuers/mastercard.png';
+import maestro from '@app/assets/images/card-issuers/maestro.png';
 
 export const camelize = (string: string): string => {
   return string
@@ -15,10 +19,10 @@ export const camelize = (string: string): string => {
 
 export const getCurrencyPrice = (
   price: number | string,
-  currency: CurrencyType,
+  currency: CurrencyTypeEnum,
   isIcon = true,
 ): string | React.ReactNode => {
-  switch (currency) {
+  switch (CurrencyTypeEnum[currency]) {
     case 'USD': {
       return isIcon ? `$${price}` : `${price} USD`;
     }
@@ -193,4 +197,27 @@ export const hexToHSL = (hex: string): { h: number; s: number; l: number } => {
 
 export const formatNumberWithCommas = (value: number): string => {
   return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+};
+
+export const getPaymentCardTypeIcon = (type: string): string | null => {
+  switch (type) {
+    case 'visa':
+      return visa;
+    case 'mastercard':
+      return mastercard;
+    case 'maestro':
+      return maestro;
+    case 'amex':
+      return 'amex';
+    case 'discover':
+      return 'discover';
+    case 'diners':
+      return 'diners';
+    case 'jcb':
+      return 'jcb';
+    case 'unionpay':
+      return 'unionpay';
+    default:
+      return null;
+  }
 };

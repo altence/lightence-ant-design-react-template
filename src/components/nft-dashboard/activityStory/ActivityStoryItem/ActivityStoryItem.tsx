@@ -7,6 +7,7 @@ import { UserActivity } from '@app/api/activity.api';
 import { Dates } from '@app/constants/Dates';
 import { formatNumberWithCommas, getCurrencyPrice } from '@app/utils/utils';
 import * as S from './ActivityStoryItem.styles';
+import { CurrencyTypeEnum } from '@app/interfaces/interfaces';
 
 export const ActivityStoryItem: React.FC<UserActivity> = ({ image, title, status, date, usd_value }) => {
   const { t } = useTranslation();
@@ -43,7 +44,7 @@ export const ActivityStoryItem: React.FC<UserActivity> = ({ image, title, status
               </Col>
 
               <Col span={24}>
-                <S.Text>{getCurrencyPrice(formatNumberWithCommas(usd_value), 'USD')}</S.Text>
+                <S.Text>{getCurrencyPrice(formatNumberWithCommas(usd_value), CurrencyTypeEnum['USD'])}</S.Text>
               </Col>
             </Row>
           </Col>

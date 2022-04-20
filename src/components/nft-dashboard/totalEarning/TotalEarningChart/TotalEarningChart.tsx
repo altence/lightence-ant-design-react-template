@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTheme } from 'styled-components';
 import { BaseChart, getDefaultTooltipStyles } from '@app/components/common/charts/BaseChart';
-import { ChartData, ChartSeriesData } from '@app/interfaces/interfaces';
+import { ChartData, ChartSeriesData, CurrencyTypeEnum } from '@app/interfaces/interfaces';
 import { formatNumberWithCommas, getCurrencyPrice } from '@app/utils/utils';
 
 interface LineData {
@@ -26,7 +26,10 @@ export const TotalEarningChart: React.FC<TotalEarningChartProps> = ({ xAxisData,
       formatter: (data: ChartSeriesData) => {
         const currentSeries = data[0];
 
-        return `${currentSeries.name} - ${getCurrencyPrice(formatNumberWithCommas(currentSeries.value), 'USD')}`;
+        return `${currentSeries.name} - ${getCurrencyPrice(
+          formatNumberWithCommas(currentSeries.value),
+          CurrencyTypeEnum['USD'],
+        )}`;
       },
     },
     grid: {

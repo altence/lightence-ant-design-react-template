@@ -8,7 +8,7 @@ import { Status } from '../Status/Status';
 import * as S from './Payment.styles';
 import { Button } from 'components/common/buttons/Button/Button';
 import { useTheme } from 'styled-components';
-import { CurrencyType } from '@app/interfaces/interfaces';
+import { CurrencyTypeEnum } from '@app/interfaces/interfaces';
 
 interface PaymentProps {
   src: string;
@@ -16,7 +16,7 @@ interface PaymentProps {
   date: number;
   status: number;
   price: number;
-  currency: CurrencyType;
+  currency: CurrencyTypeEnum;
 }
 
 export const Payment: React.FC<PaymentProps> = ({ src, recipient, date, status, price, currency }) => {

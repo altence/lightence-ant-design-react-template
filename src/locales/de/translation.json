@@ -839,6 +839,8 @@
   "nft": {
     "yourBalance": "Dein Kontostand",
     "topUpBalance": "Guthaben aufladen",
+    "amount": "Menge",
+    "selectCard": "Karte auswählen",
     "totalEarning": "Gesamtverdienst",
     "status": {
         "sold": "Verkauft",

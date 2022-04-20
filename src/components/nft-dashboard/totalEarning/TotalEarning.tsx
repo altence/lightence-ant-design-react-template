@@ -9,6 +9,7 @@ import { getTotalEarning, TotalEarning as ITotalEarning } from '@app/api/earning
 import { Dates } from '@app/constants/Dates';
 import { formatNumberWithCommas, getCurrencyPrice, getDifference } from '@app/utils/utils';
 import * as S from './TotalEarning.styles';
+import { CurrencyTypeEnum } from '@app/interfaces/interfaces';
 
 export const TotalEarning: React.FC = () => {
   const [totalEarning, setTotalEarning] = useState<ITotalEarning | null>(null);
@@ -18,7 +19,7 @@ export const TotalEarning: React.FC = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    userId && getTotalEarning(userId, 'USD').then((res) => setTotalEarning(res));
+    userId && getTotalEarning(userId, CurrencyTypeEnum['USD']).then((res) => setTotalEarning(res));
   }, [userId]);
 
   const { totalEarningData, days } = useMemo(
@@ -54,7 +55,9 @@ export const TotalEarning: React.FC = () => {
         <Col span={24}>
           <Row wrap={false} justify="space-between" gutter={[20, 20]}>
             <Col>
-              <S.Text>{getCurrencyPrice(formatNumberWithCommas(totalEarning?.total ?? 0), 'USD')}</S.Text>
+              <S.Text>
+                {getCurrencyPrice(formatNumberWithCommas(totalEarning?.total ?? 0), CurrencyTypeEnum['USD'])}
+              </S.Text>
             </Col>
 
             <Col flex={1}>
