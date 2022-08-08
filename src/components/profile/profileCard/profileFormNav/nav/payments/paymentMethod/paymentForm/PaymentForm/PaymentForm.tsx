@@ -44,7 +44,7 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({ closeModal, onFormFini
   );
 
   const onFinish = useCallback(
-    (values) => {
+    (values: CreditCard) => {
       setLoading(true);
       setTimeout(() => {
         setLoading(false);

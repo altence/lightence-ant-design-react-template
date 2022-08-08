@@ -24,7 +24,10 @@ export const PieChartCustomLegend: React.FC<PieChartCustomLegend> = ({
 }) => {
   const [activeItemIndex, setActiveItemIndex] = useState<number | null>(null);
 
-  const onMouseOver = useCallback(({ dataIndex }) => setActiveItemIndex(dataIndex), [setActiveItemIndex]);
+  const onMouseOver = useCallback(
+    ({ dataIndex }: { dataIndex: number | null }) => setActiveItemIndex(dataIndex),
+    [setActiveItemIndex],
+  );
   const onMouseOut = useCallback(() => setActiveItemIndex(null), [setActiveItemIndex]);
 
   const onEvents = {

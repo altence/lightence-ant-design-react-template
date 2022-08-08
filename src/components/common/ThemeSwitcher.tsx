@@ -1,7 +1,8 @@
+import { WithChildrenProps } from '@app/types/generalTypes';
 import React, { useEffect, useState } from 'react';
 import { useThemeSwitcher } from 'react-css-theme-switcher';
 
-interface ThemeSwitcherProps {
+interface ThemeSwitcherProps extends WithChildrenProps {
   theme: string;
 }
 
