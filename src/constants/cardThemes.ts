@@ -1,4 +1,4 @@
-interface CardTheme {
+export interface CardTheme {
   id: number;
   background: string;
 }

@@ -17,6 +17,7 @@ import { ZipcodeItem } from '@app/components/profile/profileCard/profileFormNav/
 import { AddressItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/AddressItem/AddressItem';
 import { WebsiteItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/WebsiteItem/WebsiteItem';
 import { SocialLinksItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/SocialLinksItem/SocialLinksItem';
+import { CreditCard } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentMethod/paymentForm/interfaces';
 import { useAppSelector } from '@app/hooks/reduxHooks';
 import { Dates } from '@app/constants/Dates';
 import { notificationController } from '@app/controllers/notificationController';
@@ -98,7 +99,7 @@ export const PersonalInfo: React.FC = () => {
   const { t } = useTranslation();
 
   const onFinish = useCallback(
-    (values) => {
+    (values: CreditCard) => {
       // todo dispatch an action here
       setLoading(true);
       setTimeout(() => {
