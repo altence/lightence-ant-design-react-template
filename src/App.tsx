@@ -3,16 +3,17 @@ import { ConfigProvider } from 'antd';
 import deDe from 'antd/lib/locale/de_DE';
 import enUS from 'antd/lib/locale/en_US';
 import { ThemeProvider } from 'styled-components';
-import lightTheme from './styles/themes/light/lightTheme';
+import lightTheme from './styles/themes/old/light/lightTheme';
 import GlobalStyle from './styles/GlobalStyle';
 import 'typeface-montserrat';
-import { darkTheme } from '@app/styles/themes/dark/darkTheme';
+import { darkTheme } from '@app/styles/themes/old/dark/darkTheme';
 import { AppRouter } from './components/router/AppRouter';
 import { ThemeSwitcher } from '@app/components/common/ThemeSwitcher';
 import { useLanguage } from './hooks/useLanguage';
 import { useAppSelector } from './hooks/reduxHooks';
 import { useAutoNightMode } from './hooks/useAutoNightMode';
 import { usePWA } from './hooks/usePWA';
+import { useThemeWatcher } from './hooks/useThemeWatcher';
 
 const App: React.FC = () => {
   const theme = useAppSelector((state) => state.theme.theme);
@@ -23,6 +24,8 @@ const App: React.FC = () => {
   usePWA();
 
   useAutoNightMode();
+
+  useThemeWatcher();
 
   return (
     <>

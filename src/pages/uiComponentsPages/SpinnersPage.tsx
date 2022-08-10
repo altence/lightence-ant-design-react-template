@@ -5,8 +5,8 @@ import { LoadingOutlined, RedoOutlined, ChromeOutlined } from '@ant-design/icons
 import { Spinner } from '@app/components/common/Spinner/Spinner';
 import { Alert } from '@app/components/common/Alert/Alert';
 import { GlobalSpinner } from '@app/components/common/GlobalSpinner';
-import { darkTheme } from '@app/styles/themes/dark/darkTheme';
-import lightTheme from '@app/styles/themes/light/lightTheme';
+import { darkTheme } from '@app/styles/themes/old/dark/darkTheme';
+import lightTheme from '@app/styles/themes/old/light/lightTheme';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
 

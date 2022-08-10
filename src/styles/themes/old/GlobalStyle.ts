@@ -1,22 +1,32 @@
 import { createGlobalStyle } from 'styled-components';
-import { resetCss } from './resetCss';
-import { darkColors } from './themes/dark/darkColors';
-import { lightColors } from './themes/light/lightColors';
 
 export default createGlobalStyle`
-
-  ${resetCss}
-
-  [data-theme='light'],
-  :root {
-    ${lightColors}
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 
-  [data-theme='dark'],
-  :root {
-    ${darkColors}
+  ::-webkit-scrollbar {
+    width: 1rem;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: ${(props) => props.theme.commonColors.lightgrey};
+    border-radius: 1.25rem;
+    border: 0.375rem solid transparent;
+    background-clip: content-box;
+  }
+
+  body {
+    font-weight: 500;
   }
   
+  img {
+    display: block;
+  }
 
   .range-picker {
     & .ant-picker-panels {
