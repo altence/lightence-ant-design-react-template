@@ -1,32 +1,33 @@
+import { media } from '@app/styles/themes/light/lightTheme';
 import styled from 'styled-components';
 
 export const LoginDescription = styled.div`
   margin-bottom: 1.875rem;
-  color: ${(props) => props.theme.colors.text.main};
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  color: var(--text-main-color);
+  font-size: var(--font-size-xs);
 
-  @media only screen and ${(props) => props.theme.media.xs} {
+  @media only screen and ${media.xs} {
     margin-bottom: 1.5625rem;
-    font-weight: ${(props) => props.theme.commonFontWeight.bold};
+    font-weight: var(--font-weight-bold);
   }
 
-  @media only screen and ${(props) => props.theme.media.md} {
+  @media only screen and ${media.md} {
     margin-bottom: 1.75rem;
-    font-weight: ${(props) => props.theme.commonFontWeight.regular};
+    font-weight: var(--font-weight-regular);
   }
 
-  @media only screen and ${(props) => props.theme.media.xl} {
+  @media only screen and ${media.xl} {
     margin-bottom: 1.875rem;
   }
 `;
 
 export const RememberMeText = styled.span`
-  color: ${(props) => props.theme.colors.main.primary};
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  color: var(--primary-color);
+  font-size: var(--font-size-xs);
 `;
 
 export const ForgotPasswordText = styled.span`
-  color: ${(props) => props.theme.colors.text.light};
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  color: var(--text-light-color);
+  font-size: var(--font-size-xs);
   text-decoration: underline;
 `;

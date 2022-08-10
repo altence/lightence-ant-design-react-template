@@ -8,14 +8,14 @@ interface TextProps {
 export const Table = styled(CommonTable)`
   thead .ant-table-cell {
     border-top: none;
-    border-bottom: ${(props) => `1px solid ${props.theme.colors.border.main}`};
+    border-bottom: 1px solid var(--border-color);
   }
 
   .ant-table-thead > tr > th {
     background: transparent;
-    color: ${(props) => props.theme.colors.text.main};
-    font-size: ${(props) => props.theme.commonFontSizes.md};
-    font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+    color: var(--text-main-color);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
 
     &::before {
       display: none;
@@ -29,11 +29,10 @@ export const Table = styled(CommonTable)`
 `;
 
 export const Text = styled.span<TextProps>`
-  color: ${(props) => props.theme.colors.text.main};
-  font-weight: ${(props) =>
-    props.$isActive ? props.theme.commonFontWeight.semibold : props.theme.commonFontWeight.regular};
+  color: var(--text-main-color);
+  font-weight: ${(props) => (props.$isActive ? 'var(--font-weight-semibold)' : 'var(--font-weight-regular)')};
 `;
 
 export const Flag = styled(Text)<{ $isNorm: boolean }>`
-  color: ${(props) => (props.$isNorm ? props.theme.colors.main.success : props.theme.colors.main.error)};
+  color: ${(props) => (props.$isNorm ? 'var(--success-color)' : 'var(--error-color)')};
 `;

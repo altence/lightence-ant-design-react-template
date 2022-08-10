@@ -4,15 +4,15 @@ import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
 
 export const UserList = styled(BaseForm.Item)`
   & label {
-    font-size: ${(props) => props.theme.commonFontSizes.md};
-    font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
   }
 `;
 
 export const Text = styled.div`
-  color: ${(props) => props.theme.colors.main.primary};
-  font-size: ${(props) => props.theme.commonFontSizes.md};
-  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+  color: var(--primary-color);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
 `;
 
 export const List = styled.ul`
@@ -26,9 +26,9 @@ export const ListItem = styled.li`
 `;
 
 export const User = styled.div`
-  color: ${(props) => props.theme.colors.text.main};
-  font-size: ${(props) => props.theme.commonFontSizes.md};
-  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+  color: var(--text-main-color);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
   margin-left: 0.5rem;
 `;
 

@@ -11,13 +11,14 @@ import {
 } from '@app/components/common/Skeleton/Skeleton';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
+import { media } from '@app/styles/themes/light/lightTheme';
 
 const FormItem = styled(Form.Item)`
-  @media only screen and ${(props) => props.theme.media.xs} {
+  @media only screen and ${media.xs} {
     max-width: fit-content;
   }
 
-  @media only screen and ${(props) => props.theme.media.md} {
+  @media only screen and ${media.md} {
     max-width: 100%;
   }
 `;

@@ -10,14 +10,14 @@ import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
 
 const DraggerIconWrapper = styled.div`
   font-size: 4rem;
-  color: ${(props) => props.theme.colors.main.primary};
+  color: var(--primary-color);
 `;
 const DraggerTitle = styled.div`
-  font-size: ${(props) => props.theme.commonFontSizes.xl}ß;
-  font-weight: ${(props) => props.theme.commonFontWeight.bold};
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
 `;
 const DraggerDescription = styled.div`
-  font-size: ${(props) => props.theme.commonFontSizes.md};
+  font-size: var(--font-size-md);
   padding: 0 1rem;
 `;
 

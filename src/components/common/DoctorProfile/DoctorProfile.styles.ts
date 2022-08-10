@@ -15,14 +15,14 @@ export const Info = styled.div`
 export const Text = styled(Typography.Text)`
   display: flex;
   line-height: 1.25rem;
-  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-xs);
 
-  color: ${(props) => props.theme.colors.text.dark};
+  color: var(--text-dark-color);
 `;
 
 export const Title = styled(Text)`
-  color: ${(props) => props.theme.colors.main.primary};
+  color: var(--primary-color);
 `;
 
 export const Rating = styled(Rate)`

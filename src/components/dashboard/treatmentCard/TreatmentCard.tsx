@@ -88,7 +88,7 @@ const BackButton = styled(Button)`
   position: absolute;
   top: 0;
   left: 0;
-  color: ${(props) => props.theme.commonColors.white};
+  color: var(--white);
 `;
 
 const RowStyled = styled(Row)`

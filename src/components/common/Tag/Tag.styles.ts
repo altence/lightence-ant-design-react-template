@@ -11,7 +11,7 @@ export const RemoveTagWrapper = styled.span`
 
 export const RemoveTagIcon = styled(CloseOutlined)`
   color: #ffffff;
-  font-size: ${(props) => props.theme.commonFontSizes.xxs};
+  font-size: var(--font-size-xxs);
   cursor: pointer;
 `;
 
@@ -22,5 +22,5 @@ export const TagWrapper = styled(TagSpan)`
   align-items: center;
   padding: 0.3125rem 0.625rem;
   margin: 0;
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  font-size: var(--font-size-xs);
 `;

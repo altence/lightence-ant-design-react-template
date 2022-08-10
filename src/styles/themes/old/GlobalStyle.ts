@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { media } from '../light/lightTheme';
 
 export default createGlobalStyle`
   * {
@@ -14,7 +15,7 @@ export default createGlobalStyle`
     background-color: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: ${(props) => props.theme.commonColors.lightgrey};
+    background-color: var(--lightgrey);
     border-radius: 1.25rem;
     border: 0.375rem solid transparent;
     background-clip: content-box;
@@ -39,7 +40,7 @@ export default createGlobalStyle`
   }
 
   .search-dropdown {
-    box-shadow: ${(props) => props.theme.boxShadow.main};
+    box-shadow: var(--box-shadow);
 
     @media only screen and ${(props) =>
       `${props.theme.media.xs} and (max-width: ${props.theme.breakpoints.md - 0.02}px)`} {
@@ -47,7 +48,7 @@ export default createGlobalStyle`
     max-width: 600px;
     }
 
-    @media only screen and ${(props) => props.theme.media.md} {
+    @media only screen and ${media.md} {
       max-width: 323px;
     }
   }
@@ -57,16 +58,16 @@ export default createGlobalStyle`
   }
 
   .ant-picker-cell {
-    color: ${(props) => props.theme.colors.text.main};
+    color: var(--text-main-color);
   }
 
   .ant-picker-cell-in-view .ant-picker-calendar-date-value {
-    color: ${(props) => props.theme.colors.text.main};
-    font-weight: ${(props) => props.theme.commonFontWeight.bold};
+    color: var(--text-main-color);
+    font-weight: var(--font-weight-bold);
   }
 
   .ant-picker svg {
-    color: ${(props) => props.theme.colors.text.light};
+    color: var(--text-light-color);
   }
 
   // notifications start
@@ -110,27 +111,27 @@ export default createGlobalStyle`
     }
     
     .title {
-      font-size: ${(props) => props.theme.commonFontSizes.xxl};
+      font-size: var(--font-size-xxl);
       height: 3rem;
       margin-left: 1.5rem;
       display: flex;
       align-items: center;
-      font-weight: ${(props) => props.theme.commonFontWeight.bold};
+      font-weight: var(--font-weight-bold);
 
       &.title-only {
-        color: ${(props) => props.theme.colors.text.main};
-        font-size: ${(props) => props.theme.commonFontSizes.md};
+        color: var(--text-main-color);
+        font-size: var(--font-size-md);
         height: 2rem;
         line-height: 2rem;
         margin-left: 0.75rem;
-        font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+        font-weight: var(--font-weight-semibold);
       }
   }
   
     .description {
       color: #404040;
-      font-size: ${(props) => props.theme.commonFontSizes.md};
-      font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+      font-size: var(--font-size-md);
+      font-weight: var(--font-weight-semibold);
       line-height: 1.375rem;
     }
   
@@ -144,11 +145,11 @@ export default createGlobalStyle`
     }
   
     &.ant-notification-notice-info {
-      border: ${(props) => `1px solid ${props.theme.colors.main.primary}`};
+      border: 1px solid var(--primary-color);
       background: ${(props) => props.theme.colors.notifications.primary};
   
       .title {
-        color: ${(props) => props.theme.colors.main.primary};
+        color: var(--primary-color);
       }
     }
   
@@ -175,7 +176,7 @@ export default createGlobalStyle`
     }
   
     .info-icon {
-      color: ${(props) => props.theme.colors.main.primary};
+      color: var(--primary-color);
     }
   
     .warning-icon {

@@ -1,3 +1,4 @@
+import { media } from '@app/styles/themes/light/lightTheme';
 import { Typography } from 'antd';
 import styled from 'styled-components';
 
@@ -8,10 +9,10 @@ export const CalendarSwitch = styled.div`
 `;
 export const Text = styled(Typography.Text)`
   font-weight: bold;
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  font-size: var(--font-size-xs);
 
-  @media only screen and ${(props) => props.theme.media.md} {
-    font-size: ${(props) => props.theme.commonFontSizes.lg};
+  @media only screen and ${media.md} {
+    font-size: var(--font-size-lg);
   }
 `;
 

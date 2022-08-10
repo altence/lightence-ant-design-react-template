@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Layout } from 'antd';
+import { media } from '@app/styles/themes/light/lightTheme';
 
 const { Content } = Layout;
 
@@ -8,18 +9,17 @@ interface HeaderProps {
 }
 
 export default styled(Content)<HeaderProps>`
-  padding: ${(props) => `${props.theme.mobileLayout.paddingVertical} ${props.theme.mobileLayout.paddingHorizontal}`};
+  padding: var(--mobile-padding-vertical) var(--mobile-padding-horizontal);
   overflow: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  @media only screen and ${(props) => props.theme.media.md} {
-    padding: ${(props) =>
-      `${props.theme.desktopLayout.paddingVertical} ${props.theme.desktopLayout.paddingHorizontal}`};
+  @media only screen and ${media.md} {
+    padding: var(--desktop-padding-vertical) var(--desktop-padding-horizontal);
   }
 
-  @media only screen and ${(props) => props.theme.media.xl} {
+  @media only screen and ${media.xl} {
     ${(props) =>
       props?.$isTwoColumnsLayout &&
       css`

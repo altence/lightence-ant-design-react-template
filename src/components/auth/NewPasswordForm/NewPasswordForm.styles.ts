@@ -1,24 +1,25 @@
 import styled from 'styled-components';
 import { Button } from 'antd';
+import { media } from '@app/styles/themes/light/lightTheme';
 
 export const Description = styled.div`
   margin-bottom: 1.875rem;
-  color: ${(props) => props.theme.colors.text.main};
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
-  font-weight: ${(props) => props.theme.commonFontWeight.regular};
+  color: var(--text-main-color);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
 
-  @media only screen and ${(props) => props.theme.media.xs} {
-    font-size: ${(props) => props.theme.commonFontSizes.xxs};
+  @media only screen and ${media.xs} {
+    font-size: var(--font-size-xxs);
   }
 
-  @media only screen and ${(props) => props.theme.media.md} {
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
+  @media only screen and ${media.md} {
+    font-size: var(--font-size-xs);
   }
 `;
 
 export const SubmitButton = styled(Button)`
-  font-size: ${(props) => props.theme.commonFontSizes.md};
-  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
   width: 100%;
   margin-top: 1.125rem;
   margin-bottom: 1rem;

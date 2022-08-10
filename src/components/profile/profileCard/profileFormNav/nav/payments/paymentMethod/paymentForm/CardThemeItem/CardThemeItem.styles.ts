@@ -15,7 +15,7 @@ export const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
   margin: 0 auto;
   transition: all 0.5s ease;
 
-  border-radius: ${(props) => props.theme.border.radius};
+  border-radius: var(--border-radius);
 
   ${(props) => props.isActive && `background: url(${props.background})`};
   background-size: cover;
@@ -38,7 +38,7 @@ export const Theme = styled.div`
   height: calc(100% - 0.4rem);
   margin: 0.2rem;
 
-  border: 5px solid ${(props) => props.theme.colors.main.mainBackground};
+  border: 5px solid var(--background-color);
 
-  border-radius: ${(props) => props.theme.border.radius};
+  border-radius: var(--border-radius);
 `;

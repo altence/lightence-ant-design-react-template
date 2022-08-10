@@ -2,7 +2,7 @@ import { Typography } from 'antd';
 import styled from 'styled-components';
 
 export const Title = styled(Typography.Text)`
-  font-weight: ${(props) => props.theme.commonFontWeight.bold};
+  font-weight: var(--font-weight-bold);
 
-  font-size: ${(props) => props.theme.commonFontSizes.lg};
+  font-size: var(--font-size-lg);
 `;

@@ -1,16 +1,17 @@
+import { media } from '@app/styles/themes/light/lightTheme';
 import Board from 'react-trello';
 import styled from 'styled-components';
 
 export const Kanban = styled(Board)`
   background: transparent;
   height: 100%;
-  padding: ${(props) => `0 ${props.theme.mobileLayout.paddingHorizontal}`};
+  padding: 0 var(--mobile-padding-horizontal);
 
-  margin: ${(props) => `0 -${props.theme.mobileLayout.paddingHorizontal}`};
+  margin: 0 calc(-1 * var(--mobile-padding-horizontal));
 
-  @media only screen and ${(props) => props.theme.media.md} {
-    padding: ${(props) => `0 ${props.theme.desktopLayout.paddingHorizontal}`};
-    margin: ${(props) => `0 -${props.theme.desktopLayout.paddingHorizontal}`};
+  @media only screen and ${media.md} {
+    padding: 0 var(--desktop-padding-horizontal);
+    margin: 0 calc(-1 * var(--desktop-padding-horizontal));
   }
 
   div:first-child {

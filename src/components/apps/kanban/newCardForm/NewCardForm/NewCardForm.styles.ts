@@ -8,21 +8,21 @@ export const FooterButtons = styled(BaseButtonsGroup)`
 `;
 
 export const FormInput = styled(BaseForm.Item)`
-  font-weight: ${(props) => props.theme.commonFontWeight.medium};
+  font-weight: var(--font-weight-medium);
   max-height: 1.25rem;
 
   &:first-child {
-    font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+    font-weight: var(--font-weight-semibold);
   }
 
   .ant-input {
     padding: 0;
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
+    font-size: var(--font-size-xs);
     font-weight: inherit;
   }
 
   .ant-input::placeholder {
-    color: ${(props) => props.theme.colors.text.light};
+    color: var(--text-light-color);
   }
 
   .ant-form-item-control-input {
@@ -33,5 +33,5 @@ export const FormInput = styled(BaseForm.Item)`
 export const CardWrapper = styled(Card)`
   padding: 1.25rem 1rem;
 
-  background: ${(props) => props.theme.colors.main.mainBackground};
+  background: var(--background-color);
 `;

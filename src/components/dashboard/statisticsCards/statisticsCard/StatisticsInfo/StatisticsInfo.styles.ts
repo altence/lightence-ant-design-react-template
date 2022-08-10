@@ -1,22 +1,23 @@
+import { media } from '@app/styles/themes/light/lightTheme';
 import { Typography } from 'antd';
 import styled from 'styled-components';
 
 export const Title = styled(Typography.Text)`
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
-  font-weight: ${(props) => props.theme.commonFontWeight.bold};
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
 
-  @media only screen and ${(props) => props.theme.media.md} {
-    font-size: ${(props) => props.theme.commonFontSizes.md};
+  @media only screen and ${media.md} {
+    font-size: var(--font-size-md);
   }
 
-  @media only screen and ${(props) => props.theme.media.xl} {
-    font-size: ${(props) => props.theme.commonFontSizes.lg};
+  @media only screen and ${media.xl} {
+    font-size: var(--font-size-lg);
   }
 `;
 
 export const Text = styled(Typography.Text)`
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
-  font-weight: ${(props) => props.theme.commonFontWeight.medium};
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
 `;
 
 export const IconWrapper = styled.span`

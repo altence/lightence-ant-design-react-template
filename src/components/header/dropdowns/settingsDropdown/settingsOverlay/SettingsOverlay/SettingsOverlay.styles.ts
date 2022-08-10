@@ -6,7 +6,7 @@ export const SettingsOverlayMenu = styled(DropdownMenu)`
   width: 13rem;
 
   &.ant-menu {
-    box-shadow: ${(props) => props.theme.boxShadow.main};
+    box-shadow: var(--box-shadow);
   }
 `;
 

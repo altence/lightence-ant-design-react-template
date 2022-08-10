@@ -7,13 +7,14 @@ import { Popconfirm } from '@app/components/common/Popconfirm/Popconfirm';
 import { TopButtons, LeftButtons, RightButtons, BottomButtons } from '@app/pages/uiComponentsPages/modals/PopoversPage';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
+import { media } from '@app/styles/themes/light/lightTheme';
 
 const AsyncButton = styled(Button)`
-  @media only screen and ${(props) => props.theme.media.xs} {
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
+  @media only screen and ${media.xs} {
+    font-size: var(--font-size-xs);
   }
-  @media only screen and ${(props) => props.theme.media.md} {
-    font-size: ${(props) => props.theme.commonFontSizes.md};
+  @media only screen and ${media.md} {
+    font-size: var(--font-size-md);
   }
 `;
 

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import React from 'react';
+import { media } from '@app/styles/themes/light/lightTheme';
 
 export const ReferencesWrapper = styled.div`
   width: 100%;
@@ -9,11 +10,11 @@ export const ReferencesWrapper = styled.div`
   flex-wrap: nowrap;
   margin-top: ${(props) => `${props.theme.mobileLayout.paddingVertical}`};
 
-  @media only screen and ${(props) => props.theme.media.sm} {
+  @media only screen and ${media.sm} {
     align-items: center;
   }
 
-  @media only screen and ${(props) => props.theme.media.xl} {
+  @media only screen and ${media.xl} {
     flex-direction: row;
     justify-content: space-between;
   }
@@ -26,7 +27,7 @@ export const Text = styled.span`
   flex-wrap: wrap;
   margin-bottom: 1rem;
 
-  @media only screen and ${(props) => props.theme.media.xl} {
+  @media only screen and ${media.xl} {
     margin-bottom: 0;
   }
 `;

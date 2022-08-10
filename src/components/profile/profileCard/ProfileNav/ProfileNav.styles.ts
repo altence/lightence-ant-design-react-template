@@ -1,6 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Button } from 'components/common/buttons/Button/Button';
-import { hexToRGB } from 'utils/utils';
 
 interface BtnProps {
   isActive: boolean;
@@ -21,18 +20,22 @@ export const Btn = styled(Button).withConfig({
   width: 100%;
 
   &:hover {
-    background-color: ${(props) => hexToRGB(props.theme.colors.main.primary, 0.05)};
+    background-color: rgba(var(--primary-rgb-color), 0.05);
   }
 
-  ${(props) => props.isActive && `background-color: ${hexToRGB(props.theme.colors.main.primary, 0.05)}`};
+  ${(props) =>
+    props.isActive &&
+    css`
+      background-color: rgba(var(--primary-rgb-color), 0.05);
+    `};
 
   & > span:first-of-type {
     padding: 0.625rem;
     border-radius: 10px;
     margin-right: 0.5rem;
 
-    color: ${(props) => props.theme.colors.main[props.color]};
+    color: ${(props) => `var(--${props.color}-color)`};
 
-    background-color: ${(props) => hexToRGB(props.theme.colors.main.primary, 0.05)};
+    background-color: rgba(var(--primary-rgb-color), 0.05);
   }
 `;

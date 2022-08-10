@@ -38,14 +38,14 @@ export const DetailsRow = styled.div`
 `;
 
 export const DetailsTitle = styled.div`
-  color: ${(props) => props.theme.colors.text.light};
-  font-size: ${(props) => props.theme.commonFontSizes.md};
-  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+  color: var(--text-light-color);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
   margin-right: 0.5rem;
 `;
 
 export const DetailsValue = styled.div`
-  color: ${(props) => props.theme.colors.text.main};
-  font-size: ${(props) => props.theme.commonFontSizes.md};
-  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+  color: var(--text-main-color);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
 `;

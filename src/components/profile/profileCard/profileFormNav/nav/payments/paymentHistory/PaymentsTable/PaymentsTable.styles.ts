@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 import { Table } from 'antd';
-import { hexToRGB } from 'utils/utils';
 
 export const PaymentHistoryTable = styled(Table)`
   .ant-table-thead > tr > th {
-    border-top: ${(props) => `1px solid ${hexToRGB(props.theme.colors.main.primary, 0.3)}`};
+    border-top: 1px solid rgba(var(--primary-rgb-color), 0.3);
 
-    border-bottom: ${(props) => `1px solid ${hexToRGB(props.theme.colors.main.primary, 0.3)}`};
+    border-bottom: 1px solid rgba(var(--primary-rgb-color), 0.3);
 
-    color: ${(props) => props.theme.colors.main.primary};
+    color: var(--primary-color);
 
     text-align: center;
 
@@ -18,7 +17,7 @@ export const PaymentHistoryTable = styled(Table)`
   }
 
   .ant-table-tbody > tr > td {
-    border-bottom: ${(props) => `1px solid ${hexToRGB(props.theme.colors.main.primary, 0.3)}`};
+    border-bottom: 1px solid rgba(var(--primary--rgb-color), 0.3);
 
     font-weight: 600;
     font-size: 1rem;

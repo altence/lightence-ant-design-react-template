@@ -1,5 +1,4 @@
 import { NotificationType } from '@app/components/common/Notification/Notification';
-import { DefaultTheme } from 'styled-components';
 import { Priority } from '../constants/enums/priorities';
 
 export const camelize = (string: string): string => {
@@ -37,12 +36,12 @@ export const getMarkAreaData = (data: string[] | number[]): MarkArea[][] =>
 
 export const capitalize = (word: string): string => `${word[0].toUpperCase()}${word.slice(1)}`;
 
-export const hexToRGB = (hex: string, alpha: string | number): string => {
+export const hexToRGB = (hex: string): string => {
   const r = parseInt(hex.slice(1, 3), 16),
     g = parseInt(hex.slice(3, 5), 16),
     b = parseInt(hex.slice(5, 7), 16);
 
-  return alpha ? `rgba(${r}, ${g}, ${b}, ${alpha})` : `rgb(${r}, ${g}, ${b})`;
+  return `${r}, ${g}, ${b}`;
 };
 
 export const getDifference = (value: number, prevValue: number): string | null =>
@@ -51,33 +50,31 @@ export const getDifference = (value: number, prevValue: number): string | null =
 export const normalizeProp = (prop: string | number | [number, number]): string =>
   typeof prop === 'number' ? `${prop}px` : (Array.isArray(prop) && `${prop[0]}px ${prop[1]}px`) || prop.toString();
 
-export const defineColorByPriority = (priority: Priority, theme: DefaultTheme): string => {
+export const defineColorByPriority = (priority: Priority): string => {
   switch (priority) {
     case Priority.INFO:
-      return theme.colors.main.primary;
+      return 'var(--primary-color)';
     case Priority.LOW:
-      return theme.colors.main.success;
+      return 'var(--success-color)';
     case Priority.MEDIUM:
-      return theme.colors.main.warning;
+      return 'var(--warning-color)';
     case Priority.HIGH:
-      return theme.colors.main.error;
+      return 'var(--error-color)';
     default:
-      return theme.colors.main.success;
+      return 'var(--success-color)';
   }
 };
 
-export const defineColorBySeverity = (severity: NotificationType | undefined, theme: DefaultTheme): string => {
+export const defineColorBySeverity = (severity: NotificationType | undefined, rgb = false): string => {
+  const postfix = rgb ? 'rgb-color' : 'color';
   switch (severity) {
     case 'error':
-      return theme.colors.main.error;
     case 'warning':
-      return theme.colors.main.warning;
     case 'success':
-      return theme.colors.main.success;
+      return `var(--${severity}-${postfix})`;
     case 'info':
-      return theme.colors.main.primary;
     default:
-      return theme.colors.main.primary;
+      return `var(--primary-${postfix})`;
   }
 };
 

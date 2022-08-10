@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Form } from 'antd';
+import { media } from '@app/styles/themes/light/lightTheme';
 
 interface FormItemProps {
   $isSuccess?: boolean;
@@ -8,26 +9,26 @@ interface FormItemProps {
 
 export const BaseFormItem = styled(Form.Item)<FormItemProps>`
   .ant-form-item-label > label {
-    color: ${(props) => props.theme.colors.main.primary};
+    color: var(--primary-color);
   }
 
   .ant-input-group-addon:first-of-type {
     font-weight: 600;
     width: 5rem;
 
-    color: ${(props) => props.theme.colors.main.primary};
+    color: var(--primary-color);
 
     .anticon,
     svg {
       font-size: 1.25rem;
     }
 
-    @media only screen and ${(props) => props.theme.media.md} {
+    @media only screen and ${media.md} {
       width: 5.5rem;
       font-size: 1.125rem;
     }
 
-    @media only screen and ${(props) => props.theme.media.xl} {
+    @media only screen and ${media.xl} {
       font-size: 1.5rem;
     }
   }
@@ -51,7 +52,7 @@ export const BaseFormItem = styled(Form.Item)<FormItemProps>`
       align-items: center;
       justify-content: center;
       margin: 0 0.25rem;
-      color: ${(props) => props.theme.colors.text.secondary};
+      color: var(--text-secondary-color);
       background: ${(props) => props.theme.colors.main.error};
       border-radius: 50%;
       width: 1rem;
