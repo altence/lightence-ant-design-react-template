@@ -2,8 +2,6 @@ import React from 'react';
 import { DropdownCollapse } from '@app/components/header/Header/Header.styles';
 import { useTranslation } from 'react-i18next';
 import { LanguagePicker } from '../LanguagePicker/LanguagePicker';
-import { NightModeSettings } from '../nightModeSettings/NightModeSettings';
-import { ThemePicker } from '../ThemePicker/ThemePicker';
 import { Button } from '@app/components/common/buttons/Button/Button';
 import { useAppSelector } from '@app/hooks/reduxHooks';
 import * as S from './SettingsOverlay.styles';
@@ -19,12 +17,13 @@ export const SettingsOverlay: React.FC = () => {
         <DropdownCollapse.Panel header={t('header.changeLanguage')} key="languagePicker">
           <LanguagePicker />
         </DropdownCollapse.Panel>
-        <DropdownCollapse.Panel header={t('header.changeTheme')} key="themePicker">
+        {/* TODO: hide until implementing new theme changes flow */}
+        {/* <DropdownCollapse.Panel header={t('header.changeTheme')} key="themePicker">
           <ThemePicker />
         </DropdownCollapse.Panel>
         <DropdownCollapse.Panel header={t('header.nightMode.title')} key="nightMode">
           <NightModeSettings />
-        </DropdownCollapse.Panel>
+        </DropdownCollapse.Panel> */}
       </DropdownCollapse>
       {isPWASupported && (
         <S.PwaInstallWrapper>

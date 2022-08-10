@@ -5,7 +5,7 @@ interface ThemeState {
   theme: ThemeType;
 }
 
-export const defaultTheme = (localStorage.getItem('theme') as ThemeType) || 'dark';
+export const defaultTheme = 'light';
 
 localStorage.setItem('theme', defaultTheme);
 
@@ -25,8 +25,8 @@ export const themeSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(setTheme, (state, action) => {
-      state.theme = action.payload;
+    builder.addCase(setTheme, (state) => {
+      state.theme = defaultTheme;
     });
   },
 });
