@@ -1,7 +1,9 @@
 import React from 'react';
-import { useTheme } from 'styled-components';
 import { EChartsOption } from 'echarts-for-react';
 import { BaseChart, BaseChartProps } from '@app/components/common/charts/BaseChart';
+import { useAppSelector } from '@app/hooks/reduxHooks';
+import { themeObject } from '@app/styles/themes/themeVariables';
+import { BASE_COLORS } from '@app/styles/themes/constants';
 
 interface PieChartProps extends BaseChartProps {
   option?: EChartsOption;
@@ -12,7 +14,8 @@ interface PieChartProps extends BaseChartProps {
 }
 
 export const PieChart: React.FC<PieChartProps> = ({ option, data, name, showLegend, ...props }) => {
-  const theme = useTheme();
+  const theme = useAppSelector((state) => state.theme.theme);
+
   const defaultPieOption = {
     tooltip: {
       trigger: 'item',
@@ -22,7 +25,7 @@ export const PieChart: React.FC<PieChartProps> = ({ option, data, name, showLege
       top: '0%',
       left: 16,
       textStyle: {
-        color: theme.colors.text.main,
+        color: themeObject[theme].textMain,
       },
     },
     series: [
@@ -35,7 +38,7 @@ export const PieChart: React.FC<PieChartProps> = ({ option, data, name, showLege
         avoidLabelOverlap: false,
         itemStyle: {
           borderRadius: 5,
-          borderColor: theme.commonColors.white,
+          borderColor: BASE_COLORS.white,
           borderWidth: 2,
         },
         label: {
@@ -47,7 +50,7 @@ export const PieChart: React.FC<PieChartProps> = ({ option, data, name, showLege
             show: true,
             fontSize: '40',
             fontWeight: 'bold',
-            color: theme.colors.text.main,
+            color: themeObject[theme].textMain,
           },
         },
         labelLine: {

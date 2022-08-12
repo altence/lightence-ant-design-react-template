@@ -4,7 +4,7 @@ import { BASE_COLORS } from './constants';
 import { darkColorsTheme } from './dark/darkTheme';
 import { lightColorsTheme } from './light/lightTheme';
 
-export const theme = {
+export const themeObject = {
   light: lightColorsTheme,
   dark: darkColorsTheme,
 };

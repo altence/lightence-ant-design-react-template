@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useTheme } from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import { Card } from '@app/components/common/Card/Card';
 import { BaseChart } from '@app/components/common/charts/BaseChart';
+import { useAppSelector } from '@app/hooks/reduxHooks';
+import { themeObject } from '@app/styles/themes/themeVariables';
 
 export const BarAnimationDelayChart: React.FC = () => {
   const { t } = useTranslation();
-  const theme = useTheme();
+  const theme = useAppSelector((state) => state.theme.theme);
+
   const [data, setData] = useState<{ data1: number[]; data2: number[]; xAxisData: string[] }>({
     data1: [],
     data2: [],
@@ -34,7 +36,7 @@ export const BarAnimationDelayChart: React.FC = () => {
       left: 20,
       top: 0,
       textStyle: {
-        color: theme.colors.text.main,
+        color: themeObject[theme].textMain,
       },
     },
     grid: {
@@ -63,7 +65,7 @@ export const BarAnimationDelayChart: React.FC = () => {
         name: t('charts.females'),
         type: 'bar',
         data: data.data1,
-        color: theme.colors.charts.color2,
+        color: themeObject[theme].chartColor2,
         emphasis: {
           focus: 'series',
         },
@@ -73,7 +75,7 @@ export const BarAnimationDelayChart: React.FC = () => {
         name: t('charts.males'),
         type: 'bar',
         data: data.data2,
-        color: theme.colors.charts.color3,
+        color: themeObject[theme].chartColor3,
         emphasis: {
           focus: 'series',
         },

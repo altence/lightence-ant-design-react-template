@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import React from 'react';
-import { media } from '@app/styles/themes/constants';
+import { LAYOUT, media } from '@app/styles/themes/constants';
 
 export const ReferencesWrapper = styled.div`
   width: 100%;
@@ -8,7 +8,7 @@ export const ReferencesWrapper = styled.div`
   flex-direction: column;
   align-items: start;
   flex-wrap: nowrap;
-  margin-top: ${(props) => `${props.theme.mobileLayout.paddingVertical}`};
+  margin-top: ${LAYOUT.mobile.paddingVertical};
 
   @media only screen and ${media.sm} {
     align-items: center;

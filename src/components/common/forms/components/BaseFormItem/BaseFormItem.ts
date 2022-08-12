@@ -53,7 +53,7 @@ export const BaseFormItem = styled(Form.Item)<FormItemProps>`
       justify-content: center;
       margin: 0 0.25rem;
       color: var(--text-secondary-color);
-      background: ${(props) => props.theme.colors.main.error};
+      background: var(--error-color);
       border-radius: 50%;
       width: 1rem;
       height: 1rem;
@@ -71,7 +71,7 @@ export const BaseFormItem = styled(Form.Item)<FormItemProps>`
       .ant-input {
         &,
         &:hover {
-          border-color: ${props.theme.colors.main.success};
+          border-color: var(--success-color);
         }
       }
 
@@ -80,7 +80,7 @@ export const BaseFormItem = styled(Form.Item)<FormItemProps>`
 
         &::after {
           content: '✓ ${props.$successText}';
-          color: ${props.theme.colors.main.success};
+          color: var(--success-color);
         }
       }
     `}
@@ -104,13 +104,13 @@ export const BaseFormItem = styled(Form.Item)<FormItemProps>`
   &.ant-form-item-has-error .ant-input-affix-wrapper,
   &.ant-form-item-has-error .ant-input:hover,
   &.ant-form-item-has-error .ant-input-affix-wrapper:hover {
-    border-color: ${(props) => props.theme.colors.main.error};
+    border-color: var(--error-color);
   }
 
   &.ant-form-item-has-success.ant-form-item-has-feedback .ant-input,
   &.ant-form-item-has-success.ant-form-item-has-feedback .ant-input-affix-wrapper,
   &.ant-form-item-has-success.ant-form-item-has-feedback .ant-input:hover,
   &.ant-form-item-has-success.ant-form-item-has-feedback .ant-input-affix-wrapper:hover {
-    border-color: ${(props) => props.theme.colors.main.success};
+    border-color: var(--success-color);
   }
 `;

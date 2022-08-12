@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps';
-import styled, { useTheme } from 'styled-components';
+import styled from 'styled-components';
 
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import { MapsCard } from '@app/pages/maps/maps.styles';
@@ -30,7 +30,6 @@ const markers = [
 
 const ReactSimpleMaps: React.FC = () => {
   const { t } = useTranslation();
-  const theme = useTheme();
 
   return (
     <>
@@ -51,8 +50,8 @@ const ReactSimpleMaps: React.FC = () => {
                   <Geography
                     key={geo.rsmKey}
                     geography={geo}
-                    fill={theme.colors.main.secondaryBackground}
-                    stroke={theme.colors.main.primary}
+                    fill={'var(--secondary-background-color)'}
+                    stroke={'var(--primary-color)'}
                   />
                 ))
             }
@@ -61,7 +60,7 @@ const ReactSimpleMaps: React.FC = () => {
             <Marker key={name} coordinates={coordinates as [number, number]}>
               <g
                 fill="none"
-                stroke={theme.colors.main.primary}
+                stroke={'var(--primary-color)'}
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -73,7 +72,7 @@ const ReactSimpleMaps: React.FC = () => {
               <text
                 textAnchor="middle"
                 y={markerOffset}
-                style={{ fontFamily: 'system-ui', fill: theme.colors.text.main }}
+                style={{ fontFamily: 'system-ui', fill: 'var(--text-main-color)' }}
               >
                 {name}
               </text>

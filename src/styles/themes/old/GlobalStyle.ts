@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { FONT_SIZE, FONT_WEIGHT, media } from '../constants';
+import { BREAKPOINTS, FONT_SIZE, FONT_WEIGHT, media } from '../constants';
 
 export default createGlobalStyle`
   * {
@@ -31,8 +31,7 @@ export default createGlobalStyle`
 
   .range-picker {
     & .ant-picker-panels {
-      @media only screen and ${(props) =>
-        `${props.theme.media.xs} and (max-width: ${props.theme.breakpoints.md - 0.02}px)`} {
+      @media only screen and ${media.xs} and (max-width: ${BREAKPOINTS.md - 0.02}px)  {
         display: flex;
       flex-direction: column;
       }
@@ -42,8 +41,7 @@ export default createGlobalStyle`
   .search-dropdown {
     box-shadow: var(--box-shadow);
 
-    @media only screen and ${(props) =>
-      `${props.theme.media.xs} and (max-width: ${props.theme.breakpoints.md - 0.02}px)`} {
+    @media only screen and ${media.xs} and (max-width: ${BREAKPOINTS.md - 0.02}px)  {
       width: calc(100vw - 16px);
     max-width: 600px;
     }
@@ -136,17 +134,17 @@ export default createGlobalStyle`
     }
   
     &.ant-notification-notice-success {
-      border: ${(props) => `1px solid ${props.theme.colors.main.success}`};
-      background: ${(props) => props.theme.colors.notifications.success};
+      border: 1px solid var(--success-color);
+      background: var(--notification-success-color);
       
       .title {
-        color: ${(props) => props.theme.colors.main.success};
+        color: var(--success-color);
       }
     }
   
     &.ant-notification-notice-info {
       border: 1px solid var(--primary-color);
-      background: ${(props) => props.theme.colors.notifications.primary};
+      background: var(--notification-primary-color);
   
       .title {
         color: var(--primary-color);
@@ -154,25 +152,25 @@ export default createGlobalStyle`
     }
   
     &.ant-notification-notice-warning {
-      border: ${(props) => `1px solid ${props.theme.colors.main.warning}`};
-      background: ${(props) => props.theme.colors.notifications.warning};
+      border: 1px solid var(--warning-color);
+      background: var(--notification-warning-color);
   
       .title {
-        color: ${(props) => props.theme.colors.main.warning};
+        color: var(--warning-color);
       }
     }
   
     &.ant-notification-notice-error {
-      border: ${(props) => `1px solid ${props.theme.colors.main.error}`};
-      background: ${(props) => props.theme.colors.notifications.error};
+      border: 1px solid var(--error-color);
+      background: var(--notification-error-color);
   
       .title {
-        color: ${(props) => props.theme.colors.main.error};
+        color: var(--error-color);
       }
     }
   
     .success-icon {
-      color: ${(props) => props.theme.colors.main.success};
+      color: var(--success-color);
     }
   
     .info-icon {
@@ -180,11 +178,11 @@ export default createGlobalStyle`
     }
   
     .warning-icon {
-      color: ${(props) => props.theme.colors.main.warning};
+      color: var(--warning-color);
     }
   
     .error-icon {
-      color: ${(props) => props.theme.colors.main.error};
+      color: var(--error-color);
     }
   }
   

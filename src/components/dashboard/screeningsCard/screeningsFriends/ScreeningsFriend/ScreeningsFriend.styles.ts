@@ -20,8 +20,7 @@ export const ScreeningsRow = styled(Row)<ScreeningsRowProps>`
   transition: all 0.3s ease;
 
   .ant-typography {
-    font-weight: ${(props) =>
-      props.$isActive ? props.theme.commonFontWeight.bold : props.theme.commonFontWeight.regular};
+    font-weight: ${(props) => (props.$isActive ? FONT_WEIGHT.bold : FONT_WEIGHT.regular)};
   }
 `;
 

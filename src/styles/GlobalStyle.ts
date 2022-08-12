@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { resetCss } from './resetCss';
-import { FONT_SIZE, FONT_WEIGHT, media } from './themes/constants';
+import { BREAKPOINTS, FONT_SIZE, FONT_WEIGHT, media } from './themes/constants';
 import { lightThemeVariables, darkThemeVariables, commonThemeVariables } from './themes/themeVariables';
 
 export default createGlobalStyle`
@@ -24,8 +24,7 @@ export default createGlobalStyle`
   
   .range-picker {
     & .ant-picker-panels {
-      @media only screen and ${(props) =>
-        `${props.theme.media.xs} and (max-width: ${props.theme.breakpoints.md - 0.02}px)`} {
+      @media only screen and ${media.xs} and (max-width: ${BREAKPOINTS.md - 0.02}px) {
         display: flex;
       flex-direction: column;
       }
@@ -35,8 +34,7 @@ export default createGlobalStyle`
   .search-dropdown {
     box-shadow: var(--box-shadow);
 
-    @media only screen and ${(props) =>
-      `${props.theme.media.xs} and (max-width: ${props.theme.breakpoints.md - 0.02}px)`} {
+    @media only screen and ${media.xs} and (max-width: ${BREAKPOINTS.md - 0.02}px)  {
       width: calc(100vw - 16px);
     max-width: 600px;
     }
@@ -130,7 +128,7 @@ export default createGlobalStyle`
   
     &.ant-notification-notice-success {
       border: 1px solid var(--success-color);
-      background: ${(props) => props.theme.colors.notifications.success};
+      background: var(--notification-success-color)
       
       .title {
         color: var(--success-color);
