@@ -1,3 +1,4 @@
+import { BORDER_RADIUS } from '@app/styles/themes/constants';
 import { Button } from 'components/common/buttons/Button/Button';
 import styled, { css } from 'styled-components';
 
@@ -20,7 +21,7 @@ export const ButtonGroup = styled.div<BtnProps>`
   padding: 0.325rem;
   column-gap: 0.325rem;
 
-  border-radius: var(--border-radius);
+  border-radius: ${BORDER_RADIUS};
 
   background-color: rgba(var(--primary-rgb-color), 0.1);
 

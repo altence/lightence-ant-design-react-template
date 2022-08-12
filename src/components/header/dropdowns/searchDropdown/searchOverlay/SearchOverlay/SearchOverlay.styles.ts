@@ -1,5 +1,5 @@
 import { DropdownMenu } from '@app/components/header/Header/Header.styles';
-import { media } from '@app/styles/themes/light/lightTheme';
+import { media } from '@app/styles/themes/constants';
 import styled from 'styled-components';
 
 export const Menu = styled(DropdownMenu)`

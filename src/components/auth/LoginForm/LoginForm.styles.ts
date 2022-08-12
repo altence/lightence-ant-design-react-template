@@ -1,19 +1,19 @@
-import { media } from '@app/styles/themes/light/lightTheme';
+import { FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
 import styled from 'styled-components';
 
 export const LoginDescription = styled.div`
   margin-bottom: 1.875rem;
   color: var(--text-main-color);
-  font-size: var(--font-size-xs);
+  font-size: ${FONT_SIZE.xs};
 
   @media only screen and ${media.xs} {
     margin-bottom: 1.5625rem;
-    font-weight: var(--font-weight-bold);
+    font-weight: ${FONT_WEIGHT.bold};
   }
 
   @media only screen and ${media.md} {
     margin-bottom: 1.75rem;
-    font-weight: var(--font-weight-regular);
+    font-weight: ${FONT_WEIGHT.regular};
   }
 
   @media only screen and ${media.xl} {
@@ -23,11 +23,11 @@ export const LoginDescription = styled.div`
 
 export const RememberMeText = styled.span`
   color: var(--primary-color);
-  font-size: var(--font-size-xs);
+  font-size: ${FONT_SIZE.xs};
 `;
 
 export const ForgotPasswordText = styled.span`
   color: var(--text-light-color);
-  font-size: var(--font-size-xs);
+  font-size: ${FONT_SIZE.xs};
   text-decoration: underline;
 `;

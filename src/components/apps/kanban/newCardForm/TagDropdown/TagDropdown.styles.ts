@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { CloseOutlined } from '@ant-design/icons';
 import { Checkbox } from 'antd';
+import { FONT_SIZE } from '@app/styles/themes/constants';
 
 interface TagProps {
   backgroundColor: 'error' | 'warning' | 'success' | 'primary';
@@ -47,7 +48,7 @@ export const TagWrapper = styled.span<TagProps>`
   padding: 0.3125rem 0.625rem;
   color: var(--text-secondary-color);
   border-radius: 0.5rem;
-  font-size: var(--font-size-xs);
+  font-size: ${FONT_SIZE.xs};
   margin-left: 1rem;
 `;
 
@@ -78,11 +79,11 @@ export const TagPlusWrapper = styled.span`
   height: 1.875rem;
   align-items: center;
   color: var(--lightgrey);
-  font-size: var(--font-size-xxl);
+  font-size: ${FONT_SIZE.xxl};
 `;
 
 export const AddTag = styled.span`
-  font-size: var(--font-size-xs);
+  font-size: ${FONT_SIZE.xs};
   line-height: 1.25rem;
   text-decoration: underline;
   color: var(--text-light-color);

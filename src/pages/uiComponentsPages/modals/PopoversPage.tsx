@@ -5,7 +5,7 @@ import { Button } from '@app/components/common/buttons/Button/Button';
 import { Popover } from '@app/components/common/Popover/Popover';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
-import { media } from '@app/styles/themes/light/lightTheme';
+import { media } from '@app/styles/themes/constants';
 
 const buttonWidth = 70;
 

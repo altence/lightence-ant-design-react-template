@@ -25,7 +25,7 @@ export const Kanban: React.FC = () => {
       data={kanbanData}
       laneStyle={{ background: 'transparent', maxHeight: '100%' }}
       cardStyle={{
-        borderRadius: 'var(--border-radius)',
+        borderRadius: '${BORDER_RADIUS}',
         backgroundColor: 'var(--background-color)',
         padding: `1.25rem 1rem`,
         marginBottom: '1rem',

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Typography, Divider } from 'antd';
 import { MenuItem as MenuItemBase } from '@app/components/common/Menu/Menu';
-import { media } from '@app/styles/themes/light/lightTheme';
+import { media } from '@app/styles/themes/constants';
 
 export const Text = styled(Typography.Text)`
   font-size: 0.875rem;

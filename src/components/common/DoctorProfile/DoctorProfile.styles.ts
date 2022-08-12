@@ -1,3 +1,4 @@
+import { FONT_WEIGHT, FONT_SIZE } from '@app/styles/themes/constants';
 import { Rate, Typography } from 'antd';
 import styled from 'styled-components';
 
@@ -15,8 +16,8 @@ export const Info = styled.div`
 export const Text = styled(Typography.Text)`
   display: flex;
   line-height: 1.25rem;
-  font-weight: var(--font-weight-semibold);
-  font-size: var(--font-size-xs);
+  font-weight: ${FONT_WEIGHT.semibold};
+  font-size: ${FONT_SIZE.xs};
 
   color: var(--text-dark-color);
 `;

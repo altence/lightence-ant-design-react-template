@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Typography } from 'antd';
-import { media } from '@app/styles/themes/light/lightTheme';
+import { media } from '@app/styles/themes/constants';
 
 export const BaseFormTitle = styled(Typography.Text)`
   font-weight: 700;

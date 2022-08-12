@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Typography, Image as AntImage } from 'antd';
-import { media } from '@app/styles/themes/light/lightTheme';
+import { BORDER_RADIUS, FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
 
 export const Header = styled.div`
   height: 5.5rem;
@@ -23,7 +23,7 @@ export const Wrapper = styled.div`
   max-width: 42.5rem;
   box-shadow: var(--box-shadow);
   background: var(--background-color);
-  border-radius: var(--border-radius);
+  border-radius: ${BORDER_RADIUS};
   transition: 0.3s;
 
   &:hover {
@@ -37,8 +37,8 @@ export const Image = styled(AntImage)`
 `;
 
 export const Author = styled.div`
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
+  font-size: ${FONT_SIZE.lg};
+  font-weight: ${FONT_WEIGHT.bold};
   color: var(--text-main-color);
   line-height: 1.5625rem;
 `;
@@ -69,26 +69,26 @@ export const InfoHeader = styled.div`
 `;
 
 export const Title = styled.div`
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-semibold);
+  font-size: ${FONT_SIZE.xl};
+  font-weight: ${FONT_WEIGHT.semibold};
   width: 80%;
   line-height: 1.375rem;
 
   color: var(--text-main-color);
 
   @media only screen and ${media.md} {
-    font-size: var(--font-size-xxl);
+    font-size: ${FONT_SIZE.xxl};
   }
 `;
 
 export const DateTime = styled(Typography.Text)`
-  font-size: var(--font-size-xs);
+  font-size: ${FONT_SIZE.xs};
   color: var(--text-main-color);
   line-height: 1.25rem;
 `;
 
 export const Description = styled.div`
-  font-size: var(--font-size-xs);
+  font-size: ${FONT_SIZE.xs};
   color: var(--text-main-color);
 
   @media only screen and ${media.xxl} {

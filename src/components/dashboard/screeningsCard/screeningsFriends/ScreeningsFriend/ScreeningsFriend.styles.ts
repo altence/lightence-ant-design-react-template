@@ -1,4 +1,4 @@
-import { media } from '@app/styles/themes/light/lightTheme';
+import { FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
 import { Typography, Avatar as AntAvatar, Row } from 'antd';
 import styled from 'styled-components';
 
@@ -36,23 +36,23 @@ export const Avatar = styled(AntAvatar)<Importance>`
 export const Name = styled(Typography.Text)<Importance>`
   white-space: nowrap;
 
-  font-size: var(--font-size-xs);
+  font-size: ${FONT_SIZE.xs};
 
-  font-weight: var(--font-weight-semibold);
+  font-weight: ${FONT_WEIGHT.semibold};
 
   color: ${(props) => (props.$isPrimary && 'var(--primary-color)') || (props.$isSecondary && 'var(--error-color)')};
 
   @media only screen and ${media.xl} {
-    font-size: var(--font-size-md);
+    font-size: ${FONT_SIZE.md};
   }
 `;
 
 export const Percentage = styled(Typography.Text)<PercentageProps>`
-  font-size: var(--font-size-xs);
+  font-size: ${FONT_SIZE.xs};
 
   color: ${(props) => (props.$isDowngrade ? 'var(--error-color)' : 'var(--success-color)')};
 
   @media only screen and ${media.xl} {
-    font-size: var(--font-size-md);
+    font-size: ${FONT_SIZE.md};
   }
 `;

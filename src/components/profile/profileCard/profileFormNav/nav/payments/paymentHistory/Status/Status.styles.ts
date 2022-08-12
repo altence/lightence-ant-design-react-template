@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Tag } from 'antd';
-import { media } from '@app/styles/themes/light/lightTheme';
+import { media } from '@app/styles/themes/constants';
 
 export const StatusTag = styled(Tag)`
   padding: 0.375rem 0;

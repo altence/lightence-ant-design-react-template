@@ -1,3 +1,4 @@
+import { BORDER_RADIUS } from '@app/styles/themes/constants';
 import PhoneInput from 'react-phone-number-input/input';
 import styled from 'styled-components';
 
@@ -11,7 +12,7 @@ export const PhoneNumberInput = styled(PhoneInput)`
 
   border: 1px solid var(--border-color);
 
-  border-radius: var(--border-radius);
+  border-radius: ${BORDER_RADIUS};
 
   &:hover {
     border-color: #1d72b8;

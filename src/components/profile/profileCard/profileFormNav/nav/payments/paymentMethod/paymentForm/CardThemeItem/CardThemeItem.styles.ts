@@ -1,3 +1,4 @@
+import { BORDER_RADIUS } from '@app/styles/themes/constants';
 import styled from 'styled-components';
 
 interface BackgroundWrapperProps {
@@ -15,7 +16,7 @@ export const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
   margin: 0 auto;
   transition: all 0.5s ease;
 
-  border-radius: var(--border-radius);
+  border-radius: ${BORDER_RADIUS};
 
   ${(props) => props.isActive && `background: url(${props.background})`};
   background-size: cover;
@@ -40,5 +41,5 @@ export const Theme = styled.div`
 
   border: 5px solid var(--background-color);
 
-  border-radius: var(--border-radius);
+  border-radius: ${BORDER_RADIUS};
 `;

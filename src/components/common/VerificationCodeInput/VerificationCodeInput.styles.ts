@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import VerificationInput from 'react-verification-input';
-import { media } from '@app/styles/themes/light/lightTheme';
+import { FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
 
 export const CodeInput = styled(VerificationInput)`
   display: flex;
@@ -8,8 +8,8 @@ export const CodeInput = styled(VerificationInput)`
 
   .character {
     line-height: 5rem;
-    font-size: var(--font-size-xxl);
-    font-weight: var(--font-weight-bold);
+    font-size: ${FONT_SIZE.xxl};
+    font-weight: ${FONT_WEIGHT.bold};
     color: var(--text-main-color);
     border: 3px solid var(--lightgrey);
     border-radius: 0.625rem;

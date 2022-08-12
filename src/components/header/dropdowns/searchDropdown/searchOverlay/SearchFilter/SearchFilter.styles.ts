@@ -1,4 +1,4 @@
-import { media } from '@app/styles/themes/light/lightTheme';
+import { media } from '@app/styles/themes/constants';
 import { Checkbox } from 'antd';
 import styled, { css } from 'styled-components';
 

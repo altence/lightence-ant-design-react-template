@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { dashboardPaddings } from '@app/components/dashboard/DashboardCard/DashboardCard';
-import { media } from '@app/styles/themes/light/lightTheme';
+import { media } from '@app/styles/themes/constants';
 
 interface WrapperProps {
   $isVisible: boolean;

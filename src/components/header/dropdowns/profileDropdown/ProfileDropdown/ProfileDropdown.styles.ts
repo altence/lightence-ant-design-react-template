@@ -1,5 +1,5 @@
 import { DownOutlined } from '@ant-design/icons';
-import { media } from '@app/styles/themes/light/lightTheme';
+import { media } from '@app/styles/themes/constants';
 import styled from 'styled-components';
 import { DropdownHeader } from '../../../Header/Header.styles';
 

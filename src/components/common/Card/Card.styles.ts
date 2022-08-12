@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Card as AntCard } from 'antd';
 import { CardProps } from './Card';
 import { normalizeProp } from 'utils/utils';
-import { media } from '@app/styles/themes/light/lightTheme';
+import { FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
 
 export const Card = styled(AntCard).withConfig({
   shouldForwardProp: (prop) => !['padding'].includes(prop),
@@ -16,7 +16,7 @@ export const Card = styled(AntCard).withConfig({
   .ant-card-head {
     border-bottom: 0;
 
-    font-weight: var(--font-weight-bold);
+    font-weight: ${FONT_WEIGHT.bold};
 
     .ant-card-head-title {
       white-space: unset;
@@ -25,7 +25,7 @@ export const Card = styled(AntCard).withConfig({
     }
 
     @media only screen and ${media.xl} {
-      font-size: var(--font-size-xxl);
+      font-size: ${FONT_SIZE.xxl};
 
       .ant-card-head-title {
         padding-bottom: 0.25rem;

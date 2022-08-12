@@ -73,7 +73,7 @@ export const CovidChart: React.FC<{
         areaStyle: {},
         markArea: {
           itemStyle: {
-            color: hexToRGB(theme.colors.charts.color1, 0.02),
+            color: `rgba(${hexToRGB(theme.colors.charts.color1)}, 0.02)`,
           },
           data: dateArr && getMarkAreaData(dateArr),
         },
@@ -93,7 +93,7 @@ export const CovidChart: React.FC<{
         areaStyle: {},
         markArea: {
           itemStyle: {
-            color: hexToRGB(theme.colors.charts.color5, 0.02),
+            color: `rgba(${hexToRGB(theme.colors.charts.color5)}, 0.02)`,
           },
           data: dateArr && getMarkAreaData(dateArr),
         },

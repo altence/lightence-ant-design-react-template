@@ -1,4 +1,5 @@
-import { media } from '@app/styles/themes/light/lightTheme';
+import { LAYOUT } from '@app/styles/themes/constants';
+import { media } from '@app/styles/themes/constants';
 import { Layout } from 'antd';
 import styled, { css } from 'styled-components';
 
@@ -10,8 +11,8 @@ export const Header = styled(Layout.Header)<Header>`
   line-height: 1.5;
 
   @media only screen and ${media.md} {
-    padding: var(--desktop-padding-vertical) var(--desktop-padding-horizontal);
-    height: var(--desktop-header-height);
+    padding: ${LAYOUT.desktop.paddingVertical} ${LAYOUT.desktop.paddingHorizontal};
+    height: ${LAYOUT.desktop.headerHeight};
   }
 
   @media only screen and ${media.md} {

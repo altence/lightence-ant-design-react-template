@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { LaneHeader } from 'react-trello/dist/styles/Base';
+import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
 
 export const Header = styled(LaneHeader)`
   color: var(--text-main-color);
@@ -8,10 +9,10 @@ export const Header = styled(LaneHeader)`
 `;
 
 export const Title = styled.div`
-  font-size: var(--font-size-lg);
+  font-size: ${FONT_SIZE.lg};
   overflow: hidden;
   text-overflow: ellipsis;
-  font-weight: var(--font-weight-bold);
+  font-weight: ${FONT_WEIGHT.bold};
   color: var(--primary-color);
 `;
 

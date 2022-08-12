@@ -2,11 +2,11 @@ import styled, { css } from 'styled-components';
 import { Col, Collapse, Menu } from 'antd';
 import { BurgerIcon } from '@app/components/common/Burger/BurgerIcon';
 import { GitHubButton } from '@app/components/header/GitHubButton';
-import { media } from '@app/styles/themes/light/lightTheme';
+import { BORDER_RADIUS, LAYOUT, media } from '@app/styles/themes/constants';
 
 export const DropdownMenu = styled(Menu)`
   box-shadow: var(--box-shadow);
-  border-radius: var(--border-radius);
+  border-radius: ${BORDER_RADIUS};
   line-height: 1.5715;
 `;
 
@@ -67,7 +67,7 @@ export const MobileBurger = styled(BurgerIcon)`
 `;
 
 export const SearchColumn = styled(Col)`
-  padding: var(--desktop-padding-vertical) var(--desktop-padding-horizontal);
+  padding: ${LAYOUT.desktop.paddingVertical} ${LAYOUT.desktop.paddingHorizontal};
 `;
 
 interface ProfileColumn {
@@ -80,7 +80,7 @@ export const ProfileColumn = styled(Col)<ProfileColumn>`
       props?.$isTwoColumnsLayout &&
       css`
         background-color: var(--background-color);
-        padding: var(--desktop-padding-vertical) var(--desktop-padding-horizontal);
+        padding: ${LAYOUT.desktop.paddingVertical} ${LAYOUT.desktop.paddingHorizontal};
       `}
   }
 `;

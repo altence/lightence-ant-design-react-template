@@ -10,6 +10,7 @@ import {
 import { DownOutlined } from '@ant-design/icons';
 import { Collapse, Menu } from 'antd';
 import InlineInput from 'react-trello/dist/widgets/InlineInput';
+import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
 
 const { Panel } = Collapse;
 
@@ -60,9 +61,9 @@ export const CardRightContent = styled(RightContent)`
 `;
 
 export const CardTitle = styled(Title)`
-  font-size: var(--font-size-md);
+  font-size: ${FONT_SIZE.md};
   line-height: 1.375rem;
-  font-weight: var(--font-weight-semibold);
+  font-weight: ${FONT_WEIGHT.semibold};
   color: var(--text-main-color);
   margin-left: -0.5rem;
   display: flex;
@@ -78,8 +79,8 @@ export const CardHeader = styled(Header)`
 `;
 
 export const CardDetails = styled(Detail)`
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-medium);
+  font-size: ${FONT_SIZE.xs};
+  font-weight: ${FONT_WEIGHT.medium};
   color: var(--text-main-color);
   margin-left: -0.5rem;
   margin-top: 1rem;
@@ -99,7 +100,7 @@ export const CardMenu = styled(Menu)`
 `;
 
 export const MenuItem = styled(Menu.Item)`
-  font-size: var(--font-size-xs);
+  font-size: ${FONT_SIZE.xs};
 `;
 
 export const Input = styled(InlineInput)`

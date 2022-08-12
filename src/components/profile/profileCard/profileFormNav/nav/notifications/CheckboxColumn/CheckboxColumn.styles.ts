@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { media } from '@app/styles/themes/light/lightTheme';
+import { media } from '@app/styles/themes/constants';
 
 const colStyles = {
   height: '75px',

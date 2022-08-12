@@ -86,7 +86,7 @@ export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, sec
         data: firstUser?.data,
         markArea: {
           itemStyle: {
-            color: hexToRGB(theme.colors.charts.color1, 0.01),
+            color: `rgba(${hexToRGB(theme.colors.charts.color1)}, 0.01)`,
           },
           data: getMarkAreaData(xAxisData),
         },
@@ -109,7 +109,7 @@ export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, sec
         data: secondUser?.data,
         markArea: {
           itemStyle: {
-            color: hexToRGB(theme.colors.charts.color1, 0.01),
+            color: `rgba(${hexToRGB(theme.colors.charts.color1)}, 0.01)`,
           },
           data: getMarkAreaData(xAxisData),
         },

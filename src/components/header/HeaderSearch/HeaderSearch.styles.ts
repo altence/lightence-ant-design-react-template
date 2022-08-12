@@ -3,7 +3,7 @@ import { SearchOutlined } from '@ant-design/icons';
 import { Modal } from 'components/common/Modal/Modal';
 import { Button } from 'components/common/buttons/Button/Button';
 import { SearchInput } from 'components/common/inputs/SearchInput/SearchInput';
-import { media } from '@app/styles/themes/light/lightTheme';
+import { BORDER_RADIUS, media } from '@app/styles/themes/constants';
 
 export const SearchIcon = styled(SearchOutlined)`
   &.anticon.anticon-search {
@@ -36,7 +36,7 @@ export const InputSearch = styled(SearchInput)`
 `;
 
 export const SearchModal = styled(Modal)`
-  border-radius: var(--border-radius);
+  border-radius: ${BORDER_RADIUS};
 
   & .ant-modal-body {
     padding: 0;

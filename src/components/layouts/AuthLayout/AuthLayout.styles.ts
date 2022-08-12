@@ -5,7 +5,7 @@ import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
 import { Input as CommonInput } from '@app/components/common/inputs/Input/Input';
 import { InputPassword as CommonInputPassword } from '@app/components/common/inputs/InputPassword/InputPassword';
 import loginBackground from '@app/assets/images/login-bg.webp';
-import { media } from '@app/styles/themes/light/lightTheme';
+import { BORDER_RADIUS, FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
 
 export const Wrapper = styled.div`
   height: 100vh;
@@ -36,7 +36,7 @@ export const FormWrapper = styled.div`
   width: 31.75rem;
   overflow: auto;
   background-color: rgba(var(--background-rgb-color), 0.93);
-  border-radius: var(--border-radius);
+  border-radius: ${BORDER_RADIUS};
 
   @media only screen and ${media.xs} {
     padding: 2.5rem 1.25rem;
@@ -56,22 +56,22 @@ export const FormTitle = styled.div`
 
   @media only screen and ${media.xs} {
     margin-bottom: 0.625rem;
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-bold);
+    font-size: ${FONT_SIZE.lg};
+    font-weight: ${FONT_WEIGHT.bold};
     line-height: 1.5625rem;
   }
 
   @media only screen and ${media.md} {
     margin-bottom: 0.875rem;
-    font-size: var(--font-size-xxl);
-    font-weight: var(--font-weight-bold);
+    font-size: ${FONT_SIZE.xxl};
+    font-weight: ${FONT_WEIGHT.bold};
     line-height: 1.9375rem;
   }
 
   @media only screen and ${media.xl} {
     margin-bottom: 0.9375rem;
-    font-size: var(--font-size-xxxl);
-    font-weight: var(--font-weight-extraBold);
+    font-size: ${FONT_SIZE.xxxl};
+    font-weight: ${FONT_WEIGHT.extraBold};
     line-height: 2.125rem;
   }
 `;
@@ -97,12 +97,12 @@ export const FormItem = styled(BaseForm.Item)`
   }
 
   & .ant-form-item-explain-error {
-    font-size: var(--font-size-xs);
+    font-size: ${FONT_SIZE.xs};
   }
 
   & label {
     color: var(--primary-color);
-    font-size: var(--font-size-xs);
+    font-size: ${FONT_SIZE.xs};
     line-height: 1.25rem;
   }
 
@@ -137,8 +137,8 @@ export const ActionsWrapper = styled.div`
 
 export const Text = styled.span`
   color: var(--text-main-color);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-regular);
+  font-size: ${FONT_SIZE.xs};
+  font-weight: ${FONT_WEIGHT.regular};
 `;
 
 export const LinkText = styled(Text)`
@@ -147,14 +147,14 @@ export const LinkText = styled(Text)`
 `;
 
 export const SubmitButton = styled(Button)`
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-semibold);
+  font-size: ${FONT_SIZE.md};
+  font-weight: ${FONT_WEIGHT.semibold};
   width: 100%;
 `;
 
 export const SocialButton = styled(Button)`
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-semibold);
+  font-size: ${FONT_SIZE.md};
+  font-weight: ${FONT_WEIGHT.semibold};
   color: var(--primary-color);
   border: 1px solid var(--primary-color);
   width: 100%;
@@ -176,8 +176,8 @@ export const BackIcon = styled(LeftOutlined)`
 `;
 
 export const BackWrapper = styled.div`
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-semibold);
+  font-size: ${FONT_SIZE.md};
+  font-weight: ${FONT_WEIGHT.semibold};
   display: flex;
   align-items: center;
   cursor: pointer;

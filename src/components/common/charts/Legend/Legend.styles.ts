@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { InfoCircleOutlined } from '@ant-design/icons/lib';
-import { media } from '@app/styles/themes/light/lightTheme';
+import { BORDER_RADIUS, FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
 
 interface LegendWrapperProps {
   isSelected: boolean;
@@ -9,8 +9,8 @@ interface LegendWrapperProps {
 export const LegendWrapper = styled.div<LegendWrapperProps>`
   display: flex;
   padding: 0.5rem;
-  background: ${(props) => (props.isSelected ? 'var(--secondary-background-shade--5-color)' : 'transparent')};
-  border-radius: var(--border-radius);
+  background: ${(props) => (props.isSelected ? 'var(--secondary-background-selected-color)' : 'transparent')};
+  border-radius: ${BORDER_RADIUS};
 `;
 
 export const LegendInfo = styled.div`
@@ -35,17 +35,17 @@ export const LegendColor = styled.span`
 
 export const LegendTitle = styled.div`
   line-height: 1rem;
-  font-weight: var(--font-weight-semibold);
+  font-weight: ${FONT_WEIGHT.semibold};
   color: var(--text-main-color);
   display: flex;
   justify-content: space-between;
 
   @media only screen and ${media.xs} {
-    font-size: var(--font-size-xs);
+    font-size: ${FONT_SIZE.xs};
   }
 
   @media only screen and ${media.md} {
-    font-size: var(--font-size-md);
+    font-size: ${FONT_SIZE.md};
   }
 `;
 

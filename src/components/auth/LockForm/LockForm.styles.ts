@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import * as Auth from '@app/components/layouts/AuthLayout/AuthLayout.styles';
-import { media } from '@app/styles/themes/light/lightTheme';
+import { FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
 
 export const FormItem = styled(Auth.FormItem)`
   margin-bottom: 1rem;
@@ -35,15 +35,15 @@ export const Time = styled.div`
   @media only screen and ${media.xs} {
     margin-bottom: 0.625rem;
     line-height: 1.5625rem;
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-bold);
+    font-size: ${FONT_SIZE.lg};
+    font-weight: ${FONT_WEIGHT.bold};
   }
 
   @media only screen and ${media.md} {
     margin-bottom: 1rem;
     line-height: 2.125rem;
-    font-size: var(--font-size-xxxl);
-    font-weight: var(--font-weight-extraBold);
+    font-size: ${FONT_SIZE.xxxl};
+    font-weight: ${FONT_WEIGHT.extraBold};
   }
 `;
 
@@ -54,15 +54,15 @@ export const Date = styled.div`
   @media only screen and ${media.xs} {
     margin-bottom: 3.4375rem;
     line-height: 1.25rem;
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-semibold);
+    font-size: ${FONT_SIZE.xs};
+    font-weight: ${FONT_WEIGHT.semibold};
   }
 
   @media only screen and ${media.md} {
     margin-bottom: 2.5rem;
     line-height: 1.5rem;
-    font-size: var(--font-size-xxl);
-    font-weight: var(--font-weight-bold);
+    font-size: ${FONT_SIZE.xxl};
+    font-weight: ${FONT_WEIGHT.bold};
   }
 `;
 
@@ -71,11 +71,11 @@ export const Name = styled.div`
   color: var(--text-main-color);
 
   @media only screen and ${media.xs} {
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-semibold);
+    font-size: ${FONT_SIZE.xs};
+    font-weight: ${FONT_WEIGHT.semibold};
   }
 
   @media only screen and ${media.md} {
-    font-size: var(--font-size-md);
+    font-size: ${FONT_SIZE.md};
   }
 `;

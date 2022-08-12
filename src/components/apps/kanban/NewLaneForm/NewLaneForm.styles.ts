@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
 import { BaseButtonsGroup } from '@app/components/common/forms/components/BaseButtonsGroup/BaseButtonsGroup';
-import { media } from '@app/styles/themes/light/lightTheme';
+import { BORDER_RADIUS, FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
 
 export const Form = styled(BaseButtonsForm)`
   width: 16rem;
-  border-radius: var(--border-radius);
+  border-radius: ${BORDER_RADIUS};
   background-color: var(--background-color);
   padding: 1.25rem 1rem;
 `;
@@ -20,11 +20,11 @@ export const FormInput = styled(BaseButtonsForm.Item)`
     margin-bottom: 1.5rem;
   }
 
-  font-weight: var(--font-weight-medium);
+  font-weight: ${FONT_WEIGHT.medium};
   max-height: 1.25rem;
   & .ant-input {
     padding: 0;
-    font-size: var(--font-size-md);
+    font-size: ${FONT_SIZE.md};
     font-weight: inherit;
   }
   & .ant-input::placeholder {

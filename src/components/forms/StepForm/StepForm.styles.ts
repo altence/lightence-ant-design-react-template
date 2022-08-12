@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Select as CommonSelect } from '@app/components/common/selects/Select/Select';
 import { Button } from '@app/components/common/buttons/Button/Button';
 import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
+import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
 
 export const PhoneItem = styled(BaseForm.Item)`
   .ant-input-group-addon {
@@ -39,13 +40,13 @@ export const DetailsRow = styled.div`
 
 export const DetailsTitle = styled.div`
   color: var(--text-light-color);
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-semibold);
+  font-size: ${FONT_SIZE.md};
+  font-weight: ${FONT_WEIGHT.semibold};
   margin-right: 0.5rem;
 `;
 
 export const DetailsValue = styled.div`
   color: var(--text-main-color);
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-semibold);
+  font-size: ${FONT_SIZE.md};
+  font-weight: ${FONT_WEIGHT.semibold};
 `;

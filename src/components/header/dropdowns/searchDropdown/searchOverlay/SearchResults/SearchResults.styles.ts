@@ -1,4 +1,4 @@
-import { media } from '@app/styles/themes/light/lightTheme';
+import { media } from '@app/styles/themes/constants';
 import { Typography } from 'antd';
 import styled from 'styled-components';
 

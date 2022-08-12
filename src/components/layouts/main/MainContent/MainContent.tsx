@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Layout } from 'antd';
-import { media } from '@app/styles/themes/light/lightTheme';
+import { LAYOUT, media } from '@app/styles/themes/constants';
 
 const { Content } = Layout;
 
@@ -9,14 +9,14 @@ interface HeaderProps {
 }
 
 export default styled(Content)<HeaderProps>`
-  padding: var(--mobile-padding-vertical) var(--mobile-padding-horizontal);
+  padding: ${LAYOUT.mobile.paddingVertical} ${LAYOUT.mobile.paddingHorizontal};
   overflow: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
   @media only screen and ${media.md} {
-    padding: var(--desktop-padding-vertical) var(--desktop-padding-horizontal);
+    padding: ${LAYOUT.desktop.paddingVertical} ${LAYOUT.desktop.paddingHorizontal};
   }
 
   @media only screen and ${media.xl} {

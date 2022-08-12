@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 import { Col } from 'antd';
-import { media } from '@app/styles/themes/light/lightTheme';
+import { LAYOUT, media } from '@app/styles/themes/constants';
 
 export const RightSideCol = styled(Col)`
-  padding: var(--desktop-padding-vertical) var(--desktop-padding-horizontal);
+  padding: ${LAYOUT.desktop.paddingVertical} ${LAYOUT.desktop.paddingHorizontal};
   position: sticky;
   top: 0;
   display: flex;
   flex-direction: column;
-  height: calc(100vh - var(--desktop-header-height));
+  height: calc(100vh - ${LAYOUT.desktop.headerHeight});
   background-color: var(--background-color);
 
   #patient-timeline {
@@ -18,8 +18,8 @@ export const RightSideCol = styled(Col)`
 
 export const LeftSideCol = styled(Col)`
   @media only screen and ${media.xl} {
-    padding: var(--desktop-padding-vertical) var(--desktop-padding-horizontal);
-    height: calc(100vh - var(--desktop-header-height));
+    padding: ${LAYOUT.desktop.paddingVertical} ${LAYOUT.desktop.paddingHorizontal};
+    height: calc(100vh - ${LAYOUT.desktop.headerHeight});
     overflow: auto;
   }
 `;

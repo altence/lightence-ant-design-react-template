@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { CloseOutlined } from '@ant-design/icons';
 import { Checkbox } from 'antd';
+import { FONT_SIZE } from '@app/styles/themes/constants';
 
 export const EditParticipantPopover = styled.div`
   padding: 1.25rem 1rem;
@@ -41,7 +42,7 @@ export const ClosePopover = styled(CloseOutlined)`
 `;
 
 export const AddParticipant = styled.span`
-  font-size: var(--font-size-xs);
+  font-size: ${FONT_SIZE.xs};
   line-height: 1.25rem;
   text-decoration: underline;
   color: var(--text-light-color);
@@ -65,7 +66,7 @@ export const ParticipantAvatar = styled.img`
 `;
 
 export const ParticipantName = styled.div`
-  font-size: var(--font-size-xs);
+  font-size: ${FONT_SIZE.xs};
   color: var(--text-main-color);
   margin-left: 0.625rem;
   margin-right: 0.625rem;
@@ -73,5 +74,5 @@ export const ParticipantName = styled.div`
 
 export const RemoveParticipant = styled(CloseOutlined)`
   color: var(--text-light-color);
-  font-size: var(--font-size-xxs);
+  font-size: ${FONT_SIZE.xxs};
 `;

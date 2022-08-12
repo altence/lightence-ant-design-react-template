@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Table as CommonTable } from 'components/common/Table/Table';
+import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
 
 interface TextProps {
   $isActive?: boolean;
@@ -14,8 +15,8 @@ export const Table = styled(CommonTable)`
   .ant-table-thead > tr > th {
     background: transparent;
     color: var(--text-main-color);
-    font-size: var(--font-size-md);
-    font-weight: var(--font-weight-semibold);
+    font-size: ${FONT_SIZE.md};
+    font-weight: ${FONT_WEIGHT.semibold};
 
     &::before {
       display: none;
@@ -30,7 +31,7 @@ export const Table = styled(CommonTable)`
 
 export const Text = styled.span<TextProps>`
   color: var(--text-main-color);
-  font-weight: ${(props) => (props.$isActive ? 'var(--font-weight-semibold)' : 'var(--font-weight-regular)')};
+  font-weight: ${(props) => (props.$isActive ? '${FONT_WEIGHT.semibold}' : '${FONT_WEIGHT.regular}')};
 `;
 
 export const Flag = styled(Text)<{ $isNorm: boolean }>`

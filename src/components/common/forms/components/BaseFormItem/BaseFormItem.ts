@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Form } from 'antd';
-import { media } from '@app/styles/themes/light/lightTheme';
+import { media } from '@app/styles/themes/constants';
 
 interface FormItemProps {
   $isSuccess?: boolean;

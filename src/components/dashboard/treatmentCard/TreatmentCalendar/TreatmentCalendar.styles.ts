@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 import generateCalendar from 'antd/lib/calendar/generateCalendar';
 import { AppDate } from '../../../../constants/Dates';
+import { BORDER_RADIUS, FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
 
 const AntCalendar = generateCalendar<AppDate>(dayjsGenerateConfig);
 
@@ -26,7 +27,7 @@ export const Event = styled.div<Event>`
   height: 100%;
   box-shadow: 0 5px 15px rgba(0, 89, 171, 0.3);
 
-  font-weight: var(--font-weight-bold);
+  font-weight: ${FONT_WEIGHT.bold};
 
   background: var(--secondary-background-color);
 
@@ -39,7 +40,7 @@ export const Event = styled.div<Event>`
           color: var(--primary-color);
         `};
 
-  border-radius: var(--border-radius);
+  border-radius: ${BORDER_RADIUS};
 `;
 
 export const Calendar = styled(AntCalendar)`
@@ -56,9 +57,9 @@ export const Calendar = styled(AntCalendar)`
   }
 
   .ant-picker-date-panel .ant-picker-content th {
-    font-weight: var(--font-weight-medium);
+    font-weight: ${FONT_WEIGHT.medium};
 
-    font-size: var(--font-size-xs);
+    font-size: ${FONT_SIZE.xs};
 
     color: var(--primary-color);
   }
@@ -90,8 +91,8 @@ export const Calendar = styled(AntCalendar)`
     }
 
     .ant-picker-cell-inner {
-      font-weight: var(--font-weight-medium);
-      font-size: var(--font-size-xs);
+      font-weight: ${FONT_WEIGHT.medium};
+      font-size: ${FONT_SIZE.xs};
       height: 1.875rem;
       width: 1.875rem;
       display: flex;

@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import { Table as AntdTable } from 'antd';
+import { FONT_SIZE } from '@app/styles/themes/constants';
 
 export const Table = styled(AntdTable)`
   & thead .ant-table-cell {
     color: var(--primary-color);
-    font-size: var(--font-size-xs);
+    font-size: ${FONT_SIZE.xs};
     line-height: 1.25rem;
 
     & .anticon {
@@ -14,7 +15,7 @@ export const Table = styled(AntdTable)`
 
   & tbody .ant-table-cell {
     color: var(--text-main-color);
-    font-size: var(--font-size-xs);
+    font-size: ${FONT_SIZE.xs};
     line-height: 1.25rem;
   }
 
@@ -42,7 +43,7 @@ export const Table = styled(AntdTable)`
     height: 2.0625rem;
     line-height: 2.0625rem;
     border-radius: 0;
-    font-size: var(--font-size-xs);
+    font-size: ${FONT_SIZE.xs};
   }
 
   & .ant-pagination-prev .ant-pagination-item-link,

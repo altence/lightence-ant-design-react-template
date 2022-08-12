@@ -1,3 +1,4 @@
+import { BORDER_RADIUS } from '@app/styles/themes/constants';
 import styled from 'styled-components';
 import { CountryMap } from '../../../common/CountryMap/CountryMap';
 
@@ -8,7 +9,7 @@ export const DoctorsMap = styled(CountryMap)`
 
   &.leaflet-container {
     background-image: var(--dashboard-map-background-color);
-    border-radius: var(--border-radius);
+    border-radius: ${BORDER_RADIUS};
 
     svg {
       path {

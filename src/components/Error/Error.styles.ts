@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import { Typography, Image as AntImage } from 'antd';
-import { media } from '@app/styles/themes/light/lightTheme';
+import { BORDER_RADIUS, media } from '@app/styles/themes/constants';
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 3.75rem 1.25rem;
-  border-radius: var(--border-radius);
+  border-radius: ${BORDER_RADIUS};
 
   background-color: var(--background-color);
 

@@ -1,4 +1,4 @@
-import { media } from '@app/styles/themes/light/lightTheme';
+import { media } from '@app/styles/themes/constants';
 import styled from 'styled-components';
 import { DashboardCard } from '../../DashboardCard/DashboardCard';
 

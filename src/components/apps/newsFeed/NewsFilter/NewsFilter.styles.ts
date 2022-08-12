@@ -2,12 +2,12 @@ import styled from 'styled-components';
 import { Input as AntInput, Button, Checkbox } from 'antd';
 import { SearchOutlined, PlusCircleFilled, CloseOutlined } from '@ant-design/icons';
 import { DayjsDatePicker } from '@app/components/common/pickers/DayjsDatePicker';
-import { media } from '@app/styles/themes/light/lightTheme';
+import { BORDER_RADIUS, FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
 
 export const AddTagText = styled.span`
   color: var(--text-main-color);
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-semibold);
+  font-size: ${FONT_SIZE.md};
+  font-weight: ${FONT_WEIGHT.semibold};
   line-height: 1.375rem;
 `;
 
@@ -24,9 +24,9 @@ export const FilterButton = styled.div`
   justify-content: center;
   align-items: center;
   background: var(--background-color);
-  border-radius: var(--border-radius);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-semibold);
+  border-radius: ${BORDER_RADIUS};
+  font-size: ${FONT_SIZE.xs};
+  font-weight: ${FONT_WEIGHT.semibold};
   line-height: 1.25rem;
 `;
 
@@ -39,7 +39,7 @@ export const DateLabel = styled.div`
   width: 50%;
   line-height: 1.25rem;
   margin-bottom: 0.4375rem;
-  font-size: var(--font-size-xs);
+  font-size: ${FONT_SIZE.xs};
 `;
 
 export const AddTagWrapper = styled.div`
@@ -96,7 +96,7 @@ export const TitleHeader = styled.div`
   box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.07);
   cursor: pointer;
   background-color: var(--background-color);
-  border-radius: var(--border-radius);
+  border-radius: ${BORDER_RADIUS};
 `;
 
 export const Input = styled(AntInput)`
@@ -106,8 +106,8 @@ export const Input = styled(AntInput)`
   border-radius: 3.125rem;
   padding-left: 3rem;
   color: var(--text-main-color);
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-semibold);
+  font-size: ${FONT_SIZE.md};
+  font-weight: ${FONT_WEIGHT.semibold};
   line-height: 1.375rem;
 `;
 
@@ -117,8 +117,8 @@ export const RangePicker = styled(DayjsDatePicker.RangePicker)`
 
   & input {
     color: var(--text-main-color);
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-semibold);
+    font-size: ${FONT_SIZE.xs};
+    font-weight: ${FONT_WEIGHT.semibold};
   }
 `;
 
@@ -147,7 +147,7 @@ export const FilterWrapper = styled.div`
   flex-direction: column;
   margin-left: 1.875rem;
   background: var(--background-color);
-  border-radius: var(--border-radius);
+  border-radius: ${BORDER_RADIUS};
   height: min-content;
   filter: drop-shadow(0 4px 40px rgba(0, 0, 0, 0.07));
 
@@ -164,8 +164,8 @@ export const FilterTitle = styled.div`
   display: flex;
   justify-content: center;
   line-height: 1.5625rem;
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
+  font-size: ${FONT_SIZE.lg};
+  font-weight: ${FONT_WEIGHT.bold};
   color: var(--text-main-color);
   margin-bottom: 1rem;
 `;

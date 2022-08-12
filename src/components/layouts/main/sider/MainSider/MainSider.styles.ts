@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components';
 import { Button, Layout } from 'antd';
 import { Link } from 'react-router-dom';
-import { media } from '@app/styles/themes/light/lightTheme';
+import { media } from '@app/styles/themes/constants';
+import { LAYOUT } from '@app/styles/themes/constants';
 
 export const Sider = styled(Layout.Sider)`
   position: fixed;
@@ -51,10 +52,10 @@ export const CollapseButton = styled(Button)<{ $isCollapsed: boolean }>`
 export const SiderContent = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
-  max-height: calc(100vh - var(--mobile-header-height));
+  max-height: calc(100vh - ${LAYOUT.mobile.headerHeight});
 
   @media only screen and ${media.md} {
-    max-height: calc(100vh - var(--desktop-header-height));
+    max-height: calc(100vh - ${LAYOUT.desktop.headerHeight});
   }
 `;
 
@@ -66,16 +67,16 @@ export const SiderLogoLink = styled(Link)`
 `;
 
 export const SiderLogoDiv = styled.div`
-  height: var(--mobile-header-height);
-  padding: var(--mobile-header-padding);
+  height: ${LAYOUT.mobile.headerHeight};
+  padding: ${LAYOUT.mobile.headerPadding};
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   @media only screen and ${media.md} {
-    height: var(--desktop-header-height);
-    padding-top: var(--desktop-padding-vertical);
-    padding-bottom: var(--desktop-padding-vertical);
+    height: ${LAYOUT.desktop.headerHeight};
+    padding-top: ${LAYOUT.desktop.paddingVertical};
+    padding-bottom: ${LAYOUT.desktop.paddingVertical};
   }
 `;
 

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Typography } from 'antd';
 import { CalendarOutlined } from '@ant-design/icons';
-import { media } from '@app/styles/themes/light/lightTheme';
+import { FONT_SIZE, media } from '@app/styles/themes/constants';
 
 interface IconProps {
   isActive: boolean;
@@ -35,26 +35,26 @@ export const InfoWrapper = styled.div`
 export const DateWrapper = styled.div`
   display: flex;
   align-items: center;
-  font-size: var(--font-size-xs);
+  font-size: ${FONT_SIZE.xs};
 `;
 
 export const Text = styled(Typography.Text)`
   margin-left: 0.5rem;
   line-height: 1;
-  font-size: var(--font-size-xxs);
+  font-size: ${FONT_SIZE.xxs};
   color: var(--text-main-color);
 
   @media only screen and ${media.md} {
-    font-size: var(--font-size-xs);
+    font-size: ${FONT_SIZE.xs};
   }
 `;
 
 export const Description = styled(Typography.Text)`
   margin-top: 0.625rem;
-  font-size: var(--font-size-xxs);
+  font-size: ${FONT_SIZE.xxs};
 
   @media only screen and ${media.md} {
-    font-size: var(--font-size-xs);
+    font-size: ${FONT_SIZE.xs};
   }
 `;
 

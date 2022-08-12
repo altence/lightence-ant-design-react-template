@@ -1,7 +1,7 @@
 import { Typography } from 'antd';
 import styled from 'styled-components';
 import { defaultPaddings } from '@app/constants/defaultPaddings';
-import { media } from '@app/styles/themes/light/lightTheme';
+import { media } from '@app/styles/themes/constants';
 
 interface ContentWrapperProps {
   isEmptyHistory: boolean;

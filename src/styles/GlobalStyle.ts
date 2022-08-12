@@ -1,9 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import { resetCss } from './resetCss';
-import { commonColors, fontCss, basicCss, layoutCss } from './themes/constants';
-import { darkColors } from './themes/dark/darkColors';
-import { lightColors } from './themes/light/lightColors';
-import { media } from './themes/light/lightTheme';
+import { FONT_SIZE, FONT_WEIGHT, media } from './themes/constants';
+import { lightThemeVariables, darkThemeVariables, commonThemeVariables } from './themes/themeVariables';
 
 export default createGlobalStyle`
 
@@ -11,19 +9,16 @@ export default createGlobalStyle`
 
   [data-theme='light'],
   :root {
-    ${lightColors}
+    ${lightThemeVariables}
   }
 
   [data-theme='dark'],
   :root {
-    ${darkColors}
+    ${darkThemeVariables}
   }
 
   :root {
-    ${commonColors}
-    ${fontCss}
-    ${layoutCss}
-    ${basicCss}
+    ${commonThemeVariables}
   }
   
   
@@ -61,7 +56,7 @@ export default createGlobalStyle`
 
   .ant-picker-cell-in-view .ant-picker-calendar-date-value {
     color: var(--text-main-color);
-    font-weight: var(--font-weight-bold);
+    font-weight: ${FONT_WEIGHT.bold};
   }
 
   .ant-picker svg {
@@ -109,27 +104,27 @@ export default createGlobalStyle`
     }
     
     .title {
-      font-size: var(--font-size-xxl);
+      font-size: ${FONT_SIZE.xxl};
       height: 3rem;
       margin-left: 1.5rem;
       display: flex;
       align-items: center;
-      font-weight: var(--font-weight-bold);
+      font-weight: ${FONT_WEIGHT.bold};
 
       &.title-only {
         color: var(--text-main-color);
-        font-size: var(--font-size-md);
+        font-size: ${FONT_SIZE.md};
         height: 2rem;
         line-height: 2rem;
         margin-left: 0.75rem;
-        font-weight: var(--font-weight-semibold);
+        font-weight: ${FONT_WEIGHT.semibold};
       }
   }
   
     .description {
       color: #404040;
-      font-size: var(--font-size-md);
-      font-weight: var(--font-weight-semibold);
+      font-size: ${FONT_SIZE.md};
+      font-weight: ${FONT_WEIGHT.semibold};
       line-height: 1.375rem;
     }
   

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Space as AntSpace, Input } from 'antd';
-import { media } from '@app/styles/themes/light/lightTheme';
+import { FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
 
 const { Search } = Input;
 
@@ -34,8 +34,8 @@ export const SearchInput = styled(Search)`
   .ant-input-group-addon {
     min-width: 5.5rem;
     color: var(--primary-color);
-    font-weight: var(--font-weight-semibold);
-    font-size: var(--font-size-lg);
+    font-weight: ${FONT_WEIGHT.semibold};
+    font-size: ${FONT_SIZE.lg};
   }
 
   .ant-input-search-button {
