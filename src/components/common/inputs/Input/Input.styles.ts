@@ -19,4 +19,8 @@ export const Input = styled(AntInput)`
       font-size: ${FONT_SIZE.lg};
     }
   }
+
+  .ant-select-arrow {
+    color: var(--disabled-color);
+  }
 `;

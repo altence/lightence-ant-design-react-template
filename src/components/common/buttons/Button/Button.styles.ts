@@ -19,6 +19,12 @@ export const Button = styled(AntButton)<BtnProps>`
       height: unset;
     `}
 
+  &[disabled],
+  &[disabled]:active,
+  &[disabled]:focus,
+  &[disabled]:hover {
+    color: var(--disabled-color);
+  }
   ${(props) =>
     !props.danger &&
     css`

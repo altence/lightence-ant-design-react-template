@@ -38,4 +38,8 @@ export const Card = styled(AntCard).withConfig({
 
     padding: ${(props) => props.padding && normalizeProp(props.padding)};
   }
+
+  .ant-card-bordered {
+    border-color: #f0f0f0;
+  }
 `;

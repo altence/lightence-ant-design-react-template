@@ -26,6 +26,12 @@ export const Steps = styled(AntdSteps)`
       font-size: ${FONT_SIZE.md};
     }
   }
+  .ant-steps-item-wait .ant-steps-item-icon {
+    border-color: var(--disabled-color);
+    & > .ant-steps-icon {
+      color: var(--disabled-color);
+    }
+  }
 
   .ant-steps-item-container {
     display: flex;
@@ -40,6 +46,12 @@ export const Steps = styled(AntdSteps)`
   &.ant-steps-vertical.ant-steps-small {
     .ant-steps-item-container .ant-steps-item-tail {
       padding: 1.625rem 0 0.375rem;
+    }
+  }
+  & .ant-steps-item {
+    &-description,
+    &-subtitle {
+      color: var(--disabled-color) !important;
     }
   }
 `;

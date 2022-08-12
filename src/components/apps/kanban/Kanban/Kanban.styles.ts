@@ -12,7 +12,7 @@ export const Kanban = styled(Board)`
 
   @media only screen and ${media.md} {
     padding: 0 ${LAYOUT.desktop.paddingHorizontal};
-    margin: 0 calc(-1 * ${LAYOUT.desktop.paddingHorizontal});
+    margin: 0 -${LAYOUT.desktop.paddingHorizontal};
   }
 
   div:first-child {

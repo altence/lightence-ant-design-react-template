@@ -11,8 +11,12 @@ export interface RadioChangeEvent {
   nativeEvent: MouseEvent;
 }
 
-export const { Button: RadioButton, Group: RadioGroup } = AntdRadio;
+export const { Group: RadioGroup } = AntdRadio;
 
 export const Radio: React.FC<RadioProps> = (props) => {
   return <S.Radio {...props} />;
+};
+
+export const RadioButton: React.FC<RadioProps> = (props) => {
+  return <S.RadioButton {...props} />;
 };

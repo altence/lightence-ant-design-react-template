@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Col, Switch, Space } from 'antd';
+import { Col, Space } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { LoadingOutlined, RedoOutlined, ChromeOutlined } from '@ant-design/icons';
 import { Spinner } from '@app/components/common/Spinner/Spinner';
@@ -8,6 +8,7 @@ import { GlobalSpinner } from '@app/components/common/GlobalSpinner';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
 import { themeObject } from '@app/styles/themes/themeVariables';
+import { Switch } from '@app/components/common/Switch/Switch';
 
 const antIcon1 = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 const antIcon2 = <RedoOutlined style={{ fontSize: 24 }} spin />;

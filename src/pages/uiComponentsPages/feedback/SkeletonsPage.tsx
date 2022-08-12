@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Col, Space, Divider, Switch, Form, Radio, RadioChangeEvent } from 'antd';
+import { Col, Space, Divider, Form, Radio, RadioChangeEvent } from 'antd';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import {
@@ -12,6 +12,7 @@ import {
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
 import { media } from '@app/styles/themes/constants';
+import { Switch } from '@app/components/common/Switch/Switch';
 
 const FormItem = styled(Form.Item)`
   @media only screen and ${media.xs} {

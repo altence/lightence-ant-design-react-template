@@ -1,7 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 import { resetCss } from './resetCss';
 import { BREAKPOINTS, FONT_SIZE, FONT_WEIGHT, media } from './themes/constants';
-import { lightThemeVariables, darkThemeVariables, commonThemeVariables } from './themes/themeVariables';
+import {
+  lightThemeVariables,
+  darkThemeVariables,
+  commonThemeVariables,
+  antOverrideCssVariables,
+} from './themes/themeVariables';
 
 export default createGlobalStyle`
 
@@ -12,15 +17,18 @@ export default createGlobalStyle`
     ${lightThemeVariables}
   }
 
-  [data-theme='dark'],
-  :root {
+  [data-theme='dark'] {
     ${darkThemeVariables}
   }
 
   :root {
-    ${commonThemeVariables}
+    ${commonThemeVariables};
+    ${antOverrideCssVariables};
+  } 
+
+  [data-no-transition] * {
+    transition: none !important;
   }
-  
   
   .range-picker {
     & .ant-picker-panels {
@@ -41,6 +49,13 @@ export default createGlobalStyle`
 
     @media only screen and ${media.md} {
       max-width: 323px;
+    }
+  }
+
+  a {
+    color: var(--primary-color);
+    &:hover,:active {
+      color: var(--ant-primary-color-hover);
     }
   }
   
@@ -128,7 +143,7 @@ export default createGlobalStyle`
   
     &.ant-notification-notice-success {
       border: 1px solid var(--success-color);
-      background: var(--notification-success-color)
+      background: var(--notification-success-color);
       
       .title {
         color: var(--success-color);

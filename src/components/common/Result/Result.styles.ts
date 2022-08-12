@@ -15,4 +15,8 @@ export const Result = styled(AntResult)`
   &.ant-result-error .ant-result-icon > .anticon {
     color: var(--error-color);
   }
+
+  .ant-result-subtitle {
+    color: var(--breadcrumb-color);
+  }
 `;

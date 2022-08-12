@@ -31,7 +31,7 @@ export const Table = styled(CommonTable)`
 
 export const Text = styled.span<TextProps>`
   color: var(--text-main-color);
-  font-weight: ${(props) => (props.$isActive ? '${FONT_WEIGHT.semibold}' : '${FONT_WEIGHT.regular}')};
+  font-weight: ${(props) => (props.$isActive ? `${FONT_WEIGHT.semibold}` : `${FONT_WEIGHT.regular}`)};
 `;
 
 export const Flag = styled(Text)<{ $isNorm: boolean }>`

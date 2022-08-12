@@ -41,4 +41,18 @@ export const Select = styled(AntSelect).withConfig({
     margin-top: 0.1875rem;
     margin-bottom: 0.1875rem;
   }
+
+  &.ant-select-disabled.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    color: var(--disabled-color);
+  }
+
+  .ant-select-clear {
+    color: var(--disabled-color);
+  }
+  .ant-select-selection-item-remove {
+    color: var(--icon-color);
+    &:hover {
+      color: var(--icon-hover-color);
+    }
+  }
 `;

@@ -1,7 +1,8 @@
+import { ThemeType } from '@app/interfaces/interfaces';
 import { hexToRGB } from '@app/utils/utils';
 import { css } from 'styled-components';
 import { BASE_COLORS } from './constants';
-import { darkColorsTheme } from './dark/darkTheme';
+import { darkColorsTheme, antDarkColorsTheme } from './dark/darkTheme';
 import { lightColorsTheme } from './light/lightTheme';
 
 export const themeObject = {
@@ -9,128 +10,98 @@ export const themeObject = {
   dark: darkColorsTheme,
 };
 
-export const lightThemeVariables = css`
-  color-scheme: light;
-  --primary-color: ${lightColorsTheme.primary};
-  --primary-gradient-color: ${lightColorsTheme.primaryGradient};
+export const antThemeObject = {
+  light: {},
+  dark: antDarkColorsTheme,
+};
+
+const getThemeVariables = (theme: ThemeType) => css`
+  color-scheme: ${theme};
+  --primary-color: ${themeObject[theme].primary};
+  --primary1-color: ${themeObject[theme].primary1};
+  --primary-gradient-color: ${themeObject[theme].primaryGradient};
   --info-color: var(--primary-color);
-  --secondary-color: ${lightColorsTheme.secondary};
-  --error-color: ${lightColorsTheme.error};
-  --warning-color: ${lightColorsTheme.warning};
-  --success-color: ${lightColorsTheme.success};
-  --angular-gradient-color: ${lightColorsTheme.angularGradient};
-  --background-color: ${lightColorsTheme.background};
-  --secondary-background-color: ${lightColorsTheme.secondaryBackground};
-  --secondary-background-selected-color: ${lightColorsTheme.secondaryBackgroundSelected};
-  --spinner-base-color: ${lightColorsTheme.spinnerBase};
-  --shadow-color: ${lightColorsTheme.shadow};
-  --border-color: ${lightColorsTheme.border};
+  --secondary-color: ${themeObject[theme].secondary};
+  --error-color: ${themeObject[theme].error};
+  --warning-color: ${themeObject[theme].warning};
+  --success-color: ${themeObject[theme].success};
+  --angular-gradient-color: ${themeObject[theme].angularGradient};
+  --background-color: ${themeObject[theme].background};
+  --secondary-background-color: ${themeObject[theme].secondaryBackground};
+  --secondary-background-selected-color: ${themeObject[theme].secondaryBackgroundSelected};
+  --spinner-base-color: ${themeObject[theme].spinnerBase};
+  --shadow-color: ${themeObject[theme].shadow};
+  --border-color: ${themeObject[theme].border};
 
-  --primary-rgb-color: ${hexToRGB(lightColorsTheme.primary)};
-  --info-rgb-color: ${hexToRGB(lightColorsTheme.primary)};
-  --secondary-color: ${hexToRGB(lightColorsTheme.secondary)};
-  --error-rgb-color: ${hexToRGB(lightColorsTheme.error)};
-  --warning-rgb-color: ${hexToRGB(lightColorsTheme.warning)};
-  --success-rgb-color: ${hexToRGB(lightColorsTheme.success)};
-  --background-rgb-color: ${hexToRGB(lightColorsTheme.background)};
+  --primary-rgb-color: ${hexToRGB(themeObject[theme].primary)};
+  --info-rgb-color: ${hexToRGB(themeObject[theme].primary)};
+  --secondary-rgb-color: ${hexToRGB(themeObject[theme].secondary)};
+  --error-rgb-color: ${hexToRGB(themeObject[theme].error)};
+  --warning-rgb-color: ${hexToRGB(themeObject[theme].warning)};
+  --success-rgb-color: ${hexToRGB(themeObject[theme].success)};
+  --background-rgb-color: ${hexToRGB(themeObject[theme].background)};
 
-  --text-main-color: ${lightColorsTheme.textMain};
-  --text-light-color: ${lightColorsTheme.textLight};
-  --text-superLight-color: ${lightColorsTheme.textSuperLight};
-  --text-secondary-color: ${lightColorsTheme.textSecondary};
-  --text-dark-color: ${lightColorsTheme.textDark};
+  --text-main-color: ${themeObject[theme].textMain};
+  --text-light-color: ${themeObject[theme].textLight};
+  --text-superLight-color: ${themeObject[theme].textSuperLight};
+  --text-secondary-color: ${themeObject[theme].textSecondary};
+  --text-dark-color: ${themeObject[theme].textDark};
 
-  --dashboard-map-background-color: ${lightColorsTheme.dashboardMapBackground};
-  --dashboard-map-dots-color: ${lightColorsTheme.dashboardMapDots};
-  --dashboard-map-dots-hovered-color: ${lightColorsTheme.dashboardMapDotsHover};
-  --dashboard-map-marker-border-color: ${lightColorsTheme.dashboardMapMarkerBorder};
-  --dashboard-map-control-color: ${lightColorsTheme.dashboardMapControl};
-  --dashboard-map-control-background-color: ${lightColorsTheme.dashboardMapControlBackground};
-  --dashboard-map-control-disabled-background-color: ${lightColorsTheme.dashboardMapControlDisabledBackground};
+  --dashboard-map-background-color: ${themeObject[theme].dashboardMapBackground};
+  --dashboard-map-dots-color: ${themeObject[theme].dashboardMapDots};
+  --dashboard-map-dots-hovered-color: ${themeObject[theme].dashboardMapDotsHover};
+  --dashboard-map-marker-border-color: ${themeObject[theme].dashboardMapMarkerBorder};
+  --dashboard-map-control-color: ${themeObject[theme].dashboardMapControl};
+  --dashboard-map-control-background-color: ${themeObject[theme].dashboardMapControlBackground};
+  --dashboard-map-control-disabled-background-color: ${themeObject[theme].dashboardMapControlDisabledBackground};
 
-  --chart-tooltip-label-color: ${lightColorsTheme.chartTooltipLabel};
-  --chart-color1: ${lightColorsTheme.chartColor1};
-  --chart-rgb-color1: ${hexToRGB(lightColorsTheme.chartColor1)};
-  --chart-color1-tint: ${lightColorsTheme.chartColor1Tint};
-  --chart-color2: ${lightColorsTheme.chartColor2};
-  --chart-color2-tint: ${lightColorsTheme.chartColor2Tint};
-  --chart-color3: ${lightColorsTheme.chartColor3};
-  --chart-color3-tint: ${lightColorsTheme.chartColor3Tint};
-  --chart-color4: ${lightColorsTheme.chartColor4};
-  --chart-color4-tint: ${lightColorsTheme.chartColor4Tint};
-  --chart-color5: ${lightColorsTheme.chartColor5};
-  --chart-rgb-color5: ${hexToRGB(lightColorsTheme.chartColor5)};
-  --chart-color5-tint: ${lightColorsTheme.chartColor5Tint};
+  --chart-tooltip-label-color: ${themeObject[theme].chartTooltipLabel};
+  --chart-color1: ${themeObject[theme].chartColor1};
+  --chart-rgb-color1: ${hexToRGB(themeObject[theme].chartColor1)};
+  --chart-color1-tint: ${themeObject[theme].chartColor1Tint};
+  --chart-color2: ${themeObject[theme].chartColor2};
+  --chart-color2-tint: ${themeObject[theme].chartColor2Tint};
+  --chart-color3: ${themeObject[theme].chartColor3};
+  --chart-color3-tint: ${themeObject[theme].chartColor3Tint};
+  --chart-color4: ${themeObject[theme].chartColor4};
+  --chart-color4-tint: ${themeObject[theme].chartColor4Tint};
+  --chart-color5: ${themeObject[theme].chartColor5};
+  --chart-rgb-color5: ${hexToRGB(themeObject[theme].chartColor5)};
+  --chart-color5-tint: ${themeObject[theme].chartColor5Tint};
 
-  --notification-success-color: ${lightColorsTheme.notificationSuccess};
-  --notification-primary-color: ${lightColorsTheme.notificationPrimary};
-  --notification-warning-color: ${lightColorsTheme.notificationWarning};
-  --notification-error-color: ${lightColorsTheme.notificationError};
+  --notification-success-color: ${themeObject[theme].notificationSuccess};
+  --notification-primary-color: ${themeObject[theme].notificationPrimary};
+  --notification-warning-color: ${themeObject[theme].notificationWarning};
+  --notification-error-color: ${themeObject[theme].notificationError};
 
-  --box-shadow: ${lightColorsTheme.boxShadow};
-  --box-shadow-hover: ${lightColorsTheme.boxShadowHover};
+  --icon-color: ${themeObject[theme].icon};
+  --icon-hover-color: ${themeObject[theme].iconHover};
+  --box-shadow: ${themeObject[theme].boxShadow};
+  --box-shadow-hover: ${themeObject[theme].boxShadowHover};
+
+  --heading-color: ${themeObject[theme].heading};
+  --item-hover-bg: ${themeObject[theme].itemHoverBg};
+  --background-base-color: ${themeObject[theme].backgroundColorBase};
+  --border-base-color: ${themeObject[theme].borderBase};
+  --disabled-color: ${themeObject[theme].disable};
+  --disabled-bg-color: ${themeObject[theme].disabledBg};
+  --layout-body-bg-color: ${themeObject[theme].layoutBodyBg};
+  --layout-header-bg-color: ${themeObject[theme].layoutHeaderBg};
+  --layout-sider-bg-color: ${themeObject[theme].layoutSiderBg};
+  --input-placeholder-color: ${themeObject[theme].inputPlaceholder};
+  --avatar-bg: ${themeObject[theme].avatarBg};
+  --alert-text-color: ${themeObject[theme].alertTextColor};
+  --breadcrumb-color: ${themeObject[theme].breadcrumb};
+`;
+
+export const lightThemeVariables = css`
+  ${getThemeVariables('light')}
 `;
 
 export const darkThemeVariables = css`
-  color-scheme: light;
-  --primary-color: ${darkColorsTheme.primary};
-  --primary-gradient-color: ${darkColorsTheme.primaryGradient};
-  --info-color: var(--primary-color);
-  --secondary-color: ${darkColorsTheme.secondary};
-  --error-color: ${darkColorsTheme.error};
-  --warning-color: ${darkColorsTheme.warning};
-  --success-color: ${darkColorsTheme.success};
-  --angular-gradient-color: ${darkColorsTheme.angularGradient};
-  --background-color: ${darkColorsTheme.background};
-  --secondary-background-color: ${darkColorsTheme.secondaryBackground};
-  --secondary-background-selected-color: ${darkColorsTheme.secondaryBackgroundSelected};
-  --spinner-base-color: ${darkColorsTheme.spinnerBase};
-  --shadow-color: ${darkColorsTheme.shadow};
-  --border-color: ${darkColorsTheme.border};
-
-  --primary-rgb-color: ${hexToRGB(darkColorsTheme.primary)};
-  --info-rgb-color: ${hexToRGB(darkColorsTheme.primary)};
-  --secondary-color: ${hexToRGB(darkColorsTheme.secondary)};
-  --error-rgb-color: ${hexToRGB(darkColorsTheme.error)};
-  --warning-rgb-color: ${hexToRGB(darkColorsTheme.warning)};
-  --success-rgb-color: ${hexToRGB(darkColorsTheme.success)};
-  --background-rgb-color: ${hexToRGB(darkColorsTheme.background)};
-
-  --text-main-color: ${darkColorsTheme.textMain};
-  --text-light-color: ${darkColorsTheme.textLight};
-  --text-superLight-color: ${darkColorsTheme.textSuperLight};
-  --text-secondary-color: ${darkColorsTheme.textSecondary};
-  --text-dark-color: ${darkColorsTheme.textDark};
-
-  --dashboard-map-background-color: ${darkColorsTheme.dashboardMapBackground};
-  --dashboard-map-dots-color: ${darkColorsTheme.dashboardMapDots};
-  --dashboard-map-dots-hovered-color: ${darkColorsTheme.dashboardMapDotsHover};
-  --dashboard-map-marker-border-color: ${darkColorsTheme.dashboardMapMarkerBorder};
-  --dashboard-map-control-color: ${darkColorsTheme.dashboardMapControl};
-  --dashboard-map-control-background-color: ${darkColorsTheme.dashboardMapControlBackground};
-  --dashboard-map-control-disabled-background-color: ${darkColorsTheme.dashboardMapControlDisabledBackground};
-
-  --chart-tooltip-label-color: ${darkColorsTheme.chartTooltipLabel};
-  --chart-color1: ${darkColorsTheme.chartColor1};
-  --chart-rgb-color1: ${hexToRGB(darkColorsTheme.chartColor1)};
-  --chart-color1-tint: ${darkColorsTheme.chartColor1Tint};
-  --chart-color2: ${darkColorsTheme.chartColor2};
-  --chart-color2-tint: ${darkColorsTheme.chartColor2Tint};
-  --chart-color3: ${darkColorsTheme.chartColor3};
-  --chart-color3-tint: ${darkColorsTheme.chartColor3Tint};
-  --chart-color4: ${darkColorsTheme.chartColor4};
-  --chart-color4-tint: ${darkColorsTheme.chartColor4Tint};
-  --chart-color5: ${darkColorsTheme.chartColor5};
-  --chart-rgb-color5: ${hexToRGB(darkColorsTheme.chartColor5)};
-  --chart-color5-tint: ${darkColorsTheme.chartColor5Tint};
-
-  --notification-success-color: ${darkColorsTheme.notificationSuccess};
-  --notification-primary-color: ${darkColorsTheme.notificationPrimary};
-  --notification-warning-color: ${darkColorsTheme.notificationWarning};
-  --notification-error-color: ${darkColorsTheme.notificationError};
-
-  --box-shadow: ${darkColorsTheme.boxShadow};
-  --box-shadow-hover: ${darkColorsTheme.boxShadowHover};
+  ${getThemeVariables('dark')}
+  --ant-success-color-deprecated-bg: ${antThemeObject['dark'].successBg} !important;
+  --ant-success-color-deprecated-border: ${antThemeObject['dark'].successBorder} !important;
 `;
 
 export const commonThemeVariables = css`
@@ -147,4 +118,8 @@ export const commonThemeVariables = css`
   --blue: ${BASE_COLORS.blue};
   --skyblue: ${BASE_COLORS.skyblue};
   --red: ${BASE_COLORS.red};
+`;
+
+export const antOverrideCssVariables = css`
+  --ant-primary-1: var(--primary1-color) !important;
 `;

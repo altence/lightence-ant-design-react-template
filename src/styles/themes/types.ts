@@ -2,6 +2,7 @@ import { LinearGradientObject } from 'echarts';
 
 export interface ITheme {
   primary: string;
+  primary1: string;
   primaryGradient: string;
   light: string;
   secondary: string;
@@ -47,4 +48,19 @@ export interface ITheme {
   chartPrimaryGradient: LinearGradientObject;
   chartSecondaryGradient: LinearGradientObject;
   chartAdditionalGradient: LinearGradientObject;
+  heading: string;
+  borderBase: string;
+  disable: string;
+  disabledBg: string;
+  layoutBodyBg: string;
+  layoutHeaderBg: string;
+  layoutSiderBg: string;
+  inputPlaceholder: string;
+  itemHoverBg: string;
+  backgroundColorBase: string;
+  avatarBg: string;
+  alertTextColor: string;
+  breadcrumb: string;
+  icon: string;
+  iconHover: string;
 }

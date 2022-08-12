@@ -63,7 +63,7 @@ export const FullnessWrapper = styled.div`
   height: 1.875rem;
   margin-bottom: 0.625rem;
 
-  background-color: rgba(var(--warning--rgb-color), 0.5);
+  background-color: rgba(var(--warning-rgb-color), 0.5);
 
   @media only screen and ${media.xl} {
     height: 2.5rem;

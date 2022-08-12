@@ -29,6 +29,10 @@ export const Menu = styled(AntMenu)`
     color: var(--text-secondary-color);
   }
 
+  .ant-menu-item::after {
+    border-color: var(--primary-color);
+  }
+
   .ant-menu-item:hover,
   .ant-menu-submenu-title:hover {
     background-color: rgba(var(--primary-rgb-color), 0.7);

@@ -45,7 +45,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
       {!!tags?.length && (
         <S.TagsWrapper>
           {tags.map((tag) => (
-            <Tag key={tag.bgColor} title={tag.title} />
+            <Tag key={tag.bgColor} title={tag.title} bgColor={tag.bgColor} />
           ))}
         </S.TagsWrapper>
       )}
