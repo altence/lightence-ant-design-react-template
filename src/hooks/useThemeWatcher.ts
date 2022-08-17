@@ -28,11 +28,4 @@ export const useThemeWatcher = (): void => {
       },
     });
   }, [theme]);
-
-  useEffect(() => {
-    const initSpinner = document.getElementById('initSpinner');
-    if (initSpinner) {
-      initSpinner.style.display = 'none';
-    }
-  }, []);
 };
