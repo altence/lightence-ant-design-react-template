@@ -1,37 +1,38 @@
 import { createGlobalStyle } from 'styled-components';
+import { resetCss } from './resetCss';
+import { BREAKPOINTS, FONT_SIZE, FONT_WEIGHT, media } from './themes/constants';
+import {
+  lightThemeVariables,
+  darkThemeVariables,
+  commonThemeVariables,
+  antOverrideCssVariables,
+} from './themes/themeVariables';
 
 export default createGlobalStyle`
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+
+  ${resetCss}
+
+  [data-theme='light'],
+  :root {
+    ${lightThemeVariables}
   }
 
-  ::-webkit-scrollbar {
-    width: 1rem;
-  }
-  ::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: ${(props) => props.theme.commonColors.lightgrey};
-    border-radius: 1.25rem;
-    border: 0.375rem solid transparent;
-    background-clip: content-box;
+  [data-theme='dark'] {
+    ${darkThemeVariables}
   }
 
-  body {
-    font-weight: 500;
+  :root {
+    ${commonThemeVariables};
+    ${antOverrideCssVariables};
+  } 
+
+  [data-no-transition] * {
+    transition: none !important;
   }
   
-  img {
-    display: block;
-  }
-
   .range-picker {
     & .ant-picker-panels {
-      @media only screen and ${(props) =>
-        `${props.theme.media.xs} and (max-width: ${props.theme.breakpoints.md - 0.02}px)`} {
+      @media only screen and ${media.xs} and (max-width: ${BREAKPOINTS.md - 0.02}px) {
         display: flex;
       flex-direction: column;
       }
@@ -39,16 +40,22 @@ export default createGlobalStyle`
   }
 
   .search-dropdown {
-    box-shadow: ${(props) => props.theme.boxShadow.main};
+    box-shadow: var(--box-shadow);
 
-    @media only screen and ${(props) =>
-      `${props.theme.media.xs} and (max-width: ${props.theme.breakpoints.md - 0.02}px)`} {
+    @media only screen and ${media.xs} and (max-width: ${BREAKPOINTS.md - 0.02}px)  {
       width: calc(100vw - 16px);
     max-width: 600px;
     }
 
-    @media only screen and ${(props) => props.theme.media.md} {
+    @media only screen and ${media.md} {
       max-width: 323px;
+    }
+  }
+
+  a {
+    color: var(--primary-color);
+    &:hover,:active {
+      color: var(--ant-primary-color-hover);
     }
   }
   
@@ -57,16 +64,16 @@ export default createGlobalStyle`
   }
 
   .ant-picker-cell {
-    color: ${(props) => props.theme.colors.text.main};
+    color: var(--text-main-color);
   }
 
   .ant-picker-cell-in-view .ant-picker-calendar-date-value {
-    color: ${(props) => props.theme.colors.text.main};
-    font-weight: ${(props) => props.theme.commonFontWeight.bold};
+    color: var(--text-main-color);
+    font-weight: ${FONT_WEIGHT.bold};
   }
 
   .ant-picker svg {
-    color: ${(props) => props.theme.colors.text.light};
+    color: var(--text-light-color);
   }
 
   // notifications start
@@ -110,80 +117,80 @@ export default createGlobalStyle`
     }
     
     .title {
-      font-size: ${(props) => props.theme.commonFontSizes.xxl};
+      font-size: ${FONT_SIZE.xxl};
       height: 3rem;
       margin-left: 1.5rem;
       display: flex;
       align-items: center;
-      font-weight: ${(props) => props.theme.commonFontWeight.bold};
+      font-weight: ${FONT_WEIGHT.bold};
 
       &.title-only {
-        color: ${(props) => props.theme.colors.text.main};
-        font-size: ${(props) => props.theme.commonFontSizes.md};
+        color: var(--text-main-color);
+        font-size: ${FONT_SIZE.md};
         height: 2rem;
         line-height: 2rem;
         margin-left: 0.75rem;
-        font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+        font-weight: ${FONT_WEIGHT.semibold};
       }
   }
   
     .description {
       color: #404040;
-      font-size: ${(props) => props.theme.commonFontSizes.md};
-      font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+      font-size: ${FONT_SIZE.md};
+      font-weight: ${FONT_WEIGHT.semibold};
       line-height: 1.375rem;
     }
   
     &.ant-notification-notice-success {
-      border: ${(props) => `1px solid ${props.theme.colors.main.success}`};
-      background: ${(props) => props.theme.colors.notifications.success};
+      border: 1px solid var(--success-color);
+      background: var(--notification-success-color);
       
       .title {
-        color: ${(props) => props.theme.colors.main.success};
+        color: var(--success-color);
       }
     }
   
     &.ant-notification-notice-info {
-      border: ${(props) => `1px solid ${props.theme.colors.main.primary}`};
-      background: ${(props) => props.theme.colors.notifications.primary};
+      border: 1px solid var(--primary-color);
+      background: var(--notification-primary-color);
   
       .title {
-        color: ${(props) => props.theme.colors.main.primary};
+        color: var(--primary-color);
       }
     }
   
     &.ant-notification-notice-warning {
-      border: ${(props) => `1px solid ${props.theme.colors.main.warning}`};
-      background: ${(props) => props.theme.colors.notifications.warning};
+      border: 1px solid var(--warning-color);
+      background: var(--notification-warning-color);
   
       .title {
-        color: ${(props) => props.theme.colors.main.warning};
+        color: var(--warning-color);
       }
     }
   
     &.ant-notification-notice-error {
-      border: ${(props) => `1px solid ${props.theme.colors.main.error}`};
-      background: ${(props) => props.theme.colors.notifications.error};
+      border: 1px solid var(--error-color);
+      background: var(--notification-error-color);
   
       .title {
-        color: ${(props) => props.theme.colors.main.error};
+        color: var(--error-color);
       }
     }
   
     .success-icon {
-      color: ${(props) => props.theme.colors.main.success};
+      color: var(--success-color);
     }
   
     .info-icon {
-      color: ${(props) => props.theme.colors.main.primary};
+      color: var(--primary-color);
     }
   
     .warning-icon {
-      color: ${(props) => props.theme.colors.main.warning};
+      color: var(--warning-color);
     }
   
     .error-icon {
-      color: ${(props) => props.theme.colors.main.error};
+      color: var(--error-color);
     }
   }
   

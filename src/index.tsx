@@ -1,4 +1,3 @@
-import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -7,30 +6,17 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import 'config/config';
 import { Provider } from 'react-redux';
 import { store } from '@app/store/store';
-import { ThemeSwitcherProvider } from 'react-css-theme-switcher';
-import { defaultTheme } from '@app/store/slices/themeSlice';
 
 interface EventTarget {
   state?: 'activated';
 }
-
-const themes = {
-  dark: `${process.env.PUBLIC_URL}/themes/main-dark.css`,
-  light: `${process.env.PUBLIC_URL}/themes/main-light.css`,
-};
 
 const container = document.getElementById('root') as HTMLElement;
 const root = createRoot(container);
 
 root.render(
   <Provider store={store}>
-    <ThemeSwitcherProvider
-      themeMap={themes}
-      defaultTheme={defaultTheme}
-      insertionPoint={document.getElementById('inject-styles-here')}
-    >
-      <App />
-    </ThemeSwitcherProvider>
+    <App />
   </Provider>,
 );
 

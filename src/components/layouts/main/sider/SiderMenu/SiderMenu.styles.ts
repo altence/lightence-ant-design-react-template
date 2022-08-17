@@ -1,17 +1,16 @@
 import styled from 'styled-components';
 import { Menu as AntMenu } from 'antd';
-import { hexToRGB } from '@app/utils/utils';
 
 export const Menu = styled(AntMenu)`
   background: transparent;
   border-right: 0;
 
-  color: ${(props) => props.theme.colors.text.secondary};
+  color: var(--text-secondary-color);
 
   .ant-menu-submenu-expand-icon,
   .ant-menu-submenu-arrow,
   span[role='img'] {
-    color: ${(props) => props.theme.colors.text.secondary};
+    color: var(--text-secondary-color);
   }
 
   .ant-menu-item:hover,
@@ -27,28 +26,32 @@ export const Menu = styled(AntMenu)`
   .ant-menu-item-selected a,
   .ant-menu-item-selected a:hover,
   .ant-menu-item a:hover {
-    color: ${(props) => props.theme.colors.text.secondary};
+    color: var(--text-secondary-color);
+  }
+
+  .ant-menu-item::after {
+    border-color: var(--primary-color);
   }
 
   .ant-menu-item:hover,
   .ant-menu-submenu-title:hover {
-    background-color: ${(props) => hexToRGB(props.theme.colors.main.primary, 0.7)};
+    background-color: rgba(var(--primary-rgb-color), 0.7);
   }
 
   .ant-menu-submenu-selected {
     .ant-menu-submenu-title {
-      background-color: ${(props) => props.theme.colors.main.primary};
+      background-color: var(--primary-color);
     }
   }
 
   .ant-menu-item-selected {
-    background-color: ${(props) => props.theme.colors.main.primary} !important;
+    background-color: var(--primary-color) !important;
   }
 
   a {
     width: 100%;
     display: block;
 
-    color: ${(props) => props.theme.colors.text.secondary};
+    color: var(--text-secondary-color);
   }
 `;

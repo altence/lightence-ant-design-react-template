@@ -1,3 +1,4 @@
+import { BORDER_RADIUS, FONT_SIZE } from '@app/styles/themes/constants';
 import styled from 'styled-components';
 
 export const AddCardWrapper = styled.div`
@@ -6,9 +7,9 @@ export const AddCardWrapper = styled.div`
   align-items: center;
   height: 3.75rem;
   width: 100%;
-  border: ${(props) => `1px solid ${props.theme.colors.border.main}`};
-  border-radius: ${(props) => props.theme.border.radius};
+  border: 1px solid var(--border-color);
+  border-radius: ${BORDER_RADIUS};
   cursor: pointer;
-  font-size: ${(props) => props.theme.commonFontSizes.xxl};
-  color: ${(props) => props.theme.colors.border.main};
+  font-size: ${FONT_SIZE.xxl};
+  color: var(--border-color);
 `;

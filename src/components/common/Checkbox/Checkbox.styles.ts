@@ -8,7 +8,11 @@ export const Checkbox = styled(AntdCheckbox)`
     border-radius: 0.1875rem;
     height: 1.25rem;
     width: 1.25rem;
-    border: ${(props) => `1px solid ${props.theme.colors.main.primary}`};
+    border: 1px solid var(--primary-color);
+  }
+
+  .ant-checkbox-disabled.ant-checkbox-checked .ant-checkbox-inner::after {
+    border-color: var(--disabled-color);
   }
 `;
 
@@ -17,6 +21,6 @@ export const CheckboxGroup = styled(Group)`
     border-radius: 0.1875rem;
     height: 1.25rem;
     width: 1.25rem;
-    border: ${(props) => `1px solid ${props.theme.colors.main.primary}`};
+    border: 1px solid var(--primary-color);
   }
 `;

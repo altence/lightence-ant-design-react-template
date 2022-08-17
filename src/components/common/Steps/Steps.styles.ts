@@ -1,28 +1,35 @@
 import styled from 'styled-components';
 import { Steps as AntdSteps } from 'antd';
+import { FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
 
 export const Steps = styled(AntdSteps)`
   font-size: unset;
 
   & .ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title {
-    color: ${(props) => props.theme.colors.main.primary};
-    font-weight: ${(props) => props.theme.commonFontWeight.semibold};
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
+    color: var(--primary-color);
+    font-weight: ${FONT_WEIGHT.semibold};
+    font-size: ${FONT_SIZE.xs};
     /* width: 100%; */
 
-    @media only screen and ${(props) => props.theme.media.md} {
-      font-size: ${(props) => props.theme.commonFontSizes.md};
+    @media only screen and ${media.md} {
+      font-size: ${FONT_SIZE.md};
     }
   }
 
   .ant-steps-item-wait > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title {
-    color: ${(props) => props.theme.colors.text.main};
-    font-weight: ${(props) => props.theme.commonFontWeight.semibold};
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
+    color: var(--text-main-color);
+    font-weight: ${FONT_WEIGHT.semibold};
+    font-size: ${FONT_SIZE.xs};
     /* width: 100%; */
 
-    @media only screen and ${(props) => props.theme.media.md} {
-      font-size: ${(props) => props.theme.commonFontSizes.md};
+    @media only screen and ${media.md} {
+      font-size: ${FONT_SIZE.md};
+    }
+  }
+  .ant-steps-item-wait .ant-steps-item-icon {
+    border-color: var(--disabled-color);
+    & > .ant-steps-icon {
+      color: var(--disabled-color);
     }
   }
 
@@ -39,6 +46,12 @@ export const Steps = styled(AntdSteps)`
   &.ant-steps-vertical.ant-steps-small {
     .ant-steps-item-container .ant-steps-item-tail {
       padding: 1.625rem 0 0.375rem;
+    }
+  }
+  & .ant-steps-item {
+    &-description,
+    &-subtitle {
+      color: var(--disabled-color) !important;
     }
   }
 `;

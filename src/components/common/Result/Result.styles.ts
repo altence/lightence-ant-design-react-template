@@ -3,16 +3,20 @@ import { Result as AntResult } from 'antd';
 
 export const Result = styled(AntResult)`
   &.ant-result-success .ant-result-icon > .anticon {
-    color: ${(props) => `${props.theme.colors.main.success}`};
+    color: var(--success-color);
   }
 
   &.ant-result-info .ant-result-icon > .anticon {
-    color: ${(props) => `${props.theme.colors.main.primary}`};
+    color: var(--primary-color);
   }
   &.ant-result-warning .ant-result-icon > .anticon {
-    color: ${(props) => `${props.theme.colors.main.warning}`};
+    color: var(--warning-color);
   }
   &.ant-result-error .ant-result-icon > .anticon {
-    color: ${(props) => `${props.theme.colors.main.error}`};
+    color: var(--error-color);
+  }
+
+  .ant-result-subtitle {
+    color: var(--breadcrumb-color);
   }
 `;

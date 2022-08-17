@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/themes/main.css"  type = "text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Free and easy-to-use admin template based on React 17+" />
     <meta name="keywords" content="altence lightence admin template react redux responsive free" />
@@ -51,10 +52,12 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="initSpinner">
-      <img src="%PUBLIC_URL%/spinners/spinner.svg" alt="Loading..." />
+
+    <div id="root">
+      <div id="initSpinner">
+        <img src="%PUBLIC_URL%/spinners/spinner.svg" alt="Loading..." />
+      </div>
     </div>
-    <div id="root"></div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

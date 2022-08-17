@@ -1,7 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 import generateCalendar from 'antd/lib/calendar/generateCalendar';
 import { AppDate } from '../../../../constants/Dates';
+import { BORDER_RADIUS, FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
 
 const AntCalendar = generateCalendar<AppDate>(dayjsGenerateConfig);
 
@@ -10,9 +11,9 @@ interface Event {
 }
 
 export const Wrapper = styled.div`
-  background-color: ${(props) => props.theme.colors.main.mainBackground};
+  background-color: var(--background-color);
 
-  box-shadow: ${(props) => props.theme.boxShadow.main};
+  box-shadow: var(--box-shadow);
 `;
 
 export const Event = styled.div<Event>`
@@ -26,14 +27,20 @@ export const Event = styled.div<Event>`
   height: 100%;
   box-shadow: 0 5px 15px rgba(0, 89, 171, 0.3);
 
-  font-weight: ${(props) => props.theme.commonFontWeight.bold};
+  font-weight: ${FONT_WEIGHT.bold};
 
-  background: ${(props) => props.theme.colors.main.secondaryBackground};
+  background: var(--secondary-background-color);
 
   ${(props) =>
-    props.$isPast ? `color: ${props.theme.colors.text.main}` : `color: ${props.theme.colors.main.primary}`};
+    props.$isPast
+      ? css`
+          color: var(--text-main-color);
+        `
+      : css`
+          color: var(--primary-color);
+        `};
 
-  border-radius: ${(props) => props.theme.border.radius};
+  border-radius: ${BORDER_RADIUS};
 `;
 
 export const Calendar = styled(AntCalendar)`
@@ -50,18 +57,18 @@ export const Calendar = styled(AntCalendar)`
   }
 
   .ant-picker-date-panel .ant-picker-content th {
-    font-weight: ${(props) => props.theme.commonFontWeight.medium};
+    font-weight: ${FONT_WEIGHT.medium};
 
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
+    font-size: ${FONT_SIZE.xs};
 
-    color: ${(props) => props.theme.colors.main.primary};
+    color: var(--primary-color);
   }
 
   .ant-picker-cell {
     &.ant-picker-cell-today {
       .ant-picker-cell-inner {
         &::before {
-          border-color: ${(props) => props.theme.colors.main.secondary};
+          border-color: var(--secondary-color);
         }
       }
     }
@@ -70,22 +77,22 @@ export const Calendar = styled(AntCalendar)`
       .ant-picker-cell-inner {
         box-shadow: 0 5px 15px rgba(0, 89, 171, 0.3);
 
-        background: ${(props) => props.theme.colors.main.primary};
+        background: var(--primary-color);
 
         .ant-picker-calendar-date-value,
         ${Event} {
-          color: ${(props) => props.theme.commonColors.white};
+          color: var(--white);
         }
 
         .ant-picker-calendar-date-content > div {
-          background: ${(props) => props.theme.colors.main.primary};
+          background: var(--primary-color);
         }
       }
     }
 
     .ant-picker-cell-inner {
-      font-weight: ${(props) => props.theme.commonFontWeight.medium};
-      font-size: ${(props) => props.theme.commonFontSizes.xs};
+      font-weight: ${FONT_WEIGHT.medium};
+      font-size: ${FONT_SIZE.xs};
       height: 1.875rem;
       width: 1.875rem;
       display: flex;

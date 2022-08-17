@@ -6,7 +6,7 @@ export const ArrowWrapper = styled.div.withConfig({
 })<CustomArrowProps>`
   font-size: 1rem;
 
-  color: ${(props) => props.theme.colors.text.main};
+  color: var(--text-main-color);
 
   &:before {
     display: none;
@@ -14,6 +14,6 @@ export const ArrowWrapper = styled.div.withConfig({
 
   &:hover,
   &:focus {
-    color: ${(props) => props.theme.colors.text.main};
+    color: var(--text-main-color);
   }
 `;

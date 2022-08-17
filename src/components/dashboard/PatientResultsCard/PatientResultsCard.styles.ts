@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Typography } from 'antd';
 import { CalendarOutlined } from '@ant-design/icons';
+import { FONT_SIZE, media } from '@app/styles/themes/constants';
 
 interface IconProps {
   isActive: boolean;
@@ -12,10 +13,10 @@ export const TitleWrapper = styled.div`
 `;
 
 export const CalendarIcon = styled(CalendarOutlined)`
-  color: ${(props) => props.theme.colors.main.primary};
+  color: var(--primary-color);
 
-  @media only screen and ${(props) => props.theme.media.md} {
-    color: ${(props) => props.theme.colors.text.main};
+  @media only screen and ${media.md} {
+    color: var(--text-main-color);
   }
 `;
 
@@ -34,26 +35,26 @@ export const InfoWrapper = styled.div`
 export const DateWrapper = styled.div`
   display: flex;
   align-items: center;
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  font-size: ${FONT_SIZE.xs};
 `;
 
 export const Text = styled(Typography.Text)`
   margin-left: 0.5rem;
   line-height: 1;
-  font-size: ${(props) => props.theme.commonFontSizes.xxs};
-  color: ${(props) => props.theme.colors.text.main};
+  font-size: ${FONT_SIZE.xxs};
+  color: var(--text-main-color);
 
-  @media only screen and ${(props) => props.theme.media.md} {
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
+  @media only screen and ${media.md} {
+    font-size: ${FONT_SIZE.xs};
   }
 `;
 
 export const Description = styled(Typography.Text)`
   margin-top: 0.625rem;
-  font-size: ${(props) => props.theme.commonFontSizes.xxs};
+  font-size: ${FONT_SIZE.xxs};
 
-  @media only screen and ${(props) => props.theme.media.md} {
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
+  @media only screen and ${media.md} {
+    font-size: ${FONT_SIZE.xs};
   }
 `;
 
@@ -64,8 +65,7 @@ export const IconWrapper = styled.div<IconProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${(props) =>
-    props.isActive ? props.theme.colors.main.primary : props.theme.colors.main.secondaryBackground};
-  color: ${(props) => (props.isActive ? props.theme.colors.text.secondary : props.theme.colors.main.primary)};
+  background-color: ${(props) => (props.isActive ? 'var(--primary-color)' : 'var(--secondary-background-color)')};
+  color: ${(props) => (props.isActive ? 'var(--text-secondary-color)' : 'var(--primary-color)')};
   font-size: 1.15rem;
 `;

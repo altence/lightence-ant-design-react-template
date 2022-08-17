@@ -12,6 +12,6 @@ export const BtnWrapper = styled.div`
     width: unset;
     height: unset;
 
-    color: ${(props) => props.theme.colors.text.secondary};
+    color: var(--text-secondary-color);
   }
 `;

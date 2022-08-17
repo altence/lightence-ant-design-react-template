@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Typography } from 'antd';
-import { hexToRGB } from 'utils/utils';
+import { media } from '@app/styles/themes/constants';
 
 interface FullnessLineProps {
   width: number;
@@ -19,9 +19,9 @@ export const ImgWrapper = styled.div`
   justify-content: center;
   border-radius: 50%;
 
-  background: ${(props) => props.theme.colors.main.angularGradient};
+  background: var(--angular-gradient-color);
 
-  @media only screen and ${(props) => props.theme.media.xl} {
+  @media only screen and ${media.xl} {
     width: 11.125rem;
     margin: 0 auto 2rem auto;
   }
@@ -31,7 +31,7 @@ export const ImgWrapper = styled.div`
     width: calc(100% - 10px);
     height: calc(100% - 10px);
 
-    @media only screen and ${(props) => props.theme.media.xl} {
+    @media only screen and ${media.xl} {
       margin: 7px;
     }
   }
@@ -42,7 +42,7 @@ export const Title = styled(Typography.Text)`
   font-weight: 700;
   margin-bottom: 0.5rem;
 
-  @media only screen and ${(props) => props.theme.media.xl} {
+  @media only screen and ${media.xl} {
     font-size: 1.5rem;
     margin-bottom: 1rem;
   }
@@ -51,7 +51,7 @@ export const Title = styled(Typography.Text)`
 export const Subtitle = styled(Typography.Text)`
   margin-bottom: 2rem;
 
-  @media only screen and ${(props) => props.theme.media.xl} {
+  @media only screen and ${media.xl} {
     font-weight: 600;
     font-size: 1rem;
     margin-bottom: 2.5rem;
@@ -63,9 +63,9 @@ export const FullnessWrapper = styled.div`
   height: 1.875rem;
   margin-bottom: 0.625rem;
 
-  background-color: ${(props) => hexToRGB(props.theme.colors.main.warning, 0.5)};
+  background-color: rgba(var(--warning-rgb-color), 0.5);
 
-  @media only screen and ${(props) => props.theme.media.xl} {
+  @media only screen and ${media.xl} {
     height: 2.5rem;
     margin-bottom: 1rem;
   }
@@ -81,15 +81,11 @@ export const FullnessLine = styled.div<FullnessLineProps>`
 
   width: ${(props) => props.width}%;
 
-  background: linear-gradient(
-    90deg,
-    ${(props) => props.theme.colors.main.warning} 0%,
-    ${(props) => props.theme.colors.main.error} 100%
-  );
+  background: linear-gradient(90deg, var(--warning-color) 0%, var(--error-color) 100%);
 
-  color: ${(props) => props.theme.colors.text.secondary};
+  color: var(--text-secondary-color);
 
-  @media only screen and ${(props) => props.theme.media.xl} {
+  @media only screen and ${media.xl} {
     font-size: 1rem;
     font-weight: 600;
     padding-right: 0.875rem;
@@ -100,13 +96,13 @@ export const Text = styled(Typography.Text)`
   font-size: 0.75rem;
   text-align: left;
 
-  color: ${(props) => props.theme.colors.text.main};
+  color: var(--text-main-color);
 
-  @media only screen and ${(props) => props.theme.media.md} {
+  @media only screen and ${media.md} {
     text-align: center;
   }
 
-  @media only screen and ${(props) => props.theme.media.xl} {
+  @media only screen and ${media.xl} {
     font-size: 0.875rem;
     text-align: left;
   }

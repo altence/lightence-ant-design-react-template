@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { Button as AntButton } from 'antd';
 import { ButtonType } from 'antd/lib/button';
 import { Severity } from '@app/interfaces/interfaces';
-import { defineColorBySeverity, hexToRGB, shadeColor } from '@app/utils/utils';
+import { defineColorBySeverity } from '@app/utils/utils';
 
 interface BtnProps {
   type: ButtonType;
@@ -19,6 +19,12 @@ export const Button = styled(AntButton)<BtnProps>`
       height: unset;
     `}
 
+  &[disabled],
+  &[disabled]:active,
+  &[disabled]:focus,
+  &[disabled]:hover {
+    color: var(--disabled-color);
+  }
   ${(props) =>
     !props.danger &&
     css`
@@ -26,27 +32,26 @@ export const Button = styled(AntButton)<BtnProps>`
       css`
         box-shadow: none;
         text-shadow: none;
+        background: rgba(${defineColorBySeverity(props.$severity, true)}, 0.2);
 
-        background: ${hexToRGB(defineColorBySeverity(props.$severity, props.theme), 0.2)};
+        border-color: ${defineColorBySeverity(props.$severity)};
 
-        border-color: ${defineColorBySeverity(props.$severity, props.theme)};
-
-        color: ${defineColorBySeverity(props.$severity, props.theme)};
+        color: ${defineColorBySeverity(props.$severity)};
 
         &:hover {
-          background: ${props.theme.colors.main.mainBackground};
+          background: var(--background-color);
 
-          border-color: ${shadeColor(defineColorBySeverity(props.$severity, props.theme), 10)};
+          border-color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9);
 
-          color: ${shadeColor(defineColorBySeverity(props.$severity, props.theme), 10)};
+          color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9);
         }
 
         &:focus {
-          background: ${props.theme.colors.main.mainBackground};
+          background: var(--background-color);
 
-          border-color: ${shadeColor(defineColorBySeverity(props.$severity, props.theme), 10)};
+          border-color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9);
 
-          color: ${shadeColor(defineColorBySeverity(props.$severity, props.theme), 10)};
+          color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9);
         }
       `}
 
@@ -54,25 +59,25 @@ export const Button = styled(AntButton)<BtnProps>`
       css`
         &:hover {
           background: transparent;
-          color: ${props.theme.colors.main.secondary};
+          color: var(--secondary-color);
         }
       `}
 
       ${props.type === 'ghost' &&
       css`
         &:hover {
-          color: ${props.theme.colors.main.secondary};
+          color: var(--secondary-color);
 
-          border-color: ${props.theme.colors.main.secondary};
+          border-color: var(--secondary-color);
         }
       `}
 
       ${props.type === 'primary' &&
       css`
         &:hover {
-          background: ${props.theme.colors.main.secondary};
+          background: var(--secondary-color);
 
-          border-color: ${props.theme.colors.main.secondary};
+          border-color: var(--secondary-color);
         }
       `}
 

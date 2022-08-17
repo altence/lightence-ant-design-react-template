@@ -1,3 +1,4 @@
+import { BORDER_RADIUS } from '@app/styles/themes/constants';
 import styled from 'styled-components';
 import { CountryMap } from '../../../common/CountryMap/CountryMap';
 
@@ -7,8 +8,8 @@ export const DoctorsMap = styled(CountryMap)`
   height: 19rem;
 
   &.leaflet-container {
-    background-image: ${(props) => props.theme.colors.dashboardMap.background};
-    border-radius: ${(props) => props.theme.border.radius};
+    background-image: var(--dashboard-map-background-color);
+    border-radius: ${BORDER_RADIUS};
 
     svg {
       path {
@@ -23,11 +24,11 @@ export const DoctorsMap = styled(CountryMap)`
     }
 
     #pattern-circle {
-      fill: ${(props) => props.theme.colors.dashboardMap.dotsColor};
+      fill: var(--dashboard-map-dots-color);
     }
 
     #pattern-circle-hovered {
-      fill: ${(props) => props.theme.colors.dashboardMap.dotsHoveredColor};
+      fill: var(--dashboard-map-dots-hovered-color);
     }
   }
 
@@ -37,7 +38,7 @@ export const DoctorsMap = styled(CountryMap)`
 
   .leaflet-marker-icon {
     border-radius: 50%;
-    border: 2px solid ${(props) => props.theme.colors.dashboardMap.markerBorderColor};
+    border: 2px solid var(--dashboard-map-marker-border-color);
   }
 
   .leaflet-control-zoom {
@@ -52,17 +53,17 @@ export const DoctorsMap = styled(CountryMap)`
 
   .leaflet-control-zoom-out,
   .leaflet-control-zoom-in {
-    background-color: ${(props) => props.theme.colors.dashboardMap.controlBackgroundColor};
-    color: ${(props) => props.theme.colors.dashboardMap.controlColor};
+    background-color: var(--dashboard-map-control-background-color);
+    color: var(--dashboard-map-control-color);
 
     &:hover {
-      background-color: ${(props) => props.theme.colors.dashboardMap.controlBackgroundColor};
-      color: ${(props) => props.theme.colors.dashboardMap.dotsHoveredColor};
+      background-color: var(--dashboard-map-control-background-color);
+      color: var(--dashboard-map-dots-hovered-color);
     }
 
     &.leaflet-disabled {
-      background-color: ${(props) => props.theme.colors.dashboardMap.controlDisabledBackgroundColor};
-      color: ${(props) => props.theme.colors.dashboardMap.controlColor};
+      background-color: var(--dashboard-map-control-disabled-background-color);
+      color: var(--dashboard-map-control-color);
     }
   }
 

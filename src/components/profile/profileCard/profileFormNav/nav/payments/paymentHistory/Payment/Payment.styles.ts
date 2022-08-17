@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 import { Typography } from 'antd';
-import { hexToRGB } from 'utils/utils';
 
 export const Header = styled.div`
   padding: 1.5rem 3.5rem;
   display: flex;
   align-items: center;
 
-  background-color: ${(props) => props.theme.colors.main.secondaryBackground};
+  background-color: var(--secondary-background-color);
 `;
 
 export const AvatarWrapper = styled.div`
@@ -31,7 +30,7 @@ export const ContentWrapper = styled.div`
     width: 100%;
     height: 1px;
 
-    background-color: ${(props) => hexToRGB(props.theme.colors.main.primary, 0.3)};
+    background-color: 1px solid rgba(var(--primary-rgb-color), 0.3);
   }
 `;
 
@@ -50,7 +49,7 @@ export const Subtitle = styled(Typography.Text)`
   font-weight: 500;
   font-size: 0.75rem;
 
-  color: ${(props) => props.theme.colors.main.primary};
+  color: var(--primary-color);
 `;
 
 export const DetailsWrapper = styled.div`

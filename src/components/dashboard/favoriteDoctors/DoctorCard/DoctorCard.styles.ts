@@ -1,3 +1,4 @@
+import { BORDER_RADIUS, FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
 import { Rate, Typography } from 'antd';
 import styled from 'styled-components';
 import { Card } from '../../../common/Card/Card';
@@ -7,32 +8,32 @@ export const DoctorCard = styled(Card)`
 `;
 
 export const Title = styled(Typography.Text)`
-  font-size: ${(props) => props.theme.commonFontSizes.xxs};
+  font-size: ${FONT_SIZE.xxs};
 
-  font-weight: ${(props) => props.theme.commonFontWeight.medium};
+  font-weight: ${FONT_WEIGHT.medium};
 
-  color: ${(props) => props.theme.colors.main.primary};
+  color: var(--primary-color);
 
-  @media only screen and ${(props) => props.theme.media.md} {
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
+  @media only screen and ${media.md} {
+    font-size: ${FONT_SIZE.xs};
   }
 
-  @media only screen and ${(props) => props.theme.media.xxl} {
-    font-size: ${(props) => props.theme.commonFontSizes.md};
+  @media only screen and ${media.xxl} {
+    font-size: ${FONT_SIZE.md};
   }
 `;
 
 export const Text = styled(Typography.Text)`
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  font-size: ${FONT_SIZE.xs};
 
-  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+  font-weight: ${FONT_WEIGHT.semibold};
 
-  @media only screen and ${(props) => props.theme.media.md} {
-    font-size: ${(props) => props.theme.commonFontSizes.md};
+  @media only screen and ${media.md} {
+    font-size: ${FONT_SIZE.md};
   }
 
-  @media only screen and ${(props) => props.theme.media.xxl} {
-    font-size: ${(props) => props.theme.commonFontSizes.lg};
+  @media only screen and ${media.xxl} {
+    font-size: ${FONT_SIZE.lg};
   }
 `;
 
@@ -40,8 +41,8 @@ export const ImgWrapper = styled.div`
   overflow: hidden;
   margin: -1rem -1rem 0;
 
-  border-top-left-radius: ${(props) => props.theme.border.radius};
-  border-top-right-radius: ${(props) => props.theme.border.radius};
+  border-top-left-radius: ${BORDER_RADIUS};
+  border-top-right-radius: ${BORDER_RADIUS};
 
   & > div {
     display: block;
@@ -50,9 +51,9 @@ export const ImgWrapper = styled.div`
 
 export const Rating = styled(Rate)`
   display: flex;
-  font-size: ${(props) => props.theme.commonFontSizes.xxs};
+  font-size: ${FONT_SIZE.xxs};
 
-  @media only screen and ${(props) => props.theme.media.md} {
-    font-size: ${(props) => props.theme.commonFontSizes.lg};
+  @media only screen and ${media.md} {
+    font-size: ${FONT_SIZE.lg};
   }
 `;

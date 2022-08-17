@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTheme } from 'styled-components';
 import { NewCardForm } from '../newCardForm/NewCardForm/NewCardForm';
 import { Card } from '../Card/Card';
 import { LaneHeader } from '../LaneHeader/LaneHeader';
@@ -8,10 +7,9 @@ import { NewLaneSection } from '../NewLaneSection/NewLaneSection';
 import { NewLaneForm } from '../NewLaneForm/NewLaneForm';
 import { kanbanData } from '@app/constants/kanbanData';
 import * as S from './Kanban.styles';
+import { BORDER_RADIUS } from '@app/styles/themes/constants';
 
 export const Kanban: React.FC = () => {
-  const theme = useTheme();
-
   return (
     <S.Kanban
       components={{
@@ -28,8 +26,8 @@ export const Kanban: React.FC = () => {
       data={kanbanData}
       laneStyle={{ background: 'transparent', maxHeight: '100%' }}
       cardStyle={{
-        borderRadius: theme.border.radius,
-        backgroundColor: theme.colors.main.mainBackground,
+        borderRadius: BORDER_RADIUS,
+        backgroundColor: 'var(--background-color)',
         padding: `1.25rem 1rem`,
         marginBottom: '1rem',
         minWidth: '16rem',

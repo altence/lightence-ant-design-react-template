@@ -2,11 +2,12 @@ import styled from 'styled-components';
 import { Input as AntInput, Button, Checkbox } from 'antd';
 import { SearchOutlined, PlusCircleFilled, CloseOutlined } from '@ant-design/icons';
 import { DayjsDatePicker } from '@app/components/common/pickers/DayjsDatePicker';
+import { BORDER_RADIUS, FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
 
 export const AddTagText = styled.span`
-  color: ${(props) => props.theme.colors.text.main};
-  font-size: ${(props) => props.theme.commonFontSizes.md};
-  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+  color: var(--text-main-color);
+  font-size: ${FONT_SIZE.md};
+  font-weight: ${FONT_WEIGHT.semibold};
   line-height: 1.375rem;
 `;
 
@@ -22,10 +23,10 @@ export const FilterButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: ${(props) => props.theme.colors.main.mainBackground};
-  border-radius: ${(props) => props.theme.border.radius};
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
-  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+  background: var(--background-color);
+  border-radius: ${BORDER_RADIUS};
+  font-size: ${FONT_SIZE.xs};
+  font-weight: ${FONT_WEIGHT.semibold};
   line-height: 1.25rem;
 `;
 
@@ -38,7 +39,7 @@ export const DateLabel = styled.div`
   width: 50%;
   line-height: 1.25rem;
   margin-bottom: 0.4375rem;
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  font-size: ${FONT_SIZE.xs};
 `;
 
 export const AddTagWrapper = styled.div`
@@ -61,7 +62,7 @@ export const BtnWrapper = styled.div`
 `;
 
 export const PlusIcon = styled(PlusCircleFilled)`
-  color: ${(props) => props.theme.commonColors.lightgrey};
+  color: var(--lightgrey);
   font-size: 1.5625rem;
   margin-right: 1rem;
 `;
@@ -77,7 +78,7 @@ export const InputWrapper = styled.div`
   display: flex;
   height: 3.125rem;
   border-radius: 3.125rem;
-  background: ${(props) => props.theme.colors.main.secondaryBackground};
+  background: var(--secondary-background-color);
   margin-bottom: 1.25rem;
   position: relative;
 `;
@@ -94,19 +95,19 @@ export const TitleHeader = styled.div`
   margin-bottom: 1.25rem;
   box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.07);
   cursor: pointer;
-  background-color: ${(props) => props.theme.colors.main.mainBackground};
-  border-radius: ${(props) => props.theme.border.radius};
+  background-color: var(--background-color);
+  border-radius: ${BORDER_RADIUS};
 `;
 
 export const Input = styled(AntInput)`
   height: 3.125rem;
   border: none;
-  background: ${(props) => props.theme.colors.main.secondaryBackground};
+  background: var(--secondary-background-color);
   border-radius: 3.125rem;
   padding-left: 3rem;
-  color: ${(props) => props.theme.colors.text.main};
-  font-size: ${(props) => props.theme.commonFontSizes.md};
-  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+  color: var(--text-main-color);
+  font-size: ${FONT_SIZE.md};
+  font-weight: ${FONT_WEIGHT.semibold};
   line-height: 1.375rem;
 `;
 
@@ -115,9 +116,9 @@ export const RangePicker = styled(DayjsDatePicker.RangePicker)`
   margin-bottom: 0.875rem;
 
   & input {
-    color: ${(props) => props.theme.colors.text.main};
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
-    font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+    color: var(--text-main-color);
+    font-size: ${FONT_SIZE.xs};
+    font-weight: ${FONT_WEIGHT.semibold};
   }
 `;
 
@@ -129,11 +130,11 @@ export const Btn = styled(Button)`
 export const NewsWrapper = styled.div`
   max-width: 35rem;
 
-  @media only screen and ${(props) => props.theme.media.xs} {
+  @media only screen and ${media.xs} {
     width: 100%;
   }
 
-  @media only screen and ${(props) => props.theme.media.md} {
+  @media only screen and ${media.md} {
     width: calc(100% - 21.25rem);
   }
 `;
@@ -145,16 +146,16 @@ export const FilterWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 1.875rem;
-  background: ${(props) => props.theme.colors.main.mainBackground};
-  border-radius: ${(props) => props.theme.border.radius};
+  background: var(--background-color);
+  border-radius: ${BORDER_RADIUS};
   height: min-content;
   filter: drop-shadow(0 4px 40px rgba(0, 0, 0, 0.07));
 
-  @media only screen and ${(props) => props.theme.media.xs} {
+  @media only screen and ${media.xs} {
     position: relative;
   }
 
-  @media only screen and ${(props) => props.theme.media.md} {
+  @media only screen and ${media.md} {
     position: sticky;
   }
 `;
@@ -163,9 +164,9 @@ export const FilterTitle = styled.div`
   display: flex;
   justify-content: center;
   line-height: 1.5625rem;
-  font-size: ${(props) => props.theme.commonFontSizes.lg};
-  font-weight: ${(props) => props.theme.commonFontWeight.bold};
-  color: ${(props) => props.theme.colors.text.main};
+  font-size: ${FONT_SIZE.lg};
+  font-weight: ${FONT_WEIGHT.bold};
+  color: var(--text-main-color);
   margin-bottom: 1rem;
 `;
 
@@ -175,7 +176,7 @@ export const TagPopover = styled.div`
   min-width: 14.375rem;
   gap: 0.625rem;
   display: flex;
-  background: ${(props) => props.theme.colors.main.mainBackground};
+  background: var(--background-color);
   flex-direction: column;
   border-radius: 0.625rem;
   z-index: 1;
@@ -198,7 +199,7 @@ export const PopoverCheckbox = styled(Checkbox)`
     border-radius: 3px;
     height: 1.375rem;
     width: 1.375rem;
-    border-color: ${(props) => props.theme.colors.main.primary};
+    border-color: var(--primary-color);
   }
   & .ant-checkbox-checked .ant-checkbox-inner::after {
     left: 0.375rem;
@@ -213,7 +214,7 @@ export const ClosePopoverWrapper = styled.div`
 `;
 
 export const ClosePopover = styled(CloseOutlined)`
-  color: ${(props) => props.theme.colors.main.primary};
+  color: var(--primary-color);
   width: 0.875rem;
   height: 0.875rem;
 `;
