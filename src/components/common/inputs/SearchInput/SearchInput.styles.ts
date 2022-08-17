@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Space as AntSpace, Input } from 'antd';
+import { FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
 
 const { Search } = Input;
 
@@ -19,9 +20,9 @@ export const SearchInput = styled(Search)`
 
   & input {
     font-weight: 600;
-    background-color: ${(props) => props.theme.colors.main.mainBackground};
+    background-color: var(--background-color);
 
-    @media only screen and ${(props) => props.theme.media.md} {
+    @media only screen and ${media.md} {
       font-size: 1rem;
     }
 
@@ -32,19 +33,19 @@ export const SearchInput = styled(Search)`
 
   .ant-input-group-addon {
     min-width: 5.5rem;
-    color: ${(props) => `${props.theme.colors.main.primary}`};
-    font-weight: ${(props) => `${props.theme.commonFontWeight.semibold}`};
-    font-size: ${(props) => `${props.theme.commonFontSizes.lg}`};
+    color: var(--primary-color);
+    font-weight: ${FONT_WEIGHT.semibold};
+    font-size: ${FONT_SIZE.lg};
   }
 
   .ant-input-search-button {
     &.ant-btn .anticon {
-      color: ${(props) => `${props.theme.colors.main.primary}`};
+      color: var(--primary-color);
     }
     width: 100%;
     background-color: rgba(1, 80, 154, 0.05);
-    border: ${(props) => `1px solid ${props.theme.colors.border.main}`};
-    color: ${(props) => `${props.theme.colors.main.primary}`};
+    border: 1px solid var(--border-color);
+    color: var(--primary-color);
   }
 `;
 

@@ -1,20 +1,21 @@
 import styled from 'styled-components';
 import { Table as AntdTable } from 'antd';
+import { FONT_SIZE } from '@app/styles/themes/constants';
 
 export const Table = styled(AntdTable)`
   & thead .ant-table-cell {
-    color: ${(props) => props.theme.colors.main.primary};
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
+    color: var(--primary-color);
+    font-size: ${FONT_SIZE.xs};
     line-height: 1.25rem;
 
     & .anticon {
-      color: ${(props) => props.theme.colors.main.primary};
+      color: var(--primary-color);
     }
   }
 
   & tbody .ant-table-cell {
-    color: ${(props) => props.theme.colors.text.main};
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
+    color: var(--text-main-color);
+    font-size: ${FONT_SIZE.xs};
     line-height: 1.25rem;
   }
 
@@ -30,7 +31,7 @@ export const Table = styled(AntdTable)`
     .ant-table-thead
     > tr
     > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
-    background-color: ${(props) => props.theme.colors.main.primary};
+    background-color: var(--primary-color);
   }
 
   & .ant-pagination-prev,
@@ -42,7 +43,7 @@ export const Table = styled(AntdTable)`
     height: 2.0625rem;
     line-height: 2.0625rem;
     border-radius: 0;
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
+    font-size: ${FONT_SIZE.xs};
   }
 
   & .ant-pagination-prev .ant-pagination-item-link,
@@ -54,7 +55,7 @@ export const Table = styled(AntdTable)`
     border-radius: 0.1875rem;
     height: 1.25rem;
     width: 1.25rem;
-    border: ${(props) => `1px solid ${props.theme.colors.main.primary}`};
+    border: 1px solid var(--primary-color);
   }
 
   & .editable-row .ant-form-item-explain {

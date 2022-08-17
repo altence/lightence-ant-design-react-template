@@ -2,10 +2,11 @@ import styled, { css } from 'styled-components';
 import { Col, Collapse, Menu } from 'antd';
 import { BurgerIcon } from '@app/components/common/Burger/BurgerIcon';
 import { GitHubButton } from '@app/components/header/GitHubButton';
+import { BORDER_RADIUS, LAYOUT, media } from '@app/styles/themes/constants';
 
 export const DropdownMenu = styled(Menu)`
-  box-shadow: ${(props) => props.theme.boxShadow.main};
-  border-radius: ${(props) => props.theme.border.radius};
+  box-shadow: var(--box-shadow);
+  border-radius: ${BORDER_RADIUS};
   line-height: 1.5715;
 `;
 
@@ -16,7 +17,7 @@ export const DropdownHeader = styled.div`
   .ant-badge {
     font-size: 1.25rem;
 
-    @media only screen and ${(props) => props.theme.media.md} {
+    @media only screen and ${media.md} {
       font-size: 1.625rem;
     }
   }
@@ -31,9 +32,9 @@ export const DropdownCollapse = styled(Collapse)`
     font-weight: 600;
     font-size: 0.875rem;
 
-    color: ${(props) => props.theme.colors.main.primary};
+    color: var(--primary-color);
 
-    @media only screen and ${(props) => props.theme.media.md} {
+    @media only screen and ${media.md} {
       font-size: 1rem;
     }
   }
@@ -56,13 +57,17 @@ export const MobileBurger = styled(BurgerIcon)`
   width: 1.75rem;
   height: 1.75rem;
   margin-right: -0.5rem;
-  color: ${(props) => props.theme.colors.text.main};
+  color: var(--text-main-color);
 
-  ${(props) => props.isCross && `color: ${props.theme.colors.text.secondary}`};
+  ${(props) =>
+    props.isCross &&
+    css`
+      color: var(--text-secondary-color);
+    `};
 `;
 
 export const SearchColumn = styled(Col)`
-  padding: ${(props) => `${props.theme.desktopLayout.paddingVertical} ${props.theme.desktopLayout.paddingHorizontal}`};
+  padding: ${LAYOUT.desktop.paddingVertical} ${LAYOUT.desktop.paddingHorizontal};
 `;
 
 interface ProfileColumn {
@@ -70,13 +75,12 @@ interface ProfileColumn {
 }
 
 export const ProfileColumn = styled(Col)<ProfileColumn>`
-  @media only screen and ${(props) => props.theme.media.md} {
+  @media only screen and ${media.md} {
     ${(props) =>
       props?.$isTwoColumnsLayout &&
       css`
-        background-color: ${(props) => props.theme.colors.main.mainBackground};
-        padding: ${(props) =>
-          `${props.theme.desktopLayout.paddingVertical} ${props.theme.desktopLayout.paddingHorizontal}`};
+        background-color: var(--background-color);
+        padding: ${LAYOUT.desktop.paddingVertical} ${LAYOUT.desktop.paddingHorizontal};
       `}
   }
 `;
@@ -84,7 +88,7 @@ export const ProfileColumn = styled(Col)<ProfileColumn>`
 export const GHButton = styled(GitHubButton)`
   display: none;
 
-  @media only screen and ${(props) => props.theme.media.lg} {
+  @media only screen and ${media.lg} {
     display: block;
   }
 `;

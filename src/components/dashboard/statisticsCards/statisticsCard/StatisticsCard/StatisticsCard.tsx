@@ -1,12 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from 'styled-components';
 import { Col, Row } from 'antd';
 import { StatisticsInfo } from '../StatisticsInfo/StatisticsInfo';
 import { StatisticsProgress } from '../StatisticsProgress/StatisticsProgress';
 import { useResponsive } from '@app/hooks/useResponsive';
 import { StatisticColor } from '@app/constants/config/statistics';
 import * as S from './StatisticsCard.styles';
+import { themeObject } from '@app/styles/themes/themeVariables';
+import { useAppSelector } from '@app/hooks/reduxHooks';
 
 interface StatisticsCardProps {
   name: string;
@@ -18,14 +19,13 @@ interface StatisticsCardProps {
 }
 
 export const StatisticsCard: React.FC<StatisticsCardProps> = ({ name, value, prevValue, color, unit, Icon }) => {
-  const theme = useTheme();
-
+  const theme = useAppSelector((state) => state.theme.theme);
   const { isTablet: isTabletOrHigher } = useResponsive();
 
   const { t } = useTranslation();
 
   return (
-    <S.StatisticCard padding="0.5rem" color={theme.colors.main[color] as StatisticColor}>
+    <S.StatisticCard padding="0.5rem" color={color}>
       <Row wrap={false} gutter={[isTabletOrHigher ? 10 : 5, 0]}>
         <Col>
           <S.IconWrapper>
@@ -40,7 +40,7 @@ export const StatisticsCard: React.FC<StatisticsCardProps> = ({ name, value, pre
             </Col>
 
             <Col>
-              <StatisticsProgress color={theme.colors.main[color] as StatisticColor} unit={unit} value={value} />
+              <StatisticsProgress color={themeObject[theme][color]} unit={unit} value={value} />
             </Col>
           </Row>
         </Col>

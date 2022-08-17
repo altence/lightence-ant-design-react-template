@@ -76,7 +76,7 @@ const Btn = styled(Button)`
   font-weight: 600;
   padding: 0;
   height: unset;
-  color: ${(props) => props.theme.colors.main.secondary};
+  color: var(--secondary-color);
 `;
 
 export default ProfileLayout;

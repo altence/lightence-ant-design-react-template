@@ -1,5 +1,5 @@
 import { Avatar, Space, Typography } from 'antd';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { NotificationType } from './Notification';
 
 interface SpacewWrapperProps {
@@ -18,18 +18,26 @@ export const Description = styled(Typography.Text)`
 `;
 
 export const SpaceWrapper = styled(Space)<SpacewWrapperProps>`
-  background-color: ${(props) => props.theme.colors.main.mainBackground};
+  background-color: var(--background-color);
 
   & ${Title}, span[role='img'] {
-    ${(props) => props.type === 'error' && `color: ${props.theme.colors.main.error}`};
-
-    ${(props) => props.type === 'warning' && `color: ${props.theme.colors.main.warning}`};
-
-    ${(props) => props.type === 'success' && `color: ${props.theme.colors.main.success}`};
-
-    ${(props) => props.type === 'info' && `color: ${props.theme.colors.main.primary}`};
-
-    ${(props) => props.type === 'mention' && `color: ${props.theme.colors.main.primary}`};
+    ${(props) => {
+      switch (props.type) {
+        case 'error':
+        case 'warning':
+        case 'success':
+          return css`
+            color: var(--${props.type}-color);
+          `;
+        case 'info':
+        case 'mention':
+          return css`
+            color: var(--primary-color);
+          `;
+        default:
+          return '';
+      }
+    }}
   }
 
   & span[role='img'] {

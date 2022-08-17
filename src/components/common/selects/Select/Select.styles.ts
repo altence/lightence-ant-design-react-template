@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Select as AntSelect } from 'antd';
 import { Dimension } from 'interfaces/interfaces';
 import { normalizeProp } from 'utils/utils';
+import { FONT_WEIGHT, BORDER_RADIUS, FONT_SIZE } from '@app/styles/themes/constants';
 
 export interface SelectProps {
   width?: Dimension;
@@ -13,31 +14,45 @@ export const Select = styled(AntSelect).withConfig({
 })<SelectProps>`
   width: ${(props) => props.width && normalizeProp(props.width)};
 
-  font-weight: ${(props) => props.theme.commonFontWeight.medium};
+  font-weight: ${FONT_WEIGHT.medium};
 
-  box-shadow: ${(props) => props.shadow && props.theme.boxShadow.main};
+  box-shadow: ${(props) => props.shadow && 'var(--box-shadow)'};
 
   &.ant-select-borderless {
-    background: ${(props) => props.theme.colors.main.secondaryBackground};
+    background: var(--secondary-background-color);
 
-    border-radius: ${(props) => props.theme.border.radius};
+    border-radius: ${BORDER_RADIUS};
   }
 
   .ant-select-selection-placeholder {
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
+    font-size: ${FONT_SIZE.xs};
 
-    color: ${(props) => props.theme.colors.text.main};
+    color: var(--text-main-color);
   }
 
   .ant-select-arrow {
-    color: ${(props) => props.theme.colors.text.main};
+    color: var(--text-main-color);
   }
 
   &.ant-select-multiple.ant-select-sm .ant-select-selection-item {
     height: 0.875rem;
-    line-height: ${(props) => props.theme.commonFontSizes.xs};
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
+    line-height: ${FONT_SIZE.xs};
+    font-size: ${FONT_SIZE.xs};
     margin-top: 0.1875rem;
     margin-bottom: 0.1875rem;
+  }
+
+  &.ant-select-disabled.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    color: var(--disabled-color);
+  }
+
+  .ant-select-clear {
+    color: var(--disabled-color);
+  }
+  .ant-select-selection-item-remove {
+    color: var(--icon-color);
+    &:hover {
+      color: var(--icon-hover-color);
+    }
   }
 `;

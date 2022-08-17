@@ -1,22 +1,23 @@
+import { FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
 import { Typography } from 'antd';
 import styled from 'styled-components';
 
 export const Title = styled(Typography.Text)`
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
-  font-weight: ${(props) => props.theme.commonFontWeight.bold};
+  font-size: ${FONT_SIZE.xs};
+  font-weight: ${FONT_WEIGHT.bold};
 
-  @media only screen and ${(props) => props.theme.media.md} {
-    font-size: ${(props) => props.theme.commonFontSizes.md};
+  @media only screen and ${media.md} {
+    font-size: ${FONT_SIZE.md};
   }
 
-  @media only screen and ${(props) => props.theme.media.xl} {
-    font-size: ${(props) => props.theme.commonFontSizes.lg};
+  @media only screen and ${media.xl} {
+    font-size: ${FONT_SIZE.lg};
   }
 `;
 
 export const Text = styled(Typography.Text)`
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
-  font-weight: ${(props) => props.theme.commonFontWeight.medium};
+  font-size: ${FONT_SIZE.xs};
+  font-weight: ${FONT_WEIGHT.medium};
 `;
 
 export const IconWrapper = styled.span`

@@ -2,7 +2,8 @@ import React from 'react';
 import * as S from './Legend.styles';
 import { Popover } from '@app/components/common/Popover/Popover';
 import { getChartColors } from '@app/components/common/charts/BaseChart';
-import { useTheme } from 'styled-components';
+import { useAppSelector } from '@app/hooks/reduxHooks';
+import { themeObject } from '@app/styles/themes/themeVariables';
 
 export interface LegendItem {
   name: string;
@@ -16,8 +17,8 @@ interface LegendProps {
 }
 
 export const Legend: React.FC<LegendProps> = ({ legendItems, activeItemIndex }) => {
-  const theme = useTheme();
-  const colors = getChartColors(theme);
+  const theme = useAppSelector((state) => state.theme.theme);
+  const colors = getChartColors(themeObject[theme]);
 
   return (
     <>

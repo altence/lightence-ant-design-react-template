@@ -3,7 +3,7 @@ import { Card } from '../../../common/Card/Card';
 import { Col } from 'antd';
 
 export const DoctorName = styled.span`
-  color: ${(props) => props.theme.colors.main.primary};
+  color: var(--primary-color);
   font-size: 1.25rem;
   font-weight: bold;
   margin-top: 0.5rem;
@@ -12,8 +12,7 @@ export const DoctorName = styled.span`
 `;
 
 export const DoctorCard = styled(Card)`
-  background: ${(props) =>
-    `linear-gradient(to bottom, ${props.theme.colors.main.primary} 5rem, ${props.theme.colors.main.secondaryBackground} 5rem)`};
+  background: linear-gradient(to bottom, var(--primary-color) 5rem, var(--secondary-background-color) 5rem);
 `;
 
 export const DoctorCardBody = styled.div`
@@ -28,7 +27,7 @@ export const LabelCol = styled(Col)`
 `;
 
 export const ValueCol = styled(Col)`
-  color: ${(props) => props.theme.colors.main.primary};
+  color: var(--primary-color);
 `;
 
 export const Tel = styled.a`

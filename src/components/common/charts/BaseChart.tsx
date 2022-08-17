@@ -2,7 +2,10 @@ import React, { CSSProperties, useEffect, useState } from 'react';
 import { EChartsOption } from 'echarts-for-react';
 import ReactECharts from 'echarts-for-react';
 import { Loading } from '../Loading';
-import { DefaultTheme, useTheme } from 'styled-components';
+import { useAppSelector } from '@app/hooks/reduxHooks';
+import { themeObject } from '@app/styles/themes/themeVariables';
+import { ITheme } from '@app/styles/themes/types';
+import { BORDER_RADIUS } from '@app/styles/themes/constants';
 
 export interface BaseChartProps {
   option?: EChartsOption;
@@ -25,33 +28,33 @@ interface DefaultTooltipStyles {
   };
 }
 
-export const getChartColors = (theme: DefaultTheme): string[] => [
-  theme.colors.charts.color1,
-  theme.colors.charts.color2,
-  theme.colors.charts.color3,
-  theme.colors.charts.color4,
-  theme.colors.charts.color5,
+export const getChartColors = (theme: ITheme): string[] => [
+  theme.chartColor1,
+  theme.chartColor2,
+  theme.chartColor3,
+  theme.chartColor4,
+  theme.chartColor5,
 ];
 
-export const getDefaultTooltipStyles = (theme: DefaultTheme): DefaultTooltipStyles => ({
-  borderColor: theme.colors.charts.color1,
+export const getDefaultTooltipStyles = (theme: ITheme): DefaultTooltipStyles => ({
+  borderColor: theme.chartColor1,
   borderWidth: 2,
-  borderRadius: Number.parseInt(theme.border.radius),
+  borderRadius: Number.parseInt(BORDER_RADIUS),
   textStyle: {
     fontWeight: 600,
     fontSize: 16,
-    color: theme.colors.charts.color1,
+    color: theme.chartColor1,
   },
 });
 
 export const BaseChart: React.FC<BaseChartProps> = ({ option, width, height, onEvents, style, ...props }) => {
-  const theme = useTheme();
+  const theme = useAppSelector((state) => state.theme.theme);
   const [loading, setLoading] = useState(true);
 
   const chartHeight = height || '400px';
 
   const defaultOption = {
-    color: getChartColors(theme),
+    color: getChartColors(themeObject[theme]),
   };
 
   useEffect(() => {

@@ -9,7 +9,6 @@ import { defineColorByPriority } from '@app/utils/utils';
 import { notificationController } from 'controllers/notificationController';
 import { Status } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentHistory/Status/Status';
 import { useMounted } from '@app/hooks/useMounted';
-import { useTheme } from 'styled-components';
 
 const initialPagination: Pagination = {
   current: 1,
@@ -24,8 +23,6 @@ export const BasicTable: React.FC = () => {
   });
   const { t } = useTranslation();
   const { isMounted } = useMounted();
-
-  const theme = useTheme();
 
   const fetch = useCallback(
     (pagination: Pagination) => {
@@ -128,7 +125,7 @@ export const BasicTable: React.FC = () => {
           {tags.map((tag: Tag) => {
             return (
               <Col key={tag.value}>
-                <Status color={defineColorByPriority(tag.priority, theme)} text={tag.value.toUpperCase()} />
+                <Status color={defineColorByPriority(tag.priority)} text={tag.value.toUpperCase()} />
               </Col>
             );
           })}

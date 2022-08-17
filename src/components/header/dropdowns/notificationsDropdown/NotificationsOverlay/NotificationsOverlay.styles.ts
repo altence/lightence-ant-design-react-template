@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Divider, Row, Typography } from 'antd';
 import { DropdownMenu } from '@app/components/header/Header/Header.styles';
 import { Button } from 'components/common/buttons/Button/Button';
+import { media } from '@app/styles/themes/constants';
 
 export const MenuRow = styled(Row).withConfig({
   shouldForwardProp: (prop) => !['eventKey', 'warnKey'].includes(prop),
@@ -13,10 +14,10 @@ export const NoticesOverlayMenu = styled(DropdownMenu)`
   border-right: 0;
 
   &.ant-menu {
-    box-shadow: ${(props) => props.theme.boxShadow.main};
+    box-shadow: var(--box-shadow);
   }
 
-  @media only screen and ${(props) => props.theme.media.md} {
+  @media only screen and ${media.md} {
     max-width: 25rem;
   }
 `;

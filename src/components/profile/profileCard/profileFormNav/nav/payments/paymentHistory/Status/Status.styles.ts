@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Tag } from 'antd';
+import { media } from '@app/styles/themes/constants';
 
 export const StatusTag = styled(Tag)`
   padding: 0.375rem 0;
@@ -9,7 +10,7 @@ export const StatusTag = styled(Tag)`
   justify-content: center;
   margin: 0;
 
-  @media only screen and ${(props) => props.theme.media.md} {
+  @media only screen and ${media.md} {
     min-width: 6.5rem;
   }
 `;

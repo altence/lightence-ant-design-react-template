@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { CloseOutlined } from '@ant-design/icons';
 import { Checkbox } from 'antd';
+import { FONT_SIZE } from '@app/styles/themes/constants';
 
 interface TagProps {
   backgroundColor: 'error' | 'warning' | 'success' | 'primary';
@@ -12,7 +13,7 @@ export const EditTagPopover = styled.div`
   min-width: 14.375rem;
   gap: 0.625rem;
   display: flex;
-  background: ${(props) => props.theme.colors.main.mainBackground};
+  background: var(--background-color);
   flex-direction: column;
   border-radius: 0.625rem;
   z-index: 1;
@@ -34,7 +35,7 @@ export const PopoverCheckbox = styled(Checkbox)`
     border-radius: 3px;
     height: 1.375rem;
     width: 1.375rem;
-    border-color: ${(props) => props.theme.colors.main.primary};
+    border-color: var(--primary-color);
   }
   & .ant-checkbox-checked .ant-checkbox-inner::after {
     left: 0.375rem;
@@ -43,11 +44,11 @@ export const PopoverCheckbox = styled(Checkbox)`
 
 export const TagWrapper = styled.span<TagProps>`
   height: 1.875rem;
-  background-color: ${(props) => `${props.theme.colors.main[props.backgroundColor]}`};
+  background-color: ${(props) => `var(--${props.backgroundColor}-color)`};
   padding: 0.3125rem 0.625rem;
-  color: ${(props) => props.theme.colors.text.secondary};
+  color: var(--text-secondary-color);
   border-radius: 0.5rem;
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  font-size: ${FONT_SIZE.xs};
   margin-left: 1rem;
 `;
 
@@ -59,7 +60,7 @@ export const RemoveTagWrapper = styled.div`
 `;
 
 export const RemoveTag = styled(CloseOutlined)`
-  color: ${(props) => props.theme.colors.main.primary};
+  color: var(--primary-color);
   width: 0.875rem;
   height: 0.875rem;
 `;
@@ -77,13 +78,13 @@ export const TagPlusWrapper = styled.span`
   display: flex;
   height: 1.875rem;
   align-items: center;
-  color: ${(props) => props.theme.commonColors.lightgrey};
-  font-size: ${(props) => props.theme.commonFontSizes.xxl};
+  color: var(--lightgrey);
+  font-size: ${FONT_SIZE.xxl};
 `;
 
 export const AddTag = styled.span`
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  font-size: ${FONT_SIZE.xs};
   line-height: 1.25rem;
   text-decoration: underline;
-  color: ${(props) => props.theme.colors.text.light};
+  color: var(--text-light-color);
 `;

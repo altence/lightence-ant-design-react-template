@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { Col, Switch, Space } from 'antd';
+import { Col, Space } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { LoadingOutlined, RedoOutlined, ChromeOutlined } from '@ant-design/icons';
 import { Spinner } from '@app/components/common/Spinner/Spinner';
 import { Alert } from '@app/components/common/Alert/Alert';
 import { GlobalSpinner } from '@app/components/common/GlobalSpinner';
-import { darkTheme } from '@app/styles/themes/dark/darkTheme';
-import lightTheme from '@app/styles/themes/light/lightTheme';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
+import { themeObject } from '@app/styles/themes/themeVariables';
+import { Switch } from '@app/components/common/Switch/Switch';
 
 const antIcon1 = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 const antIcon2 = <RedoOutlined style={{ fontSize: 24 }} spin />;
@@ -24,8 +24,8 @@ const SpinnersPage: React.FC = () => {
       <PageTitle>{t('common.spinner')}</PageTitle>
       <Col>
         <S.Card title={t('spinners.globalAppSpinner')}>
-          <GlobalSpinner color={lightTheme.colors.main.spinnerBase} />
-          <GlobalSpinner color={darkTheme.colors.main.spinnerBase} />
+          <GlobalSpinner color={themeObject['light'].spinnerBase} />
+          <GlobalSpinner color={themeObject['dark'].spinnerBase} />
         </S.Card>
         <S.Card title={t('spinners.sizes')}>
           <Spinner size="small" />

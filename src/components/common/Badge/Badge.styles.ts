@@ -11,6 +11,6 @@ export const Badge = styled(AntBadge)<BadgeProps>`
   color: inherit;
 
   & .ant-badge-count {
-    background: ${(props) => defineColorBySeverity(props.severity, props.theme)};
+    background: ${(props) => defineColorBySeverity(props.severity)};
   }
 `;

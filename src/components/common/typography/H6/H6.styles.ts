@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Typography } from 'antd';
+import { media } from '@app/styles/themes/constants';
 
 export const Text = styled(Typography.Title)`
   &.ant-typography {
@@ -7,9 +8,9 @@ export const Text = styled(Typography.Title)`
     font-size: 0.75rem;
     margin-bottom: 0;
 
-    color: ${(props) => props.theme.colors.text.main};
+    color: var(--text-main-color);
 
-    @media only screen and ${(props) => props.theme.media.md} {
+    @media only screen and ${media.md} {
       font-weight: 500;
       font-size: 0.875rem;
     }

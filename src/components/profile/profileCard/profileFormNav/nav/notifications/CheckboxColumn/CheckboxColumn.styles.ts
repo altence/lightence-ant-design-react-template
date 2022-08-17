@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { hexToRGB } from '@app/utils/utils';
+import { media } from '@app/styles/themes/constants';
 
 const colStyles = {
   height: '75px',
@@ -14,15 +14,15 @@ const colStyles = {
 export const Col = styled.div`
   ${colStyles};
 
-  border-bottom: ${(props) => `1px solid ${hexToRGB(props.theme.colors.main.primary, 0.3)}`};
+  border-bottom: 1px solid rgba(var(--primary-rgb-color), 0.3);
 
-  @media only screen and ${(props) => props.theme.media.md} {
+  @media only screen and ${media.md} {
     justify-content: unset;
     font-size: 1rem;
     padding: 0.5rem;
   }
 
-  @media only screen and ${(props) => props.theme.media.xl} {
+  @media only screen and ${media.xl} {
     padding: 0.75rem;
   }
 `;
@@ -39,7 +39,7 @@ export const Wrapper = styled.div`
     & > .ant-checkbox > .ant-checkbox-inner {
       border-radius: 3px;
 
-      border-color: ${(props) => props.theme.colors.main.primary};
+      border-color: var(--primary-color);
     }
   }
 
@@ -51,11 +51,11 @@ export const Wrapper = styled.div`
 `;
 
 export const HeaderCol = styled(Col)`
-  background: ${(props) => props.theme.colors.main.secondaryBackground};
+  background: var(--secondary-background-color);
 
-  border-top: ${(props) => `1px solid ${hexToRGB(props.theme.colors.main.primary, 0.3)}`};
+  border-top: 1px solid rgba(var(--primary-rgb-color), 0.3);
 
-  color: ${(props) => props.theme.colors.main.primary};
+  color: var(--primary-color);
 
   & .ant-checkbox-wrapper {
     flex-wrap: wrap;

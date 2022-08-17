@@ -4,8 +4,8 @@ import { LeftOutlined } from '@ant-design/icons';
 import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
 import { Input as CommonInput } from '@app/components/common/inputs/Input/Input';
 import { InputPassword as CommonInputPassword } from '@app/components/common/inputs/InputPassword/InputPassword';
-import { hexToRGB } from '@app/utils/utils';
 import loginBackground from '@app/assets/images/login-bg.webp';
+import { BORDER_RADIUS, FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
 
 export const Wrapper = styled.div`
   height: 100vh;
@@ -35,16 +35,16 @@ export const FormWrapper = styled.div`
   padding: 2.5rem;
   width: 31.75rem;
   overflow: auto;
-  background-color: ${(props) => hexToRGB(props.theme.colors.main.mainBackground, 0.93)};
-  border-radius: ${(props) => props.theme.border.radius};
+  background-color: rgba(var(--background-rgb-color), 0.93);
+  border-radius: ${BORDER_RADIUS};
 
-  @media only screen and ${(props) => props.theme.media.xs} {
+  @media only screen and ${media.xs} {
     padding: 2.5rem 1.25rem;
     width: 20.75rem;
     max-height: calc(100vh - 3rem);
   }
 
-  @media only screen and ${(props) => props.theme.media.md} {
+  @media only screen and ${media.md} {
     padding: 2.5rem;
     width: 31.75rem;
     max-height: calc(100vh - 3rem);
@@ -52,26 +52,26 @@ export const FormWrapper = styled.div`
 `;
 
 export const FormTitle = styled.div`
-  color: ${(props) => props.theme.colors.main.primary};
+  color: var(--primary-color);
 
-  @media only screen and ${(props) => props.theme.media.xs} {
+  @media only screen and ${media.xs} {
     margin-bottom: 0.625rem;
-    font-size: ${(props) => props.theme.commonFontSizes.lg};
-    font-weight: ${(props) => props.theme.commonFontWeight.bold};
+    font-size: ${FONT_SIZE.lg};
+    font-weight: ${FONT_WEIGHT.bold};
     line-height: 1.5625rem;
   }
 
-  @media only screen and ${(props) => props.theme.media.md} {
+  @media only screen and ${media.md} {
     margin-bottom: 0.875rem;
-    font-size: ${(props) => props.theme.commonFontSizes.xxl};
-    font-weight: ${(props) => props.theme.commonFontWeight.bold};
+    font-size: ${FONT_SIZE.xxl};
+    font-weight: ${FONT_WEIGHT.bold};
     line-height: 1.9375rem;
   }
 
-  @media only screen and ${(props) => props.theme.media.xl} {
+  @media only screen and ${media.xl} {
     margin-bottom: 0.9375rem;
-    font-size: ${(props) => props.theme.commonFontSizes.xxxl};
-    font-weight: ${(props) => props.theme.commonFontWeight.extraBold};
+    font-size: ${FONT_SIZE.xxxl};
+    font-weight: ${FONT_WEIGHT.extraBold};
     line-height: 2.125rem;
   }
 `;
@@ -97,12 +97,12 @@ export const FormItem = styled(BaseForm.Item)`
   }
 
   & .ant-form-item-explain-error {
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
+    font-size: ${FONT_SIZE.xs};
   }
 
   & label {
-    color: ${(props) => props.theme.colors.main.primary};
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
+    color: var(--primary-color);
+    font-size: ${FONT_SIZE.xs};
     line-height: 1.25rem;
   }
 
@@ -112,7 +112,7 @@ export const FormItem = styled(BaseForm.Item)`
 `;
 
 export const FormInput = styled(CommonInput)`
-  color: ${(props) => props.theme.colors.text.main};
+  color: var(--text-main-color);
   background: transparent;
 
   & input.ant-input {
@@ -121,7 +121,7 @@ export const FormInput = styled(CommonInput)`
 `;
 
 export const FormInputPassword = styled(CommonInputPassword)`
-  color: ${(props) => props.theme.colors.text.main};
+  color: var(--text-main-color);
   background: transparent;
 
   & input.ant-input {
@@ -136,27 +136,27 @@ export const ActionsWrapper = styled.div`
 `;
 
 export const Text = styled.span`
-  color: ${(props) => props.theme.colors.text.main};
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
-  font-weight: ${(props) => props.theme.commonFontWeight.regular};
+  color: var(--text-main-color);
+  font-size: ${FONT_SIZE.xs};
+  font-weight: ${FONT_WEIGHT.regular};
 `;
 
 export const LinkText = styled(Text)`
   text-decoration: underline;
-  color: ${(props) => props.theme.colors.main.primary};
+  color: var(--primary-color);
 `;
 
 export const SubmitButton = styled(Button)`
-  font-size: ${(props) => props.theme.commonFontSizes.md};
-  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+  font-size: ${FONT_SIZE.md};
+  font-weight: ${FONT_WEIGHT.semibold};
   width: 100%;
 `;
 
 export const SocialButton = styled(Button)`
-  font-size: ${(props) => props.theme.commonFontSizes.md};
-  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
-  color: ${(props) => props.theme.colors.main.primary};
-  border: ${(props) => `1px solid ${props.theme.colors.main.primary}`};
+  font-size: ${FONT_SIZE.md};
+  font-weight: ${FONT_WEIGHT.semibold};
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
   width: 100%;
   margin-top: 1rem;
   display: flex;
@@ -176,8 +176,8 @@ export const BackIcon = styled(LeftOutlined)`
 `;
 
 export const BackWrapper = styled.div`
-  font-size: ${(props) => props.theme.commonFontSizes.md};
-  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+  font-size: ${FONT_SIZE.md};
+  font-weight: ${FONT_WEIGHT.semibold};
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -187,11 +187,11 @@ export const BackWrapper = styled.div`
 export const SocialIconWrapper = styled.div`
   display: flex;
   margin-right: 0.8125rem;
-  @media only screen and ${(props) => props.theme.media.xs} {
+  @media only screen and ${media.xs} {
     margin-right: 0.625rem;
   }
 
-  @media only screen and ${(props) => props.theme.media.md} {
+  @media only screen and ${media.md} {
     margin-right: 0.8125rem;
   }
 `;

@@ -20,6 +20,9 @@ export const Card = styled(CommonCard)`
   .ant-card-body:after {
     display: none;
   }
+  &.ant-card-bordered {
+    border: 1px solid var(--border-color);
+  }
 `;
 
 export const InputsWrapper = styled.div`

@@ -1,3 +1,4 @@
+import { media } from '@app/styles/themes/constants';
 import styled from 'styled-components';
 
 export const NewsWrapper = styled.div`
@@ -9,11 +10,11 @@ export const NewsWrapper = styled.div`
   & > div {
     margin-bottom: 1.25rem;
 
-    @media only screen and ${(props) => props.theme.media.xl} {
+    @media only screen and ${media.xl} {
       margin-bottom: 1.5rem;
     }
 
-    @media only screen and ${(props) => props.theme.media.xxl} {
+    @media only screen and ${media.xxl} {
       margin-bottom: 2.5rem;
     }
   }

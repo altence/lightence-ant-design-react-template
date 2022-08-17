@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Typography, Image as AntImage } from 'antd';
+import { BORDER_RADIUS, FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
 
 export const Header = styled.div`
   height: 5.5rem;
@@ -20,13 +21,13 @@ export const Wrapper = styled.div`
   flex: 1 1 21.25rem;
   position: relative;
   max-width: 42.5rem;
-  box-shadow: ${(props) => props.theme.boxShadow.main};
-  background: ${(props) => props.theme.colors.main.mainBackground};
-  border-radius: ${(props) => props.theme.border.radius};
+  box-shadow: var(--box-shadow);
+  background: var(--background-color);
+  border-radius: ${BORDER_RADIUS};
   transition: 0.3s;
 
   &:hover {
-    box-shadow: ${(props) => props.theme.boxShadow.hover};
+    box-shadow: var(--box-shadow-hover);
   }
 `;
 
@@ -36,20 +37,20 @@ export const Image = styled(AntImage)`
 `;
 
 export const Author = styled.div`
-  font-size: ${(props) => props.theme.commonFontSizes.lg};
-  font-weight: ${(props) => props.theme.commonFontWeight.bold};
-  color: ${(props) => props.theme.colors.text.main};
+  font-size: ${FONT_SIZE.lg};
+  font-weight: ${FONT_WEIGHT.bold};
+  color: var(--text-main-color);
   line-height: 1.5625rem;
 `;
 
 export const InfoWrapper = styled.div`
   padding: 1.25rem;
 
-  @media only screen and ${(props) => props.theme.media.xl} {
+  @media only screen and ${media.xl} {
     padding: 1rem;
   }
 
-  @media only screen and ${(props) => props.theme.media.xxl} {
+  @media only screen and ${media.xxl} {
     padding: 1.85rem;
   }
 `;
@@ -58,39 +59,39 @@ export const InfoHeader = styled.div`
   display: flex;
   margin-bottom: 1rem;
 
-  @media only screen and ${(props) => props.theme.media.md} {
+  @media only screen and ${media.md} {
     margin-bottom: 0.625rem;
   }
 
-  @media only screen and ${(props) => props.theme.media.xxl} {
+  @media only screen and ${media.xxl} {
     margin-bottom: 1.25rem;
   }
 `;
 
 export const Title = styled.div`
-  font-size: ${(props) => props.theme.commonFontSizes.xl};
-  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+  font-size: ${FONT_SIZE.xl};
+  font-weight: ${FONT_WEIGHT.semibold};
   width: 80%;
   line-height: 1.375rem;
 
-  color: ${(props) => props.theme.colors.text.main};
+  color: var(--text-main-color);
 
-  @media only screen and ${(props) => props.theme.media.md} {
-    font-size: ${(props) => props.theme.commonFontSizes.xxl};
+  @media only screen and ${media.md} {
+    font-size: ${FONT_SIZE.xxl};
   }
 `;
 
 export const DateTime = styled(Typography.Text)`
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
-  color: ${(props) => props.theme.colors.text.main};
+  font-size: ${FONT_SIZE.xs};
+  color: var(--text-main-color);
   line-height: 1.25rem;
 `;
 
 export const Description = styled.div`
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
-  color: ${(props) => props.theme.colors.text.main};
+  font-size: ${FONT_SIZE.xs};
+  color: var(--text-main-color);
 
-  @media only screen and ${(props) => props.theme.media.xxl} {
+  @media only screen and ${media.xxl} {
     font-size: 1rem;
   }
 `;

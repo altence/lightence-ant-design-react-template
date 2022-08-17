@@ -22,9 +22,9 @@ export const StatisticCard = styled(DashboardCard).withConfig({
 })<StatisticsProps>`
   line-height: 1;
   overflow: hidden;
-  border: 1px solid ${(props) => props.color};
+  border: 1px solid ${(props) => `var(--${props.color}-color)`};
 
   & ${Icon}, ${Title}, ${Text}, ${ValueText}, ${UnitText} {
-    color: ${(props) => props.color};
+    color: ${(props) => `var(--${props.color}-color)`};
   }
 `;

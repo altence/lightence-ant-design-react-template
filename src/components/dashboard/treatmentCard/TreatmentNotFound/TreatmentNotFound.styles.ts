@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Image as AntImage } from 'antd';
 
 export const Text = styled.div`
-  color: ${(props) => props.theme.colors.main.primary};
+  color: var(--primary-color);
   text-align: center;
   font-size: 1.25rem;
   margin: 1rem 0;
