@@ -1,8 +1,9 @@
 import React from 'react';
-import { useTheme } from 'styled-components';
 import { BaseChart, getDefaultTooltipStyles } from '@app/components/common/charts/BaseChart';
 import { getMarkAreaData, hexToRGB } from '@app/utils/utils';
 import { ChartData, xData } from '@app/interfaces/interfaces';
+import { useAppSelector } from '@app/hooks/reduxHooks';
+import { themeObject } from '@app/styles/themes/themeVariables';
 
 interface CovidData {
   title: string;
@@ -14,13 +15,13 @@ export const CovidChart: React.FC<{
   deaths: CovidData;
   dateArr: xData;
 }> = ({ confirmed, deaths, dateArr }) => {
-  const theme = useTheme();
+  const theme = useAppSelector((state) => state.theme.theme);
 
   const option = {
     color: [
-      theme.colors.main.chartPrimaryGradient,
-      theme.colors.main.chartSecondaryGradient,
-      theme.colors.main.chartAdditionalGradient,
+      themeObject[theme].chartPrimaryGradient,
+      themeObject[theme].chartSecondaryGradient,
+      themeObject[theme].chartAdditionalGradient,
     ],
     grid: [
       {
@@ -73,7 +74,7 @@ export const CovidChart: React.FC<{
         areaStyle: {},
         markArea: {
           itemStyle: {
-            color: hexToRGB(theme.colors.charts.color1, 0.02),
+            color: `rgba(${hexToRGB(themeObject[theme].chartColor1)}, 0.02)`,
           },
           data: dateArr && getMarkAreaData(dateArr),
         },
@@ -81,7 +82,7 @@ export const CovidChart: React.FC<{
         smooth: true,
         lineStyle: {
           width: 2,
-          color: theme.colors.charts.color1,
+          color: themeObject[theme].chartColor1,
         },
       },
       {
@@ -93,7 +94,7 @@ export const CovidChart: React.FC<{
         areaStyle: {},
         markArea: {
           itemStyle: {
-            color: hexToRGB(theme.colors.charts.color5, 0.02),
+            color: `rgba(${hexToRGB(themeObject[theme].chartColor5)}, 0.02)`,
           },
           data: dateArr && getMarkAreaData(dateArr),
         },
@@ -101,12 +102,12 @@ export const CovidChart: React.FC<{
         smooth: true,
         lineStyle: {
           width: 2,
-          color: theme.colors.charts.color5,
+          color: themeObject[theme].chartColor5,
         },
       },
     ],
     tooltip: {
-      ...getDefaultTooltipStyles(theme),
+      ...getDefaultTooltipStyles(themeObject[theme]),
       trigger: 'axis',
     },
   };

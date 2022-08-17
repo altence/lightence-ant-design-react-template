@@ -3,7 +3,6 @@ import { Dates } from '../../../constants/Dates';
 import { Avatar } from 'antd';
 import { Tag, ITag } from '../Tag/Tag';
 import * as S from './ArticleCard.styles';
-import { useTheme } from 'styled-components';
 
 interface ArticleCardProps {
   author?: React.ReactNode;
@@ -26,8 +25,6 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
   tags,
   className = 'article-card',
 }) => {
-  const theme = useTheme();
-
   return (
     <S.Wrapper className={className}>
       <S.Header>
@@ -48,7 +45,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
       {!!tags?.length && (
         <S.TagsWrapper>
           {tags.map((tag) => (
-            <Tag key={tag.bgColor} title={tag.title} bgColor={theme.colors.main[tag.bgColor]} />
+            <Tag key={tag.bgColor} title={tag.title} bgColor={tag.bgColor} />
           ))}
         </S.TagsWrapper>
       )}

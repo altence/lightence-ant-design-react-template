@@ -7,6 +7,6 @@ export const Text = styled(Typography.Paragraph)`
     font-size: 0.75rem;
     margin-bottom: 0;
 
-    color: ${(props) => props.theme.colors.text.main};
+    color: var(--text-main-color);
   }
 `;

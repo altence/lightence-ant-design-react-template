@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from 'styled-components';
 import { DashboardCard } from '@app/components/dashboard/DashboardCard/DashboardCard';
 import { Carousel } from '@app/components/common/Carousel/Carousel';
 import { DoctorCard } from '../DoctorCard/DoctorCard';
@@ -9,6 +8,7 @@ import { CalendarEvent, getUserCalendar } from '@app/api/calendar.api';
 import { Doctor, getDoctorsData } from '@app/api/doctors.api';
 import { useAppSelector } from '@app/hooks/reduxHooks';
 import * as S from './FavoritesDoctorsCard.styles';
+import { BREAKPOINTS } from '@app/styles/themes/constants';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const NextArrow = (props: any) => {
@@ -28,7 +28,6 @@ export const FavoritesDoctorsCard: React.FC = () => {
 
   const user = useAppSelector((state) => state.user.user);
 
-  const theme = useTheme();
   const today = Dates.getToday();
 
   useEffect(() => {
@@ -67,7 +66,7 @@ export const FavoritesDoctorsCard: React.FC = () => {
                 },
               },
               {
-                breakpoint: theme.breakpoints.xl - 1,
+                breakpoint: BREAKPOINTS.xl - 1,
                 settings: {
                   slidesToShow: 4,
                 },
@@ -85,7 +84,7 @@ export const FavoritesDoctorsCard: React.FC = () => {
                 },
               },
               {
-                breakpoint: theme.breakpoints.md - 1,
+                breakpoint: BREAKPOINTS.md - 1,
                 settings: {
                   slidesToShow: 3,
                 },

@@ -5,6 +5,7 @@ import { Button } from '@app/components/common/buttons/Button/Button';
 import { Popover } from '@app/components/common/Popover/Popover';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
+import { media } from '@app/styles/themes/constants';
 
 const buttonWidth = 70;
 
@@ -16,11 +17,11 @@ export const PopoverButton = styled.div`
 export const TopButtons = styled(PopoverButton)`
   white-space: nowrap;
 
-  @media only screen and ${(props) => props.theme.media.xs} {
+  @media only screen and ${media.xs} {
     margin-left: ${buttonWidth - 24}px;
   }
 
-  @media only screen and ${(props) => props.theme.media.md} {
+  @media only screen and ${media.md} {
     margin-left: ${buttonWidth + 18}px;
   }
 `;
@@ -34,11 +35,11 @@ export const RightButtons = styled(PopoverButton)`
   flex-direction: column;
   width: ${buttonWidth}px;
 
-  @media only screen and ${(props) => props.theme.media.xs} {
+  @media only screen and ${media.xs} {
     margin-left: ${buttonWidth * 3 - 14}px;
   }
 
-  @media only screen and ${(props) => props.theme.media.md} {
+  @media only screen and ${media.md} {
     margin-left: ${buttonWidth * 4}px;
   }
 `;
@@ -47,11 +48,11 @@ export const BottomButtons = styled(PopoverButton)`
   margin-left: ${buttonWidth}px;
   clear: both;
   whitespace: nowrap;
-  @media only screen and ${(props) => props.theme.media.xs} {
+  @media only screen and ${media.xs} {
     margin-left: ${buttonWidth - 44}px;
   }
 
-  @media only screen and ${(props) => props.theme.media.md} {
+  @media only screen and ${media.md} {
     margin-left: ${buttonWidth}px;
   }
 `;

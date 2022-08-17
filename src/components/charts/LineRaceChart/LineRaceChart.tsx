@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useTheme } from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import { Card } from '@app/components/common/Card/Card';
 import { BaseChart } from '@app/components/common/charts/BaseChart';
 import Data from './data.json';
+import { useAppSelector } from '@app/hooks/reduxHooks';
+import { themeObject } from '@app/styles/themes/themeVariables';
 
 interface DataRow {
   id: string;
@@ -45,7 +46,7 @@ export const LineRaceChart: React.FC = () => {
   const rawData = JSON.parse(JSON.stringify(Data));
   const { t } = useTranslation();
 
-  const theme = useTheme();
+  const theme = useAppSelector((state) => state.theme.theme);
 
   const runAnimation = useCallback(() => {
     const countries = ['Finland', 'Germany', 'Iceland', 'Norway', 'United Kingdom'];
@@ -75,7 +76,7 @@ export const LineRaceChart: React.FC = () => {
         endLabel: {
           show: true,
           formatter: (params) => `${params.value[3]}: ${params.value[0]}`,
-          color: theme.colors.text.main,
+          color: themeObject[theme].textMain,
         },
         labelLayout: {
           moveOverlap: 'shiftY',

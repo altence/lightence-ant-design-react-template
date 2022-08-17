@@ -1,18 +1,19 @@
 import React from 'react';
-import { useTheme } from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import { BaseChart, getDefaultTooltipStyles } from '@app/components/common/charts/BaseChart';
 import { dashboardPaddings } from '@app/components/dashboard/DashboardCard/DashboardCard';
 import { useResponsive } from '@app/hooks/useResponsive';
 import { Dates } from '@app/constants/Dates';
 import { ChartData, ChartSeriesData } from '@app/interfaces/interfaces';
+import { useAppSelector } from '@app/hooks/reduxHooks';
+import { themeObject } from '@app/styles/themes/themeVariables';
 
 interface ActivityChartProps {
   data: ChartData;
 }
 
 export const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
-  const theme = useTheme();
+  const theme = useAppSelector((state) => state.theme.theme);
 
   const { t } = useTranslation();
 
@@ -23,7 +24,7 @@ export const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
   const size = isDesktop ? 'xl' : isTablet ? 'md' : isMobile ? 'xs' : 'xs';
 
   const option = {
-    color: theme.colors.main.chartPrimaryGradient,
+    color: themeObject[theme].chartPrimaryGradient,
     grid: {
       top: dashboardPaddings[size][0],
       right: dashboardPaddings[size][1],
@@ -42,7 +43,7 @@ export const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
       data: days,
       position: 'top',
       axisLabel: {
-        color: theme.colors.main.primary,
+        color: themeObject[theme].primary,
         fontWeight: 500,
         fontSize: 14,
       },
@@ -52,7 +53,7 @@ export const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
       min: 1500,
       axisLabel: {
         formatter: '{value} kcal',
-        color: theme.colors.text.light,
+        color: themeObject[theme].textLight,
         fontWeight: 500,
         fontSize: 14,
       },
@@ -68,7 +69,7 @@ export const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
       },
     ],
     tooltip: {
-      ...getDefaultTooltipStyles(theme),
+      ...getDefaultTooltipStyles(themeObject[theme]),
       trigger: 'axis',
       formatter: (data: ChartSeriesData) => {
         const currentItem = data[0];

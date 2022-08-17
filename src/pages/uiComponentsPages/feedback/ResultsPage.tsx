@@ -5,6 +5,7 @@ import { Result } from '@app/components/common/Result/Result';
 import { Button } from '@app/components/common/buttons/Button/Button';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
+import { media } from '@app/styles/themes/constants';
 
 const Card = styled(S.Card)`
   .ant-card-body {
@@ -13,11 +14,11 @@ const Card = styled(S.Card)`
 `;
 
 const BuyButton = styled(Button)`
-  @media only screen and ${(props) => props.theme.media.xs} {
+  @media only screen and ${media.xs} {
     margin-top: 1rem;
   }
 
-  @media only screen and ${(props) => props.theme.media.md} {
+  @media only screen and ${media.md} {
     margin-top: 0;
   }
 `;

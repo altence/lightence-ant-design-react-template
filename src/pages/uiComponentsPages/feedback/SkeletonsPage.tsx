@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Col, Space, Divider, Switch, Form, Radio, RadioChangeEvent } from 'antd';
+import { Col, Space, Divider, Form, Radio, RadioChangeEvent } from 'antd';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import {
@@ -11,13 +11,15 @@ import {
 } from '@app/components/common/Skeleton/Skeleton';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
+import { media } from '@app/styles/themes/constants';
+import { Switch } from '@app/components/common/Switch/Switch';
 
 const FormItem = styled(Form.Item)`
-  @media only screen and ${(props) => props.theme.media.xs} {
+  @media only screen and ${media.xs} {
     max-width: fit-content;
   }
 
-  @media only screen and ${(props) => props.theme.media.md} {
+  @media only screen and ${media.md} {
     max-width: 100%;
   }
 `;

@@ -1,5 +1,5 @@
+import { BORDER_RADIUS } from '@app/styles/themes/constants';
 import { Button } from 'components/common/buttons/Button/Button';
-import { hexToRGB } from 'utils/utils';
 import styled, { css } from 'styled-components';
 
 interface BtnProps {
@@ -21,22 +21,22 @@ export const ButtonGroup = styled.div<BtnProps>`
   padding: 0.325rem;
   column-gap: 0.325rem;
 
-  border-radius: ${(props) => props.theme.border.radius};
+  border-radius: ${BORDER_RADIUS};
 
-  background-color: ${(props) => hexToRGB(props.theme.colors.main.primary, 0.1)};
+  background-color: rgba(var(--primary-rgb-color), 0.1);
 
   ${(props) =>
     props.$isFirstActive
       ? css`
           & > ${Btn}:first-of-type {
-            background: ${props.theme.colors.main.primary};
-            color: ${props.theme.colors.text.secondary};
+            background: var(--primary-color);
+            color: var(--text-secondary-color);
           }
         `
       : css`
           & > ${Btn}:last-of-type {
-            background: ${props.theme.colors.main.warning};
-            color: ${props.theme.colors.text.secondary};
+            background: var(--warning-color);
+            color: var(--text-secondary-color);
           }
         `}
 

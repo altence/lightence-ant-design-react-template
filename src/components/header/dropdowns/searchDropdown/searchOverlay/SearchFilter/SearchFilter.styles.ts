@@ -1,3 +1,4 @@
+import { media } from '@app/styles/themes/constants';
 import { Checkbox } from 'antd';
 import styled, { css } from 'styled-components';
 
@@ -26,7 +27,7 @@ export const FilterWrapper = styled.div<FilterWrapperProps>`
 export const CheckBox = styled(Checkbox)`
   font-size: 0.75rem;
 
-  @media only screen and ${(props) => props.theme.media.md} {
+  @media only screen and ${media.md} {
     font-size: 0.875rem;
   }
 `;

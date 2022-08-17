@@ -1,10 +1,9 @@
 import React from 'react';
 import { Progress } from 'antd';
-import { StatisticColor } from 'constants/config/statistics';
 import * as S from './StatisticsProgress.styles';
 
 interface StatisticsProgressProps {
-  color: StatisticColor;
+  color: string;
   unit: 'kg';
   value: number;
 }

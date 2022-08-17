@@ -10679,7 +10679,6 @@ __metadata:
     prettier: ^2.3.1
     react: ^18.2.0
     react-country-flag: ^3.0.2
-    react-css-theme-switcher: ^0.3.0
     react-dom: ^18.2.0
     react-helmet: ^6.1.0
     react-i18next: ^11.11.4
@@ -14608,15 +14607,6 @@ __metadata:
   peerDependencies:
     react: ">=16"
   checksum: 3510e96302a136e0fc70cbb3a5492d3088548a3e43f05b75a600740733522b140a75dee5ce5a0b9776e20941597e4232d9fd2b60e61b5f00f2ae8a4ac6f1d9a4
-  languageName: node
-  linkType: hard
-
-"react-css-theme-switcher@npm:^0.3.0":
-  version: 0.3.0
-  resolution: "react-css-theme-switcher@npm:0.3.0"
-  peerDependencies:
-    react: ">=16"
-  checksum: 503ba6595d2db2d47af8a4f7f8e2441c0d5acbca95769bdc83c6695e3b242063833ad9c74ef58832ef91087ed97c8631efbfbd81404a2827bc101615d30e1890
   languageName: node
   linkType: hard
 

@@ -1,3 +1,4 @@
+import { media } from '@app/styles/themes/constants';
 import { Typography } from 'antd';
 import styled from 'styled-components';
 
@@ -9,9 +10,9 @@ export const SearchResultsWrapper = styled.div`
       font-size: 0.75rem;
       padding-bottom: 6px;
 
-      color: ${(props) => props.theme.colors.main.primary};
+      color: var(--primary-color);
 
-      @media only screen and ${(props) => props.theme.media.md} {
+      @media only screen and ${media.md} {
         font-size: 0.875rem;
       }
     }
@@ -23,7 +24,7 @@ export const SearchResultsWrapper = styled.div`
 `;
 
 export const Text = styled(Typography.Text)`
-  color: ${(props) => props.theme.colors.text.main};
+  color: var(--text-main-color);
 
   &:hover {
     text-decoration: underline;

@@ -1,18 +1,19 @@
 import styled from 'styled-components';
 import { LaneHeader } from 'react-trello/dist/styles/Base';
+import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
 
 export const Header = styled(LaneHeader)`
-  color: ${(props) => props.theme.colors.text.main};
+  color: var(--text-main-color);
   width: 16rem;
   padding: 0;
 `;
 
 export const Title = styled.div`
-  font-size: ${(props) => props.theme.commonFontSizes.lg};
+  font-size: ${FONT_SIZE.lg};
   overflow: hidden;
   text-overflow: ellipsis;
-  font-weight: ${(props) => props.theme.commonFontWeight.bold};
-  color: ${(props) => props.theme.colors.main.primary};
+  font-weight: ${FONT_WEIGHT.bold};
+  color: var(--primary-color);
 `;
 
 export const Dot = styled.span`
