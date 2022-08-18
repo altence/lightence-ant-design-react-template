@@ -1,32 +1,33 @@
+import { FONT_FAMILY, FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
 import { Typography } from 'antd';
 import styled from 'styled-components';
 
 interface StatusProps {
-  $color: string;
+  $color: 'error' | 'warning' | 'success' | 'primary' | 'secondary';
 }
 
 export const Title = styled(Typography.Text)`
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  font-size: ${FONT_SIZE.xs};
 
-  font-family: ${(props) => props.theme.fonts.secondary};
+  font-family: ${FONT_FAMILY.secondary};
 `;
 
 export const Status = styled(Typography.Text)<StatusProps>`
-  color: ${(props) => props.$color};
+  color: ${(props) => `var(--${props.$color}-color)`};
 
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  font-size: ${FONT_SIZE.xs};
 
-  font-family: ${(props) => props.theme.fonts.secondary};
+  font-family: ${FONT_FAMILY.secondary};
 `;
 
 export const DateText = styled(Title)`
-  font-weight: ${(props) => props.theme.commonFontWeight.regular};
+  font-weight: ${FONT_WEIGHT.regular};
 `;
 
 export const Text = styled(Typography.Text)`
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  font-size: ${FONT_SIZE.xs};
 
-  font-weight: ${(props) => props.theme.commonFontWeight.regular};
+  font-weight: ${FONT_WEIGHT.regular};
 
-  font-family: ${(props) => props.theme.fonts.secondary};
+  font-family: ${FONT_FAMILY.secondary};
 `;

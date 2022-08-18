@@ -14,8 +14,7 @@ export const CreatorButton = styled.button<StoriesInternalProps>`
   border-radius: 50%;
   padding: 2px;
 
-  border: ${(props) =>
-    `3px solid ${!props.$viewed ? props.theme.colors.main.primary : props.theme.colors.text.superLight}`};
+  border: 3px solid ${(props) => (!props.$viewed ? 'var(--primary-color)' : 'var(--text-superLight-color)')};
 `;
 
 export const Avatar = styled.img`

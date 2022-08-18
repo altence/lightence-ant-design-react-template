@@ -1,16 +1,21 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Button } from '@app/components/common/buttons/Button/Button';
+import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
 
 interface ViewAllInternalProps {
   $bordered: boolean;
 }
 
 export const ViewAllBtn = styled(Button)<ViewAllInternalProps>`
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  font-size: ${FONT_SIZE.xs};
 
-  font-weight: ${(props) => props.theme.commonFontWeight.medium};
+  font-weight: ${FONT_WEIGHT.medium};
 
-  color: ${(props) => props.theme.colors.text.main};
+  color: var(--text-main-color);
 
-  ${(props) => props.$bordered && `border-bottom: 0.2px solid ${props.theme.colors.border.nft}`};
+  ${(props) =>
+    props.$bordered &&
+    css`
+      border-bottom: 0.2px solid var(--border-nft-color);
+    `};
 `;

@@ -14,6 +14,7 @@ export interface ITheme {
   secondaryBackgroundSelected: string;
   spinnerBase: string;
   siderBackground: string;
+  collapseBackground: string;
   scroll: string;
   border: string;
   borderNft: string;
@@ -25,6 +26,7 @@ export interface ITheme {
   textNftLight: string;
   textSiderPrimary: string;
   textSiderSecondary: string;
+  subText: string;
   shadow: string;
   boxShadow: string;
   boxShadowHover: string;

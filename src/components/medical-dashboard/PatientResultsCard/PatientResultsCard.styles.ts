@@ -72,7 +72,7 @@ export const IconWrapper = styled.div<IconProps>`
           color: var(--text-secondary-color);
         `
       : css`
-          background-color: var(--timeline-bg-color);
+          background-color: var(--timeline-background-color);
           color: var(--primary-color);
         `}
   font-size: 1.15rem;

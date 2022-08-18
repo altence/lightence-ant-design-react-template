@@ -25,13 +25,18 @@ const getThemeVariables = (theme: ThemeType) => css`
   --error-color: ${themeObject[theme].error};
   --warning-color: ${themeObject[theme].warning};
   --success-color: ${themeObject[theme].success};
-  --angular-gradient-color: ${themeObject[theme].angularGradient};
   --background-color: ${themeObject[theme].background};
   --secondary-background-color: ${themeObject[theme].secondaryBackground};
   --secondary-background-selected-color: ${themeObject[theme].secondaryBackgroundSelected};
+  --additional-background-color: ${themeObject[theme].additionalBackground};
+  --collapse-background-color: ${themeObject[theme].collapseBackground};
+  --timeline-background-color: ${themeObject[theme].timelineBackground};
   --spinner-base-color: ${themeObject[theme].spinnerBase};
+  --sider-background-color: ${themeObject[theme].siderBackground};
   --shadow-color: ${themeObject[theme].shadow};
   --border-color: ${themeObject[theme].border};
+  --border-nft-color: ${themeObject[theme].borderNft};
+  --scroll-color: ${themeObject[theme].scroll};
 
   --primary-rgb-color: ${hexToRGB(themeObject[theme].primary)};
   --info-rgb-color: ${hexToRGB(themeObject[theme].primary)};
@@ -46,13 +51,13 @@ const getThemeVariables = (theme: ThemeType) => css`
   --text-superLight-color: ${themeObject[theme].textSuperLight};
   --text-secondary-color: ${themeObject[theme].textSecondary};
   --text-dark-color: ${themeObject[theme].textDark};
+  --text-nft-light-color: ${themeObject[theme].textNftLight};
+  --text-sider-primary-color: ${themeObject[theme].textSiderPrimary};
+  --text-sider-secondary-color: ${themeObject[theme].textSiderSecondary};
+  --subtext-color: ${themeObject[theme].subText};
 
   --dashboard-map-background-color: ${themeObject[theme].dashboardMapBackground};
-  --dashboard-map-dots-color: ${themeObject[theme].dashboardMapDots};
-  --dashboard-map-dots-hovered-color: ${themeObject[theme].dashboardMapDotsHover};
-  --dashboard-map-marker-border-color: ${themeObject[theme].dashboardMapMarkerBorder};
-  --dashboard-map-control-color: ${themeObject[theme].dashboardMapControl};
-  --dashboard-map-control-background-color: ${themeObject[theme].dashboardMapControlBackground};
+  --dashboard-map-circle-color: ${themeObject[theme].dashboardMapCircleColor};
   --dashboard-map-control-disabled-background-color: ${themeObject[theme].dashboardMapControlDisabledBackground};
 
   --chart-tooltip-label-color: ${themeObject[theme].chartTooltipLabel};
@@ -78,6 +83,8 @@ const getThemeVariables = (theme: ThemeType) => css`
   --icon-hover-color: ${themeObject[theme].iconHover};
   --box-shadow: ${themeObject[theme].boxShadow};
   --box-shadow-hover: ${themeObject[theme].boxShadowHover};
+  --box-shadow-nft-color: ${themeObject[theme].boxShadowNft};
+  --box-shadow-nft-secondary-color: ${themeObject[theme].boxShadowNftSecondary};
 
   --heading-color: ${themeObject[theme].heading};
   --item-hover-bg: ${themeObject[theme].itemHoverBg};
