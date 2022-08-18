@@ -55,4 +55,7 @@ export const Select = styled(AntSelect).withConfig({
       color: var(--icon-hover-color);
     }
   }
+  .ant-select-item-option-disabled {
+    color: var(--disabled-color);
+  }
 `;

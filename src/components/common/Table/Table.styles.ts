@@ -67,4 +67,22 @@ export const Table = styled(AntdTable)`
   .ant-table-column-sort {
     background-color: transparent;
   }
+
+  .ant-pagination-item-container .ant-pagination-item-ellipsis {
+    color: var(--disabled-color);
+  }
+
+  .ant-pagination-disabled {
+    .ant-pagination-item-link,
+    .ant-pagination-item a {
+      color: var(--disabled-color);
+    }
+  }
+
+  .ant-pagination.ant-pagination-disabled {
+    .ant-pagination-item-link,
+    .ant-pagination-item a {
+      color: var(--disabled-color);
+    }
+  }
 `;

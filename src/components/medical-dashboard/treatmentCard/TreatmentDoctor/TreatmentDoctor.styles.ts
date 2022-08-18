@@ -28,7 +28,7 @@ export const LabelCol = styled(Col)`
 export const ValueCol = styled(Col)``;
 
 export const Tel = styled.a`
-  color: ${(props) => props.theme.colors.text.main};
+  color: var(--text-main-color);
 
   &:hover {
     text-decoration: underline;

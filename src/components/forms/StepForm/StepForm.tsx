@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Steps } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
 import { Button } from '@app/components/common/buttons/Button/Button';
@@ -11,6 +10,7 @@ import { notificationController } from '@app/controllers/notificationController'
 import { Dates } from '@app/constants/Dates';
 import { mergeBy } from '@app/utils/utils';
 import * as S from './StepForm.styles';
+import { Steps } from './StepForm.styles';
 interface FormValues {
   [key: string]: string | undefined;
 }

@@ -27,7 +27,6 @@ export const TagDropdown: React.FC<TagDropdownProps> = ({ selectedTags, setSelec
       setSelectedTags([...selectedTags, tag]);
     }
   };
-  console.log('selectedTags', selectedTags);
 
   return (
     <Dropdown

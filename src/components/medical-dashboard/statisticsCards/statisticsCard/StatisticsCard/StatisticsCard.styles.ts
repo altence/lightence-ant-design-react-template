@@ -21,6 +21,6 @@ export const StatisticCard = styled(DashboardCard)<StatisticsProps>`
   overflow: hidden;
 
   ${Text} {
-    ${(props) => `var(--${props.color}-color)`};
+    color: ${(props) => `var(--${props.$color}-color)`};
   }
 `;
