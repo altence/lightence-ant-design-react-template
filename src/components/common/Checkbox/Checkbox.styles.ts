@@ -14,6 +14,10 @@ export const Checkbox = styled(AntdCheckbox)`
   .ant-checkbox-disabled.ant-checkbox-checked .ant-checkbox-inner::after {
     border-color: var(--disabled-color);
   }
+
+  .ant-checkbox-disabled + span {
+    color: var(--disabled-color);
+  }
 `;
 
 export const CheckboxGroup = styled(Group)`

@@ -29,6 +29,11 @@ export const LAYOUT = {
   },
 };
 
+export const FONT_FAMILY = {
+  main: 'Montserrat',
+  secondary: 'Lato',
+};
+
 export const FONT_SIZE = {
   xxs: '0.75rem',
   xs: '0.875rem',

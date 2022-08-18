@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Card as BaseCard } from '@app/components/common/Card/Card';
 
 interface CardInternalProps {
@@ -6,7 +6,11 @@ interface CardInternalProps {
 }
 
 export const Card = styled(BaseCard)<CardInternalProps>`
-  box-shadow: ${(props) => props.theme.boxShadow.nftMain};
+  box-shadow: var(--box-shadow-nft-color);
 
-  ${(props) => props.$isSider && `background: ${props.theme.colors.main.additionalBackground}`};
+  ${(props) =>
+    props.$isSider &&
+    css`
+      background: var(--additional-background-color);
+    `};
 `;

@@ -1,9 +1,10 @@
 import { Typography } from 'antd';
 import styled from 'styled-components';
 import { NFTCard } from '@app/components/nft-dashboard/common/NFTCard/NFTCard';
+import { FONT_SIZE, media, FONT_FAMILY } from '@app/styles/themes/constants';
 
 export const ActivityCard = styled(NFTCard)`
-  box-shadow: ${(props) => props.theme.boxShadow.nftSecondary};
+  box-shadow: var(--box-shadow-nft-secondary-color);
 `;
 
 export const Wrapper = styled.div`
@@ -23,11 +24,11 @@ export const IconWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  color: ${(props) => props.theme.colors.text.secondary};
+  color: var(--text-secondary-color);
 
-  background-color: ${(props) => props.theme.colors.main.primary};
+  background-color: var(--primary-color);
 
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  font-size: ${FONT_SIZE.xs};
 `;
 
 export const InfoWrapper = styled.div`
@@ -58,10 +59,10 @@ export const Title = styled(Typography.Title)`
   &.ant-typography {
     margin-bottom: 0;
 
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
+    font-size: ${FONT_SIZE.xs};
 
-    @media only screen and ${(props) => props.theme.media.xl} {
-      font-size: ${(props) => props.theme.commonFontSizes.md};
+    @media only screen and ${media.xl} {
+      font-size: ${FONT_SIZE.md};
     }
   }
 `;
@@ -69,19 +70,19 @@ export const Title = styled(Typography.Title)`
 export const Text = styled(Typography.Text)`
   display: block;
 
-  font-size: ${(props) => props.theme.commonFontSizes.xxs};
+  font-size: ${FONT_SIZE.xxs};
 
-  color: ${(props) => props.theme.colors.text.nftLight};
+  color: var(--text-nft-light-color);
 
-  font-family: ${(props) => props.theme.fonts.secondary};
+  font-family: ${FONT_FAMILY.secondary};
 
-  @media only screen and ${(props) => props.theme.media.xl} {
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
+  @media only screen and ${media.xl} {
+    font-size: ${FONT_SIZE.xs};
   }
 `;
 
 export const DateText = styled(Text)`
   font-style: italic;
 
-  font-family: ${(props) => props.theme.fonts.main};
+  font-family: ${FONT_FAMILY.main};
 `;

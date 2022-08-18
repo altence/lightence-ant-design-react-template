@@ -2,12 +2,10 @@ import styled from 'styled-components';
 import { Card as AntCard } from 'antd';
 import { normalizeProp } from 'utils/utils';
 import { FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
-import { ThemeType } from '@app/interfaces/interfaces';
 
 interface CardInternalProps {
   $padding: string | number | [number, number];
   $autoHeight: boolean;
-  $theme: ThemeType;
 }
 
 export const Card = styled(AntCard)<CardInternalProps>`

@@ -4,7 +4,7 @@ import deDe from 'antd/lib/locale/de_DE';
 import enUS from 'antd/lib/locale/en_US';
 import GlobalStyle from './styles/GlobalStyle';
 import 'typeface-montserrat';
-import { darkTheme } from '@app/styles/themes/dark/darkTheme';
+import 'typeface-lato';
 import { AppRouter } from './components/router/AppRouter';
 import { useLanguage } from './hooks/useLanguage';
 import { useAutoNightMode } from './hooks/useAutoNightMode';

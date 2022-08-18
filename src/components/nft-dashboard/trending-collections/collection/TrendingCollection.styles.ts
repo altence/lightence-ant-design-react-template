@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Button } from '@app/components/common/buttons/Button/Button';
 import { Typography } from 'antd';
 import { NFTCard } from '@app/components/nft-dashboard/common/NFTCard/NFTCard';
+import { FONT_SIZE, FONT_WEIGHT, FONT_FAMILY, media, BORDER_RADIUS } from '@app/styles/themes/constants';
 interface CardInternalProps {
   $img: string;
 }
@@ -11,8 +12,8 @@ export const CollectionImage = styled.img`
   width: 100%;
   height: 126px;
   object-fit: cover;
-  border-top-left-radius: ${(props) => props.theme.border.radius};
-  border-top-right-radius: ${(props) => props.theme.border.radius};
+  border-top-left-radius: ${BORDER_RADIUS};
+  border-top-right-radius: ${BORDER_RADIUS};
 `;
 
 export const NftCollectionInfo = styled.div`
@@ -36,40 +37,40 @@ export const Title = styled(Typography.Title)`
   &.ant-typography {
     margin-bottom: 0;
 
-    font-size: ${(props) => props.theme.commonFontSizes.md};
+    font-size: ${FONT_SIZE.md};
   }
 `;
 
 export const Text = styled(Typography.Text)`
   transition: all 0.5s ease;
 
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  font-size: ${FONT_SIZE.xs};
 
-  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+  font-weight: ${FONT_WEIGHT.semibold};
 `;
 
 export const OwnerText = styled(Text)`
   letter-spacing: 0.02em;
 
-  font-size: ${(props) => props.theme.commonFontSizes.xxs};
+  font-size: ${FONT_SIZE.xxs};
 
-  font-weight: ${(props) => props.theme.commonFontWeight.regular};
+  font-weight: ${FONT_WEIGHT.regular};
 
-  font-family: ${(props) => props.theme.fonts.secondary};
+  font-family: ${FONT_FAMILY.secondary};
 
-  color: ${(props) => props.theme.colors.text.nftLight};
+  color: var(--text-nft-light-color);
 
-  @media only screen and ${(props) => props.theme.media.xl} {
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
+  @media only screen and ${media.xl} {
+    font-size: ${FONT_SIZE.xs};
   }
 `;
 
 export const USDText = styled(Typography.Text)`
   transition: all 0.5s ease;
 
-  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+  font-weight: ${FONT_WEIGHT.semibold};
 
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  font-size: ${FONT_SIZE.xs};
 `;
 
 export const AuthorAvatarWrapper = styled.div`
@@ -78,7 +79,7 @@ export const AuthorAvatarWrapper = styled.div`
   top: -45px;
   border-radius: 50%;
 
-  border: 2px solid ${(props) => props.theme.colors.text.secondary};
+  border: 2px solid var(--text-secondary-color);
 `;
 
 export const BidButton = styled(Button)`
@@ -88,11 +89,11 @@ export const BidButton = styled(Button)`
   right: 20px;
   padding: 10px 14px;
 
-  color: ${(props) => props.theme.colors.text.secondary};
+  color: var(--text-secondary-color);
 
-  border-color: ${(props) => props.theme.colors.text.secondary};
+  border-color: var(--text-secondary-color);
 
-  font-size: ${(props) => props.theme.commonFontSizes.md};
+  font-size: ${FONT_SIZE.md};
 `;
 
 export const Card = styled(NFTCard)<CardInternalProps>`
@@ -113,7 +114,7 @@ export const Card = styled(NFTCard)<CardInternalProps>`
     }
 
     ${Title}, ${Text}, ${USDText} {
-      color: ${(props) => props.theme.colors.text.secondary};
+      color: var(--text-secondary-color);
     }
 
     ${AuthorAvatarWrapper} {

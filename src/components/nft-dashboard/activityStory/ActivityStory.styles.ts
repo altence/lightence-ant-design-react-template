@@ -1,3 +1,4 @@
+import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
 import { Row, Typography } from 'antd';
 import styled from 'styled-components';
 
@@ -5,9 +6,9 @@ export const Title = styled(Typography.Title)`
   &.ant-typography {
     margin-bottom: 0;
 
-    font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+    font-weight: ${FONT_WEIGHT.semibold};
 
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
+    font-size: ${FONT_SIZE.xs};
   }
 `;
 

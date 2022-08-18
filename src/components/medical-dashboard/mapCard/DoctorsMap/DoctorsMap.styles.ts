@@ -8,7 +8,7 @@ export const DoctorsMap = styled(CountryMap)`
   height: 19rem;
 
   &.leaflet-container {
-    background-image: var(--dashboard-map-background-color);
+    background: var(--dashboard-map-background-color);
     border-radius: ${BORDER_RADIUS};
 
     svg {
