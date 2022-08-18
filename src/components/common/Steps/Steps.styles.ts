@@ -49,9 +49,13 @@ export const Steps = styled(AntdSteps)`
     }
   }
   & .ant-steps-item {
-    &-description,
-    &-subtitle {
-      color: var(--disabled-color) !important;
+    &:not(.ant-steps-item-process) {
+      .ant-steps-item-description {
+        color: var(--subtext-color);
+      }
+    }
+    .ant-steps-item-subtitle {
+      color: var(--subtext-color);
     }
   }
 `;

@@ -17,9 +17,9 @@ export const Button = styled(AntButton)<BtnProps>`
   ${(props) =>
     props.$noStyle &&
     css`
-      width: unset !important;
-      padding: 0 !important;
-      height: unset !important;
+      width: unset;
+      padding: 0;
+      height: unset;
     `}
 
   &[disabled],
@@ -35,26 +35,26 @@ export const Button = styled(AntButton)<BtnProps>`
       css`
         box-shadow: none;
         text-shadow: none;
-        background: rgba(${defineColorBySeverity(props.$severity, true)}, 0.2) !important;
+        background: rgba(${defineColorBySeverity(props.$severity, true)}, 0.2);
 
-        border-color: ${defineColorBySeverity(props.$severity)} !important;
+        border-color: ${defineColorBySeverity(props.$severity)};
 
-        color: ${defineColorBySeverity(props.$severity)} !important;
+        color: ${defineColorBySeverity(props.$severity)};
 
         &:hover {
-          background: var(--background-color) !important;
+          background: var(--background-color);
 
-          border-color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9) !important;
+          border-color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9);
 
-          color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9) !important;
+          color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9);
         }
 
         &:focus {
-          background: var(--background-color) !important;
+          background: var(--background-color);
 
-          border-color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9) !important;
+          border-color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9);
 
-          color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9) !important;
+          color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9);
         }
       `}
 
@@ -77,7 +77,7 @@ export const Button = styled(AntButton)<BtnProps>`
 
       ${props.type === 'primary' &&
       css`
-        background: ${(props) => props.theme.colors.main.primaryGradient};
+        background: var(--primary-gradient-color);
 
         &:hover {
           background: var(--secondary-color);

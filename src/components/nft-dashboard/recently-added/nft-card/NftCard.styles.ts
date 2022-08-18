@@ -1,6 +1,7 @@
 import { Typography } from 'antd';
 import styled from 'styled-components';
 import { NFTCard } from '@app/components/nft-dashboard/common/NFTCard/NFTCard';
+import { FONT_SIZE, FONT_WEIGHT, FONT_FAMILY, media, BREAKPOINTS, BORDER_RADIUS } from '@app/styles/themes/constants';
 
 interface CardInternalProps {
   $img: string;
@@ -11,8 +12,8 @@ export const NftImage = styled.img`
   width: 100%;
   height: 195px;
   object-fit: cover;
-  border-top-left-radius: ${(props) => props.theme.border.radius};
-  border-top-right-radius: ${(props) => props.theme.border.radius};
+  border-top-left-radius: ${BORDER_RADIUS};
+  border-top-right-radius: ${BORDER_RADIUS};
 `;
 
 export const Title = styled(Typography.Title)`
@@ -22,7 +23,7 @@ export const Title = styled(Typography.Title)`
   &.ant-typography {
     margin-bottom: 0;
 
-    font-size: ${(props) => props.theme.commonFontSizes.md};
+    font-size: ${FONT_SIZE.md};
   }
 `;
 
@@ -36,13 +37,13 @@ export const InfoRow = styled.div`
   justify-content: space-between;
   margin-bottom: 0.625rem;
 
-  @media only screen and (max-width: ${(props) => props.theme.breakpoints.md - 0.02}px) {
+  @media only screen and (max-width: ${BREAKPOINTS.md - 0.02}px) {
     &:first-of-type {
       margin-bottom: 0;
     }
   }
 
-  @media only screen and ${(props) => props.theme.media.md} {
+  @media only screen and ${media.md} {
     margin-bottom: 0.25rem;
   }
 
@@ -71,46 +72,46 @@ export const InfoText = styled.span`
   transition: all 0.5s ease;
   letter-spacing: 0.02em;
 
-  font-weight: ${(props) => props.theme.commonFontWeight.regular};
+  font-weight: ${FONT_WEIGHT.regular};
 
-  font-size: ${(props) => props.theme.commonFontSizes.xxs};
+  font-size: ${FONT_SIZE.xxs};
 
-  font-family: ${(props) => props.theme.fonts.secondary};
+  font-family: ${FONT_FAMILY.secondary};
 
-  color: ${(props) => props.theme.colors.text.nftLight};
+  color: var(--text-nft-light-color);
 
-  @media only screen and ${(props) => props.theme.media.xl} {
-    font-size: ${(props) => props.theme.commonFontSizes.xs};
+  @media only screen and ${media.xl} {
+    font-size: ${FONT_SIZE.xs};
   }
 `;
 
 export const CurrentBid = styled(InfoText)`
-  font-family: ${(props) => props.theme.fonts.secondary};
+  font-family: ${FONT_FAMILY.secondary};
 
-  color: ${(props) => props.theme.colors.text.main};
+  color: var(--text-main-color);
 `;
 
 export const BidCrypto = styled.span`
   transition: all 0.5s ease;
 
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  font-size: ${FONT_SIZE.xs};
 
-  @media only screen and ${(props) => props.theme.media.xl} {
-    font-size: ${(props) => props.theme.commonFontSizes.md};
+  @media only screen and ${media.xl} {
+    font-size: ${FONT_SIZE.md};
   }
 `;
 
 export const Bid = styled(CurrentBid)`
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  font-size: ${FONT_SIZE.xs};
 
-  color: ${(props) => props.theme.colors.text.main};
+  color: var(--text-main-color);
 
-  font-weight: ${(props) => props.theme.commonFontWeight.semibold};
+  font-weight: ${FONT_WEIGHT.semibold};
 
-  font-family: ${(props) => props.theme.fonts.main};
+  font-family: ${FONT_FAMILY.main};
 
-  @media only screen and ${(props) => props.theme.media.xl} {
-    font-size: ${(props) => props.theme.commonFontSizes.md};
+  @media only screen and ${media.xl} {
+    font-size: ${FONT_SIZE.md};
   }
 `;
 
@@ -135,15 +136,15 @@ export const Card = styled(NFTCard)<CardInternalProps>`
       animation: titleIn 0.5s ease;
       animation-fill-mode: forwards;
 
-      color: ${(props) => props.theme.colors.text.secondary};
+      color: var(--text-secondary-color);
     }
 
     ${InfoText} {
-      color: ${(props) => props.theme.colors.text.secondary};
+      color: var(--text-secondary-color);
     }
 
     ${BidCrypto} {
-      color: ${(props) => props.theme.colors.text.secondary};
+      color: var(--text-secondary-color);
     }
   }
 

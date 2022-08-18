@@ -1,16 +1,17 @@
+import { FONT_SIZE, FONT_FAMILY, media } from '@app/styles/themes/constants';
 import { Typography } from 'antd';
 import styled from 'styled-components';
 
 export const Title = styled(Typography.Text)`
   padding: 0 4rem 0.75rem 0;
 
-  font-size: ${(props) => props.theme.commonFontSizes.xs};
+  font-size: ${FONT_SIZE.xs};
 
-  font-family: ${(props) => props.theme.fonts.secondary};
+  font-family: ${FONT_FAMILY.secondary};
 
-  border-bottom: ${(props) => `0.2px solid ${props.theme.colors.border.nft}`};
+  border-bottom: 0.2px solid var(--border-nft-color);
 
-  @media only screen and ${(props) => props.theme.media.xl} {
-    font-size: ${(props) => props.theme.commonFontSizes.md};
+  @media only screen and ${media.xl} {
+    font-size: ${FONT_SIZE.md};
   }
 `;

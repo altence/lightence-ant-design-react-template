@@ -26,8 +26,8 @@ export const Menu = styled(AntMenu)`
   a,
   .ant-menu-item,
   .ant-menu-submenu {
-    color: var(--text-siderSecondary-color);
-    fill: var(--text-siderSecondary-color);
+    color: var(--text-sider-secondary-color);
+    fill: var(--text-sider-secondary-color);
   }
 
   .ant-menu-item:hover,
@@ -38,20 +38,20 @@ export const Menu = styled(AntMenu)`
     a,
     .ant-menu-item-icon,
     .ant-menu-title-content {
-      color: var(--text-siderPrimary-color);
-      fill: var(--text-siderPrimary-color);
+      color: var(--text-sider-primary-color);
+      fill: var(--text-sider-primary-color);
     }
   }
 
   .ant-menu-submenu-selected {
     .ant-menu-submenu-title {
-      color: var(--text-siderPrimary-color);
+      color: var(--text-sider-primary-color);
 
       .ant-menu-submenu-expand-icon,
       .ant-menu-submenu-arrow,
       span[role='img'] {
-        color: var(--text-siderPrimary-color);
-        fill: var(--text-siderPrimary-color);
+        color: var(--text-sider-primary-color);
+        fill: var(--text-sider-primary-color);
       }
     }
   }
@@ -64,8 +64,8 @@ export const Menu = styled(AntMenu)`
     span[role='img'],
     .ant-menu-item-icon,
     a {
-      color: var(--text-siderPrimary-color);
-      fill: var(--text-siderPrimary-color);
+      color: var(--text-sider-primary-color);
+      fill: var(--text-sider-primary-color);
     }
   }
 
