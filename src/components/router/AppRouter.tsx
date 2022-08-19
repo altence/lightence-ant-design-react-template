@@ -14,9 +14,9 @@ import MainLayout from '@app/components/layouts/main/MainLayout/MainLayout';
 import ProfileLayout from '@app/components/profile/ProfileLayout';
 import RequireAuth from '@app/components/router/RequireAuth';
 import { withLoading } from '@app/hocs/withLoading.hoc';
+import NftDashboardPage from '@app/pages/DashboardPages/NftDashboardPage';
 
 const MedicalDashboardPage = React.lazy(() => import('@app/pages/DashboardPages/MedicalDashboardPage'));
-const NftDashboardPage = React.lazy(() => import('@app/pages/DashboardPages/NftDashboardPage'));
 const NewsFeedPage = React.lazy(() => import('@app/pages/NewsFeedPage'));
 const KanbanPage = React.lazy(() => import('@app/pages/KanbanPage'));
 const DataTablesPage = React.lazy(() => import('@app/pages/DataTablesPage'));
