@@ -1,6 +1,5 @@
 import React from 'react';
 import { Col, Row } from 'antd';
-import { useTranslation } from 'react-i18next';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import { References } from '@app/components/common/References/References';
 import { useResponsive } from '@app/hooks/useResponsive';
@@ -15,8 +14,6 @@ import * as S from './DashboardPage.styles';
 
 const MedicalDashboardPage: React.FC = () => {
   const { isDesktop } = useResponsive();
-
-  const { t } = useTranslation();
 
   const desktopLayout = (
     <Row>
@@ -79,7 +76,7 @@ const MedicalDashboardPage: React.FC = () => {
 
   return (
     <>
-      <PageTitle>{t('common.medical-dashboard')}</PageTitle>
+      <PageTitle>NFT Dashboard</PageTitle>
       {isDesktop ? desktopLayout : mobileAndTabletLayout}
     </>
   );
