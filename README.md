@@ -11,7 +11,6 @@ React-powered **100% FREE** Admin Dashboard Template for building rich user inte
 - 🐜 Lightence admin dashboard template is based on a rich library powered by [Ant Design](https://ant.design/)
 - 💰 100% Free: start using it for your projects right away. No hidden payments, no trials, nothing
 - 💊 Medical dashboard includes: customizable medical dashboard for data-driven applications
-- 🦸 Easy-to-start: check out a `starter` branch to skip demos and start building your next great project
 - 💻 Any backend supported: the dashboard supports any kind of backend by just updating an API
 - ⭐ Modern & great for projects of tomorrow: built with [React](https://reactjs.org/), [Redux](https://redux.js.org/) and [Ant Design](https://ant.design/); _Bootstrap_ and _jQuery_ 100% free
 - 🇺🇳 Internationalized: built-in internationalization support
