@@ -1,6 +1,6 @@
 import React from 'react';
-import { Dates } from '../../../constants/Dates';
-import { Avatar } from 'antd';
+import { Dates } from '@app/constants/Dates';
+import { Avatar, Image } from 'antd';
 import { Tag, ITag } from '../Tag/Tag';
 import * as S from './ArticleCard.styles';
 
@@ -34,7 +34,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
           <S.DateTime>{Dates.format(date, 'L')}</S.DateTime>
         </S.AuthorWrapper>
       </S.Header>
-      <S.Image src={imgUrl} alt="article" preview={false} />
+      <Image src={imgUrl} alt="article" preview={false} />
       <S.InfoWrapper>
         <S.InfoHeader>
           <S.Title>{title}</S.Title>
