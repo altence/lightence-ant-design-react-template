@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Typography, Image as AntImage } from 'antd';
+import { Typography } from 'antd';
 import { BORDER_RADIUS, FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
 
 export const Header = styled.div`
@@ -32,11 +32,6 @@ export const Wrapper = styled.div`
   &:hover {
     box-shadow: var(--box-shadow-hover);
   }
-`;
-
-export const Image = styled(AntImage)`
-  width: 100%;
-  height: auto;
 `;
 
 export const Author = styled.div`
