@@ -7,7 +7,7 @@ import { VerificationCodeInput } from '@app/components/common/VerificationCodeIn
 import { useAppDispatch } from '@app/hooks/reduxHooks';
 import { doVerifySecurityCode } from '@app/store/slices/authSlice';
 import { notificationController } from '@app/controllers/notificationController';
-import VerifyEmailImage from '@app/assets/images/verify-email.png';
+import VerifyEmailImage from '@app/assets/images/verify-email.webp';
 import * as Auth from '@app/components/layouts/AuthLayout/AuthLayout.styles';
 import * as S from './SecurityCodeForm.styles';
 
