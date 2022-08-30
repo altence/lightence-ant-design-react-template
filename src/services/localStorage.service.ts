@@ -1,5 +1,5 @@
 import { UserModel } from '@app/domain/UserModel';
-import avatarImg from '@app/assets/avatars/avatar5.png';
+const avatarImg = process.env.REACT_APP_ASSETS_BUCKET + '/avatars/avatar5.webp';
 
 const testUser = {
   id: 1,
