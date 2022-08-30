@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Dropdown } from '@app/components/common/Dropdown/Dropdown';
 import { Participant as IParticipant } from '../../interfaces';
 import { kanbanPeople } from 'constants/kanbanPeople';
-import StubAvatar from '../../../../../assets/images/stub-avatar.png';
+import StubAvatar from '../../../../../assets/images/stub-avatar.webp';
 import * as S from './ParticipantsDropdown.styles';
 
 interface ParticipantsDropdownProps {

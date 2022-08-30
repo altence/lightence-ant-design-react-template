@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './NewLaneSection.styles';
-import NewLaneImage from '../../../../assets/images/new-lane.png';
+import NewLaneImage from '../../../../assets/images/new-lane.webp';
 import { useTranslation } from 'react-i18next';
 
 interface NewLaneSectionProps {
