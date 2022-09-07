@@ -15,7 +15,7 @@ export const NotificationsDropdown: React.FC = () => {
     <Dropdown
       trigger={['click']}
       overlay={<NotificationsOverlay notifications={notifications} setNotifications={setNotifications} />}
-      onVisibleChange={setOpened}
+      onOpenChange={setOpened}
     >
       <HeaderActionWrapper>
         <Button
