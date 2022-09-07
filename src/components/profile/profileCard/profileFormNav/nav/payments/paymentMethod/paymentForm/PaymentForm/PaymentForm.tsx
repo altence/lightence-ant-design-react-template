@@ -7,11 +7,11 @@ import { CardholderItem } from '@app/components/profile/profileCard/profileFormN
 import { ExpDateItem } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentMethod/paymentForm/ExpDateItem/ExpDateItem';
 import { CVVItem } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentMethod/paymentForm/CVVItem/CVVItem';
 import { CardThemeItem } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentMethod/paymentForm/CardThemeItem/CardThemeItem';
-import { CreditCard } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentMethod/paymentForm/interfaces';
 import { cardThemes } from '@app/constants/cardThemes';
 import * as S from './PaymentForm.styles';
+import { PaymentCard } from '@app/interfaces/interfaces';
 
-export const clearCardData: CreditCard = {
+export const clearCardData: PaymentCard = {
   name: '',
   cvc: '',
   expiry: '',
@@ -23,11 +23,11 @@ export const clearCardData: CreditCard = {
 
 interface PaymentFormProps {
   closeModal: () => void;
-  onFormFinish: (card: CreditCard) => void;
+  onFormFinish: (card: PaymentCard) => void;
 }
 
 export const PaymentForm: React.FC<PaymentFormProps> = ({ closeModal, onFormFinish }) => {
-  const [cardData, setCardData] = useState<CreditCard>(clearCardData);
+  const [cardData, setCardData] = useState<PaymentCard>(clearCardData);
   const [isLoading, setLoading] = useState(false);
   const [isFieldsChanged, setFieldsChanged] = useState(false);
 
@@ -44,7 +44,7 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({ closeModal, onFormFini
   );
 
   const onFinish = useCallback(
-    (values: CreditCard) => {
+    (values: PaymentCard) => {
       setLoading(true);
       setTimeout(() => {
         setLoading(false);

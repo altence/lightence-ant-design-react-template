@@ -1,10 +1,10 @@
-import { CurrencyType } from '@app/interfaces/interfaces';
+import { CurrencyTypeEnum } from '@app/interfaces/interfaces';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 export interface Balance {
-  usd_balance: number;
-  eth_balance: number;
-  btc_balance: number;
+  USD: number;
+  ETH: number;
+  BTC: number;
 }
 
 export interface Earning {
@@ -15,7 +15,7 @@ export interface Earning {
 export interface TotalEarning {
   total: number;
   prevTotal: number;
-  currency: CurrencyType;
+  currency: CurrencyTypeEnum;
   timeline: Earning[];
 }
 
@@ -23,21 +23,21 @@ export const getBalance = (id: number): Promise<Balance> => {
   return new Promise((res) => {
     setTimeout(() => {
       res({
-        usd_balance: 3040.51,
-        eth_balance: 1040.51,
-        btc_balance: 5373.51,
+        USD: 3040.51,
+        ETH: 1040.51,
+        BTC: 5373.51,
       });
     }, 0);
   });
 };
 
-export const getTotalEarning = (id: number, currency: CurrencyType): Promise<TotalEarning> => {
+export const getTotalEarning = (id: number, currency: CurrencyTypeEnum): Promise<TotalEarning> => {
   return new Promise((res) => {
     setTimeout(() => {
       res({
         total: 1520,
         prevTotal: 1320,
-        currency: 'USD',
+        currency: CurrencyTypeEnum.USD,
         timeline: [
           {
             date: Date.now() - 1000 * 60 * 60 * 24 * 7,

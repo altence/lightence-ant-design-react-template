@@ -3,12 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { Col, Row } from 'antd';
 import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
 import { CardTheme, cardThemes } from '@app/constants/cardThemes';
-import { CreditCard } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentMethod/paymentForm/interfaces';
+import { PaymentCard } from '@app/interfaces/interfaces';
 import * as S from './CardThemeItem.styles';
 
 interface CardThemeItemProps {
-  cardData: CreditCard;
-  setCardData: (state: CreditCard) => void;
+  cardData: PaymentCard;
+  setCardData: (state: PaymentCard) => void;
 }
 
 export const CardThemeItem: React.FC<CardThemeItemProps> = ({ cardData, setCardData }) => {
