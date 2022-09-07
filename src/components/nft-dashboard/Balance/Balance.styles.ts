@@ -1,7 +1,6 @@
-import { Button } from '@app/components/common/buttons/Button/Button';
-import { FONT_FAMILY, FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
 import { Typography } from 'antd';
-import styled, { css } from 'styled-components';
+import { FONT_FAMILY, FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
+import styled from 'styled-components';
 
 export const TitleText = styled(Typography.Title)`
   &.ant-typography {
@@ -27,12 +26,4 @@ export const SubtitleBalanceText = styled(Typography.Text)`
   font-weight: ${FONT_WEIGHT.regular};
 
   color: var(--text-nft-light-color);
-`;
-
-export const TopUpButton = styled(Button)`
-  ${(props) =>
-    props.type === 'ghost' &&
-    css`
-      color: var(--text-secondary-color);
-    `};
 `;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { CreditCard } from './paymentForm/interfaces';
+import { PaymentCard as IPaymentCard } from '@app/interfaces/interfaces';
 import { PaymentCard } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentMethod/PaymentCard/PaymentCard';
 import { Col, Row } from 'antd';
 import { useResponsive } from '@app/hooks/useResponsive';
@@ -7,9 +7,9 @@ import { ActionButtons } from '@app/components/profile/profileCard/profileFormNa
 import { AddNewCardButton } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentMethod/addNewCard/AddNewCardButton/AddNewCardButton';
 
 interface PaymentCardsWidgetProps {
-  cards: CreditCard[];
+  cards: IPaymentCard[];
   onCardRemove: (cardNumber: string) => void;
-  onCardAdd: (card: CreditCard) => void;
+  onCardAdd: (card: IPaymentCard) => void;
 }
 
 export const PaymentCardsWidget: React.FC<PaymentCardsWidgetProps> = ({ cards, onCardRemove, onCardAdd }) => {

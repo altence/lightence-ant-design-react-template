@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Avatar } from '@app/components/common/Avatar/Avatar';
 import { formatNumberWithCommas, getCurrencyPrice } from '@app/utils/utils';
 import { TrendingActivity } from '@app/api/activity.api';
+import { CurrencyTypeEnum } from '@app/interfaces/interfaces';
 import * as S from './TrendingCollection.styles';
 
 export const TrendingCollection: React.FC<TrendingActivity> = ({ title, owner, usd_value, image, avatar }) => {
@@ -23,7 +24,7 @@ export const TrendingCollection: React.FC<TrendingActivity> = ({ title, owner, u
           <S.OwnerText>
             {t('nft.by')} {owner}
           </S.OwnerText>
-          <S.USDText>{getCurrencyPrice(formatNumberWithCommas(usd_value), 'USD')}</S.USDText>
+          <S.USDText>{getCurrencyPrice(formatNumberWithCommas(usd_value), CurrencyTypeEnum.USD)}</S.USDText>
         </S.InfoRow>
       </S.NftCollectionInfo>
     </S.Card>

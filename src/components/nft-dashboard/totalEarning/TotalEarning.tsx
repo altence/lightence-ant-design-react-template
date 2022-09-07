@@ -8,6 +8,7 @@ import { useAppSelector } from '@app/hooks/reduxHooks';
 import { getTotalEarning, TotalEarning as ITotalEarning } from '@app/api/earnings.api';
 import { Dates } from '@app/constants/Dates';
 import { formatNumberWithCommas, getCurrencyPrice, getDifference } from '@app/utils/utils';
+import { CurrencyTypeEnum } from '@app/interfaces/interfaces';
 import * as S from './TotalEarning.styles';
 
 export const TotalEarning: React.FC = () => {
@@ -18,7 +19,7 @@ export const TotalEarning: React.FC = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    userId && getTotalEarning(userId, 'USD').then((res) => setTotalEarning(res));
+    userId && getTotalEarning(userId, CurrencyTypeEnum.USD).then((res) => setTotalEarning(res));
   }, [userId]);
 
   const { totalEarningData, days } = useMemo(
@@ -54,7 +55,9 @@ export const TotalEarning: React.FC = () => {
         <Col span={24}>
           <Row wrap={false} justify="space-between" gutter={[20, 20]}>
             <Col>
-              <S.Text>{getCurrencyPrice(formatNumberWithCommas(totalEarning?.total ?? 0), 'USD')}</S.Text>
+              <S.Text>
+                {getCurrencyPrice(formatNumberWithCommas(totalEarning?.total ?? 0), CurrencyTypeEnum.USD)}
+              </S.Text>
             </Col>
 
             <Col flex={1}>

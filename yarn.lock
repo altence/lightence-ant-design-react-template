@@ -8613,6 +8613,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"credit-card-type@npm:^9.1.0":
+  version: 9.1.0
+  resolution: "credit-card-type@npm:9.1.0"
+  checksum: 2bdadf3a0b93cd740447020fea8d397c633ee2b292fcc498971c540e7ca97473c4decf23604f93a1aedd59bb8d9249da8cf0b8fbfb1a464bd63610ae814c77aa
+  languageName: node
+  linkType: hard
+
 "cross-spawn@npm:7.0.3, cross-spawn@npm:^7.0.0, cross-spawn@npm:^7.0.2, cross-spawn@npm:^7.0.3":
   version: 7.0.3
   resolution: "cross-spawn@npm:7.0.3"
@@ -14637,6 +14644,7 @@ __metadata:
     axios-mock-adapter: ^1.20.0
     country-list: ^2.2.0
     craco-alias: ^3.0.1
+    credit-card-type: ^9.1.0
     dayjs: ^1.11.0
     echarts: ^5.1.2
     echarts-for-react: ^3.0.1

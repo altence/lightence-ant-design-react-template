@@ -2,6 +2,7 @@ import React from 'react';
 import { useResponsive } from '@app/hooks/useResponsive';
 import { NftItem } from '@app/api/nftDashboard.api';
 import { formatNumberWithCommas, getCurrencyPrice } from '@app/utils/utils';
+import { CurrencyTypeEnum } from '@app/interfaces/interfaces';
 import * as S from './NftCard.styles';
 
 interface NftCardProps {
@@ -20,11 +21,13 @@ export const NftCard: React.FC<NftCardProps> = ({ nftItem }) => {
       <S.InfoFooter>
         <S.CurrentBidWrapper>
           <S.CurrentBid>Current Bid</S.CurrentBid>
-          <S.BidCrypto>{getCurrencyPrice(formatNumberWithCommas(nftItem.currentBidCrypto), 'ETH', false)}</S.BidCrypto>
+          <S.BidCrypto>
+            {getCurrencyPrice(formatNumberWithCommas(nftItem.currentBidCrypto), CurrencyTypeEnum.ETH, false)}
+          </S.BidCrypto>
         </S.CurrentBidWrapper>
 
         <S.CurrentBidWrapper>
-          <S.Bid>{getCurrencyPrice(formatNumberWithCommas(nftItem.currentBid), 'USD')}</S.Bid>
+          <S.Bid>{getCurrencyPrice(formatNumberWithCommas(nftItem.currentBid), CurrencyTypeEnum.USD)}</S.Bid>
         </S.CurrentBidWrapper>
       </S.InfoFooter>
     </>
@@ -34,12 +37,14 @@ export const NftCard: React.FC<NftCardProps> = ({ nftItem }) => {
     <>
       <S.InfoRow>
         <S.InfoText>@{nftItem.author}</S.InfoText>
-        <S.BidCrypto>{getCurrencyPrice(formatNumberWithCommas(nftItem.currentBidCrypto), 'ETH', false)}</S.BidCrypto>
+        <S.BidCrypto>
+          {getCurrencyPrice(formatNumberWithCommas(nftItem.currentBidCrypto), CurrencyTypeEnum.ETH, false)}
+        </S.BidCrypto>
       </S.InfoRow>
 
       <S.InfoRow>
         <S.CurrentBid>Current Bid</S.CurrentBid>
-        <S.Bid>{getCurrencyPrice(formatNumberWithCommas(nftItem.currentBid), 'USD')}</S.Bid>
+        <S.Bid>{getCurrencyPrice(formatNumberWithCommas(nftItem.currentBid), CurrencyTypeEnum.USD)}</S.Bid>
       </S.InfoRow>
     </>
   );

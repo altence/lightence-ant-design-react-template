@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import * as S from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentMethod/addNewCard/AddNewCardButton/AddNewCardButton.styles';
 import { AddNewCardModal } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentMethod/addNewCard/AddNewCardModal';
-import { CreditCard } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentMethod/paymentForm/interfaces';
 import { useTranslation } from 'react-i18next';
+import { PaymentCard } from '@app/interfaces/interfaces';
 
 interface AddNewCardButtonProps {
-  onCardAdd: (card: CreditCard) => void;
+  onCardAdd: (card: PaymentCard) => void;
 }
 export const AddNewCardButton: React.FC<AddNewCardButtonProps> = ({ onCardAdd }) => {
   const [isModalVisible, setModalVisible] = useState(false);
