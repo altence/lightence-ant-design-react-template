@@ -104,7 +104,7 @@ export const ControlForm: React.FC = () => {
           }}
         </S.UserList>
       </BaseButtonsForm>
-      <AddUserFormModal visible={visible} onCancel={hideUserModal} />
+      <AddUserFormModal open={visible} onCancel={hideUserModal} />
     </BaseButtonsForm.Provider>
   );
 };
