@@ -181,7 +181,7 @@ export const TrendingCreators: React.FC = () => {
 
       {isStoryOpened && (
         <S.StoriesModal
-          visible={isStoryOpened}
+          open={isStoryOpened}
           onCancel={() => {
             setStories((prevStories) =>
               prevStories.sort((a, b) => {

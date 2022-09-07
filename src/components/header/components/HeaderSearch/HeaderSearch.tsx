@@ -49,7 +49,7 @@ export const HeaderSearch: React.FC = () => {
             icon={<S.SearchIcon onClick={() => setModalVisible(true)} />}
           />
           <S.SearchModal
-            visible={isModalVisible}
+            open={isModalVisible}
             closable={false}
             footer={null}
             onCancel={() => setModalVisible(false)}
