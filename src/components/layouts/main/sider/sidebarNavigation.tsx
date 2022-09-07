@@ -11,9 +11,10 @@ import {
   BlockOutlined,
 } from '@ant-design/icons';
 import { ReactComponent as NftIcon } from '@app/assets/icons/nft-icon.svg';
+import { Link } from 'react-router-dom';
 
 export interface SidebarNavigationItem {
-  title: string;
+  label: React.ReactNode;
   key: string;
   url?: string;
   children?: SidebarNavigationItem[];
@@ -22,284 +23,426 @@ export interface SidebarNavigationItem {
 
 export const sidebarNavigation: SidebarNavigationItem[] = [
   {
-    title: 'common.nft-dashboard',
+    label: (
+      <Link to={'/'} rel={'Home page'}>
+        NFT Dashboard
+      </Link>
+    ),
     key: 'nft-dashboard',
     // TODO use path variable
-    url: '/',
     icon: <NftIcon />,
   },
   {
-    title: 'common.medical-dashboard',
+    label: (
+      <Link to={'/medical-dashboard'} rel={'medical dashboard'}>
+        Medical Dashboard
+      </Link>
+    ),
     key: 'medical-dashboard',
-    url: '/medical-dashboard',
     icon: <DashboardOutlined />,
   },
   {
-    title: 'common.apps',
+    label: 'Apps',
     key: 'apps',
     icon: <HomeOutlined />,
     children: [
       {
-        title: 'common.feed',
+        label: (
+          <Link to={'/apps/feed'} rel={'feed'}>
+            Feed
+          </Link>
+        ),
         key: 'feed',
-        url: '/apps/feed',
       },
       {
-        title: 'common.kanban',
+        label: (
+          <Link to={'/apps/kanban'} rel={'kanban'}>
+            Kanban
+          </Link>
+        ),
         key: 'kanban',
-        url: '/apps/kanban',
       },
     ],
   },
   {
-    title: 'common.authPages',
+    label: 'Auth Pages',
     key: 'auth',
     icon: <UserOutlined />,
     children: [
       {
-        title: 'common.login',
+        label: (
+          <Link to={'/auth/login'} rel={'login'}>
+            Login
+          </Link>
+        ),
         key: 'login',
-        url: '/auth/login',
       },
       {
-        title: 'common.signUp',
+        label: (
+          <Link to={'/auth/sign-up'} rel={'sign up'}>
+            Sign Up
+          </Link>
+        ),
         key: 'singUp',
-        url: '/auth/sign-up',
       },
       {
-        title: 'common.lock',
+        label: (
+          <Link to={'/auth/lock'} rel={'lock'}>
+            Lock
+          </Link>
+        ),
         key: 'lock',
-        url: '/auth/lock',
       },
       {
-        title: 'common.forgotPass',
+        label: (
+          <Link to={'/auth/forgot-password'} rel={'forgot password'}>
+            Forgot Password
+          </Link>
+        ),
         key: 'forgotPass',
-        url: '/auth/forgot-password',
       },
       {
-        title: 'common.securityCode',
+        label: (
+          <Link to={'/auth/security-code'} rel={'security code'}>
+            Security Code
+          </Link>
+        ),
         key: 'securityCode',
-        url: '/auth/security-code',
       },
       {
-        title: 'common.newPassword',
+        label: (
+          <Link to={'/auth/new-password'} rel={'new password'}>
+            New Password
+          </Link>
+        ),
         key: 'newPass',
-        url: '/auth/new-password',
       },
     ],
   },
   {
-    title: 'common.forms',
+    label: 'Forms',
     key: 'forms',
     icon: <FormOutlined />,
     children: [
       {
-        title: 'common.advancedForms',
+        label: (
+          <Link to={'/forms/advanced-forms'} rel={'advanced forms'}>
+            Advanced Forms
+          </Link>
+        ),
         key: 'advanced-forms',
-        url: '/forms/advanced-forms',
       },
     ],
   },
   {
-    title: 'common.dataTables',
+    label: (
+      <Link to={'/data-tables'} rel={'data tables'}>
+        Data Tables
+      </Link>
+    ),
     key: 'dataTables',
-    url: '/data-tables',
     icon: <TableOutlined />,
   },
   {
-    title: 'common.charts',
+    label: (
+      <Link to={'/charts'} rel={'charts'}>
+        Charts
+      </Link>
+    ),
     key: 'charts',
-    url: '/charts',
     icon: <LineChartOutlined />,
   },
   {
-    title: 'common.maps',
+    label: 'Maps',
     key: 'maps',
     icon: <CompassOutlined />,
     children: [
       {
-        title: 'common.googleMap',
+        label: (
+          <Link to={'/maps/google-maps'} rel={'google maps'}>
+            Google Maps
+          </Link>
+        ),
         key: 'google-maps',
-        url: '/maps/google-maps',
       },
       {
-        title: 'common.leafletMap',
+        label: (
+          <Link to={'/maps/leaflet-maps'} rel={'leaflet maps'}>
+            Leaflet Maps
+          </Link>
+        ),
         key: 'leaflet-maps',
-        url: '/maps/leaflet-maps',
       },
       {
-        title: 'common.reactSimpleMaps',
+        label: (
+          <Link to={'/maps/react-simple-maps'} rel={'react simple maps'}>
+            React Simple Maps
+          </Link>
+        ),
         key: 'react-simple-maps',
-        url: '/maps/react-simple-maps',
       },
       {
-        title: 'common.pigeonMaps',
+        label: (
+          <Link to={'/maps/pigeon-maps'} rel={'pigeon maps'}>
+            Pigeon Maps
+          </Link>
+        ),
         key: 'pigeon-maps',
-        url: '/maps/pigeon-maps',
       },
     ],
   },
   {
-    title: 'common.pages',
+    label: 'Pages',
     key: 'pages',
     icon: <LayoutOutlined />,
     children: [
       {
-        title: 'common.profilePage',
+        label: (
+          <Link to={'/profile'} rel={'profile page'}>
+            Profile Page
+          </Link>
+        ),
         key: 'profile',
-        url: '/profile',
       },
       {
-        title: 'common.serverError',
+        label: (
+          <Link to={'/server-error'} rel={'server error'}>
+            Server Error
+          </Link>
+        ),
         key: 'serverError',
-        url: '/server-error',
       },
       {
-        title: 'common.clientError',
+        label: (
+          <Link to={'/404'} rel={'client error'}>
+            Client Error
+          </Link>
+        ),
         key: '404Error',
         url: '/404',
       },
     ],
   },
   {
-    title: 'common.ui',
+    label: 'UI Components',
     key: 'ui',
     icon: <BlockOutlined />,
     children: [
       {
-        title: 'common.alert',
+        label: (
+          <Link to={'/ui-components/alert'} rel={'alert'}>
+            Alert
+          </Link>
+        ),
         key: 'alert',
-        url: '/ui-components/alert',
       },
       {
-        title: 'common.avatar',
+        label: (
+          <Link to={'/ui-components/avatar'} rel={'avatar'}>
+            Avatar
+          </Link>
+        ),
         key: 'avatar',
-        url: '/ui-components/avatar',
       },
       {
-        title: 'common.autocomplete',
+        label: (
+          <Link to={'/ui-components/auto-complete'} rel={'autocorrect'}>
+            AutoComplete
+          </Link>
+        ),
         key: 'auto-complete',
-        url: '/ui-components/auto-complete',
       },
       {
-        title: 'common.badge',
+        label: (
+          <Link to={'/ui-components/badge'} rel={'badge'}>
+            Badge
+          </Link>
+        ),
         key: 'badge',
-        url: '/ui-components/badge',
       },
       {
-        title: 'common.breadcrumbs',
+        label: (
+          <Link to={'/ui-components/breadcrumbs'} rel={'breadcrumbs'}>
+            Breadcrumbs
+          </Link>
+        ),
         key: 'breadcrumbs',
-        url: '/ui-components/breadcrumbs',
       },
       {
-        title: 'common.button',
+        label: (
+          <Link to={'/ui-components/button'} rel={'button'}>
+            Button
+          </Link>
+        ),
         key: 'button',
-        url: '/ui-components/button',
       },
       {
-        title: 'common.checkbox',
+        label: (
+          <Link to={'/ui-components/checkbox'} rel={'checkbox'}>
+            Checkbox
+          </Link>
+        ),
         key: 'checkbox',
-        url: '/ui-components/checkbox',
       },
       {
-        title: 'common.collapse',
+        label: (
+          <Link to={'/ui-components/collapse'} rel={'collapse'}>
+            Collapse
+          </Link>
+        ),
         key: 'collapse',
-        url: '/ui-components/collapse',
       },
       {
-        title: 'common.dateTimePicker',
+        label: (
+          <Link to={'/ui-components/date-time-picker'} rel={'datetime picker'}>
+            DateTime Picker
+          </Link>
+        ),
         key: 'dateTimePicker',
-        url: '/ui-components/date-time-picker',
       },
       {
-        title: 'common.dropdown',
+        label: (
+          <Link to={'/ui-components/dropdown'} rel={'dropdown'}>
+            Dropdown
+          </Link>
+        ),
         key: 'dropdown',
-        url: '/ui-components/dropdown',
       },
       {
-        title: 'common.input',
+        label: (
+          <Link to={'/ui-components/input'} rel={'input'}>
+            Input
+          </Link>
+        ),
         key: 'input',
-        url: '/ui-components/input',
       },
       {
-        title: 'common.modal',
+        label: (
+          <Link to={'/ui-components/modal'} rel={'modal'}>
+            Modal
+          </Link>
+        ),
         key: 'modal',
-        url: '/ui-components/modal',
       },
       {
-        title: 'common.notification',
+        label: (
+          <Link to={'/ui-components/notification'} rel={'notification'}>
+            Notification
+          </Link>
+        ),
         key: 'notification',
-        url: '/ui-components/notification',
       },
       {
-        title: 'common.pagination',
+        label: (
+          <Link to={'/ui-components/pagination'} rel={'pagination'}>
+            Pagination
+          </Link>
+        ),
         key: 'pagination',
-        url: '/ui-components/pagination',
       },
       {
-        title: 'common.popconfirm',
+        label: (
+          <Link to={'/ui-components/popconfirm'} rel={'popconfirm'}>
+            Popconfirm
+          </Link>
+        ),
         key: 'popconfirm',
-        url: '/ui-components/popconfirm',
       },
       {
-        title: 'common.popover',
+        label: (
+          <Link to={'/ui-components/popover'} rel={'popover'}>
+            Popover
+          </Link>
+        ),
         key: 'popover',
-        url: '/ui-components/popover',
       },
       {
-        title: 'common.progress',
+        label: (
+          <Link to={'/ui-components/progress'} rel={'progress'}>
+            Progress
+          </Link>
+        ),
         key: 'progress',
-        url: '/ui-components/progress',
       },
       {
-        title: 'common.radio',
+        label: (
+          <Link to={'/ui-components/radio'} rel={'radio'}>
+            Radio
+          </Link>
+        ),
         key: 'radio',
-        url: '/ui-components/radio',
       },
       {
-        title: 'common.rate',
+        label: (
+          <Link to={'/ui-components/rate'} rel={'rate'}>
+            Rate
+          </Link>
+        ),
         key: 'rate',
-        url: '/ui-components/rate',
       },
       {
-        title: 'common.result',
+        label: (
+          <Link to={'/ui-components/result'} rel={'result'}>
+            Result
+          </Link>
+        ),
         key: 'result',
-        url: '/ui-components/result',
       },
       {
-        title: 'common.select',
+        label: (
+          <Link to={'/ui-components/select'} rel={'select'}>
+            Select
+          </Link>
+        ),
         key: 'select',
-        url: '/ui-components/select',
       },
       {
-        title: 'common.skeleton',
+        label: (
+          <Link to={'/ui-components/skeleton'} rel={'skeleton'}>
+            Skeleton
+          </Link>
+        ),
         key: 'skeleton',
-        url: '/ui-components/skeleton',
       },
       {
-        title: 'common.spinner',
+        label: (
+          <Link to={'/ui-components/spinner'} rel={'spinner'}>
+            Spinner
+          </Link>
+        ),
         key: 'spinner',
-        url: '/ui-components/spinner',
       },
       {
-        title: 'common.steps',
+        label: (
+          <Link to={'/ui-components/steps'} rel={'steps'}>
+            Steps
+          </Link>
+        ),
         key: 'steps',
-        url: '/ui-components/steps',
       },
       {
-        title: 'common.switch',
+        label: (
+          <Link to={'/ui-components/switch'} rel={'switch'}>
+            Switch
+          </Link>
+        ),
         key: 'switch',
-        url: '/ui-components/switch',
       },
       {
-        title: 'common.tabs',
+        label: (
+          <Link to={'/ui-components/tabs'} rel={'tabs'}>
+            Tabs
+          </Link>
+        ),
         key: 'tabs',
-        url: '/ui-components/tabs',
       },
       {
-        title: 'common.upload',
+        label: (
+          <Link to={'/ui-components/upload'} rel={'upload'}>
+            Upload
+          </Link>
+        ),
         key: 'upload',
-        url: '/ui-components/upload',
       },
     ],
   },
