@@ -28,7 +28,7 @@ export const RecentActivityHeader: React.FC<RecentActivityHeaderProps> = ({ filt
       </NFTCardHeader>
 
       {!isDesktop && (
-        <Modal visible={isModalVisible} onCancel={() => setModalVisible(false)} footer={null}>
+        <Modal open={isModalVisible} onCancel={() => setModalVisible(false)} footer={null}>
           <RecentActivityFilter filters={filters} setFilters={setFilters} />
         </Modal>
       )}

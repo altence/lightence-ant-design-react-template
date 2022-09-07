@@ -25,7 +25,7 @@ export const AddUserFormModal: React.FC<AddUserFormModalProps> = ({ visible, onC
   };
 
   return (
-    <Modal title={t('forms.controlFormLabels.newUser')} visible={visible} onOk={onOk} onCancel={onCancel}>
+    <Modal title={t('forms.controlFormLabels.newUser')} open={visible} onOk={onOk} onCancel={onCancel}>
       <BaseForm form={form} layout="vertical" name="userForm">
         <BaseForm.Item
           name="name"
