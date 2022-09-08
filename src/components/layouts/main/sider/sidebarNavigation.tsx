@@ -16,7 +16,6 @@ import { Link } from 'react-router-dom';
 export interface SidebarNavigationItem {
   label: React.ReactNode;
   key: string;
-  url?: string;
   children?: SidebarNavigationItem[];
   icon?: React.ReactNode;
 }
