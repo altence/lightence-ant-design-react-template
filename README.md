@@ -65,12 +65,6 @@ yarn install && yarn build --stats
 
 And then use the [webpack-bundle-analyzer](https://www.npmjs.com/package/webpack-bundle-analyzer) to open _build/bundle-stats.json_.
 
-#### How to build your project based on Lightence
-
-```
-git clone -b starter https://github.com/altence/lightence-admin.git my-awesome-project && cd my-awesome-project
-```
-And you will see a demos-free template.
 
 ### Where to get help
 [<img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white">](mailto:lightence.admin@altence.com)
