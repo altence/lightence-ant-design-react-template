@@ -1,16 +1,16 @@
 import { useEffect, useRef } from 'react';
 import { FormInstance } from 'antd';
 
-export const useResetFormOnCloseModal = ({ form, visible }: { form: FormInstance; visible: boolean }): void => {
-  const prevVisibleRef = useRef<boolean>();
+export const useResetFormOnCloseModal = ({ form, open }: { form: FormInstance; open: boolean }): void => {
+  const prevOpenRef = useRef<boolean>();
   useEffect(() => {
-    prevVisibleRef.current = visible;
-  }, [visible]);
-  const prevVisible = prevVisibleRef.current;
+    prevOpenRef.current = open;
+  }, [open]);
+  const prevOpen = prevOpenRef.current;
 
   useEffect(() => {
-    if (!visible && prevVisible) {
+    if (!open && prevOpen) {
       form.resetFields();
     }
-  }, [visible, form, prevVisible]);
+  }, [open, form, prevOpen]);
 };
