@@ -7,17 +7,17 @@ import { InputNumber } from '@app/components/common/inputs/InputNumber/InputNumb
 import { useResetFormOnCloseModal } from './useResetFormOnCloseModal';
 
 interface AddUserFormModalProps {
-  visible: boolean;
+  open: boolean;
   onCancel: () => void;
 }
 
-export const AddUserFormModal: React.FC<AddUserFormModalProps> = ({ visible, onCancel }) => {
+export const AddUserFormModal: React.FC<AddUserFormModalProps> = ({ open, onCancel }) => {
   const [form] = BaseForm.useForm();
   const { t } = useTranslation();
 
   useResetFormOnCloseModal({
     form,
-    visible,
+    open,
   });
 
   const onOk = () => {
@@ -25,7 +25,7 @@ export const AddUserFormModal: React.FC<AddUserFormModalProps> = ({ visible, onC
   };
 
   return (
-    <Modal title={t('forms.controlFormLabels.newUser')} open={visible} onOk={onOk} onCancel={onCancel}>
+    <Modal title={t('forms.controlFormLabels.newUser')} open={open} onOk={onOk} onCancel={onCancel}>
       <BaseForm form={form} layout="vertical" name="userForm">
         <BaseForm.Item
           name="name"
