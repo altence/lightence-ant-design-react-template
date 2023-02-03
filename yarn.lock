@@ -4459,15 +4459,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-phone-number-input@npm:^3.0.13":
-  version: 3.0.14
-  resolution: "@types/react-phone-number-input@npm:3.0.14"
-  dependencies:
-    "@types/react": "*"
-  checksum: 1463cea461cd63bd9c13b22a4d2f8f3a5eaf3602c7b74e3b4699d5adf4f11ae9da609d68bf04cc1d698184500498f5a1b67487fa1b0b098c603ab7a9a11963d6
-  languageName: node
-  linkType: hard
-
 "@types/react-redux@npm:^7.1.20":
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -14631,7 +14622,6 @@ __metadata:
     "@types/react": ^17.0.43
     "@types/react-dom": ^17.0.14
     "@types/react-helmet": ^6.1.5
-    "@types/react-phone-number-input": ^3.0.13
     "@types/react-responsive": ^8.0.2
     "@types/react-router-dom": ^5.1.7
     "@types/react-router-hash-link": ^2.4.4
@@ -14675,7 +14665,7 @@ __metadata:
     react-infinite-scroll-component: ^6.1.0
     react-insta-stories: ^2.3.0
     react-leaflet: next
-    react-phone-number-input: ^3.1.27
+    react-phone-number-input: ^3.2.17
     react-redux: ^7.2.6
     react-responsive: ^8.2.0
     react-router-dom: ^6.0.2
@@ -19771,6 +19761,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "react-phone-number-input@npm:^3.1.27":
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -19800,6 +19791,9 @@ __metadata:
   resolution: "react-phone-number-input@npm:3.2.11"
 >>>>>>> 217c233f (fix(slider): fixes due to new version)
 =======
+=======
+"react-phone-number-input@npm:^3.2.17":
+>>>>>>> 09c40674 (fix(phone-item): fix error)
   version: 3.2.17
   resolution: "react-phone-number-input@npm:3.2.17"
 >>>>>>> a8e5f480 (refactor(app): remove typescript errors)
