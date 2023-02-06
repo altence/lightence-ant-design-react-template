@@ -7,10 +7,7 @@ React-powered **100% FREE** Admin Dashboard Template for building rich user inte
 </p>
 
 ### Demo
-Check out a [live demo](https://altence.com/lightence-admin-demo).
-
-### Landing
-Take a look at our [landing](https://altence.com/lightence-landing).
+Check out a [live demo](https://altence.com/lightence-landing).
 
 ## Key Features
 - 🚀 This solution allows you to reduce MVP development costs by up to 40%
