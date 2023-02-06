@@ -7,7 +7,6 @@ React-powered **100% FREE** Admin Dashboard Template for building rich user inte
 </p>
 
 ### Demo
-
 Check out a [live demo](https://altence.com/lightence-admin-demo).
 
 ### Landing
