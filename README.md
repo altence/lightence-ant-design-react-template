@@ -6,6 +6,13 @@ React-powered **100% FREE** Admin Dashboard Template for building rich user inte
     <img src="./public/Lightence-screenshot.png" alt="Lightence Admin Template">
 </p>
 
+### Demo
+
+Check out a [live demo](https://altence.com/lightence-admin-demo).
+
+### Landing
+Take a look at our [landing](https://altence.com/lightence-landing).
+
 ## Key Features
 - 🚀 This solution allows you to reduce MVP development costs by up to 40%
 - 🐜 Lightence admin dashboard template is based on a rich library powered by [Ant Design](https://ant.design/)
@@ -30,10 +37,6 @@ React-powered **100% FREE** Admin Dashboard Template for building rich user inte
 - ✅ Clean code: enjoy the world-recognized code style with our own enhancements
 - 🧱 Solid architecture: in compliance with the  best architectural practices
 - 📃 [MIT](LICENSE) License
-
-### Demo
-
-Check out a [live demo](https://altence.com/lightence-admin-demo).
 
 ### Installation
 
