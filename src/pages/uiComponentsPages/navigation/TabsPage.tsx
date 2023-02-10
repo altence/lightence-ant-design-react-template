@@ -3,7 +3,7 @@ import { Col, Space } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { AppleOutlined, AndroidOutlined } from '@ant-design/icons';
 import { RadioGroup, RadioButton, RadioChangeEvent } from '@app/components/common/Radio/Radio';
-import { Tabs, TabPane } from '@app/components/common/Tabs/Tabs';
+import { Tabs } from '@app/components/common/Tabs/Tabs';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
 
@@ -20,56 +20,76 @@ const TabsPage: React.FC = () => {
       <PageTitle>{t('common.tabs')}</PageTitle>
       <Col>
         <S.Card title={t('tabs.basic')}>
-          <Tabs defaultActiveKey="1">
-            <TabPane tab={`${t('tabs.tab')} 1`} key="1">
-              {t('tabs.tabContent')} 1
-            </TabPane>
-            <TabPane tab={`${t('tabs.tab')} 2`} key="2">
-              {t('tabs.tabContent')} 2
-            </TabPane>
-            <TabPane tab={`${t('tabs.tab')} 3`} key="3">
-              {t('tabs.tabContent')} 3
-            </TabPane>
-          </Tabs>
+          <Tabs
+            defaultActiveKey="1"
+            items={[
+              {
+                key: '1',
+                label: `${t('tabs.tab')} 1`,
+                children: `${t('tabs.tabContent')} 1`,
+              },
+              {
+                key: '2',
+                label: `${t('tabs.tab')} 2`,
+                children: `${t('tabs.tabContent')} 2`,
+              },
+              {
+                key: '3',
+                label: `${t('tabs.tab')} 3`,
+                children: `${t('tabs.tabContent')} 3`,
+              },
+            ]}
+          />
         </S.Card>
         <S.Card title={t('tabs.disabled')}>
-          <Tabs defaultActiveKey="1">
-            <TabPane tab={`${t('tabs.tab')} 1`} key="1">
-              {t('tabs.tabContent')} 1
-            </TabPane>
-            <TabPane tab={`${t('tabs.tab')} 2`} disabled key="2">
-              {t('tabs.tabContent')} 2
-            </TabPane>
-            <TabPane tab={`${t('tabs.tab')} 3`} key="3">
-              {t('tabs.tabContent')} 3
-            </TabPane>
-          </Tabs>
+          <Tabs
+            defaultActiveKey="1"
+            items={[
+              {
+                key: '1',
+                label: `${t('tabs.tab')} 1`,
+                children: `${t('tabs.tabContent')} 1`,
+              },
+              {
+                key: '2',
+                label: `${t('tabs.tab')} 2`,
+                children: `${t('tabs.tabContent')} 2`,
+                disabled: true,
+              },
+              {
+                key: '3',
+                label: `${t('tabs.tab')} 3`,
+                children: `${t('tabs.tabContent')} 3`,
+              },
+            ]}
+          />
         </S.Card>
         <S.Card title={t('tabs.withIcon')}>
-          <Tabs defaultActiveKey="2">
-            <TabPane
-              tab={
-                <span>
-                  <AppleOutlined />
-                  {t('tabs.tab')} 1
-                </span>
-              }
-              key="1"
-            >
-              {t('tabs.tabContent')} 1
-            </TabPane>
-            <TabPane
-              tab={
-                <span>
-                  <AndroidOutlined />
-                  {t('tabs.tab')} 2
-                </span>
-              }
-              key="2"
-            >
-              {t('tabs.tabContent')} 2
-            </TabPane>
-          </Tabs>
+          <Tabs
+            defaultActiveKey="2"
+            items={[
+              {
+                key: '1',
+                label: (
+                  <span>
+                    <AppleOutlined />
+                    {t('tabs.tab')} 1
+                  </span>
+                ),
+                children: `${t('tabs.tabContent')} 1`,
+              },
+              {
+                key: '2',
+                label: (
+                  <span>
+                    <AndroidOutlined />
+                    {t('tabs.tab')} 2
+                  </span>
+                ),
+                children: `${t('tabs.tabContent')} 2`,
+              },
+            ]}
+          />
         </S.Card>
         <S.Card title={t('tabs.positions')}>
           <Space direction="vertical" size={20}>
@@ -82,17 +102,26 @@ const TabsPage: React.FC = () => {
                 <RadioButton value="right">{t('tabs.right')}</RadioButton>
               </RadioGroup>
             </Space>
-            <Tabs tabPosition={tabPosition}>
-              <TabPane tab={`${t('tabs.tab')} 1`} key="1">
-                {t('tabs.tabContent')} 1
-              </TabPane>
-              <TabPane tab={`${t('tabs.tab')} 2`} key="2">
-                {t('tabs.tabContent')} 2
-              </TabPane>
-              <TabPane tab={`${t('tabs.tab')} 3`} key="3">
-                {t('tabs.tabContent')} 3
-              </TabPane>
-            </Tabs>
+            <Tabs
+              tabPosition={tabPosition}
+              items={[
+                {
+                  key: '1',
+                  label: `${t('tabs.tab')} 1`,
+                  children: `${t('tabs.tabContent')} 1`,
+                },
+                {
+                  key: '2',
+                  label: `${t('tabs.tab')} 2`,
+                  children: `${t('tabs.tabContent')} 2`,
+                },
+                {
+                  key: '3',
+                  label: `${t('tabs.tab')} 3`,
+                  children: `${t('tabs.tabContent')} 3`,
+                },
+              ]}
+            />
           </Space>
         </S.Card>
       </Col>

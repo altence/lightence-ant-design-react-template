@@ -8,10 +8,10 @@ interface AddNewCardButtonProps {
   onCardAdd: (card: PaymentCard) => void;
 }
 export const AddNewCardButton: React.FC<AddNewCardButtonProps> = ({ onCardAdd }) => {
-  const [isModalVisible, setModalVisible] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
 
-  const openModal = () => setModalVisible(true);
-  const closeModal = () => setModalVisible(false);
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
 
   const { t } = useTranslation();
 
@@ -20,7 +20,7 @@ export const AddNewCardButton: React.FC<AddNewCardButtonProps> = ({ onCardAdd })
       <S.AddBtn type="ghost" onClick={openModal}>
         {t('profile.nav.payments.addNewCard')}
       </S.AddBtn>
-      <AddNewCardModal isModalVisible={isModalVisible} closeModal={closeModal} onCardAdd={onCardAdd} />
+      <AddNewCardModal isModalOpen={isModalOpen} closeModal={closeModal} onCardAdd={onCardAdd} />
     </>
   );
 };

@@ -13,7 +13,7 @@ interface ScreeningsFriendProps {
   isPrimary: boolean;
   isSecondary: boolean;
   onClick?: () => void;
-  isVisibleMenu: boolean;
+  isMenuOpen: boolean;
 }
 
 export const ScreeningsFriend: React.FC<ScreeningsFriendProps> = ({
@@ -24,7 +24,7 @@ export const ScreeningsFriend: React.FC<ScreeningsFriendProps> = ({
   isPrimary,
   isSecondary,
   onClick,
-  isVisibleMenu,
+  isMenuOpen,
 }) => {
   const isDowngrade = value < prevValue;
 
@@ -33,7 +33,7 @@ export const ScreeningsFriend: React.FC<ScreeningsFriendProps> = ({
   return (
     <S.ScreeningsRow
       onClick={onClick}
-      justify={isVisibleMenu ? 'space-between' : 'center'}
+      justify={isMenuOpen ? 'space-between' : 'center'}
       $isActive={isPrimary || isSecondary}
       wrap={false}
     >
@@ -50,7 +50,7 @@ export const ScreeningsFriend: React.FC<ScreeningsFriendProps> = ({
             />
           </Col>
 
-          {isTabletOrHigher && isVisibleMenu && (
+          {isTabletOrHigher && isMenuOpen && (
             <Col>
               <S.Name $isPrimary={isPrimary} $isSecondary={isSecondary}>
                 {name}
@@ -60,7 +60,7 @@ export const ScreeningsFriend: React.FC<ScreeningsFriendProps> = ({
         </Row>
       </Col>
 
-      {isTabletOrHigher && isVisibleMenu && (
+      {isTabletOrHigher && isMenuOpen && (
         <Col>
           <S.Percentage $isDowngrade={isDowngrade}>
             <Space size={0}>

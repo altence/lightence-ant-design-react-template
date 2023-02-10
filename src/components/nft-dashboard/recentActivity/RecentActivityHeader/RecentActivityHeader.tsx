@@ -14,7 +14,7 @@ interface RecentActivityHeaderProps {
 }
 
 export const RecentActivityHeader: React.FC<RecentActivityHeaderProps> = ({ filters, setFilters }) => {
-  const [isModalVisible, setModalVisible] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
 
   const { t } = useTranslation();
   const { isDesktop } = useResponsive();
@@ -23,12 +23,12 @@ export const RecentActivityHeader: React.FC<RecentActivityHeaderProps> = ({ filt
     <>
       <NFTCardHeader title={t('nft.recentActivity')}>
         {!isDesktop && (
-          <Button size="large" noStyle type="text" icon={<FilterIcon />} onClick={() => setModalVisible(true)} />
+          <Button size="large" noStyle type="text" icon={<FilterIcon />} onClick={() => setModalOpen(true)} />
         )}
       </NFTCardHeader>
 
       {!isDesktop && (
-        <Modal open={isModalVisible} onCancel={() => setModalVisible(false)} footer={null}>
+        <Modal open={isModalOpen} onCancel={() => setModalOpen(false)} footer={null}>
           <RecentActivityFilter filters={filters} setFilters={setFilters} />
         </Modal>
       )}

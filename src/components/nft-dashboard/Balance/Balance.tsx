@@ -21,7 +21,7 @@ export const Balance: React.FC = () => {
 
   const [cards, setCards] = useState<PaymentCard[]>([]);
   const [loading, setLoading] = useState(false);
-  const [isModalVisible, setModalVisible] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
 
   const userId = useAppSelector((state) => state.user.user?.id);
 
@@ -40,14 +40,14 @@ export const Balance: React.FC = () => {
 
   const { t } = useTranslation();
 
-  const handleModal = () => setModalVisible((visible) => !visible);
+  const handleModal = () => setModalOpen((open) => !open);
 
   const onFinish = (values: TopUpData) => {
     setLoading(true);
     setTimeout(() => {
       setBalance((balance) => ({ ...balance, [values.currency]: balance[values.currency] + values.amount }));
       setLoading(false);
-      setModalVisible(false);
+      setModalOpen(false);
     }, 1000);
   };
 
@@ -92,8 +92,8 @@ export const Balance: React.FC = () => {
               <TopUpBalanceModal
                 cards={cards}
                 loading={loading}
-                isVisible={isModalVisible}
-                onVisibleChange={handleModal}
+                isOpen={isModalOpen}
+                onOpenChange={handleModal}
                 onFinish={onFinish}
               />
             </Col>

@@ -5,7 +5,7 @@ import * as S from './InputPassword.styles';
 interface InputPasswordProps extends AntInputProps {
   className?: string;
   visibilityToggle?: boolean;
-  iconRender?: (visible: boolean) => React.ReactNode;
+  iconRender?: (open: boolean) => React.ReactNode;
 }
 
 export const InputPassword = React.forwardRef<InputRef, InputPasswordProps>(

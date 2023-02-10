@@ -125,13 +125,15 @@ export const StepForm: React.FC = () => {
         setFields(uniqueData);
       }}
     >
-      <Steps labelPlacement="vertical" size="small" current={current}>
-        {steps.map((item) => (
-          <Steps.Step key={item.title} title={item.title} description="" />
-        ))}
-      </Steps>
+      <Steps labelPlacement="vertical" size="small" current={current} items={steps} />
+
       <div>{formFieldsUi[current]}</div>
-      <div>
+      <S.Row>
+        {current > 0 && (
+          <S.PrevButton type="default" onClick={() => prev()}>
+            {t('forms.stepFormLabels.previous')}
+          </S.PrevButton>
+        )}
         {current < steps.length - 1 && (
           <Button type="primary" onClick={() => next()}>
             {t('forms.stepFormLabels.next')}
@@ -142,12 +144,7 @@ export const StepForm: React.FC = () => {
             {t('forms.stepFormLabels.done')}
           </Button>
         )}
-        {current > 0 && (
-          <S.PrevButton type="default" onClick={() => prev()}>
-            {t('forms.stepFormLabels.previous')}
-          </S.PrevButton>
-        )}
-      </div>
+      </S.Row>
     </BaseForm>
   );
 };

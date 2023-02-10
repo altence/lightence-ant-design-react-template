@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import { DropdownMenu } from '@app/components/header/Header.styles';
 import { Radio } from 'antd';
 
-export const SettingsOverlayMenu = styled(DropdownMenu)`
+export const SettingsOverlayMenu = styled.div`
   width: 13rem;
 `;
 

@@ -1,20 +1,18 @@
 import axios from 'axios';
 
-export interface CoronaData {
-  updated_at: string;
-  date: string;
-  deaths: number;
-  confirmed: number;
-  recovered: number;
-  new_confirmed: number;
-  new_recovered: number;
-  new_deaths: number;
-  active: number;
+interface Data {
+  [key: string]: number;
 }
 
-export const getCovidData = async (): Promise<{ data: CoronaData[] } | undefined> => {
+export interface CoronaData {
+  cases: Data;
+  deaths: Data;
+  recovered: Data;
+}
+
+export const getCovidData = async (): Promise<CoronaData | undefined> => {
   try {
-    const response = await axios.get<{ data: CoronaData[] }>('https://corona-api.com/timeline');
+    const response = await axios.get<CoronaData>('https://disease.sh/v3/covid-19/historical/all?lastdays=all');
 
     return response.data;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

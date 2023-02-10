@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Dropdown } from '@app/components/common/Dropdown/Dropdown';
 import { Participant as IParticipant } from '../../interfaces';
@@ -16,44 +16,44 @@ export const ParticipantsDropdown: React.FC<ParticipantsDropdownProps> = ({
   setSelectedParticipants,
 }) => {
   const { t } = useTranslation();
-  const kanbanPeopleData = Object.values(kanbanPeople);
-  const selectedParticipantsIds = selectedParticipants.map((item) => item.id);
+  const kanbanPeopleData = useMemo(() => Object.values(kanbanPeople), []);
+  const selectedParticipantsIds = useMemo(() => selectedParticipants.map((item) => item.id), [selectedParticipants]);
 
-  const onPeopleClick = (tag: IParticipant) => {
-    const isExist = selectedParticipantsIds.includes(tag.id);
+  const onPeopleClick = useCallback(
+    (tag: IParticipant) => {
+      const isExist = selectedParticipantsIds.includes(tag.id);
 
-    if (isExist) {
-      setSelectedParticipants(selectedParticipants.filter((item) => item.id !== tag.id));
-    } else {
-      setSelectedParticipants([...selectedParticipants, tag]);
-    }
-  };
+      if (isExist) {
+        setSelectedParticipants(selectedParticipants.filter((item) => item.id !== tag.id));
+      } else {
+        setSelectedParticipants([...selectedParticipants, tag]);
+      }
+    },
+    [selectedParticipantsIds, selectedParticipants, setSelectedParticipants],
+  );
+
+  const items = useMemo(
+    () =>
+      kanbanPeopleData.map((participant: IParticipant, i) => ({
+        key: `${i + 1}`,
+        label: (
+          <S.ParticipantRow
+            onClick={(e) => {
+              onPeopleClick(participant);
+              e.stopPropagation();
+            }}
+          >
+            <S.PopoverCheckbox checked={selectedParticipantsIds.includes(participant.id)} />
+            <S.ParticipantAvatar src={participant.avatar ? participant.avatar : StubAvatar} />
+            <S.ParticipantName>{participant.name}</S.ParticipantName>
+          </S.ParticipantRow>
+        ),
+      })),
+    [kanbanPeopleData, onPeopleClick, selectedParticipantsIds],
+  );
 
   return (
-    <Dropdown
-      placement="bottomCenter"
-      trigger={['click']}
-      overlay={
-        <S.EditParticipantPopover>
-          {kanbanPeopleData.map((participant: IParticipant) => (
-            <S.ParticipantRow
-              key={participant.id}
-              onClick={(e) => {
-                onPeopleClick(participant);
-                e.stopPropagation();
-              }}
-            >
-              <S.PopoverCheckbox checked={selectedParticipantsIds.includes(participant.id)} />
-              <S.ParticipantAvatar src={participant.avatar ? participant.avatar : StubAvatar} />
-              <S.ParticipantName>{participant.name}</S.ParticipantName>
-            </S.ParticipantRow>
-          ))}
-          <S.RemoveParticipantWrapper>
-            <S.ClosePopover />
-          </S.RemoveParticipantWrapper>
-        </S.EditParticipantPopover>
-      }
-    >
+    <Dropdown placement="bottom" trigger={['click']} menu={{ items }}>
       {selectedParticipants && selectedParticipants.length > 0 ? (
         <S.ParticipantsWrapper>
           {selectedParticipants.map((participant) => (

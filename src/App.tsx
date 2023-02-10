@@ -1,5 +1,6 @@
 import React from 'react';
 import { ConfigProvider } from 'antd';
+import { HelmetProvider } from 'react-helmet-async';
 import deDe from 'antd/lib/locale/de_DE';
 import enUS from 'antd/lib/locale/en_US';
 import GlobalStyle from './styles/GlobalStyle';
@@ -27,9 +28,11 @@ const App: React.FC = () => {
     <>
       <meta name="theme-color" content={themeObject[theme].primary} />
       <GlobalStyle />
-      <ConfigProvider locale={language === 'en' ? enUS : deDe}>
-        <AppRouter />
-      </ConfigProvider>
+      <HelmetProvider>
+        <ConfigProvider locale={language === 'en' ? enUS : deDe}>
+          <AppRouter />
+        </ConfigProvider>
+      </HelmetProvider>
     </>
   );
 };

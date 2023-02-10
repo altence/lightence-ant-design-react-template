@@ -360,7 +360,7 @@
   },
   "dropdowns": {
     "basic": "Basic dropdown",
-    "bc": "bottomCenter",
+    "b": "bottom",
     "bl": "bottomLeft",
     "br": "bottomRight",
     "clickable": "Clickable dropdown",
@@ -373,7 +373,7 @@
     "positions": "Dropdown positions",
     "rightClick": "Right Click on here",
     "secondItem": "2nd menu item",
-    "tc": "topCenter",
+    "t": "top",
     "thirdItem": "3rd menu item",
     "tl": "topLeft",
     "tr": "topRight"

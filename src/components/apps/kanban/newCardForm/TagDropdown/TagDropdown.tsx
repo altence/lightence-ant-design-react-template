@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Dropdown } from '@app/components/common/Dropdown/Dropdown';
 import { Tag as ITag } from '../../interfaces';
@@ -15,42 +15,44 @@ interface TagDropdownProps {
 export const TagDropdown: React.FC<TagDropdownProps> = ({ selectedTags, setSelectedTags }) => {
   const { t } = useTranslation();
 
-  const kanbanTagData = Object.values(kanbanTags);
-  const selectedTagsIds = selectedTags.map((item) => item.id);
+  const kanbanTagData = useMemo(() => Object.values(kanbanTags), []);
+  const selectedTagsIds = useMemo(() => selectedTags.map((item) => item.id), [selectedTags]);
 
-  const onTagClick = (tag: ITag) => {
-    const isExist = selectedTagsIds.includes(tag.id);
+  const onTagClick = useCallback(
+    (tag: ITag) => {
+      const isExist = selectedTagsIds.includes(tag.id);
 
-    if (isExist) {
-      setSelectedTags(selectedTags.filter((item) => item.id !== tag.id));
-    } else {
-      setSelectedTags([...selectedTags, tag]);
-    }
-  };
+      if (isExist) {
+        setSelectedTags(selectedTags.filter((item) => item.id !== tag.id));
+      } else {
+        setSelectedTags([...selectedTags, tag]);
+      }
+    },
+    [selectedTags, selectedTagsIds, setSelectedTags],
+  );
+
+  const items = useMemo(
+    () =>
+      kanbanTagData.map((tag, i) => ({
+        key: `${i + 1}`,
+        label: (
+          <S.EditTagPopoverLine
+            key={tag.id}
+            onClick={(e) => {
+              onTagClick(tag);
+              e.stopPropagation();
+            }}
+          >
+            <S.PopoverCheckbox checked={selectedTagsIds.includes(tag.id)} />
+            <S.TagWrapper backgroundColor={tag.bgColor}>#{tag.title}</S.TagWrapper>
+          </S.EditTagPopoverLine>
+        ),
+      })),
+    [kanbanTagData, onTagClick, selectedTagsIds],
+  );
 
   return (
-    <Dropdown
-      trigger={['click']}
-      overlay={
-        <S.EditTagPopover>
-          {kanbanTagData.map((tag: ITag) => (
-            <S.EditTagPopoverLine
-              key={tag.id}
-              onClick={(e) => {
-                onTagClick(tag);
-                e.stopPropagation();
-              }}
-            >
-              <S.PopoverCheckbox checked={selectedTagsIds.includes(tag.id)} />
-              <S.TagWrapper backgroundColor={tag.bgColor}>#{tag.title}</S.TagWrapper>
-            </S.EditTagPopoverLine>
-          ))}
-          <S.RemoveTagWrapper>
-            <S.RemoveTag />
-          </S.RemoveTagWrapper>
-        </S.EditTagPopover>
-      }
-    >
+    <Dropdown trigger={['click']} menu={{ items }}>
       {selectedTags && selectedTags.length > 0 ? (
         <S.TagsWrapper>
           {selectedTags.map((tag) => (

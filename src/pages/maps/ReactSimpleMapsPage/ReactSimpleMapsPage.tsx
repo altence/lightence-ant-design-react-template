@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import { MapsCard } from '@app/pages/maps/maps.styles';
 
-const geoUrl = 'https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json';
+const geoUrl = 'https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json';
 
 const markers = [
   {
@@ -44,16 +44,14 @@ const ReactSimpleMaps: React.FC = () => {
         >
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
-              geographies
-                .filter((d) => d.properties.REGION_UN === 'Americas')
-                .map((geo) => (
-                  <Geography
-                    key={geo.rsmKey}
-                    geography={geo}
-                    fill={'var(--secondary-background-color)'}
-                    stroke={'var(--primary-color)'}
-                  />
-                ))
+              geographies.map((geo) => (
+                <Geography
+                  key={geo.rsmKey}
+                  geography={geo}
+                  fill={'var(--secondary-background-color)'}
+                  stroke={'var(--primary-color)'}
+                />
+              ))
             }
           </Geographies>
           {markers.map(({ name, coordinates, markerOffset }) => (

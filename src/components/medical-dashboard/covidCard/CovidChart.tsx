@@ -59,7 +59,7 @@ export const CovidChart: React.FC<{
         gridIndex: 1,
         type: 'value',
         inverse: true,
-        max: 20000,
+        max: 250000,
       },
     ],
     series: [

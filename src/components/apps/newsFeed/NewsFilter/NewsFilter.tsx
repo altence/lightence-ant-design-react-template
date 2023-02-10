@@ -52,6 +52,26 @@ const Filter: React.FC<Filter> = ({
     onReset();
   };
 
+  const items = useMemo(
+    () =>
+      newsTagData.map((tag, i) => ({
+        key: `${i + 1}`,
+        label: (
+          <S.TagPopoverLine
+            key={tag.id}
+            onClick={(e) => {
+              onTagClick(tag);
+              e.stopPropagation();
+            }}
+          >
+            <S.PopoverCheckbox checked={selectedTagsIds.includes(tag.id)} />
+            <Tag title={tag.title} bgColor={tag.bgColor} />
+          </S.TagPopoverLine>
+        ),
+      })),
+    [newsTagData, onTagClick, selectedTagsIds],
+  );
+
   return (
     <S.FilterWrapper>
       {!mobileOnly && <S.FilterTitle>{t('newsFeed.filter')}</S.FilterTitle>}
@@ -74,29 +94,7 @@ const Filter: React.FC<Filter> = ({
         />
       </S.InputWrapper>
 
-      <Dropdown
-        placement="bottomCenter"
-        trigger={['click']}
-        overlay={
-          <S.TagPopover>
-            {newsTagData.map((tag: ITag) => (
-              <S.TagPopoverLine
-                key={tag.id}
-                onClick={(e) => {
-                  onTagClick(tag);
-                  e.stopPropagation();
-                }}
-              >
-                <S.PopoverCheckbox checked={selectedTagsIds.includes(tag.id)} />
-                <Tag title={tag.title} bgColor={tag.bgColor} />
-              </S.TagPopoverLine>
-            ))}
-            <S.ClosePopoverWrapper>
-              <S.ClosePopover />
-            </S.ClosePopoverWrapper>
-          </S.TagPopover>
-        }
-      >
+      <Dropdown placement="bottom" trigger={['click']} menu={{ items }}>
         <S.AddTagWrapper>
           <S.PlusIcon />
           <S.AddTagText>{t('newsFeed.tag')}</S.AddTagText>
@@ -117,7 +115,7 @@ const Filter: React.FC<Filter> = ({
       </S.DateLabels>
 
       <S.RangePicker
-        dropdownClassName="range-picker"
+        popupClassName="range-picker"
         value={dates}
         onChange={(dates: RangeValue<AppDate>) =>
           updateFilteredField('dates', [dates?.length ? dates[0] : null, dates?.length ? dates[1] : null])
@@ -148,7 +146,7 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
   });
   const { author, title, selectedTags, dates } = filterFields;
   const [filteredNews, setFilteredNews] = useState<Post[]>(news);
-  const [overlayVisible, setOverlayVisible] = useState<boolean>(false);
+  const [overlayOpen, setOverlayOpen] = useState<boolean>(false);
   const { mobileOnly } = useResponsive();
   const { t } = useTranslation();
 
@@ -216,7 +214,7 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
     filterNews(false);
 
     if (mobileOnly) {
-      setOverlayVisible(false);
+      setOverlayOpen(false);
     }
   }, [mobileOnly, filterNews]);
 
@@ -225,7 +223,7 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
     filterNews(true);
 
     if (mobileOnly) {
-      setOverlayVisible(false);
+      setOverlayOpen(false);
     }
   }, [filterNews, setFilterFields, mobileOnly]);
 
@@ -237,12 +235,11 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
     <>
       <S.TitleWrapper>
         {mobileOnly && (
-          <Dropdown
-            placement="bottomLeft"
-            trigger={['click']}
-            open={overlayVisible}
-            onOpenChange={(visible) => setOverlayVisible(visible)}
-            overlay={
+          <S.FilterPopover
+            trigger="click"
+            open={overlayOpen}
+            onOpenChange={(open) => setOverlayOpen(open)}
+            content={
               <Filter
                 author={author}
                 title={title}
@@ -258,7 +255,7 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
             }
           >
             <S.FilterButton>{t('newsFeed.filter')}</S.FilterButton>
-          </Dropdown>
+          </S.FilterPopover>
         )}
       </S.TitleWrapper>
 

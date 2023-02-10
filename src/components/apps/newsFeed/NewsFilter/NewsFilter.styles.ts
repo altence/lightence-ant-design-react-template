@@ -3,6 +3,7 @@ import { Input as AntInput, Button, Checkbox } from 'antd';
 import { SearchOutlined, PlusCircleFilled, CloseOutlined } from '@ant-design/icons';
 import { DayjsDatePicker } from '@app/components/common/pickers/DayjsDatePicker';
 import { BORDER_RADIUS, FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
+import { Popover } from '@app/components/common/Popover/Popover';
 
 export const AddTagText = styled.span`
   color: var(--text-main-color);
@@ -140,23 +141,18 @@ export const NewsWrapper = styled.div`
 `;
 
 export const FilterWrapper = styled.div`
-  position: sticky;
-  top: 1.25rem;
-  padding: 1.25rem 1rem;
   display: flex;
   flex-direction: column;
-  margin-left: 1.875rem;
-  background: var(--background-color);
-  border-radius: ${BORDER_RADIUS};
   height: min-content;
-  filter: drop-shadow(0 4px 40px rgba(0, 0, 0, 0.07));
-
-  @media only screen and ${media.xs} {
-    position: relative;
-  }
 
   @media only screen and ${media.md} {
+    margin-left: 1.875rem;
     position: sticky;
+    top: 1.875rem;
+    padding: 1.25rem 1rem;
+    filter: drop-shadow(0 4px 40px rgba(0, 0, 0, 0.07));
+    background: var(--background-color);
+    border-radius: ${BORDER_RADIUS};
   }
 `;
 
@@ -168,19 +164,6 @@ export const FilterTitle = styled.div`
   font-weight: ${FONT_WEIGHT.bold};
   color: var(--text-main-color);
   margin-bottom: 1rem;
-`;
-
-export const TagPopover = styled.div`
-  padding: 1.25rem 1.5625rem;
-  max-width: 14.375rem;
-  min-width: 14.375rem;
-  gap: 0.625rem;
-  display: flex;
-  background: var(--background-color);
-  flex-direction: column;
-  border-radius: 0.625rem;
-  z-index: 1;
-  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.2));
 `;
 
 export const TagPopoverLine = styled.span`
@@ -217,4 +200,10 @@ export const ClosePopover = styled(CloseOutlined)`
   color: var(--primary-color);
   width: 0.875rem;
   height: 0.875rem;
+`;
+
+export const FilterPopover = styled(Popover)`
+  & .ant-popover-inner-content {
+    padding: 0;
+  }
 `;

@@ -7,17 +7,13 @@ import { ScreeningsProps } from '../interfaces';
 import * as S from './DesktopScreenings.styles';
 
 interface CollapseProps {
-  isVisibleMenu: boolean;
-  setVisibleMenu: (state: boolean) => void;
+  isMenuOpen: boolean;
+  setMenuOpen: (state: boolean) => void;
 }
 
 type DesktopScreeningsProps = ScreeningsProps & CollapseProps;
 
-export const DesktopScreenings: React.FC<DesktopScreeningsProps> = ({
-  screeningsItems,
-  isVisibleMenu,
-  setVisibleMenu,
-}) => {
+export const DesktopScreenings: React.FC<DesktopScreeningsProps> = ({ screeningsItems, isMenuOpen, setMenuOpen }) => {
   const { isDesktop } = useResponsive();
 
   const { t } = useTranslation();
@@ -33,7 +29,7 @@ export const DesktopScreenings: React.FC<DesktopScreeningsProps> = ({
   );
 
   const handleClick = () => {
-    setVisibleMenu(!isVisibleMenu);
+    setMenuOpen(!isMenuOpen);
   };
 
   return (
@@ -44,8 +40,8 @@ export const DesktopScreenings: React.FC<DesktopScreeningsProps> = ({
       ]}
     >
       <Col span={24}>
-        <Row justify={isVisibleMenu ? 'space-between' : 'center'}>
-          {isVisibleMenu && (
+        <Row justify={isMenuOpen ? 'space-between' : 'center'}>
+          {isMenuOpen && (
             <Col>
               <S.Title>{t('medical-dashboard.latestScreenings.friends')}</S.Title>
             </Col>
@@ -53,7 +49,7 @@ export const DesktopScreenings: React.FC<DesktopScreeningsProps> = ({
 
           {isDesktop && (
             <Col>
-              <LeftOutlined onClick={handleClick} rotate={isVisibleMenu ? 0 : 180} />
+              <LeftOutlined onClick={handleClick} rotate={isMenuOpen ? 0 : 180} />
             </Col>
           )}
         </Row>

@@ -3743,13 +3743,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"antd-mask-input@npm:^0.1.15":
-  version: 0.1.15
-  resolution: "antd-mask-input@npm:0.1.15"
+"antd-mask-input@npm:^2.0.7":
+  version: 2.0.7
+  resolution: "antd-mask-input@npm:2.0.7"
+  dependencies:
+    imask: 6.4.2
   peerDependencies:
-    antd: ">=3.0.0"
+    antd: ">=4.19.0"
     react: ">=16.0.0"
-  checksum: 29d7a98babbb472f60e3bffe6244203a8c6c4b73839aba395382137b6442c2553e0abdd57e94a65ac0ef908830ed3784eb907d41756d8368de6d7b200f7f7b5b
+  checksum: 069fd023d90a6d410cf7740fc02044c10f618835a0e5a864d43175d5f4dc8e843c9d7d81f7cae2b69034999ddefe04d9f233133ec426329b4f4863de3905b948
   languageName: node
   linkType: hard
 
@@ -9204,6 +9206,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"imask@npm:6.4.2":
+  version: 6.4.2
+  resolution: "imask@npm:6.4.2"
+  checksum: a713aec87f23b1b095aa3a515311222346211dc544bfcae25d4a0aa3bca9a8c13a3269985d8b913cd9af013b733cdae7f81278988d04a9a34b173744b081c0e9
+  languageName: node
+  linkType: hard
+
 "immer@npm:8.0.1":
   version: 8.0.1
   resolution: "immer@npm:8.0.1"
@@ -11062,7 +11071,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.10.0
     "@typescript-eslint/parser": ^5.8.0
     antd: ^4.22.4
-    antd-mask-input: ^0.1.15
+    antd-mask-input: ^2.0.7
     axios: ^0.24.0
     axios-mock-adapter: ^1.20.0
     country-list: ^2.2.0
@@ -11091,7 +11100,7 @@ __metadata:
     react: ^17.0.2
     react-country-flag: ^3.0.2
     react-dom: ^17.0.2
-    react-helmet: ^6.1.0
+    react-helmet-async: ^1.3.0
     react-i18next: ^11.11.4
     react-infinite-scroll-component: ^6.1.0
     react-insta-stories: ^2.3.0
@@ -15016,24 +15025,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-fast-compare@npm:^3.1.1":
+"react-fast-compare@npm:^3.2.0":
   version: 3.2.0
   resolution: "react-fast-compare@npm:3.2.0"
   checksum: 8ef272c825ae329f61633ce4ce7f15aa5b84e5214d88bc0823880236e03e985a13195befa2c7a4eda7db3b017dc7985729152d88445823f652403cf36c2b86aa
   languageName: node
   linkType: hard
 
-"react-helmet@npm:^6.1.0":
-  version: 6.1.0
-  resolution: "react-helmet@npm:6.1.0"
+"react-helmet-async@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "react-helmet-async@npm:1.3.0"
   dependencies:
-    object-assign: ^4.1.1
+    "@babel/runtime": ^7.12.5
+    invariant: ^2.2.4
     prop-types: ^15.7.2
-    react-fast-compare: ^3.1.1
-    react-side-effect: ^2.1.0
+    react-fast-compare: ^3.2.0
+    shallowequal: ^1.1.0
   peerDependencies:
-    react: ">=16.3.0"
-  checksum: a4998479dab7fc1c2799eddefb1870a9d881b5f71cfdf97979a9882e42f4bb50402d55335f308f461e735e01a06f46b16cc7b4e6bcb22c7a4a6f85a753c5c106
+    react: ^16.6.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.6.0 || ^17.0.0 || ^18.0.0
+  checksum: 7ca7e47f8af14ea186688b512a87ab912bf6041312b297f92516341b140b3f0f8aedf5a44d226d99e69ed067b0cc106e38aeb9c9b738ffcc63d10721c844db90
   languageName: node
   linkType: hard
 
@@ -15314,15 +15325,6 @@ __metadata:
   bin:
     react-scripts: ./bin/react-scripts.js
   checksum: a05a46ce3145b42ac8b57633d3b90b6689c24697c1449bccf219349996d718a3cd0796e4910f4ab6abb5b024982cafd62345e88c8e7b42a45efca3bef1a0eb87
-  languageName: node
-  linkType: hard
-
-"react-side-effect@npm:^2.1.0":
-  version: 2.1.2
-  resolution: "react-side-effect@npm:2.1.2"
-  peerDependencies:
-    react: ^16.3.0 || ^17.0.0 || ^18.0.0
-  checksum: c5eb1f42b464fb093bca59aaae0f1b2060373a2aaff95275b8781493628cdbbb6acdd6014e7883782c65c361f35a30f28cc515d68a1263ddb39cbbc47110be53
   languageName: node
   linkType: hard
 

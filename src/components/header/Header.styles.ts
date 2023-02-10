@@ -1,18 +1,8 @@
 import styled, { css } from 'styled-components';
-import { Col, Collapse, Menu } from 'antd';
+import { Col, Collapse } from 'antd';
 import { BurgerIcon } from '@app/components/common/Burger/BurgerIcon';
 import { GitHubButton } from '@app/components/header/components/GithubButton/GitHubButton';
-import { BORDER_RADIUS, LAYOUT, media } from '@app/styles/themes/constants';
-
-export const DropdownMenu = styled(Menu)`
-  line-height: 1.5715;
-
-  border-radius: ${BORDER_RADIUS};
-
-  &.ant-dropdown-menu {
-    box-shadow: var(--box-shadow);
-  }
-`;
+import { LAYOUT, media } from '@app/styles/themes/constants';
 
 export const HeaderActionWrapper = styled.div`
   cursor: pointer;

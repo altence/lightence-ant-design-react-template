@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 import { Typography, Divider } from 'antd';
-import { MenuItem as MenuItemBase } from '@app/components/common/Menu/Menu';
 import { media } from '@app/styles/themes/constants';
 
 export const Text = styled(Typography.Text)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
   font-size: 0.875rem;
   font-weight: 600;
 
@@ -14,10 +17,6 @@ export const Text = styled(Typography.Text)`
   @media only screen and ${media.md} {
     font-size: 1rem;
   }
-`;
-
-export const MenuItem = styled(MenuItemBase)`
-  height: 50px;
 `;
 
 export const ItemsDivider = styled(Divider).withConfig({

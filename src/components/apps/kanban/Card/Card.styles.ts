@@ -8,7 +8,7 @@ import {
   Footer,
 } from 'react-trello/dist/styles/Base';
 import { DownOutlined } from '@ant-design/icons';
-import { Collapse, Menu } from 'antd';
+import { Collapse } from 'antd';
 import InlineInput from 'react-trello/dist/widgets/InlineInput';
 import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
 
@@ -93,14 +93,6 @@ export const CardFooter = styled(Footer)`
   padding-top: 1rem;
   gap: 0.625rem;
   justify-content: flex-start;
-`;
-
-export const CardMenu = styled(Menu)`
-  box-shadow: var(--box-shadow-hover);
-`;
-
-export const MenuItem = styled(Menu.Item)`
-  font-size: ${FONT_SIZE.xs};
 `;
 
 export const Input = styled(InlineInput)`
