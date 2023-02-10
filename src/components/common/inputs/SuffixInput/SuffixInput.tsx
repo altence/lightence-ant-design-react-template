@@ -4,9 +4,9 @@ import * as S from './SuffixInput.styles';
 
 export interface SuffixInputProps extends InputProps {
   suffix: React.ReactNode;
-  isVisibleSuffix?: boolean;
+  isOpenSuffix?: boolean;
 }
 
-export const SuffixInput: React.FC<SuffixInputProps> = ({ suffix, isVisibleSuffix = true, ...props }) => (
-  <Input suffix={<S.Suffix isVisible={isVisibleSuffix}>{suffix}</S.Suffix>} {...props} />
+export const SuffixInput: React.FC<SuffixInputProps> = ({ suffix, isOpenSuffix = true, ...props }) => (
+  <Input suffix={<S.Suffix isOpen={isOpenSuffix}>{suffix}</S.Suffix>} {...props} />
 );

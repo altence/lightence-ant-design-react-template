@@ -20,17 +20,17 @@ interface UserType {
 }
 
 export const ControlForm: React.FC = () => {
-  const [visible, setVisible] = useState(false);
+  const [open, setOpen] = useState(false);
   const [isFieldsChanged, setFieldsChanged] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const { t } = useTranslation();
 
   const showUserModal = () => {
-    setVisible(true);
+    setOpen(true);
   };
 
   const hideUserModal = () => {
-    setVisible(false);
+    setOpen(false);
   };
 
   const onFinish = (values = {}) => {
@@ -50,7 +50,7 @@ export const ControlForm: React.FC = () => {
           const { controlForm } = forms;
           const users = controlForm.getFieldValue('users') || [];
           controlForm.setFieldsValue({ users: [...users, values] });
-          setVisible(false);
+          setOpen(false);
         }
       }}
     >
@@ -104,7 +104,7 @@ export const ControlForm: React.FC = () => {
           }}
         </S.UserList>
       </BaseButtonsForm>
-      <AddUserFormModal open={visible} onCancel={hideUserModal} />
+      <AddUserFormModal open={open} onCancel={hideUserModal} />
     </BaseButtonsForm.Provider>
   );
 };

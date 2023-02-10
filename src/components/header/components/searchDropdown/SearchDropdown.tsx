@@ -5,41 +5,41 @@ import { HeaderActionWrapper } from '@app/components/header/Header.styles';
 import { CategoryComponents } from '@app/components/header/components/HeaderSearch/HeaderSearch';
 import { Btn, InputSearch } from '../HeaderSearch/HeaderSearch.styles';
 import { useTranslation } from 'react-i18next';
-import { Dropdown } from '@app/components/common/Dropdown/Dropdown';
+import { Popover } from '@app/components/common/Popover/Popover';
 
 interface SearchOverlayProps {
   query: string;
   setQuery: (query: string) => void;
   data: CategoryComponents[] | null;
-  isOverlayVisible: boolean;
-  setOverlayVisible: (state: boolean) => void;
+  isOverlayOpen: boolean;
+  setOverlayOpen: (state: boolean) => void;
 }
 
 export const SearchDropdown: React.FC<SearchOverlayProps> = ({
   query,
   setQuery,
   data,
-  isOverlayVisible,
-  setOverlayVisible,
+  isOverlayOpen,
+  setOverlayOpen,
 }) => {
-  const [isFilterVisible, setFilterActive] = useState(false);
+  const [isFilterOpen, setFilterOpen] = useState(false);
 
   const { t } = useTranslation();
 
   useEffect(() => {
-    setOverlayVisible(!!query || isFilterVisible);
-  }, [query, isFilterVisible, setOverlayVisible]);
+    setOverlayOpen(!!query || isFilterOpen);
+  }, [query, isFilterOpen, setOverlayOpen]);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const ref = useRef<any>(null);
 
   return (
     <>
-      <Dropdown
-        {...((!!data || isFilterVisible) && { trigger: ['click'], onOpenChange: setOverlayVisible })}
-        overlayClassName="search-dropdown"
-        overlay={<SearchOverlay data={data} isFilterVisible={isFilterVisible} />}
-        open={isOverlayVisible}
+      <Popover
+        {...((!!data || isFilterOpen) && { trigger: 'click', onOpenChange: setOverlayOpen })}
+        overlayClassName="search-overlay"
+        content={<SearchOverlay data={data} isFilterOpen={isFilterOpen} />}
+        open={isOverlayOpen}
         getPopupContainer={() => ref.current}
       >
         <HeaderActionWrapper>
@@ -50,10 +50,10 @@ export const SearchDropdown: React.FC<SearchOverlayProps> = ({
             filter={
               <Btn
                 size="small"
-                type={isFilterVisible ? 'ghost' : 'text'}
+                type={isFilterOpen ? 'ghost' : 'text'}
                 aria-label="Filter"
                 icon={<FilterIcon />}
-                onClick={() => setFilterActive(!isFilterVisible)}
+                onClick={() => setFilterOpen(!isFilterOpen)}
               />
             }
             onChange={(event) => setQuery(event.target.value)}
@@ -62,7 +62,7 @@ export const SearchDropdown: React.FC<SearchOverlayProps> = ({
           />
           <div ref={ref} />
         </HeaderActionWrapper>
-      </Dropdown>
+      </Popover>
     </>
   );
 };

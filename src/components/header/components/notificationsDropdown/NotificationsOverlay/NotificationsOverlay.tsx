@@ -50,7 +50,7 @@ export const NotificationsOverlay: React.FC<NotificationsOverlayProps> = ({
   );
 
   return (
-    <S.NoticesOverlayMenu mode="inline" {...props}>
+    <S.NoticesOverlayMenu {...props}>
       <S.MenuRow gutter={[20, 20]}>
         <Col span={24}>
           {notifications.length > 0 ? (

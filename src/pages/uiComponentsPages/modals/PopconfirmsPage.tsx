@@ -20,7 +20,7 @@ const AsyncButton = styled(Button)`
 
 const PopconfirmsPage: React.FC = () => {
   const { t } = useTranslation();
-  const [visible, setVisible] = useState<boolean>(false);
+  const [open, setOpen] = useState<boolean>(false);
   const [confirmLoading, setConfirmLoading] = useState<boolean>(false);
 
   const text = t('popconfirm.content');
@@ -32,7 +32,7 @@ const PopconfirmsPage: React.FC = () => {
   const handleOk = () => {
     setConfirmLoading(true);
     setTimeout(() => {
-      setVisible(false);
+      setOpen(false);
       setConfirmLoading(false);
     }, 2000);
   };
@@ -169,12 +169,12 @@ const PopconfirmsPage: React.FC = () => {
         <S.Card title={t('popconfirm.async')}>
           <Popconfirm
             title={t('popovers.title')}
-            visible={visible}
+            open={open}
             onConfirm={handleOk}
             okButtonProps={{ loading: confirmLoading }}
-            onCancel={() => setVisible(false)}
+            onCancel={() => setOpen(false)}
           >
-            <AsyncButton type="primary" onClick={() => setVisible(true)}>
+            <AsyncButton type="primary" onClick={() => setOpen(true)}>
               {t('popconfirm.openAsync')}
             </AsyncButton>
           </Popconfirm>

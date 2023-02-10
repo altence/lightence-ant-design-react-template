@@ -3,18 +3,6 @@ import { CloseOutlined } from '@ant-design/icons';
 import { Checkbox } from 'antd';
 import { FONT_SIZE } from '@app/styles/themes/constants';
 
-export const EditParticipantPopover = styled.div`
-  padding: 1.25rem 1rem;
-  max-width: 14.375rem;
-  gap: 0.625rem;
-  display: flex;
-  background: var(--background-color);
-  flex-direction: column;
-  border-radius: 0.625rem;
-  z-index: 1;
-  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.2));
-`;
-
 export const PopoverCheckbox = styled(Checkbox)`
   & .ant-checkbox .ant-checkbox-inner {
     border-radius: 3px;
@@ -33,12 +21,6 @@ export const RemoveParticipantWrapper = styled.div`
   right: 1rem;
   top: 1rem;
   cursor: pointer;
-`;
-
-export const ClosePopover = styled(CloseOutlined)`
-  color: var(--primary-color);
-  width: 0.875rem;
-  height: 0.875rem;
 `;
 
 export const AddParticipant = styled.span`

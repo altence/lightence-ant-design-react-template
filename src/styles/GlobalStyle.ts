@@ -39,7 +39,7 @@ export default createGlobalStyle`
     }
   }
 
-  .search-dropdown {
+  .search-overlay {
     box-shadow: var(--box-shadow);
 
     @media only screen and ${media.xs} and (max-width: ${BREAKPOINTS.md - 0.02}px)  {
@@ -48,7 +48,7 @@ export default createGlobalStyle`
     }
 
     @media only screen and ${media.md} {
-      max-width: 323px;
+      width: 323px;
     }
   }
 
@@ -59,10 +59,6 @@ export default createGlobalStyle`
     }
   }
   
-  .d-none {
-    display: none;
-  }
-
   .ant-picker-cell {
     color: var(--text-main-color);
   }

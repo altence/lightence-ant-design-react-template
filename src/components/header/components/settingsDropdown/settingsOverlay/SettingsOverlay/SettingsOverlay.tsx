@@ -14,8 +14,8 @@ export const SettingsOverlay: React.FC = ({ ...props }) => {
   const { isPWASupported, event } = useAppSelector((state) => state.pwa);
 
   return (
-    <S.SettingsOverlayMenu mode="inline" selectable={false} {...props}>
-      <DropdownCollapse bordered={false} expandIconPosition="right" ghost defaultActiveKey="themePicker">
+    <S.SettingsOverlayMenu {...props}>
+      <DropdownCollapse bordered={false} expandIconPosition="end" ghost defaultActiveKey="themePicker">
         <DropdownCollapse.Panel header={t('header.changeLanguage')} key="languagePicker">
           <LanguagePicker />
         </DropdownCollapse.Panel>

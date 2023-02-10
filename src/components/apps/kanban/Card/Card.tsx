@@ -23,27 +23,6 @@ interface CardProps {
   editable: boolean;
 }
 
-interface EditPopoverProps {
-  onDelete: () => void;
-  onArchive: () => void;
-}
-
-const EditPopover: React.FC<EditPopoverProps> = ({ onDelete, onArchive, ...props }) => {
-  const { t } = useTranslation();
-
-  return (
-    <S.CardMenu selectable={false} {...props}>
-      <S.MenuItem key="1" onClick={onDelete}>
-        {t('common.delete')}
-      </S.MenuItem>
-
-      <S.MenuItem key="2" onClick={onArchive}>
-        {t('kanban.archive')}
-      </S.MenuItem>
-    </S.CardMenu>
-  );
-};
-
 export const Card: React.FC<CardProps> = ({
   style,
   onClick,
@@ -81,6 +60,19 @@ export const Card: React.FC<CardProps> = ({
     updateCard({ participants });
   };
 
+  const editPopoverItems = [
+    {
+      key: '1',
+      label: t('common.delete'),
+      onClick: onDeleteCard,
+    },
+    {
+      key: '2',
+      label: t('kanban.archive'),
+      onClick: onDeleteCard,
+    },
+  ];
+
   return (
     <S.CardWrapper data-id={id} onClick={onClick} style={style} className={className}>
       <S.CollapseCard onChange={onArrowPress} bordered={false} defaultActiveKey={['1']}>
@@ -110,11 +102,7 @@ export const Card: React.FC<CardProps> = ({
               </S.CardTitle>
               <S.CardRightContent>
                 <Button noStyle type="text" icon={<S.ArrowDownIcon $expanded={isExpanded} />} />
-                <Dropdown
-                  overlay={<EditPopover onDelete={onDeleteCard} onArchive={onDeleteCard} />}
-                  placement="bottomRight"
-                  trigger={['click']}
-                >
+                <Dropdown menu={{ items: editPopoverItems }} placement="bottomRight" trigger={['click']}>
                   <Button
                     noStyle
                     type="text"

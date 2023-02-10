@@ -100,7 +100,7 @@ export const ValidationForm: React.FC = () => {
 
       <BaseButtonsForm.Item name="slider" label={t('forms.validationFormLabels.slider')}>
         <Slider
-          tooltipVisible={false}
+          tooltip={{ open: false }}
           marks={{
             0: 'A',
             20: 'B',

@@ -21,7 +21,7 @@ export const ScreeningsFriends: React.FC<ScreeningsFriendsProps> = ({
   isFirstClick,
   setFirstClick,
 }) => {
-  const [isVisibleMenu, setVisibleMenu] = useState(true);
+  const [isMenuOpen, setMenuOpen] = useState(true);
 
   const { mobileOnly, isTablet } = useResponsive();
 
@@ -64,22 +64,18 @@ export const ScreeningsFriends: React.FC<ScreeningsFriendsProps> = ({
           isPrimary={index === currentStatistics.firstUser}
           isSecondary={index === currentStatistics.secondUser}
           onClick={handleClickItem(index)}
-          isVisibleMenu={isVisibleMenu}
+          isMenuOpen={isMenuOpen}
         />
       )),
-    [screenings, currentStatistics, isVisibleMenu, handleClickItem],
+    [screenings, currentStatistics, isMenuOpen, handleClickItem],
   );
 
   return (
-    <S.Wrapper $isVisible={isVisibleMenu}>
+    <S.Wrapper $isOpen={isMenuOpen}>
       {mobileOnly && screeningsItems.length > 0 && <MobileScreenings screeningsItems={screeningsItems} />}
 
       {isTablet && (
-        <DesktopScreenings
-          screeningsItems={screeningsItems}
-          isVisibleMenu={isVisibleMenu}
-          setVisibleMenu={setVisibleMenu}
-        />
+        <DesktopScreenings screeningsItems={screeningsItems} isMenuOpen={isMenuOpen} setMenuOpen={setMenuOpen} />
       )}
     </S.Wrapper>
   );

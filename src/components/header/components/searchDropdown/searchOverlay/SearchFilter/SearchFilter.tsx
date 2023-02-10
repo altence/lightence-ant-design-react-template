@@ -7,11 +7,11 @@ import * as S from './SearchFilter.styles';
 
 interface SearchFilterProps {
   data: CategoryComponents[] | null;
-  isVisible: boolean;
+  isOpen: boolean;
   children: (filteredResults: CategoryComponents[]) => React.ReactNode;
 }
 
-export const SearchFilter: React.FC<SearchFilterProps> = ({ data, isVisible, children }) => {
+export const SearchFilter: React.FC<SearchFilterProps> = ({ data, isOpen, children }) => {
   const [selectedFilter, setSelectedFilter] = useState<CategoryType[]>([]);
   const [filteredResults, setFilteredResults] = useState<CategoryComponents[] | null>(data);
 
@@ -43,7 +43,7 @@ export const SearchFilter: React.FC<SearchFilterProps> = ({ data, isVisible, chi
 
   return (
     <>
-      <S.FilterWrapper isVisible={isVisible}>
+      <S.FilterWrapper isOpen={isOpen}>
         <S.CheckboxGroup onChange={(checkedValues) => setSelectedFilter(checkedValues as CategoryType[])}>
           <Row>{filterElements}</Row>
         </S.CheckboxGroup>

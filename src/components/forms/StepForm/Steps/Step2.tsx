@@ -6,6 +6,11 @@ import { DatePicker } from '@app/components/common/pickers/DatePicker';
 import { Select, Option } from '@app/components/common/selects/Select/Select';
 import * as S from '../StepForm.styles';
 import React from 'react';
+import styled from 'styled-components';
+
+const Picker = styled(DatePicker)`
+  width: 100%;
+`;
 
 export const Step2: React.FC = () => {
   const { t } = useTranslation();
@@ -60,7 +65,7 @@ export const Step2: React.FC = () => {
         label={t('forms.stepFormLabels.birthday')}
         rules={[{ required: true, message: t('forms.stepFormLabels.birthdayError') }]}
       >
-        <DatePicker format="YYYY-MM-DD" />
+        <Picker format="YYYY-MM-DD" />
       </BaseForm.Item>
       <S.PhoneItem
         name="phone"

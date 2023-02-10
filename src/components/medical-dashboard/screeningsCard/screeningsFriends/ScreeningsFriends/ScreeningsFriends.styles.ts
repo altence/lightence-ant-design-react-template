@@ -3,7 +3,7 @@ import { dashboardPaddings } from '@app/components/medical-dashboard/DashboardCa
 import { media } from '@app/styles/themes/constants';
 
 interface WrapperProps {
-  $isVisible: boolean;
+  $isOpen: boolean;
 }
 
 export const Wrapper = styled.div<WrapperProps>`
@@ -30,7 +30,7 @@ export const Wrapper = styled.div<WrapperProps>`
     background-color: rgba(var(--background-rgb-color), 0.9);
 
     ${(props) =>
-      !props.$isVisible &&
+      !props.$isOpen &&
       css`
         width: 5rem;
       `}

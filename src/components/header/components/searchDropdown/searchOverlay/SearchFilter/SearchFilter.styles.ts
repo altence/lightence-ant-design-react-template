@@ -3,7 +3,7 @@ import { Checkbox } from 'antd';
 import styled, { css } from 'styled-components';
 
 interface FilterWrapperProps {
-  isVisible: boolean;
+  isOpen: boolean;
 }
 
 export const CheckboxGroup = styled(Checkbox.Group)`
@@ -12,7 +12,7 @@ export const CheckboxGroup = styled(Checkbox.Group)`
 
 export const FilterWrapper = styled.div<FilterWrapperProps>`
   ${(props) =>
-    !props.isVisible &&
+    !props.isOpen &&
     css`
       position: absolute;
       top: 0;

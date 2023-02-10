@@ -8,27 +8,22 @@ import { notification } from 'antd';
 import { NotFound } from '@app/components/common/NotFound/NotFound';
 
 export const CovidCard: React.FC = () => {
-  const [data, setData] = useState<CoronaData[]>();
+  const [data, setData] = useState<CoronaData>();
 
   const { t } = useTranslation();
 
   useEffect(() => {
     getCovidData()
-      .then((res) => setData(res?.data.splice(0, 100).reverse()))
+      .then((res) => setData(res))
       .catch((e) => notification.error({ message: e.message }));
   }, []);
 
   const { confirmedArr, deathsArr, dateArr } = useMemo(() => {
-    const confirmedArr: number[] = [];
-    const deathsArr: number[] = [];
-    const dateArr: string[] = [];
-
-    data &&
-      data?.forEach((el) => {
-        confirmedArr.push(el.new_confirmed);
-        deathsArr.push(el.new_deaths);
-        dateArr.push(Dates.getDate(el.date).format('LL'));
-      });
+    const confirmedArr: number[] = Object.values(data?.cases || {}).splice(0, 100);
+    const deathsArr: number[] = Object.values(data?.deaths || {}).splice(0, 100);
+    const dateArr: string[] = Object.keys(data?.cases || {})
+      .map((value) => Dates.getDate(value).format('LL'))
+      .splice(0, 100);
 
     return {
       confirmedArr,

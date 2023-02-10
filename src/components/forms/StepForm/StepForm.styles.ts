@@ -75,3 +75,8 @@ export const DetailsValue = styled.div`
   font-size: ${FONT_SIZE.md};
   font-weight: ${FONT_WEIGHT.semibold};
 `;
+
+export const Row = styled.div`
+  display: flex;
+  gap: 0.5rem;
+`;

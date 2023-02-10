@@ -18,14 +18,7 @@ export const ExpDateItem: React.FC<CardInputProps> = ({ disabled, handleInputFoc
         },
       ]}
     >
-      <MaskedInput
-        placeholderChar=" "
-        placeholder="MM/YY"
-        mask="11/11"
-        name="expiry"
-        onFocus={handleInputFocus}
-        disabled={disabled}
-      />
+      <MaskedInput placeholder="MM/YY" mask="00/00" name="expiry" onFocus={handleInputFocus} disabled={disabled} />
     </BaseButtonsForm.Item>
   );
 };

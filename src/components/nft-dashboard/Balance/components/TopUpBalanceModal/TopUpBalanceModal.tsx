@@ -5,19 +5,19 @@ import { Spinner } from '@app/components/common/Spinner/Spinner';
 import { TopUpBalanceForm } from '../TopUpBalanceForm/TopUpBalanceForm';
 
 interface TopUpBalanceModalProps extends TopUpDataProps {
-  isVisible: boolean;
-  onVisibleChange: () => void;
+  isOpen: boolean;
+  onOpenChange: () => void;
 }
 
 export const TopUpBalanceModal: React.FC<TopUpBalanceModalProps> = ({
   cards,
   loading,
-  isVisible,
-  onVisibleChange,
+  isOpen,
+  onOpenChange,
   onFinish,
 }) => {
   return (
-    <Modal width={500} visible={isVisible} onCancel={onVisibleChange} footer={null} destroyOnClose>
+    <Modal width={500} open={isOpen} onCancel={onOpenChange} footer={null} destroyOnClose>
       <Spinner spinning={loading}>
         <TopUpBalanceForm cards={cards} loading={loading} onFinish={onFinish} />
       </Spinner>

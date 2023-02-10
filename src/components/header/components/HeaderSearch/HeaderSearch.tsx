@@ -20,8 +20,8 @@ export const HeaderSearch: React.FC = () => {
   const [query, setQuery] = useState('');
   const [components] = useState<Component[]>(configComponents);
 
-  const [isModalVisible, setModalVisible] = useState(false);
-  const [isOverlayVisible, setOverlayVisible] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [isOverlayOpen, setOverlayOpen] = useState(false);
 
   const sortedResults = query
     ? categoriesList.reduce((acc, current) => {
@@ -36,31 +36,28 @@ export const HeaderSearch: React.FC = () => {
     : null;
 
   useEffect(() => {
-    setModalVisible(false);
-    setOverlayVisible(false);
+    setModalOpen(false);
+    setOverlayOpen(false);
   }, [pathname]);
 
   return (
     <>
       {mobileOnly && (
         <>
-          <Button
-            type={isModalVisible ? 'ghost' : 'text'}
-            icon={<S.SearchIcon onClick={() => setModalVisible(true)} />}
-          />
+          <Button type={isModalOpen ? 'ghost' : 'text'} icon={<S.SearchIcon onClick={() => setModalOpen(true)} />} />
           <S.SearchModal
-            open={isModalVisible}
+            open={isModalOpen}
             closable={false}
             footer={null}
-            onCancel={() => setModalVisible(false)}
+            onCancel={() => setModalOpen(false)}
             destroyOnClose
           >
             <SearchDropdown
               query={query}
               setQuery={setQuery}
               data={sortedResults}
-              isOverlayVisible={isOverlayVisible}
-              setOverlayVisible={setOverlayVisible}
+              isOverlayOpen={isOverlayOpen}
+              setOverlayOpen={setOverlayOpen}
             />
           </S.SearchModal>
         </>
@@ -71,8 +68,8 @@ export const HeaderSearch: React.FC = () => {
           query={query}
           setQuery={setQuery}
           data={sortedResults}
-          isOverlayVisible={isOverlayVisible}
-          setOverlayVisible={setOverlayVisible}
+          isOverlayOpen={isOverlayOpen}
+          setOverlayOpen={setOverlayOpen}
         />
       )}
     </>

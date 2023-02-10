@@ -8,11 +8,11 @@ import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
 
 const ModalsPage: React.FC = () => {
   const { t } = useTranslation();
-  const [isBasicModalVisible, setIsBasicModalVisible] = useState<boolean>(false);
-  const [isSmallModalVisible, setIsSmallModalVisible] = useState<boolean>(false);
-  const [isMiddleModalVisible, setIsMiddleModalVisible] = useState<boolean>(false);
-  const [isLargeModalVisible, setIsLargeModalVisible] = useState<boolean>(false);
-  const [isFullscreenModalVisible, setIsFullscreenModalVisible] = useState<boolean>(false);
+  const [isBasicModalOpen, setIsBasicModalOpen] = useState<boolean>(false);
+  const [isSmallModalOpen, setIsSmallModalOpen] = useState<boolean>(false);
+  const [isMiddleModalOpen, setIsMiddleModalOpen] = useState<boolean>(false);
+  const [isLargeModalOpen, setIsLargeModalOpen] = useState<boolean>(false);
+  const [isFullscreenModalOpen, setIsFullscreenModalOpen] = useState<boolean>(false);
 
   const success = () => {
     SuccessModal({
@@ -47,14 +47,14 @@ const ModalsPage: React.FC = () => {
       <PageTitle>{t('common.modal')}</PageTitle>
       <Col>
         <S.Card title={t('modals.basic')}>
-          <Button type="primary" onClick={() => setIsBasicModalVisible(true)}>
+          <Button type="primary" onClick={() => setIsBasicModalOpen(true)}>
             {t('modals.open')}
           </Button>
           <Modal
             title={t('modals.basic')}
-            open={isBasicModalVisible}
-            onOk={() => setIsBasicModalVisible(false)}
-            onCancel={() => setIsBasicModalVisible(false)}
+            open={isBasicModalOpen}
+            onOk={() => setIsBasicModalOpen(false)}
+            onCancel={() => setIsBasicModalOpen(false)}
           >
             <p>{t('modals.someContent')}</p>
             <p>{t('modals.someContent')}</p>
@@ -62,24 +62,24 @@ const ModalsPage: React.FC = () => {
           </Modal>
         </S.Card>
         <S.Card title={t('modals.sizes')}>
-          <Button type="primary" onClick={() => setIsSmallModalVisible(true)}>
+          <Button type="primary" onClick={() => setIsSmallModalOpen(true)}>
             {t('modals.small')}
           </Button>
-          <Button type="primary" onClick={() => setIsMiddleModalVisible(true)}>
+          <Button type="primary" onClick={() => setIsMiddleModalOpen(true)}>
             {t('modals.middle')}
           </Button>
-          <Button type="primary" onClick={() => setIsLargeModalVisible(true)}>
+          <Button type="primary" onClick={() => setIsLargeModalOpen(true)}>
             {t('modals.large')}
           </Button>
-          <Button type="primary" onClick={() => setIsFullscreenModalVisible(true)}>
+          <Button type="primary" onClick={() => setIsFullscreenModalOpen(true)}>
             {t('modals.fullscreen')}
           </Button>
           <Modal
             title={t('modals.smallTitle')}
             centered
-            open={isSmallModalVisible}
-            onOk={() => setIsSmallModalVisible(false)}
-            onCancel={() => setIsSmallModalVisible(false)}
+            open={isSmallModalOpen}
+            onOk={() => setIsSmallModalOpen(false)}
+            onCancel={() => setIsSmallModalOpen(false)}
             size="small"
           >
             <p>{t('modals.someContent')}</p>
@@ -89,9 +89,9 @@ const ModalsPage: React.FC = () => {
           <Modal
             title={t('modals.middleTitle')}
             centered
-            open={isMiddleModalVisible}
-            onOk={() => setIsMiddleModalVisible(false)}
-            onCancel={() => setIsMiddleModalVisible(false)}
+            open={isMiddleModalOpen}
+            onOk={() => setIsMiddleModalOpen(false)}
+            onCancel={() => setIsMiddleModalOpen(false)}
             size="medium"
           >
             <p>{t('modals.someContent')}</p>
@@ -101,9 +101,9 @@ const ModalsPage: React.FC = () => {
           <Modal
             title={t('modals.largeTitle')}
             centered
-            open={isLargeModalVisible}
-            onOk={() => setIsLargeModalVisible(false)}
-            onCancel={() => setIsLargeModalVisible(false)}
+            open={isLargeModalOpen}
+            onOk={() => setIsLargeModalOpen(false)}
+            onCancel={() => setIsLargeModalOpen(false)}
             size="large"
           >
             <p>{t('modals.someContent')}</p>
@@ -113,9 +113,9 @@ const ModalsPage: React.FC = () => {
           <Modal
             title={t('modals.fullscreenTitle')}
             centered
-            open={isFullscreenModalVisible}
-            onOk={() => setIsFullscreenModalVisible(false)}
-            onCancel={() => setIsFullscreenModalVisible(false)}
+            open={isFullscreenModalOpen}
+            onOk={() => setIsFullscreenModalOpen(false)}
+            onCancel={() => setIsFullscreenModalOpen(false)}
             width={'100%'}
           >
             <p>{t('modals.someContent')}</p>
