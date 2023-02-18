@@ -1,20 +1,21 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
-import { Col, Space, Divider, Form, Radio, RadioChangeEvent } from 'antd';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
-import {
-  Skeleton,
-  SkeletonButton,
-  SkeletonInput,
-  SkeletonAvatar,
-  SkeletonImage,
-} from '@app/components/common/Skeleton/Skeleton';
+import { BaseSkeleton } from '@app/components/common/BaseSkeleton/BaseSkeleton';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
 import { media } from '@app/styles/themes/constants';
-import { Switch } from '@app/components/common/Switch/Switch';
+import { BaseSwitch } from '@app/components/common/BaseSwitch/BaseSwitch';
+import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { BaseSpace } from '@app/components/common/BaseSpace/BaseSpace';
+import { BaseDivider } from '@app/components/common/BaseDivider/BaseDivider';
+import { BaseRadio } from '@app/components/common/BaseRadio/BaseRadio';
 
-const FormItem = styled(Form.Item)`
+type Size = 'default' | 'large' | 'small';
+
+const FormItem = styled(BaseForm.Item)`
   @media only screen and ${media.xs} {
     max-width: fit-content;
   }
@@ -29,7 +30,7 @@ const SkeletonsPage: React.FC = () => {
   const [state, setState] = useState<{
     active: boolean;
     block: boolean;
-    size?: 'default' | 'large' | 'small';
+    size?: Size;
     buttonShape?: 'circle' | 'square' | 'round';
     avatarShape?: 'circle' | 'square';
   }>({
@@ -46,72 +47,82 @@ const SkeletonsPage: React.FC = () => {
     setState({ ...state, block: checked });
   };
 
-  const handleSizeChange = (e: RadioChangeEvent) => {
-    setState({ ...state, size: e.target.value });
+  const handleSizeChange = (e: any) => {
+    setState({ ...state, size: e.target.value as Size });
   };
 
-  const handleShapeChange = (prop: string) => (e: RadioChangeEvent) => {
+  const handleShapeChange = (prop: string) => (e: any) => {
     setState({ ...state, [prop]: e.target.value });
   };
 
   return (
     <>
       <PageTitle>{t('common.skeleton')}</PageTitle>
-      <Col>
+      <BaseCol>
         <S.Card title={t('skeletons.basic')}>
-          <Skeleton />
+          <BaseSkeleton />
         </S.Card>
         <S.Card title={t('skeletons.complex')}>
-          <Skeleton avatar paragraph={{ rows: 4 }} />
+          <BaseSkeleton avatar paragraph={{ rows: 4 }} />
         </S.Card>
         <S.Card title={t('skeletons.active')}>
-          <Skeleton active />
+          <BaseSkeleton active />
         </S.Card>
         <S.Card title={t('skeletons.customization')}>
           <div>
-            <Space wrap>
-              <SkeletonButton active={state.active} size={state.size} shape={state.buttonShape} block={state.block} />
-              <SkeletonAvatar active={state.active} size={state.size} shape={state.avatarShape} />
-              <SkeletonInput style={{ width: 200 }} active={state.active} size={state.size} />
-            </Space>
+            <BaseSpace wrap>
+              <BaseSkeleton.Button
+                active={state.active}
+                size={state.size}
+                shape={state.buttonShape}
+                block={state.block}
+              />
+              <BaseSkeleton.Avatar active={state.active} size={state.size} shape={state.avatarShape} />
+              <BaseSkeleton.Input style={{ width: 200 }} active={state.active} size={state.size} />
+            </BaseSpace>
             <br />
             <br />
-            <SkeletonButton active={state.active} size={state.size} shape={state.buttonShape} block={state.block} />
+            <BaseSkeleton.Button
+              active={state.active}
+              size={state.size}
+              shape={state.buttonShape}
+              block={state.block}
+            />
             <br />
             <br />
-            <SkeletonImage />
-            <Divider />
-            <Form layout="inline">
+            <BaseSkeleton.Image />
+            <BaseDivider />
+            <BaseForm layout="inline">
               <FormItem label={t('skeletons.activeLabel')}>
-                <Switch checked={state.active} onChange={handleActiveChange} />
+                <BaseSwitch checked={state.active} onChange={handleActiveChange} />
               </FormItem>
               <FormItem label={t('skeletons.buttonBlock')}>
-                <Switch checked={state.block} onChange={handleBlockChange} />
+                <BaseSwitch checked={state.block} onChange={handleBlockChange} />
               </FormItem>
               <FormItem label={t('skeletons.size')}>
-                <Radio.Group value={state.size} onChange={handleSizeChange}>
-                  <Radio.Button value="default">{t('skeletons.default')}</Radio.Button>
-                  <Radio.Button value="large">{t('skeletons.large')}</Radio.Button>
-                  <Radio.Button value="small">{t('skeletons.small')}</Radio.Button>
-                </Radio.Group>
+                <BaseRadio.Group value={state.size} onChange={handleSizeChange}>
+                  <BaseRadio.Button value="default">{t('skeletons.default')}</BaseRadio.Button>
+                  <BaseRadio.Button value="large">{t('skeletons.large')}</BaseRadio.Button>
+                  <BaseRadio.Button value="small">{t('skeletons.small')}</BaseRadio.Button>
+                </BaseRadio.Group>
               </FormItem>
               <FormItem label={t('skeletons.buttonShape')}>
-                <Radio.Group value={state.buttonShape} onChange={handleShapeChange('buttonShape')}>
-                  <Radio.Button value="default">{t('skeletons.default')}</Radio.Button>
-                  <Radio.Button value="round">{t('skeletons.round')}</Radio.Button>
-                  <Radio.Button value="circle">{t('skeletons.circle')}</Radio.Button>
-                </Radio.Group>
+                <BaseRadio.Group value={state.buttonShape} onChange={handleShapeChange('buttonShape')}>
+                  <BaseRadio.Button value="default">{t('skeletons.default')}</BaseRadio.Button>
+                  <BaseRadio.Button value="round">{t('skeletons.round')}</BaseRadio.Button>
+                  <BaseRadio.Button value="circle">{t('skeletons.circle')}</BaseRadio.Button>
+                </BaseRadio.Group>
               </FormItem>
               <FormItem label={t('skeletons.avatarShape')}>
-                <Radio.Group value={state.avatarShape} onChange={handleShapeChange('avatarShape')}>
-                  <Radio.Button value="square">{t('skeletons.square')}</Radio.Button>
-                  <Radio.Button value="circle">{t('skeletons.circle')}</Radio.Button>
-                </Radio.Group>
+                <BaseRadio.Group value={state.avatarShape} onChange={handleShapeChange('avatarShape')}>
+                  <BaseRadio.Button value="square">{t('skeletons.square')}</BaseRadio.Button>
+                  <BaseRadio.Button value="circle">{t('skeletons.circle')}</BaseRadio.Button>
+                </BaseRadio.Group>
               </FormItem>
-            </Form>
+            </BaseForm>
           </div>
         </S.Card>
-      </Col>
+      </BaseCol>
     </>
   );
 };

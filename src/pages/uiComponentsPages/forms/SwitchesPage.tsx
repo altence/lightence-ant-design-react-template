@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { Col, Space } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
-import { Switch } from '@app/components/common/Switch/Switch';
-import { Button } from '@app/components/common/buttons/Button/Button';
+import { BaseSwitch } from '@app/components/common/BaseSwitch/BaseSwitch';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { BaseSpace } from '@app/components/common/BaseSpace/BaseSpace';
 
 const SwitchesPage: React.FC = () => {
   const { t } = useTranslation();
@@ -14,38 +15,38 @@ const SwitchesPage: React.FC = () => {
   return (
     <>
       <PageTitle>{t('common.switch')}</PageTitle>
-      <Col>
+      <BaseCol>
         <S.Card title={t('switches.basic')}>
-          <Switch defaultChecked />
+          <BaseSwitch defaultChecked />
         </S.Card>
         <S.Card title={t('switches.disabled')}>
-          <Space direction="vertical" size={10}>
-            <Switch disabled={disabled} defaultChecked />
-            <Button type="primary" onClick={() => setDisabled(!disabled)}>
+          <BaseSpace direction="vertical" size={10}>
+            <BaseSwitch disabled={disabled} defaultChecked />
+            <BaseButton type="primary" onClick={() => setDisabled(!disabled)}>
               {t('switches.toggleDisabled')}
-            </Button>
-          </Space>
+            </BaseButton>
+          </BaseSpace>
         </S.Card>
         <S.Card title={t('switches.sizes')}>
-          <Space direction="vertical" size={10}>
-            <Switch defaultChecked />
-            <Switch size="small" defaultChecked />
-          </Space>
+          <BaseSpace direction="vertical" size={10}>
+            <BaseSwitch defaultChecked />
+            <BaseSwitch size="small" defaultChecked />
+          </BaseSpace>
         </S.Card>
         <S.Card title={t('switches.loading')}>
-          <Space direction="vertical" size={10}>
-            <Switch loading defaultChecked />
-            <Switch size="small" loading />
-          </Space>
+          <BaseSpace direction="vertical" size={10}>
+            <BaseSwitch loading defaultChecked />
+            <BaseSwitch size="small" loading />
+          </BaseSpace>
         </S.Card>
         <S.Card title={t('switches.icons')}>
-          <Space direction="vertical" size={10}>
-            <Switch checkedChildren={t('switches.yes')} unCheckedChildren={t('switches.no')} defaultChecked />
-            <Switch checkedChildren="1" unCheckedChildren="0" />
-            <Switch checkedChildren={<CheckOutlined />} unCheckedChildren={<CloseOutlined />} defaultChecked />
-          </Space>
+          <BaseSpace direction="vertical" size={10}>
+            <BaseSwitch checkedChildren={t('switches.yes')} unCheckedChildren={t('switches.no')} defaultChecked />
+            <BaseSwitch checkedChildren="1" unCheckedChildren="0" />
+            <BaseSwitch checkedChildren={<CheckOutlined />} unCheckedChildren={<CloseOutlined />} defaultChecked />
+          </BaseSpace>
         </S.Card>
-      </Col>
+      </BaseCol>
     </>
   );
 };

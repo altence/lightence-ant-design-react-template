@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-import { Space as AntSpace, Input } from 'antd';
 import { FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
+import { BaseInput } from '../BaseInput/BaseInput';
+import { BaseSpace } from '../../BaseSpace/BaseSpace';
 
-const { Search } = Input;
-
-export const SearchInput = styled(Search)`
+export const SearchInput = styled(BaseInput.Search)`
   & .ant-input-prefix {
     margin: 0.5rem;
   }
@@ -49,7 +48,7 @@ export const SearchInput = styled(Search)`
   }
 `;
 
-export const Space = styled(AntSpace)`
+export const Space = styled(BaseSpace)`
   & > .ant-space-item:last-of-type {
     display: flex;
     align-items: center;

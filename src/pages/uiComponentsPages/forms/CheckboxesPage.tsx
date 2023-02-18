@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { Col, Space } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { Checkbox, CheckboxGroup, CheckboxChangeEvent } from '@app/components/common/Checkbox/Checkbox';
-import { Button } from '@app/components/common/buttons/Button/Button';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
+import { BaseCheckbox } from '@app/components/common/BaseCheckbox/BaseCheckbox';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { BaseSpace } from '@app/components/common/BaseSpace/BaseSpace';
 
 const CheckboxesPage: React.FC = () => {
   const { t } = useTranslation();
@@ -15,40 +16,36 @@ const CheckboxesPage: React.FC = () => {
   }`;
   const groupOptions = [t('checkboxes.apple'), t('checkboxes.pear'), t('checkboxes.orange')];
 
-  const onChange = (e: CheckboxChangeEvent) => {
-    setChecked(e.target.checked);
-  };
-
   return (
     <>
       <PageTitle>{t('common.checkbox')}</PageTitle>
-      <Col>
+      <BaseCol>
         <S.Card title={t('checkboxes.basic')}>
-          <Checkbox>{t('checkboxes.checkbox')}</Checkbox>
+          <BaseCheckbox>{t('checkboxes.checkbox')}</BaseCheckbox>
         </S.Card>
         <S.Card title={t('checkboxes.disabledCheckbox')}>
-          <Checkbox defaultChecked={false} disabled />
-          <Checkbox defaultChecked disabled />
+          <BaseCheckbox defaultChecked={false} disabled />
+          <BaseCheckbox defaultChecked disabled />
         </S.Card>
         <S.Card title={t('checkboxes.controlled')}>
-          <Space direction="vertical" size={20}>
-            <Checkbox checked={checked} disabled={disabled} onChange={onChange}>
+          <BaseSpace direction="vertical" size={20}>
+            <BaseCheckbox checked={checked} disabled={disabled} onChange={(event) => setChecked(event.target.checked)}>
               {label}
-            </Checkbox>
-            <Space>
-              <Button type="primary" size="small" onClick={() => setChecked(!checked)}>
+            </BaseCheckbox>
+            <BaseSpace>
+              <BaseButton type="primary" size="small" onClick={() => setChecked(!checked)}>
                 {!checked ? t('checkboxes.check') : t('checkboxes.uncheck')}
-              </Button>
-              <Button type="primary" size="small" onClick={() => setDisabled(!disabled)}>
+              </BaseButton>
+              <BaseButton type="primary" size="small" onClick={() => setDisabled(!disabled)}>
                 {!disabled ? t('checkboxes.disable') : t('checkboxes.enable')}
-              </Button>
-            </Space>
-          </Space>
+              </BaseButton>
+            </BaseSpace>
+          </BaseSpace>
         </S.Card>
         <S.Card title={t('checkboxes.group')}>
-          <CheckboxGroup options={groupOptions} defaultValue={[`${t('checkboxes.apple')}`]} />
+          <BaseCheckbox.Group options={groupOptions} defaultValue={[`${t('checkboxes.apple')}`]} />
         </S.Card>
-      </Col>
+      </BaseCol>
     </>
   );
 };

@@ -1,6 +1,7 @@
 import { FONT_WEIGHT, FONT_SIZE } from '@app/styles/themes/constants';
-import { Rate, Typography } from 'antd';
 import styled from 'styled-components';
+import { BaseTypography } from '../BaseTypography/BaseTypography';
+import { BaseRate } from '../BaseRate/BaseRate';
 
 export const Profile = styled.div`
   display: flex;
@@ -13,7 +14,7 @@ export const Info = styled.div`
   gap: 8px;
 `;
 
-export const Text = styled(Typography.Text)`
+export const Text = styled(BaseTypography.Text)`
   display: flex;
   line-height: 1.25rem;
   font-weight: ${FONT_WEIGHT.semibold};
@@ -26,7 +27,7 @@ export const Title = styled(Text)`
   color: var(--primary-color);
 `;
 
-export const Rating = styled(Rate)`
+export const Rating = styled(BaseRate)`
   display: flex;
   line-height: 1.15;
 `;

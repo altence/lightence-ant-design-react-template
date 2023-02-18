@@ -1,9 +1,8 @@
 import React from 'react';
-import { Checkbox } from 'antd';
 import { Option } from '../interfaces';
-import { CheckboxChangeEvent } from 'antd/lib/checkbox';
 import { CheckboxValueType } from 'antd/lib/checkbox/Group';
 import * as S from './CheckboxColumn.styles';
+import { BaseCheckbox } from '@app/components/common/BaseCheckbox/BaseCheckbox';
 
 interface CheckboxColumnProps {
   column: Omit<Option, 'id'>;
@@ -24,7 +23,7 @@ export const CheckboxColumn: React.FC<CheckboxColumnProps> = ({ column, handleCh
     setTriggered(true);
   };
 
-  const onCheckAllChange = (event: CheckboxChangeEvent) => {
+  const onCheckAllChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCheckedList(event.target.checked ? column.data : []);
     setIndeterminate(false);
     setCheckAll(event.target.checked);
@@ -41,11 +40,11 @@ export const CheckboxColumn: React.FC<CheckboxColumnProps> = ({ column, handleCh
   return (
     <S.Wrapper>
       <S.HeaderCol>{column.headerRender ? column.headerRender(column.header, props) : column.header}</S.HeaderCol>
-      <Checkbox.Group value={checkedList} onChange={onChange}>
+      <BaseCheckbox.Group value={checkedList} onChange={onChange}>
         {column.data.map((el, index) => (
           <S.Col key={index}>{column.dataRender ? column.dataRender(el) : el}</S.Col>
         ))}
-      </Checkbox.Group>
+      </BaseCheckbox.Group>
     </S.Wrapper>
   );
 };

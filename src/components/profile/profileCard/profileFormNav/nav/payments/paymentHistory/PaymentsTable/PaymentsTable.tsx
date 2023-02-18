@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-import { Avatar } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { ColumnType } from 'antd/lib/table';
 import { Dates } from 'constants/Dates';
@@ -8,7 +7,8 @@ import { paymentStatuses, PaymentStatus } from 'constants/paymentStatuses';
 import { defineColorByPriority, getCurrencyPrice } from 'utils/utils';
 import { Payment } from 'api/paymentHistory.api';
 import * as S from './PaymentsTable.styles';
-import { Button } from 'components/common/buttons/Button/Button';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
+import { BaseAvatar } from '@app/components/common/BaseAvatar/BaseAvatar';
 
 interface Recipient {
   name: string;
@@ -39,7 +39,7 @@ export const PaymentsTable: React.FC<PaymentsTableProps> = ({ payments }) => {
         key: 'recipient',
         render: (recipient: Recipient) => (
           <S.RecipientWrapper>
-            <Avatar src={recipient.img} alt={recipient.name} />
+            <BaseAvatar src={recipient.img} alt={recipient.name} />
             {recipient.name}
           </S.RecipientWrapper>
         ),
@@ -73,7 +73,7 @@ export const PaymentsTable: React.FC<PaymentsTableProps> = ({ payments }) => {
         dataIndex: 'details',
         key: 'details',
         align: 'center',
-        render: () => <Button type="link">{t('profile.nav.payments.details')}</Button>,
+        render: () => <BaseButton type="link">{t('profile.nav.payments.details')}</BaseButton>,
       },
     ];
   }, [t]);

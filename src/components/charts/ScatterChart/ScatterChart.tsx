@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'components/common/Card/Card';
+import { BaseCard } from '@app/components/common/BaseCard/BaseCard';
 import { BaseChart } from 'components/common/charts/BaseChart';
 import { useTranslation } from 'react-i18next';
 
@@ -111,8 +111,8 @@ export const ScatterChart: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <Card padding="0 0 1.875rem" title={t('charts.scatter')}>
+    <BaseCard padding="0 0 1.875rem" title={t('charts.scatter')}>
       <BaseChart option={defaultOption} />
-    </Card>
+    </BaseCard>
   );
 };

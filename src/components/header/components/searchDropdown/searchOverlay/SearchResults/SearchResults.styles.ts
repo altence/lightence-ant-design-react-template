@@ -1,5 +1,5 @@
+import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
 import { media } from '@app/styles/themes/constants';
-import { Typography } from 'antd';
 import styled from 'styled-components';
 
 export const SearchResultsWrapper = styled.div`
@@ -23,7 +23,7 @@ export const SearchResultsWrapper = styled.div`
   }
 `;
 
-export const Text = styled(Typography.Text)`
+export const Text = styled(BaseTypography.Text)`
   color: var(--text-main-color);
 
   &:hover {

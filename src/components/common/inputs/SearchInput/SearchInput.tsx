@@ -1,10 +1,10 @@
 import React from 'react';
-import { Spin, InputRef } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import { InputProps } from '../Input/Input';
+import { BaseInputProps, BaseInputRef } from '../BaseInput/BaseInput';
 import * as S from './SearchInput.styles';
+import { BaseSpin } from '../../BaseSpin/BaseSpin';
 
-interface SearchInputProps extends InputProps {
+interface SearchInputProps extends BaseInputProps {
   loading?: boolean;
   filter?: React.ReactNode;
   onSearch?: (
@@ -15,7 +15,7 @@ interface SearchInputProps extends InputProps {
   inputPrefixCls?: string;
 }
 
-export const SearchInput = React.forwardRef<InputRef, SearchInputProps>(({ loading, filter, ...props }, ref) => {
+export const SearchInput = React.forwardRef<BaseInputRef, SearchInputProps>(({ loading, filter, ...props }, ref) => {
   return (
     <S.SearchInput
       ref={ref}
@@ -23,7 +23,7 @@ export const SearchInput = React.forwardRef<InputRef, SearchInputProps>(({ loadi
       {...(filter && {
         suffix: (
           <S.Space align="center">
-            {loading && <Spin size="small" />}
+            {loading && <BaseSpin size="small" />}
             {filter}
           </S.Space>
         ),

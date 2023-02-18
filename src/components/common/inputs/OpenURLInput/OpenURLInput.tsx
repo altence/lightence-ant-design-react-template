@@ -1,13 +1,13 @@
 import React, { useMemo } from 'react';
-import { Tooltip } from 'antd';
 import { SuffixInput } from '../SuffixInput/SuffixInput';
 import { useTranslation } from 'react-i18next';
 import { FileTextOutlined } from '@ant-design/icons';
-import { InputProps } from '../Input/Input';
+import { BaseInputProps } from '../BaseInput/BaseInput';
 import { websitePattern } from 'constants/patterns';
-import { Button } from '@app/components/common/buttons/Button/Button';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
+import { BaseTooltip } from '../../BaseTooltip/BaseTooltip';
 
-interface OpenURLInputProps extends InputProps {
+interface OpenURLInputProps extends BaseInputProps {
   href?: string;
   target?: string;
 }
@@ -20,8 +20,8 @@ export const OpenURLInput: React.FC<OpenURLInputProps> = ({ href, target = '_bla
   return (
     <SuffixInput
       suffix={
-        <Tooltip title={t('common.openInNewTab')}>
-          <Button
+        <BaseTooltip title={t('common.openInNewTab')}>
+          <BaseButton
             size="small"
             href={href}
             target={target}
@@ -29,7 +29,7 @@ export const OpenURLInput: React.FC<OpenURLInputProps> = ({ href, target = '_bla
             type="text"
             icon={<FileTextOutlined />}
           />
-        </Tooltip>
+        </BaseTooltip>
       }
       {...props}
     />

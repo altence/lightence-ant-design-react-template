@@ -1,7 +1,7 @@
-import { Typography } from 'antd';
 import styled from 'styled-components';
 import { InputNumber } from '@app/components/common/inputs/InputNumber/InputNumber';
 import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
+import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
 
 const pathWidth = 22;
 
@@ -47,7 +47,7 @@ export const ShadowWrapper = styled(InnerWrapper)`
   z-index: 2; // To make it under slider
 `;
 
-export const Text = styled(Typography.Text)`
+export const Text = styled(BaseTypography.Text)`
   font-size: ${FONT_SIZE.xs};
 `;
 
@@ -79,7 +79,7 @@ export const RightText = styled(Text)`
   transform: translateY(-50%);
 `;
 
-export const CenterText = styled(Typography.Text)`
+export const CenterText = styled(BaseTypography.Text)`
   position: absolute;
   top: 50%;
   left: 50%;

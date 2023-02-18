@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { Col } from 'antd';
-import { AutoComplete } from 'components/common/AutoComplete/AutoComplete';
+import { BaseAutoComplete } from '@app/components/common/BaseAutoComplete/BaseAutoComplete';
 import { SearchInput as CommonSearchInput } from 'components/common/inputs/SearchInput/SearchInput';
-import { Option } from 'components/common/selects/Select/Select';
+import { Option } from '@app/components/common/selects/BaseSelect/BaseSelect';
 import { UserOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 const Link = styled.a`
   float: right;
@@ -26,11 +26,12 @@ const SearchInput = styled(CommonSearchInput)`
 
 const mockVal = (str: string, repeat = 1) => ({
   value: str.repeat(repeat),
+  label: str.repeat(repeat),
 });
 
 const AutoCompletesPage: React.FC = () => {
   const { t } = useTranslation();
-  const [options, setOptions] = useState<{ value: string }[]>([]);
+  const [options, setOptions] = useState<{ value: string; label: string }[]>([]);
   const [result, setResult] = useState<string[]>([]);
 
   const handleCustomSearch = (value: string) => {
@@ -89,10 +90,10 @@ const AutoCompletesPage: React.FC = () => {
   return (
     <>
       <PageTitle>{t('common.autocomplete')}</PageTitle>
-      <Col>
+      <BaseCol>
         <S.Card title={t('autoCompletes.basic')}>
           <label>
-            <AutoComplete
+            <BaseAutoComplete
               options={options}
               style={{ width: 200 }}
               onSearch={handleSearch}
@@ -102,7 +103,7 @@ const AutoCompletesPage: React.FC = () => {
         </S.Card>
         <S.Card title={t('autoCompletes.customOptions')}>
           <label>
-            <AutoComplete
+            <BaseAutoComplete
               style={{ width: 200 }}
               onSearch={handleCustomSearch}
               placeholder={t('autoCompletes.inputHere')}
@@ -112,17 +113,17 @@ const AutoCompletesPage: React.FC = () => {
                   {email}
                 </Option>
               ))}
-            </AutoComplete>
+            </BaseAutoComplete>
           </label>
         </S.Card>
         <S.Card title={t('autoCompletes.categories')}>
           <label>
-            <AutoComplete popupClassName="certain-category-search-dropdown" options={categories}>
+            <BaseAutoComplete popupClassName="certain-category-search-dropdown" options={categories}>
               <SearchInput placeholder={t('autoCompletes.inputHere')} prefix={null} />
-            </AutoComplete>
+            </BaseAutoComplete>
           </label>
         </S.Card>
-      </Col>
+      </BaseCol>
     </>
   );
 };

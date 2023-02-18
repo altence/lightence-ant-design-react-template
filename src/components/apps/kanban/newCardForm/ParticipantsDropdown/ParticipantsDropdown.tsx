@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Dropdown } from '@app/components/common/Dropdown/Dropdown';
+import { BaseDropdown } from '@app/components/common/BaseDropdown/Dropdown';
 import { Participant as IParticipant } from '../../interfaces';
 import { kanbanPeople } from 'constants/kanbanPeople';
 import StubAvatar from '../../../../../assets/images/stub-avatar.webp';
@@ -53,7 +53,7 @@ export const ParticipantsDropdown: React.FC<ParticipantsDropdownProps> = ({
   );
 
   return (
-    <Dropdown placement="bottom" trigger={['click']} menu={{ items }}>
+    <BaseDropdown placement="bottom" trigger={['click']} menu={{ items }}>
       {selectedParticipants && selectedParticipants.length > 0 ? (
         <S.ParticipantsWrapper>
           {selectedParticipants.map((participant) => (
@@ -74,6 +74,6 @@ export const ParticipantsDropdown: React.FC<ParticipantsDropdownProps> = ({
           <S.AddParticipant>{t('kanban.addParticipant')}</S.AddParticipant>
         </S.ParticipantsWrapper>
       )}
-    </Dropdown>
+    </BaseDropdown>
   );
 };

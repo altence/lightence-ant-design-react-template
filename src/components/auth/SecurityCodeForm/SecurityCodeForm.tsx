@@ -1,15 +1,16 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Image, Spin } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
-import { VerificationCodeInput } from '@app/components/common/VerificationCodeInput/VerificationCodeInput';
+import { VerificationCodeInput } from '@app/components/common/inputs/VerificationCodeInput/VerificationCodeInput';
 import { useAppDispatch } from '@app/hooks/reduxHooks';
 import { doVerifySecurityCode } from '@app/store/slices/authSlice';
 import { notificationController } from '@app/controllers/notificationController';
 import VerifyEmailImage from '@app/assets/images/verify-email.webp';
 import * as Auth from '@app/components/layouts/AuthLayout/AuthLayout.styles';
 import * as S from './SecurityCodeForm.styles';
+import { BaseImage } from '@app/components/common/BaseImage/BaseImage';
+import { BaseSpin } from '@app/components/common/BaseSpin/BaseSpin';
 
 interface SecurityCodeFormProps {
   onBack?: () => void;
@@ -49,11 +50,11 @@ export const SecurityCodeForm: React.FC<SecurityCodeFormProps> = ({ onBack, onFi
         </Auth.BackWrapper>
         <S.ContentWrapper>
           <S.ImageWrapper>
-            <Image src={VerifyEmailImage} alt="Not found" preview={false} />
+            <BaseImage src={VerifyEmailImage} alt="Not found" preview={false} />
           </S.ImageWrapper>
           <Auth.FormTitle>{t('securityCodeForm.title')}</Auth.FormTitle>
           <S.VerifyEmailDescription>{t('common.verifCodeSent')}</S.VerifyEmailDescription>
-          {isLoading ? <Spin /> : <VerificationCodeInput autoFocus onChange={setSecurityCode} />}
+          {isLoading ? <BaseSpin /> : <VerificationCodeInput autoFocus onChange={setSecurityCode} />}
           <Link to="/" target="_blank">
             <S.NoCodeText>{t('securityCodeForm.noCode')}</S.NoCodeText>
           </Link>

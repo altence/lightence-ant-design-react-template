@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components';
-import { Button, Layout } from 'antd';
 import { Link } from 'react-router-dom';
 import { media } from '@app/styles/themes/constants';
 import { LAYOUT } from '@app/styles/themes/constants';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
+import { BaseLayout } from '@app/components/common/BaseLayout/BaseLayout';
 
-export const Sider = styled(Layout.Sider)`
+export const Sider = styled(BaseLayout.Sider)`
   position: fixed;
   overflow: visible;
   right: 0;
@@ -24,7 +25,7 @@ export const Sider = styled(Layout.Sider)`
   }
 `;
 
-export const CollapseButton = styled(Button)<{ $isCollapsed: boolean }>`
+export const CollapseButton = styled(BaseButton)<{ $isCollapsed: boolean }>`
   background: var(--collapse-background-color);
 
   border: 1px solid var(--border-color);

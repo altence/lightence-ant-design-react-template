@@ -1,6 +1,6 @@
-import { DatePicker } from '@app/components/common/pickers/DatePicker';
+import { BaseDatePicker } from '@app/components/common/pickers/BaseDatePicker';
 import styled from 'styled-components';
 
-export const BirthdayPicker = styled(DatePicker)`
+export const BirthdayPicker = styled(BaseDatePicker)`
   width: 100%;
 `;

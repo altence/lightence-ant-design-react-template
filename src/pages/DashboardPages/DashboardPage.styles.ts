@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { Col } from 'antd';
 import { LAYOUT, media } from '@app/styles/themes/constants';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
-export const RightSideCol = styled(Col)`
+export const RightSideCol = styled(BaseCol)`
   padding: ${LAYOUT.desktop.paddingVertical} ${LAYOUT.desktop.paddingHorizontal};
   position: sticky;
   top: 0;
@@ -13,7 +13,7 @@ export const RightSideCol = styled(Col)`
   overflow-y: auto;
 `;
 
-export const LeftSideCol = styled(Col)`
+export const LeftSideCol = styled(BaseCol)`
   @media only screen and ${media.xl} {
     padding: ${LAYOUT.desktop.paddingVertical} ${LAYOUT.desktop.paddingHorizontal};
     height: calc(100vh - ${LAYOUT.desktop.headerHeight});

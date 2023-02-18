@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { Modal } from '@app/components/common/Modal/Modal';
+import { BaseModal } from '@app/components/common/BaseModal/BaseModal';
 
-export const AuthModal = styled(Modal)`
+export const AuthModal = styled(BaseModal)`
   display: flex;
   align-items: center;
   justify-content: center;

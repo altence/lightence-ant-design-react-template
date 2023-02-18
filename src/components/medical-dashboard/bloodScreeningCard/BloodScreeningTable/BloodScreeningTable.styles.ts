@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Table as CommonTable } from 'components/common/Table/Table';
+import { BaseTable as CommonTable } from '@app/components/common/BaseTable/BaseTable';
 import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
 
 interface TextProps {

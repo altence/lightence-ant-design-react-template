@@ -1,8 +1,9 @@
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
 import { FONT_SIZE, media } from '@app/styles/themes/constants';
-import { Row, Typography } from 'antd';
 import styled from 'styled-components';
 
-export const WrapperRow = styled(Row)`
+export const WrapperRow = styled(BaseRow)`
   margin-bottom: 1.5rem;
 
   @media only screen and ${media.xl} {
@@ -10,7 +11,7 @@ export const WrapperRow = styled(Row)`
   }
 `;
 
-export const Title = styled(Typography.Title)`
+export const Title = styled(BaseTypography.Title)`
   &.ant-typography {
     margin-bottom: 0;
 

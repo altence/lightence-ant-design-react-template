@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Avatar } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
 import { initValues as loginInitVal } from '@app/components/auth/LoginForm/LoginForm';
@@ -11,6 +10,7 @@ import { Dates } from '@app/constants/Dates';
 import { doLogin } from '@app/store/slices/authSlice';
 import * as Auth from '@app/components/layouts/AuthLayout/AuthLayout.styles';
 import * as S from './LockForm.styles';
+import { BaseAvatar } from '@app/components/common/BaseAvatar/BaseAvatar';
 
 interface LockFormData {
   password: string;
@@ -60,7 +60,7 @@ export const LockForm: React.FC = () => {
           <S.Time>{currentTime}</S.Time>
           <S.Date>{currentDate}</S.Date>
           <S.AvatarCircle>
-            <Avatar src={user?.imgUrl} alt="user avatar" size={mobileOnly ? 59 : 77} />
+            <BaseAvatar src={user?.imgUrl} alt="user avatar" size={mobileOnly ? 59 : 77} />
           </S.AvatarCircle>
           <S.Name>{fullName}</S.Name>
         </S.ContentWrapper>

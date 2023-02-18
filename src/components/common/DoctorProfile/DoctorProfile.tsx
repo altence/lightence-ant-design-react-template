@@ -1,9 +1,9 @@
 import React from 'react';
-import { Avatar } from 'antd';
 import { useTranslation } from 'react-i18next';
 import * as S from './DoctorProfile.styles';
 import { specifities } from 'constants/specifities';
 import { UserOutlined } from '@ant-design/icons';
+import { BaseAvatar } from '../BaseAvatar/BaseAvatar';
 
 interface DoctorProfileProps {
   avatar?: string;
@@ -19,7 +19,7 @@ export const DoctorProfile: React.FC<DoctorProfileProps> = ({ avatar, name, spec
 
   return (
     <S.Profile>
-      <Avatar size="large" src={avatar} icon={<UserOutlined />} alt="Doctor avatar" shape="square" />
+      <BaseAvatar size="large" src={avatar} icon={<UserOutlined />} alt="Doctor avatar" shape="square" />
       <div>
         <S.Info>
           <S.Title>{t('common.doctor')}</S.Title>

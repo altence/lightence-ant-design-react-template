@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { FullscreenExitOutlined, FullscreenOutlined } from '@ant-design/icons';
-import { Button } from '@app/components/common/buttons/Button/Button';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { RequireFullscreen } from '@app/components/common/RequireFullscreen/RequireFullscreen';
 import { HeaderActionWrapper } from '../../Header.styles';
 
@@ -15,7 +15,7 @@ export const HeaderFullscreen: React.FC = () => {
     <RequireFullscreen component={rootRef}>
       {(isFullscreen) => (
         <HeaderActionWrapper>
-          <Button
+          <BaseButton
             type={isFullscreen ? 'ghost' : 'text'}
             icon={isFullscreen ? <FullscreenExitOutlined /> : <FullscreenOutlined />}
           />

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 import { SearchDropdown } from '../searchDropdown/SearchDropdown';
-import { Button } from '@app/components/common/buttons/Button/Button';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { components as configComponents, Component } from '@app/constants/config/components';
 import { categoriesList, CategoryType } from '@app/constants/categoriesList';
 import { useResponsive } from '@app/hooks/useResponsive';
@@ -44,7 +44,10 @@ export const HeaderSearch: React.FC = () => {
     <>
       {mobileOnly && (
         <>
-          <Button type={isModalOpen ? 'ghost' : 'text'} icon={<S.SearchIcon onClick={() => setModalOpen(true)} />} />
+          <BaseButton
+            type={isModalOpen ? 'ghost' : 'text'}
+            icon={<S.SearchIcon onClick={() => setModalOpen(true)} />}
+          />
           <S.SearchModal
             open={isModalOpen}
             closable={false}

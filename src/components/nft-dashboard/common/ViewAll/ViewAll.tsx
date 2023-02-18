@@ -1,9 +1,9 @@
 import React from 'react';
-import { ButtonProps } from '@app/components/common/buttons/Button/Button';
+import { BaseButtonProps } from '@app/components/common/BaseButton/BaseButton';
 import { useTranslation } from 'react-i18next';
 import * as S from './ViewAll.styles';
 
-interface ViewAllProps extends ButtonProps {
+interface ViewAllProps extends BaseButtonProps {
   bordered?: boolean;
 }
 

@@ -1,9 +1,11 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { specifities } from 'constants/specifities';
-import { Col, Image, Row } from 'antd';
 import { Dates } from 'constants/Dates';
 import * as S from './DoctorCard.styles';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { BaseImage } from '@app/components/common/BaseImage/BaseImage';
 
 interface DoctorCardProps {
   name?: string;
@@ -20,61 +22,61 @@ export const DoctorCard: React.FC<DoctorCardProps> = ({ name, speciality, rating
 
   return (
     <S.DoctorCard padding="16px">
-      <Row gutter={[{}, { xxl: 10 }]}>
-        <Col span={24}>
+      <BaseRow gutter={[{}, { xxl: 10 }]}>
+        <BaseCol span={24}>
           <S.ImgWrapper>
-            <Image src={imgUrl} alt={name} preview={false} />
+            <BaseImage src={imgUrl} alt={name} preview={false} />
           </S.ImgWrapper>
-        </Col>
+        </BaseCol>
 
-        <Col span={24}>
-          <Row align="middle" gutter={[10, 10]}>
-            <Col>
+        <BaseCol span={24}>
+          <BaseRow align="middle" gutter={[10, 10]}>
+            <BaseCol>
               <S.Rating value={rating} disabled />
-            </Col>
+            </BaseCol>
 
-            <Col>
+            <BaseCol>
               <S.Text>{rating}.0</S.Text>
-            </Col>
-          </Row>
-        </Col>
+            </BaseCol>
+          </BaseRow>
+        </BaseCol>
 
-        <Col span={24}>
-          <Row>
-            <Col span={24}>
+        <BaseCol span={24}>
+          <BaseRow>
+            <BaseCol span={24}>
               <S.Title>{t('common.doctor')}</S.Title>
-            </Col>
+            </BaseCol>
 
-            <Col span={24}>
+            <BaseCol span={24}>
               <S.Text>{name}</S.Text>
-            </Col>
-          </Row>
-        </Col>
+            </BaseCol>
+          </BaseRow>
+        </BaseCol>
 
-        <Col span={24}>
-          <Row>
-            <Col span={24}>
+        <BaseCol span={24}>
+          <BaseRow>
+            <BaseCol span={24}>
               <S.Title>{t('common.specifity')}</S.Title>
-            </Col>
+            </BaseCol>
 
-            <Col span={24}>
+            <BaseCol span={24}>
               <S.Text>{t(`common.${specifity}`)}</S.Text>
-            </Col>
-          </Row>
-        </Col>
+            </BaseCol>
+          </BaseRow>
+        </BaseCol>
 
-        <Col span={24}>
-          <Row justify="space-between" wrap={false}>
-            <Col>
+        <BaseCol span={24}>
+          <BaseRow justify="space-between" wrap={false}>
+            <BaseCol>
               <S.Title>{t('medical-dashboard.favoriteDoctors.lastVisit')}</S.Title>
-            </Col>
+            </BaseCol>
 
-            <Col>
+            <BaseCol>
               <S.Text>{Dates.format(Dates.getDate(date), 'L')}</S.Text>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
+            </BaseCol>
+          </BaseRow>
+        </BaseCol>
+      </BaseRow>
     </S.DoctorCard>
   );
 };

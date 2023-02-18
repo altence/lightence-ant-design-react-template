@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { Card } from '@app/components/common/Card/Card';
+import { BaseCard } from '@app/components/common/BaseCard/BaseCard';
 import { BORDER_RADIUS, FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
 
-export const BloodScreeningCard = styled(Card)`
+export const BloodScreeningCard = styled(BaseCard)`
   height: 100%;
 `;
 

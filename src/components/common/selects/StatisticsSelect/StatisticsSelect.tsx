@@ -1,10 +1,10 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Option, Select, SelectProps } from '../Select/Select';
+import { Option, BaseSelect, BaseSelectProps } from '../BaseSelect/BaseSelect';
 import { getStatistics, Statistic } from 'api/statistics.api';
 import { statistics as configStatistics } from 'constants/config/statistics';
 
-export const StatisticsSelect: React.FC<SelectProps> = ({ className, ...props }) => {
+export const StatisticsSelect: React.FC<BaseSelectProps> = ({ className, ...props }) => {
   const [statistics, setStatistics] = useState<Statistic[]>([]);
 
   useEffect(() => {
@@ -28,8 +28,8 @@ export const StatisticsSelect: React.FC<SelectProps> = ({ className, ...props })
   );
 
   return (
-    <Select className={className} {...props}>
+    <BaseSelect className={className} {...props}>
       {statisticsOptions}
-    </Select>
+    </BaseSelect>
   );
 };

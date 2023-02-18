@@ -1,11 +1,12 @@
-import { Col, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
-import { Dropdown } from '@app/components/common/Dropdown/Dropdown';
-import { Button } from '@app/components/common/buttons/Button/Button';
+import { BaseDropdown } from '@app/components/common/BaseDropdown/Dropdown';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { BaseSpace } from '@app/components/common/BaseSpace/BaseSpace';
 
 const ContextMenuWrapper = styled.div`
   height: 12.5rem;
@@ -60,49 +61,49 @@ const DropdownsPage: React.FC = () => {
   return (
     <>
       <PageTitle>{t('common.dropdown')}</PageTitle>
-      <Col>
+      <BaseCol>
         <S.Card title={t('dropdowns.basic')}>
-          <Dropdown menu={{ items: basicItems }}>
-            <Button onClick={(e) => e.preventDefault()}>
+          <BaseDropdown menu={{ items: basicItems }}>
+            <BaseButton onClick={(e) => e.preventDefault()}>
               {t('dropdowns.hoverMe')} <DownOutlined />
-            </Button>
-          </Dropdown>
+            </BaseButton>
+          </BaseDropdown>
         </S.Card>
         <S.Card title={t('dropdowns.positions')}>
-          <Space size={16} wrap>
-            <Dropdown menu={{ items: basicItems }} placement="bottomLeft" arrow>
-              <Button>{t('dropdowns.bl')}</Button>
-            </Dropdown>
-            <Dropdown menu={{ items: basicItems }} placement="bottom" arrow>
-              <Button>{t('dropdowns.b')}</Button>
-            </Dropdown>
-            <Dropdown menu={{ items: basicItems }} placement="bottomRight" arrow>
-              <Button>{t('dropdowns.br')}</Button>
-            </Dropdown>
-            <Dropdown menu={{ items: basicItems }} placement="topLeft" arrow>
-              <Button>{t('dropdowns.tl')}</Button>
-            </Dropdown>
-            <Dropdown menu={{ items: basicItems }} placement="top" arrow>
-              <Button>{t('dropdowns.t')}</Button>
-            </Dropdown>
-            <Dropdown menu={{ items: basicItems }} placement="topRight" arrow>
-              <Button>{t('dropdowns.tr')}</Button>
-            </Dropdown>
-          </Space>
+          <BaseSpace size={16} wrap>
+            <BaseDropdown menu={{ items: basicItems }} placement="bottomLeft" arrow>
+              <BaseButton>{t('dropdowns.bl')}</BaseButton>
+            </BaseDropdown>
+            <BaseDropdown menu={{ items: basicItems }} placement="bottom" arrow>
+              <BaseButton>{t('dropdowns.b')}</BaseButton>
+            </BaseDropdown>
+            <BaseDropdown menu={{ items: basicItems }} placement="bottomRight" arrow>
+              <BaseButton>{t('dropdowns.br')}</BaseButton>
+            </BaseDropdown>
+            <BaseDropdown menu={{ items: basicItems }} placement="topLeft" arrow>
+              <BaseButton>{t('dropdowns.tl')}</BaseButton>
+            </BaseDropdown>
+            <BaseDropdown menu={{ items: basicItems }} placement="top" arrow>
+              <BaseButton>{t('dropdowns.t')}</BaseButton>
+            </BaseDropdown>
+            <BaseDropdown menu={{ items: basicItems }} placement="topRight" arrow>
+              <BaseButton>{t('dropdowns.tr')}</BaseButton>
+            </BaseDropdown>
+          </BaseSpace>
         </S.Card>
         <S.Card title={t('dropdowns.clickable')}>
-          <Dropdown menu={{ items: positionItems }} trigger={['click']}>
-            <Button onClick={(e) => e.preventDefault()}>
+          <BaseDropdown menu={{ items: positionItems }} trigger={['click']}>
+            <BaseButton onClick={(e) => e.preventDefault()}>
               {t('dropdowns.clickMe')} <DownOutlined />
-            </Button>
-          </Dropdown>
+            </BaseButton>
+          </BaseDropdown>
         </S.Card>
         <S.Card title={t('dropdowns.context')}>
-          <Dropdown menu={{ items: positionItems }} trigger={['contextMenu']}>
+          <BaseDropdown menu={{ items: positionItems }} trigger={['contextMenu']}>
             <ContextMenuWrapper>{t('dropdowns.rightClick')}</ContextMenuWrapper>
-          </Dropdown>
+          </BaseDropdown>
         </S.Card>
-      </Col>
+      </BaseCol>
     </>
   );
 };

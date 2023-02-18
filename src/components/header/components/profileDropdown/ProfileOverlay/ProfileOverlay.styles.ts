@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-import { Typography, Divider } from 'antd';
 import { media } from '@app/styles/themes/constants';
+import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
+import { BaseDivider } from '@app/components/common/BaseDivider/BaseDivider';
 
-export const Text = styled(Typography.Text)`
+export const Text = styled(BaseTypography.Text)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,8 +20,6 @@ export const Text = styled(Typography.Text)`
   }
 `;
 
-export const ItemsDivider = styled(Divider).withConfig({
-  shouldForwardProp: (prop) => !['eventKey', 'warnKey'].includes(prop),
-})`
+export const ItemsDivider = styled(BaseDivider)`
   margin: 0;
 `;

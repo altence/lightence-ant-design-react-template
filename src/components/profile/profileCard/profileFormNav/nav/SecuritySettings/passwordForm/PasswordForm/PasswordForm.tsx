@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Col, Row } from 'antd';
 import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
 import { ConfirmItemPassword } from '@app/components/profile/profileCard/profileFormNav/nav/SecuritySettings/passwordForm/ConfirmPasswordItem/ConfirmPasswordItem';
 import { CurrentPasswordItem } from '@app/components/profile/profileCard/profileFormNav/nav/SecuritySettings/passwordForm/CurrentPasswordItem/CurrentPasswordItem';
 import { NewPasswordItem } from '@app/components/profile/profileCard/profileFormNav/nav/SecuritySettings/passwordForm/NewPasswordItem/NewPasswordItem';
 import { notificationController } from '@app/controllers/notificationController';
 import * as S from './PasswordForm.styles';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 export const PasswordForm: React.FC = () => {
   const [isFieldsChanged, setFieldsChanged] = useState(false);
@@ -36,25 +37,25 @@ export const PasswordForm: React.FC = () => {
       }
       onFinish={onFinish}
     >
-      <Row gutter={{ md: 15, xl: 30 }}>
-        <Col span={24}>
+      <BaseRow gutter={{ md: 15, xl: 30 }}>
+        <BaseCol span={24}>
           <BaseButtonsForm.Item>
             <BaseButtonsForm.Title>{t('profile.nav.securitySettings.changePassword')}</BaseButtonsForm.Title>
           </BaseButtonsForm.Item>
-        </Col>
+        </BaseCol>
 
-        <Col xs={24} md={12} xl={24}>
+        <BaseCol xs={24} md={12} xl={24}>
           <CurrentPasswordItem />
-        </Col>
+        </BaseCol>
 
-        <Col xs={24} md={12} xl={24}>
+        <BaseCol xs={24} md={12} xl={24}>
           <NewPasswordItem />
-        </Col>
+        </BaseCol>
 
-        <Col xs={24} md={12} xl={24}>
+        <BaseCol xs={24} md={12} xl={24}>
           <ConfirmItemPassword />
-        </Col>
-      </Row>
+        </BaseCol>
+      </BaseRow>
     </BaseButtonsForm>
   );
 };

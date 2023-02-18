@@ -1,10 +1,11 @@
 import React from 'react';
-import { Col, Row } from 'antd';
 import { NotificationsDropdown } from '../components/notificationsDropdown/NotificationsDropdown';
 import { ProfileDropdown } from '../components/profileDropdown/ProfileDropdown/ProfileDropdown';
 import { HeaderSearch } from '../components/HeaderSearch/HeaderSearch';
 import { SettingsDropdown } from '../components/settingsDropdown/SettingsDropdown';
 import * as S from '../Header.styles';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 interface MobileHeaderProps {
   toggleSider: () => void;
@@ -13,30 +14,30 @@ interface MobileHeaderProps {
 
 export const MobileHeader: React.FC<MobileHeaderProps> = ({ toggleSider, isSiderOpened }) => {
   return (
-    <Row justify="space-between" align="middle">
-      <Col>
+    <BaseRow justify="space-between" align="middle">
+      <BaseCol>
         <ProfileDropdown />
-      </Col>
+      </BaseCol>
 
-      <Col>
-        <Row align="middle">
-          <Col>
+      <BaseCol>
+        <BaseRow align="middle">
+          <BaseCol>
             <NotificationsDropdown />
-          </Col>
+          </BaseCol>
 
-          <Col>
+          <BaseCol>
             <HeaderSearch />
-          </Col>
+          </BaseCol>
 
-          <Col>
+          <BaseCol>
             <SettingsDropdown />
-          </Col>
-        </Row>
-      </Col>
+          </BaseCol>
+        </BaseRow>
+      </BaseCol>
 
       <S.BurgerCol>
         <S.MobileBurger onClick={toggleSider} isCross={isSiderOpened} />
       </S.BurgerCol>
-    </Row>
+    </BaseRow>
   );
 };

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Table } from 'components/common/Table/Table';
-import { TablePaginationConfig } from 'antd';
+import { BaseTable } from '@app/components/common/BaseTable/BaseTable';
 import { Key, DefaultRecordType } from 'rc-table/lib/interface';
 import { TreeTableRow, Pagination, getTreeTableData } from 'api/table.api';
 import { useTranslation } from 'react-i18next';
@@ -36,7 +35,7 @@ export const TreeTable: React.FC = () => {
     fetch(initialPagination);
   }, [fetch]);
 
-  const handleTableChange = (pagination: TablePaginationConfig) => {
+  const handleTableChange = (pagination: Pagination) => {
     fetch(pagination);
   };
 
@@ -74,7 +73,7 @@ export const TreeTable: React.FC = () => {
 
   return (
     <>
-      <Table
+      <BaseTable
         columns={columns}
         dataSource={tableData.data}
         rowSelection={{ ...rowSelection }}

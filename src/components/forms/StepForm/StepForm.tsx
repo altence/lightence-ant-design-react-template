@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
-import { Button } from '@app/components/common/buttons/Button/Button';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { Step1 } from './Steps/Step1';
 import { Step2 } from './Steps/Step2';
 import { Step3 } from './Steps/Step3';
@@ -125,7 +125,7 @@ export const StepForm: React.FC = () => {
         setFields(uniqueData);
       }}
     >
-      <Steps labelPlacement="vertical" size="small" current={current} items={steps} />
+      <Steps size="small" current={current} items={steps} />
 
       <div>{formFieldsUi[current]}</div>
       <S.Row>
@@ -135,14 +135,14 @@ export const StepForm: React.FC = () => {
           </S.PrevButton>
         )}
         {current < steps.length - 1 && (
-          <Button type="primary" onClick={() => next()}>
+          <BaseButton type="primary" onClick={() => next()}>
             {t('forms.stepFormLabels.next')}
-          </Button>
+          </BaseButton>
         )}
         {current === steps.length - 1 && (
-          <Button type="primary" onClick={onFinish} loading={isLoading}>
+          <BaseButton type="primary" onClick={onFinish} loading={isLoading}>
             {t('forms.stepFormLabels.done')}
-          </Button>
+          </BaseButton>
         )}
       </S.Row>
     </BaseForm>

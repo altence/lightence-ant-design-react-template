@@ -1,10 +1,11 @@
-import { Col, Space } from 'antd';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
-import { Alert } from '@app/components/common/Alert/Alert';
-import { Button } from '@app/components/common/buttons/Button/Button';
+import { BaseAlert } from '@app/components/common/BaseAlert/BaseAlert';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { BaseSpace } from '@app/components/common/BaseSpace/BaseSpace';
 
 const Card = styled(S.Card)`
   .ant-card-body {
@@ -19,89 +20,94 @@ const AlertsPage: React.FC = () => {
   return (
     <>
       <PageTitle>{t('common.alert')}</PageTitle>
-      <Col>
+      <BaseCol>
         <Card title={t('alerts.basic')}>
-          <Alert message={t('alerts.success')} type="success" />
+          <BaseAlert message={t('alerts.success')} type="success" />
         </Card>
         <Card title={t('alerts.types')}>
-          <Alert message={t('alerts.success')} type="success" />
-          <Alert message={t('alerts.info')} type="info" />
-          <Alert message={t('alerts.warning')} type="warning" />
-          <Alert message={t('alerts.error')} type="error" />
+          <BaseAlert message={t('alerts.success')} type="success" />
+          <BaseAlert message={t('alerts.info')} type="info" />
+          <BaseAlert message={t('alerts.warning')} type="warning" />
+          <BaseAlert message={t('alerts.error')} type="error" />
         </Card>
         <Card title={t('alerts.closable')}>
-          <Alert message={t('alerts.warning')} type="warning" closable />
-          <Alert message={t('alerts.error')} description={t('alerts.errorDescription')} type="error" closable />
+          <BaseAlert message={t('alerts.warning')} type="warning" closable />
+          <BaseAlert message={t('alerts.error')} description={t('alerts.errorDescription')} type="error" closable />
         </Card>
         <Card title={t('alerts.icons')}>
-          <Alert message={t('alerts.success')} type="success" showIcon />
-          <Alert message={t('alerts.info')} type="info" showIcon />
-          <Alert message={t('alerts.warning')} type="warning" showIcon closable />
-          <Alert message={t('alerts.error')} type="error" showIcon />
-          <Alert message={t('alerts.success')} description={t('alerts.successDescription')} type="success" showIcon />
-          <Alert message={t('alerts.info')} description={t('alerts.infoDescription')} type="info" showIcon />
-          <Alert
+          <BaseAlert message={t('alerts.success')} type="success" showIcon />
+          <BaseAlert message={t('alerts.info')} type="info" showIcon />
+          <BaseAlert message={t('alerts.warning')} type="warning" showIcon closable />
+          <BaseAlert message={t('alerts.error')} type="error" showIcon />
+          <BaseAlert
+            message={t('alerts.success')}
+            description={t('alerts.successDescription')}
+            type="success"
+            showIcon
+          />
+          <BaseAlert message={t('alerts.info')} description={t('alerts.infoDescription')} type="info" showIcon />
+          <BaseAlert
             message={t('alerts.warning')}
             description={t('alerts.warningDescription')}
             type="warning"
             showIcon
             closable
           />
-          <Alert message={t('alerts.error')} description={t('alerts.errorDescription')} type="error" showIcon />
+          <BaseAlert message={t('alerts.error')} description={t('alerts.errorDescription')} type="error" showIcon />
         </Card>
         <Card title={t('alerts.customActions')}>
-          <Alert
+          <BaseAlert
             message={t('alerts.success')}
             type="success"
             showIcon
             action={
-              <Button size="small" type="text">
+              <BaseButton size="small" type="text">
                 {t('alerts.undo')}
-              </Button>
+              </BaseButton>
             }
             closable
           />
-          <Alert
+          <BaseAlert
             message={t('alerts.error')}
             showIcon
             description={t('alerts.errorDescription')}
             type="error"
             action={
-              <Button size="small" danger type="primary">
+              <BaseButton size="small" danger type="primary">
                 {t('alerts.detail')}
-              </Button>
+              </BaseButton>
             }
           />
-          <Alert
+          <BaseAlert
             message={t('alerts.warning')}
             type="warning"
             action={
-              <Space>
-                <Button size="small" type="ghost">
+              <BaseSpace>
+                <BaseButton size="small" type="ghost">
                   {t('alerts.done')}
-                </Button>
-              </Space>
+                </BaseButton>
+              </BaseSpace>
             }
             closable
           />
-          <Alert
+          <BaseAlert
             message={t('alerts.info')}
             description={t('alerts.infoDescription')}
             type="info"
             action={
-              <Space direction="vertical">
-                <Button size="small" type="primary">
+              <BaseSpace direction="vertical">
+                <BaseButton size="small" type="primary">
                   {t('alerts.accept')}
-                </Button>
-                <Button size="small" danger type="primary">
+                </BaseButton>
+                <BaseButton size="small" danger type="primary">
                   {t('alerts.decline')}
-                </Button>
-              </Space>
+                </BaseButton>
+              </BaseSpace>
             }
             closable
           />
         </Card>
-      </Col>
+      </BaseCol>
     </>
   );
 };

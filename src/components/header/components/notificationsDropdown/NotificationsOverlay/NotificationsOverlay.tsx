@@ -1,13 +1,15 @@
 import React, { useMemo } from 'react';
 import { Trans } from 'react-i18next';
 import { useTranslation } from 'react-i18next';
-import { Col, Row, Space } from 'antd';
 import { Link } from 'react-router-dom';
-import { Notification } from 'components/common/Notification/Notification';
+import { BaseNotification } from '@app/components/common/BaseNotification/BaseNotification';
 import { capitalize } from 'utils/utils';
 import { Mention, Notification as NotificationType } from 'api/notifications.api';
 import { notificationsSeverities } from 'constants/notificationsSeverities';
 import * as S from './NotificationsOverlay.styles';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { BaseSpace } from '@app/components/common/BaseSpace/BaseSpace';
 
 interface NotificationsOverlayProps {
   notifications: NotificationType[];
@@ -27,7 +29,7 @@ export const NotificationsOverlay: React.FC<NotificationsOverlayProps> = ({
         const type = notificationsSeverities.find((dbSeverity) => dbSeverity.id === notification.id)?.name;
 
         return (
-          <Notification
+          <BaseNotification
             key={index}
             type={type || 'warning'}
             title={capitalize(type || 'warning')}
@@ -51,33 +53,33 @@ export const NotificationsOverlay: React.FC<NotificationsOverlayProps> = ({
 
   return (
     <S.NoticesOverlayMenu {...props}>
-      <S.MenuRow gutter={[20, 20]}>
-        <Col span={24}>
+      <BaseRow gutter={[20, 20]}>
+        <BaseCol span={24}>
           {notifications.length > 0 ? (
-            <Space direction="vertical" size={10} split={<S.SplitDivider />}>
+            <BaseSpace direction="vertical" size={10} split={<S.SplitDivider />}>
               {noticesList}
-            </Space>
+            </BaseSpace>
           ) : (
             <S.Text>{t('header.notifications.noNotifications')}</S.Text>
           )}
-        </Col>
-        <Col span={24}>
-          <Row gutter={[10, 10]}>
+        </BaseCol>
+        <BaseCol span={24}>
+          <BaseRow gutter={[10, 10]}>
             {notifications.length > 0 && (
-              <Col span={24}>
+              <BaseCol span={24}>
                 <S.Btn type="ghost" onClick={() => setNotifications([])}>
                   {t('header.notifications.readAll')}
                 </S.Btn>
-              </Col>
+              </BaseCol>
             )}
-            <Col span={24}>
+            <BaseCol span={24}>
               <S.Btn type="link">
                 <Link to="/">{t('header.notifications.viewAll')}</Link>
               </S.Btn>
-            </Col>
-          </Row>
-        </Col>
-      </S.MenuRow>
+            </BaseCol>
+          </BaseRow>
+        </BaseCol>
+      </BaseRow>
     </S.NoticesOverlayMenu>
   );
 };

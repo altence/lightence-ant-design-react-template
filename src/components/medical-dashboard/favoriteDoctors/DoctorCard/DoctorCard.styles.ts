@@ -1,13 +1,14 @@
+import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
+import { BaseRate } from '@app/components/common/BaseRate/BaseRate';
 import { BORDER_RADIUS, FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
-import { Rate, Typography } from 'antd';
 import styled from 'styled-components';
-import { Card } from '../../../common/Card/Card';
+import { BaseCard } from '../../../common/BaseCard/BaseCard';
 
-export const DoctorCard = styled(Card)`
+export const DoctorCard = styled(BaseCard)`
   margin: 1rem;
 `;
 
-export const Title = styled(Typography.Text)`
+export const Title = styled(BaseTypography.Text)`
   font-size: ${FONT_SIZE.xxs};
 
   font-weight: ${FONT_WEIGHT.medium};
@@ -23,7 +24,7 @@ export const Title = styled(Typography.Text)`
   }
 `;
 
-export const Text = styled(Typography.Text)`
+export const Text = styled(BaseTypography.Text)`
   font-size: ${FONT_SIZE.xs};
 
   font-weight: ${FONT_WEIGHT.semibold};
@@ -49,7 +50,7 @@ export const ImgWrapper = styled.div`
   }
 `;
 
-export const Rating = styled(Rate)`
+export const Rating = styled(BaseRate)`
   display: flex;
   font-size: ${FONT_SIZE.xxs};
 

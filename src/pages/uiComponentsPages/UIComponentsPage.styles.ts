@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Card as CommonCard } from 'components/common/Card/Card';
-import { Collapse } from 'components/common/Collapse/Collapse';
+import { BaseCard as CommonCard } from '@app/components/common/BaseCard/BaseCard';
+import { BaseCollapse } from '@app/components/common/BaseCollapse/BaseCollapse';
 
 export const Card = styled(CommonCard)`
   width: 100%;
@@ -32,6 +32,6 @@ export const InputsWrapper = styled.div`
   gap: 1.25rem;
 `;
 
-export const CollapseWrapper = styled(Collapse)`
+export const CollapseWrapper = styled(BaseCollapse)`
   width: 40rem;
 `;

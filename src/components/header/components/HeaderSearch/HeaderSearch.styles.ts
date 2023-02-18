@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { SearchOutlined } from '@ant-design/icons';
-import { Modal } from 'components/common/Modal/Modal';
-import { Button } from 'components/common/buttons/Button/Button';
+import { BaseModal } from '@app/components/common/BaseModal/BaseModal';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { SearchInput } from 'components/common/inputs/SearchInput/SearchInput';
 import { BORDER_RADIUS, media } from '@app/styles/themes/constants';
 
@@ -30,7 +30,7 @@ export const InputSearch = styled(SearchInput)`
   }
 `;
 
-export const SearchModal = styled(Modal)`
+export const SearchModal = styled(BaseModal)`
   border-radius: ${BORDER_RADIUS};
 
   & .ant-modal-body {
@@ -38,7 +38,7 @@ export const SearchModal = styled(Modal)`
   }
 `;
 
-export const Btn = styled(Button)`
+export const Btn = styled(BaseButton)`
   display: flex;
   align-items: center;
   justify-content: center;

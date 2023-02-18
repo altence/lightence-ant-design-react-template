@@ -1,8 +1,9 @@
 import styled, { css } from 'styled-components';
-import { Col, Collapse } from 'antd';
 import { BurgerIcon } from '@app/components/common/Burger/BurgerIcon';
 import { GitHubButton } from '@app/components/header/components/GithubButton/GitHubButton';
 import { LAYOUT, media } from '@app/styles/themes/constants';
+import { BaseCollapse } from '../common/BaseCollapse/BaseCollapse';
+import { BaseCol } from '../common/BaseCol/BaseCol';
 
 export const HeaderActionWrapper = styled.div`
   cursor: pointer;
@@ -21,7 +22,7 @@ export const HeaderActionWrapper = styled.div`
   }
 `;
 
-export const DropdownCollapse = styled(Collapse)`
+export const DropdownCollapse = styled(BaseCollapse)`
   & > .ant-collapse-item > .ant-collapse-header {
     font-weight: 600;
     font-size: 0.875rem;
@@ -42,7 +43,7 @@ export const DropdownCollapse = styled(Collapse)`
   }
 `;
 
-export const BurgerCol = styled(Col)`
+export const BurgerCol = styled(BaseCol)`
   z-index: 999;
   display: flex;
 `;
@@ -60,7 +61,7 @@ export const MobileBurger = styled(BurgerIcon)`
     `};
 `;
 
-export const SearchColumn = styled(Col)`
+export const SearchColumn = styled(BaseCol)`
   padding: ${LAYOUT.desktop.paddingVertical} ${LAYOUT.desktop.paddingHorizontal};
 `;
 
@@ -68,7 +69,7 @@ interface ProfileColumn {
   $isTwoColumnsLayout: boolean;
 }
 
-export const ProfileColumn = styled(Col)<ProfileColumn>`
+export const ProfileColumn = styled(BaseCol)<ProfileColumn>`
   @media only screen and ${media.md} {
     ${(props) =>
       props?.$isTwoColumnsLayout &&

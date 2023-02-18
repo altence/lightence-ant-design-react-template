@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef } from 'react';
-import { Feed } from '@app/components/common/Feed/Feed';
+import { BaseFeed } from '@app/components/common/BaseFeed/BaseFeed';
 import { NotFound } from '@app/components/common/NotFound/NotFound';
 import { RecentActivityItem } from '@app/components/nft-dashboard/recentActivity/recentActivityFeed/RecentActivityItem/RecentActivityItem';
 import { Activity } from '@app/api/activity.api';
@@ -27,9 +27,9 @@ export const RecentActivityFeed: React.FC<RecentActivityFeedProps> = ({ activity
 
   return activityItems.length > 0 ? (
     <S.FeedWrapper ref={feedRef} id="recent-activity-feed">
-      <Feed hasMore={hasMore} next={next} target="recent-activity-feed">
+      <BaseFeed hasMore={hasMore} next={next} target="recent-activity-feed">
         {activityItems}
-      </Feed>
+      </BaseFeed>
     </S.FeedWrapper>
   ) : (
     <NotFound />

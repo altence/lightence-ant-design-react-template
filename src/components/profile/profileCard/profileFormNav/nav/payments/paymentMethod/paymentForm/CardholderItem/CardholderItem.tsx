@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
-import { Input } from '@app/components/common/inputs/Input/Input';
+import { BaseInput } from '@app/components/common/inputs/BaseInput/BaseInput';
 import { CardInputProps } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentMethod/paymentForm/interfaces';
 
 export const CardholderItem: React.FC<CardInputProps> = ({ disabled, handleInputFocus }) => {
@@ -18,7 +18,7 @@ export const CardholderItem: React.FC<CardInputProps> = ({ disabled, handleInput
         },
       ]}
     >
-      <Input
+      <BaseInput
         name="name"
         placeholder={t('profile.nav.payments.yourName')}
         onFocus={handleInputFocus}

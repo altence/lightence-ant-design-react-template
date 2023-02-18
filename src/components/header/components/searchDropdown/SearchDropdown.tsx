@@ -5,7 +5,7 @@ import { HeaderActionWrapper } from '@app/components/header/Header.styles';
 import { CategoryComponents } from '@app/components/header/components/HeaderSearch/HeaderSearch';
 import { Btn, InputSearch } from '../HeaderSearch/HeaderSearch.styles';
 import { useTranslation } from 'react-i18next';
-import { Popover } from '@app/components/common/Popover/Popover';
+import { BasePopover } from '@app/components/common/BasePopover/BasePopover';
 
 interface SearchOverlayProps {
   query: string;
@@ -35,7 +35,7 @@ export const SearchDropdown: React.FC<SearchOverlayProps> = ({
 
   return (
     <>
-      <Popover
+      <BasePopover
         {...((!!data || isFilterOpen) && { trigger: 'click', onOpenChange: setOverlayOpen })}
         overlayClassName="search-overlay"
         content={<SearchOverlay data={data} isFilterOpen={isFilterOpen} />}
@@ -62,7 +62,7 @@ export const SearchDropdown: React.FC<SearchOverlayProps> = ({
           />
           <div ref={ref} />
         </HeaderActionWrapper>
-      </Popover>
+      </BasePopover>
     </>
   );
 };

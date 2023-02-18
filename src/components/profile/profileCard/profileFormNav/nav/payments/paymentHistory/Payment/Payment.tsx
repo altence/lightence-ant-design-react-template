@@ -1,13 +1,13 @@
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Avatar } from 'antd';
 import { defineColorByPriority, getCurrencyPrice } from 'utils/utils';
 import { paymentStatuses } from 'constants/paymentStatuses';
 import { Dates } from 'constants/Dates';
 import { Status } from '../Status/Status';
 import * as S from './Payment.styles';
-import { Button } from 'components/common/buttons/Button/Button';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { CurrencyTypeEnum } from '@app/interfaces/interfaces';
+import { BaseAvatar } from '@app/components/common/BaseAvatar/BaseAvatar';
 
 interface PaymentProps {
   src: string;
@@ -27,7 +27,7 @@ export const Payment: React.FC<PaymentProps> = ({ src, recipient, date, status, 
     <>
       <S.Header>
         <S.AvatarWrapper>
-          <Avatar src={src} alt={recipient} shape="circle" />
+          <BaseAvatar src={src} alt={recipient} shape="circle" />
         </S.AvatarWrapper>
         <S.Text>{recipient}</S.Text>
       </S.Header>
@@ -46,7 +46,7 @@ export const Payment: React.FC<PaymentProps> = ({ src, recipient, date, status, 
         </S.Item>
       </S.ContentWrapper>
       <S.DetailsWrapper>
-        <Button type="link">{t('profile.nav.payments.details')}</Button>
+        <BaseButton type="link">{t('profile.nav.payments.details')}</BaseButton>
       </S.DetailsWrapper>
     </>
   ) : null;

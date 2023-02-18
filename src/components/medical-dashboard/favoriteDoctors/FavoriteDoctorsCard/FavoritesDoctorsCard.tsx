@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DashboardCard } from '@app/components/medical-dashboard/DashboardCard/DashboardCard';
-import { Carousel } from '@app/components/common/Carousel/Carousel';
+import { BaseCarousel } from '@app/components/common/BaseCarousel/Carousel';
 import { DoctorCard } from '../DoctorCard/DoctorCard';
 import { Dates } from '@app/constants/Dates';
 import { CalendarEvent, getUserCalendar } from '@app/api/calendar.api';
@@ -47,7 +47,7 @@ export const FavoritesDoctorsCard: React.FC = () => {
     <DashboardCard title={t('medical-dashboard.favoriteDoctors.title')} padding="0 20px">
       {doctors.length > 0 && calendar.length > 0 && (
         <S.CarouselWrapper>
-          <Carousel
+          <BaseCarousel
             arrows={true}
             nextArrow={<NextArrow />}
             prevArrow={<PrevArrow />}
@@ -118,7 +118,7 @@ export const FavoritesDoctorsCard: React.FC = () => {
                 </div>
               );
             })}
-          </Carousel>
+          </BaseCarousel>
         </S.CarouselWrapper>
       )}
     </DashboardCard>

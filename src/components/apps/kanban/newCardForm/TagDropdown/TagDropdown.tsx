@@ -1,10 +1,10 @@
 import React, { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Dropdown } from '@app/components/common/Dropdown/Dropdown';
+import { BaseDropdown } from '@app/components/common/BaseDropdown/Dropdown';
 import { Tag as ITag } from '../../interfaces';
 import { kanbanTags } from 'constants/kanbanTags';
 import * as S from './TagDropdown.styles';
-import { Tag } from 'components/common/Tag/Tag';
+import { BaseHashTag } from '@app/components/common/BaseHashTag/BaseHashTag';
 import { PlusCircleFilled } from '@ant-design/icons';
 
 interface TagDropdownProps {
@@ -52,11 +52,11 @@ export const TagDropdown: React.FC<TagDropdownProps> = ({ selectedTags, setSelec
   );
 
   return (
-    <Dropdown trigger={['click']} menu={{ items }}>
+    <BaseDropdown trigger={['click']} menu={{ items }}>
       {selectedTags && selectedTags.length > 0 ? (
         <S.TagsWrapper>
           {selectedTags.map((tag) => (
-            <Tag key={tag.id} {...tag} removeTag={() => onTagClick(tag)} />
+            <BaseHashTag key={tag.id} {...tag} removeTag={() => onTagClick(tag)} />
           ))}
           <S.TagPlusWrapper>
             <PlusCircleFilled />
@@ -67,6 +67,6 @@ export const TagDropdown: React.FC<TagDropdownProps> = ({ selectedTags, setSelec
           <S.AddTag>{t('kanban.addTag')}</S.AddTag>
         </S.TagsWrapper>
       )}
-    </Dropdown>
+    </BaseDropdown>
   );
 };

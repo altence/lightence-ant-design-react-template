@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { Tag } from 'antd';
 import { media } from '@app/styles/themes/constants';
+import { BaseTag } from '@app/components/common/BaseTag/BaseTag';
 
-export const StatusTag = styled(Tag)`
+export const StatusTag = styled(BaseTag)`
   padding: 0.375rem 0;
   min-width: 7.5rem;
   display: flex;

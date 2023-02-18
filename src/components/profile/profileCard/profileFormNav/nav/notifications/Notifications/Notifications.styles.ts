@@ -1,8 +1,8 @@
+import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
 import { media } from '@app/styles/themes/constants';
-import { Typography } from 'antd';
 import styled from 'styled-components';
 
-export const Description = styled(Typography.Text)`
+export const Description = styled(BaseTypography.Text)`
   display: block;
   font-size: 0.75rem;
   margin-bottom: 1rem;

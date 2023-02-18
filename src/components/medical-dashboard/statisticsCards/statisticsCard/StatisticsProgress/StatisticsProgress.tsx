@@ -1,5 +1,5 @@
+import { BaseProgress } from '@app/components/common/BaseProgress/BaseProgress';
 import React from 'react';
-import { Progress } from 'antd';
 import * as S from './StatisticsProgress.styles';
 
 interface StatisticsProgressProps {
@@ -10,7 +10,7 @@ interface StatisticsProgressProps {
 
 export const StatisticsProgress: React.FC<StatisticsProgressProps> = ({ color, value, unit }) => {
   return (
-    <Progress
+    <BaseProgress
       type="circle"
       width={50}
       strokeColor={color}

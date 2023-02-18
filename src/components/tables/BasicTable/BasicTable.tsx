@@ -1,14 +1,16 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { Col, Row, Space, TablePaginationConfig } from 'antd';
 import { BasicTableRow, getBasicTableData, Pagination, Tag } from 'api/table.api';
-import { Table } from 'components/common/Table/Table';
+import { BaseTable } from '@app/components/common/BaseTable/BaseTable';
 import { ColumnsType } from 'antd/es/table';
-import { Button } from 'components/common/buttons/Button/Button';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { useTranslation } from 'react-i18next';
 import { defineColorByPriority } from '@app/utils/utils';
 import { notificationController } from 'controllers/notificationController';
 import { Status } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentHistory/Status/Status';
 import { useMounted } from '@app/hooks/useMounted';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { BaseSpace } from '@app/components/common/BaseSpace/BaseSpace';
 
 const initialPagination: Pagination = {
   current: 1,
@@ -40,7 +42,7 @@ export const BasicTable: React.FC = () => {
     fetch(initialPagination);
   }, [fetch]);
 
-  const handleTableChange = (pagination: TablePaginationConfig) => {
+  const handleTableChange = (pagination: Pagination) => {
     fetch(pagination);
   };
 
@@ -121,15 +123,15 @@ export const BasicTable: React.FC = () => {
       key: 'tags',
       dataIndex: 'tags',
       render: (tags: Tag[]) => (
-        <Row gutter={[10, 10]}>
+        <BaseRow gutter={[10, 10]}>
           {tags.map((tag: Tag) => {
             return (
-              <Col key={tag.value}>
+              <BaseCol key={tag.value}>
                 <Status color={defineColorByPriority(tag.priority)} text={tag.value.toUpperCase()} />
-              </Col>
+              </BaseCol>
             );
           })}
-        </Row>
+        </BaseRow>
       ),
     },
     {
@@ -138,26 +140,26 @@ export const BasicTable: React.FC = () => {
       width: '15%',
       render: (text: string, record: { name: string; key: number }) => {
         return (
-          <Space>
-            <Button
+          <BaseSpace>
+            <BaseButton
               type="ghost"
               onClick={() => {
                 notificationController.info({ message: t('tables.inviteMessage', { name: record.name }) });
               }}
             >
               {t('tables.invite')}
-            </Button>
-            <Button type="default" danger onClick={() => handleDeleteRow(record.key)}>
+            </BaseButton>
+            <BaseButton type="default" danger onClick={() => handleDeleteRow(record.key)}>
               {t('tables.delete')}
-            </Button>
-          </Space>
+            </BaseButton>
+          </BaseSpace>
         );
       },
     },
   ];
 
   return (
-    <Table
+    <BaseTable
       columns={columns}
       dataSource={tableData.data}
       pagination={tableData.pagination}

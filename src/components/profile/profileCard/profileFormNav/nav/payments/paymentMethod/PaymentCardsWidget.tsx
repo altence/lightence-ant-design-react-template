@@ -1,10 +1,11 @@
 import React from 'react';
 import { PaymentCard as IPaymentCard } from '@app/interfaces/interfaces';
 import { PaymentCard } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentMethod/PaymentCard/PaymentCard';
-import { Col, Row } from 'antd';
 import { useResponsive } from '@app/hooks/useResponsive';
 import { ActionButtons } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentMethod/ActionButtons/ActionButtons';
 import { AddNewCardButton } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentMethod/addNewCard/AddNewCardButton/AddNewCardButton';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 interface PaymentCardsWidgetProps {
   cards: IPaymentCard[];
@@ -21,17 +22,17 @@ export const PaymentCardsWidget: React.FC<PaymentCardsWidgetProps> = ({ cards, o
   const justify = isBreakpoint ? 'start' : 'space-around';
 
   return (
-    <Row justify={justify} gutter={[16, 16]}>
+    <BaseRow justify={justify} gutter={[16, 16]}>
       {cards.map((card) => (
-        <Col key={card.number}>
+        <BaseCol key={card.number}>
           <PaymentCard cardData={card}>
             <ActionButtons onRemove={() => onCardRemove(card.number)} />
           </PaymentCard>
-        </Col>
+        </BaseCol>
       ))}
-      <Col>
+      <BaseCol>
         <AddNewCardButton onCardAdd={onCardAdd} />
-      </Col>
-    </Row>
+      </BaseCol>
+    </BaseRow>
   );
 };

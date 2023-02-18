@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Col, Row } from 'antd';
 import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
-import { Card } from '@app/components/common/Card/Card';
+import { BaseCard } from '@app/components/common/BaseCard/BaseCard';
 import { PaymentCardsWidget } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentMethod/PaymentCardsWidget';
 import { useResponsive } from '@app/hooks/useResponsive';
-import { Spinner } from '@app/components/common/Spinner/Spinner';
+import { BaseSpin } from '@app/components/common/BaseSpin/BaseSpin';
 import { PaymentCard } from '@app/interfaces/interfaces';
 import { useAppSelector } from '@app/hooks/reduxHooks';
 import { getPaymentCards } from '@app/api/paymentCards.api';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 export const PaymentMethod: React.FC = () => {
   const { t } = useTranslation();
@@ -36,17 +37,17 @@ export const PaymentMethod: React.FC = () => {
   };
 
   const content = (
-    <Row gutter={[32, 32]}>
-      <Col span={24}>
+    <BaseRow gutter={[32, 32]}>
+      <BaseCol span={24}>
         <BaseForm.Title>{t('profile.nav.payments.paymentMethod')}</BaseForm.Title>
-      </Col>
-      <Col span={24}>
-        <Spinner spinning={loading}>
+      </BaseCol>
+      <BaseCol span={24}>
+        <BaseSpin spinning={loading}>
           <PaymentCardsWidget cards={cards} onCardRemove={handleCardRemove} onCardAdd={handleCardAdd} />
-        </Spinner>
-      </Col>
-    </Row>
+        </BaseSpin>
+      </BaseCol>
+    </BaseRow>
   );
 
-  return isTablet ? content : <Card>{content}</Card>;
+  return isTablet ? content : <BaseCard>{content}</BaseCard>;
 };

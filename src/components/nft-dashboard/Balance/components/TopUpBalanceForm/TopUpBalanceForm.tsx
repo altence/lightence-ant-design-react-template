@@ -1,11 +1,11 @@
 import React from 'react';
 import creditCardType from 'credit-card-type';
 import { useTranslation } from 'react-i18next';
-import { Button } from '@app/components/common/buttons/Button/Button';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
 import { InputNumber } from '@app/components/common/inputs/InputNumber/InputNumber';
-import { Radio } from '@app/components/common/Radio/Radio';
-import { Option, Select } from '@app/components/common/selects/Select/Select';
+import { BaseRadio } from '@app/components/common/BaseRadio/BaseRadio';
+import { Option, BaseSelect } from '@app/components/common/selects/BaseSelect/BaseSelect';
 import { TopUpPaymentCard } from '../TopUpPaymentCard/TopUpPaymentCard';
 import { getCurrencyPrice, getPaymentCardTypeIcon } from '@app/utils/utils';
 import { CurrencyTypeEnum } from '@app/interfaces/interfaces';
@@ -34,15 +34,15 @@ export const TopUpBalanceForm: React.FC<TopUpDataProps> = ({ cards, loading, onF
           <NFTCard>
             <BaseForm.Item name="amount" rules={[{ required: true }]} initialValue={0}>
               <InputNumber
-                $block
+                block
                 type="number"
                 addonBefore={
                   <BaseForm.Item name="currency" noStyle initialValue="USD">
-                    <Select>
+                    <BaseSelect>
                       {(Object.keys(CurrencyTypeEnum) as Array<keyof typeof CurrencyTypeEnum>).map((type) => (
                         <Option key={type}>{type}</Option>
                       ))}
-                    </Select>
+                    </BaseSelect>
                   </BaseForm.Item>
                 }
               />
@@ -83,13 +83,13 @@ export const TopUpBalanceForm: React.FC<TopUpDataProps> = ({ cards, loading, onF
                 return (
                   <S.ButtonsWrapper>
                     {array.map((amount) => (
-                      <Button
+                      <BaseButton
                         key={amount}
                         type="default"
                         onClick={() => form.setFieldsValue({ amount: amountFieldValue + amount })}
                       >
                         + {getCurrencyPrice(amount, currencyFieldValue, false)}
-                      </Button>
+                      </BaseButton>
                     ))}
                   </S.ButtonsWrapper>
                 );
@@ -109,13 +109,13 @@ export const TopUpBalanceForm: React.FC<TopUpDataProps> = ({ cards, loading, onF
                 return (
                   <BaseForm.Item name="card" key={card.number} rules={[{ required: true }]}>
                     <S.PaymentRadio>
-                      <Radio value={card.number}>
+                      <BaseRadio value={card.number}>
                         <TopUpPaymentCard
                           img={getPaymentCardTypeIcon(paymentCard[0].type)}
                           type={paymentCard[0].niceType}
                           number={card.number}
                         />
-                      </Radio>
+                      </BaseRadio>
                     </S.PaymentRadio>
                   </BaseForm.Item>
                 );
@@ -125,9 +125,9 @@ export const TopUpBalanceForm: React.FC<TopUpDataProps> = ({ cards, loading, onF
         </S.BlockWrapper>
 
         <BaseForm.Item>
-          <Button type="primary" htmlType="submit" block disabled={loading}>
+          <BaseButton type="primary" htmlType="submit" block disabled={loading}>
             {t('nft.topUpBalance')}
-          </Button>
+          </BaseButton>
         </BaseForm.Item>
       </S.ContentWrapper>
     </BaseForm>

@@ -1,5 +1,4 @@
-import { Col, Row } from 'antd';
-import { NotificationType } from '@app/components/common/Notification/Notification';
+import { NotificationType } from '@app/components/common/BaseNotification/BaseNotification';
 import { Priority } from '@app//constants/enums/priorities';
 import { ReactComponent as ETHIcon } from '@app/assets/icons/eth.svg';
 import { ReactComponent as BTCIcon } from '@app/assets/icons/btc.svg';
@@ -7,7 +6,10 @@ import { ReactComponent as BTCIcon } from '@app/assets/icons/btc.svg';
 import visa from '@app/assets/images/card-issuers/visa.png';
 import mastercard from '@app/assets/images/card-issuers/mastercard.png';
 import maestro from '@app/assets/images/card-issuers/maestro.png';
-import { CurrencyTypeEnum } from '@app/interfaces/interfaces';
+import { CurrencyTypeEnum, Severity } from '@app/interfaces/interfaces';
+import { BaseBadgeProps } from '@app/components/common/BaseBadge/BaseBadge';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 export const camelize = (string: string): string => {
   return string
@@ -28,13 +30,13 @@ export const getCurrencyPrice = (
 
     case 'BTC': {
       return isIcon ? (
-        <Row align="middle" gutter={[8, 8]}>
-          <Col style={{ display: 'flex' }}>
+        <BaseRow align="middle" gutter={[8, 8]}>
+          <BaseCol style={{ display: 'flex' }}>
             <BTCIcon />
-          </Col>
+          </BaseCol>
 
-          <Col>{price}</Col>
-        </Row>
+          <BaseCol>{price}</BaseCol>
+        </BaseRow>
       ) : (
         `${price} BTC`
       );
@@ -42,13 +44,13 @@ export const getCurrencyPrice = (
 
     case 'ETH': {
       return isIcon ? (
-        <Row align="middle" gutter={[8, 8]}>
-          <Col style={{ display: 'flex' }}>
+        <BaseRow align="middle" gutter={[8, 8]}>
+          <BaseCol style={{ display: 'flex' }}>
             <ETHIcon />
-          </Col>
+          </BaseCol>
 
-          <Col>{price}</Col>
-        </Row>
+          <BaseCol>{price}</BaseCol>
+        </BaseRow>
       ) : (
         `${price} ETH`
       );
@@ -220,4 +222,12 @@ export const getPaymentCardTypeIcon = (type: string): string | null => {
     default:
       return null;
   }
+};
+
+export const mapBadgeStatus = (status: BaseBadgeProps['status']): Severity => {
+  if (!status || status === 'default' || status === 'processing') {
+    return 'info';
+  }
+
+  return status;
 };

@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Col } from 'antd';
 import { useResponsive } from 'hooks/useResponsive';
 import { StatisticsCard } from './statisticsCard/StatisticsCard/StatisticsCard';
 import { getStatistics, Statistic } from 'api/statistics.api';
 import { statistics as configStatistics } from 'constants/config/statistics';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 export const StatisticsCards: React.FC = () => {
   const [statistics, setStatistics] = useState<Statistic[]>([]);
@@ -20,7 +20,7 @@ export const StatisticsCards: React.FC = () => {
         const currentStatistic = configStatistics.find((el) => el.id === st.id);
 
         return currentStatistic ? (
-          <Col
+          <BaseCol
             key={st.id}
             id={currentStatistic.name}
             xs={12}
@@ -35,7 +35,7 @@ export const StatisticsCards: React.FC = () => {
               unit={st.unit}
               Icon={currentStatistic.Icon}
             />
-          </Col>
+          </BaseCol>
         ) : null;
       }),
     [statistics, isTablet],

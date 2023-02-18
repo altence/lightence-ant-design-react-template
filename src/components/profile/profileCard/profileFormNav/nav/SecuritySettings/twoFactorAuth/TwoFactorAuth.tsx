@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
 import { TwoFactorOptions } from '@app/components/profile/profileCard/profileFormNav/nav/SecuritySettings/twoFactorAuth/TwoFactorOptions/TwoFactorOptions';
 import { TwoFactorSwitch } from '@app/components/profile/profileCard/profileFormNav/nav/SecuritySettings/twoFactorAuth/TwoFactorSwitch/TwoFactorSwitch';
-import { Button } from '@app/components/common/buttons/Button/Button';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { SecurityCodeForm } from '@app/components/auth/SecurityCodeForm/SecurityCodeForm';
 import { notificationController } from '@app/controllers/notificationController';
 import { setUser } from '@app/store/slices/userSlice';
@@ -68,9 +68,9 @@ export const TwoFactorAuth: React.FC = () => {
         }}
         footer={
           (isEnabled && (
-            <Button type="link" loading={isLoading} htmlType="submit">
+            <BaseButton type="link" loading={isLoading} htmlType="submit">
               {t('profile.nav.securitySettings.verify')}
-            </Button>
+            </BaseButton>
           )) || <span />
         }
         onFinish={onClickVerify}

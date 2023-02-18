@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo } from 'react';
-import { RadioGroup } from '@app/components/common/Radio/Radio';
+import { BaseRadio } from '@app/components/common/BaseRadio/BaseRadio';
 import { EmailItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/EmailItem/EmailItem';
 import { PhoneItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/PhoneItem/PhoneItem';
 import { useAppSelector } from '@app/hooks/reduxHooks';
@@ -38,14 +38,14 @@ export const TwoFactorOptions: React.FC<TwoFactorOptionsProps> = ({ selectedOpti
 
   return (
     <>
-      <RadioGroup value={selectedOption} onChange={(e) => setSelectedOption(e.target.value)}>
+      <BaseRadio.Group value={selectedOption} onChange={(e) => setSelectedOption(e.target.value)}>
         <S.RadioBtn value="phone" $isActive={isPhoneActive} disabled={user?.phone.verified}>
           <PhoneItem required={isPhoneActive} onClick={onClickInput('phone')} verified={user?.phone.verified} />
         </S.RadioBtn>
         <S.RadioBtn value="email" $isActive={isEmailActive} disabled={user?.email.verified}>
           <EmailItem required={isEmailActive} onClick={onClickInput('email')} verified={user?.email.verified} />
         </S.RadioBtn>
-      </RadioGroup>
+      </BaseRadio.Group>
     </>
   );
 };

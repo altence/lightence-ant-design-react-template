@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Col, Tooltip } from 'antd';
 import { PoweroffOutlined, SearchOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
-import { Button } from '@app/components/common/buttons/Button/Button';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { BaseTooltip } from '@app/components/common/BaseTooltip/BaseTooltip';
 
 const ButtonsPage: React.FC = () => {
   const [loadings, setLoadings] = useState<boolean[]>([]);
@@ -36,114 +37,119 @@ const ButtonsPage: React.FC = () => {
   return (
     <>
       <PageTitle>{t('common.button')}</PageTitle>
-      <Col>
+      <BaseCol>
         <S.Card title={t('buttons.types')}>
-          <Button type="primary">{t('buttons.primary')}</Button>
-          <Button type="default">{t('buttons.default')}</Button>
-          <Button type="ghost">{t('buttons.ghost')}</Button>
-          <Button type="dashed">{t('buttons.dashed')}</Button>
-          <Button type="text">{t('buttons.text')}</Button>
-          <Button type="link">{t('buttons.link')}</Button>
+          <BaseButton type="primary">{t('buttons.primary')}</BaseButton>
+          <BaseButton type="default">{t('buttons.default')}</BaseButton>
+          <BaseButton type="ghost">{t('buttons.ghost')}</BaseButton>
+          <BaseButton type="dashed">{t('buttons.dashed')}</BaseButton>
+          <BaseButton type="text">{t('buttons.text')}</BaseButton>
+          <BaseButton type="link">{t('buttons.link')}</BaseButton>
         </S.Card>
         <S.Card title={t('buttons.severities')}>
-          <Button severity="info">{t('common.info')}</Button>
-          <Button severity="success">{t('common.success')}</Button>
-          <Button severity="warning">{t('common.warning')}</Button>
-          <Button severity="error">{t('common.error')}</Button>
+          <BaseButton severity="info">{t('common.info')}</BaseButton>
+          <BaseButton severity="success">{t('common.success')}</BaseButton>
+          <BaseButton severity="warning">{t('common.warning')}</BaseButton>
+          <BaseButton severity="error">{t('common.error')}</BaseButton>
         </S.Card>
         <S.Card title={t('buttons.sizes')}>
-          <Button type="ghost" size="small">
+          <BaseButton type="ghost" size="small">
             {t('buttons.small')}
-          </Button>
-          <Button type="ghost" size="middle">
+          </BaseButton>
+          <BaseButton type="ghost" size="middle">
             {t('buttons.default')}
-          </Button>
-          <Button type="ghost" size="large">
+          </BaseButton>
+          <BaseButton type="ghost" size="large">
             {t('buttons.large')}
-          </Button>
+          </BaseButton>
         </S.Card>
         <S.Card title={t('buttons.loadings')}>
-          <Button type="primary" size="small" loading>
+          <BaseButton type="primary" size="small" loading>
             {t('buttons.loading')}
-          </Button>
-          <Button type="primary" loading>
+          </BaseButton>
+          <BaseButton type="primary" loading>
             {t('buttons.loading')}
-          </Button>
-          <Button type="primary" icon={<PoweroffOutlined />} loading />
+          </BaseButton>
+          <BaseButton type="primary" icon={<PoweroffOutlined />} loading />
 
-          <Button type="primary" loading={loadings[0]} onClick={() => enterLoading(0)}>
+          <BaseButton type="primary" loading={loadings[0]} onClick={() => enterLoading(0)}>
             {t('buttons.click')}
-          </Button>
-          <Button type="primary" icon={<PoweroffOutlined />} loading={loadings[1]} onClick={() => enterLoading(1)}>
+          </BaseButton>
+          <BaseButton type="primary" icon={<PoweroffOutlined />} loading={loadings[1]} onClick={() => enterLoading(1)}>
             {t('buttons.click')}
-          </Button>
-          <Button type="primary" icon={<PoweroffOutlined />} loading={loadings[2]} onClick={() => enterLoading(2)} />
+          </BaseButton>
+          <BaseButton
+            type="primary"
+            icon={<PoweroffOutlined />}
+            loading={loadings[2]}
+            onClick={() => enterLoading(2)}
+          />
         </S.Card>
         <S.Card title={t('buttons.danger')}>
-          <Button type="primary" danger>
+          <BaseButton type="primary" danger>
             {t('buttons.primary')}
-          </Button>
-          <Button type="default" danger>
+          </BaseButton>
+          <BaseButton type="default" danger>
             {t('buttons.default')}
-          </Button>
-          <Button type="dashed" danger>
+          </BaseButton>
+          <BaseButton type="dashed" danger>
             {t('buttons.dashed')}
-          </Button>
-          <Button type="text" danger>
+          </BaseButton>
+          <BaseButton type="text" danger>
             {t('buttons.text')}
-          </Button>
-          <Button type="link" danger>
+          </BaseButton>
+          <BaseButton type="link" danger>
             {t('buttons.link')}
-          </Button>
+          </BaseButton>
         </S.Card>
         <S.Card title={t('buttons.disabled')}>
-          <Button type="primary" disabled>
+          <BaseButton type="primary" disabled>
             {t('buttons.primary')}
-          </Button>
-          <Button type="default" disabled>
+          </BaseButton>
+          <BaseButton type="default" disabled>
             {t('buttons.default')}
-          </Button>
-          <Button type="ghost" disabled>
+          </BaseButton>
+          <BaseButton type="ghost" disabled>
             {t('buttons.ghost')}
-          </Button>
-          <Button type="dashed" disabled>
+          </BaseButton>
+          <BaseButton type="dashed" disabled>
             {t('buttons.dashed')}
-          </Button>
-          <Button type="text" disabled>
+          </BaseButton>
+          <BaseButton type="text" disabled>
             {t('buttons.text')}
-          </Button>
-          <Button type="link" disabled>
+          </BaseButton>
+          <BaseButton type="link" disabled>
             {t('buttons.link')}
-          </Button>
+          </BaseButton>
         </S.Card>
         <S.Card title={t('buttons.icons')}>
-          <Tooltip title={t('buttons.search')}>
-            <Button type="primary" shape="circle" icon={<SearchOutlined />} />
-          </Tooltip>
-          <Tooltip title={t('buttons.search')}>
-            <Button type="primary" shape="circle">
+          <BaseTooltip title={t('buttons.search')}>
+            <BaseButton type="primary" shape="circle" icon={<SearchOutlined />} />
+          </BaseTooltip>
+          <BaseTooltip title={t('buttons.search')}>
+            <BaseButton type="primary" shape="circle">
               A
-            </Button>
-          </Tooltip>
-          <Tooltip title={t('buttons.search')}>
-            <Button type="primary" icon={<SearchOutlined />}>
+            </BaseButton>
+          </BaseTooltip>
+          <BaseTooltip title={t('buttons.search')}>
+            <BaseButton type="primary" icon={<SearchOutlined />}>
               {t('buttons.search')}
-            </Button>
-          </Tooltip>
+            </BaseButton>
+          </BaseTooltip>
 
-          <Tooltip title={t('buttons.search')}>
-            <Button type="dashed" shape="circle" icon={<SearchOutlined />} size="large" />
-          </Tooltip>
-          <Tooltip title={t('buttons.search')}>
-            <Button type="dashed" icon={<SearchOutlined />} size="large">
+          <BaseTooltip title={t('buttons.search')}>
+            <BaseButton type="dashed" shape="circle" icon={<SearchOutlined />} size="large" />
+          </BaseTooltip>
+          <BaseTooltip title={t('buttons.search')}>
+            <BaseButton type="dashed" icon={<SearchOutlined />} size="large">
               {t('buttons.search')}
-            </Button>
-          </Tooltip>
-          <Tooltip title={t('buttons.search')}>
-            <Button type="ghost" icon={<SearchOutlined />} size="large" />
-          </Tooltip>
+            </BaseButton>
+          </BaseTooltip>
+          <BaseTooltip title={t('buttons.search')}>
+            <BaseButton type="ghost" icon={<SearchOutlined />} size="large" />
+          </BaseTooltip>
         </S.Card>
-      </Col>
+      </BaseCol>
     </>
   );
 };

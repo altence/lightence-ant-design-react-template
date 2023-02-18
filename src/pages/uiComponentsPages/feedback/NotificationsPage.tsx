@@ -1,9 +1,9 @@
-import { Col } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { Button } from '@app/components/common/buttons/Button/Button';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { notificationController } from '@app/controllers/notificationController';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 const NotificationsPage: React.FC = () => {
   const { t } = useTranslation();
@@ -11,9 +11,9 @@ const NotificationsPage: React.FC = () => {
   return (
     <>
       <PageTitle>{t('common.notification')}</PageTitle>
-      <Col>
+      <BaseCol>
         <S.Card title={t('notifications.basic')}>
-          <Button
+          <BaseButton
             severity="info"
             onClick={() =>
               notificationController.info({
@@ -23,10 +23,10 @@ const NotificationsPage: React.FC = () => {
             }
           >
             {t('notifications.basicTitle')}
-          </Button>
+          </BaseButton>
         </S.Card>
         <S.Card title={t('notifications.types')}>
-          <Button
+          <BaseButton
             severity="success"
             onClick={() =>
               notificationController.success({
@@ -36,8 +36,8 @@ const NotificationsPage: React.FC = () => {
             }
           >
             {t('notifications.success')}
-          </Button>
-          <Button
+          </BaseButton>
+          <BaseButton
             severity="info"
             onClick={() =>
               notificationController.info({
@@ -47,8 +47,8 @@ const NotificationsPage: React.FC = () => {
             }
           >
             {t('notifications.info')}
-          </Button>
-          <Button
+          </BaseButton>
+          <BaseButton
             severity="warning"
             onClick={() =>
               notificationController.warning({
@@ -58,8 +58,8 @@ const NotificationsPage: React.FC = () => {
             }
           >
             {t('notifications.warning')}
-          </Button>
-          <Button
+          </BaseButton>
+          <BaseButton
             severity="error"
             onClick={() =>
               notificationController.error({
@@ -69,10 +69,10 @@ const NotificationsPage: React.FC = () => {
             }
           >
             {t('notifications.error')}
-          </Button>
+          </BaseButton>
         </S.Card>
         <S.Card title={t('notifications.withoutDescription')}>
-          <Button
+          <BaseButton
             severity="success"
             onClick={() =>
               notificationController.success({
@@ -81,8 +81,8 @@ const NotificationsPage: React.FC = () => {
             }
           >
             {t('notifications.success')}
-          </Button>
-          <Button
+          </BaseButton>
+          <BaseButton
             severity="info"
             onClick={() =>
               notificationController.info({
@@ -91,8 +91,8 @@ const NotificationsPage: React.FC = () => {
             }
           >
             {t('notifications.info')}
-          </Button>
-          <Button
+          </BaseButton>
+          <BaseButton
             severity="warning"
             onClick={() =>
               notificationController.warning({
@@ -101,8 +101,8 @@ const NotificationsPage: React.FC = () => {
             }
           >
             {t('notifications.warning')}
-          </Button>
-          <Button
+          </BaseButton>
+          <BaseButton
             severity="error"
             onClick={() =>
               notificationController.error({
@@ -111,9 +111,9 @@ const NotificationsPage: React.FC = () => {
             }
           >
             {t('notifications.error')}
-          </Button>
+          </BaseButton>
         </S.Card>
-      </Col>
+      </BaseCol>
     </>
   );
 };

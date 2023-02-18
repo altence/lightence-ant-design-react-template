@@ -1,9 +1,11 @@
 import React from 'react';
-import { Row, Col, Space } from 'antd';
 import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
 import { useResponsive } from 'hooks/useResponsive';
 import { getDifference } from 'utils/utils';
 import * as S from './ScreeningsFriend.styles';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseSpace } from '@app/components/common/BaseSpace/BaseSpace';
 
 interface ScreeningsFriendProps {
   name: string;
@@ -37,9 +39,9 @@ export const ScreeningsFriend: React.FC<ScreeningsFriendProps> = ({
       $isActive={isPrimary || isSecondary}
       wrap={false}
     >
-      <Col>
-        <Row gutter={[10, 0]} align="middle" wrap={false}>
-          <Col>
+      <BaseCol>
+        <BaseRow gutter={[10, 0]} align="middle" wrap={false}>
+          <BaseCol>
             <S.Avatar
               {...(mobileOnly && { size: 'large' })}
               shape="square"
@@ -48,27 +50,27 @@ export const ScreeningsFriend: React.FC<ScreeningsFriendProps> = ({
               $isPrimary={isPrimary}
               $isSecondary={isSecondary}
             />
-          </Col>
+          </BaseCol>
 
           {isTabletOrHigher && isMenuOpen && (
-            <Col>
+            <BaseCol>
               <S.Name $isPrimary={isPrimary} $isSecondary={isSecondary}>
                 {name}
               </S.Name>
-            </Col>
+            </BaseCol>
           )}
-        </Row>
-      </Col>
+        </BaseRow>
+      </BaseCol>
 
       {isTabletOrHigher && isMenuOpen && (
-        <Col>
+        <BaseCol>
           <S.Percentage $isDowngrade={isDowngrade}>
-            <Space size={0}>
+            <BaseSpace size={0}>
               {isDowngrade ? <CaretDownOutlined /> : <CaretUpOutlined />}
               <S.Percentage $isDowngrade={isDowngrade}>{getDifference(value, prevValue)}</S.Percentage>
-            </Space>
+            </BaseSpace>
           </S.Percentage>
-        </Col>
+        </BaseCol>
       )}
     </S.ScreeningsRow>
   );

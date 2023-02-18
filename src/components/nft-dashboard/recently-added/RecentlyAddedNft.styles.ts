@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button } from '@app/components/common/buttons/Button/Button';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { BREAKPOINTS } from '@app/styles/themes/constants';
 
 export const SectionWrapper = styled.div`
@@ -32,6 +32,6 @@ export const CardWrapper = styled.div`
   margin: 0 0.625rem;
 `;
 
-export const ArrowBtn = styled(Button)`
+export const ArrowBtn = styled(BaseButton)`
   color: var(--text-nft-light-color);
 `;

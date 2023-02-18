@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from 'react';
-import { Col, Form, Row } from 'antd';
 import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
 import { BaseButtonsGroup } from '@app/components/common/forms/components/BaseButtonsGroup/BaseButtonsGroup';
 import { CardNumberItem } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentMethod/paymentForm/CardNumberItem/CardNumberItem';
@@ -10,6 +9,9 @@ import { CardThemeItem } from '@app/components/profile/profileCard/profileFormNa
 import { cardThemes } from '@app/constants/cardThemes';
 import * as S from './PaymentForm.styles';
 import { PaymentCard } from '@app/interfaces/interfaces';
+import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 export const clearCardData: PaymentCard = {
   name: '',
@@ -31,7 +33,7 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({ closeModal, onFormFini
   const [isLoading, setLoading] = useState(false);
   const [isFieldsChanged, setFieldsChanged] = useState(false);
 
-  const [form] = Form.useForm();
+  const [form] = BaseForm.useForm();
 
   const handleInputFocus = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -79,14 +81,14 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({ closeModal, onFormFini
       <S.FormItemsWrapper>
         <CardNumberItem handleInputFocus={handleInputFocus} />
         <CardholderItem handleInputFocus={handleInputFocus} />
-        <Row gutter={[20, 0]}>
-          <Col span={12}>
+        <BaseRow gutter={[20, 0]}>
+          <BaseCol span={12}>
             <ExpDateItem handleInputFocus={handleInputFocus} />
-          </Col>
-          <Col span={12}>
+          </BaseCol>
+          <BaseCol span={12}>
             <CVVItem handleInputFocus={handleInputFocus} />
-          </Col>
-        </Row>
+          </BaseCol>
+        </BaseRow>
         <CardThemeItem cardData={cardData} setCardData={setCardData} />
       </S.FormItemsWrapper>
     </BaseButtonsForm>

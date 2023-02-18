@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { PlusOutlined } from '@ant-design/icons';
 import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
-import { Input } from '@app/components/common/inputs/Input/Input';
-import { Select, Option } from '@app/components/common/selects/Select/Select';
-import { Button } from '@app/components/common/buttons/Button/Button';
+import { BaseInput } from '@app/components/common/inputs/BaseInput/BaseInput';
+import { BaseSelect, Option } from '@app/components/common/selects/BaseSelect/BaseSelect';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { notificationController } from '@app/controllers/notificationController';
 import * as S from './DynamicForm.styles';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 interface Sight {
   [key: string]: string[];
@@ -58,14 +59,14 @@ export const DynamicForm: React.FC = () => {
         label={t('forms.dynamicFormLabels.area')}
         rules={[{ required: true, message: t('forms.dynamicFormLabels.areaError') }]}
       >
-        <Select options={areas} onChange={handleChange} />
+        <BaseSelect options={areas} onChange={handleChange} />
       </BaseButtonsForm.Item>
       <BaseButtonsForm.List name="sights">
         {(fields, { add, remove }) => (
           <>
             {fields.map((field) => (
-              <Row key={field.key} wrap={false} gutter={[10, 10]} align="middle" justify="space-between">
-                <Col span={12}>
+              <BaseRow key={field.key} wrap={false} gutter={[10, 10]} align="middle" justify="space-between">
+                <BaseCol span={12}>
                   <BaseButtonsForm.Item
                     noStyle
                     // eslint-disable-next-line
@@ -81,18 +82,18 @@ export const DynamicForm: React.FC = () => {
                         fieldKey={[field.key, 'sight']}
                         rules={[{ required: true, message: t('forms.dynamicFormLabels.sightError') }]}
                       >
-                        <Select disabled={!form.getFieldValue('area')}>
+                        <BaseSelect disabled={!form.getFieldValue('area')}>
                           {(sights[form.getFieldValue('area')] || []).map((item) => (
                             <Option key={item} value={item}>
                               {item}
                             </Option>
                           ))}
-                        </Select>
+                        </BaseSelect>
                       </BaseButtonsForm.Item>
                     )}
                   </BaseButtonsForm.Item>
-                </Col>
-                <Col span={12}>
+                </BaseCol>
+                <BaseCol span={12}>
                   <BaseButtonsForm.Item
                     {...field}
                     label={t('forms.dynamicFormLabels.price')}
@@ -101,18 +102,18 @@ export const DynamicForm: React.FC = () => {
                     rules={[{ required: true, message: t('forms.dynamicFormLabels.priceError') }]}
                   >
                     <S.Wrapper>
-                      <Input />
+                      <BaseInput />
                       <S.RemoveBtn onClick={() => remove(field.name)} />
                     </S.Wrapper>
                   </BaseButtonsForm.Item>
-                </Col>
-              </Row>
+                </BaseCol>
+              </BaseRow>
             ))}
 
             <BaseButtonsForm.Item>
-              <Button type="dashed" onClick={() => add()} block icon={<PlusOutlined />}>
+              <BaseButton type="dashed" onClick={() => add()} block icon={<PlusOutlined />}>
                 {t('forms.dynamicFormLabels.addSights')}
-              </Button>
+              </BaseButton>
             </BaseButtonsForm.Item>
           </>
         )}

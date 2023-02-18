@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Col } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { ActivityStoryItem } from './ActivityStoryItem/ActivityStoryItem';
 import { UserActivity, getUserActivities } from '@app/api/activity.api';
 import * as S from './ActivityStory.styles';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 export const ActivityStory: React.FC = () => {
   const [story, setStory] = useState<UserActivity[]>([]);
@@ -17,9 +17,9 @@ export const ActivityStory: React.FC = () => {
   const activityStory = useMemo(
     () =>
       story.map((item, index) => (
-        <Col key={index} span={24}>
+        <BaseCol key={index} span={24}>
           <ActivityStoryItem {...item} />
-        </Col>
+        </BaseCol>
       )),
     [story],
   );

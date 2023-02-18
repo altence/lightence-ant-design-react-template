@@ -1,15 +1,16 @@
 import { useState } from 'react';
-import { Col, message } from 'antd';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
-import { Button } from '@app/components/common/buttons/Button/Button';
-import { Popconfirm } from '@app/components/common/Popconfirm/Popconfirm';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
+import { BasePopconfirm } from '@app/components/common/BasePopconfirm/BasePopconfirm';
 import { TopButtons, LeftButtons, RightButtons, BottomButtons } from '@app/pages/uiComponentsPages/modals/PopoversPage';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
 import { FONT_SIZE, media } from '@app/styles/themes/constants';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { notificationController } from '@app/controllers/notificationController';
 
-const AsyncButton = styled(Button)`
+const AsyncButton = styled(BaseButton)`
   @media only screen and ${media.xs} {
     font-size: ${FONT_SIZE.xs};
   }
@@ -26,7 +27,7 @@ const PopconfirmsPage: React.FC = () => {
   const text = t('popconfirm.content');
 
   const confirm = () => {
-    message.info(t('popconfirm.yesClick'));
+    notificationController.info({ message: t('popconfirm.yesClick') });
   };
 
   const handleOk = () => {
@@ -40,134 +41,134 @@ const PopconfirmsPage: React.FC = () => {
   return (
     <>
       <PageTitle>{t('common.popconfirm')}</PageTitle>
-      <Col>
+      <BaseCol>
         <S.Card title={t('popconfirm.basic')}>
-          <Popconfirm title={text}>
-            <Button type="primary">{t('common.delete')}</Button>
-          </Popconfirm>
+          <BasePopconfirm title={text}>
+            <BaseButton type="primary">{t('common.delete')}</BaseButton>
+          </BasePopconfirm>
         </S.Card>
         <S.Card title={t('popconfirm.positions')}>
           <div>
             <TopButtons>
-              <Popconfirm
+              <BasePopconfirm
                 placement="topLeft"
                 title={text}
                 onConfirm={confirm}
                 okText={t('popconfirm.yes')}
                 cancelText={t('popconfirm.no')}
               >
-                <Button>{t('popovers.tl')}</Button>
-              </Popconfirm>
-              <Popconfirm
+                <BaseButton>{t('popovers.tl')}</BaseButton>
+              </BasePopconfirm>
+              <BasePopconfirm
                 placement="top"
                 title={text}
                 onConfirm={confirm}
                 okText={t('popconfirm.yes')}
                 cancelText={t('popconfirm.no')}
               >
-                <Button>{t('popovers.top')}</Button>
-              </Popconfirm>
-              <Popconfirm
+                <BaseButton>{t('popovers.top')}</BaseButton>
+              </BasePopconfirm>
+              <BasePopconfirm
                 placement="topRight"
                 title={text}
                 onConfirm={confirm}
                 okText={t('popconfirm.yes')}
                 cancelText={t('popconfirm.no')}
               >
-                <Button>{t('popovers.tr')}</Button>
-              </Popconfirm>
+                <BaseButton>{t('popovers.tr')}</BaseButton>
+              </BasePopconfirm>
             </TopButtons>
             <LeftButtons>
-              <Popconfirm
+              <BasePopconfirm
                 placement="leftTop"
                 title={text}
                 onConfirm={confirm}
                 okText={t('popconfirm.yes')}
                 cancelText={t('popconfirm.no')}
               >
-                <Button>{t('popovers.lt')}</Button>
-              </Popconfirm>
-              <Popconfirm
+                <BaseButton>{t('popovers.lt')}</BaseButton>
+              </BasePopconfirm>
+              <BasePopconfirm
                 placement="left"
                 title={text}
                 onConfirm={confirm}
                 okText={t('popconfirm.yes')}
                 cancelText={t('popconfirm.no')}
               >
-                <Button>{t('popovers.left')}</Button>
-              </Popconfirm>
-              <Popconfirm
+                <BaseButton>{t('popovers.left')}</BaseButton>
+              </BasePopconfirm>
+              <BasePopconfirm
                 placement="leftBottom"
                 title={text}
                 onConfirm={confirm}
                 okText={t('popconfirm.yes')}
                 cancelText={t('popconfirm.no')}
               >
-                <Button>{t('popovers.lb')}</Button>
-              </Popconfirm>
+                <BaseButton>{t('popovers.lb')}</BaseButton>
+              </BasePopconfirm>
             </LeftButtons>
             <RightButtons>
-              <Popconfirm
+              <BasePopconfirm
                 placement="rightTop"
                 title={text}
                 onConfirm={confirm}
                 okText={t('popconfirm.yes')}
                 cancelText={t('popconfirm.no')}
               >
-                <Button>{t('popovers.rt')}</Button>
-              </Popconfirm>
-              <Popconfirm
+                <BaseButton>{t('popovers.rt')}</BaseButton>
+              </BasePopconfirm>
+              <BasePopconfirm
                 placement="right"
                 title={text}
                 onConfirm={confirm}
                 okText={t('popconfirm.yes')}
                 cancelText={t('popconfirm.no')}
               >
-                <Button>{t('popovers.right')}</Button>
-              </Popconfirm>
-              <Popconfirm
+                <BaseButton>{t('popovers.right')}</BaseButton>
+              </BasePopconfirm>
+              <BasePopconfirm
                 placement="rightBottom"
                 title={text}
                 onConfirm={confirm}
                 okText={t('popconfirm.yes')}
                 cancelText={t('popconfirm.no')}
               >
-                <Button>{t('popovers.rb')}</Button>
-              </Popconfirm>
+                <BaseButton>{t('popovers.rb')}</BaseButton>
+              </BasePopconfirm>
             </RightButtons>
             <BottomButtons>
-              <Popconfirm
+              <BasePopconfirm
                 placement="bottomLeft"
                 title={text}
                 onConfirm={confirm}
                 okText={t('popconfirm.yes')}
                 cancelText={t('popconfirm.no')}
               >
-                <Button>{t('popovers.bl')}</Button>
-              </Popconfirm>
-              <Popconfirm
+                <BaseButton>{t('popovers.bl')}</BaseButton>
+              </BasePopconfirm>
+              <BasePopconfirm
                 placement="bottom"
                 title={text}
                 onConfirm={confirm}
                 okText={t('popconfirm.yes')}
                 cancelText={t('popconfirm.no')}
               >
-                <Button>{t('popovers.bottom')}</Button>
-              </Popconfirm>
-              <Popconfirm
+                <BaseButton>{t('popovers.bottom')}</BaseButton>
+              </BasePopconfirm>
+              <BasePopconfirm
                 placement="bottomRight"
                 title={text}
                 onConfirm={confirm}
                 okText={t('popconfirm.yes')}
                 cancelText={t('popconfirm.no')}
               >
-                <Button>{t('popovers.br')}</Button>
-              </Popconfirm>
+                <BaseButton>{t('popovers.br')}</BaseButton>
+              </BasePopconfirm>
             </BottomButtons>
           </div>
         </S.Card>
         <S.Card title={t('popconfirm.async')}>
-          <Popconfirm
+          <BasePopconfirm
             title={t('popovers.title')}
             open={open}
             onConfirm={handleOk}
@@ -177,9 +178,9 @@ const PopconfirmsPage: React.FC = () => {
             <AsyncButton type="primary" onClick={() => setOpen(true)}>
               {t('popconfirm.openAsync')}
             </AsyncButton>
-          </Popconfirm>
+          </BasePopconfirm>
         </S.Card>
-      </Col>
+      </BaseCol>
     </>
   );
 };

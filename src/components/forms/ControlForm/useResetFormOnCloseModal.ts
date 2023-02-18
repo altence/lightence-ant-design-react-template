@@ -1,7 +1,7 @@
+import { BaseFormInstance } from '@app/components/common/forms/BaseForm/BaseForm';
 import { useEffect, useRef } from 'react';
-import { FormInstance } from 'antd';
 
-export const useResetFormOnCloseModal = ({ form, open }: { form: FormInstance; open: boolean }): void => {
+export const useResetFormOnCloseModal = ({ form, open }: { form: BaseFormInstance; open: boolean }): void => {
   const prevOpenRef = useRef<boolean>();
   useEffect(() => {
     prevOpenRef.current = open;

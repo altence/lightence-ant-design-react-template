@@ -1,11 +1,11 @@
+import { BaseRadio } from '@app/components/common/BaseRadio/BaseRadio';
 import styled from 'styled-components';
-import { Radio } from '@app/components/common/Radio/Radio';
 
 interface RadioBtnProps {
   $isActive: boolean;
 }
 
-export const RadioBtn = styled(Radio)<RadioBtnProps>`
+export const RadioBtn = styled(BaseRadio.Button)<RadioBtnProps>`
   margin-right: 0;
   width: 100%;
   transition: all 0.5s ease;

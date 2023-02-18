@@ -8,23 +8,21 @@ import {
   Footer,
 } from 'react-trello/dist/styles/Base';
 import { DownOutlined } from '@ant-design/icons';
-import { Collapse } from 'antd';
 import InlineInput from 'react-trello/dist/widgets/InlineInput';
 import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
-
-const { Panel } = Collapse;
+import { BaseCollapse } from '@app/components/common/BaseCollapse/BaseCollapse';
 
 interface ArrowDownIcon {
   $expanded: boolean;
 }
 
-export const CardContent = styled(Panel)`
+export const CardContent = styled(BaseCollapse.Panel)`
   & .ant-collapse-content .ant-collapse-content-box {
     padding: 0;
   }
 `;
 
-export const CollapseCard = styled(Collapse)`
+export const CollapseCard = styled(BaseCollapse)`
   background: transparent;
   & .ant-collapse-item {
     border: none;

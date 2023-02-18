@@ -1,19 +1,16 @@
 import { useState } from 'react';
-import { Col, Space } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { Radio, RadioGroup, RadioButton, RadioChangeEvent } from '@app/components/common/Radio/Radio';
-import { Button } from '@app/components/common/buttons/Button/Button';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
+import { BaseRadio } from '@app/components/common/BaseRadio/BaseRadio';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { BaseSpace } from '@app/components/common/BaseSpace/BaseSpace';
 
 const RadiosPage: React.FC = () => {
   const { t } = useTranslation();
   const [value, setValue] = useState(1);
   const [disabled, setDisabled] = useState(false);
-
-  const onChange = (e: RadioChangeEvent) => {
-    setValue(e.target.value);
-  };
 
   const toggleDisabled = () => {
     setDisabled(!disabled);
@@ -22,72 +19,72 @@ const RadiosPage: React.FC = () => {
   return (
     <>
       <PageTitle>{t('common.radio')}</PageTitle>
-      <Col>
+      <BaseCol>
         <S.Card title={t('radios.basic')}>
-          <Radio>{t('radios.radio')}</Radio>
+          <BaseRadio>{t('radios.radio')}</BaseRadio>
         </S.Card>
         <S.Card title={t('radios.disabledRadio')}>
-          <Space direction="vertical" size={20}>
+          <BaseSpace direction="vertical" size={20}>
             <div>
-              <Radio defaultChecked={false} disabled={disabled}>
+              <BaseRadio defaultChecked={false} disabled={disabled}>
                 {t('radios.disabled')}
-              </Radio>
-              <Radio defaultChecked disabled={disabled}>
+              </BaseRadio>
+              <BaseRadio defaultChecked disabled={disabled}>
                 {t('radios.disabled')}
-              </Radio>
+              </BaseRadio>
             </div>
-            <Button type="primary" onClick={() => toggleDisabled()}>
+            <BaseButton type="primary" onClick={() => toggleDisabled()}>
               {t('radios.toggleDisabled')}
-            </Button>
-          </Space>
+            </BaseButton>
+          </BaseSpace>
         </S.Card>
         <S.Card title={t('radios.radioGroup')}>
-          <RadioGroup onChange={onChange} value={value}>
-            <Radio value={1}>{t('radios.a')}</Radio>
-            <Radio value={2}>{t('radios.b')}</Radio>
-            <Radio value={3}>{t('radios.c')}</Radio>
-            <Radio value={4}>{t('radios.d')}</Radio>
-          </RadioGroup>
+          <BaseRadio.Group onChange={(event) => setValue(event.target.value)} value={value}>
+            <BaseRadio value={1}>{t('radios.a')}</BaseRadio>
+            <BaseRadio value={2}>{t('radios.b')}</BaseRadio>
+            <BaseRadio value={3}>{t('radios.c')}</BaseRadio>
+            <BaseRadio value={4}>{t('radios.d')}</BaseRadio>
+          </BaseRadio.Group>
         </S.Card>
         <S.Card title={t('radios.radioButton')}>
-          <Space direction="vertical" size={20}>
-            <RadioGroup defaultValue="a">
-              <RadioButton value="a">Hangzhou</RadioButton>
-              <RadioButton value="b">Shanghai</RadioButton>
-              <RadioButton value="c">Beijing</RadioButton>
-              <RadioButton value="d">Chengdu</RadioButton>
-            </RadioGroup>
-            <RadioGroup disabled onChange={onChange} defaultValue="a">
-              <RadioButton value="a">Hangzhou</RadioButton>
-              <RadioButton value="b">Shanghai</RadioButton>
-              <RadioButton value="c">Beijing</RadioButton>
-              <RadioButton value="d">Chengdu</RadioButton>
-            </RadioGroup>
-          </Space>
+          <BaseSpace direction="vertical" size={20}>
+            <BaseRadio.Group defaultValue="a">
+              <BaseRadio.Button value="a">Hangzhou</BaseRadio.Button>
+              <BaseRadio.Button value="b">Shanghai</BaseRadio.Button>
+              <BaseRadio.Button value="c">Beijing</BaseRadio.Button>
+              <BaseRadio.Button value="d">Chengdu</BaseRadio.Button>
+            </BaseRadio.Group>
+            <BaseRadio.Group disabled onChange={(event) => setValue(event.target.value)} defaultValue="a">
+              <BaseRadio.Button value="a">Hangzhou</BaseRadio.Button>
+              <BaseRadio.Button value="b">Shanghai</BaseRadio.Button>
+              <BaseRadio.Button value="c">Beijing</BaseRadio.Button>
+              <BaseRadio.Button value="d">Chengdu</BaseRadio.Button>
+            </BaseRadio.Group>
+          </BaseSpace>
         </S.Card>
         <S.Card title={t('radios.radioButtonSizes')}>
-          <Space direction="vertical" size={10}>
-            <RadioGroup size="small" defaultValue="a">
-              <RadioButton value="a">Hangzhou</RadioButton>
-              <RadioButton value="b">Shanghai</RadioButton>
-              <RadioButton value="c">Beijing</RadioButton>
-              <RadioButton value="d">Chengdu</RadioButton>
-            </RadioGroup>
-            <RadioGroup defaultValue="a">
-              <RadioButton value="a">Hangzhou</RadioButton>
-              <RadioButton value="b">Shanghai</RadioButton>
-              <RadioButton value="c">Beijing</RadioButton>
-              <RadioButton value="d">Chengdu</RadioButton>
-            </RadioGroup>
-            <RadioGroup size="large" defaultValue="a">
-              <RadioButton value="a">Hangzhou</RadioButton>
-              <RadioButton value="b">Shanghai</RadioButton>
-              <RadioButton value="c">Beijing</RadioButton>
-              <RadioButton value="d">Chengdu</RadioButton>
-            </RadioGroup>
-          </Space>
+          <BaseSpace direction="vertical" size={10}>
+            <BaseRadio.Group size="small" defaultValue="a">
+              <BaseRadio.Button value="a">Hangzhou</BaseRadio.Button>
+              <BaseRadio.Button value="b">Shanghai</BaseRadio.Button>
+              <BaseRadio.Button value="c">Beijing</BaseRadio.Button>
+              <BaseRadio.Button value="d">Chengdu</BaseRadio.Button>
+            </BaseRadio.Group>
+            <BaseRadio.Group defaultValue="a">
+              <BaseRadio.Button value="a">Hangzhou</BaseRadio.Button>
+              <BaseRadio.Button value="b">Shanghai</BaseRadio.Button>
+              <BaseRadio.Button value="c">Beijing</BaseRadio.Button>
+              <BaseRadio.Button value="d">Chengdu</BaseRadio.Button>
+            </BaseRadio.Group>
+            <BaseRadio.Group size="large" defaultValue="a">
+              <BaseRadio.Button value="a">Hangzhou</BaseRadio.Button>
+              <BaseRadio.Button value="b">Shanghai</BaseRadio.Button>
+              <BaseRadio.Button value="c">Beijing</BaseRadio.Button>
+              <BaseRadio.Button value="d">Chengdu</BaseRadio.Button>
+            </BaseRadio.Group>
+          </BaseSpace>
         </S.Card>
-      </Col>
+      </BaseCol>
     </>
   );
 };

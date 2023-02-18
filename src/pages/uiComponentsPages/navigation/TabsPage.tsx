@@ -1,26 +1,23 @@
 import { useState } from 'react';
-import { Col, Space } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { AppleOutlined, AndroidOutlined } from '@ant-design/icons';
-import { RadioGroup, RadioButton, RadioChangeEvent } from '@app/components/common/Radio/Radio';
-import { Tabs } from '@app/components/common/Tabs/Tabs';
+import { BaseRadio } from '@app/components/common/BaseRadio/BaseRadio';
+import { BaseTabs } from '@app/components/common/BaseTabs/BaseTabs';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { BaseSpace } from '@app/components/common/BaseSpace/BaseSpace';
 
 const TabsPage: React.FC = () => {
   const { t } = useTranslation();
   const [tabPosition, setTabPosition] = useState<'top' | 'left' | 'right' | 'bottom'>('top');
 
-  const changeTabPosition = (e: RadioChangeEvent) => {
-    setTabPosition(e.target.value);
-  };
-
   return (
     <>
       <PageTitle>{t('common.tabs')}</PageTitle>
-      <Col>
+      <BaseCol>
         <S.Card title={t('tabs.basic')}>
-          <Tabs
+          <BaseTabs
             defaultActiveKey="1"
             items={[
               {
@@ -42,7 +39,7 @@ const TabsPage: React.FC = () => {
           />
         </S.Card>
         <S.Card title={t('tabs.disabled')}>
-          <Tabs
+          <BaseTabs
             defaultActiveKey="1"
             items={[
               {
@@ -65,7 +62,7 @@ const TabsPage: React.FC = () => {
           />
         </S.Card>
         <S.Card title={t('tabs.withIcon')}>
-          <Tabs
+          <BaseTabs
             defaultActiveKey="2"
             items={[
               {
@@ -92,17 +89,17 @@ const TabsPage: React.FC = () => {
           />
         </S.Card>
         <S.Card title={t('tabs.positions')}>
-          <Space direction="vertical" size={20}>
-            <Space wrap>
+          <BaseSpace direction="vertical" size={20}>
+            <BaseSpace wrap>
               {t('tabs.tabPosition')}
-              <RadioGroup value={tabPosition} onChange={changeTabPosition}>
-                <RadioButton value="top">{t('tabs.top')}</RadioButton>
-                <RadioButton value="bottom">{t('tabs.bottom')}</RadioButton>
-                <RadioButton value="left">{t('tabs.left')}</RadioButton>
-                <RadioButton value="right">{t('tabs.right')}</RadioButton>
-              </RadioGroup>
-            </Space>
-            <Tabs
+              <BaseRadio.Group value={tabPosition} onChange={(event) => setTabPosition(event.target.value)}>
+                <BaseRadio.Button value="top">{t('tabs.top')}</BaseRadio.Button>
+                <BaseRadio.Button value="bottom">{t('tabs.bottom')}</BaseRadio.Button>
+                <BaseRadio.Button value="left">{t('tabs.left')}</BaseRadio.Button>
+                <BaseRadio.Button value="right">{t('tabs.right')}</BaseRadio.Button>
+              </BaseRadio.Group>
+            </BaseSpace>
+            <BaseTabs
               tabPosition={tabPosition}
               items={[
                 {
@@ -122,9 +119,9 @@ const TabsPage: React.FC = () => {
                 },
               ]}
             />
-          </Space>
+          </BaseSpace>
         </S.Card>
-      </Col>
+      </BaseCol>
     </>
   );
 };

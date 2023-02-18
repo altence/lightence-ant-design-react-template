@@ -1,8 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import * as S from './TreatmentDoctor.styles';
-import { Avatar, Row } from 'antd';
 import { Dates } from '@app/constants/Dates';
+import { BaseAvatar } from '@app/components/common/BaseAvatar/BaseAvatar';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
 
 export interface TreatmentDoctor {
   name: string;
@@ -25,10 +26,10 @@ export const TreatmentDoctor: React.FC<TreatmentDoctorProps> = ({ doctor }) => {
   return (
     <S.DoctorCard padding={'1rem'}>
       <S.DoctorCardBody>
-        <Avatar src={imgUrl} alt={doctor.name} size={128} />
+        <BaseAvatar src={imgUrl} alt={doctor.name} size={128} />
 
         <S.DoctorName>{`${name}, ${t(`common.${speciality}`)}`}</S.DoctorName>
-        <Row gutter={[8, 8]}>
+        <BaseRow gutter={[8, 8]}>
           <S.LabelCol span={10}>{t('common.dateTime')}</S.LabelCol>
           <S.ValueCol span={14}>{Dates.format(date, 'lll')}</S.ValueCol>
           <S.LabelCol span={10}>{t('common.address')}</S.LabelCol>
@@ -37,7 +38,7 @@ export const TreatmentDoctor: React.FC<TreatmentDoctorProps> = ({ doctor }) => {
           <S.ValueCol span={14}>
             <S.Tel href={`tel:${phone}`}>{phone}</S.Tel>
           </S.ValueCol>
-        </Row>
+        </BaseRow>
       </S.DoctorCardBody>
     </S.DoctorCard>
   );

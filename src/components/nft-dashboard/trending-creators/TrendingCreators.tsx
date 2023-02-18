@@ -1,16 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Stories from 'react-insta-stories';
 import Slider from 'react-slick';
-import { Col, Row } from 'antd';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
-import { Carousel } from '@app/components/common/Carousel/Carousel';
+import { BaseCarousel } from '@app/components/common/BaseCarousel/Carousel';
 import { NFTCardHeader } from '@app/components/nft-dashboard/common/NFTCardHeader/NFTCardHeader';
 import { ViewAll } from '@app/components/nft-dashboard/common/ViewAll/ViewAll';
 import { TrendingCreatorsStory } from '@app/components/nft-dashboard/trending-creators/story/TrendingCreatorsStory';
 import { useResponsive } from '@app/hooks/useResponsive';
 import { getTrendingCreators, TrendingCreator } from '@app/api/trendingCreators';
 import * as S from './TrendingCreators.styles';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 export const TrendingCreators: React.FC = () => {
   const [isStoryOpened, setStoryOpened] = useState(false);
@@ -30,31 +31,31 @@ export const TrendingCreators: React.FC = () => {
   return (
     <>
       <NFTCardHeader title={t('nft.trendingCreators')}>
-        <Row align="middle">
-          <Col>
+        <BaseRow align="middle">
+          <BaseCol>
             <ViewAll bordered={false} />
-          </Col>
+          </BaseCol>
 
           {isTabletOrHigher && (
             <>
-              <Col>
+              <BaseCol>
                 <S.ArrowBtn type="text" size="small" onClick={() => sliderRef.current && sliderRef.current.slickPrev()}>
                   <LeftOutlined />
                 </S.ArrowBtn>
-              </Col>
+              </BaseCol>
 
-              <Col>
+              <BaseCol>
                 <S.ArrowBtn type="text" size="small" onClick={() => sliderRef.current && sliderRef.current.slickNext()}>
                   <RightOutlined />
                 </S.ArrowBtn>
-              </Col>
+              </BaseCol>
             </>
           )}
-        </Row>
+        </BaseRow>
       </NFTCardHeader>
 
       {stories.length > 0 && (
-        <Carousel
+        <BaseCarousel
           beforeChange={() => setDragging(true)}
           afterChange={() => setDragging(false)}
           slidesToShow={11}
@@ -176,7 +177,7 @@ export const TrendingCreators: React.FC = () => {
               </S.CardWrapper>
             </div>
           ))}
-        </Carousel>
+        </BaseCarousel>
       )}
 
       {isStoryOpened && (

@@ -1,32 +1,32 @@
 import React, { useState } from 'react';
 import { BellOutlined } from '@ant-design/icons';
-import { Button } from '@app/components/common/buttons/Button/Button';
-import { Badge } from '@app/components/common/Badge/Badge';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
+import { BaseBadge } from '@app/components/common/BaseBadge/BaseBadge';
 import { NotificationsOverlay } from '@app/components/header/components/notificationsDropdown/NotificationsOverlay/NotificationsOverlay';
 import { notifications as fetchedNotifications, Notification } from '@app/api/notifications.api';
 import { HeaderActionWrapper } from '@app/components/header/Header.styles';
-import { Popover } from '@app/components/common/Popover/Popover';
+import { BasePopover } from '@app/components/common/BasePopover/BasePopover';
 
 export const NotificationsDropdown: React.FC = () => {
   const [notifications, setNotifications] = useState<Notification[]>(fetchedNotifications);
   const [isOpened, setOpened] = useState(false);
 
   return (
-    <Popover
+    <BasePopover
       trigger="click"
       content={<NotificationsOverlay notifications={notifications} setNotifications={setNotifications} />}
       onOpenChange={setOpened}
     >
       <HeaderActionWrapper>
-        <Button
+        <BaseButton
           type={isOpened ? 'ghost' : 'text'}
           icon={
-            <Badge dot>
+            <BaseBadge dot>
               <BellOutlined />
-            </Badge>
+            </BaseBadge>
           }
         />
       </HeaderActionWrapper>
-    </Popover>
+    </BasePopover>
   );
 };

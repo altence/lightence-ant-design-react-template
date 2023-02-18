@@ -1,7 +1,7 @@
+import { BaseTable } from '@app/components/common/BaseTable/BaseTable';
 import styled from 'styled-components';
-import { Table } from 'antd';
 
-export const PaymentHistoryTable = styled(Table)`
+export const PaymentHistoryTable = styled(BaseTable)`
   .ant-table-thead > tr > th {
     border-top: 1px solid rgba(var(--primary-rgb-color), 0.3);
 

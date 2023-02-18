@@ -8,15 +8,17 @@ import {
   SettingOutlined,
   InfoCircleOutlined,
 } from '@ant-design/icons';
-import { Col, Cascader, Tooltip } from 'antd';
-import { Input, TextArea } from '@app/components/common/inputs/Input/Input';
+import { BaseInput } from '@app/components/common/inputs/BaseInput/BaseInput';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
-import { Select, Option } from '@app/components/common/selects/Select/Select';
+import { BaseSelect, Option } from '@app/components/common/selects/BaseSelect/BaseSelect';
 import { SearchInput } from '@app/components/common/inputs/SearchInput/SearchInput';
 import { InputPassword } from '@app/components/common/inputs/InputPassword/InputPassword';
 import { ClipboardInput } from '@app/components/common/inputs/ClipboardInput/ClipboardInput';
 import { OpenURLInput } from '@app/components/common/inputs/OpenURLInput/OpenURLInput';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { BaseTooltip } from '@app/components/common/BaseTooltip/BaseTooltip';
+import { BaseCascader } from '@app/components/common/BaseCascader/BaseCascader';
 
 const InputsPage: React.FC = () => {
   const { t } = useTranslation();
@@ -24,59 +26,59 @@ const InputsPage: React.FC = () => {
   const [newTabValue, setNewTabValue] = useState('https://altence.com');
 
   const selectBefore = (
-    <Select defaultValue="http://">
+    <BaseSelect defaultValue="http://">
       <Option value="http://">http://</Option>
       <Option value="https://">https://</Option>
-    </Select>
+    </BaseSelect>
   );
 
   const selectAfter = (
-    <Select defaultValue=".com">
+    <BaseSelect defaultValue=".com">
       <Option value=".com">.com</Option>
       <Option value=".jp">.jp</Option>
       <Option value=".cn">.cn</Option>
       <Option value=".org">.org</Option>
-    </Select>
+    </BaseSelect>
   );
 
   return (
     <>
       <PageTitle>{t('common.input')}</PageTitle>
-      <Col>
+      <BaseCol>
         <S.Card title={t('inputs.basic')}>
           <S.InputsWrapper>
-            <Input placeholder={t('inputs.basic')} />
+            <BaseInput placeholder={t('inputs.basic')} />
           </S.InputsWrapper>
         </S.Card>
         <S.Card title={t('inputs.sizes')}>
           <S.InputsWrapper>
-            <Input size="small" placeholder={t('inputs.small')} prefix={<UserOutlined />} />
-            <Input placeholder={t('inputs.default')} prefix={<UserOutlined />} />
-            <Input size="large" placeholder={t('inputs.large')} prefix={<UserOutlined />} />
+            <BaseInput size="small" placeholder={t('inputs.small')} prefix={<UserOutlined />} />
+            <BaseInput placeholder={t('inputs.default')} prefix={<UserOutlined />} />
+            <BaseInput size="large" placeholder={t('inputs.large')} prefix={<UserOutlined />} />
           </S.InputsWrapper>
         </S.Card>
         <S.Card title={t('inputs.prePost')}>
           <S.InputsWrapper>
-            <Input addonBefore="http://" addonAfter=".com" defaultValue="mysite" />
-            <Input addonBefore={selectBefore} addonAfter={selectAfter} defaultValue="mysite" />
-            <Input addonAfter={<SettingOutlined />} defaultValue="mysite" />
-            <Input addonBefore="http://" suffix=".com" defaultValue="mysite" />
-            <Input addonBefore={<Cascader placeholder="cascader" />} defaultValue="mysite" />
+            <BaseInput addonBefore="http://" addonAfter=".com" defaultValue="mysite" />
+            <BaseInput addonBefore={selectBefore} addonAfter={selectAfter} defaultValue="mysite" />
+            <BaseInput addonAfter={<SettingOutlined />} defaultValue="mysite" />
+            <BaseInput addonBefore="http://" suffix=".com" defaultValue="mysite" />
+            <BaseInput addonBefore={<BaseCascader placeholder="cascader" />} defaultValue="mysite" />
           </S.InputsWrapper>
         </S.Card>
         <S.Card title={t('inputs.prefixSuffix')}>
           <S.InputsWrapper>
-            <Input
+            <BaseInput
               placeholder={t('inputs.enterName')}
               prefix={<UserOutlined />}
               suffix={
-                <Tooltip title={t('inputs.extra')}>
+                <BaseTooltip title={t('inputs.extra')}>
                   <InfoCircleOutlined />
-                </Tooltip>
+                </BaseTooltip>
               }
             />
-            <Input prefix="￥" suffix="RMB" />
-            <Input prefix="￥" suffix="RMB" disabled />
+            <BaseInput prefix="￥" suffix="RMB" />
+            <BaseInput prefix="￥" suffix="RMB" disabled />
           </S.InputsWrapper>
         </S.Card>
         <S.Card title={t('inputs.search')}>
@@ -101,7 +103,7 @@ const InputsPage: React.FC = () => {
         </S.Card>
         <S.Card title={t('inputs.textarea')}>
           <S.InputsWrapper>
-            <TextArea rows={4} />
+            <BaseInput.TextArea rows={4} />
           </S.InputsWrapper>
         </S.Card>
         <S.Card title={t('inputs.func')}>
@@ -120,7 +122,7 @@ const InputsPage: React.FC = () => {
             />
           </S.InputsWrapper>
         </S.Card>
-      </Col>
+      </BaseCol>
     </>
   );
 };

@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
 import { Dates } from 'constants/Dates';
-import { Select, Option, SelectProps } from '../Select/Select';
+import { BaseSelect, Option, BaseSelectProps } from '../BaseSelect/BaseSelect';
 
-export const MonthSelect: React.FC<SelectProps> = ({ className, ...props }) => {
+export const MonthSelect: React.FC<BaseSelectProps> = ({ className, ...props }) => {
   const months = Dates.getMonths();
 
   const monthsOptions = useMemo(
@@ -16,8 +16,8 @@ export const MonthSelect: React.FC<SelectProps> = ({ className, ...props }) => {
   );
 
   return (
-    <Select className={className} {...props}>
+    <BaseSelect className={className} {...props}>
       {monthsOptions}
-    </Select>
+    </BaseSelect>
   );
 };

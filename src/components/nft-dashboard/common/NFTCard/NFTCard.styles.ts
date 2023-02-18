@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { Card as BaseCard } from '@app/components/common/Card/Card';
+import { BaseCard as BaseCard } from '@app/components/common/BaseCard/BaseCard';
 
 interface CardInternalProps {
   $isSider: boolean;

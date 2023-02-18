@@ -1,6 +1,5 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Col, Row } from 'antd';
 import { TwitterOutlined } from '@ant-design/icons';
 import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
 import { ClipboardInput } from 'components/common/inputs/ClipboardInput/ClipboardInput';
@@ -8,14 +7,16 @@ import { OpenURLInput } from '@app/components/common/inputs/OpenURLInput/OpenURL
 import { LinkedinIcon } from '@app/components/common/icons/LinkedinIcon';
 import { FacebookIcon } from '@app/components/common/icons/FacebookIcon';
 import { websitePattern } from '@app/constants/patterns';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 export const SocialLinksItem: React.FC = () => {
   const { t } = useTranslation();
 
   return (
     <BaseButtonsForm.Item label={t('profile.nav.personalInfo.socialLinks')}>
-      <Row gutter={[20, 0]}>
-        <Col xs={24} md={12}>
+      <BaseRow gutter={[20, 0]}>
+        <BaseCol xs={24} md={12}>
           <BaseButtonsForm.Item shouldUpdate>
             {({ getFieldValue }) => {
               const twitter = getFieldValue('twitter');
@@ -29,8 +30,8 @@ export const SocialLinksItem: React.FC = () => {
               );
             }}
           </BaseButtonsForm.Item>
-        </Col>
-        <Col xs={24} md={12}>
+        </BaseCol>
+        <BaseCol xs={24} md={12}>
           <BaseButtonsForm.Item shouldUpdate>
             {({ getFieldValue }) => {
               const linkedin = getFieldValue('linkedin');
@@ -52,8 +53,8 @@ export const SocialLinksItem: React.FC = () => {
               );
             }}
           </BaseButtonsForm.Item>
-        </Col>
-        <Col xs={24} md={12}>
+        </BaseCol>
+        <BaseCol xs={24} md={12}>
           <BaseButtonsForm.Item shouldUpdate>
             {({ getFieldValue }) => {
               const facebook = getFieldValue('facebook');
@@ -76,8 +77,8 @@ export const SocialLinksItem: React.FC = () => {
               );
             }}
           </BaseButtonsForm.Item>
-        </Col>
-      </Row>
+        </BaseCol>
+      </BaseRow>
     </BaseButtonsForm.Item>
   );
 };

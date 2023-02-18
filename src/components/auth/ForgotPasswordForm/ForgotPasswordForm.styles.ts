@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Button } from 'antd';
 import { FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 
 export const Description = styled.div`
   margin-bottom: 1.875rem;
@@ -17,7 +17,7 @@ export const Description = styled.div`
   }
 `;
 
-export const SubmitButton = styled(Button)`
+export const SubmitButton = styled(BaseButton)`
   font-size: ${FONT_SIZE.md};
   font-weight: ${FONT_WEIGHT.semibold};
   width: 100%;

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { Avatar } from 'antd';
 import { SmileOutlined, UserOutlined } from '@ant-design/icons';
 import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
 import { AddUserFormModal } from './AddUserFormModal';
-import { Input } from '../../common/inputs/Input/Input';
-import { Button } from '../../common/buttons/Button/Button';
+import { BaseInput } from '../../common/inputs/BaseInput/BaseInput';
+import { BaseButton } from '../../common/BaseButton/BaseButton';
 import { useTranslation } from 'react-i18next';
 import * as S from './ControlForm.styles';
 import { notificationController } from '@app/controllers/notificationController';
+import { BaseAvatar } from '@app/components/common/BaseAvatar/BaseAvatar';
 
 const layout = {
   labelCol: { span: 24 },
@@ -60,9 +60,9 @@ export const ControlForm: React.FC = () => {
         isFieldsChanged={isFieldsChanged}
         footer={
           <BaseButtonsForm.Item>
-            <Button htmlType="submit" type="primary" loading={isLoading}>
+            <BaseButton htmlType="submit" type="primary" loading={isLoading}>
               {t('common.submit')}
-            </Button>
+            </BaseButton>
             <S.AddUserButton type="default" htmlType="button" onClick={showUserModal}>
               {t('forms.controlFormLabels.addUser')}
             </S.AddUserButton>
@@ -76,7 +76,7 @@ export const ControlForm: React.FC = () => {
           label={t('forms.controlFormLabels.groupName')}
           rules={[{ required: true, message: t('forms.controlFormLabels.groupNameError') }]}
         >
-          <Input />
+          <BaseInput />
         </BaseButtonsForm.Item>
         <S.UserList
           label={t('forms.controlFormLabels.userList')}
@@ -89,7 +89,7 @@ export const ControlForm: React.FC = () => {
               <S.List>
                 {users.map((user, index) => (
                   <S.ListItem key={index}>
-                    <Avatar icon={<UserOutlined />} />
+                    <BaseAvatar icon={<UserOutlined />} />
                     <S.User>
                       {user.name} - {user.age}
                     </S.User>

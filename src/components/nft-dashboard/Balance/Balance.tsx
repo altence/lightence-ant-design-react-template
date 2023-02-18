@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { NFTCard } from '@app/components/nft-dashboard/common/NFTCard/NFTCard';
 import { TopUpBalanceModal } from './components/TopUpBalanceModal/TopUpBalanceModal';
@@ -11,6 +10,8 @@ import { CurrencyTypeEnum, PaymentCard } from '@app/interfaces/interfaces';
 import { getPaymentCards } from '@app/api/paymentCards.api';
 import { TopUpData } from './interfaces/interfaces';
 import * as S from './Balance.styles';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 export const Balance: React.FC = () => {
   const [balance, setBalance] = useState<IBalance>({
@@ -52,41 +53,41 @@ export const Balance: React.FC = () => {
   };
 
   return (
-    <Row>
-      <Col span={24}>
+    <BaseRow>
+      <BaseCol span={24}>
         <S.TitleText level={2}>{t('nft.yourBalance')}</S.TitleText>
-      </Col>
+      </BaseCol>
 
-      <Col span={24}>
+      <BaseCol span={24}>
         <NFTCard isSider>
-          <Row gutter={[30, 30]}>
-            <Col span={24}>
-              <Row gutter={[14, 14]}>
-                <Col span={24}>
+          <BaseRow gutter={[30, 30]}>
+            <BaseCol span={24}>
+              <BaseRow gutter={[14, 14]}>
+                <BaseCol span={24}>
                   <S.TitleBalanceText level={3}>
                     {getCurrencyPrice(formatNumberWithCommas(balance.USD), CurrencyTypeEnum['USD'])}
                   </S.TitleBalanceText>
-                </Col>
+                </BaseCol>
 
-                <Col span={24}>
-                  <Row gutter={[55, 10]} wrap={false}>
-                    <Col>
+                <BaseCol span={24}>
+                  <BaseRow gutter={[55, 10]} wrap={false}>
+                    <BaseCol>
                       <S.SubtitleBalanceText>
                         {getCurrencyPrice(formatNumberWithCommas(balance.ETH), CurrencyTypeEnum['ETH'])}
                       </S.SubtitleBalanceText>
-                    </Col>
+                    </BaseCol>
 
-                    <Col>
+                    <BaseCol>
                       <S.SubtitleBalanceText>
                         {getCurrencyPrice(formatNumberWithCommas(balance.BTC), CurrencyTypeEnum['BTC'])}
                       </S.SubtitleBalanceText>
-                    </Col>
-                  </Row>
-                </Col>
-              </Row>
-            </Col>
+                    </BaseCol>
+                  </BaseRow>
+                </BaseCol>
+              </BaseRow>
+            </BaseCol>
 
-            <Col span={24}>
+            <BaseCol span={24}>
               <TopUpBalanceButton onClick={handleModal} />
 
               <TopUpBalanceModal
@@ -96,10 +97,10 @@ export const Balance: React.FC = () => {
                 onOpenChange={handleModal}
                 onFinish={onFinish}
               />
-            </Col>
-          </Row>
+            </BaseCol>
+          </BaseRow>
         </NFTCard>
-      </Col>
-    </Row>
+      </BaseCol>
+    </BaseRow>
   );
 };

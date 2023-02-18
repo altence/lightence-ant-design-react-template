@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Input } from '@app/components/common/inputs/Input/Input';
+import { BaseInput } from '@app/components/common/inputs/BaseInput/BaseInput';
 import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
 
 export const NicknameItem: React.FC = () => {
@@ -8,7 +8,7 @@ export const NicknameItem: React.FC = () => {
 
   return (
     <BaseButtonsForm.Item name="nickname" label={t('profile.nav.personalInfo.nickname')}>
-      <Input />
+      <BaseInput />
     </BaseButtonsForm.Item>
   );
 };

@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { Modal } from '@app/components/common/Modal/Modal';
-import { Button } from '@app/components/common/buttons/Button/Button';
+import { BaseModal } from '@app/components/common/BaseModal/BaseModal';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { BREAKPOINTS, media } from '@app/styles/themes/constants';
 
-export const StoriesModal = styled(Modal)`
+export const StoriesModal = styled(BaseModal)`
   @media only screen and (max-width: ${BREAKPOINTS.md - 0.02}px) {
     top: 0;
     padding: 0;
@@ -23,7 +23,7 @@ export const StoriesModal = styled(Modal)`
   }
 `;
 
-export const ArrowBtn = styled(Button)`
+export const ArrowBtn = styled(BaseButton)`
   color: var(--text-nft-light-color);
 `;
 

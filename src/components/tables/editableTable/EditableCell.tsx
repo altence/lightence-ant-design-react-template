@@ -1,6 +1,8 @@
 import React from 'react';
-import { Input, InputNumber, Form } from 'antd';
 import { BasicTableRow } from '@app/api/table.api';
+import { InputNumber } from '@app/components/common/inputs/InputNumber/InputNumber';
+import { BaseInput } from '@app/components/common/inputs/BaseInput/BaseInput';
+import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
 
 interface EditableCellProps extends React.HTMLAttributes<HTMLElement> {
   editing: boolean;
@@ -20,12 +22,12 @@ export const EditableCell: React.FC<EditableCellProps> = ({
   children,
   ...restProps
 }) => {
-  const inputNode = inputType === 'number' ? <InputNumber /> : <Input />;
+  const inputNode = inputType === 'number' ? <InputNumber /> : <BaseInput />;
 
   return (
     <td {...restProps}>
       {editing ? (
-        <Form.Item
+        <BaseForm.Item
           name={dataIndex}
           style={{ margin: 0 }}
           rules={[
@@ -36,7 +38,7 @@ export const EditableCell: React.FC<EditableCellProps> = ({
           ]}
         >
           {inputNode}
-        </Form.Item>
+        </BaseForm.Item>
       ) : (
         children
       )}

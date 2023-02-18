@@ -1,14 +1,15 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Col, Row } from 'antd';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
-import { Carousel } from '@app/components/common/Carousel/Carousel';
+import { BaseCarousel } from '@app/components/common/BaseCarousel/Carousel';
 import { NFTCardHeader } from '@app/components/nft-dashboard/common/NFTCardHeader/NFTCardHeader';
 import { ViewAll } from '@app/components/nft-dashboard/common/ViewAll/ViewAll';
 import { NftCard } from '@app/components/nft-dashboard/recently-added/nft-card/NftCard';
 import { getRecentlyAddedNfts, NftItem } from '@app/api/nftDashboard.api';
 import { useResponsive } from '@app/hooks/useResponsive';
 import * as S from './RecentlyAddedNft.styles';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 export const RecentlyAddedNft: React.FC = () => {
   const [nfts, setNfts] = useState<NftItem[]>([]);
@@ -42,23 +43,23 @@ export const RecentlyAddedNft: React.FC = () => {
     <>
       <NFTCardHeader title={t('nft.recentlyAddedNFTs')}>
         {isTablet && (
-          <Row align="middle">
-            <Col>
+          <BaseRow align="middle">
+            <BaseCol>
               <ViewAll bordered={false} />
-            </Col>
+            </BaseCol>
 
-            <Col>
+            <BaseCol>
               <S.ArrowBtn type="text" size="small" onClick={() => sliderRef.current && sliderRef.current.slickPrev()}>
                 <LeftOutlined />
               </S.ArrowBtn>
-            </Col>
+            </BaseCol>
 
-            <Col>
+            <BaseCol>
               <S.ArrowBtn type="text" size="small" onClick={() => sliderRef.current && sliderRef.current.slickNext()}>
                 <RightOutlined />
               </S.ArrowBtn>
-            </Col>
-          </Row>
+            </BaseCol>
+          </BaseRow>
         )}
       </NFTCardHeader>
 
@@ -66,7 +67,7 @@ export const RecentlyAddedNft: React.FC = () => {
         {mobileOnly && cards.mobile}
 
         {isTablet && nfts.length > 0 && (
-          <Carousel
+          <BaseCarousel
             ref={sliderRef}
             slidesToShow={3}
             responsive={[
@@ -79,7 +80,7 @@ export const RecentlyAddedNft: React.FC = () => {
             ]}
           >
             {cards.tablet}
-          </Carousel>
+          </BaseCarousel>
         )}
       </S.SectionWrapper>
 

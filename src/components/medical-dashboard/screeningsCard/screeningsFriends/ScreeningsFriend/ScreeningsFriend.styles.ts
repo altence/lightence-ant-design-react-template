@@ -1,5 +1,7 @@
+import { BaseAvatar } from '@app/components/common/BaseAvatar/BaseAvatar';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
 import { FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
-import { Typography, Avatar as AntAvatar, Row } from 'antd';
 import styled from 'styled-components';
 
 interface ScreeningsRowProps {
@@ -15,7 +17,7 @@ interface Importance {
   $isSecondary: boolean;
 }
 
-export const ScreeningsRow = styled(Row)<ScreeningsRowProps>`
+export const ScreeningsRow = styled(BaseRow)<ScreeningsRowProps>`
   cursor: pointer;
   transition: all 0.3s ease;
 
@@ -24,7 +26,7 @@ export const ScreeningsRow = styled(Row)<ScreeningsRowProps>`
   }
 `;
 
-export const Avatar = styled(AntAvatar)<Importance>`
+export const Avatar = styled(BaseAvatar)<Importance>`
   position: relative;
 
   ${(props) =>
@@ -32,7 +34,7 @@ export const Avatar = styled(AntAvatar)<Importance>`
     (props.$isSecondary && `border 2px solid var(--error-color)`)}
 `;
 
-export const Name = styled(Typography.Text)<Importance>`
+export const Name = styled(BaseTypography.Text)<Importance>`
   white-space: nowrap;
 
   font-size: ${FONT_SIZE.xs};
@@ -46,7 +48,7 @@ export const Name = styled(Typography.Text)<Importance>`
   }
 `;
 
-export const Percentage = styled(Typography.Text)<PercentageProps>`
+export const Percentage = styled(BaseTypography.Text)<PercentageProps>`
   font-size: ${FONT_SIZE.xs};
 
   color: ${(props) => (props.$isDowngrade ? 'var(--error-color)' : 'var(--success-color)')};

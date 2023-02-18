@@ -1,17 +1,18 @@
 import React, { useEffect } from 'react';
-import { Col, Row } from 'antd';
 import { LeftOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { Outlet, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import { Card } from '@app/components/common/Card/Card';
-import { Button } from '@app/components/common/buttons/Button/Button';
+import { BaseCard } from '@app/components/common/BaseCard/BaseCard';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { ProfileInfo } from '@app/components/profile/profileCard/ProfileInfo/ProfileInfo';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import { ProfileNav } from '@app/components/profile/profileCard/ProfileNav/ProfileNav';
 import { useResponsive } from '@app/hooks/useResponsive';
 import { useAppSelector } from '@app/hooks/reduxHooks';
+import { BaseRow } from '../common/BaseRow/BaseRow';
+import { BaseCol } from '../common/BaseCol/BaseCol';
 
 const ProfileLayout: React.FC = () => {
   const user = useAppSelector((state) => state.user.user);
@@ -39,38 +40,38 @@ const ProfileLayout: React.FC = () => {
         </Btn>
       )}
 
-      <Row gutter={[30, 30]}>
+      <BaseRow gutter={[30, 30]}>
         {isTitleShown && (
-          <Col xs={24} md={24} xl={8}>
+          <BaseCol xs={24} md={24} xl={8}>
             <ProfileCard>
-              <Row gutter={[30, 30]}>
-                <Col xs={24} md={12} xl={24}>
+              <BaseRow gutter={[30, 30]}>
+                <BaseCol xs={24} md={12} xl={24}>
                   <ProfileInfo profileData={user} />
-                </Col>
+                </BaseCol>
 
-                <Col xs={24} md={12} xl={24}>
+                <BaseCol xs={24} md={12} xl={24}>
                   <ProfileNav />
-                </Col>
-              </Row>
+                </BaseCol>
+              </BaseRow>
             </ProfileCard>
-          </Col>
+          </BaseCol>
         )}
 
         {isMenuShown && (
-          <Col xs={24} md={24} xl={16}>
+          <BaseCol xs={24} md={24} xl={16}>
             <Outlet />
-          </Col>
+          </BaseCol>
         )}
-      </Row>
+      </BaseRow>
     </>
   );
 };
 
-const ProfileCard = styled(Card)`
+const ProfileCard = styled(BaseCard)`
   height: unset;
 `;
 
-const Btn = styled(Button)`
+const Btn = styled(BaseButton)`
   font-size: 1rem;
   margin-bottom: 1rem;
   font-weight: 600;
