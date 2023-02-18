@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Typography } from 'antd';
 import { media } from '@app/styles/themes/constants';
+import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
 
 interface FullnessLineProps {
   width: number;
@@ -44,7 +44,7 @@ export const ImgWrapper = styled.div`
   }
 `;
 
-export const Title = styled(Typography.Text)`
+export const Title = styled(BaseTypography.Text)`
   font-size: 1.125rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
@@ -55,7 +55,7 @@ export const Title = styled(Typography.Text)`
   }
 `;
 
-export const Subtitle = styled(Typography.Text)`
+export const Subtitle = styled(BaseTypography.Text)`
   margin-bottom: 2rem;
 
   @media only screen and ${media.xl} {
@@ -99,7 +99,7 @@ export const FullnessLine = styled.div<FullnessLineProps>`
   }
 `;
 
-export const Text = styled(Typography.Text)`
+export const Text = styled(BaseTypography.Text)`
   font-size: 0.75rem;
   text-align: left;
 

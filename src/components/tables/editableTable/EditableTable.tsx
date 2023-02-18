@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Popconfirm, Form, TablePaginationConfig, Space } from 'antd';
-import { Table } from 'components/common/Table/Table';
+import { BaseTable } from '@app/components/common/BaseTable/BaseTable';
 import { getEditableTableData, BasicTableRow, Pagination } from 'api/table.api';
 import { EditableCell } from './EditableCell';
-import { Button } from 'components/common/buttons/Button/Button';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { useTranslation } from 'react-i18next';
 import { useMounted } from '@app/hooks/useMounted';
+import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
+import { BaseSpace } from '@app/components/common/BaseSpace/BaseSpace';
+import { BasePopconfirm } from '@app/components/common/BasePopconfirm/BasePopconfirm';
 
 const initialPagination: Pagination = {
   current: 1,
@@ -13,7 +15,7 @@ const initialPagination: Pagination = {
 };
 
 export const EditableTable: React.FC = () => {
-  const [form] = Form.useForm();
+  const [form] = BaseForm.useForm();
   const [tableData, setTableData] = useState<{ data: BasicTableRow[]; pagination: Pagination; loading: boolean }>({
     data: [],
     pagination: initialPagination,
@@ -39,7 +41,7 @@ export const EditableTable: React.FC = () => {
     fetch(initialPagination);
   }, [fetch]);
 
-  const handleTableChange = (pagination: TablePaginationConfig) => {
+  const handleTableChange = (pagination: Pagination) => {
     fetch(pagination);
     cancel();
   };
@@ -107,27 +109,27 @@ export const EditableTable: React.FC = () => {
       render: (text: string, record: BasicTableRow) => {
         const editable = isEditing(record);
         return (
-          <Space>
+          <BaseSpace>
             {editable ? (
               <>
-                <Button type="primary" onClick={() => save(record.key)}>
+                <BaseButton type="primary" onClick={() => save(record.key)}>
                   {t('common.save')}
-                </Button>
-                <Popconfirm title={t('tables.cancelInfo')} onConfirm={cancel}>
-                  <Button type="ghost">{t('common.cancel')}</Button>
-                </Popconfirm>
+                </BaseButton>
+                <BasePopconfirm title={t('tables.cancelInfo')} onConfirm={cancel}>
+                  <BaseButton type="ghost">{t('common.cancel')}</BaseButton>
+                </BasePopconfirm>
               </>
             ) : (
               <>
-                <Button type="ghost" disabled={editingKey !== 0} onClick={() => edit(record)}>
+                <BaseButton type="ghost" disabled={editingKey !== 0} onClick={() => edit(record)}>
                   {t('common.edit')}
-                </Button>
-                <Button type="default" danger onClick={() => handleDeleteRow(record.key)}>
+                </BaseButton>
+                <BaseButton type="default" danger onClick={() => handleDeleteRow(record.key)}>
                   {t('tables.delete')}
-                </Button>
+                </BaseButton>
               </>
             )}
-          </Space>
+          </BaseSpace>
         );
       },
     },
@@ -150,8 +152,8 @@ export const EditableTable: React.FC = () => {
   });
 
   return (
-    <Form form={form} component={false}>
-      <Table
+    <BaseForm form={form} component={false}>
+      <BaseTable
         components={{
           body: {
             cell: EditableCell,
@@ -169,6 +171,6 @@ export const EditableTable: React.FC = () => {
         loading={tableData.loading}
         scroll={{ x: 800 }}
       />
-    </Form>
+    </BaseForm>
   );
 };

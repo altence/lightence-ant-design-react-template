@@ -1,10 +1,11 @@
 import React, { useMemo } from 'react';
-import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { LeftOutlined } from '@ant-design/icons';
 import { useResponsive } from 'hooks/useResponsive';
 import { ScreeningsProps } from '../interfaces';
 import * as S from './DesktopScreenings.styles';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
 
 interface CollapseProps {
   isMenuOpen: boolean;
@@ -21,9 +22,9 @@ export const DesktopScreenings: React.FC<DesktopScreeningsProps> = ({ screenings
   const colItems = useMemo(
     () =>
       screeningsItems.map((item, index) => (
-        <Col key={index} span={24}>
+        <BaseCol key={index} span={24}>
           {item}
-        </Col>
+        </BaseCol>
       )),
     [screeningsItems],
   );
@@ -33,29 +34,29 @@ export const DesktopScreenings: React.FC<DesktopScreeningsProps> = ({ screenings
   };
 
   return (
-    <Row
+    <BaseRow
       gutter={[
         { xs: 10, sm: 10, xl: 22 },
         { xs: 10, sm: 10, xl: 22 },
       ]}
     >
-      <Col span={24}>
-        <Row justify={isMenuOpen ? 'space-between' : 'center'}>
+      <BaseCol span={24}>
+        <BaseRow justify={isMenuOpen ? 'space-between' : 'center'}>
           {isMenuOpen && (
-            <Col>
+            <BaseCol>
               <S.Title>{t('medical-dashboard.latestScreenings.friends')}</S.Title>
-            </Col>
+            </BaseCol>
           )}
 
           {isDesktop && (
-            <Col>
+            <BaseCol>
               <LeftOutlined onClick={handleClick} rotate={isMenuOpen ? 0 : 180} />
-            </Col>
+            </BaseCol>
           )}
-        </Row>
-      </Col>
+        </BaseRow>
+      </BaseCol>
 
       {colItems}
-    </Row>
+    </BaseRow>
   );
 };

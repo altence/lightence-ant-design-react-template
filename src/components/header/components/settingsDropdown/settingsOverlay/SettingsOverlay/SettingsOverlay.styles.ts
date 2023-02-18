@@ -1,11 +1,11 @@
+import { BaseRadio } from '@app/components/common/BaseRadio/BaseRadio';
 import styled from 'styled-components';
-import { Radio } from 'antd';
 
 export const SettingsOverlayMenu = styled.div`
   width: 13rem;
 `;
 
-export const RadioBtn = styled(Radio)`
+export const RadioBtn = styled(BaseRadio)`
   font-size: 0.875rem;
 `;
 

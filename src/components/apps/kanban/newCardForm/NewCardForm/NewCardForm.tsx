@@ -1,11 +1,11 @@
 import React, { useMemo, useState } from 'react';
 import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
-import { Input } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { CardState, Tag, Participant } from '../../interfaces';
 import { TagDropdown } from '../TagDropdown/TagDropdown';
 import * as S from './NewCardForm.styles';
 import { ParticipantsDropdown } from '../ParticipantsDropdown/ParticipantsDropdown';
+import { BaseInput } from '@app/components/common/inputs/BaseInput/BaseInput';
 
 const formInputs = [
   {
@@ -42,7 +42,7 @@ export const NewCardForm: React.FC<NewCardFormProps> = ({ onAdd, onCancel }) => 
     () =>
       formInputs.map((item, index) => (
         <S.FormInput key={index} name={item.name}>
-          <Input placeholder={t(item.title)} bordered={false} />
+          <BaseInput placeholder={t(item.title)} bordered={false} />
         </S.FormInput>
       )),
     [t],

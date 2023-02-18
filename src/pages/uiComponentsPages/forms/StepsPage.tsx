@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { Col, Space } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { UserOutlined, SolutionOutlined, LoadingOutlined, SmileOutlined } from '@ant-design/icons';
-import { Steps } from '@app/components/common/Steps/Steps';
+import { BaseSteps } from '@app/components/common/BaseSteps/BaseSteps';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { BaseSpace } from '@app/components/common/BaseSpace/BaseSpace';
 
 const StepsPage: React.FC = () => {
   const { t } = useTranslation();
@@ -17,9 +18,9 @@ const StepsPage: React.FC = () => {
   return (
     <>
       <PageTitle>{t('common.steps')}</PageTitle>
-      <Col>
+      <BaseCol>
         <S.Card title={t('steps.basic')}>
-          <Steps
+          <BaseSteps
             current={1}
             items={[
               {
@@ -39,7 +40,7 @@ const StepsPage: React.FC = () => {
           />
         </S.Card>
         <S.Card title={t('steps.small')}>
-          <Steps
+          <BaseSteps
             size="small"
             current={1}
             items={[
@@ -56,7 +57,7 @@ const StepsPage: React.FC = () => {
           />
         </S.Card>
         <S.Card title={t('steps.icons')}>
-          <Steps
+          <BaseSteps
             items={[
               {
                 title: t('steps.login'),
@@ -78,7 +79,7 @@ const StepsPage: React.FC = () => {
           />
         </S.Card>
         <S.Card title={t('steps.vertical')}>
-          <Steps
+          <BaseSteps
             direction="vertical"
             size="small"
             current={1}
@@ -99,8 +100,8 @@ const StepsPage: React.FC = () => {
           />
         </S.Card>
         <S.Card title={t('steps.clickable')}>
-          <Space direction="vertical" size={20}>
-            <Steps
+          <BaseSpace direction="vertical" size={20}>
+            <BaseSteps
               current={current}
               onChange={onChange}
               items={[
@@ -118,7 +119,7 @@ const StepsPage: React.FC = () => {
                 },
               ]}
             />
-            <Steps
+            <BaseSteps
               current={current}
               onChange={onChange}
               direction="vertical"
@@ -137,9 +138,9 @@ const StepsPage: React.FC = () => {
                 },
               ]}
             />
-          </Space>
+          </BaseSpace>
         </S.Card>
-      </Col>
+      </BaseCol>
     </>
   );
 };

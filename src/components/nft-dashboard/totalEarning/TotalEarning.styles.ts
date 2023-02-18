@@ -1,12 +1,12 @@
+import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
 import { FONT_SIZE, FONT_WEIGHT, FONT_FAMILY } from '@app/styles/themes/constants';
-import { Typography } from 'antd';
 import styled from 'styled-components';
 
 interface ValueTextProps {
   $color: 'success' | 'error';
 }
 
-export const Title = styled(Typography.Title)`
+export const Title = styled(BaseTypography.Title)`
   &.ant-typography {
     margin-bottom: 0;
 
@@ -14,15 +14,15 @@ export const Title = styled(Typography.Title)`
   }
 `;
 
-export const Text = styled(Typography.Text)`
-  font-size: ${FONT_SIZE.xs};
+export const Text = styled(BaseTypography.Text)`
+  font-size: ${FONT_SIZE.xxs};
 
   font-weight: ${FONT_WEIGHT.regular};
 
   font-family: ${FONT_FAMILY.secondary};
 `;
 
-export const ValueText = styled(Typography.Text)<ValueTextProps>`
+export const ValueText = styled(BaseTypography.Text)<ValueTextProps>`
   font-size: ${FONT_SIZE.xs};
 
   font-family: ${FONT_FAMILY.secondary};

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Input } from '@app/components/common/inputs/Input/Input';
+import { BaseInput } from '@app/components/common/inputs/BaseInput/BaseInput';
 import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
 
 export const AddressItem: React.FC<{ number: number }> = ({ number }) => {
@@ -8,7 +8,7 @@ export const AddressItem: React.FC<{ number: number }> = ({ number }) => {
 
   return (
     <BaseButtonsForm.Item name={`address${number}`} label={`${t('common.address')} ${number}`}>
-      <Input />
+      <BaseInput />
     </BaseButtonsForm.Item>
   );
 };

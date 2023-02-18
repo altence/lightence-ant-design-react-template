@@ -1,9 +1,10 @@
-import { Col, Space } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { FrownOutlined, MehOutlined, SmileOutlined } from '@ant-design/icons';
-import { Rate } from '@app/components/common/Rate/Rate';
-import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
+import { BaseRate } from '@app/components/common/BaseRate/BaseRate';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { BaseSpace } from '@app/components/common/BaseSpace/BaseSpace';
+import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 
 const RatesPage: React.FC = () => {
   const { t } = useTranslation();
@@ -18,23 +19,23 @@ const RatesPage: React.FC = () => {
   return (
     <>
       <PageTitle>{t('common.rate')}</PageTitle>
-      <Col>
+      <BaseCol>
         <S.Card title={t('rates.basic')}>
-          <Rate />
+          <BaseRate />
         </S.Card>
         <S.Card title={t('rates.halfStar')}>
-          <Rate allowHalf defaultValue={2.5} />
+          <BaseRate allowHalf defaultValue={2.5} />
         </S.Card>
         <S.Card title={t('rates.readOnly')}>
-          <Rate disabled defaultValue={2} />
+          <BaseRate disabled defaultValue={2} />
         </S.Card>
         <S.Card title={t('rates.customIcons')}>
-          <Space direction="vertical" size={10}>
-            <Rate defaultValue={2} character={({ index }: { index: number }) => index + 1} />
-            <Rate defaultValue={3} character={({ index }: { index: number }) => customIcons[index + 1]} />
-          </Space>
+          <BaseSpace direction="vertical" size={10}>
+            <BaseRate defaultValue={2} character={({ index }: { index: number }) => index + 1} />
+            <BaseRate defaultValue={3} character={({ index }: { index: number }) => customIcons[index + 1]} />
+          </BaseSpace>
         </S.Card>
-      </Col>
+      </BaseCol>
     </>
   );
 };

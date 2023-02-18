@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
-import { Button } from 'components/common/buttons/Button/Button';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 
 interface BtnProps {
-  isActive: boolean;
+  $isActive: boolean;
   color: 'primary' | 'error' | 'warning' | 'success';
 }
 
@@ -12,12 +12,10 @@ export const Wrapper = styled.div`
   row-gap: 1.5rem;
 `;
 
-export const Btn = styled(Button).withConfig({
-  shouldForwardProp: (prop) => !['isActive'].includes(prop),
-})<BtnProps>`
+export const Btn = styled(BaseButton)<BtnProps>`
   display: flex;
   align-items: center;
-  justify-content: unset;
+  justify-content: unset !important;
   width: 100%;
 
   &:hover {
@@ -25,7 +23,7 @@ export const Btn = styled(Button).withConfig({
   }
 
   ${(props) =>
-    props.isActive &&
+    props.$isActive &&
     css`
       background-color: rgba(var(--primary-rgb-color), 0.05);
     `};

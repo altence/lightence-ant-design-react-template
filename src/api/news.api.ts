@@ -1,5 +1,5 @@
 import { newsTags } from 'constants/newsTags';
-import { ITag } from 'components/common/Tag/Tag';
+import { IHashTag } from '@app/components/common/BaseHashTag/BaseHashTag';
 
 const avatar1 = process.env.REACT_APP_ASSETS_BUCKET + '/avatars/avatar1.webp';
 const avatar2 = process.env.REACT_APP_ASSETS_BUCKET + '/avatars/avatar2.webp';
@@ -13,7 +13,7 @@ export interface Post {
   date: number;
   text: string;
   img: string;
-  tags: Array<ITag>;
+  tags: Array<IHashTag>;
 }
 
 const { arts, music, health } = newsTags;

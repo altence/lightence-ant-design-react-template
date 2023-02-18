@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './Legend.styles';
-import { Popover } from '@app/components/common/Popover/Popover';
+import { BasePopover } from '@app/components/common/BasePopover/BasePopover';
 import { getChartColors } from '@app/components/common/charts/BaseChart';
 import { useAppSelector } from '@app/hooks/reduxHooks';
 import { themeObject } from '@app/styles/themes/themeVariables';
@@ -30,9 +30,9 @@ export const Legend: React.FC<LegendProps> = ({ legendItems, activeItemIndex }) 
               <S.LegendTitle>{item.name}</S.LegendTitle>
             </S.LegendDescription>
             <S.Values>{item.value}</S.Values>
-            <Popover content={<S.PopoverContent>{item.description}</S.PopoverContent>} trigger="hover">
+            <BasePopover content={<S.PopoverContent>{item.description}</S.PopoverContent>} trigger="hover">
               <S.InfoStyled />
-            </Popover>
+            </BasePopover>
           </S.LegendInfo>
         </S.LegendWrapper>
       ))}

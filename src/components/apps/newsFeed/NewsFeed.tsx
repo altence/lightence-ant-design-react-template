@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Empty } from 'antd';
-import { ArticleCard } from '@app/components/common/ArticleCard/ArticleCard';
-import { Feed } from '@app/components/common/Feed/Feed';
+import { BaseArticle } from '@app/components/common/BaseArticle/BaseArticle';
+import { BaseFeed } from '@app/components/common/BaseFeed/BaseFeed';
 import { NewsFilter } from '@app/components/apps/newsFeed/NewsFilter/NewsFilter';
 import { getNews, Post } from '@app/api/news.api';
+import { BaseEmpty } from '@app/components/common/BaseEmpty/BaseEmpty';
 
 export const NewsFeed: React.FC = () => {
   const [news, setNews] = useState<Post[]>([]);
@@ -24,9 +24,9 @@ export const NewsFeed: React.FC = () => {
     <NewsFilter news={news}>
       {({ filteredNews }) =>
         filteredNews?.length || !loaded ? (
-          <Feed next={next} hasMore={hasMore}>
+          <BaseFeed next={next} hasMore={hasMore}>
             {filteredNews.map((post, index) => (
-              <ArticleCard
+              <BaseArticle
                 key={index}
                 title={post.title}
                 description={post.text}
@@ -37,9 +37,9 @@ export const NewsFeed: React.FC = () => {
                 tags={post.tags}
               />
             ))}
-          </Feed>
+          </BaseFeed>
         ) : (
-          <Empty />
+          <BaseEmpty />
         )
       }
     </NewsFilter>

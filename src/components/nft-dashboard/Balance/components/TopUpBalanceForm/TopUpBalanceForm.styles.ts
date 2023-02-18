@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { RadioGroup } from '@app/components/common/Radio/Radio';
-import { Typography } from 'antd';
+import { BaseRadio } from '@app/components/common/BaseRadio/BaseRadio';
 import { FONT_SIZE } from '@app/styles/themes/constants';
+import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
 
 export const ContentWrapper = styled.div`
   display: flex;
@@ -15,7 +15,7 @@ export const BlockWrapper = styled.div`
   gap: 1rem;
 `;
 
-export const Label = styled(Typography.Text)`
+export const Label = styled(BaseTypography.Text)`
   color: var(--text-nft-light-color);
   font-size: ${FONT_SIZE.xs};
 `;
@@ -31,7 +31,7 @@ export const ButtonsWrapper = styled.div`
   }
 `;
 
-export const PaymentRadio = styled(RadioGroup)`
+export const PaymentRadio = styled(BaseRadio.Group)`
   display: block;
 
   .ant-radio-wrapper {

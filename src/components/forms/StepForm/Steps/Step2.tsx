@@ -1,14 +1,14 @@
 import { useTranslation } from 'react-i18next';
 import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
-import { Input } from '@app/components/common/inputs/Input/Input';
-import { RadioButton, RadioGroup } from '@app/components/common/Radio/Radio';
-import { DatePicker } from '@app/components/common/pickers/DatePicker';
-import { Select, Option } from '@app/components/common/selects/Select/Select';
+import { BaseInput } from '@app/components/common/inputs/BaseInput/BaseInput';
+import { BaseRadio } from '@app/components/common/BaseRadio/BaseRadio';
+import { BaseDatePicker } from '@app/components/common/pickers/BaseDatePicker';
+import { BaseSelect, Option } from '@app/components/common/selects/BaseSelect/BaseSelect';
 import * as S from '../StepForm.styles';
 import React from 'react';
 import styled from 'styled-components';
 
-const Picker = styled(DatePicker)`
+const Picker = styled(BaseDatePicker)`
   width: 100%;
 `;
 
@@ -31,34 +31,34 @@ export const Step2: React.FC = () => {
         label={t('forms.stepFormLabels.salutation')}
         rules={[{ required: true, message: t('forms.stepFormLabels.salutationError') }]}
       >
-        <RadioGroup>
-          <RadioButton value="mr">{t('forms.stepFormLabels.mr')}</RadioButton>
-          <RadioButton value="mrs">{t('forms.stepFormLabels.mrs')}</RadioButton>
-        </RadioGroup>
+        <BaseRadio.Group>
+          <BaseRadio.Button value="mr">{t('forms.stepFormLabels.mr')}</BaseRadio.Button>
+          <BaseRadio.Button value="mrs">{t('forms.stepFormLabels.mrs')}</BaseRadio.Button>
+        </BaseRadio.Group>
       </BaseForm.Item>
       <BaseForm.Item
         name="gender"
         label={t('forms.stepFormLabels.gender')}
         rules={[{ required: true, message: t('common.requiredField') }]}
       >
-        <Select placeholder={t('forms.stepFormLabels.gender')}>
+        <BaseSelect placeholder={t('forms.stepFormLabels.gender')}>
           <Option value="male">{t('forms.stepFormLabels.male')}</Option>
           <Option value="female">{t('forms.stepFormLabels.female')}</Option>
-        </Select>
+        </BaseSelect>
       </BaseForm.Item>
       <BaseForm.Item
         name="firstName"
         label={t('common.firstName')}
         rules={[{ required: true, message: t('forms.stepFormLabels.firstNameError') }]}
       >
-        <Input />
+        <BaseInput />
       </BaseForm.Item>
       <BaseForm.Item
         name="lastName"
         label={t('common.lastName')}
         rules={[{ required: true, message: t('forms.stepFormLabels.lastNameError') }]}
       >
-        <Input />
+        <BaseInput />
       </BaseForm.Item>
       <BaseForm.Item
         name="birthday"
@@ -72,7 +72,7 @@ export const Step2: React.FC = () => {
         label={t('common.phone')}
         rules={[{ required: true, message: t('forms.stepFormLabels.phoneError') }]}
       >
-        <Input addonBefore={prefixSelector} />
+        <BaseInput addonBefore={prefixSelector} />
       </S.PhoneItem>
       <BaseForm.Item
         name="email"
@@ -84,7 +84,7 @@ export const Step2: React.FC = () => {
           },
         ]}
       >
-        <Input />
+        <BaseInput />
       </BaseForm.Item>
     </S.FormContent>
   );

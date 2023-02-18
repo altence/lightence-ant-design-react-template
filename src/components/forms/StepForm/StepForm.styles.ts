@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { Select as CommonSelect } from '@app/components/common/selects/Select/Select';
-import { Button } from '@app/components/common/buttons/Button/Button';
+import { BaseSelect as CommonSelect } from '@app/components/common/selects/BaseSelect/BaseSelect';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
 import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
-import { Steps as AntdSteps } from 'antd';
+import { BaseSteps } from '@app/components/common/BaseSteps/BaseSteps';
 
 export const PhoneItem = styled(BaseForm.Item)`
   .ant-input-group-addon {
@@ -15,35 +15,13 @@ export const PhoneItem = styled(BaseForm.Item)`
   }
 `;
 
-export const Steps = styled(AntdSteps)`
-  .ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title {
-    color: var(--primary-color);
-  }
-
-  .ant-steps-item-wait > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title {
-    color: var(--subtext-color);
-  }
-
-  .ant-steps-item-wait .ant-steps-item-icon {
-    border-color: var(--subtext-color);
-    & > .ant-steps-icon {
-      color: var(--subtext-color);
-    }
-  }
-
-  & .ant-steps-item {
-    &-description,
-    &-subtitle {
-      color: var(--subtext-color) !important;
-    }
-  }
-`;
+export const Steps = styled(BaseSteps)``;
 
 export const FormContent = styled.div`
   margin: 1.25rem 0.5rem;
 `;
 
-export const PrevButton = styled(Button)`
+export const PrevButton = styled(BaseButton)`
   margin: 0 0.5rem;
 `;
 

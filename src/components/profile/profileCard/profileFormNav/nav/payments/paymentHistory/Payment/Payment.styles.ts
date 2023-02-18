@@ -1,5 +1,5 @@
+import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
 import styled from 'styled-components';
-import { Typography } from 'antd';
 
 export const Header = styled.div`
   padding: 1.5rem 3.5rem;
@@ -14,7 +14,7 @@ export const AvatarWrapper = styled.div`
   margin-right: 1.25rem;
 `;
 
-export const Text = styled(Typography.Text)`
+export const Text = styled(BaseTypography.Text)`
   font-weight: 600;
 `;
 
@@ -45,7 +45,7 @@ export const Item = styled.div`
   }
 `;
 
-export const Subtitle = styled(Typography.Text)`
+export const Subtitle = styled(BaseTypography.Text)`
   font-weight: 500;
   font-size: 0.75rem;
 

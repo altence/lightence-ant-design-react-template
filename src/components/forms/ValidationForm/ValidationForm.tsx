@@ -1,18 +1,19 @@
-import { Row, Col } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { UploadOutlined, InboxOutlined } from '@ant-design/icons';
 import { useState } from 'react';
 import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
 import { InputNumber } from '@app/components/common/inputs/InputNumber/InputNumber';
-import { Select, Option } from '@app/components/common/selects/Select/Select';
-import { Button } from '@app/components/common/buttons/Button/Button';
-import { Switch } from '@app/components/common/Switch/Switch';
-import { Radio, RadioButton, RadioGroup } from '@app/components/common/Radio/Radio';
-import { Slider } from '@app/components/common/Slider/Slider';
-import { Upload, UploadDragger } from '@app/components/common/Upload/Upload';
-import { Rate } from '@app/components/common/Rate/Rate';
-import { Checkbox, CheckboxGroup } from '@app/components/common/Checkbox/Checkbox';
+import { BaseSelect, Option } from '@app/components/common/selects/BaseSelect/BaseSelect';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
+import { BaseSwitch } from '@app/components/common/BaseSwitch/BaseSwitch';
+import { BaseRadio } from '@app/components/common/BaseRadio/BaseRadio';
+import { BaseSlider } from '@app/components/common/BaseSlider/BaseSlider';
+import { BaseUpload } from '@app/components/common/BaseUpload/BaseUpload';
+import { BaseRate } from '@app/components/common/BaseRate/BaseRate';
 import { notificationController } from '@app/controllers/notificationController';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { BaseCheckbox } from '@app/components/common/BaseCheckbox/BaseCheckbox';
 
 const formItemLayout = {
   labelCol: { span: 24 },
@@ -54,9 +55,9 @@ export const ValidationForm: React.FC = () => {
       }}
       footer={
         <BaseButtonsForm.Item>
-          <Button type="primary" htmlType="submit" loading={isLoading}>
+          <BaseButton type="primary" htmlType="submit" loading={isLoading}>
             {t('common.submit')}
-          </Button>
+          </BaseButton>
         </BaseButtonsForm.Item>
       }
       onFinish={onFinish}
@@ -67,10 +68,10 @@ export const ValidationForm: React.FC = () => {
         hasFeedback
         rules={[{ required: true, message: t('forms.validationFormLabels.countryError') }]}
       >
-        <Select placeholder={t('forms.validationFormLabels.selectCountry')}>
+        <BaseSelect placeholder={t('forms.validationFormLabels.selectCountry')}>
           <Option value="china">{t('forms.validationFormLabels.china')}</Option>
           <Option value="usa">{t('forms.validationFormLabels.usa')}</Option>
-        </Select>
+        </BaseSelect>
       </BaseButtonsForm.Item>
 
       <BaseButtonsForm.Item
@@ -78,11 +79,11 @@ export const ValidationForm: React.FC = () => {
         label={t('forms.validationFormLabels.selectMultiple')}
         rules={[{ required: true, message: t('forms.validationFormLabels.colorError'), type: 'array' }]}
       >
-        <Select mode="multiple" placeholder={t('forms.validationFormLabels.selectColor')}>
+        <BaseSelect mode="multiple" placeholder={t('forms.validationFormLabels.selectColor')}>
           <Option value="red">{t('forms.validationFormLabels.red')}</Option>
           <Option value="green">{t('forms.validationFormLabels.green')}</Option>
           <Option value="blue">{t('forms.validationFormLabels.blue')}</Option>
-        </Select>
+        </BaseSelect>
       </BaseButtonsForm.Item>
 
       <BaseButtonsForm.Item label={t('forms.validationFormLabels.inputNumber')}>
@@ -95,11 +96,11 @@ export const ValidationForm: React.FC = () => {
       </BaseButtonsForm.Item>
 
       <BaseButtonsForm.Item name="switch" label={t('forms.validationFormLabels.switch')} valuePropName="checked">
-        <Switch />
+        <BaseSwitch />
       </BaseButtonsForm.Item>
 
       <BaseButtonsForm.Item name="slider" label={t('forms.validationFormLabels.slider')}>
-        <Slider
+        <BaseSlider
           tooltip={{ open: false }}
           marks={{
             0: 'A',
@@ -113,11 +114,11 @@ export const ValidationForm: React.FC = () => {
       </BaseButtonsForm.Item>
 
       <BaseButtonsForm.Item name="radio-group" label={t('forms.validationFormLabels.radioGroup')}>
-        <RadioGroup>
-          <Radio value="a">{t('forms.validationFormLabels.item')} 1</Radio>
-          <Radio value="b">{t('forms.validationFormLabels.item')} 2</Radio>
-          <Radio value="c">{t('forms.validationFormLabels.item')} 3</Radio>
-        </RadioGroup>
+        <BaseRadio.Group>
+          <BaseRadio value="a">{t('forms.validationFormLabels.item')} 1</BaseRadio>
+          <BaseRadio value="b">{t('forms.validationFormLabels.item')} 2</BaseRadio>
+          <BaseRadio value="c">{t('forms.validationFormLabels.item')} 3</BaseRadio>
+        </BaseRadio.Group>
       </BaseButtonsForm.Item>
 
       <BaseButtonsForm.Item
@@ -125,42 +126,42 @@ export const ValidationForm: React.FC = () => {
         label={t('forms.validationFormLabels.radioButton')}
         rules={[{ required: true, message: t('forms.validationFormLabels.itemError') }]}
       >
-        <RadioGroup>
-          <RadioButton value="a">{t('forms.validationFormLabels.item')} 1</RadioButton>
-          <RadioButton value="b">{t('forms.validationFormLabels.item')} 2</RadioButton>
-          <RadioButton value="c">{t('forms.validationFormLabels.item')} 3</RadioButton>
-        </RadioGroup>
+        <BaseRadio.Group>
+          <BaseRadio.Button value="a">{t('forms.validationFormLabels.item')} 1</BaseRadio.Button>
+          <BaseRadio.Button value="b">{t('forms.validationFormLabels.item')} 2</BaseRadio.Button>
+          <BaseRadio.Button value="c">{t('forms.validationFormLabels.item')} 3</BaseRadio.Button>
+        </BaseRadio.Group>
       </BaseButtonsForm.Item>
 
       <BaseButtonsForm.Item name="checkbox-group" label={t('forms.validationFormLabels.checkboxGroup')}>
-        <CheckboxGroup>
-          <Row>
-            <Col span={8}>
-              <Checkbox value="A">A</Checkbox>
-            </Col>
-            <Col span={8}>
-              <Checkbox value="B" disabled>
+        <BaseCheckbox.Group>
+          <BaseRow>
+            <BaseCol span={8}>
+              <BaseCheckbox value="A">A</BaseCheckbox>
+            </BaseCol>
+            <BaseCol span={8}>
+              <BaseCheckbox value="B" disabled>
                 B
-              </Checkbox>
-            </Col>
-            <Col span={8}>
-              <Checkbox value="C">C</Checkbox>
-            </Col>
-            <Col span={8}>
-              <Checkbox value="D">D</Checkbox>
-            </Col>
-            <Col span={8}>
-              <Checkbox value="E">E</Checkbox>
-            </Col>
-            <Col span={8}>
-              <Checkbox value="F">F</Checkbox>
-            </Col>
-          </Row>
-        </CheckboxGroup>
+              </BaseCheckbox>
+            </BaseCol>
+            <BaseCol span={8}>
+              <BaseCheckbox value="C">C</BaseCheckbox>
+            </BaseCol>
+            <BaseCol span={8}>
+              <BaseCheckbox value="D">D</BaseCheckbox>
+            </BaseCol>
+            <BaseCol span={8}>
+              <BaseCheckbox value="E">E</BaseCheckbox>
+            </BaseCol>
+            <BaseCol span={8}>
+              <BaseCheckbox value="F">F</BaseCheckbox>
+            </BaseCol>
+          </BaseRow>
+        </BaseCheckbox.Group>
       </BaseButtonsForm.Item>
 
       <BaseButtonsForm.Item name="rate" label={t('forms.validationFormLabels.rate')}>
-        <Rate />
+        <BaseRate />
       </BaseButtonsForm.Item>
 
       <BaseButtonsForm.Item
@@ -169,22 +170,22 @@ export const ValidationForm: React.FC = () => {
         valuePropName="fileList"
         getValueFromEvent={normFile}
       >
-        <Upload name="logo" action="/upload.do" listType="picture">
-          <Button type="default" icon={<UploadOutlined />}>
+        <BaseUpload name="logo" action="/upload.do" listType="picture">
+          <BaseButton type="default" icon={<UploadOutlined />}>
             {t('forms.validationFormLabels.clickToUpload')}
-          </Button>
-        </Upload>
+          </BaseButton>
+        </BaseUpload>
       </BaseButtonsForm.Item>
 
       <BaseButtonsForm.Item label={t('forms.validationFormLabels.dragger')}>
         <BaseButtonsForm.Item name="dragger" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
-          <UploadDragger name="files" action="/upload.do">
+          <BaseUpload.Dragger name="files" action="/upload.do">
             <p>
               <InboxOutlined />
             </p>
             <p>{t('forms.validationFormLabels.clickToDrag')}</p>
             <p>{t('forms.validationFormLabels.supportSingle')}</p>
-          </UploadDragger>
+          </BaseUpload.Dragger>
         </BaseButtonsForm.Item>
       </BaseButtonsForm.Item>
     </BaseButtonsForm>

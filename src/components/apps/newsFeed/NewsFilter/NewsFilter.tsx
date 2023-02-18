@@ -1,28 +1,28 @@
 import React, { ReactNode, useState, useEffect, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RangeValue } from 'rc-picker/lib/interface.d';
-import { Tag, ITag } from '@app/components/common/Tag/Tag';
+import { BaseHashTag, IHashTag } from '@app/components/common/BaseHashTag/BaseHashTag';
 import { AuthorValidator, TitleValidator, DatesValidator, TagsValidator } from '../Validator';
 import { useResponsive } from '@app/hooks/useResponsive';
 import { newsTags as defaultTags } from '@app/constants/newsTags';
 import { AppDate, Dates } from '@app/constants/Dates';
 import { Post } from '@app/api/news.api';
 import * as S from './NewsFilter.styles';
-import { Dropdown } from '@app/components/common/Dropdown/Dropdown';
+import { BaseDropdown } from '@app/components/common/BaseDropdown/Dropdown';
 
 interface NewsFilterProps {
   news: Post[];
-  newsTags?: ITag[];
+  newsTags?: IHashTag[];
   children: ({ filteredNews }: { filteredNews: Post[] }) => ReactNode;
 }
 
 interface Filter {
   author: string;
   title: string;
-  newsTagData: ITag[];
-  onTagClick: (tag: ITag) => void;
+  newsTagData: IHashTag[];
+  onTagClick: (tag: IHashTag) => void;
   selectedTagsIds: Array<string>;
-  selectedTags: ITag[];
+  selectedTags: IHashTag[];
   dates: [AppDate | null, AppDate | null];
   updateFilteredField: (field: string, value: [AppDate | null, AppDate | null] | string) => void;
   onApply: () => void;
@@ -65,7 +65,7 @@ const Filter: React.FC<Filter> = ({
             }}
           >
             <S.PopoverCheckbox checked={selectedTagsIds.includes(tag.id)} />
-            <Tag title={tag.title} bgColor={tag.bgColor} />
+            <BaseHashTag title={tag.title} bgColor={tag.bgColor} />
           </S.TagPopoverLine>
         ),
       })),
@@ -94,17 +94,17 @@ const Filter: React.FC<Filter> = ({
         />
       </S.InputWrapper>
 
-      <Dropdown placement="bottom" trigger={['click']} menu={{ items }}>
+      <BaseDropdown placement="bottom" trigger={['click']} menu={{ items }}>
         <S.AddTagWrapper>
           <S.PlusIcon />
           <S.AddTagText>{t('newsFeed.tag')}</S.AddTagText>
         </S.AddTagWrapper>
-      </Dropdown>
+      </BaseDropdown>
 
       {!!selectedTags.length && (
         <S.TagsWrapper>
           {selectedTags.map((tag) => (
-            <Tag key={tag.id} title={tag.title} bgColor={tag.bgColor} removeTag={() => onTagClick(tag)} />
+            <BaseHashTag key={tag.id} title={tag.title} bgColor={tag.bgColor} removeTag={() => onTagClick(tag)} />
           ))}
         </S.TagsWrapper>
       )}
@@ -136,7 +136,7 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
   const [filterFields, setFilterFields] = useState<{
     author: string;
     title: string;
-    selectedTags: ITag[];
+    selectedTags: IHashTag[];
     dates: [AppDate | null, AppDate | null];
   }>({
     author: '',
@@ -154,7 +154,7 @@ export const NewsFilter: React.FC<NewsFilterProps> = ({ news, newsTags, children
   const selectedTagsIds = useMemo(() => selectedTags.map((item) => item.id), [selectedTags]);
 
   const onTagClick = useCallback(
-    (tag: ITag) => {
+    (tag: IHashTag) => {
       const isExist = selectedTagsIds.includes(tag.id);
 
       if (isExist) {

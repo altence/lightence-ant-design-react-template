@@ -1,8 +1,8 @@
-import { Button } from '@app/components/common/buttons/Button/Button';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { media } from '@app/styles/themes/constants';
 import styled from 'styled-components';
 
-export const Btn = styled(Button)`
+export const Btn = styled(BaseButton)`
   margin: 0.5rem 0 1.5rem 0;
   width: 100%;
 

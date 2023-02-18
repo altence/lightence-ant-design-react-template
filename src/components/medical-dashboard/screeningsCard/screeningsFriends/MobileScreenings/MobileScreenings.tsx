@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
-import { CarouselArrow } from '@app/components/common/CarouselArrow/CarouselArrow';
+import { CarouselArrow } from '@app/components/common/BaseCarousel/CarouselArrow/CarouselArrow';
 import { ScreeningsProps } from '../interfaces';
 import * as S from './MobileScreenings.styles';
 import { BREAKPOINTS } from '@app/styles/themes/constants';

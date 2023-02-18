@@ -1,19 +1,20 @@
 import React from 'react';
-import { Col, Row } from 'antd';
-import { Card } from 'components/common/Card/Card';
+import { BaseCard } from '@app/components/common/BaseCard/BaseCard';
 import { PasswordForm } from './passwordForm/PasswordForm/PasswordForm';
 import { TwoFactorAuth } from './twoFactorAuth/TwoFactorAuth';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 export const SecuritySettings: React.FC = () => (
-  <Card>
-    <Row gutter={[30, 0]}>
-      <Col xs={24} xl={10}>
+  <BaseCard>
+    <BaseRow gutter={[30, 0]}>
+      <BaseCol xs={24} xl={10}>
         <PasswordForm />
-      </Col>
+      </BaseCol>
 
-      <Col xs={24} xl={14}>
+      <BaseCol xs={24} xl={14}>
         <TwoFactorAuth />
-      </Col>
-    </Row>
-  </Card>
+      </BaseCol>
+    </BaseRow>
+  </BaseCard>
 );

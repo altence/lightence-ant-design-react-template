@@ -1,6 +1,6 @@
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 import styled from 'styled-components';
-import { Card } from '../../../common/Card/Card';
-import { Col } from 'antd';
+import { BaseCard } from '../../../common/BaseCard/BaseCard';
 
 export const DoctorName = styled.span`
   font-size: 1.25rem;
@@ -10,7 +10,7 @@ export const DoctorName = styled.span`
   text-align: center;
 `;
 
-export const DoctorCard = styled(Card)`
+export const DoctorCard = styled(BaseCard)`
   background: linear-gradient(to bottom, var(--primary-color) 5rem, var(--secondary-background-color) 5rem);
 `;
 
@@ -21,11 +21,11 @@ export const DoctorCardBody = styled.div`
   align-items: center;
 `;
 
-export const LabelCol = styled(Col)`
+export const LabelCol = styled(BaseCol)`
   opacity: 0.5;
 `;
 
-export const ValueCol = styled(Col)``;
+export const ValueCol = styled(BaseCol)``;
 
 export const Tel = styled.a`
   color: var(--text-main-color);

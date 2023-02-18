@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { SettingOutlined } from '@ant-design/icons';
-import { Button } from '@app/components/common/buttons/Button/Button';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { HeaderActionWrapper } from '@app/components/header/Header.styles';
 import { SettingsOverlay } from './settingsOverlay/SettingsOverlay/SettingsOverlay';
-import { Popover } from '@app/components/common/Popover/Popover';
+import { BasePopover } from '@app/components/common/BasePopover/BasePopover';
 
 export const SettingsDropdown: React.FC = () => {
   const [isOpened, setOpened] = useState(false);
 
   return (
-    <Popover content={<SettingsOverlay />} trigger="click" onOpenChange={setOpened}>
+    <BasePopover content={<SettingsOverlay />} trigger="click" onOpenChange={setOpened}>
       <HeaderActionWrapper>
-        <Button type={isOpened ? 'ghost' : 'text'} icon={<SettingOutlined />} />
+        <BaseButton type={isOpened ? 'ghost' : 'text'} icon={<SettingOutlined />} />
       </HeaderActionWrapper>
-    </Popover>
+    </BasePopover>
   );
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import * as echarts from 'echarts';
 import { BaseChart } from '@app/components/common/charts/BaseChart';
-import { Card } from '@app/components/common/Card/Card';
+import { BaseCard } from '@app/components/common/BaseCard/BaseCard';
 import { useAppSelector } from '@app/hooks/reduxHooks';
 import { themeObject } from '@app/styles/themes/themeVariables';
 import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
@@ -203,8 +203,8 @@ export const GradientStackedAreaChart: React.FC = () => {
   };
 
   return (
-    <Card padding="0 0 1.875rem" title={t('charts.gradientLabel')}>
+    <BaseCard padding="0 0 1.875rem" title={t('charts.gradientLabel')}>
       <BaseChart option={option} />
-    </Card>
+    </BaseCard>
   );
 };

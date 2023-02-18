@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Card } from '@app/components/common/Card/Card';
+import { BaseCard } from '@app/components/common/BaseCard/BaseCard';
 import { BaseChart } from '@app/components/common/charts/BaseChart';
 import { useAppSelector } from '@app/hooks/reduxHooks';
 import { themeObject } from '@app/styles/themes/themeVariables';
@@ -85,8 +85,8 @@ export const BarAnimationDelayChart: React.FC = () => {
     animationEasing: 'elasticOut',
   };
   return (
-    <Card padding="0 0 1.875rem" title={t('charts.barLabel')}>
+    <BaseCard padding="0 0 1.875rem" title={t('charts.barLabel')}>
       <BaseChart option={option} />
-    </Card>
+    </BaseCard>
   );
 };

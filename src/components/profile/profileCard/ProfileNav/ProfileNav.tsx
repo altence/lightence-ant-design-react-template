@@ -19,7 +19,7 @@ export const ProfileNav: React.FC = () => {
           type="text"
           color={item.color}
           onClick={() => navigate(item.href)}
-          isActive={`/profile/${item.href}` === location.pathname}
+          $isActive={`/profile/${item.href}` === location.pathname}
         >
           {t(item.name)}
         </S.Btn>

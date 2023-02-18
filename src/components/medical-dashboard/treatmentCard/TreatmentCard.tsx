@@ -4,13 +4,14 @@ import { useResponsive } from 'hooks/useResponsive';
 import { TreatmentCalendar } from './TreatmentCalendar/TreatmentCalendar';
 import { TreatmentPanel } from './TreatmentPanel';
 import { AppDate, Dates } from 'constants/Dates';
-import { Col, Row } from 'antd';
 import { DashboardCard } from '../DashboardCard/DashboardCard';
 import { CalendarEvent, getUserCalendar } from 'api/calendar.api';
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
-import { Button } from '../../common/buttons/Button/Button';
+import { BaseButton } from '../../common/BaseButton/BaseButton';
 import { useAppSelector } from '@app/hooks/reduxHooks';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
 
 export const TreatmentCard: React.FC = () => {
   const { isTablet } = useResponsive();
@@ -64,8 +65,8 @@ export const TreatmentCard: React.FC = () => {
       <RowStyled gutter={[10, 10]} wrap={false}>
         {isTablet ? (
           <>
-            <Col md={12}>{calendarItem}</Col>
-            <Col md={12}>{panelItem}</Col>
+            <BaseCol md={12}>{calendarItem}</BaseCol>
+            <BaseCol md={12}>{panelItem}</BaseCol>
           </>
         ) : isDateClicked && calendar.some((event) => Dates.getDate(event.date).isSame(selectedDate, 'date')) ? (
           <BackButtonWrapper span={24}>
@@ -73,24 +74,24 @@ export const TreatmentCard: React.FC = () => {
             <BackButton type="text" icon={<ArrowLeftOutlined />} onClick={() => setDateClicked(false)} />
           </BackButtonWrapper>
         ) : (
-          <Col span={24}>{calendarItem}</Col>
+          <BaseCol span={24}>{calendarItem}</BaseCol>
         )}
       </RowStyled>
     </DashboardCard>
   );
 };
 
-const BackButtonWrapper = styled(Col)`
+const BackButtonWrapper = styled(BaseCol)`
   position: relative;
 `;
 
-const BackButton = styled(Button)`
+const BackButton = styled(BaseButton)`
   position: absolute;
   top: 0;
   left: 0;
   color: var(--white);
 `;
 
-const RowStyled = styled(Row)`
+const RowStyled = styled(BaseRow)`
   min-height: 21.75rem;
 `;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardProps } from 'components/common/Card/Card';
+import { BaseCard, BaseCardProps } from '@app/components/common/BaseCard/BaseCard';
 import { useResponsive } from 'hooks/useResponsive';
 
 interface DashboardPaddings {
@@ -14,7 +14,7 @@ export const dashboardPaddings: DashboardPaddings = {
   xl: [20, 20],
 };
 
-export const DashboardCard: React.FC<CardProps> = ({ children, ...props }) => {
+export const DashboardCard: React.FC<BaseCardProps> = ({ children, ...props }) => {
   const { isMobile, isTablet, isDesktop } = useResponsive();
 
   const responsivePaddings =
@@ -24,8 +24,8 @@ export const DashboardCard: React.FC<CardProps> = ({ children, ...props }) => {
     dashboardPaddings.xs;
 
   return (
-    <Card padding={responsivePaddings} {...props}>
+    <BaseCard padding={responsivePaddings} {...props}>
       {children}
-    </Card>
+    </BaseCard>
   );
 };

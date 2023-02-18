@@ -1,4 +1,4 @@
-import { ITag } from '@app/components/common/Tag/Tag';
+import { IHashTag } from '@app/components/common/BaseHashTag/BaseHashTag';
 import { AppDate } from '../../../constants/Dates';
 
 abstract class Validator {
@@ -54,10 +54,10 @@ export class DatesValidator extends Validator {
 }
 
 export class TagsValidator extends Validator {
-  initial: ITag[];
-  current: ITag[];
+  initial: IHashTag[];
+  current: IHashTag[];
 
-  constructor(initial: ITag[], current: ITag[]) {
+  constructor(initial: IHashTag[], current: IHashTag[]) {
     super();
     this.initial = initial;
     this.current = current;

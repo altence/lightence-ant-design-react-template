@@ -1,15 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from 'react';
-import { Col, Space, Tag } from 'antd';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Select, Option } from '@app/components/common/selects/Select/Select';
-import { RadioGroup, RadioButton, RadioChangeEvent } from '@app/components/common/Radio/Radio';
+import { BaseSelect, Option } from '@app/components/common/selects/BaseSelect/BaseSelect';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
+import { BaseRadio } from '@app/components/common/BaseRadio/BaseRadio';
+import { BaseTag } from '@app/components/common/BaseTag/BaseTag';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { BaseSpace } from '@app/components/common/BaseSpace/BaseSpace';
+
+type Size = 'small' | 'middle' | 'large';
 
 const SelectsPage: React.FC = () => {
   const { t } = useTranslation();
-  const [size, setSize] = useState<'small' | 'middle' | 'large'>('middle');
+  const [size, setSize] = useState<Size>('middle');
   const options = [
     { value: t('selects.gold') },
     { value: t('selects.lime') },
@@ -26,10 +30,6 @@ const SelectsPage: React.FC = () => {
     );
   }
 
-  const handleSizeChange = (e: RadioChangeEvent) => {
-    setSize(e.target.value);
-  };
-
   const tagRender = (props: {
     label: string | React.ReactNode;
     value: any;
@@ -42,7 +42,7 @@ const SelectsPage: React.FC = () => {
       event.stopPropagation();
     };
     return (
-      <Tag
+      <BaseTag
         color={value}
         onMouseDown={onPreventMouseDown}
         closable={closable}
@@ -50,36 +50,36 @@ const SelectsPage: React.FC = () => {
         style={{ marginRight: 3 }}
       >
         {label}
-      </Tag>
+      </BaseTag>
     );
   };
 
   return (
     <>
       <PageTitle>{t('common.select')}</PageTitle>
-      <Col>
+      <BaseCol>
         <S.Card title={t('selects.basic')}>
-          <Select defaultValue="lucy" width={120}>
+          <BaseSelect defaultValue="lucy" width={120}>
             <Option value="jack">Jack</Option>
             <Option value="lucy">Lucy</Option>
             <Option value="disabled" disabled>
               {t('selects.disabled')}
             </Option>
             <Option value="Yiminghe">Yiminghe</Option>
-          </Select>
-          <Select defaultValue="lucy" width={120} disabled>
+          </BaseSelect>
+          <BaseSelect defaultValue="lucy" width={120} disabled>
             <Option value="lucy">Lucy</Option>
-          </Select>
-          <Select defaultValue="lucy" width={120} loading>
+          </BaseSelect>
+          <BaseSelect defaultValue="lucy" width={120} loading>
             <Option value="lucy">Lucy</Option>
-          </Select>
-          <Select defaultValue="lucy" width={120} allowClear>
+          </BaseSelect>
+          <BaseSelect defaultValue="lucy" width={120} allowClear>
             <Option value="lucy">Lucy</Option>
-          </Select>
+          </BaseSelect>
         </S.Card>
         <S.Card title={t('selects.multipleSelect')}>
-          <Space direction="vertical" size={10}>
-            <Select
+          <BaseSpace direction="vertical" size={10}>
+            <BaseSelect
               mode="multiple"
               allowClear
               width={'100%'}
@@ -87,23 +87,23 @@ const SelectsPage: React.FC = () => {
               defaultValue={['a10', 'c12']}
             >
               {children}
-            </Select>
-            <Select mode="multiple" disabled placeholder={t('selects.pleaseSelect')} defaultValue={['a10', 'c12']}>
+            </BaseSelect>
+            <BaseSelect mode="multiple" disabled placeholder={t('selects.pleaseSelect')} defaultValue={['a10', 'c12']}>
               {children}
-            </Select>
-          </Space>
+            </BaseSelect>
+          </BaseSpace>
         </S.Card>
         <S.Card title={t('selects.selectSizes')}>
-          <Space direction="vertical" size={10}>
-            <RadioGroup value={size} onChange={handleSizeChange}>
-              <RadioButton value="small">{t('selects.small')}</RadioButton>
-              <RadioButton value="middle">{t('selects.middle')}</RadioButton>
-              <RadioButton value="large">{t('selects.large')}</RadioButton>
-            </RadioGroup>
-            <Select size={size} defaultValue="a1" width={200}>
+          <BaseSpace direction="vertical" size={10}>
+            <BaseRadio.Group value={size} onChange={(event) => setSize(event.target.value)}>
+              <BaseRadio.Button value="small">{t('selects.small')}</BaseRadio.Button>
+              <BaseRadio.Button value="middle">{t('selects.middle')}</BaseRadio.Button>
+              <BaseRadio.Button value="large">{t('selects.large')}</BaseRadio.Button>
+            </BaseRadio.Group>
+            <BaseSelect size={size} defaultValue="a1" width={200}>
               {children}
-            </Select>
-            <Select
+            </BaseSelect>
+            <BaseSelect
               mode="multiple"
               size={size}
               placeholder={t('selects.pleaseSelect')}
@@ -111,8 +111,8 @@ const SelectsPage: React.FC = () => {
               width={'100%'}
             >
               {children}
-            </Select>
-            <Select
+            </BaseSelect>
+            <BaseSelect
               mode="tags"
               size={size}
               placeholder={t('selects.pleaseSelect')}
@@ -120,11 +120,11 @@ const SelectsPage: React.FC = () => {
               width={'100%'}
             >
               {children}
-            </Select>
-          </Space>
+            </BaseSelect>
+          </BaseSpace>
         </S.Card>
         <S.Card title={t('selects.customTags')}>
-          <Select
+          <BaseSelect
             mode="multiple"
             showArrow
             tagRender={tagRender}
@@ -133,7 +133,7 @@ const SelectsPage: React.FC = () => {
             options={options}
           />
         </S.Card>
-      </Col>
+      </BaseCol>
     </>
   );
 };

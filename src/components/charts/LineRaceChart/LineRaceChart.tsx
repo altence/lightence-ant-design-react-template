@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Card } from '@app/components/common/Card/Card';
+import { BaseCard } from '@app/components/common/BaseCard/BaseCard';
 import { BaseChart } from '@app/components/common/charts/BaseChart';
 import Data from './data.json';
 import { useAppSelector } from '@app/hooks/reduxHooks';
@@ -133,8 +133,8 @@ export const LineRaceChart: React.FC = () => {
   };
 
   return (
-    <Card padding="0 0 1.875rem" title={t('charts.lineRace')}>
+    <BaseCard padding="0 0 1.875rem" title={t('charts.lineRace')}>
       <BaseChart option={option} height="24rem" />
-    </Card>
+    </BaseCard>
   );
 };

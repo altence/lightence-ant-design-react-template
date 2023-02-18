@@ -1,16 +1,16 @@
 import React from 'react';
-import { Button as BaseButton } from 'antd';
 import { GithubOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
 import { useAppSelector } from '@app/hooks/reduxHooks';
 import { BASE_COLORS } from '@app/styles/themes/constants';
+import { BaseButton as BaseButton } from '@app/components/common/BaseButton/BaseButton';
 
 export const GitHubButton: React.FC = (props) => {
   const theme = useAppSelector((state) => state.theme.theme);
 
   return (
     <Button
-      type="link"
+      type="default"
       href="https://github.com/altence/lightence-admin"
       icon={<GithubIcon />}
       target="_blank"

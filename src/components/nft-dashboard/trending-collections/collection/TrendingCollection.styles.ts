@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { Button } from '@app/components/common/buttons/Button/Button';
-import { Typography } from 'antd';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { NFTCard } from '@app/components/nft-dashboard/common/NFTCard/NFTCard';
 import { FONT_SIZE, FONT_WEIGHT, FONT_FAMILY, media, BORDER_RADIUS } from '@app/styles/themes/constants';
+import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
 interface CardInternalProps {
   $img: string;
 }
@@ -31,7 +31,7 @@ export const InfoRow = styled.div`
   }
 `;
 
-export const Title = styled(Typography.Title)`
+export const Title = styled(BaseTypography.Title)`
   transition: all 0.5s ease;
 
   &.ant-typography {
@@ -41,7 +41,7 @@ export const Title = styled(Typography.Title)`
   }
 `;
 
-export const Text = styled(Typography.Text)`
+export const Text = styled(BaseTypography.Text)`
   transition: all 0.5s ease;
 
   font-size: ${FONT_SIZE.xs};
@@ -65,7 +65,7 @@ export const OwnerText = styled(Text)`
   }
 `;
 
-export const USDText = styled(Typography.Text)`
+export const USDText = styled(BaseTypography.Text)`
   transition: all 0.5s ease;
 
   font-weight: ${FONT_WEIGHT.semibold};
@@ -82,7 +82,7 @@ export const AuthorAvatarWrapper = styled.div`
   border: 2px solid var(--text-secondary-color);
 `;
 
-export const BidButton = styled(Button)`
+export const BidButton = styled(BaseButton)`
   transition: all 0.5s ease;
   position: absolute;
   top: 20px;

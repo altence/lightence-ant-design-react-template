@@ -1,11 +1,11 @@
-import { Col } from 'antd';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
-import { Button } from '@app/components/common/buttons/Button/Button';
-import { Popover } from '@app/components/common/Popover/Popover';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
+import { BasePopover } from '@app/components/common/BasePopover/BasePopover';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
 import { media } from '@app/styles/themes/constants';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 const buttonWidth = 70;
 
@@ -47,7 +47,8 @@ export const RightButtons = styled(PopoverButton)`
 export const BottomButtons = styled(PopoverButton)`
   margin-left: ${buttonWidth}px;
   clear: both;
-  whitespace: nowrap;
+  white-space: nowrap;
+
   @media only screen and ${media.xs} {
     margin-left: ${buttonWidth - 44}px;
   }
@@ -71,72 +72,72 @@ const PopoversPage: React.FC = () => {
   return (
     <>
       <PageTitle>{t('common.popover')}</PageTitle>
-      <Col>
+      <BaseCol>
         <S.Card title={t('popovers.basic')}>
-          <Popover content={content} title={title}>
-            <Button type="primary">{t('popovers.hover')}</Button>
-          </Popover>
+          <BasePopover content={content} title={title}>
+            <BaseButton type="primary">{t('popovers.hover')}</BaseButton>
+          </BasePopover>
         </S.Card>
         <S.Card title={t('popovers.positions')}>
           <div>
             <TopButtons>
-              <Popover placement="topLeft" title={title} content={content} trigger="click">
-                <Button>{t('popovers.tl')}</Button>
-              </Popover>
-              <Popover placement="top" title={title} content={content} trigger="click">
-                <Button>{t('popovers.top')}</Button>
-              </Popover>
-              <Popover placement="topRight" title={title} content={content} trigger="click">
-                <Button>{t('popovers.tr')}</Button>
-              </Popover>
+              <BasePopover placement="topLeft" title={title} content={content} trigger="click">
+                <BaseButton>{t('popovers.tl')}</BaseButton>
+              </BasePopover>
+              <BasePopover placement="top" title={title} content={content} trigger="click">
+                <BaseButton>{t('popovers.top')}</BaseButton>
+              </BasePopover>
+              <BasePopover placement="topRight" title={title} content={content} trigger="click">
+                <BaseButton>{t('popovers.tr')}</BaseButton>
+              </BasePopover>
             </TopButtons>
             <LeftButtons>
-              <Popover placement="leftTop" title={title} content={content} trigger="click">
-                <Button>{t('popovers.lt')}</Button>
-              </Popover>
-              <Popover placement="left" title={title} content={content} trigger="click">
-                <Button>{t('popovers.left')}</Button>
-              </Popover>
-              <Popover placement="leftBottom" title={title} content={content} trigger="click">
-                <Button>{t('popovers.lb')}</Button>
-              </Popover>
+              <BasePopover placement="leftTop" title={title} content={content} trigger="click">
+                <BaseButton>{t('popovers.lt')}</BaseButton>
+              </BasePopover>
+              <BasePopover placement="left" title={title} content={content} trigger="click">
+                <BaseButton>{t('popovers.left')}</BaseButton>
+              </BasePopover>
+              <BasePopover placement="leftBottom" title={title} content={content} trigger="click">
+                <BaseButton>{t('popovers.lb')}</BaseButton>
+              </BasePopover>
             </LeftButtons>
             <RightButtons>
-              <Popover placement="rightTop" title={title} content={content} trigger="click">
-                <Button>{t('popovers.rt')}</Button>
-              </Popover>
-              <Popover placement="right" title={title} content={content} trigger="click">
-                <Button>{t('popovers.right')}</Button>
-              </Popover>
-              <Popover placement="rightBottom" title={title} content={content} trigger="click">
-                <Button>{t('popovers.rb')}</Button>
-              </Popover>
+              <BasePopover placement="rightTop" title={title} content={content} trigger="click">
+                <BaseButton>{t('popovers.rt')}</BaseButton>
+              </BasePopover>
+              <BasePopover placement="right" title={title} content={content} trigger="click">
+                <BaseButton>{t('popovers.right')}</BaseButton>
+              </BasePopover>
+              <BasePopover placement="rightBottom" title={title} content={content} trigger="click">
+                <BaseButton>{t('popovers.rb')}</BaseButton>
+              </BasePopover>
             </RightButtons>
             <BottomButtons>
-              <Popover placement="bottomLeft" title={title} content={content} trigger="click">
-                <Button>{t('popovers.bl')}</Button>
-              </Popover>
-              <Popover placement="bottom" title={title} content={content} trigger="click">
-                <Button>{t('popovers.bottom')}</Button>
-              </Popover>
-              <Popover placement="bottomRight" title={title} content={content} trigger="click">
-                <Button>{t('popovers.br')}</Button>
-              </Popover>
+              <BasePopover placement="bottomLeft" title={title} content={content} trigger="click">
+                <BaseButton>{t('popovers.bl')}</BaseButton>
+              </BasePopover>
+              <BasePopover placement="bottom" title={title} content={content} trigger="click">
+                <BaseButton>{t('popovers.bottom')}</BaseButton>
+              </BasePopover>
+              <BasePopover placement="bottomRight" title={title} content={content} trigger="click">
+                <BaseButton>{t('popovers.br')}</BaseButton>
+              </BasePopover>
             </BottomButtons>
           </div>
         </S.Card>
         <S.Card title={t('popovers.triggers')}>
-          <Popover content={content} title={title} trigger="hover">
-            <Button>{t('popovers.hover')}</Button>
-          </Popover>
-          <Popover content={content} title={title} trigger="focus">
-            <Button>{t('popovers.focus')}</Button>
-          </Popover>
-          <Popover content={content} title={title} trigger="click">
-            <Button>{t('popovers.click')}</Button>
-          </Popover>
+          <BasePopover content={content} title={title} trigger="hover">
+            <BaseButton>{t('popovers.hover')}</BaseButton>
+          </BasePopover>
+          <BasePopover content={content} title={title} trigger="focus">
+            <BaseButton>{t('popovers.focus')}</BaseButton>
+          </BasePopover>
+          <BasePopover content={content} title={title} trigger="click">
+            <BaseButton>{t('popovers.click')}</BaseButton>
+          </BasePopover>
         </S.Card>
-      </Col>
+      </BaseCol>
     </>
   );
 };

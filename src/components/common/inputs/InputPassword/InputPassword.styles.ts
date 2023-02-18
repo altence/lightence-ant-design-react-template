@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { Input as AntInput } from 'antd';
+import { BaseInput } from '../BaseInput/BaseInput';
 
-export const InputPassword = styled(AntInput.Password)`
+export const InputPassword = styled(BaseInput.Password)`
   .ant-input-password-icon.anticon {
     color: var(--disabled-color);
     &:hover {

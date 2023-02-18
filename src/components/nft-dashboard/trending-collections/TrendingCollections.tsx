@@ -1,15 +1,16 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Col, Row } from 'antd';
 import Slider from 'react-slick';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
-import { Carousel } from '@app/components/common/Carousel/Carousel';
+import { BaseCarousel } from '@app/components/common/BaseCarousel/Carousel';
 import { ViewAll } from '@app/components/nft-dashboard/common/ViewAll/ViewAll';
 import { NFTCardHeader } from '@app/components/nft-dashboard/common/NFTCardHeader/NFTCardHeader';
 import { TrendingCollection } from '@app/components/nft-dashboard/trending-collections/collection/TrendingCollection';
 import { useResponsive } from '@app/hooks/useResponsive';
 import { getTrendingActivities, TrendingActivity } from '@app/api/activity.api';
 import * as S from './TrendingCollections.styles';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 export const TrendingCollections: React.FC = () => {
   const [trending, setTrending] = useState<TrendingActivity[]>([]);
@@ -41,23 +42,23 @@ export const TrendingCollections: React.FC = () => {
     <>
       <NFTCardHeader title={t('nft.trendingCollections')}>
         {isTabletOrHigher && (
-          <Row align="middle">
-            <Col>
+          <BaseRow align="middle">
+            <BaseCol>
               <ViewAll bordered={false} />
-            </Col>
+            </BaseCol>
 
-            <Col>
+            <BaseCol>
               <S.ArrowBtn type="text" size="small" onClick={() => sliderRef.current && sliderRef.current.slickPrev()}>
                 <LeftOutlined />
               </S.ArrowBtn>
-            </Col>
+            </BaseCol>
 
-            <Col>
+            <BaseCol>
               <S.ArrowBtn type="text" size="small" onClick={() => sliderRef.current && sliderRef.current.slickNext()}>
                 <RightOutlined />
               </S.ArrowBtn>
-            </Col>
-          </Row>
+            </BaseCol>
+          </BaseRow>
         )}
       </NFTCardHeader>
 
@@ -65,7 +66,7 @@ export const TrendingCollections: React.FC = () => {
         {mobileOnly && trendingList.mobile}
 
         {isTabletOrHigher && trending.length > 0 && (
-          <Carousel
+          <BaseCarousel
             ref={sliderRef}
             slidesToShow={3}
             responsive={[
@@ -78,7 +79,7 @@ export const TrendingCollections: React.FC = () => {
             ]}
           >
             {trendingList.tablet}
-          </Carousel>
+          </BaseCarousel>
         )}
       </S.SectionWrapper>
 

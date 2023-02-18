@@ -1,7 +1,7 @@
-import { Typography } from 'antd';
 import styled from 'styled-components';
 import { NFTCard } from '@app/components/nft-dashboard/common/NFTCard/NFTCard';
 import { FONT_SIZE, media, FONT_FAMILY } from '@app/styles/themes/constants';
+import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
 
 export const ActivityCard = styled(NFTCard)`
   box-shadow: var(--box-shadow-nft-secondary-color);
@@ -55,7 +55,7 @@ export const TitleWrapper = styled.div`
   justify-content: space-between;
 `;
 
-export const Title = styled(Typography.Title)`
+export const Title = styled(BaseTypography.Title)`
   &.ant-typography {
     margin-bottom: 0;
 
@@ -67,7 +67,7 @@ export const Title = styled(Typography.Title)`
   }
 `;
 
-export const Text = styled(Typography.Text)`
+export const Text = styled(BaseTypography.Text)`
   display: block;
 
   font-size: ${FONT_SIZE.xxs};

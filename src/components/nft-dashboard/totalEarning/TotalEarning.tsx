@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
 import { NFTCard } from '@app/components/nft-dashboard/common/NFTCard/NFTCard';
@@ -10,6 +9,8 @@ import { Dates } from '@app/constants/Dates';
 import { formatNumberWithCommas, getCurrencyPrice, getDifference } from '@app/utils/utils';
 import { CurrencyTypeEnum } from '@app/interfaces/interfaces';
 import * as S from './TotalEarning.styles';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 export const TotalEarning: React.FC = () => {
   const [totalEarning, setTotalEarning] = useState<ITotalEarning | null>(null);
@@ -36,36 +37,36 @@ export const TotalEarning: React.FC = () => {
 
   return (
     <NFTCard isSider>
-      <Row gutter={[14, 14]}>
-        <Col span={24}>
-          <Row wrap={false} justify="space-between">
-            <Col>
+      <BaseRow gutter={[14, 14]}>
+        <BaseCol span={24}>
+          <BaseRow wrap={false} justify="space-between">
+            <BaseCol>
               <S.Title level={2}>{t('nft.totalEarning')}</S.Title>
-            </Col>
+            </BaseCol>
 
-            <Col>
+            <BaseCol>
               <S.ValueText $color={isIncreased ? 'success' : 'error'}>
                 {isIncreased ? <CaretUpOutlined /> : <CaretDownOutlined />}{' '}
                 {totalEarning && getDifference(totalEarning?.total, totalEarning?.prevTotal)}
               </S.ValueText>
-            </Col>
-          </Row>
-        </Col>
+            </BaseCol>
+          </BaseRow>
+        </BaseCol>
 
-        <Col span={24}>
-          <Row wrap={false} justify="space-between" gutter={[20, 20]}>
-            <Col>
+        <BaseCol span={24}>
+          <BaseRow wrap={false} justify="space-between" gutter={[20, 20]}>
+            <BaseCol>
               <S.Text>
                 {getCurrencyPrice(formatNumberWithCommas(totalEarning?.total ?? 0), CurrencyTypeEnum.USD)}
               </S.Text>
-            </Col>
+            </BaseCol>
 
-            <Col flex={1}>
+            <BaseCol flex={1}>
               <TotalEarningChart xAxisData={days} earningData={totalEarningData} />
-            </Col>
-          </Row>
-        </Col>
-      </Row>
+            </BaseCol>
+          </BaseRow>
+        </BaseCol>
+      </BaseRow>
     </NFTCard>
   );
 };

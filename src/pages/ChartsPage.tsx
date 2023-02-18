@@ -1,5 +1,4 @@
 import React from 'react';
-import { Row, Col } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { GradientStackedAreaChart } from '@app/components/charts/GradientStackedAreaChart/GradientStackedAreaChart';
 import { VisitorsPieChart } from '@app/components/charts/VisitorsPieChart';
@@ -7,6 +6,8 @@ import { BarAnimationDelayChart } from '@app/components/charts/BarAnimationDelay
 import { ScatterChart } from '@app/components/charts/ScatterChart/ScatterChart';
 import { LineRaceChart } from '@app/components/charts/LineRaceChart/LineRaceChart';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 const ChartsPage: React.FC = () => {
   const { t } = useTranslation();
@@ -14,23 +15,23 @@ const ChartsPage: React.FC = () => {
   return (
     <>
       <PageTitle>{t('common.charts')}</PageTitle>
-      <Row gutter={[30, 30]}>
-        <Col id="line-race" xs={24}>
+      <BaseRow gutter={[30, 30]}>
+        <BaseCol id="line-race" xs={24}>
           <LineRaceChart />
-        </Col>
-        <Col id="gradient-stacked-area" xs={24}>
+        </BaseCol>
+        <BaseCol id="gradient-stacked-area" xs={24}>
           <GradientStackedAreaChart />
-        </Col>
-        <Col id="bar-animation-delay" xs={24}>
+        </BaseCol>
+        <BaseCol id="bar-animation-delay" xs={24}>
           <BarAnimationDelayChart />
-        </Col>
-        <Col id="pie" xs={24} lg={12}>
+        </BaseCol>
+        <BaseCol id="pie" xs={24} lg={12}>
           <VisitorsPieChart />
-        </Col>
-        <Col id="scatter" xs={24} lg={12}>
+        </BaseCol>
+        <BaseCol id="scatter" xs={24} lg={12}>
           <ScatterChart />
-        </Col>
-      </Row>
+        </BaseCol>
+      </BaseRow>
     </>
   );
 };

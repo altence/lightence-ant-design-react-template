@@ -1,8 +1,8 @@
-import { Col } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { DayjsDatePicker } from '@app/components/common/pickers/DayjsDatePicker';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 const DateTimePickersPage: React.FC = () => {
   const { t } = useTranslation();
@@ -10,7 +10,7 @@ const DateTimePickersPage: React.FC = () => {
   return (
     <>
       <PageTitle>{t('common.dateTimePicker')}</PageTitle>
-      <Col>
+      <BaseCol>
         <S.Card title={t('dateTimePickers.basic')}>
           <DayjsDatePicker />
           <DayjsDatePicker picker="week" />
@@ -33,7 +33,7 @@ const DateTimePickersPage: React.FC = () => {
         <S.Card title={t('dateTimePickers.time')}>
           <DayjsDatePicker.TimePicker />
         </S.Card>
-      </Col>
+      </BaseCol>
     </>
   );
 };

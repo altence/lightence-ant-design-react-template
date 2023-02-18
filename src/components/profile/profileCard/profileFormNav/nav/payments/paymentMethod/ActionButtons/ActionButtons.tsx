@@ -1,8 +1,9 @@
 import React from 'react';
-import { Button, Popconfirm } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import * as S from './ActionButtons.styles';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
+import { BasePopconfirm } from '@app/components/common/BasePopconfirm/BasePopconfirm';
 
 interface ActionButtonsProps {
   onRemove: () => void;
@@ -13,9 +14,9 @@ export const ActionButtons: React.FC<ActionButtonsProps> = ({ onRemove }) => {
 
   return (
     <S.BtnWrapper>
-      <Popconfirm title={t('common.deleteQuestion')} onConfirm={onRemove}>
-        <Button type="link" icon={<DeleteOutlined />} />
-      </Popconfirm>
+      <BasePopconfirm title={t('common.deleteQuestion')} onConfirm={onRemove}>
+        <BaseButton type="link" icon={<DeleteOutlined />} />
+      </BasePopconfirm>
     </S.BtnWrapper>
   );
 };

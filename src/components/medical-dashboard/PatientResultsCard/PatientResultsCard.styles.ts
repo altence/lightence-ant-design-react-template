@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
-import { Typography } from 'antd';
 import { CalendarOutlined } from '@ant-design/icons';
 import { FONT_SIZE, media } from '@app/styles/themes/constants';
+import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
 
 interface IconProps {
   isActive: boolean;
@@ -38,7 +38,7 @@ export const DateWrapper = styled.div`
   font-size: ${FONT_SIZE.xs};
 `;
 
-export const Text = styled(Typography.Text)`
+export const Text = styled(BaseTypography.Text)`
   margin-left: 0.5rem;
   line-height: 1;
   font-size: ${FONT_SIZE.xxs};
@@ -49,7 +49,7 @@ export const Text = styled(Typography.Text)`
   }
 `;
 
-export const Description = styled(Typography.Text)`
+export const Description = styled(BaseTypography.Text)`
   margin-top: 0.625rem;
   font-size: ${FONT_SIZE.xxs};
 

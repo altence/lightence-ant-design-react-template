@@ -1,11 +1,12 @@
 import styled from 'styled-components';
-import { Checkbox, Button } from 'antd';
 import { LeftOutlined } from '@ant-design/icons';
 import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
-import { Input as CommonInput } from '@app/components/common/inputs/Input/Input';
+import { BaseInput as CommonInput } from '@app/components/common/inputs/BaseInput/BaseInput';
 import { InputPassword as CommonInputPassword } from '@app/components/common/inputs/InputPassword/InputPassword';
 import loginBackground from '@app/assets/images/login-bg.webp';
 import { BORDER_RADIUS, FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
+import { BaseCheckbox } from '@app/components/common/BaseCheckbox/BaseCheckbox';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 
 export const Wrapper = styled.div`
   height: 100vh;
@@ -76,7 +77,7 @@ export const FormTitle = styled.div`
   }
 `;
 
-export const FormCheckbox = styled(Checkbox)`
+export const FormCheckbox = styled(BaseCheckbox)`
   display: flex;
   padding-left: 0.125rem;
 
@@ -146,13 +147,13 @@ export const LinkText = styled(Text)`
   color: var(--primary-color);
 `;
 
-export const SubmitButton = styled(Button)`
+export const SubmitButton = styled(BaseButton)`
   font-size: ${FONT_SIZE.md};
   font-weight: ${FONT_WEIGHT.semibold};
   width: 100%;
 `;
 
-export const SocialButton = styled(Button)`
+export const SocialButton = styled(BaseButton)`
   font-size: ${FONT_SIZE.md};
   font-weight: ${FONT_WEIGHT.semibold};
   color: var(--primary-color);

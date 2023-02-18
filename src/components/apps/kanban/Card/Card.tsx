@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { MoreOutlined } from '@ant-design/icons';
-import { Dropdown } from '@app/components/common/Dropdown/Dropdown';
-import { Button } from '@app/components/common/buttons/Button/Button';
+import { BaseDropdown } from '@app/components/common/BaseDropdown/Dropdown';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { ParticipantsDropdown } from '@app/components/apps/kanban/newCardForm/ParticipantsDropdown/ParticipantsDropdown';
 import { TagDropdown } from '@app/components/apps/kanban/newCardForm/TagDropdown/TagDropdown';
 import { CardState, Tag as ITag, Participant as IParticipant } from '@app/components/apps/kanban/interfaces';
@@ -101,9 +101,9 @@ export const Card: React.FC<CardProps> = ({
                 )}
               </S.CardTitle>
               <S.CardRightContent>
-                <Button noStyle type="text" icon={<S.ArrowDownIcon $expanded={isExpanded} />} />
-                <Dropdown menu={{ items: editPopoverItems }} placement="bottomRight" trigger={['click']}>
-                  <Button
+                <BaseButton noStyle type="text" icon={<S.ArrowDownIcon $expanded={isExpanded} />} />
+                <BaseDropdown menu={{ items: editPopoverItems }} placement="bottomRight" trigger={['click']}>
+                  <BaseButton
                     noStyle
                     type="text"
                     icon={<MoreOutlined />}
@@ -111,7 +111,7 @@ export const Card: React.FC<CardProps> = ({
                       e.stopPropagation();
                     }}
                   />
-                </Dropdown>
+                </BaseDropdown>
               </S.CardRightContent>
             </S.CardHeader>
           }

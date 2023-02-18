@@ -1,12 +1,12 @@
+import { BaseCheckbox } from '@app/components/common/BaseCheckbox/BaseCheckbox';
 import { media } from '@app/styles/themes/constants';
-import { Checkbox } from 'antd';
 import styled, { css } from 'styled-components';
 
 interface FilterWrapperProps {
   isOpen: boolean;
 }
 
-export const CheckboxGroup = styled(Checkbox.Group)`
+export const CheckboxGroup = styled(BaseCheckbox.Group)`
   display: block;
 `;
 
@@ -24,7 +24,7 @@ export const FilterWrapper = styled.div<FilterWrapperProps>`
   }
 `;
 
-export const CheckBox = styled(Checkbox)`
+export const CheckBox = styled(BaseCheckbox)`
   font-size: 0.75rem;
 
   @media only screen and ${media.md} {

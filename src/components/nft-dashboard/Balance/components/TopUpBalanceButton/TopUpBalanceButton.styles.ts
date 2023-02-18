@@ -1,7 +1,7 @@
-import { Button } from '@app/components/common/buttons/Button/Button';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import styled, { css } from 'styled-components';
 
-export const TopUpButton = styled(Button)`
+export const TopUpButton = styled(BaseButton)`
   ${(props) =>
     props.type === 'ghost' &&
     css`

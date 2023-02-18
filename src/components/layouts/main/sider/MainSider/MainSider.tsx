@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import Overlay from '../../../../common/Overlay';
+import { Overlay } from '../../../../common/Overlay/Overlay';
 import { useResponsive } from 'hooks/useResponsive';
 import * as S from './MainSider.styles';
 import { SiderLogo } from '../SiderLogo';

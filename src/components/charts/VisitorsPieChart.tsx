@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'components/common/Card/Card';
+import { BaseCard } from '@app/components/common/BaseCard/BaseCard';
 import { useTranslation } from 'react-i18next';
 import { PieChart } from '../common/charts/PieChart';
 
@@ -15,8 +15,8 @@ export const VisitorsPieChart: React.FC = () => {
   const name = t('charts.visitorsFrom');
 
   return (
-    <Card padding="0 0 1.875rem" title={t('charts.pie')}>
+    <BaseCard padding="0 0 1.875rem" title={t('charts.pie')}>
       <PieChart data={data} name={name} showLegend={true} />
-    </Card>
+    </BaseCard>
   );
 };

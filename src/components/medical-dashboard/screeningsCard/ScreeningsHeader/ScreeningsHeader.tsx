@@ -1,9 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Col, Row } from 'antd';
 import { CurrentStatisticsState } from '../ScreeningsCard/ScreeningsCard';
 import { MonthSelect } from 'components/common/selects/MonthSelect/MonthSelect';
 import { StatisticsSelect } from 'components/common/selects/StatisticsSelect/StatisticsSelect';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 interface ScreeningsHeaderProps {
   currentStatistics: CurrentStatisticsState;
@@ -14,19 +15,19 @@ export const ScreeningsHeader: React.FC<ScreeningsHeaderProps> = ({ currentStati
   const { t } = useTranslation();
 
   return (
-    <Row gutter={[0, { xs: 15, sm: 15, md: 20 }]} align="middle">
-      <Col xs={24} xl={12}>
+    <BaseRow gutter={[0, { xs: 15, sm: 15, md: 20 }]} align="middle">
+      <BaseCol xs={24} xl={12}>
         {t('medical-dashboard.latestScreenings.title')}
-      </Col>
+      </BaseCol>
 
-      <Col xs={24} xl={12}>
-        <Row
+      <BaseCol xs={24} xl={12}>
+        <BaseRow
           gutter={[
             { xs: 15, sm: 15, md: 20 },
             { xs: 15, sm: 15, md: 20 },
           ]}
         >
-          <Col xs={12}>
+          <BaseCol xs={12}>
             <label>
               <MonthSelect
                 value={currentStatistics.month}
@@ -37,9 +38,9 @@ export const ScreeningsHeader: React.FC<ScreeningsHeaderProps> = ({ currentStati
                 onChange={(month) => setCurrentStatistics((prev) => ({ ...prev, month } as CurrentStatisticsState))}
               />
             </label>
-          </Col>
+          </BaseCol>
 
-          <Col xs={12}>
+          <BaseCol xs={12}>
             <label>
               <StatisticsSelect
                 value={currentStatistics.statistic}
@@ -52,9 +53,9 @@ export const ScreeningsHeader: React.FC<ScreeningsHeaderProps> = ({ currentStati
                 }
               />
             </label>
-          </Col>
-        </Row>
-      </Col>
-    </Row>
+          </BaseCol>
+        </BaseRow>
+      </BaseCol>
+    </BaseRow>
   );
 };

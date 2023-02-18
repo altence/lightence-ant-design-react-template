@@ -1,14 +1,12 @@
 import styled, { css } from 'styled-components';
-import { Layout } from 'antd';
 import { LAYOUT, media } from '@app/styles/themes/constants';
-
-const { Content } = Layout;
+import { BaseLayout } from '@app/components/common/BaseLayout/BaseLayout';
 
 interface HeaderProps {
   $isTwoColumnsLayout: boolean;
 }
 
-export default styled(Content)<HeaderProps>`
+export default styled(BaseLayout.Content)<HeaderProps>`
   padding: ${LAYOUT.mobile.paddingVertical} ${LAYOUT.mobile.paddingHorizontal};
   overflow: auto;
   display: flex;

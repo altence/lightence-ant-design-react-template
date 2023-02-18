@@ -1,7 +1,7 @@
-import { Typography } from 'antd';
 import styled from 'styled-components';
 import { defaultPaddings } from '@app/constants/defaultPaddings';
 import { media } from '@app/styles/themes/constants';
+import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
 
 interface ContentWrapperProps {
   isEmptyHistory: boolean;
@@ -23,7 +23,7 @@ export const ContentWrapper = styled.div<ContentWrapperProps>`
   }
 `;
 
-export const Text = styled(Typography.Text)`
+export const Text = styled(BaseTypography.Text)`
   @media only screen and ${media.md} {
     font-size: 1rem;
   }

@@ -1,11 +1,12 @@
 import React from 'react';
-import { Col, Row } from 'antd';
 import { NotificationsDropdown } from '../components/notificationsDropdown/NotificationsDropdown';
 import { ProfileDropdown } from '../components/profileDropdown/ProfileDropdown/ProfileDropdown';
 import { HeaderSearch } from '../components/HeaderSearch/HeaderSearch';
 import { SettingsDropdown } from '../components/settingsDropdown/SettingsDropdown';
 import { HeaderFullscreen } from '../components/HeaderFullscreen/HeaderFullscreen';
 import * as S from '../Header.styles';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 interface DesktopHeaderProps {
   isTwoColumnsLayout: boolean;
@@ -14,53 +15,53 @@ interface DesktopHeaderProps {
 export const DesktopHeader: React.FC<DesktopHeaderProps> = ({ isTwoColumnsLayout }) => {
   const leftSide = isTwoColumnsLayout ? (
     <S.SearchColumn xl={16} xxl={17}>
-      <Row justify="space-between">
-        <Col xl={15} xxl={12}>
+      <BaseRow justify="space-between">
+        <BaseCol xl={15} xxl={12}>
           <HeaderSearch />
-        </Col>
-        <Col>
+        </BaseCol>
+        <BaseCol>
           <S.GHButton />
-        </Col>
-      </Row>
+        </BaseCol>
+      </BaseRow>
     </S.SearchColumn>
   ) : (
     <>
-      <Col lg={10} xxl={8}>
+      <BaseCol lg={10} xxl={8}>
         <HeaderSearch />
-      </Col>
-      <Col>
+      </BaseCol>
+      <BaseCol>
         <S.GHButton />
-      </Col>
+      </BaseCol>
     </>
   );
 
   return (
-    <Row justify="space-between" align="middle">
+    <BaseRow justify="space-between" align="middle">
       {leftSide}
 
       <S.ProfileColumn xl={8} xxl={7} $isTwoColumnsLayout={isTwoColumnsLayout}>
-        <Row align="middle" justify="end" gutter={[10, 10]}>
-          <Col>
-            <Row gutter={[{ xxl: 10 }, { xxl: 10 }]}>
-              <Col>
+        <BaseRow align="middle" justify="end" gutter={[10, 10]}>
+          <BaseCol>
+            <BaseRow gutter={[{ xxl: 10 }, { xxl: 10 }]}>
+              <BaseCol>
                 <HeaderFullscreen />
-              </Col>
+              </BaseCol>
 
-              <Col>
+              <BaseCol>
                 <NotificationsDropdown />
-              </Col>
+              </BaseCol>
 
-              <Col>
+              <BaseCol>
                 <SettingsDropdown />
-              </Col>
-            </Row>
-          </Col>
+              </BaseCol>
+            </BaseRow>
+          </BaseCol>
 
-          <Col>
+          <BaseCol>
             <ProfileDropdown />
-          </Col>
-        </Row>
+          </BaseCol>
+        </BaseRow>
       </S.ProfileColumn>
-    </Row>
+    </BaseRow>
   );
 };

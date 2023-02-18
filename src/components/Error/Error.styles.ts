@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { Typography, Image as AntImage } from 'antd';
 import { BORDER_RADIUS, media } from '@app/styles/themes/constants';
+import { BaseImage } from '../common/BaseImage/BaseImage';
+import { BaseTypography } from '../common/BaseTypography/BaseTypography';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -22,7 +23,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Image = styled(AntImage)`
+export const Image = styled(BaseImage)`
   margin-bottom: 4rem;
 
   @media only screen and ${media.xxl} {
@@ -40,7 +41,7 @@ export const ContentWrapper = styled.div`
   }
 `;
 
-export const Title = styled(Typography.Text)`
+export const Title = styled(BaseTypography.Text)`
   font-size: 2.25rem;
   font-weight: 600;
   margin-bottom: 1rem;

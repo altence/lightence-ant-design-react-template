@@ -1,11 +1,11 @@
 import { useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Col } from 'antd';
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
-import { Progress } from '@app/components/common/Progress/Progress';
-import { Button, ButtonGroup } from '@app/components/common/buttons/Button/Button';
+import { BaseProgress } from '@app/components/common/BaseProgress/BaseProgress';
+import { BaseButton, ButtonGroup } from '@app/components/common/BaseButton/BaseButton';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 const ProgressPage: React.FC = () => {
   const [percent, setPercent] = useState<number>(0);
@@ -37,43 +37,43 @@ const ProgressPage: React.FC = () => {
   return (
     <>
       <PageTitle>{t('common.progress')}</PageTitle>
-      <Col>
+      <BaseCol>
         <S.Card title={t('progress.basic')}>
-          <Progress percent={30} strokeColor={primaryColor} />
-          <Progress percent={50} status="active" strokeColor={primaryColor} />
-          <Progress percent={70} status="exception" strokeColor={errorColor} />
-          <Progress percent={100} strokeColor={successColor} />
-          <Progress percent={50} showInfo={false} strokeColor={primaryColor} />
+          <BaseProgress percent={30} strokeColor={primaryColor} />
+          <BaseProgress percent={50} status="active" strokeColor={primaryColor} />
+          <BaseProgress percent={70} status="exception" strokeColor={errorColor} />
+          <BaseProgress percent={100} strokeColor={successColor} />
+          <BaseProgress percent={50} showInfo={false} strokeColor={primaryColor} />
         </S.Card>
         <S.Card title={t('progress.circle')}>
-          <Progress type="circle" percent={75} strokeColor={primaryColor} />
-          <Progress type="circle" percent={70} status="exception" strokeColor={errorColor} />
-          <Progress type="circle" percent={100} strokeColor={successColor} />
+          <BaseProgress type="circle" percent={75} strokeColor={primaryColor} />
+          <BaseProgress type="circle" percent={70} status="exception" strokeColor={errorColor} />
+          <BaseProgress type="circle" percent={100} strokeColor={successColor} />
         </S.Card>
         <S.Card title={t('progress.dynamic')}>
           <div>
-            <Progress percent={percent} type="circle" strokeColor={dynamicSuccessColor} />
-            <Progress percent={percent} strokeColor={dynamicSuccessColor} />
+            <BaseProgress percent={percent} type="circle" strokeColor={dynamicSuccessColor} />
+            <BaseProgress percent={percent} strokeColor={dynamicSuccessColor} />
             <ButtonGroup>
-              <Button onClick={decrease} icon={<MinusOutlined />} />
-              <Button onClick={increase} icon={<PlusOutlined />} />
+              <BaseButton onClick={decrease} icon={<MinusOutlined />} />
+              <BaseButton onClick={increase} icon={<PlusOutlined />} />
             </ButtonGroup>
           </div>
         </S.Card>
         <S.Card title={t('progress.medical-dashboard')}>
-          <Progress type="dashboard" percent={75} strokeColor={primaryColor} />
-          <Progress type="dashboard" percent={75} gapDegree={30} strokeColor={primaryColor} />
+          <BaseProgress type="dashboard" percent={75} strokeColor={primaryColor} />
+          <BaseProgress type="dashboard" percent={75} gapDegree={30} strokeColor={primaryColor} />
         </S.Card>
         <S.Card title={t('progress.gradient')}>
           <div>
-            <Progress
+            <BaseProgress
               strokeColor={{
                 '0%': primaryColor,
                 '100%': secondaryColor,
               }}
               percent={99.9}
             />
-            <Progress
+            <BaseProgress
               strokeColor={{
                 from: primaryColor,
                 to: secondaryColor,
@@ -81,7 +81,7 @@ const ProgressPage: React.FC = () => {
               percent={99.9}
               status="active"
             />
-            <Progress
+            <BaseProgress
               type="circle"
               strokeColor={{
                 '0%': primaryColor,
@@ -89,7 +89,7 @@ const ProgressPage: React.FC = () => {
               }}
               percent={90}
             />
-            <Progress
+            <BaseProgress
               type="circle"
               strokeColor={{
                 '0%': primaryColor,
@@ -99,7 +99,7 @@ const ProgressPage: React.FC = () => {
             />
           </div>
         </S.Card>
-      </Col>
+      </BaseCol>
     </>
   );
 };

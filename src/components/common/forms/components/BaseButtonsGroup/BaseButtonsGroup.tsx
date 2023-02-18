@@ -1,9 +1,10 @@
-import React, { ComponentProps } from 'react';
-import { Col, Row } from 'antd';
-import { Button } from '@app/components/common/buttons/Button/Button';
+import React from 'react';
+import { BaseButton, BaseButtonProps } from '@app/components/common/BaseButton/BaseButton';
 import { useTranslation } from 'react-i18next';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
-interface BaseButtonsGroupProps extends ComponentProps<typeof Button> {
+interface BaseButtonsGroupProps extends BaseButtonProps {
   className?: string;
   onCancel: () => void;
   loading?: boolean;
@@ -13,17 +14,17 @@ export const BaseButtonsGroup: React.FC<BaseButtonsGroupProps> = ({ className, o
   const { t } = useTranslation();
 
   return (
-    <Row className={className} gutter={[10, 10]} wrap={false}>
-      <Col span={12}>
-        <Button block type="ghost" onClick={onCancel} {...props}>
+    <BaseRow className={className} gutter={[10, 10]} wrap={false}>
+      <BaseCol span={12}>
+        <BaseButton block type="ghost" onClick={onCancel} {...props}>
           {t('common.cancel')}
-        </Button>
-      </Col>
-      <Col span={12}>
-        <Button block type="primary" loading={loading} htmlType="submit" {...props}>
+        </BaseButton>
+      </BaseCol>
+      <BaseCol span={12}>
+        <BaseButton block type="primary" loading={loading} htmlType="submit" {...props}>
           {t('common.save')}
-        </Button>
-      </Col>
-    </Row>
+        </BaseButton>
+      </BaseCol>
+    </BaseRow>
   );
 };

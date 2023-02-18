@@ -1,10 +1,11 @@
 import React, { useMemo } from 'react';
-import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { activityStatuses } from '@app/constants/config/activityStatuses';
 import { RecentActivityFilterState } from '@app/components/nft-dashboard/recentActivity/RecentActivity';
 import { Title } from '../RecentActivityFilter.styles';
 import * as S from './RecentActivityStatusFilter.styles';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 interface RecentActivityStatusFilterProps {
   filters: RecentActivityFilterState;
@@ -20,12 +21,12 @@ export const RecentActivityStatusFilter: React.FC<RecentActivityStatusFilterProp
   );
 
   return (
-    <Row gutter={[20, 20]}>
-      <Col span={24}>
+    <BaseRow gutter={[20, 20]}>
+      <BaseCol span={24}>
         <Title>{t('nft.show')}</Title>
-      </Col>
+      </BaseCol>
 
-      <Col span={24}>
+      <BaseCol span={24}>
         <S.FilterCheckboxGroup
           value={filters.status}
           options={options}
@@ -33,7 +34,7 @@ export const RecentActivityStatusFilter: React.FC<RecentActivityStatusFilterProp
             setFilters((prev) => ({ ...prev, status: checkedValues as unknown as string[] }))
           }
         />
-      </Col>
-    </Row>
+      </BaseCol>
+    </BaseRow>
   );
 };

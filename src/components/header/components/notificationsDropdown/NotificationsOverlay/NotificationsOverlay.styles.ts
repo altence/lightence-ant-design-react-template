@@ -1,11 +1,8 @@
 import styled from 'styled-components';
-import { Divider, Row, Typography } from 'antd';
-import { Button } from 'components/common/buttons/Button/Button';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { media } from '@app/styles/themes/constants';
-
-export const MenuRow = styled(Row).withConfig({
-  shouldForwardProp: (prop) => !['eventKey', 'warnKey'].includes(prop),
-})``;
+import { BaseDivider } from '@app/components/common/BaseDivider/BaseDivider';
+import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
 
 export const NoticesOverlayMenu = styled.div`
   max-width: 15rem;
@@ -15,11 +12,11 @@ export const NoticesOverlayMenu = styled.div`
   }
 `;
 
-export const SplitDivider = styled(Divider)`
+export const SplitDivider = styled(BaseDivider)`
   margin: 0 0.5rem;
 `;
 
-export const LinkBtn = styled(Button)`
+export const LinkBtn = styled(BaseButton)`
   &.ant-btn {
     padding: 0;
     font-size: 0.875rem;
@@ -28,11 +25,11 @@ export const LinkBtn = styled(Button)`
   }
 `;
 
-export const Btn = styled(Button)`
+export const Btn = styled(BaseButton)`
   width: 100%;
 `;
 
-export const Text = styled(Typography.Text)`
+export const Text = styled(BaseTypography.Text)`
   display: block;
   text-align: center;
 `;

@@ -1,8 +1,9 @@
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
 import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
-import { Row, Typography } from 'antd';
 import styled from 'styled-components';
 
-export const Title = styled(Typography.Title)`
+export const Title = styled(BaseTypography.Title)`
   &.ant-typography {
     margin-bottom: 0;
 
@@ -12,7 +13,7 @@ export const Title = styled(Typography.Title)`
   }
 `;
 
-export const ActivityRow = styled(Row)`
+export const ActivityRow = styled(BaseRow)`
   overflow-y: auto;
 `;
 

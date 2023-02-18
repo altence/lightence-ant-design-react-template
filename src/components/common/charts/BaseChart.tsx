@@ -1,7 +1,7 @@
 import React, { CSSProperties, useEffect, useState } from 'react';
 import { EChartsOption } from 'echarts-for-react';
 import ReactECharts from 'echarts-for-react';
-import { Loading } from '../Loading';
+import { Loading } from '../Loading/Loading';
 import { useAppSelector } from '@app/hooks/reduxHooks';
 import { themeObject } from '@app/styles/themes/themeVariables';
 import { ITheme } from '@app/styles/themes/types';

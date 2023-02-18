@@ -1,13 +1,15 @@
 import styled, { css } from 'styled-components';
-import { Form } from 'antd';
+import { Form, FormItemProps } from 'antd';
 import { media } from '@app/styles/themes/constants';
 
-interface FormItemProps {
+interface InternalFormItemProps {
   $isSuccess?: boolean;
   $successText?: string;
 }
 
-export const BaseFormItem = styled(Form.Item)<FormItemProps>`
+export type BaseFormItemProps = FormItemProps;
+
+export const BaseFormItem = styled(Form.Item)<InternalFormItemProps>`
   .ant-form-item-label > label {
     color: var(--primary-color);
   }

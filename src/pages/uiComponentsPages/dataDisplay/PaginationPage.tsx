@@ -1,31 +1,31 @@
-import { Col } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { Pagination } from '@app/components/common/Pagination/Pagination';
+import { BasePagination } from '@app/components/common/BasePagination/BasePagination';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 const PaginationPage: React.FC = () => {
   const { t } = useTranslation();
   return (
     <>
       <PageTitle>{t('common.pagination')}</PageTitle>
-      <Col>
+      <BaseCol>
         <S.Card title={t('dataDisplay.pagination.basic')}>
-          <Pagination defaultCurrent={1} total={50} />
+          <BasePagination defaultCurrent={1} total={50} />
         </S.Card>
         <S.Card title={t('dataDisplay.pagination.manyPages')}>
-          <Pagination defaultCurrent={6} total={500} />
+          <BasePagination defaultCurrent={6} total={500} />
         </S.Card>
         <S.Card title={t('dataDisplay.pagination.pageSize')}>
-          <Pagination showSizeChanger defaultCurrent={3} total={500} />
+          <BasePagination showSizeChanger defaultCurrent={3} total={500} />
         </S.Card>
         <S.Card title={t('dataDisplay.pagination.disabled')}>
-          <Pagination showSizeChanger defaultCurrent={3} total={500} disabled />
+          <BasePagination showSizeChanger defaultCurrent={3} total={500} disabled />
         </S.Card>
         <S.Card title={t('dataDisplay.pagination.quickJump')}>
-          <Pagination size="small" total={50} showSizeChanger showQuickJumper />
+          <BasePagination size="small" total={50} showSizeChanger showQuickJumper />
         </S.Card>
-      </Col>
+      </BaseCol>
     </>
   );
 };

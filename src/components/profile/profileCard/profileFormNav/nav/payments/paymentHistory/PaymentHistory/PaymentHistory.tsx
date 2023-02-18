@@ -1,13 +1,14 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Col, Row } from 'antd';
 import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
-import { Card } from '@app/components/common/Card/Card';
+import { BaseCard } from '@app/components/common/BaseCard/BaseCard';
 import { Payment } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentHistory/Payment/Payment';
 import { PaymentsTable } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentHistory/PaymentsTable/PaymentsTable';
 import { useResponsive } from '@app/hooks/useResponsive';
 import { getPaymentHistory, Payment as IPayment } from '@app/api/paymentHistory.api';
 import * as S from './PaymentHistory.styles';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 export const PaymentHistory: React.FC = () => {
   const [history, setHistory] = useState<IPayment[]>([]);
@@ -38,22 +39,22 @@ export const PaymentHistory: React.FC = () => {
 
   const content = useMemo(
     () => (
-      <Row gutter={[32, 32]}>
-        <Col span={24}>
+      <BaseRow gutter={[32, 32]}>
+        <BaseCol span={24}>
           <BaseForm.Title>{t('profile.nav.payments.paymentHistory')}</BaseForm.Title>
-        </Col>
+        </BaseCol>
 
-        <Col span={24}>
+        <BaseCol span={24}>
           <S.ContentWrapper isEmptyHistory={history.length === 0}>
             {mobileOnly && (history.length > 0 ? payments : <S.Text>{t('profile.nav.payments.noHistory')}</S.Text>)}
 
             {isTablet && <PaymentsTable payments={history} />}
           </S.ContentWrapper>
-        </Col>
-      </Row>
+        </BaseCol>
+      </BaseRow>
     ),
     [isTablet, history, payments, mobileOnly, t],
   );
 
-  return isTablet ? content : <Card>{content}</Card>;
+  return isTablet ? content : <BaseCard>{content}</BaseCard>;
 };

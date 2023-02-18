@@ -1,10 +1,10 @@
 import React from 'react';
-import { Modal } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
-import { Input } from '@app/components/common/inputs/Input/Input';
+import { BaseInput } from '@app/components/common/inputs/BaseInput/BaseInput';
 import { InputNumber } from '@app/components/common/inputs/InputNumber/InputNumber';
 import { useResetFormOnCloseModal } from './useResetFormOnCloseModal';
+import { BaseModal } from '@app/components/common/BaseModal/BaseModal';
 
 interface AddUserFormModalProps {
   open: boolean;
@@ -25,23 +25,23 @@ export const AddUserFormModal: React.FC<AddUserFormModalProps> = ({ open, onCanc
   };
 
   return (
-    <Modal title={t('forms.controlFormLabels.newUser')} open={open} onOk={onOk} onCancel={onCancel}>
+    <BaseModal title={t('forms.controlFormLabels.newUser')} open={open} onOk={onOk} onCancel={onCancel}>
       <BaseForm form={form} layout="vertical" name="userForm">
         <BaseForm.Item
           name="name"
           label={t('common.name')}
           rules={[{ required: true, message: t('common.requiredField') }]}
         >
-          <Input />
+          <BaseInput />
         </BaseForm.Item>
         <BaseForm.Item
           name="age"
           label={t('common.age')}
           rules={[{ required: true, message: t('common.requiredField') }]}
         >
-          <InputNumber $block />
+          <InputNumber block />
         </BaseForm.Item>
       </BaseForm>
-    </Modal>
+    </BaseModal>
   );
 };

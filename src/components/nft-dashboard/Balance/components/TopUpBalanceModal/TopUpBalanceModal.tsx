@@ -1,7 +1,7 @@
 import React from 'react';
-import { Modal } from '@app/components/common/Modal/Modal';
+import { BaseModal } from '@app/components/common/BaseModal/BaseModal';
 import { TopUpDataProps } from '../../interfaces/interfaces';
-import { Spinner } from '@app/components/common/Spinner/Spinner';
+import { BaseSpin } from '@app/components/common/BaseSpin/BaseSpin';
 import { TopUpBalanceForm } from '../TopUpBalanceForm/TopUpBalanceForm';
 
 interface TopUpBalanceModalProps extends TopUpDataProps {
@@ -17,10 +17,10 @@ export const TopUpBalanceModal: React.FC<TopUpBalanceModalProps> = ({
   onFinish,
 }) => {
   return (
-    <Modal width={500} open={isOpen} onCancel={onOpenChange} footer={null} destroyOnClose>
-      <Spinner spinning={loading}>
+    <BaseModal width={500} open={isOpen} onCancel={onOpenChange} footer={null} destroyOnClose>
+      <BaseSpin spinning={loading}>
         <TopUpBalanceForm cards={cards} loading={loading} onFinish={onFinish} />
-      </Spinner>
-    </Modal>
+      </BaseSpin>
+    </BaseModal>
   );
 };

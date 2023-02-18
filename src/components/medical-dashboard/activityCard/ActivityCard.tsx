@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Card } from '../../../components/common/Card/Card';
+import { BaseCard } from '../../common/BaseCard/BaseCard';
 import { ActivityChart } from './ActivityChart';
 import { ChartData } from 'interfaces/interfaces';
 import styled from 'styled-components';
@@ -17,6 +17,6 @@ export const ActivityCard: React.FC = () => {
   );
 };
 
-const ActivityCardStyled = styled(Card)`
+const ActivityCardStyled = styled(BaseCard)`
   height: 100%;
 `;

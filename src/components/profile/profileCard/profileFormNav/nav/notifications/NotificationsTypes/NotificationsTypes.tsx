@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from 'react';
-import { Checkbox } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { CheckboxValueType } from 'antd/lib/checkbox/Group';
 import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
@@ -8,6 +7,7 @@ import { Option } from '@app/components/profile/profileCard/profileFormNav/nav/n
 import * as S from './NotificationsTypes.styles';
 import { BaseButtonsGroup } from '@app/components/common/forms/components/BaseButtonsGroup/BaseButtonsGroup';
 import { notificationController } from '@app/controllers/notificationController';
+import { BaseCheckbox } from '@app/components/common/BaseCheckbox/BaseCheckbox';
 
 interface Notifications {
   1: string[];
@@ -30,7 +30,7 @@ export const NotificationsTypes: React.FC = () => {
     {
       id: 1,
       header: t('common.email'),
-      headerRender: (text, props) => <Checkbox {...props}>{text}</Checkbox>,
+      headerRender: (text, props) => <BaseCheckbox {...props}>{text}</BaseCheckbox>,
       data: [
         'emailMessages',
         'emailMentions',
@@ -39,21 +39,21 @@ export const NotificationsTypes: React.FC = () => {
         'emailImportantNews',
         'emailActionRequired',
       ],
-      dataRender: (text) => <Checkbox value={text} />,
+      dataRender: (text) => <BaseCheckbox value={text} />,
     },
     {
       id: 2,
       header: t('profile.nav.notifications.push'),
-      headerRender: (text, props) => <Checkbox {...props}>{text}</Checkbox>,
+      headerRender: (text, props) => <BaseCheckbox {...props}>{text}</BaseCheckbox>,
       data: ['pushMessages', 'pushMentions', 'pushReminders', 'pushAllNews', 'pushImportantNews', 'pushActionRequired'],
-      dataRender: (text) => <Checkbox value={text} />,
+      dataRender: (text) => <BaseCheckbox value={text} />,
     },
     {
       id: 3,
       header: t('profile.nav.notifications.SMS'),
-      headerRender: (text, props) => <Checkbox {...props}>{text}</Checkbox>,
+      headerRender: (text, props) => <BaseCheckbox {...props}>{text}</BaseCheckbox>,
       data: ['smsMessages', 'smsMentions', 'smsReminders', 'smsAllNews', 'smsImportantNews', 'smsActionRequired'],
-      dataRender: (text) => <Checkbox value={text} />,
+      dataRender: (text) => <BaseCheckbox value={text} />,
     },
     {
       id: 4,

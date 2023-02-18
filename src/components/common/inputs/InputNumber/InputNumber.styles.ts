@@ -5,8 +5,6 @@ interface InputNumberProps {
   $block?: boolean;
 }
 
-export const InputNumber = styled(AntInputNumber).withConfig({
-  shouldForwardProp: (prop) => !['block'].includes(prop),
-})<InputNumberProps>`
+export const InputNumber = styled(AntInputNumber)<InputNumberProps>`
   ${(props) => props.$block && 'display: block; width: 100%'};
 `;

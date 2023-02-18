@@ -1,9 +1,11 @@
 import styled from 'styled-components';
-import { Input as AntInput, Button, Checkbox } from 'antd';
 import { SearchOutlined, PlusCircleFilled, CloseOutlined } from '@ant-design/icons';
 import { DayjsDatePicker } from '@app/components/common/pickers/DayjsDatePicker';
 import { BORDER_RADIUS, FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
-import { Popover } from '@app/components/common/Popover/Popover';
+import { BasePopover } from '@app/components/common/BasePopover/BasePopover';
+import { BaseInput } from '@app/components/common/inputs/BaseInput/BaseInput';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
+import { BaseCheckbox } from '@app/components/common/BaseCheckbox/BaseCheckbox';
 
 export const AddTagText = styled.span`
   color: var(--text-main-color);
@@ -100,7 +102,7 @@ export const TitleHeader = styled.div`
   border-radius: ${BORDER_RADIUS};
 `;
 
-export const Input = styled(AntInput)`
+export const Input = styled(BaseInput)`
   height: 3.125rem;
   border: none;
   background: var(--secondary-background-color);
@@ -123,7 +125,7 @@ export const RangePicker = styled(DayjsDatePicker.RangePicker)`
   }
 `;
 
-export const Btn = styled(Button)`
+export const Btn = styled(BaseButton)`
   display: block;
   width: 100%;
 `;
@@ -176,17 +178,8 @@ export const TagPopoverLine = styled.span`
   cursor: pointer;
 `;
 
-export const PopoverCheckbox = styled(Checkbox)`
+export const PopoverCheckbox = styled(BaseCheckbox)`
   margin-right: 1rem;
-  & .ant-checkbox .ant-checkbox-inner {
-    border-radius: 3px;
-    height: 1.375rem;
-    width: 1.375rem;
-    border-color: var(--primary-color);
-  }
-  & .ant-checkbox-checked .ant-checkbox-inner::after {
-    left: 0.375rem;
-  }
 `;
 
 export const ClosePopoverWrapper = styled.div`
@@ -202,7 +195,7 @@ export const ClosePopover = styled(CloseOutlined)`
   height: 0.875rem;
 `;
 
-export const FilterPopover = styled(Popover)`
+export const FilterPopover = styled(BasePopover)`
   & .ant-popover-inner-content {
     padding: 0;
   }

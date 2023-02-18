@@ -1,5 +1,4 @@
 import React from 'react';
-import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import { MapCard } from '@app/components/medical-dashboard/mapCard/MapCard';
@@ -16,6 +15,8 @@ import { NewsCard } from '@app/components/medical-dashboard/NewsCard/NewsCard';
 import { References } from '@app/components/common/References/References';
 import { useResponsive } from '@app/hooks/useResponsive';
 import * as S from './DashboardPage.styles';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 const MedicalDashboardPage: React.FC = () => {
   const { isTablet, isDesktop } = useResponsive();
@@ -23,47 +24,47 @@ const MedicalDashboardPage: React.FC = () => {
   const { t } = useTranslation();
 
   const desktopLayout = (
-    <Row>
+    <BaseRow>
       <S.LeftSideCol xl={16} xxl={17}>
-        <Row gutter={[30, 30]}>
-          <Col span={24}>
-            <Row gutter={[30, 30]}>
+        <BaseRow gutter={[30, 30]}>
+          <BaseCol span={24}>
+            <BaseRow gutter={[30, 30]}>
               <StatisticsCards />
-            </Row>
-          </Col>
+            </BaseRow>
+          </BaseCol>
 
-          <Col id="map" span={24}>
+          <BaseCol id="map" span={24}>
             <MapCard />
-          </Col>
+          </BaseCol>
 
-          <Col id="latest-screenings" span={24}>
+          <BaseCol id="latest-screenings" span={24}>
             <ScreeningsCard />
-          </Col>
+          </BaseCol>
 
-          <Col id="treatment-plan" xl={24}>
+          <BaseCol id="treatment-plan" xl={24}>
             <TreatmentCard />
-          </Col>
+          </BaseCol>
 
-          <Col id="covid" xl={24}>
+          <BaseCol id="covid" xl={24}>
             <CovidCard />
-          </Col>
+          </BaseCol>
 
-          <Col id="activity" xl={24} xxl={12}>
+          <BaseCol id="activity" xl={24} xxl={12}>
             <ActivityCard />
-          </Col>
+          </BaseCol>
 
-          <Col id="health" xl={24} xxl={12}>
+          <BaseCol id="health" xl={24} xxl={12}>
             <HealthCard />
-          </Col>
+          </BaseCol>
 
-          <Col id="favorite-doctors" xl={24}>
+          <BaseCol id="favorite-doctors" xl={24}>
             <FavoritesDoctorsCard />
-          </Col>
+          </BaseCol>
 
-          <Col id="news" span={24}>
+          <BaseCol id="news" span={24}>
             <NewsCard />
-          </Col>
-        </Row>
+          </BaseCol>
+        </BaseRow>
         <References />
       </S.LeftSideCol>
 
@@ -76,55 +77,55 @@ const MedicalDashboardPage: React.FC = () => {
           <PatientResultsCard />
         </S.ScrollWrapper>
       </S.RightSideCol>
-    </Row>
+    </BaseRow>
   );
 
   const mobileAndTabletLayout = (
-    <Row gutter={[20, 20]}>
+    <BaseRow gutter={[20, 20]}>
       <StatisticsCards />
 
       {isTablet && (
-        <Col id="map" md={24} order={4}>
+        <BaseCol id="map" md={24} order={4}>
           <MapCard />
-        </Col>
+        </BaseCol>
       )}
 
-      <Col id="latest-screenings" xs={24} md={12} order={(isTablet && 5) || 0}>
+      <BaseCol id="latest-screenings" xs={24} md={12} order={(isTablet && 5) || 0}>
         <ScreeningsCard />
-      </Col>
+      </BaseCol>
 
-      <Col id="activity" xs={24} md={12} order={(isTablet && 8) || 0}>
+      <BaseCol id="activity" xs={24} md={12} order={(isTablet && 8) || 0}>
         <ActivityCard />
-      </Col>
+      </BaseCol>
 
-      <Col id="treatment-plan" xs={24} md={24} order={(isTablet && 10) || 0}>
+      <BaseCol id="treatment-plan" xs={24} md={24} order={(isTablet && 10) || 0}>
         <TreatmentCard />
-      </Col>
+      </BaseCol>
 
-      <Col id="health" xs={24} md={12} order={(isTablet && 9) || 0}>
+      <BaseCol id="health" xs={24} md={12} order={(isTablet && 9) || 0}>
         <HealthCard />
-      </Col>
+      </BaseCol>
 
-      <Col id="patient-timeline" xs={24} md={12} order={(isTablet && 11) || 0}>
+      <BaseCol id="patient-timeline" xs={24} md={12} order={(isTablet && 11) || 0}>
         <PatientResultsCard />
-      </Col>
+      </BaseCol>
 
-      <Col id="blood-screening" xs={24} md={12} order={(isTablet && 6) || 0}>
+      <BaseCol id="blood-screening" xs={24} md={12} order={(isTablet && 6) || 0}>
         <BloodScreeningCard />
-      </Col>
+      </BaseCol>
 
-      <Col id="favorite-doctors" xs={24} md={24} order={(isTablet && 13) || 0}>
+      <BaseCol id="favorite-doctors" xs={24} md={24} order={(isTablet && 13) || 0}>
         <FavoritesDoctorsCard />
-      </Col>
+      </BaseCol>
 
-      <Col id="covid" xs={24} md={12} order={(isTablet && 12) || 0}>
+      <BaseCol id="covid" xs={24} md={12} order={(isTablet && 12) || 0}>
         <CovidCard />
-      </Col>
+      </BaseCol>
 
-      <Col id="news" xs={24} md={24} order={(isTablet && 14) || 0}>
+      <BaseCol id="news" xs={24} md={24} order={(isTablet && 14) || 0}>
         <NewsCard />
-      </Col>
-    </Row>
+      </BaseCol>
+    </BaseRow>
   );
 
   return (

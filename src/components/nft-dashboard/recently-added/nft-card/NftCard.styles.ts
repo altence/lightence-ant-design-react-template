@@ -1,7 +1,7 @@
-import { Typography } from 'antd';
 import styled from 'styled-components';
 import { NFTCard } from '@app/components/nft-dashboard/common/NFTCard/NFTCard';
 import { FONT_SIZE, FONT_WEIGHT, FONT_FAMILY, media, BREAKPOINTS, BORDER_RADIUS } from '@app/styles/themes/constants';
+import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
 
 interface CardInternalProps {
   $img: string;
@@ -16,7 +16,7 @@ export const NftImage = styled.img`
   border-top-right-radius: ${BORDER_RADIUS};
 `;
 
-export const Title = styled(Typography.Title)`
+export const Title = styled(BaseTypography.Title)`
   position: relative;
   animation: titleOut 0.5s;
 

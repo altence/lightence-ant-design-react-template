@@ -1,8 +1,8 @@
 import React from 'react';
-import { CardProps } from '@app/components/common/Card/Card';
+import { BaseCardProps } from '@app/components/common/BaseCard/BaseCard';
 import * as S from './NFTCard.styles';
 
-interface NFTCardProps extends CardProps {
+interface NFTCardProps extends BaseCardProps {
   isSider?: boolean;
 }
 

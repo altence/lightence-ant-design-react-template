@@ -1,7 +1,7 @@
 import React from 'react';
 import { BarChartOutlined, CheckOutlined, FileTextOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
-import { Steps } from '@app/components/common/Steps/Steps';
+import { BaseSteps } from '@app/components/common/BaseSteps/BaseSteps';
 import { Dates } from '@app/constants/Dates';
 import { patientResultsData } from '@app/constants/patientResultsData';
 import { patientResultStatus } from '@app/constants/patientResultStatus';
@@ -15,7 +15,7 @@ export const PatientResultsCard: React.FC = () => {
 
   return (
     <DashboardCard>
-      <Steps
+      <BaseSteps
         direction="vertical"
         current={0}
         items={patientResultStatus.map((status, index) => {

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Input } from 'antd';
 import { v4 as uuidv4 } from 'uuid';
 import { useTranslation } from 'react-i18next';
 import * as S from './NewLaneForm.styles';
+import { BaseInput } from '@app/components/common/inputs/BaseInput/BaseInput';
 
 interface NewLaneFormProps {
   onAdd: (values: { id: string; title: string }) => void;
@@ -26,7 +26,7 @@ export const NewLaneForm: React.FC<NewLaneFormProps> = ({ onAdd, onCancel }) => 
       onFinish={handleSubmit}
     >
       <S.FormInput name={'title'}>
-        <Input placeholder={t('kanban.title')} bordered={false} />
+        <BaseInput placeholder={t('kanban.title')} bordered={false} />
       </S.FormInput>
     </S.Form>
   );

@@ -1,8 +1,8 @@
+import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
 import { FONT_SIZE, FONT_FAMILY, media } from '@app/styles/themes/constants';
-import { Typography } from 'antd';
 import styled from 'styled-components';
 
-export const Title = styled(Typography.Text)`
+export const Title = styled(BaseTypography.Text)`
   padding: 0 4rem 0.75rem 0;
 
   font-size: ${FONT_SIZE.xs};

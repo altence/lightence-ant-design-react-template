@@ -1,6 +1,5 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Col, Row } from 'antd';
 import { StatisticsInfo } from '../StatisticsInfo/StatisticsInfo';
 import { StatisticsProgress } from '../StatisticsProgress/StatisticsProgress';
 import { useResponsive } from '@app/hooks/useResponsive';
@@ -8,6 +7,8 @@ import { StatisticColor } from '@app/constants/config/statistics';
 import * as S from './StatisticsCard.styles';
 import { themeObject } from '@app/styles/themes/themeVariables';
 import { useAppSelector } from '@app/hooks/reduxHooks';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 interface StatisticsCardProps {
   name: string;
@@ -26,25 +27,25 @@ export const StatisticsCard: React.FC<StatisticsCardProps> = ({ name, value, pre
 
   return (
     <S.StatisticCard padding="0.5rem" $color={color}>
-      <Row wrap={false} gutter={[isTabletOrHigher ? 10 : 5, 0]}>
-        <Col>
+      <BaseRow wrap={false} gutter={[isTabletOrHigher ? 10 : 5, 0]}>
+        <BaseCol>
           <S.IconWrapper>
             <S.Icon component={Icon} />
           </S.IconWrapper>
-        </Col>
+        </BaseCol>
 
-        <Col flex={1}>
-          <Row justify="space-between" align="middle" wrap={false}>
-            <Col>
+        <BaseCol flex={1}>
+          <BaseRow justify="space-between" align="middle" wrap={false}>
+            <BaseCol>
               <StatisticsInfo name={t(name)} value={value} prevValue={prevValue} />
-            </Col>
+            </BaseCol>
 
-            <Col>
+            <BaseCol>
               <StatisticsProgress color={themeObject[theme][color]} unit={unit} value={value} />
-            </Col>
-          </Row>
-        </Col>
-      </Row>
+            </BaseCol>
+          </BaseRow>
+        </BaseCol>
+      </BaseRow>
     </S.StatisticCard>
   );
 };

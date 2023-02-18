@@ -1,8 +1,8 @@
+import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
 import { FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
-import { Typography } from 'antd';
 import styled from 'styled-components';
 
-export const Title = styled(Typography.Text)`
+export const Title = styled(BaseTypography.Text)`
   font-size: ${FONT_SIZE.xs};
   font-weight: ${FONT_WEIGHT.bold};
 
@@ -15,7 +15,7 @@ export const Title = styled(Typography.Text)`
   }
 `;
 
-export const Text = styled(Typography.Text)`
+export const Text = styled(BaseTypography.Text)`
   font-size: ${FONT_SIZE.xs};
   font-weight: ${FONT_WEIGHT.medium};
 `;

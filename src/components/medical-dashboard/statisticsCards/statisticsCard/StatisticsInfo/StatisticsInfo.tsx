@@ -1,8 +1,8 @@
 import React from 'react';
-import { Space } from 'antd';
 import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
 import { getDifference } from 'utils/utils';
 import * as S from './StatisticsInfo.styles';
+import { BaseSpace } from '@app/components/common/BaseSpace/BaseSpace';
 
 interface StatisticsInfoProps {
   name: string;
@@ -12,7 +12,7 @@ interface StatisticsInfoProps {
 
 export const StatisticsInfo: React.FC<StatisticsInfoProps> = ({ name, value, prevValue }) => {
   return (
-    <Space direction="vertical" size={6}>
+    <BaseSpace direction="vertical" size={6}>
       <S.Title>{name}</S.Title>
 
       {prevValue && (
@@ -21,6 +21,6 @@ export const StatisticsInfo: React.FC<StatisticsInfoProps> = ({ name, value, pre
           {getDifference(value, prevValue)}
         </S.Text>
       )}
-    </Space>
+    </BaseSpace>
   );
 };

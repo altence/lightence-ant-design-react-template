@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button } from '@app/components/common/buttons/Button/Button';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
 import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
 
@@ -33,6 +33,6 @@ export const User = styled.div`
   margin-left: 0.5rem;
 `;
 
-export const AddUserButton = styled(Button)`
+export const AddUserButton = styled(BaseButton)`
   margin: 0 0.5rem;
 `;

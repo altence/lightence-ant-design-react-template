@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Card as CommonCard } from 'components/common/Card/Card';
+import { BaseCard as CommonCard } from '@app/components/common/BaseCard/BaseCard';
 
 export const TablesWrapper = styled.div`
   margin-top: 1.875rem;

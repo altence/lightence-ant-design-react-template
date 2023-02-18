@@ -3,7 +3,7 @@ import { dashboardNews } from '@app/constants/dashboardNews';
 import { DashboardCard } from '../DashboardCard/DashboardCard';
 import * as S from './NewsCard.styles';
 import { useTranslation } from 'react-i18next';
-import { ArticleCard } from 'components/common/ArticleCard/ArticleCard';
+import { BaseArticle } from '@app/components/common/BaseArticle/BaseArticle';
 
 export const NewsCard: React.FC = () => {
   const { t } = useTranslation();
@@ -12,7 +12,7 @@ export const NewsCard: React.FC = () => {
     <DashboardCard title={t('medical-dashboard.news')}>
       <S.Wrapper>
         {dashboardNews.map((advice, index) => (
-          <ArticleCard
+          <BaseArticle
             key={index}
             imgUrl={advice.img}
             title={advice.title}

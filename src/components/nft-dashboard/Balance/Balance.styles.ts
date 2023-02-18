@@ -1,8 +1,8 @@
-import { Typography } from 'antd';
+import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
 import { FONT_FAMILY, FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
 import styled from 'styled-components';
 
-export const TitleText = styled(Typography.Title)`
+export const TitleText = styled(BaseTypography.Title)`
   &.ant-typography {
     margin-bottom: 1.25rem;
 
@@ -10,7 +10,7 @@ export const TitleText = styled(Typography.Title)`
   }
 `;
 
-export const TitleBalanceText = styled(Typography.Title)`
+export const TitleBalanceText = styled(BaseTypography.Title)`
   &.ant-typography {
     margin-bottom: 0;
 
@@ -18,7 +18,7 @@ export const TitleBalanceText = styled(Typography.Title)`
   }
 `;
 
-export const SubtitleBalanceText = styled(Typography.Text)`
+export const SubtitleBalanceText = styled(BaseTypography.Text)`
   font-family: ${FONT_FAMILY.secondary};
 
   font-size: ${FONT_SIZE.xs};

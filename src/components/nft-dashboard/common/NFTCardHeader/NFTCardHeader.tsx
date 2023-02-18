@@ -1,5 +1,5 @@
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 import React from 'react';
-import { Col } from 'antd';
 import * as S from './NFTCardHeader.styles';
 
 interface NFTCardHeaderProps {
@@ -9,11 +9,11 @@ interface NFTCardHeaderProps {
 export const NFTCardHeader: React.FC<NFTCardHeaderProps> = ({ title, children }) => {
   return (
     <S.WrapperRow justify="space-between">
-      <Col>
+      <BaseCol>
         <S.Title level={5}>{title}</S.Title>
-      </Col>
+      </BaseCol>
 
-      {children && <Col>{children}</Col>}
+      {children && <BaseCol>{children}</BaseCol>}
     </S.WrapperRow>
   );
 };

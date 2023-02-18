@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { Typography } from 'antd';
 import { media } from '@app/styles/themes/constants';
+import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
 
-export const BaseFormTitle = styled(Typography.Text)`
+export const BaseFormTitle = styled(BaseTypography.Text)`
   font-weight: 700;
   font-size: 1rem;
   display: block;

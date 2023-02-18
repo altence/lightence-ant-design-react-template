@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { CheckboxGroup } from '@app/components/common/Checkbox/Checkbox';
+import { BaseCheckbox } from '@app/components/common/BaseCheckbox/BaseCheckbox';
 
-export const FilterCheckboxGroup = styled(CheckboxGroup)`
+export const FilterCheckboxGroup = styled(BaseCheckbox.Group)`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;

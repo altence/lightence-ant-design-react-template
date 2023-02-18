@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Checkbox } from 'antd';
 import { FONT_SIZE } from '@app/styles/themes/constants';
+import { BaseCheckbox } from '@app/components/common/BaseCheckbox/BaseCheckbox';
 
 interface TagProps {
   backgroundColor: 'error' | 'warning' | 'success' | 'primary';
@@ -16,17 +16,7 @@ export const EditTagPopoverLine = styled.span`
   cursor: pointer;
 `;
 
-export const PopoverCheckbox = styled(Checkbox)`
-  & .ant-checkbox .ant-checkbox-inner {
-    border-radius: 3px;
-    height: 1.375rem;
-    width: 1.375rem;
-    border-color: var(--primary-color);
-  }
-  & .ant-checkbox-checked .ant-checkbox-inner::after {
-    left: 0.375rem;
-  }
-`;
+export const PopoverCheckbox = styled(BaseCheckbox)``;
 
 export const TagWrapper = styled.span<TagProps>`
   height: 1.875rem;

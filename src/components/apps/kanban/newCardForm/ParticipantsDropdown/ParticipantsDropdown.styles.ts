@@ -1,18 +1,9 @@
 import styled from 'styled-components';
 import { CloseOutlined } from '@ant-design/icons';
-import { Checkbox } from 'antd';
 import { FONT_SIZE } from '@app/styles/themes/constants';
+import { BaseCheckbox } from '@app/components/common/BaseCheckbox/BaseCheckbox';
 
-export const PopoverCheckbox = styled(Checkbox)`
-  & .ant-checkbox .ant-checkbox-inner {
-    border-radius: 3px;
-    height: 1.375rem;
-    width: 1.375rem;
-    border-color: var(--primary-color);
-  }
-  & .ant-checkbox-checked .ant-checkbox-inner::after {
-    left: 0.375rem;
-  }
+export const PopoverCheckbox = styled(BaseCheckbox)`
   margin-right: 0.75rem;
 `;
 

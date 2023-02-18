@@ -1,9 +1,10 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Col, Row } from 'antd';
 import { categoriesList, CategoryType } from 'constants/categoriesList';
 import { CategoryComponents } from '@app/components/header/components/HeaderSearch/HeaderSearch';
 import * as S from './SearchFilter.styles';
+import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
 
 interface SearchFilterProps {
   data: CategoryComponents[] | null;
@@ -20,11 +21,11 @@ export const SearchFilter: React.FC<SearchFilterProps> = ({ data, isOpen, childr
   const filterElements = useMemo(
     () =>
       categoriesList.map((filter, index) => (
-        <Col key={index} xs={12} sm={8} md={12} xl={8}>
+        <BaseCol key={index} xs={12} sm={8} md={12} xl={8}>
           <S.CheckBox key={index} value={filter.name}>
             {t(filter.title)}
           </S.CheckBox>
-        </Col>
+        </BaseCol>
       )),
     [t],
   );
@@ -45,7 +46,7 @@ export const SearchFilter: React.FC<SearchFilterProps> = ({ data, isOpen, childr
     <>
       <S.FilterWrapper isOpen={isOpen}>
         <S.CheckboxGroup onChange={(checkedValues) => setSelectedFilter(checkedValues as CategoryType[])}>
-          <Row>{filterElements}</Row>
+          <BaseRow>{filterElements}</BaseRow>
         </S.CheckboxGroup>
       </S.FilterWrapper>
 
