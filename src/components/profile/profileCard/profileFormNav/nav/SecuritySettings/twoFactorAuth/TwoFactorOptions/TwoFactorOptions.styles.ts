@@ -5,7 +5,7 @@ interface RadioBtnProps {
   $isActive: boolean;
 }
 
-export const RadioBtn = styled(BaseRadio.Button)<RadioBtnProps>`
+export const RadioBtn = styled(BaseRadio)<RadioBtnProps>`
   margin-right: 0;
   width: 100%;
   transition: all 0.5s ease;
