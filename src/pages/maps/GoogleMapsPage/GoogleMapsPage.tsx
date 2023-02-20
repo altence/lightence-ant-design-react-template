@@ -6,11 +6,13 @@ import { useTranslation } from 'react-i18next';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/maps/maps.styles';
 
+import { ErrorBoundary } from '@app/hocs/ErrorBoundary';
+
 const GoogleMaps: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <>
+    <ErrorBoundary>
       <PageTitle>{t('common.googleMap')}</PageTitle>
       <S.MapsCard title={t('common.googleMap')}>
         <GoogleMapReact
@@ -21,7 +23,7 @@ const GoogleMaps: React.FC = () => {
           defaultZoom={6}
         />
       </S.MapsCard>
-    </>
+    </ErrorBoundary>
   );
 };
 

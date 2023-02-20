@@ -40,7 +40,9 @@ export const NotificationsOverlay: React.FC<NotificationsOverlayProps> = ({
               description: (
                 <Trans i18nKey={(notification as Mention).description}>
                   <S.LinkBtn type="link" href={(notification as Mention).href}>
-                    {{ place: t((notification as Mention).place) }}
+                    {
+                      { place: t((notification as Mention).place) } as any // todo: remove any
+                    }
                   </S.LinkBtn>
                 </Trans>
               ),

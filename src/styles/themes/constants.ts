@@ -13,7 +13,7 @@ export const BASE_COLORS = {
   blue: '#0000ff',
   skyblue: '#35a0dc',
   red: '#ff5252',
-};
+} as const;
 
 export const LAYOUT = {
   mobile: {
@@ -27,12 +27,12 @@ export const LAYOUT = {
     paddingHorizontal: '2.25rem',
     headerHeight: '5.625rem',
   },
-};
+} as const;
 
 export const FONT_FAMILY = {
   main: 'Montserrat',
   secondary: 'Lato',
-};
+} as const;
 
 export const FONT_SIZE = {
   xxs: '0.75rem',
@@ -43,7 +43,7 @@ export const FONT_SIZE = {
   xxl: '1.5rem',
   xxxl: '1.625rem',
   xxxxl: '2rem',
-};
+} as const;
 
 export const FONT_WEIGHT = {
   thin: '100',
@@ -55,7 +55,7 @@ export const FONT_WEIGHT = {
   bold: '700',
   extraBold: '800',
   black: '900',
-};
+} as const;
 
 export const BREAKPOINTS = {
   xs: 360,
