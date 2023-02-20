@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AppleOutlined, AndroidOutlined } from '@ant-design/icons';
 import { BaseRadio } from '@app/components/common/BaseRadio/BaseRadio';
@@ -12,54 +12,41 @@ const TabsPage: React.FC = () => {
   const { t } = useTranslation();
   const [tabPosition, setTabPosition] = useState<'top' | 'left' | 'right' | 'bottom'>('top');
 
+  const commonTabs = useMemo(
+    () => [
+      {
+        key: '1',
+        label: `${t('tabs.tab')} 1`,
+        children: `${t('tabs.tabContent')} 1`,
+      },
+      {
+        key: '2',
+        label: `${t('tabs.tab')} 2`,
+        children: `${t('tabs.tabContent')} 2`,
+      },
+      {
+        key: '3',
+        label: `${t('tabs.tab')} 3`,
+        children: `${t('tabs.tabContent')} 3`,
+      },
+      {
+        key: '4',
+        label: `${t('tabs.tab')} 4`,
+        children: `${t('tabs.tabContent')} 4`,
+      },
+    ],
+    [t],
+  );
+
   return (
     <>
       <PageTitle>{t('common.tabs')}</PageTitle>
       <BaseCol>
         <S.Card title={t('tabs.basic')}>
-          <BaseTabs
-            defaultActiveKey="1"
-            items={[
-              {
-                key: '1',
-                label: `${t('tabs.tab')} 1`,
-                children: `${t('tabs.tabContent')} 1`,
-              },
-              {
-                key: '2',
-                label: `${t('tabs.tab')} 2`,
-                children: `${t('tabs.tabContent')} 2`,
-              },
-              {
-                key: '3',
-                label: `${t('tabs.tab')} 3`,
-                children: `${t('tabs.tabContent')} 3`,
-              },
-            ]}
-          />
+          <BaseTabs defaultActiveKey="1" items={commonTabs} />
         </S.Card>
         <S.Card title={t('tabs.disabled')}>
-          <BaseTabs
-            defaultActiveKey="1"
-            items={[
-              {
-                key: '1',
-                label: `${t('tabs.tab')} 1`,
-                children: `${t('tabs.tabContent')} 1`,
-              },
-              {
-                key: '2',
-                label: `${t('tabs.tab')} 2`,
-                children: `${t('tabs.tabContent')} 2`,
-                disabled: true,
-              },
-              {
-                key: '3',
-                label: `${t('tabs.tab')} 3`,
-                children: `${t('tabs.tabContent')} 3`,
-              },
-            ]}
-          />
+          <BaseTabs defaultActiveKey="1" items={commonTabs} />
         </S.Card>
         <S.Card title={t('tabs.withIcon')}>
           <BaseTabs
