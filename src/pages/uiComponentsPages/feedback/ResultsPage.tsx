@@ -6,6 +6,8 @@ import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
 import { media } from '@app/styles/themes/constants';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { useMemo } from 'react';
+import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
 
 const Card = styled(S.Card)`
   .ant-card-body {
@@ -26,6 +28,25 @@ const BuyButton = styled(BaseButton)`
 const ProgressPage: React.FC = () => {
   const { t } = useTranslation();
 
+  const commonExtra = useMemo(
+    () => (
+      <BaseRow gutter={[8, 8]}>
+        <BaseCol span={24}>
+          <BaseButton block type="primary" key="console">
+            {t('results.goConsole')}
+          </BaseButton>
+        </BaseCol>
+
+        <BaseCol span={24}>
+          <BuyButton block key="buy">
+            {t('results.buyAgain')}
+          </BuyButton>
+        </BaseCol>
+      </BaseRow>
+    ),
+    [t],
+  );
+
   return (
     <>
       <PageTitle>{t('common.result')}</PageTitle>
@@ -35,19 +56,14 @@ const ProgressPage: React.FC = () => {
             status="success"
             title={t('results.successTitle')}
             subTitle={t('results.successSubTitle')}
-            extra={[
-              <BaseButton type="primary" key="console">
-                {t('results.goConsole')}
-              </BaseButton>,
-              <BuyButton key="buy">{t('results.buyAgain')}</BuyButton>,
-            ]}
+            extra={commonExtra}
           />
         </Card>
         <Card title={t('results.info')}>
           <BaseResult
             title={t('results.infoTitle')}
             extra={
-              <BaseButton type="primary" key="console">
+              <BaseButton block type="primary" key="console">
                 {t('results.goConsole')}
               </BaseButton>
             }
@@ -58,7 +74,7 @@ const ProgressPage: React.FC = () => {
             status="warning"
             title={t('results.warningTitle')}
             extra={
-              <BaseButton type="primary" key="console">
+              <BaseButton block type="primary" key="console">
                 {t('results.goConsole')}
               </BaseButton>
             }
@@ -69,12 +85,7 @@ const ProgressPage: React.FC = () => {
             status="error"
             title={t('results.errorTitle')}
             subTitle={t('results.errorSubTitle')}
-            extra={[
-              <BaseButton type="primary" key="console">
-                {t('results.goConsole')}
-              </BaseButton>,
-              <BuyButton key="buy">{t('results.buyAgain')}</BuyButton>,
-            ]}
+            extra={commonExtra}
           />
         </Card>
       </BaseCol>
