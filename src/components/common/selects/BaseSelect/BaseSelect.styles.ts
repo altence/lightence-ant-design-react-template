@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Select as AntSelect } from 'antd';
 import { Dimension } from 'interfaces/interfaces';
-import { normalizeProp } from 'utils/utils';
+import { normalizeProp } from '@app/utils/utils';
 import { FONT_WEIGHT, BORDER_RADIUS, FONT_SIZE } from '@app/styles/themes/constants';
 
 export interface InternalSelectProps {

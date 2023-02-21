@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { HashLink } from 'react-router-hash-link';
 import { useTranslation } from 'react-i18next';
 import { CategoryComponents } from '@app/components/header/components/HeaderSearch/HeaderSearch';
-import { camelize } from 'utils/utils';
+import { camelize } from '@app/utils/utils';
 import * as S from './SearchResults.styles';
 import { BaseList } from '@app/components/common/BaseList/BaseList';
 
