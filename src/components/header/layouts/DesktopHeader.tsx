@@ -40,9 +40,9 @@ export const DesktopHeader: React.FC<DesktopHeaderProps> = ({ isTwoColumnsLayout
       {leftSide}
 
       <S.ProfileColumn xl={8} xxl={7} $isTwoColumnsLayout={isTwoColumnsLayout}>
-        <BaseRow align="middle" justify="end" gutter={[10, 10]}>
+        <BaseRow align="middle" justify="end" gutter={[5, 5]}>
           <BaseCol>
-            <BaseRow gutter={[{ xxl: 10 }, { xxl: 10 }]}>
+            <BaseRow gutter={[{ xxl: 5 }, { xxl: 5 }]}>
               <BaseCol>
                 <HeaderFullscreen />
               </BaseCol>
