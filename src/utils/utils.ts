@@ -1,15 +1,11 @@
 import { NotificationType } from '@app/components/common/BaseNotification/BaseNotification';
 import { Priority } from '@app//constants/enums/priorities';
-import { ReactComponent as ETHIcon } from '@app/assets/icons/eth.svg';
-import { ReactComponent as BTCIcon } from '@app/assets/icons/btc.svg';
-
 import visa from '@app/assets/images/card-issuers/visa.png';
 import mastercard from '@app/assets/images/card-issuers/mastercard.png';
 import maestro from '@app/assets/images/card-issuers/maestro.png';
 import { CurrencyTypeEnum, Severity } from '@app/interfaces/interfaces';
 import { BaseBadgeProps } from '@app/components/common/BaseBadge/BaseBadge';
-import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
-import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { currencies } from '@app/constants/config/currencies';
 
 export const camelize = (string: string): string => {
   return string
@@ -18,48 +14,10 @@ export const camelize = (string: string): string => {
     .join('');
 };
 
-export const getCurrencyPrice = (
-  price: number | string,
-  currency: CurrencyTypeEnum,
-  isIcon = true,
-): string | React.ReactNode => {
-  switch (CurrencyTypeEnum[currency]) {
-    case 'USD': {
-      return isIcon ? `$${price}` : `${price} USD`;
-    }
+export const getCurrencyPrice = (price: number | string, currency: CurrencyTypeEnum, isIcon = true): string => {
+  const currencySymbol = currencies[currency][isIcon ? 'icon' : 'text'];
 
-    case 'BTC': {
-      return isIcon ? (
-        <BaseRow align="middle" gutter={[8, 8]}>
-          <BaseCol style={{ display: 'flex' }}>
-            <BTCIcon />
-          </BaseCol>
-
-          <BaseCol>{price}</BaseCol>
-        </BaseRow>
-      ) : (
-        `${price} BTC`
-      );
-    }
-
-    case 'ETH': {
-      return isIcon ? (
-        <BaseRow align="middle" gutter={[8, 8]}>
-          <BaseCol style={{ display: 'flex' }}>
-            <ETHIcon />
-          </BaseCol>
-
-          <BaseCol>{price}</BaseCol>
-        </BaseRow>
-      ) : (
-        `${price} ETH`
-      );
-    }
-
-    default: {
-      return isIcon ? `$${price}` : `${price} USD`;
-    }
-  }
+  return isIcon ? `${currencySymbol}${price}` : `${price} ${currencySymbol}`;
 };
 
 type MarkArea = {

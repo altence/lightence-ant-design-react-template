@@ -2,10 +2,10 @@ import React from 'react';
 import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
 import { useResponsive } from 'hooks/useResponsive';
 import { getDifference } from 'utils/utils';
-import * as S from './ScreeningsFriend.styles';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
 import { BaseSpace } from '@app/components/common/BaseSpace/BaseSpace';
+import * as S from './ScreeningsFriend.styles';
 
 interface ScreeningsFriendProps {
   name: string;

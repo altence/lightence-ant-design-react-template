@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { defineColorByPriority, getCurrencyPrice } from 'utils/utils';
+import { defineColorByPriority, getCurrencyPrice } from '@app/utils/utils';
 import { paymentStatuses } from 'constants/paymentStatuses';
 import { Dates } from 'constants/Dates';
 import { Status } from '../Status/Status';

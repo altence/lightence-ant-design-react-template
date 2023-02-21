@@ -4,7 +4,7 @@ import { ColumnType } from 'antd/lib/table';
 import { Dates } from 'constants/Dates';
 import { Status } from '../Status/Status';
 import { paymentStatuses, PaymentStatus } from 'constants/paymentStatuses';
-import { defineColorByPriority, getCurrencyPrice } from 'utils/utils';
+import { defineColorByPriority, getCurrencyPrice } from '@app/utils/utils';
 import { Payment } from 'api/paymentHistory.api';
 import * as S from './PaymentsTable.styles';
 import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
