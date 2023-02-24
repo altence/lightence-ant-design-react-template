@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, ReactNode } from 'react';
 import { Trans } from 'react-i18next';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
@@ -41,7 +41,7 @@ export const NotificationsOverlay: React.FC<NotificationsOverlayProps> = ({
                 <Trans i18nKey={(notification as Mention).description}>
                   <S.LinkBtn type="link" href={(notification as Mention).href}>
                     {
-                      { place: t((notification as Mention).place) } as any // todo: remove any
+                      { place: t((notification as Mention).place) } as unknown as ReactNode // todo: remove casting
                     }
                   </S.LinkBtn>
                 </Trans>
