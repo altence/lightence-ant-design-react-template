@@ -44,11 +44,6 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: 'feed',
         url: '/apps/feed',
       },
-      {
-        title: 'common.kanban',
-        key: 'kanban',
-        url: '/apps/kanban',
-      },
     ],
   },
   {

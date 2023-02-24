@@ -168,7 +168,6 @@
     "info": "Information",
     "input": "Eingang",
     "inputCode": "6-stelligen Code eingeben",
-    "kanban": "Kanban",
     "keywords": "Irgendwelche Schlüsselwörter?",
     "kg": "kg",
     "lastName": "Nachname",
@@ -513,18 +512,6 @@
     "sizes": "Eingabegrößen",
     "small": "Kleine Größe",
     "textarea": "Textbereich"
-  },
-  "kanban": {
-    "addParticipant": "Beauftragten festlegen",
-    "addTags": "Tags hinzufügen",
-    "createColumn": "Neue Spalte erstellen",
-    "description": "Beschreibung",
-    "label": "Etikett",
-    "sameTag": "Sie können nicht dasselbe Tag hinzufügen!",
-    "tags": "Stichworte",
-    "title": "Titel",
-    "unnamedLabel": "Unbenanntes Etikett",
-    "archive": "Archivieren"
   },
   "login": {
     "facebookLink": "Weiter mit Facebook",

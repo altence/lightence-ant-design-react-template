@@ -28,7 +28,7 @@ Check out a [live demo](https://altence.com/lightence-landing).
 - 💯 60+ ready-to-use customizable UI components
 - 🚄 All-set business flow: login, sign up, forgot password, profile flows
 - 🐝 Custom pages: 400 error, 500 error, profile
-- 🗞️ Built-in apps: News Feed, Kanban
+- 🗞️ Built-in apps: News Feed
 - 👍 Fully typescripted
 - ✅ Clean code: enjoy the world-recognized code style with our own enhancements
 - 🧱 Solid architecture: in compliance with the  best architectural practices
