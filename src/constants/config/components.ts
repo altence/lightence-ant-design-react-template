@@ -119,13 +119,6 @@ export const components: Component[] = [
     keywords: ['feed', 'apps'],
   },
   {
-    name: 'Kanban',
-    title: 'common.kanban',
-    url: `/apps/kanban`,
-    categories: ['apps'],
-    keywords: ['kanban', 'apps', 'trello'],
-  },
-  {
     name: 'Log in',
     title: 'common.login',
     url: `/auth/login`,

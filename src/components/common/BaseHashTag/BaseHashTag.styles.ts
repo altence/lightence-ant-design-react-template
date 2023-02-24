@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { CloseOutlined } from '@ant-design/icons';
-import { TagSpan } from 'react-trello/dist/styles/Base';
 import { FONT_SIZE } from '@app/styles/themes/constants';
 
 export const RemoveTagWrapper = styled.span`
@@ -16,7 +15,15 @@ export const RemoveTagIcon = styled(CloseOutlined)`
   cursor: pointer;
 `;
 
-export const TagWrapper = styled(TagSpan)`
+// https://github.com/rcdexta/react-trello/blob/68cfec88a14312da00a5ca0e1a29bc8de40321d8/src/styles/Base.js#L210
+export const TagSpan = styled.span`
+  padding: 2px 3px;
+  border-radius: 3px;
+  margin: 2px 5px;
+  font-size: 70%;
+`;
+
+export const TagWrapper = styled.span`
   border-radius: 0.5rem;
   display: flex;
   justify-content: center;

@@ -168,7 +168,6 @@
     "info": "Information",
     "input": "Input",
     "inputCode": "Input 6 digit code",
-    "kanban": "Kanban",
     "keywords": "Any keywords?",
     "kg": "kg",
     "lastName": "Last Name",
@@ -513,18 +512,6 @@
     "sizes": "Input sizes",
     "small": "small size",
     "textarea": "Textarea"
-  },
-  "kanban": {
-    "addParticipant": "Set assignee",
-    "addTag": "Add tag",
-    "createColumn": "Create new column",
-    "description": "Description",
-    "label": "Label",
-    "sameTag": "You can't add the same tag!",
-    "tags": "Tags",
-    "title": "Title",
-    "unnamedLabel": "Unnamed label",
-    "archive": "Archive"
   },
   "login": {
     "facebookLink": "Continue with Facebook",

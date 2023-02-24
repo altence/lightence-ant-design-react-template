@@ -1,6 +1,6 @@
 import React from 'react';
 
-import GoogleMapReact from 'google-map-react';
+import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import { useTranslation } from 'react-i18next';
 
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
@@ -11,17 +11,28 @@ import { ErrorBoundary } from '@app/hocs/ErrorBoundary';
 const GoogleMaps: React.FC = () => {
   const { t } = useTranslation();
 
+  const { isLoaded, loadError } = useJsApiLoader({ googleMapsApiKey: '' });
+
+  if (loadError) {
+    return <>{loadError.message}</>;
+  }
+
   return (
     <ErrorBoundary>
       <PageTitle>{t('common.googleMap')}</PageTitle>
       <S.MapsCard title={t('common.googleMap')}>
-        <GoogleMapReact
-          defaultCenter={{
-            lat: 59.333772,
-            lng: 18.0644457,
-          }}
-          defaultZoom={6}
-        />
+        {isLoaded ? (
+          <GoogleMap
+            center={{
+              lat: 59.333772,
+              lng: 18.0644457,
+            }}
+            zoom={6}
+            mapContainerStyle={{ height: '100%', width: '100%' }}
+          />
+        ) : (
+          <></>
+        )}
       </S.MapsCard>
     </ErrorBoundary>
   );
