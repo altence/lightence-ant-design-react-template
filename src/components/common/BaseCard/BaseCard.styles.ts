@@ -17,6 +17,9 @@ export const Card = styled(AntCard)<CardInternalProps>`
   box-shadow: var(--box-shadow);
 
   .ant-card-head {
+    justify-content: end;
+    min-height: 50px;
+
     border-bottom: 0;
 
     font-weight: ${FONT_WEIGHT.bold};

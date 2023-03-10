@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { BaseInput } from '../BaseInput/BaseInput';
 
 export const InputPassword = styled(BaseInput.Password)`
+  font-family: inherit;
+
   .ant-input-password-icon.anticon {
     color: var(--disabled-color);
     &:hover {

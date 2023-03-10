@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { DayjsDatePicker } from '@app/components/common/pickers/DayjsDatePicker';
+import { BaseRangePicker } from '@app/components/common/pickers/BaseRangePicker';
 import { AppDate, Dates } from '@app/constants/Dates';
 
 const clearDate = Dates.getToday().hour(0).minute(0).second(0).millisecond(0);
@@ -23,7 +23,7 @@ export const TimeRangePicker: React.FC<TimePickerProps> = ({ timeRange, setTimeR
   };
 
   return (
-    <DayjsDatePicker.RangePicker
+    <BaseRangePicker
       value={[timeRangePrepared[0], timeRangePrepared[1]]}
       picker="time"
       format="HH:mm"

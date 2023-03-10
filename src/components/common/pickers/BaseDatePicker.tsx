@@ -1,10 +1,16 @@
 import React from 'react';
-import { PickerProps } from 'antd/lib/date-picker/generatePicker';
-import { DayjsDatePicker } from './DayjsDatePicker';
-import { AppDate } from 'constants/Dates';
+import { DatePicker } from 'antd';
+import type { DatePickerProps as BaseDatePickerProps } from 'antd';
+import styled from 'styled-components';
 
-export type BaseDatePickerProps = PickerProps<AppDate>;
+export type { BaseDatePickerProps };
+
+const StyledDatePicker = styled(DatePicker)`
+  & input {
+    font-family: inherit;
+  }
+`;
 
 export const BaseDatePicker = React.forwardRef<React.Component<BaseDatePickerProps>, BaseDatePickerProps>(
-  ({ className, ...props }, ref) => <DayjsDatePicker ref={ref} className={className} {...props} />,
+  ({ className, ...props }, ref) => <StyledDatePicker ref={ref} className={className} {...props} />,
 );

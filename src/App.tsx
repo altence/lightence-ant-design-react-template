@@ -13,6 +13,7 @@ import { usePWA } from './hooks/usePWA';
 import { useThemeWatcher } from './hooks/useThemeWatcher';
 import { useAppSelector } from './hooks/reduxHooks';
 import { themeObject } from './styles/themes/themeVariables';
+import { ThemeConfigProvider } from './styles/ThemeConfigProvider';
 
 const App: React.FC = () => {
   const { language } = useLanguage();
@@ -28,11 +29,13 @@ const App: React.FC = () => {
     <>
       <meta name="theme-color" content={themeObject[theme].primary} />
       <GlobalStyle />
-      <HelmetProvider>
-        <ConfigProvider locale={language === 'en' ? enUS : deDe}>
-          <AppRouter />
-        </ConfigProvider>
-      </HelmetProvider>
+      <ThemeConfigProvider theme={theme}>
+        <HelmetProvider>
+          <ConfigProvider locale={language === 'en' ? enUS : deDe}>
+            <AppRouter />
+          </ConfigProvider>
+        </HelmetProvider>
+      </ThemeConfigProvider>
     </>
   );
 };

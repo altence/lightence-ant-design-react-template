@@ -10,6 +10,17 @@ interface InternalFormItemProps {
 export type BaseFormItemProps = FormItemProps;
 
 export const BaseFormItem = styled(Form.Item)<InternalFormItemProps>`
+  .ant-input {
+    font-size: 1rem;
+    font-family: inherit;
+  }
+
+  .ant-input:disabled {
+    color: var(--disabled-color);
+    background-color: var(--disabled-bg-color);
+    cursor: not-allowed;
+  }
+
   .ant-form-item-label > label {
     color: var(--primary-color);
   }
