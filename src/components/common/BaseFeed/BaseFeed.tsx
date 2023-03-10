@@ -22,6 +22,7 @@ export const BaseFeed: React.FC<BaseFeedProps> = ({ next, hasMore, target = 'mai
         </S.SpinnerWrapper>
       }
       scrollableTarget={target}
+      style={{ overflow: 'visible' }}
     >
       <S.NewsWrapper>{children}</S.NewsWrapper>
     </InfiniteScroll>

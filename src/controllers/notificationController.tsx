@@ -2,7 +2,7 @@ import React from 'react';
 import { notification } from 'antd';
 import styled from 'styled-components';
 import { CheckCircleFilled, ExclamationCircleFilled, InfoCircleFilled, StopFilled } from '@ant-design/icons';
-import { ArgsProps } from 'antd/lib/notification';
+import { ArgsProps } from 'antd/lib/notification/interface';
 
 interface IconWrapperProps {
   $isOnlyTitle: boolean;

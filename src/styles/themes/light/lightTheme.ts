@@ -1,7 +1,6 @@
 import { shadeColor } from '@app/utils/utils';
 import { graphic } from 'echarts';
 import { BASE_COLORS } from '../constants';
-import { ITheme } from '../types';
 
 const chartColors = {
   chartTooltipLabel: '#6A7985',
@@ -45,9 +44,9 @@ const chartColors = {
       color: 'rgba(255, 82, 82, 0.5)',
     },
   ]),
-};
+} as const;
 
-export const lightColorsTheme: ITheme = {
+export const lightColorsTheme = {
   primary: '#01509A',
   primary1: '#f5f5f5',
   primaryGradient: 'linear-gradient(211.49deg, #006CCF 15.89%, #00509A 48.97%)',
@@ -105,4 +104,4 @@ export const lightColorsTheme: ITheme = {
   icon: '#a9a9a9',
   iconHover: 'rgba(0, 0, 0, 0.75)',
   ...chartColors,
-};
+} as const;

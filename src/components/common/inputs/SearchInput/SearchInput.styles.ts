@@ -4,6 +4,8 @@ import { BaseInput } from '../BaseInput/BaseInput';
 import { BaseSpace } from '../../BaseSpace/BaseSpace';
 
 export const SearchInput = styled(BaseInput.Search)`
+  font-family: inherit;
+
   & .ant-input-prefix {
     margin: 0.5rem;
   }

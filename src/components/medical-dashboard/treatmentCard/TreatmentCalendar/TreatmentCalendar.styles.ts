@@ -1,10 +1,6 @@
 import styled, { css } from 'styled-components';
-import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
-import generateCalendar from 'antd/lib/calendar/generateCalendar';
-import { AppDate } from '../../../../constants/Dates';
+import { BaseCalendar } from '@app/components/common/BaseCalendar/BaseCalendar';
 import { BORDER_RADIUS, FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
-
-const AntCalendar = generateCalendar<AppDate>(dayjsGenerateConfig);
 
 interface Event {
   $isPast: boolean;
@@ -43,7 +39,7 @@ export const Event = styled.div<Event>`
   border-radius: ${BORDER_RADIUS};
 `;
 
-export const Calendar = styled(AntCalendar)`
+export const TreatmentCalendar = styled(BaseCalendar)`
   .ant-picker-calendar-header {
     display: none;
   }

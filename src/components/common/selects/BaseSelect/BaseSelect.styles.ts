@@ -32,14 +32,6 @@ export const Select = styled(AntSelect)<InternalSelectProps>`
     color: var(--text-main-color);
   }
 
-  &.ant-select-multiple.ant-select-sm .ant-select-selection-item {
-    height: 0.875rem;
-    line-height: ${FONT_SIZE.xs};
-    font-size: ${FONT_SIZE.xs};
-    margin-top: 0.1875rem;
-    margin-bottom: 0.1875rem;
-  }
-
   &.ant-select-disabled.ant-select:not(.ant-select-customize-input) .ant-select-selector {
     color: var(--disabled-color);
   }
@@ -47,13 +39,28 @@ export const Select = styled(AntSelect)<InternalSelectProps>`
   .ant-select-clear {
     color: var(--disabled-color);
   }
+
   .ant-select-selection-item-remove {
     color: var(--icon-color);
     &:hover {
       color: var(--icon-hover-color);
     }
   }
+
   .ant-select-item-option-disabled {
     color: var(--disabled-color);
+  }
+
+  &.ant-select-disabled.ant-select-multiple .ant-select-selection-item {
+    background: var(--background-base-color);
+  }
+
+  &.ant-select-multiple {
+    .ant-select-selector {
+      padding: 5px 11px;
+    }
+    .ant-select-selection-item {
+      margin-inline-end: 11px;
+    }
   }
 `;

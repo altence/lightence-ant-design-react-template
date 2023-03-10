@@ -9,6 +9,7 @@ interface Header {
 
 export const Header = styled(BaseLayout.Header)<Header>`
   line-height: 1.5;
+  background: var(--layout-header-bg-color);
 
   @media only screen and ${media.md} {
     padding: ${LAYOUT.desktop.paddingVertical} ${LAYOUT.desktop.paddingHorizontal};
