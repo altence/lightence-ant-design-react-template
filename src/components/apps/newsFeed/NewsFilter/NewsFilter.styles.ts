@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { SearchOutlined, PlusCircleFilled, CloseOutlined } from '@ant-design/icons';
-import { BaseRangePicker } from '@app/components/common/pickers/BaseRangePicker';
+import { BaseDatePicker } from '@app/components/common/pickers/BaseDatePicker';
 import { BORDER_RADIUS, FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
 import { BasePopover } from '@app/components/common/BasePopover/BasePopover';
 import { BaseInput } from '@app/components/common/inputs/BaseInput/BaseInput';
@@ -114,7 +114,7 @@ export const Input = styled(BaseInput)`
   line-height: 1.375rem;
 `;
 
-export const RangePicker = styled(BaseRangePicker)`
+export const RangePicker = styled(BaseDatePicker.RangePicker)`
   width: 100%;
   margin-bottom: 0.875rem;
 

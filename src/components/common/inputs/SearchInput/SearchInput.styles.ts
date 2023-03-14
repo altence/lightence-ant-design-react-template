@@ -39,7 +39,8 @@ export const SearchInput = styled(BaseInput.Search)`
     font-size: ${FONT_SIZE.lg};
   }
 
-  .ant-input-search-button {
+  .ant-input-search-button,
+  .ant-input-search-button:hover {
     &.ant-btn .anticon {
       color: var(--primary-color);
     }

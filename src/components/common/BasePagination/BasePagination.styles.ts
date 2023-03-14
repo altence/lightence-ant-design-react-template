@@ -6,6 +6,59 @@ export const Pagination = styled(AntdPagination)`
     color: var(--disabled-color);
   }
 
+  :not(.ant-pagination-disabled),
+  &.ant-pagination-disabled {
+    .ant-pagination-item,
+    .ant-pagination-jump-prev,
+    .ant-pagination-jump-next {
+      &:focus-visible {
+        outline: none;
+      }
+    }
+    .ant-pagination-prev,
+    .ant-pagination-next {
+      &:focus-visible {
+        .ant-pagination-item-link {
+          outline: none;
+        }
+      }
+    }
+  }
+
+  :not(.ant-pagination-disabled) {
+    .ant-pagination-item:focus-visible {
+      a {
+        color: var(--ant-primary-color);
+      }
+      border-color: var(--ant-primary-color);
+    }
+
+    .ant-pagination-prev,
+    .ant-pagination-next {
+      &:focus-visible {
+        .ant-pagination-item-link {
+          color: var(--ant-primary-color);
+          border-color: var(--ant-primary-color);
+        }
+      }
+    }
+  }
+
+  &.ant-pagination-disabled {
+    .ant-pagination-jump-prev,
+    .ant-pagination-jump-next {
+      &:focus-visible,
+      &:hover {
+        .ant-pagination-item-link-icon {
+          opacity: 0;
+        }
+        .ant-pagination-item-ellipsis {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
   .ant-pagination-disabled {
     .ant-pagination-item-link,
     .ant-pagination-item a {
@@ -19,6 +72,7 @@ export const Pagination = styled(AntdPagination)`
       color: var(--disabled-color);
     }
   }
+
   & .ant-select-arrow {
     color: var(--disabled-color);
   }

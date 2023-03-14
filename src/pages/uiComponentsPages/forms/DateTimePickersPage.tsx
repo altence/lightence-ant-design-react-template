@@ -1,7 +1,5 @@
 import { useTranslation } from 'react-i18next';
 import { BaseDatePicker } from '@app/components/common/pickers/BaseDatePicker';
-import { BaseRangePicker } from '@app/components/common/pickers/BaseRangePicker';
-import { BaseTimePicker } from '@app/components/common/pickers/BaseTimePicker';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
@@ -27,13 +25,13 @@ const DateTimePickersPage: React.FC = () => {
         </S.Card>
         <S.Card title={t('dateTimePickers.disabled')}>
           <BaseDatePicker format="L" disabled />
-          <BaseRangePicker format="L" disabled />
+          <BaseDatePicker.RangePicker format="L" disabled />
         </S.Card>
         <S.Card title={t('dateTimePickers.range')}>
-          <BaseDatePicker format="L" />
+          <BaseDatePicker.RangePicker format="L" />
         </S.Card>
         <S.Card title={t('dateTimePickers.time')}>
-          <BaseTimePicker />
+          <BaseDatePicker.TimePicker />
         </S.Card>
       </BaseCol>
     </>

@@ -1,16 +1,21 @@
 import React from 'react';
-import { DatePicker } from 'antd';
-import type { DatePickerProps as BaseDatePickerProps } from 'antd';
-import styled from 'styled-components';
+import { DatePickerProps as BaseDatePickerProps } from 'antd';
+import * as S from './BaseDatePicker.styled';
 
 export type { BaseDatePickerProps };
 
-const StyledDatePicker = styled(DatePicker)`
-  & input {
-    font-family: inherit;
-  }
-`;
-
-export const BaseDatePicker = React.forwardRef<React.Component<BaseDatePickerProps>, BaseDatePickerProps>(
-  ({ className, ...props }, ref) => <StyledDatePicker ref={ref} className={className} {...props} />,
+const DatePicker = React.forwardRef<React.Component<BaseDatePickerProps>, BaseDatePickerProps>(
+  ({ className, ...props }, ref) => <S.DatePicker ref={ref} className={className} {...props} />,
 );
+
+type DatePickerForwardRef = typeof DatePicker;
+
+interface BaseDatePickerInterface extends DatePickerForwardRef {
+  RangePicker: typeof S.RangePicker;
+  TimePicker: typeof S.TimePicker;
+}
+
+export const BaseDatePicker = DatePicker as BaseDatePickerInterface;
+
+BaseDatePicker.RangePicker = S.RangePicker;
+BaseDatePicker.TimePicker = S.TimePicker;

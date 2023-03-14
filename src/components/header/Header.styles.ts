@@ -81,9 +81,13 @@ export const ProfileColumn = styled(BaseCol)<ProfileColumn>`
 `;
 
 export const GHButton = styled(GitHubButton)`
-  display: none;
+  &.ant-btn {
+    display: none;
+  }
 
   @media only screen and ${media.lg} {
-    display: block;
+    &.ant-btn {
+      display: flex;
+    }
   }
 `;
