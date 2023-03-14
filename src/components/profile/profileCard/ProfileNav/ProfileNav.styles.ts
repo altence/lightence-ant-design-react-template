@@ -18,7 +18,7 @@ export const Btn = styled(BaseButton)<BtnProps>`
   justify-content: unset !important;
   width: 100%;
 
-  &:hover {
+  &.ant-btn:not(:disabled):hover {
     background-color: rgba(var(--primary-rgb-color), 0.05);
   }
 

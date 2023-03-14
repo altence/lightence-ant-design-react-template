@@ -51,7 +51,7 @@ export const TreatmentCalendar: React.FC<TreatmentCalendarProps> = ({
         </BaseCol>
 
         <BaseCol span={24}>
-          <S.TreatmentCalendar
+          <S.Calendar
             locale={locale}
             dateCellRender={(value) => {
               const today = Dates.getToday();

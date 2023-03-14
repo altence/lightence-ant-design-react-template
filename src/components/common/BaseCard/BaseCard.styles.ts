@@ -17,8 +17,9 @@ export const Card = styled(AntCard)<CardInternalProps>`
   box-shadow: var(--box-shadow);
 
   .ant-card-head {
-    justify-content: end;
-    min-height: 50px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    min-height: 36px;
 
     border-bottom: 0;
 
@@ -28,6 +29,12 @@ export const Card = styled(AntCard)<CardInternalProps>`
       white-space: unset;
       overflow: unset;
       padding-bottom: 0;
+    }
+
+    @media only screen and ${media.md} {
+      padding-top: 20px;
+      padding-bottom: 0;
+      min-height: 48px;
     }
 
     @media only screen and ${media.xl} {

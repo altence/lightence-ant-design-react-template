@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import { Button as AntButton } from 'antd';
 import { Severity } from '@app/interfaces/interfaces';
 import { defineColorBySeverity } from '@app/utils/utils';
+import { FONT_WEIGHT } from '@app/styles/themes/constants';
 
 interface BtnProps {
   $severity?: Severity;
@@ -14,7 +15,9 @@ export const Button = styled(AntButton)<BtnProps>`
   justify-content: center;
   gap: 0.3rem;
 
-  font-weight: 600;
+  transition-duration: 0.3s;
+
+  font-weight: ${FONT_WEIGHT.semibold};
   box-shadow: none;
 
   &.ant-btn.ant-btn-icon-only > span {
@@ -40,66 +43,50 @@ export const Button = styled(AntButton)<BtnProps>`
     color: var(--disabled-color);
   }
 
+  &.ant-btn-dangerous {
+    &.ant-btn-primary {
+      box-shadow: none;
+    }
+
+    &.ant-btn-text:not(:disabled):hover {
+      background-color: transparent;
+    }
+  }
+
   ${(props) =>
     !props.danger &&
     css`
-      transition-duration: 0.3s;
-
-      ${props.$severity &&
-      css`
-        box-shadow: none;
-        text-shadow: none;
-        background: rgba(${defineColorBySeverity(props.$severity, true)}, 0.2);
-
-        border-color: ${defineColorBySeverity(props.$severity)};
-
-        color: ${defineColorBySeverity(props.$severity)};
-
-        &:focus,
-        &:not(:disabled):hover {
-          background: var(--background-color);
-
-          border-color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9);
-
-          color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9);
-        }
-      `}
-
-      ${(typeof props.type === 'undefined' || props.type === 'default' || props.type === 'dashed') &&
-      css`
+      &.ant-btn-default,
+      &.ant-btn-dashed {
         &:focus {
           background-color: var(--background-color);
         }
 
-        ${props.$severity === 'info' &&
-        css`
-          &:focus,
-          &:not(:disabled):hover {
-            color: var(--ant-primary-color-hover);
-            border-color: var(--ant-primary-color-hover);
-          }
-        `}
-      `}
+        &:focus,
+        &:not(:disabled):hover {
+          color: var(--ant-primary-color-hover);
+          border-color: var(--ant-primary-color-hover);
+        }
+      }
 
-      ${props.type === 'text' &&
-      css`
+      &.ant-btn-text {
         &:focus {
-          background-color: rgba(0, 0, 0, 0.02);
+          background-color: rgba(0, 0, 0, 0.018);
         }
 
         &:not(:disabled):hover {
           background: transparent;
           color: var(--secondary-color);
         }
-      `}
+      }
 
-      ${props.type === 'ghost' &&
-      css`
+      &.ant-btn-ghost {
         color: var(--primary-color);
         border-color: var(--primary-color);
 
         &:disabled {
           cursor: not-allowed;
+          color: var(--disabled-color);
           border-color: var(--border-base-color);
           background-color: var(--disabled-bg-color);
         }
@@ -111,13 +98,11 @@ export const Button = styled(AntButton)<BtnProps>`
 
         &:not(:disabled):hover {
           color: var(--secondary-color);
-
           border-color: var(--secondary-color);
         }
-      `}
+      }
 
-      ${props.type === 'primary' &&
-      css`
+      &.ant-btn-primary:not(:disabled) {
         background: var(--primary-color);
 
         &:focus {
@@ -125,16 +110,19 @@ export const Button = styled(AntButton)<BtnProps>`
           background: var(--ant-primary-color-hover);
         }
 
-        &:not(:disabled):hover {
+        &:hover {
           background: var(--secondary-color);
 
           border-color: var(--secondary-color);
         }
-      `}
+      }
 
-      ${props.type === 'link' &&
-      css`
+      &.ant-btn-link {
         color: var(--primary-color);
+
+        &:disabled {
+          color: var(--disabled-color);
+        }
 
         &:focus {
           color: var(--ant-primary-color-hover);
@@ -149,6 +137,24 @@ export const Button = styled(AntButton)<BtnProps>`
         a {
           text-decoration: underline;
         }
-      `};
+      }
+
+      ${props.$severity &&
+      css`
+        background: rgba(${defineColorBySeverity(props.$severity, true)}, 0.2);
+
+        border-color: ${defineColorBySeverity(props.$severity)};
+
+        color: ${defineColorBySeverity(props.$severity)};
+
+        &.ant-btn-default:focus,
+        &.ant-btn-default:not(:disabled):hover {
+          background: var(--background-color);
+
+          border-color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9);
+
+          color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9);
+        }
+      `}
     `}
 `;

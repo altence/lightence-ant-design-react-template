@@ -7,4 +7,8 @@ export const Alert = styled(AntAlert)`
   .ant-alert-message {
     color: var(--black);
   }
+
+  .ant-alert-action {
+    margin-inline-start: 8px;
+  }
 `;

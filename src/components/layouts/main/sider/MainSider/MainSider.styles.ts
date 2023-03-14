@@ -6,7 +6,10 @@ import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { BaseLayout } from '@app/components/common/BaseLayout/BaseLayout';
 
 export const Sider = styled(BaseLayout.Sider)`
-  position: fixed;
+  &.ant-layout-sider {
+    position: fixed;
+  }
+
   overflow: visible;
   right: 0;
   z-index: 5;
@@ -21,7 +24,9 @@ export const Sider = styled(BaseLayout.Sider)`
   }
 
   @media only screen and ${media.xl} {
-    position: unset;
+    &.ant-layout-sider {
+      position: unset;
+    }
   }
 `;
 
@@ -41,13 +46,13 @@ export const CollapseButton = styled(BaseButton)<{ $isCollapsed: boolean }>`
 
   color: var(--text-secondary-color);
 
-  &:hover {
+  &.ant-btn:not(:disabled):hover {
     color: var(--text-secondary-color);
     background: var(--primary-color);
     border: 1px solid var(--border-color);
   }
 
-  &:focus {
+  &.ant-btn:not(:disabled):focus {
     color: var(--text-secondary-color);
     background: var(--primary-color);
     border: 1px solid var(--border-color);

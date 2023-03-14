@@ -39,7 +39,7 @@ export const Event = styled.div<Event>`
   border-radius: ${BORDER_RADIUS};
 `;
 
-export const TreatmentCalendar = styled(BaseCalendar)`
+export const Calendar = styled(BaseCalendar)`
   .ant-picker-calendar-header {
     display: none;
   }
