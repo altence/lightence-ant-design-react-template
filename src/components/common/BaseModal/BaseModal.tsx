@@ -1,16 +1,17 @@
 import React from 'react';
 import { Modal, ModalProps } from 'antd';
 import { modalSizes } from 'constants/modalSizes';
+import { ModalTypes } from './BaseModal.styles';
 
 interface BaseModalProps extends ModalProps {
   size?: 'small' | 'medium' | 'large';
 }
 
 interface BaseModalInterface extends React.FC<BaseModalProps> {
-  info: typeof Modal.info;
-  success: typeof Modal.success;
-  warning: typeof Modal.warning;
-  error: typeof Modal.error;
+  info: typeof ModalTypes.info;
+  success: typeof ModalTypes.success;
+  warning: typeof ModalTypes.warning;
+  error: typeof ModalTypes.error;
 }
 
 export const BaseModal: BaseModalInterface = ({ size = 'medium', children, ...props }) => {
@@ -23,7 +24,7 @@ export const BaseModal: BaseModalInterface = ({ size = 'medium', children, ...pr
   );
 };
 
-BaseModal.info = Modal.info;
-BaseModal.success = Modal.success;
-BaseModal.warning = Modal.warning;
-BaseModal.error = Modal.error;
+BaseModal.info = ModalTypes.info;
+BaseModal.success = ModalTypes.success;
+BaseModal.warning = ModalTypes.warning;
+BaseModal.error = ModalTypes.error;

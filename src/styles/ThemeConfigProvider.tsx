@@ -3,6 +3,8 @@ import { ConfigProvider } from 'antd';
 import { ThemeType } from '@app/interfaces/interfaces';
 
 import { FONT_SIZE, BORDER_RADIUS, FONT_WEIGHT, BREAKPOINTS } from '@app/styles/themes/constants';
+import { themeObject } from './themes/themeVariables';
+import { hexToRGB } from '@app/utils/utils';
 
 export interface ThemeConfigProviderProps extends PropsWithChildren {
   theme: ThemeType;
@@ -43,7 +45,7 @@ export const ThemeConfigProvider = ({ theme, children }: ThemeConfigProviderProp
 
             colorBgElevated: 'var(--background-color)',
 
-            colorFillAlter: `rgba(var(--primary-rgb-color), 0.05)`,
+            colorFillAlter: `rgba(${hexToRGB(themeObject[theme].primary)}, 0.05)`,
 
             colorTextPlaceholder: 'var(--input-placeholder-color)',
 
@@ -181,9 +183,11 @@ export const ThemeConfigProvider = ({ theme, children }: ThemeConfigProviderProp
             colorBorderSecondary: '#b3cbe1',
 
             colorTextHeading: 'var(--primary-color)',
+            colorFillAlter: `rgba(${hexToRGB(themeObject[theme].primary)}, 0.05)`,
+
             controlItemBgActive: 'var(--ant-primary-1)',
-            controlItemBgActiveHover: `rgba(var(--primary-rgb-color), 0.12)`,
-            colorBgContainer: `rgba(var(--primary-rgb-color), 0.003)`,
+            controlItemBgActiveHover: `rgba(${hexToRGB(themeObject[theme].primary)}, 0.12)`,
+            colorBgContainer: `rgba(${hexToRGB(themeObject[theme].primary)}, 0.003)`,
           },
           Checkbox: {
             // @checkbox-check-bg: transparent;
@@ -292,7 +296,7 @@ export const ThemeConfigProvider = ({ theme, children }: ThemeConfigProviderProp
             colorTextDisabled: 'var(--disabled-color)',
 
             fontWeightStrong: parseInt(FONT_WEIGHT.semibold),
-            colorFillAlter: `rgba(var(--primary-rgb-color), 0.05)`,
+            colorFillAlter: `rgba(${hexToRGB(themeObject[theme].primary)}, 0.05)`,
           },
           InputNumber: {
             colorPrimary: 'var(--ant-primary-5)',
@@ -374,7 +378,7 @@ export const ThemeConfigProvider = ({ theme, children }: ThemeConfigProviderProp
           },
           DatePicker: {
             colorIcon: 'var(--text-light-color)',
-            colorPrimary: 'var(--ant-primary-color)',
+            colorPrimary: '#1c68a6', // var(--ant-primary-5) in light theme
             controlItemBgActive: 'var(--ant-primary-1)',
             colorTextPlaceholder: 'var(--input-placeholder-color)',
             fontWeightStrong: parseInt(FONT_WEIGHT.medium),
@@ -385,7 +389,7 @@ export const ThemeConfigProvider = ({ theme, children }: ThemeConfigProviderProp
             controlHeight: 34,
           },
           Upload: {
-            colorFillAlter: `rgba(var(--primary-rgb-color), 0.05)`,
+            colorFillAlter: `rgba(${hexToRGB(themeObject[theme].primary)}, 0.05)`,
             colorPrimaryHover: 'var(--ant-primary-5)',
           },
         },
