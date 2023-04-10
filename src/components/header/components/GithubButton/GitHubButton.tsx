@@ -18,9 +18,9 @@ const Button = styled(BaseButton)<{ $isDark: boolean }>`
 
   align-items: center;
 
-  &:not(:disabled):hover,
-  &:not(:disabled):active,
-  &:not(:disabled):focus {
+  &.ant-btn-default:not(:disabled):hover,
+  &.ant-btn-default:not(:disabled):active,
+  &.ant-btn-default:not(:disabled):focus {
     color: ${(props) => BASE_COLORS[props.$isDark ? 'black' : 'white']};
     background: ${(props) => BASE_COLORS[props.$isDark ? 'white' : 'black']};
   }

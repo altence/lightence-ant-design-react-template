@@ -2,7 +2,14 @@ import { PropsWithChildren } from 'react';
 import { ConfigProvider } from 'antd';
 import { ThemeType } from '@app/interfaces/interfaces';
 
-import { FONT_SIZE, BORDER_RADIUS, FONT_WEIGHT, BREAKPOINTS } from '@app/styles/themes/constants';
+import {
+  FONT_FAMILY,
+  FONT_SIZE,
+  FONT_WEIGHT,
+  BORDER_RADIUS,
+  BREAKPOINTS,
+  BASE_COLORS,
+} from '@app/styles/themes/constants';
 import { themeObject } from './themes/themeVariables';
 import { hexToRGB } from '@app/utils/utils';
 
@@ -10,44 +17,45 @@ export interface ThemeConfigProviderProps extends PropsWithChildren {
   theme: ThemeType;
 }
 
+const remToPixels = (s: `${number}rem`) => parseFloat(s) * 16;
+
 export const ThemeConfigProvider = ({ theme, children }: ThemeConfigProviderProps): JSX.Element => {
+  const currentTheme = themeObject[theme];
+
+  const colorFillAlter = `rgba(${hexToRGB(currentTheme.primary)}, 0.05)`;
+
+  const fontFamily = `'${FONT_FAMILY.main}', sans-serif`;
+
   return (
     <ConfigProvider
       theme={{
         token: {
           ...{
-            colorPrimary: 'var(--primary-color)',
+            colorPrimary: currentTheme.primary,
 
-            boxShadow: 'var(--box-shadow)',
+            boxShadow: currentTheme.boxShadow,
 
-            // @heading-color: var(--heading-color);
-            colorTextHeading: 'var(--heading-color)',
+            colorTextHeading: currentTheme.heading,
 
-            // @component-background: var(--background-color);
-            colorBgContainer: 'var(--background-color)',
+            colorBgContainer: currentTheme.background,
 
-            // @text-color: var(--text-main-color);
-            colorText: 'var(--text-main-color)',
+            colorText: currentTheme.textMain,
 
-            // @item-hover-bg: var(--item-hover-bg);
-            controlItemBgHover: 'var(--item-hover-bg)',
+            controlItemBgHover: currentTheme.itemHoverBg,
 
-            // @background-color-base: var(--background-base-color);
-            colorBgBase: 'var(--background-base-color)',
+            colorBgBase: currentTheme.backgroundColorBase,
 
-            // @border-color-base: var(--border-base-color);
-            colorBorder: 'var(--border-base-color)',
+            colorBorder: currentTheme.borderBase,
 
-            // @disabled-bg: var(--disabled-bg-color);
-            colorBgContainerDisabled: 'var(--disabled-bg-color)',
+            colorBgContainerDisabled: currentTheme.disabledBg,
 
-            colorTextDisabled: 'var(--disabled-color)',
+            colorTextDisabled: currentTheme.disable,
 
-            colorBgElevated: 'var(--background-color)',
+            colorBgElevated: currentTheme.background,
 
-            colorFillAlter: `rgba(${hexToRGB(themeObject[theme].primary)}, 0.05)`,
+            colorFillAlter,
 
-            colorTextPlaceholder: 'var(--input-placeholder-color)',
+            colorTextPlaceholder: currentTheme.inputPlaceholder,
 
             colorPrimaryHover: 'var(--ant-primary-5)',
           },
@@ -59,38 +67,28 @@ export const ThemeConfigProvider = ({ theme, children }: ThemeConfigProviderProp
             : {}),
           // base override
 
-          // @font-family: 'Montserrat', sans-serif;
-          fontFamily: "'Montserrat', sans-serif",
+          fontFamily,
 
-          // @font-size-base: 16px;
-          fontSize: parseFloat(FONT_SIZE.md) * 16,
+          fontSize: remToPixels(FONT_SIZE.md),
 
-          // @font-size-sm: @font-size-base - 2px;
-          fontSizeSM: parseFloat(FONT_SIZE.xs) * 16,
+          fontSizeSM: remToPixels(FONT_SIZE.xs),
 
-          // @height-sm: 32px;
           controlHeightSM: 32,
 
-          // @height-base: 50px;
           controlHeight: 50,
 
-          // @height-lg: 64px;
           controlHeightLG: 64,
 
-          // @border-radius-base: 7px;
-          borderRadius: parseInt(BORDER_RADIUS),
+          borderRadius: parseFloat(BORDER_RADIUS),
 
-          // @border-color-split: #f0f0f0;
           colorSplit: '#f0f0f0',
 
           // Media queries
 
-          // @screen-xs: 360px;
           screenXSMin: BREAKPOINTS.xs,
           screenXS: BREAKPOINTS.xs,
           screenXSMax: BREAKPOINTS.xs,
 
-          // @screen-sm: 568px;
           screenSMMin: BREAKPOINTS.sm,
           screenSM: BREAKPOINTS.sm,
           screenSMMax: BREAKPOINTS.sm,
@@ -103,38 +101,28 @@ export const ThemeConfigProvider = ({ theme, children }: ThemeConfigProviderProp
           screenLG: BREAKPOINTS.lg,
           screenLGMax: BREAKPOINTS.lg,
 
-          // @screen-xl: 1280px;
           screenXLMin: BREAKPOINTS.xl,
           screenXL: BREAKPOINTS.xl,
           screenXLMax: BREAKPOINTS.xl,
 
-          // @screen-xxl: 1920px;
           screenXXLMin: BREAKPOINTS.xxl,
           screenXXL: BREAKPOINTS.xxl,
         },
+        // Some component tokens do not properly parse CSS variables.
         components: {
           Layout: {
-            // @layout-header-height: 4.25rem;
             controlHeight: 34,
 
-            // @layout-header-padding: 1rem;
             controlHeightLG: 12.8,
 
-            // @layout-body-background: var(--layout-body-bg-color);
-            colorBgBody: 'var(--layout-body-bg-color)',
+            colorBgBody: currentTheme.layoutBodyBg,
 
-            /* 
-              @layout-header-background: var(--layout-header-bg-color);
-              @layout-sider-background: var(--layout-sider-bg-color);
-            */
-            colorBgHeader: 'var(--layout-sider-bg-color)',
+            colorBgHeader: currentTheme.layoutSiderBg,
           },
           Alert: {
-            // @alert-info-bg-color: #dfefff;
             colorInfoBg: '#dfefff',
 
-            // @alert-text-color: var(--alert-text-color);
-            colorText: 'var(--alert-text-color)',
+            colorText: currentTheme.alertTextColor,
 
             marginXS: 8,
 
@@ -144,83 +132,69 @@ export const ThemeConfigProvider = ({ theme, children }: ThemeConfigProviderProp
             paddingMD: 15,
             paddingContentHorizontalLG: 15,
 
-            borderRadiusLG: parseInt(BORDER_RADIUS),
+            borderRadiusLG: parseFloat(BORDER_RADIUS),
           },
           Card: {
-            // @card-head-color: @text-color;
-            colorTextHeading: 'var(--text-main-color)',
+            colorTextHeading: currentTheme.textMain,
 
-            // @card-head-padding: 20px;
             padding: 20,
 
-            // @card-head-font-size: 18px;
             fontSize: 18,
 
-            // @card-head-font-size-sm: @font-size-base;
-            fontSizeSM: parseFloat(FONT_SIZE.md) * 16,
+            fontSizeSM: remToPixels(FONT_SIZE.md),
 
-            // @card-padding-base: 20px;
             paddingLG: 20,
 
-            boxShadowTertiary: 'var(--box-shadow)',
-            borderRadiusLG: parseInt(BORDER_RADIUS),
-
-            // @card-padding-base-sm: 15px;
-            // paddingXS: 15,
+            boxShadowTertiary: currentTheme.boxShadow,
+            borderRadiusLG: parseFloat(BORDER_RADIUS),
           },
-          Collapse: {
-            //
-          },
+          Collapse: {},
           Tabs: {
             colorPrimaryHover: 'var(--ant-primary-5)',
             colorPrimary: 'var(--ant-primary-color)',
           },
           Table: {
-            // @table-border-radius-base: 0;
             borderRadiusLG: 0,
 
-            // @table-border-color: #b3cbe1;
             colorBorderSecondary: '#b3cbe1',
 
-            colorTextHeading: 'var(--primary-color)',
-            colorFillAlter: `rgba(${hexToRGB(themeObject[theme].primary)}, 0.05)`,
+            colorTextHeading: currentTheme.primary,
+            colorFillAlter,
 
             controlItemBgActive: 'var(--ant-primary-1)',
-            controlItemBgActiveHover: `rgba(${hexToRGB(themeObject[theme].primary)}, 0.12)`,
-            colorBgContainer: `rgba(${hexToRGB(themeObject[theme].primary)}, 0.003)`,
+            controlItemBgActiveHover: `rgba(${hexToRGB(currentTheme.primary)}, 0.12)`,
+            colorBgContainer: `rgba(${hexToRGB(currentTheme.primary)}, 0.003)`,
           },
           Checkbox: {
-            // @checkbox-check-bg: transparent;
             colorBgContainer: 'transparent',
 
-            colorPrimary: 'var(--primary-color)',
-            colorTextDisabled: 'var(--disabled-color)',
+            colorPrimary: currentTheme.primary,
+            colorTextDisabled: currentTheme.disable,
             controlInteractiveSize: 16,
             marginXS: 0,
           },
           Tag: {
-            // @tag-font-size: @font-size-sm;
-            fontSize: parseFloat(FONT_SIZE.xs) * 16,
+            fontSize: remToPixels(FONT_SIZE.xs),
           },
           Select: {
-            fontSizeSM: parseFloat(FONT_SIZE.xs) * 16,
-            borderRadiusXS: parseInt(BORDER_RADIUS),
-            borderRadiusSM: parseInt(BORDER_RADIUS),
+            fontSizeSM: remToPixels(FONT_SIZE.xs),
+            borderRadiusXS: parseFloat(BORDER_RADIUS),
+            borderRadiusSM: parseFloat(BORDER_RADIUS),
 
-            colorFillSecondary: 'var(--background-base-color)',
-            colorIcon: 'var(--icon-color)',
+            colorFillSecondary: currentTheme.backgroundColorBase,
+            colorIcon: currentTheme.icon,
             colorPrimary: 'var(--ant-primary-color)',
             colorPrimaryHover: 'var(--ant-primary-5)',
             controlItemBgActive: 'var(--ant-primary-1)',
-            controlItemBgHover: 'var(--item-hover-bg)',
+            controlItemBgHover: currentTheme.itemHoverBg,
           },
           Steps: {
             wireframe: true,
             controlHeight: 32,
             controlHeightSM: 24,
             fontSizeHeading3: 24,
-            colorPrimary: 'var(--primary-color)',
-            colorTextDescription: 'var(--subtext-color)',
+            colorPrimary: currentTheme.primary,
+            colorTextDescription: currentTheme.subText,
           },
           Spin: {
             controlHeight: 32,
@@ -238,15 +212,13 @@ export const ThemeConfigProvider = ({ theme, children }: ThemeConfigProviderProp
             controlHeight: 32,
 
             colorPrimary: 'var(--ant-primary-color)',
-            colorWhite: 'var(--background-color)',
+            colorWhite: currentTheme.background,
             opacityLoading: 0.4,
           },
           Menu: {
-            // @menu-item-height: @height-base;
             controlHeightLG: 50,
 
-            // @menu-icon-size: 1.25rem;
-            fontSize: parseFloat(FONT_SIZE.xl) * 16,
+            fontSize: remToPixels(FONT_SIZE.xl),
 
             colorItemTextSelected: 'var(--ant-primary-color)',
             colorActiveBarWidth: 3,
@@ -254,49 +226,43 @@ export const ThemeConfigProvider = ({ theme, children }: ThemeConfigProviderProp
             marginXXS: 8,
           },
           Popover: {
-            // @zindex-popover: 2000;
             zIndexPopup: 2000,
 
             wireframe: true,
             controlHeight: 34,
           },
           Popconfirm: {
-            fontWeightStrong: parseInt(FONT_WEIGHT.semibold),
-            colorPrimary: 'var(--primary-color)',
+            fontWeightStrong: parseFloat(FONT_WEIGHT.semibold),
+            colorPrimary: currentTheme.primary,
           },
           Notification: {
-            // @zindex-notification: 9999;
             zIndexPopup: 9999,
 
-            // .ant-notification-notice {
-            // width: 36rem;
             width: 36 * 16,
 
-            // padding: 2rem;
             paddingMD: 2 * 16,
             paddingContentHorizontalLG: 2 * 16,
 
             lineHeightLG: 2.8125,
 
-            colorSuccess: 'var(--success-color)',
-            colorInfo: 'var(--primary-color)',
-            colorWarning: 'var(--warning-color)',
-            colorError: 'var(--error-color)',
+            colorSuccess: currentTheme.notificationSuccess,
+            colorInfo: currentTheme.primary,
+            colorWarning: currentTheme.notificationWarning,
+            colorError: currentTheme.notificationError,
 
-            fontWeightStrong: parseInt(FONT_WEIGHT.semibold),
+            fontFamily,
+            fontWeightStrong: parseFloat(FONT_WEIGHT.semibold),
             fontSize: 500,
             fontSizeLG: 500,
             fontSizeHeading3: 24,
           },
           Input: {
-            // @input-placeholder-color: var(--input-placeholder-color);
-            colorTextPlaceholder: 'var(--input-placeholder-color)',
-
-            // @input-disabled-color: var(--disabled-color);
-            colorTextDisabled: 'var(--disabled-color)',
-
-            fontWeightStrong: parseInt(FONT_WEIGHT.semibold),
-            colorFillAlter: `rgba(${hexToRGB(themeObject[theme].primary)}, 0.05)`,
+            colorTextPlaceholder: currentTheme.inputPlaceholder,
+            colorTextDisabled: currentTheme.disable,
+            colorPrimaryHover: 'var(--ant-primary-5)',
+            controlOutline: 'var(--ant-primary-color-outline)',
+            fontWeightStrong: parseFloat(FONT_WEIGHT.semibold),
+            colorFillAlter,
           },
           InputNumber: {
             colorPrimary: 'var(--ant-primary-5)',
@@ -305,9 +271,8 @@ export const ThemeConfigProvider = ({ theme, children }: ThemeConfigProviderProp
             colorInfoBorderHover: 'var(--ant-primary-color-hover)',
           },
           Avatar: {
-            // @avatar-bg: var(--avatar-bg);
-            colorTextPlaceholder: 'var(--avatar-bg)',
-            colorBorderBg: 'var(--white)',
+            colorTextPlaceholder: currentTheme.avatarBg,
+            colorBorderBg: BASE_COLORS.white,
             controlHeightSM: 24,
             controlHeight: 32,
             controlHeightLG: 40,
@@ -318,31 +283,24 @@ export const ThemeConfigProvider = ({ theme, children }: ThemeConfigProviderProp
             fontSizeSM: 12,
           },
           Button: {
-            colorPrimary: 'var(--primary-color)',
-            borderRadiusSM: parseInt(BORDER_RADIUS),
+            colorPrimary: currentTheme.primary,
+            borderRadiusSM: parseFloat(BORDER_RADIUS),
             controlOutline: '0',
             controlOutlineWidth: 0,
           },
           Breadcrumb: {
-            /*
-              @breadcrumb-base-color: var(--breadcrumb-color);
-              @breadcrumb-link-color: var(--breadcrumb-color);
-              @breadcrumb-separator-color: var(--breadcrumb-color);
-            */
-            colorTextDescription: 'var(--breadcrumb-color)',
+            colorTextDescription: currentTheme.breadcrumb,
           },
           Rate: {
-            // @rate-star-color: #ffc24b;
             'yellow-6': '#ffc24b',
             colorFillContent: '#f0f0f0',
           },
           Radio: {
-            // @radio-disabled-button-checked-color: var(--disabled-color);
             colorPrimary: 'var(--ant-primary-color)',
             controlItemBgActiveDisabled: '#e6e6e6',
           },
           Result: {
-            fontSizeHeading3: parseFloat(FONT_SIZE.xxl) * 16,
+            fontSizeHeading3: remToPixels(FONT_SIZE.xxl),
           },
           Pagination: {
             wireframe: true,
@@ -359,29 +317,26 @@ export const ThemeConfigProvider = ({ theme, children }: ThemeConfigProviderProp
             colorBorderSecondary: '#e1e1e1',
             colorFillContentHover: '#e1e1e1',
 
-            colorFillTertiary: 'var(--background-base-color)',
+            colorFillTertiary: currentTheme.backgroundColorBase,
 
             handleSize: 8,
 
-            // @slider-disabled-color: var(--disabled-color);
-            colorTextDisabled: 'var(--disabled-color)',
+            colorTextDisabled: currentTheme.disable,
           },
           Modal: {
-            // @modal-close-color: var(--icon-color);
-            colorTextDescription: 'var(--icon-color)',
+            colorTextDescription: currentTheme.icon,
             wireframe: true,
           },
           Progress: {
             marginXS: 0,
-            // @progress-remaining-color: var(--background-base-color);
-            colorFillSecondary: 'var(--background-base-color)',
+            colorFillSecondary: currentTheme.backgroundColorBase,
           },
           DatePicker: {
-            colorIcon: 'var(--text-light-color)',
-            colorPrimary: '#1c68a6', // var(--ant-primary-5) in light theme
+            colorIcon: currentTheme.textLight,
+            colorPrimary: '#1c68a6',
             controlItemBgActive: 'var(--ant-primary-1)',
-            colorTextPlaceholder: 'var(--input-placeholder-color)',
-            fontWeightStrong: parseInt(FONT_WEIGHT.medium),
+            colorTextPlaceholder: currentTheme.inputPlaceholder,
+            fontWeightStrong: parseFloat(FONT_WEIGHT.medium),
             controlHeightSM: 32,
             controlHeightLG: 64,
           },
@@ -389,7 +344,7 @@ export const ThemeConfigProvider = ({ theme, children }: ThemeConfigProviderProp
             controlHeight: 34,
           },
           Upload: {
-            colorFillAlter: `rgba(${hexToRGB(themeObject[theme].primary)}, 0.05)`,
+            colorFillAlter,
             colorPrimaryHover: 'var(--ant-primary-5)',
           },
         },

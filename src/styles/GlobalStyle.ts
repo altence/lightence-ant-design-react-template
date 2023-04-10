@@ -1,14 +1,12 @@
-import { createGlobalStyle } from 'styled-components';
+import * as styled from 'styled-components';
 import { resetCss } from './resetCss';
-import { BREAKPOINTS, FONT_SIZE, FONT_WEIGHT, media } from './themes/constants';
+import { BREAKPOINTS, FONT_WEIGHT, media } from './themes/constants';
 import {
   lightThemeVariables,
   darkThemeVariables,
   commonThemeVariables,
   antOverrideCssVariables,
 } from './themes/themeVariables';
-
-const styled = { createGlobalStyle }; // https://github.com/prettier/prettier/issues/11196#issuecomment-951878725
 
 export default styled.createGlobalStyle`
   ${resetCss}
@@ -60,15 +58,6 @@ export default styled.createGlobalStyle`
     :active {
       color: var(--ant-primary-color-hover);
     }
-  }
-
-  .ant-input:hover,
-  .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
-    border-color: var(--ant-primary-5);
-  }
-
-  .ant-input:focus {
-    box-shadow: 0 0 0 2px var(--ant-primary-color-outline);
   }
 
   .ant-picker-cell {
@@ -124,81 +113,24 @@ export default styled.createGlobalStyle`
       }
     }
 
-    .title {
-      font-size: ${FONT_SIZE.xxl};
-      height: 3rem;
-      margin-left: 1.5rem;
-      display: flex;
-      align-items: center;
-      font-weight: ${FONT_WEIGHT.bold};
-
-      &.title-only {
-        color: var(--text-main-color);
-        font-size: ${FONT_SIZE.md};
-        height: 2rem;
-        line-height: 2rem;
-        margin-left: 0.75rem;
-        font-weight: ${FONT_WEIGHT.semibold};
-      }
-    }
-
-    .description {
-      color: #404040;
-      font-size: ${FONT_SIZE.md};
-      font-weight: ${FONT_WEIGHT.semibold};
-      line-height: 1.375rem;
-    }
-
     &.ant-notification-notice-success {
       border: 1px solid var(--success-color);
       background: var(--notification-success-color);
-
-      .title {
-        color: var(--success-color);
-      }
     }
 
     &.ant-notification-notice-info {
       border: 1px solid var(--primary-color);
       background: var(--notification-primary-color);
-
-      .title {
-        color: var(--primary-color);
-      }
     }
 
     &.ant-notification-notice-warning {
       border: 1px solid var(--warning-color);
       background: var(--notification-warning-color);
-
-      .title {
-        color: var(--warning-color);
-      }
     }
 
     &.ant-notification-notice-error {
       border: 1px solid var(--error-color);
       background: var(--notification-error-color);
-
-      .title {
-        color: var(--error-color);
-      }
-    }
-
-    .success-icon {
-      color: var(--success-color);
-    }
-
-    .info-icon {
-      color: var(--primary-color);
-    }
-
-    .warning-icon {
-      color: var(--warning-color);
-    }
-
-    .error-icon {
-      color: var(--error-color);
     }
   }
 
