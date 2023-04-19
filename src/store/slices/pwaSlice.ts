@@ -1,6 +1,12 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-const initialState = {
+interface ProgressiveWebAppState {
+  event: Event | null;
+  isPWASupported: boolean;
+  isStandalone: boolean;
+}
+
+const initialState: ProgressiveWebAppState = {
   event: null,
   isPWASupported: false,
   isStandalone: window.matchMedia('(display-mode: standalone)').matches,
@@ -10,8 +16,8 @@ export const pwaSlice = createSlice({
   name: 'pwa',
   initialState,
   reducers: {
-    addDeferredPrompt: (state, action) => {
-      state.event = action.payload;
+    addDeferredPrompt: (state, { payload }: PayloadAction<Event>) => {
+      state.event = payload;
       state.isPWASupported = true;
     },
   },
