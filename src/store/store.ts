@@ -4,7 +4,13 @@ import rootReducer from '@app/store/slices';
 
 export const store = configureStore({
   reducer: rootReducer,
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(errorLoggingMiddleware),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: ['pwa/addDeferredPrompt'],
+        ignoredPaths: ['pwa.event'],
+      },
+    }).concat(errorLoggingMiddleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
