@@ -7,7 +7,8 @@ export const BtnWrapper = styled.div`
   top: 13%;
   right: 7%;
 
-  & > button {
+  & > .ant-btn-link {
+    font-size: 18px;
     padding: 0;
     width: unset;
     height: unset;

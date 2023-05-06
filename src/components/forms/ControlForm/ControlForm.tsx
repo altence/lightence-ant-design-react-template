@@ -6,7 +6,7 @@ import { BaseInput } from '../../common/inputs/BaseInput/BaseInput';
 import { BaseButton } from '../../common/BaseButton/BaseButton';
 import { useTranslation } from 'react-i18next';
 import * as S from './ControlForm.styles';
-import { notificationController } from '@app/controllers/notificationController';
+import { useFeedback } from '@app/hooks/useFeedback';
 import { BaseAvatar } from '@app/components/common/BaseAvatar/BaseAvatar';
 
 const layout = {
@@ -24,6 +24,7 @@ export const ControlForm: React.FC = () => {
   const [isFieldsChanged, setFieldsChanged] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const { t } = useTranslation();
+  const { notification } = useFeedback();
 
   const showUserModal = () => {
     setOpen(true);
@@ -38,7 +39,7 @@ export const ControlForm: React.FC = () => {
     setTimeout(() => {
       setFieldsChanged(false);
       setLoading(false);
-      notificationController.success({ message: t('common.success') });
+      notification.success({ message: t('common.success') });
       console.log(values);
     }, 1000);
   };

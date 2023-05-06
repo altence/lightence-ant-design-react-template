@@ -5,7 +5,7 @@ import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/Ba
 import { BaseInput } from '@app/components/common/inputs/BaseInput/BaseInput';
 import { BaseSelect, Option } from '@app/components/common/selects/BaseSelect/BaseSelect';
 import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
-import { notificationController } from '@app/controllers/notificationController';
+import { useFeedback } from '@app/hooks/useFeedback';
 import * as S from './DynamicForm.styles';
 import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
@@ -19,6 +19,7 @@ export const DynamicForm: React.FC = () => {
   const [isLoading, setLoading] = useState(false);
   const [form] = BaseButtonsForm.useForm();
   const { t } = useTranslation();
+  const { notification } = useFeedback();
 
   const areas = [
     { label: t('forms.dynamicFormLabels.beijing'), value: 'Beijing' },
@@ -35,7 +36,7 @@ export const DynamicForm: React.FC = () => {
     setTimeout(() => {
       setLoading(false);
       setFieldsChanged(false);
-      notificationController.success({ message: t('common.success') });
+      notification.success({ message: t('common.success') });
       console.log(values);
     }, 1000);
   };

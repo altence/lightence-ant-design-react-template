@@ -1,9 +1,8 @@
-import React from 'react';
-import { notification } from 'antd';
-import styled from 'styled-components';
+import type { NotificationInstance } from 'antd/es/notification/interface';
+import styled, { css } from 'styled-components';
 import { CheckCircleFilled, ExclamationCircleFilled, InfoCircleFilled, StopFilled } from '@ant-design/icons';
-import { ArgsProps } from 'antd/lib/notification/interface';
-import { FONT_FAMILY, FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
+import { ArgsProps as NotificationProps } from 'antd/lib/notification/interface';
+import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
 
 interface IconWrapperProps {
   $isOnlyTitle: boolean;
@@ -14,44 +13,39 @@ const IconWrapper = styled.div<IconWrapperProps>`
   line-height: 2rem;
 `;
 
-const Message = styled.div`
-  &.title {
-    font-size: ${FONT_SIZE.xxl};
-    height: 3rem;
-    margin-left: 1.5rem;
-    display: flex;
-    align-items: center;
-    font-weight: ${FONT_WEIGHT.bold};
-    font-family: '${FONT_FAMILY.main}', sans-serif;
+const Message = styled.div<IconWrapperProps>`
+  display: flex;
+  align-items: center;
+  margin-bottom: -0.5rem;
 
-    &.title-only {
-      color: var(--text-main-color);
-      font-size: ${FONT_SIZE.md};
-      height: 2rem;
-      line-height: 2rem;
-      margin-left: 0.75rem;
-      font-weight: ${FONT_WEIGHT.semibold};
-    }
-  }
+  ${(props) =>
+    props.$isOnlyTitle
+      ? css`
+          font-size: ${FONT_SIZE.md};
+          height: 2rem;
+          font-weight: ${FONT_WEIGHT.semibold};
+          margin-inline-start: 9px;
+        `
+      : css`
+          font-size: ${FONT_SIZE.xxl};
+          height: 3rem;
+          font-weight: ${FONT_WEIGHT.bold};
+          margin-inline-start: 21px;
+        `}
 
-  &[class^='ant-notification'],
-  &[class*=' ant-notification'] {
-    font-family: '${FONT_FAMILY.main}', sans-serif;
-  }
-
-  .ant-notification-notice.ant-notification-notice-success &.title {
+  .ant-notification-notice.ant-notification-notice-success & {
     color: var(--success-color);
   }
 
-  .ant-notification-notice.ant-notification-notice-info &.title {
+  .ant-notification-notice.ant-notification-notice-info & {
     color: var(--primary-color);
   }
 
-  .ant-notification-notice.ant-notification-notice-warning &.title {
+  .ant-notification-notice.ant-notification-notice-warning & {
     color: var(--warning-color);
   }
 
-  .ant-notification-notice.ant-notification-notice-error &.title {
+  .ant-notification-notice.ant-notification-notice-error & {
     color: var(--error-color);
   }
 `;
@@ -61,7 +55,7 @@ const Description = styled.div`
   font-size: ${FONT_SIZE.md};
   font-weight: ${FONT_WEIGHT.semibold};
   line-height: 1.375rem;
-  font-family: '${FONT_FAMILY.main}', sans-serif;
+  margin-inline-start: 22px;
 `;
 
 const EmptyDescription = styled.div`
@@ -71,9 +65,11 @@ const EmptyDescription = styled.div`
 const SuccessIcon = styled(CheckCircleFilled)`
   color: var(--success-color);
 `;
+
 const InfoIcon = styled(InfoCircleFilled)`
   color: var(--primary-color);
 `;
+
 const WarningIcon = styled(ExclamationCircleFilled)`
   color: var(--warning-color);
 `;
@@ -82,9 +78,9 @@ const ErrorIcon = styled(StopFilled)`
   color: var(--error-color);
 `;
 
-type NotificationProps = ArgsProps;
+type NotificationType = Pick<NotificationInstance, 'success' | 'info' | 'warning' | 'error'>;
 
-const openSuccessNotification = (config: NotificationProps): void => {
+const openSuccess = (notification: NotificationType) => (config: NotificationProps) => {
   notification.success({
     ...config,
     icon: (
@@ -92,13 +88,12 @@ const openSuccessNotification = (config: NotificationProps): void => {
         <SuccessIcon />
       </IconWrapper>
     ),
-    message: <Message className={`title ${config.description ? '' : 'title-only'}`}>{config.message}</Message>,
+    message: <Message $isOnlyTitle={!config.description}>{config.message}</Message>,
     description: config.description ? <Description>{config.description}</Description> : <EmptyDescription />,
-    className: config.description ? '' : 'notification-without-description',
   });
 };
 
-const openInfoNotification = (config: NotificationProps): void => {
+const openInfo = (notification: NotificationType) => (config: NotificationProps) => {
   notification.info({
     ...config,
     icon: (
@@ -106,13 +101,12 @@ const openInfoNotification = (config: NotificationProps): void => {
         <InfoIcon />
       </IconWrapper>
     ),
-    message: <Message className={`title ${config.description ? '' : 'title-only'}`}>{config.message}</Message>,
+    message: <Message $isOnlyTitle={!config.description}>{config.message}</Message>,
     description: config.description ? <Description>{config.description}</Description> : <EmptyDescription />,
-    className: config.description ? '' : 'notification-without-description',
   });
 };
 
-const openWarningNotification = (config: NotificationProps): void => {
+const openWarning = (notification: NotificationType) => (config: NotificationProps) => {
   notification.warning({
     ...config,
     icon: (
@@ -120,13 +114,12 @@ const openWarningNotification = (config: NotificationProps): void => {
         <WarningIcon />
       </IconWrapper>
     ),
-    message: <Message className={`title ${config.description ? '' : 'title-only'}`}>{config.message}</Message>,
+    message: <Message $isOnlyTitle={!config.description}>{config.message}</Message>,
     description: config.description ? <Description>{config.description}</Description> : <EmptyDescription />,
-    className: config.description ? '' : 'notification-without-description',
   });
 };
 
-const openErrorNotification = (config: NotificationProps): void => {
+const openError = (notification: NotificationType) => (config: NotificationProps) => {
   notification.error({
     ...config,
     icon: (
@@ -134,15 +127,14 @@ const openErrorNotification = (config: NotificationProps): void => {
         <ErrorIcon />
       </IconWrapper>
     ),
-    message: <Message className={`title ${config.description ? '' : 'title-only'}`}>{config.message}</Message>,
+    message: <Message $isOnlyTitle={!config.description}>{config.message}</Message>,
     description: config.description ? <Description>{config.description}</Description> : <EmptyDescription />,
-    className: config.description ? '' : 'notification-without-description',
   });
 };
 
-export const notificationController = {
-  success: openSuccessNotification,
-  info: openInfoNotification,
-  warning: openWarningNotification,
-  error: openErrorNotification,
-};
+export const notificationController = (notification: NotificationType): NotificationType => ({
+  success: openSuccess(notification),
+  info: openInfo(notification),
+  warning: openWarning(notification),
+  error: openError(notification),
+});

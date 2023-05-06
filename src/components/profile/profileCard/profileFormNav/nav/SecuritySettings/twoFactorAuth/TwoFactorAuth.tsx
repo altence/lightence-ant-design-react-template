@@ -6,7 +6,7 @@ import { TwoFactorOptions } from '@app/components/profile/profileCard/profileFor
 import { TwoFactorSwitch } from '@app/components/profile/profileCard/profileFormNav/nav/SecuritySettings/twoFactorAuth/TwoFactorSwitch/TwoFactorSwitch';
 import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { SecurityCodeForm } from '@app/components/auth/SecurityCodeForm/SecurityCodeForm';
-import { notificationController } from '@app/controllers/notificationController';
+import { useFeedback } from '@app/hooks/useFeedback';
 import { setUser } from '@app/store/slices/userSlice';
 import { useAppDispatch, useAppSelector } from '@app/hooks/reduxHooks';
 import { TwoFactorAuthOption } from '@app/interfaces/interfaces';
@@ -37,6 +37,7 @@ export const TwoFactorAuth: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const { t } = useTranslation();
+  const { notification } = useFeedback();
 
   const onClickVerify = () => {
     setClickedVerify(true);
@@ -47,13 +48,13 @@ export const TwoFactorAuth: React.FC = () => {
       setLoading(false);
       setFieldsChanged(false);
       setClickedVerify(false);
-      notificationController.success({ message: t('common.success') });
+      notification.success({ message: t('common.success') });
 
       const newUser = { ...user, [selectedOption]: { ...user[selectedOption], verified: true } };
 
       dispatch(setUser(newUser));
     }
-  }, [dispatch, selectedOption, t, user]);
+  }, [dispatch, notification, selectedOption, t, user]);
 
   return (
     <>

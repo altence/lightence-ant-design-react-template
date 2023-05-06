@@ -5,18 +5,19 @@ import { DashboardCard } from '../DashboardCard/DashboardCard';
 import { CovidChart } from './CovidChart';
 import { Dates } from '@app/constants/Dates';
 import { NotFound } from '@app/components/common/NotFound/NotFound';
-import { notificationController } from '@app/controllers/notificationController';
+import { useFeedback } from '@app/hooks/useFeedback';
 
 export const CovidCard: React.FC = () => {
   const [data, setData] = useState<CoronaData>();
 
   const { t } = useTranslation();
+  const { notification } = useFeedback();
 
   useEffect(() => {
     getCovidData()
       .then((res) => setData(res))
-      .catch((e) => notificationController.error({ message: e.message }));
-  }, []);
+      .catch((e) => notification.error({ message: e.message }));
+  }, [notification]);
 
   const { confirmedArr, deathsArr, dateArr } = useMemo(() => {
     const confirmedArr: number[] = Object.values(data?.cases || {}).splice(0, 100);

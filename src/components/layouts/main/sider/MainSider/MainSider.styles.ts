@@ -30,7 +30,11 @@ export const Sider = styled(BaseLayout.Sider)`
   }
 `;
 
-export const CollapseButton = styled(BaseButton)<{ $isCollapsed: boolean }>`
+interface Collapse {
+  $isCollapsed: boolean;
+}
+
+export const CollapseButton = styled(BaseButton)<Collapse>`
   background: var(--collapse-background-color);
 
   border: 1px solid var(--border-color);
@@ -46,12 +50,7 @@ export const CollapseButton = styled(BaseButton)<{ $isCollapsed: boolean }>`
 
   color: var(--text-secondary-color);
 
-  &.ant-btn:not(:disabled):hover {
-    color: var(--text-secondary-color);
-    background: var(--primary-color);
-    border: 1px solid var(--border-color);
-  }
-
+  &.ant-btn:not(:disabled):hover,
   &.ant-btn:not(:disabled):focus {
     color: var(--text-secondary-color);
     background: var(--primary-color);

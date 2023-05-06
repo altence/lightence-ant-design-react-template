@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
 import { useAppDispatch } from '@app/hooks/reduxHooks';
 import { doSignUp } from '@app/store/slices/authSlice';
-import { notificationController } from '@app/controllers/notificationController';
+import { useFeedback } from '@app/hooks/useFeedback';
 import { ReactComponent as GoogleIcon } from '@app/assets/icons/google.svg';
 import { ReactComponent as FacebookIcon } from '@app/assets/icons/facebook.svg';
 import * as Auth from '@app/components/layouts/AuthLayout/AuthLayout.styles';
@@ -33,20 +33,21 @@ export const SignUpForm: React.FC = () => {
   const [isLoading, setLoading] = useState(false);
 
   const { t } = useTranslation();
+  const { notification } = useFeedback();
 
   const handleSubmit = (values: SignUpFormData) => {
     setLoading(true);
     dispatch(doSignUp(values))
       .unwrap()
       .then(() => {
-        notificationController.success({
+        notification.success({
           message: t('auth.signUpSuccessMessage'),
           description: t('auth.signUpSuccessDescription'),
         });
         navigate('/auth/login');
       })
       .catch((err) => {
-        notificationController.error({ message: err.message });
+        notification.error({ message: err.message });
         setLoading(false);
       });
   };
@@ -112,11 +113,11 @@ export const SignUpForm: React.FC = () => {
             <Auth.FormCheckbox>
               <Auth.Text>
                 {t('signup.agree')}{' '}
-                <Link to="/" target={'_blank'}>
+                <Link to="/" target="_blank">
                   <Auth.LinkText>{t('signup.termOfUse')}</Auth.LinkText>
                 </Link>{' '}
-                and{' '}
-                <Link to="/" target={'_blank'}>
+                {t('signup.and')}{' '}
+                <Link to="/" target="_blank">
                   <Auth.LinkText>{t('signup.privacyOPolicy')}</Auth.LinkText>
                 </Link>
               </Auth.Text>

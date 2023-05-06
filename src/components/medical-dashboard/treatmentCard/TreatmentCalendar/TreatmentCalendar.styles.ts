@@ -6,12 +6,6 @@ interface Event {
   $isPast: boolean;
 }
 
-export const Wrapper = styled.div`
-  background-color: var(--background-color);
-
-  box-shadow: var(--box-shadow);
-`;
-
 export const Event = styled.div<Event>`
   position: absolute;
   display: flex;

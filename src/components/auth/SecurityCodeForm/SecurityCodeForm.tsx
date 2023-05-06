@@ -5,7 +5,7 @@ import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
 import { VerificationCodeInput } from '@app/components/common/inputs/VerificationCodeInput/VerificationCodeInput';
 import { useAppDispatch } from '@app/hooks/reduxHooks';
 import { doVerifySecurityCode } from '@app/store/slices/authSlice';
-import { notificationController } from '@app/controllers/notificationController';
+import { useFeedback } from '@app/hooks/useFeedback';
 import VerifyEmailImage from '@app/assets/images/verify-email.webp';
 import * as Auth from '@app/components/layouts/AuthLayout/AuthLayout.styles';
 import * as S from './SecurityCodeForm.styles';
@@ -20,6 +20,7 @@ interface SecurityCodeFormProps {
 export const SecurityCodeForm: React.FC<SecurityCodeFormProps> = ({ onBack, onFinish }) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const { notification } = useFeedback();
   const dispatch = useAppDispatch();
 
   const navigateBack = useCallback(() => navigate(-1), [navigate]);
@@ -35,11 +36,11 @@ export const SecurityCodeForm: React.FC<SecurityCodeFormProps> = ({ onBack, onFi
         .unwrap()
         .then(onFinish || navigateForward)
         .catch((err) => {
-          notificationController.error({ message: err.message });
+          notification.error({ message: err.message });
           setLoading(false);
         });
     }
-  }, [securityCode, navigateForward, onFinish, dispatch]);
+  }, [securityCode, navigateForward, onFinish, dispatch, notification]);
 
   return (
     <Auth.FormWrapper>

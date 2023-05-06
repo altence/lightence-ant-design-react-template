@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
-import { notificationController } from '@app/controllers/notificationController';
+import { useFeedback } from '@app/hooks/useFeedback';
 import { useAppDispatch } from '@app/hooks/reduxHooks';
 import { doSetNewPassword } from '@app/store/slices/authSlice';
 import * as S from './NewPasswordForm.styles';
@@ -20,6 +20,7 @@ const initStates = {
 
 export const NewPasswordForm: React.FC = () => {
   const { t } = useTranslation();
+  const { notification } = useFeedback();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [isLoading, setLoading] = useState(false);
@@ -30,13 +31,13 @@ export const NewPasswordForm: React.FC = () => {
       .unwrap()
       .then(() => {
         navigate('/auth/login');
-        notificationController.success({
+        notification.success({
           message: t('newPassword.successMessage'),
           description: t('newPassword.successDescription'),
         });
       })
       .catch((err) => {
-        notificationController.error({ message: err.message });
+        notification.error({ message: err.message });
         setLoading(false);
       });
   };

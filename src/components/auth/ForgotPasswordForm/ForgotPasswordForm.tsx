@@ -6,7 +6,7 @@ import * as S from './ForgotPasswordForm.styles';
 import * as Auth from '@app/components/layouts/AuthLayout/AuthLayout.styles';
 import { useAppDispatch } from '@app/hooks/reduxHooks';
 import { doResetPassword } from '@app/store/slices/authSlice';
-import { notificationController } from '@app/controllers/notificationController';
+import { useFeedback } from '@app/hooks/useFeedback';
 
 interface ForgotPasswordFormData {
   email: string;
@@ -18,6 +18,7 @@ const initValues = {
 
 export const ForgotPasswordForm: React.FC = () => {
   const { t } = useTranslation();
+  const { notification } = useFeedback();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [isLoading, setLoading] = useState(false);
@@ -30,7 +31,7 @@ export const ForgotPasswordForm: React.FC = () => {
         navigate('/auth/security-code');
       })
       .catch((err) => {
-        notificationController.error({ message: err.message });
+        notification.error({ message: err.message });
         setLoading(false);
       });
   };

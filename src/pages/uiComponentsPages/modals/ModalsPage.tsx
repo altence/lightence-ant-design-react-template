@@ -5,9 +5,11 @@ import { BaseModal } from '@app/components/common/BaseModal/BaseModal';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { useFeedback } from '@app/hooks/useFeedback';
 
 const ModalsPage: React.FC = () => {
   const { t } = useTranslation();
+  const { modal } = useFeedback();
   const [isBasicModalOpen, setIsBasicModalOpen] = useState<boolean>(false);
   const [isSmallModalOpen, setIsSmallModalOpen] = useState<boolean>(false);
   const [isMiddleModalOpen, setIsMiddleModalOpen] = useState<boolean>(false);
@@ -15,28 +17,28 @@ const ModalsPage: React.FC = () => {
   const [isFullscreenModalOpen, setIsFullscreenModalOpen] = useState<boolean>(false);
 
   const success = () => {
-    BaseModal.success({
+    modal.success({
       title: t('modals.successTitle'),
       content: t('modals.someContent'),
     });
   };
 
   const info = () => {
-    BaseModal.info({
+    modal.info({
       title: t('modals.infoTitle'),
       content: t('modals.someContent'),
     });
   };
 
   const warning = () => {
-    BaseModal.warning({
+    modal.warning({
       title: t('modals.warningTitle'),
       content: t('modals.someContent'),
     });
   };
 
   const error = () => {
-    BaseModal.error({
+    modal.error({
       title: t('modals.errorTitle'),
       content: t('modals.someContent'),
     });
@@ -116,7 +118,7 @@ const ModalsPage: React.FC = () => {
             open={isFullscreenModalOpen}
             onOk={() => setIsFullscreenModalOpen(false)}
             onCancel={() => setIsFullscreenModalOpen(false)}
-            width={'100%'}
+            width="100%"
           >
             <p>{t('modals.someContent')}</p>
             <p>{t('modals.someContent')}</p>

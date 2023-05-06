@@ -82,13 +82,20 @@ const SelectsPage: React.FC = () => {
             <BaseSelect
               mode="multiple"
               allowClear
-              width={'100%'}
+              width="100%"
+              showArrow={false}
               placeholder={t('selects.pleaseSelect')}
               defaultValue={['a10', 'c12']}
             >
               {children}
             </BaseSelect>
-            <BaseSelect mode="multiple" disabled placeholder={t('selects.pleaseSelect')} defaultValue={['a10', 'c12']}>
+            <BaseSelect
+              mode="multiple"
+              disabled
+              showArrow={false}
+              placeholder={t('selects.pleaseSelect')}
+              defaultValue={['a10', 'c12']}
+            >
               {children}
             </BaseSelect>
           </BaseSpace>
@@ -108,7 +115,7 @@ const SelectsPage: React.FC = () => {
               size={size}
               placeholder={t('selects.pleaseSelect')}
               defaultValue={['a10', 'c12']}
-              width={'100%'}
+              width="100%"
             >
               {children}
             </BaseSelect>
@@ -117,7 +124,7 @@ const SelectsPage: React.FC = () => {
               size={size}
               placeholder={t('selects.pleaseSelect')}
               defaultValue={['a10', 'c12']}
-              width={'100%'}
+              width="100%"
             >
               {children}
             </BaseSelect>
@@ -129,7 +136,7 @@ const SelectsPage: React.FC = () => {
             showArrow
             tagRender={tagRender}
             defaultValue={['gold', 'cyan']}
-            width={'100%'}
+            width="100%"
             options={options}
           />
         </S.Card>

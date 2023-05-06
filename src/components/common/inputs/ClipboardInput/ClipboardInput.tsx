@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { CopyOutlined } from '@ant-design/icons';
 import { SuffixInput } from '../SuffixInput/SuffixInput';
 import { BaseInputProps } from '../BaseInput/BaseInput';
-import { notificationController } from 'controllers/notificationController';
+import { useFeedback } from '@app/hooks/useFeedback';
 import { BaseTooltip } from '../../BaseTooltip/BaseTooltip';
 import { BaseButton } from '../../BaseButton/BaseButton';
 
@@ -13,14 +13,15 @@ interface ClipboardInputProps extends BaseInputProps {
 
 export const ClipboardInput: React.FC<ClipboardInputProps> = ({ valueToCopy, ...props }) => {
   const { t } = useTranslation();
+  const { notification } = useFeedback();
 
   const handleCopy = useCallback(
     () =>
       valueToCopy &&
       navigator.clipboard.writeText(valueToCopy).then(() => {
-        notificationController.info({ message: t('common.copied') });
+        notification.info({ message: t('common.copied') });
       }),
-    [valueToCopy, t],
+    [valueToCopy, notification, t],
   );
 
   return (

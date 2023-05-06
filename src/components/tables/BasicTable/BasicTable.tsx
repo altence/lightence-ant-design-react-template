@@ -5,7 +5,7 @@ import { ColumnsType } from 'antd/es/table';
 import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { useTranslation } from 'react-i18next';
 import { defineColorByPriority } from '@app/utils/utils';
-import { notificationController } from 'controllers/notificationController';
+import { useFeedback } from '@app/hooks/useFeedback';
 import { Status } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentHistory/Status/Status';
 import { useMounted } from '@app/hooks/useMounted';
 import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
@@ -25,6 +25,7 @@ export const BasicTable: React.FC = () => {
   });
   const { t } = useTranslation();
   const { isMounted } = useMounted();
+  const { notification } = useFeedback();
 
   const fetch = useCallback(
     (pagination: Pagination) => {
@@ -144,7 +145,7 @@ export const BasicTable: React.FC = () => {
             <BaseButton
               type="ghost"
               onClick={() => {
-                notificationController.info({ message: t('tables.inviteMessage', { name: record.name }) });
+                notification.info({ message: t('tables.inviteMessage', { name: record.name }) });
               }}
             >
               {t('tables.invite')}
