@@ -8,7 +8,7 @@ import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
 import { FONT_SIZE, media } from '@app/styles/themes/constants';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
-import { notificationController } from '@app/controllers/notificationController';
+import { useFeedback } from '@app/hooks/useFeedback';
 
 const AsyncButton = styled(BaseButton)`
   @media only screen and ${media.xs} {
@@ -21,13 +21,14 @@ const AsyncButton = styled(BaseButton)`
 
 const PopconfirmsPage: React.FC = () => {
   const { t } = useTranslation();
+  const { notification } = useFeedback();
   const [open, setOpen] = useState<boolean>(false);
   const [confirmLoading, setConfirmLoading] = useState<boolean>(false);
 
   const text = t('popconfirm.content');
 
   const confirm = () => {
-    notificationController.info({ message: t('popconfirm.yesClick') });
+    notification.info({ message: t('popconfirm.yesClick') });
   };
 
   const handleOk = () => {

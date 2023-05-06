@@ -1,5 +1,5 @@
 import React from 'react';
-import { ConfigProvider } from 'antd';
+import { ConfigProvider, App as FeedbackProvider } from 'antd';
 import { HelmetProvider } from 'react-helmet-async';
 import deDe from 'antd/lib/locale/de_DE';
 import enUS from 'antd/lib/locale/en_US';
@@ -32,7 +32,9 @@ const App: React.FC = () => {
       <ThemeConfigProvider theme={theme}>
         <HelmetProvider>
           <ConfigProvider locale={language === 'en' ? enUS : deDe}>
-            <AppRouter />
+            <FeedbackProvider>
+              <AppRouter />
+            </FeedbackProvider>
           </ConfigProvider>
         </HelmetProvider>
       </ThemeConfigProvider>

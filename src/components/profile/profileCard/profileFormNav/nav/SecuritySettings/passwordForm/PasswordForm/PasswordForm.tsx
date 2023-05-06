@@ -4,7 +4,7 @@ import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/Ba
 import { ConfirmItemPassword } from '@app/components/profile/profileCard/profileFormNav/nav/SecuritySettings/passwordForm/ConfirmPasswordItem/ConfirmPasswordItem';
 import { CurrentPasswordItem } from '@app/components/profile/profileCard/profileFormNav/nav/SecuritySettings/passwordForm/CurrentPasswordItem/CurrentPasswordItem';
 import { NewPasswordItem } from '@app/components/profile/profileCard/profileFormNav/nav/SecuritySettings/passwordForm/NewPasswordItem/NewPasswordItem';
-import { notificationController } from '@app/controllers/notificationController';
+import { useFeedback } from '@app/hooks/useFeedback';
 import * as S from './PasswordForm.styles';
 import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
@@ -13,13 +13,14 @@ export const PasswordForm: React.FC = () => {
   const [isFieldsChanged, setFieldsChanged] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const { t } = useTranslation();
+  const { notification } = useFeedback();
 
   const onFinish = (values: []) => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
       setFieldsChanged(false);
-      notificationController.success({ message: t('common.success') });
+      notification.success({ message: t('common.success') });
       console.log(values);
     }, 1000);
   };

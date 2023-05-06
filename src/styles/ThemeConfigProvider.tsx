@@ -65,7 +65,6 @@ export const ThemeConfigProvider = ({ theme, children }: ThemeConfigProviderProp
                 colorSuccessBorder: 'var(--ant-success-color-deprecated-border)',
               }
             : {}),
-          // base override
 
           fontFamily,
 
@@ -82,8 +81,6 @@ export const ThemeConfigProvider = ({ theme, children }: ThemeConfigProviderProp
           borderRadius: parseFloat(BORDER_RADIUS),
 
           colorSplit: '#f0f0f0',
-
-          // Media queries
 
           screenXSMin: BREAKPOINTS.xs,
           screenXS: BREAKPOINTS.xs,
@@ -241,20 +238,23 @@ export const ThemeConfigProvider = ({ theme, children }: ThemeConfigProviderProp
             width: 36 * 16,
 
             paddingMD: 2 * 16,
+            paddingLG: 0,
             paddingContentHorizontalLG: 2 * 16,
 
-            lineHeightLG: 2.8125,
+            lineHeightLG: 2,
 
-            colorSuccess: currentTheme.notificationSuccess,
+            colorSuccess: currentTheme.success,
             colorInfo: currentTheme.primary,
-            colorWarning: currentTheme.notificationWarning,
-            colorError: currentTheme.notificationError,
+            colorWarning: currentTheme.warning,
+            colorError: currentTheme.error,
 
             fontFamily,
-            fontWeightStrong: parseFloat(FONT_WEIGHT.semibold),
-            fontSize: 500,
-            fontSizeLG: 500,
-            fontSizeHeading3: 24,
+            fontSizeLG: remToPixels(FONT_SIZE.xxl),
+            marginSM: 0,
+            boxShadow:
+              '0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05)',
+            controlHeightLG: 15 / 0.55,
+            wireframe: true,
           },
           Input: {
             colorTextPlaceholder: currentTheme.inputPlaceholder,

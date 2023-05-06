@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
 import { initValues as loginInitVal } from '@app/components/auth/LoginForm/LoginForm';
-import { notificationController } from '@app/controllers/notificationController';
+import { useFeedback } from '@app/hooks/useFeedback';
 import { useAppDispatch, useAppSelector } from '@app/hooks/reduxHooks';
 import { useResponsive } from '@app/hooks/useResponsive';
 import { Dates } from '@app/constants/Dates';
@@ -24,6 +24,7 @@ export const LockForm: React.FC = () => {
   const navigate = useNavigate();
   const { mobileOnly } = useResponsive();
   const { t } = useTranslation();
+  const { notification } = useFeedback();
   const dispatch = useAppDispatch();
 
   const [isLoading, setLoading] = useState(false);
@@ -48,7 +49,7 @@ export const LockForm: React.FC = () => {
         navigate(-1);
       })
       .catch((e) => {
-        notificationController.error({ message: e.message });
+        notification.error({ message: e.message });
         setLoading(false);
       });
   };

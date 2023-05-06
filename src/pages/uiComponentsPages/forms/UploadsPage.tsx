@@ -7,7 +7,7 @@ import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
 import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
-import { notificationController } from '@app/controllers/notificationController';
+import { useFeedback } from '@app/hooks/useFeedback';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 const DraggerIconWrapper = styled.div`
@@ -25,6 +25,7 @@ const DraggerDescription = styled.div`
 
 const UploadsPage: React.FC = () => {
   const { t } = useTranslation();
+  const { notification } = useFeedback();
 
   const uploadProps = {
     name: 'file',
@@ -36,9 +37,9 @@ const UploadsPage: React.FC = () => {
         console.log(info.file, info.fileList);
       }
       if (status === 'done') {
-        notificationController.success({ message: t('uploads.successUpload', { name: info.file.name }) });
+        notification.success({ message: t('uploads.successUpload', { name: info.file.name }) });
       } else if (status === 'error') {
-        notificationController.error({ message: t('uploads.failedUpload', { name: info.file.name }) });
+        notification.error({ message: t('uploads.failedUpload', { name: info.file.name }) });
       }
     },
   };

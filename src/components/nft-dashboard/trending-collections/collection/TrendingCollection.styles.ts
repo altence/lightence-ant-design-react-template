@@ -89,9 +89,10 @@ export const BidButton = styled(BaseButton)`
   right: 20px;
   padding: 10px 14px;
 
-  color: var(--text-secondary-color);
-
-  border-color: var(--text-secondary-color);
+  &.ant-btn-ghost {
+    color: var(--text-secondary-color);
+    border-color: var(--text-secondary-color);
+  }
 
   font-size: ${FONT_SIZE.md};
 `;

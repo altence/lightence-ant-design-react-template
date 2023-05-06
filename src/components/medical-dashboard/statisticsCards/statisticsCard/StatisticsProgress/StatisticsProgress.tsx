@@ -12,7 +12,7 @@ export const StatisticsProgress: React.FC<StatisticsProgressProps> = ({ color, v
   return (
     <BaseProgress
       type="circle"
-      width={50}
+      size={50}
       strokeColor={color}
       trailColor="transparent"
       percent={value}

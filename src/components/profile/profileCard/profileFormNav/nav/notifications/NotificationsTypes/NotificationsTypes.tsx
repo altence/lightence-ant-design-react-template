@@ -6,7 +6,7 @@ import { CheckboxColumn } from '@app/components/profile/profileCard/profileFormN
 import { Option } from '@app/components/profile/profileCard/profileFormNav/nav/notifications/interfaces';
 import * as S from './NotificationsTypes.styles';
 import { BaseButtonsGroup } from '@app/components/common/forms/components/BaseButtonsGroup/BaseButtonsGroup';
-import { notificationController } from '@app/controllers/notificationController';
+import { useFeedback } from '@app/hooks/useFeedback';
 import { BaseCheckbox } from '@app/components/common/BaseCheckbox/BaseCheckbox';
 
 interface Notifications {
@@ -17,6 +17,7 @@ interface Notifications {
 
 export const NotificationsTypes: React.FC = () => {
   const { t } = useTranslation();
+  const { notification } = useFeedback();
   const [isLoading, setLoading] = useState(false);
   const [checkedElements, setCheckedElements] = useState<Notifications>({
     1: [],
@@ -85,10 +86,10 @@ export const NotificationsTypes: React.FC = () => {
     setTimeout(() => {
       setLoading(false);
       setTriggered(false);
-      notificationController.success({ message: t('common.success') });
+      notification.success({ message: t('common.success') });
       console.log(checkedElements);
     }, 1000);
-  }, [setTriggered, checkedElements, t]);
+  }, [notification, t, checkedElements]);
 
   return (
     <BaseButtonsForm

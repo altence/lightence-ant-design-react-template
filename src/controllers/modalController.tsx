@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
-import confirm, { ModalStaticFunctions, withInfo, withSuccess, withWarn, withError } from 'antd/es/modal/confirm';
+import { ModalStaticFunctions } from 'antd/es/modal/confirm';
 
 const ModalStyles = styled.div`
   .ant-modal-confirm-success &,
@@ -35,9 +35,11 @@ const ModalStyles = styled.div`
 
 const modalRender = (node: React.ReactNode) => <ModalStyles>{node}</ModalStyles>;
 
-export const ModalTypes: Pick<ModalStaticFunctions, 'info' | 'success' | 'warning' | 'error'> = {
-  info: (props) => confirm({ modalRender, ...withInfo(props) }),
-  success: (props) => confirm({ modalRender, ...withSuccess(props) }),
-  warning: (props) => confirm({ modalRender, ...withWarn(props) }),
-  error: (props) => confirm({ modalRender, ...withError(props) }),
-};
+type ModalType = Pick<ModalStaticFunctions, 'info' | 'success' | 'warning' | 'error'>;
+
+export const modalController = (modalType: ModalType): ModalType => ({
+  info: (props) => modalType.info({ modalRender, ...props }),
+  success: (props) => modalType.success({ modalRender, ...props }),
+  warning: (props) => modalType.warning({ modalRender, ...props }),
+  error: (props) => modalType.error({ modalRender, ...props }),
+});

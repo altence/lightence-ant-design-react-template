@@ -10,7 +10,7 @@ import { BaseRadio } from '@app/components/common/BaseRadio/BaseRadio';
 import { BaseSlider } from '@app/components/common/BaseSlider/BaseSlider';
 import { BaseUpload } from '@app/components/common/BaseUpload/BaseUpload';
 import { BaseRate } from '@app/components/common/BaseRate/BaseRate';
-import { notificationController } from '@app/controllers/notificationController';
+import { useFeedback } from '@app/hooks/useFeedback';
 import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 import { BaseCheckbox } from '@app/components/common/BaseCheckbox/BaseCheckbox';
@@ -31,13 +31,14 @@ export const ValidationForm: React.FC = () => {
   const [isFieldsChanged, setFieldsChanged] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const { t } = useTranslation();
+  const { notification } = useFeedback();
 
   const onFinish = async (values = {}) => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
       setFieldsChanged(false);
-      notificationController.success({ message: t('common.success') });
+      notification.success({ message: t('common.success') });
       console.log(values);
     }, 1000);
   };

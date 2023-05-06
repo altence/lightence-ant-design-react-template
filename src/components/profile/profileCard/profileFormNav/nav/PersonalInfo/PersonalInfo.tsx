@@ -18,7 +18,7 @@ import { WebsiteItem } from '@app/components/profile/profileCard/profileFormNav/
 import { SocialLinksItem } from '@app/components/profile/profileCard/profileFormNav/nav/PersonalInfo/SocialLinksItem/SocialLinksItem';
 import { useAppSelector } from '@app/hooks/reduxHooks';
 import { Dates } from '@app/constants/Dates';
-import { notificationController } from '@app/controllers/notificationController';
+import { useFeedback } from '@app/hooks/useFeedback';
 import { PaymentCard } from '@app/interfaces/interfaces';
 import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
@@ -98,6 +98,7 @@ export const PersonalInfo: React.FC = () => {
   const [form] = BaseButtonsForm.useForm();
 
   const { t } = useTranslation();
+  const { notification } = useFeedback();
 
   const onFinish = useCallback(
     (values: PaymentCard) => {
@@ -106,11 +107,11 @@ export const PersonalInfo: React.FC = () => {
       setTimeout(() => {
         setLoading(false);
         setFieldsChanged(false);
-        notificationController.success({ message: t('common.success') });
+        notification.success({ message: t('common.success') });
         console.log(values);
       }, 1000);
     },
-    [t],
+    [notification, t],
   );
 
   return (

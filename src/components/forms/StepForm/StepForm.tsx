@@ -6,7 +6,7 @@ import { Step1 } from './Steps/Step1';
 import { Step2 } from './Steps/Step2';
 import { Step3 } from './Steps/Step3';
 import { Step4 } from './Steps/Step4';
-import { notificationController } from '@app/controllers/notificationController';
+import { useFeedback } from '@app/hooks/useFeedback';
 import { Dates } from '@app/constants/Dates';
 import { mergeBy } from '@app/utils/utils';
 import * as S from './StepForm.styles';
@@ -44,6 +44,7 @@ export const StepForm: React.FC = () => {
   ]);
   const [isLoading, setIsLoading] = useState(false);
   const { t } = useTranslation();
+  const { notification } = useFeedback();
 
   const formLabels: FormValues = {
     login: t('forms.stepFormLabels.login'),
@@ -83,7 +84,7 @@ export const StepForm: React.FC = () => {
   const onFinish = () => {
     setIsLoading(true);
     setTimeout(() => {
-      notificationController.success({ message: t('common.success') });
+      notification.success({ message: t('common.success') });
       setIsLoading(false);
       setCurrent(0);
     }, 1500);

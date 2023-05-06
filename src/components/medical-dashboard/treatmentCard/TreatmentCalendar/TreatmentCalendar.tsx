@@ -53,7 +53,7 @@ export const TreatmentCalendar: React.FC<TreatmentCalendarProps> = ({
         <BaseCol span={24}>
           <S.Calendar
             locale={locale}
-            dateCellRender={(value) => {
+            cellRender={(value) => {
               const today = Dates.getToday();
 
               return calendar.map((event) => {
