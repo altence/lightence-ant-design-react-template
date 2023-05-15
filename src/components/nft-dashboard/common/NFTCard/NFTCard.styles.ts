@@ -6,7 +6,9 @@ interface CardInternalProps {
 }
 
 export const Card = styled(BaseCard)<CardInternalProps>`
-  box-shadow: var(--box-shadow-nft-color);
+  &.ant-card:not(.ant-card-bordered) {
+    box-shadow: var(--box-shadow-nft-color);
+  }
 
   ${(props) =>
     props.$isSider &&

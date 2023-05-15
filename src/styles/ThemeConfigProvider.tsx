@@ -19,6 +19,8 @@ export interface ThemeConfigProviderProps extends PropsWithChildren {
 
 const remToPixels = (s: `${number}rem`) => parseFloat(s) * 16;
 
+const parseNumber = (s: `${number}` | `${number}px`) => parseFloat(s);
+
 export const ThemeConfigProvider = ({ theme, children }: ThemeConfigProviderProps): JSX.Element => {
   const currentTheme = themeObject[theme];
 
@@ -78,7 +80,7 @@ export const ThemeConfigProvider = ({ theme, children }: ThemeConfigProviderProp
 
           controlHeightLG: 64,
 
-          borderRadius: parseFloat(BORDER_RADIUS),
+          borderRadius: parseNumber(BORDER_RADIUS),
 
           colorSplit: '#f0f0f0',
 
@@ -129,7 +131,7 @@ export const ThemeConfigProvider = ({ theme, children }: ThemeConfigProviderProp
             paddingMD: 15,
             paddingContentHorizontalLG: 15,
 
-            borderRadiusLG: parseFloat(BORDER_RADIUS),
+            borderRadiusLG: parseNumber(BORDER_RADIUS),
           },
           Card: {
             colorTextHeading: currentTheme.textMain,
@@ -143,7 +145,7 @@ export const ThemeConfigProvider = ({ theme, children }: ThemeConfigProviderProp
             paddingLG: 20,
 
             boxShadowTertiary: currentTheme.boxShadow,
-            borderRadiusLG: parseFloat(BORDER_RADIUS),
+            borderRadiusLG: parseNumber(BORDER_RADIUS),
           },
           Collapse: {},
           Tabs: {
@@ -175,8 +177,8 @@ export const ThemeConfigProvider = ({ theme, children }: ThemeConfigProviderProp
           },
           Select: {
             fontSizeSM: remToPixels(FONT_SIZE.xs),
-            borderRadiusXS: parseFloat(BORDER_RADIUS),
-            borderRadiusSM: parseFloat(BORDER_RADIUS),
+            borderRadiusXS: parseNumber(BORDER_RADIUS),
+            borderRadiusSM: parseNumber(BORDER_RADIUS),
 
             colorFillSecondary: currentTheme.backgroundColorBase,
             colorIcon: currentTheme.icon,
@@ -229,7 +231,7 @@ export const ThemeConfigProvider = ({ theme, children }: ThemeConfigProviderProp
             controlHeight: 34,
           },
           Popconfirm: {
-            fontWeightStrong: parseFloat(FONT_WEIGHT.semibold),
+            fontWeightStrong: parseNumber(FONT_WEIGHT.semibold),
             colorPrimary: currentTheme.primary,
           },
           Notification: {
@@ -261,7 +263,7 @@ export const ThemeConfigProvider = ({ theme, children }: ThemeConfigProviderProp
             colorTextDisabled: currentTheme.disable,
             colorPrimaryHover: 'var(--ant-primary-5)',
             controlOutline: 'var(--ant-primary-color-outline)',
-            fontWeightStrong: parseFloat(FONT_WEIGHT.semibold),
+            fontWeightStrong: parseNumber(FONT_WEIGHT.semibold),
             colorFillAlter,
           },
           InputNumber: {
@@ -284,7 +286,7 @@ export const ThemeConfigProvider = ({ theme, children }: ThemeConfigProviderProp
           },
           Button: {
             colorPrimary: currentTheme.primary,
-            borderRadiusSM: parseFloat(BORDER_RADIUS),
+            borderRadiusSM: parseNumber(BORDER_RADIUS),
             controlOutline: '0',
             controlOutlineWidth: 0,
           },
@@ -336,7 +338,7 @@ export const ThemeConfigProvider = ({ theme, children }: ThemeConfigProviderProp
             colorPrimary: '#1c68a6',
             controlItemBgActive: 'var(--ant-primary-1)',
             colorTextPlaceholder: currentTheme.inputPlaceholder,
-            fontWeightStrong: parseFloat(FONT_WEIGHT.medium),
+            fontWeightStrong: parseNumber(FONT_WEIGHT.medium),
             controlHeightSM: 32,
             controlHeightLG: 64,
           },

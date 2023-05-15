@@ -1,6 +1,7 @@
 import { shadeColor } from '@app/utils/utils';
 import { graphic } from 'echarts';
 import { BASE_COLORS } from '../constants';
+import type { ITheme } from '../types';
 
 const chartColors = {
   chartTooltipLabel: '#6a7985',
@@ -104,7 +105,7 @@ export const darkColorsTheme = {
   icon: '#a9a9a9',
   iconHover: '#ffffff',
   ...chartColors,
-} as const;
+} as const satisfies ITheme;
 
 export const antDarkColorsTheme = {
   successBg: '#e6fff2',
