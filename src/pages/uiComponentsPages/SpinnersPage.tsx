@@ -34,7 +34,7 @@ const SpinnersPage: React.FC = () => {
           <BaseSpin size="large" />
         </S.Card>
         <S.Card title={t('spinners.customDescription')}>
-          <BaseSpin tip={t('spinners.loading')} />
+          <BaseSpin tip={t('spinners.loading')}>{t('spinners.customDescription')}</BaseSpin>
         </S.Card>
         <S.Card title={t('spinners.customIndicator')}>
           <BaseSpin indicator={antIcon1} />

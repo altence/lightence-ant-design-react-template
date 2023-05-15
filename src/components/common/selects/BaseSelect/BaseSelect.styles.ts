@@ -57,7 +57,7 @@ export const Select = styled(AntSelect)<InternalSelectProps>`
 
   &.ant-select-multiple {
     .ant-select-selector {
-      padding: 5px 11px;
+      padding-inline-start: 11px;
     }
     .ant-select-selection-item {
       margin-inline-end: 11px;
