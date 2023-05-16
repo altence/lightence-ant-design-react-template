@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
+import { FONT_SIZE, FONT_WEIGHT, HEIGHT } from '@app/styles/themes/constants';
 import { ModalStaticFunctions } from 'antd/es/modal/confirm';
 
 const ModalStyles = styled.div`
@@ -26,7 +26,7 @@ const ModalStyles = styled.div`
           font-weight: ${FONT_WEIGHT.semibold};
           background-color: var(--ant-primary-color);
           border-color: var(--ant-primary-color);
-          height: 50px;
+          height: ${HEIGHT.md};
         }
       }
     }

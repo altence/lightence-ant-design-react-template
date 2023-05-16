@@ -1,13 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import React from 'react';
-import { TableProps } from 'antd';
-import type { RefTable } from 'antd/es/table/interface';
+import { TableProps as BaseTableProps } from 'antd';
 import * as S from './BaseTable.styles';
 
-export type BaseTableProps<T> = TableProps<T>;
+export type { BaseTableProps };
 
 // TODO make generic!
-export const BaseTable: React.FC<BaseTableProps<any>> = (props) => {
-  type StyledTableProps = Parameters<RefTable>[0];
-  return <S.Table {...(props as StyledTableProps)} />;
+// eslint-disable-next-line @typescript-eslint/ban-types
+export const BaseTable = <T extends object>(props: BaseTableProps<T>): JSX.Element => {
+  return <S.Table {...props} />;
 };
