@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 import { Table as AntdTable } from 'antd';
 import { FONT_SIZE } from '@app/styles/themes/constants';
-import type { RefTable } from 'antd/es/table/interface';
 
-export const Table = styled(AntdTable as RefTable)`
+export const Table = styled(AntdTable)`
   & thead .ant-table-cell {
     color: var(--primary-color);
     font-size: ${FONT_SIZE.xs};
@@ -86,4 +85,4 @@ export const Table = styled(AntdTable as RefTable)`
       color: var(--disabled-color);
     }
   }
-`;
+` as typeof AntdTable;

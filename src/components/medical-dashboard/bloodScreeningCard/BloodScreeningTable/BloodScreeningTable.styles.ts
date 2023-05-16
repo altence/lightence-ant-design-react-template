@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import { BaseTable as CommonTable } from '@app/components/common/BaseTable/BaseTable';
+import { BaseTable } from '@app/components/common/BaseTable/BaseTable';
 import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
 
 interface TextProps {
   $isActive?: boolean;
 }
 
-export const Table = styled(CommonTable)`
+export const Table = styled(BaseTable)`
   thead .ant-table-cell {
     border-top: none;
     border-bottom: 1px solid var(--border-color);
@@ -27,7 +27,7 @@ export const Table = styled(CommonTable)`
     border: 0;
     cursor: pointer;
   }
-`;
+` as typeof BaseTable; // todo: remove type assertion
 
 export const Text = styled.span<TextProps>`
   color: var(--text-main-color);

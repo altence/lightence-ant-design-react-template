@@ -57,6 +57,14 @@ export const FONT_WEIGHT = {
   black: '900',
 } as const;
 
+export const HEIGHT = {
+  xxs: '1.5rem',
+  xs: '2rem',
+  sm: '2.5rem',
+  md: '3.125rem',
+  lg: '4rem',
+} as const;
+
 export const BREAKPOINTS = {
   xs: 360,
   sm: 568,

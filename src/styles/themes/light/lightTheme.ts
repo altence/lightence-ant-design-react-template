@@ -45,7 +45,7 @@ const chartColors = {
       color: 'rgba(255, 82, 82, 0.5)',
     },
   ]),
-} as const;
+} as const satisfies Partial<ITheme>;
 
 export const lightColorsTheme = {
   primary: '#01509A',
