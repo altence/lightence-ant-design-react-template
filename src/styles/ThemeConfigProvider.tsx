@@ -151,6 +151,10 @@ export const ThemeConfigProvider: FC<ThemeConfigProviderProps> = ({ theme, child
           colorPrimaryHover: 'var(--ant-primary-5)',
           colorPrimary: 'var(--ant-primary-color)',
         },
+        Tree: {
+          controlHeightSM: remToPixels(HEIGHT.xxs),
+          controlInteractiveSize: 16,
+        },
         Table: {
           borderRadiusLG: 0,
 
@@ -161,7 +165,6 @@ export const ThemeConfigProvider: FC<ThemeConfigProviderProps> = ({ theme, child
 
           controlItemBgActive: 'var(--ant-primary-1)',
           controlItemBgActiveHover: `rgba(${hexToRGB(currentTheme.primary)}, 0.12)`,
-          colorBgContainer: `rgba(${hexToRGB(currentTheme.primary)}, 0.003)`,
         },
         Checkbox: {
           colorBgContainer: 'transparent',

@@ -15,7 +15,7 @@ export const NotificationsDropdown: React.FC = () => {
     <BasePopover
       trigger="click"
       content={<NotificationsOverlay notifications={notifications} setNotifications={setNotifications} />}
-      onOpenChange={setOpened}
+      afterOpenChange={setOpened}
     >
       <HeaderActionWrapper>
         <BaseButton
