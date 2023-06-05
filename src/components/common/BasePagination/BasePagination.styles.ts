@@ -6,25 +6,6 @@ export const Pagination = styled(AntdPagination)`
     color: var(--disabled-color);
   }
 
-  :not(.ant-pagination-disabled),
-  &.ant-pagination-disabled {
-    .ant-pagination-item,
-    .ant-pagination-jump-prev,
-    .ant-pagination-jump-next {
-      &:focus-visible {
-        outline: none;
-      }
-    }
-    .ant-pagination-prev,
-    .ant-pagination-next {
-      &:focus-visible {
-        .ant-pagination-item-link {
-          outline: none;
-        }
-      }
-    }
-  }
-
   :not(.ant-pagination-disabled) {
     .ant-pagination-item:focus-visible {
       a {

@@ -73,7 +73,6 @@ export const NewPasswordForm: React.FC = () => {
               },
             }),
           ]}
-          hasFeedback
         >
           <Auth.FormInputPassword placeholder={t('common.confirmPassword')} />
         </Auth.FormItem>
