@@ -34,5 +34,5 @@ export const User = styled.div`
 `;
 
 export const AddUserButton = styled(BaseButton)`
-  margin: 0 0.5rem;
+  margin: 0.5rem 0;
 `;

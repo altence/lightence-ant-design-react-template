@@ -7,6 +7,20 @@ export const Radio = styled(AntdRadio)`
     box-shadow: 0 0 0 3px var(--ant-primary-color-outline);
   }
 
+  &.ant-radio-wrapper {
+    .ant-radio-inner,
+    .ant-radio-inner::after {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    .ant-radio-inner::after {
+      transform: scale(0.5);
+      margin-block-start: -0.5rem;
+      margin-inline-start: -0.5rem;
+    }
+  }
+
   .ant-radio-disabled + span {
     color: var(--disabled-color);
   }

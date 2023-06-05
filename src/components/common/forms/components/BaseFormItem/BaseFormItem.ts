@@ -113,17 +113,21 @@ export const BaseFormItem = styled(Form.Item)<InternalFormItemProps>`
     top: 50%;
   }
 
-  &.ant-form-item-has-error .ant-input,
-  &.ant-form-item-has-error .ant-input-affix-wrapper,
-  &.ant-form-item-has-error .ant-input:hover,
-  &.ant-form-item-has-error .ant-input-affix-wrapper:hover {
-    border-color: var(--error-color);
+  &.ant-form-item-has-error {
+    .ant-input,
+    .ant-input-affix-wrapper,
+    .ant-input:hover,
+    .ant-input-affix-wrapper:hover {
+      border-color: var(--error-color);
+    }
   }
 
-  &.ant-form-item-has-success.ant-form-item-has-feedback .ant-input,
-  &.ant-form-item-has-success.ant-form-item-has-feedback .ant-input-affix-wrapper,
-  &.ant-form-item-has-success.ant-form-item-has-feedback .ant-input:hover,
-  &.ant-form-item-has-success.ant-form-item-has-feedback .ant-input-affix-wrapper:hover {
-    border-color: var(--success-color);
+  &.ant-form-item-has-success.ant-form-item-has-feedback {
+    .ant-input,
+    .ant-input-affix-wrapper,
+    .ant-input:hover,
+    .ant-input-affix-wrapper:hover {
+      border-color: var(--success-color);
+    }
   }
 `;
