@@ -9,7 +9,6 @@ export const CreatorButton = styled.button<StoriesInternalProps>`
   align-items: center;
   text-align: center;
   background: 0 0;
-  border: 0;
   cursor: pointer;
   border-radius: 50%;
   padding: 2px;

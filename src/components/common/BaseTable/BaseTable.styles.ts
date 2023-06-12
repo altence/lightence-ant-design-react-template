@@ -26,7 +26,7 @@ export const Table = styled(AntdTable)`
     margin-top: 0;
   }
 
-  // Override default antd selector
+  /* Override default antd selector */
   &
     .ant-table-thead
     > tr

@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
   --round-slider-handle-border-color: var(--primary-color);
 
   round-slider {
-    z-index: 1; // To make it under InnerWrapper
+    z-index: 1; /* To make it under InnerWrapper */
   }
 `;
 
@@ -44,7 +44,7 @@ export const BackgroundWrapper = styled(InnerWrapper)`
 
 export const ShadowWrapper = styled(InnerWrapper)`
   box-shadow: 0px -4px 16px rgba(1, 80, 154, 0.1), 0px 4px 16px rgba(1, 80, 154, 0.1);
-  z-index: 2; // To make it under slider
+  z-index: 2; /* To make it under slider */
 `;
 
 export const Text = styled(BaseTypography.Text)`

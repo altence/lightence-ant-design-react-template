@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { CountryMap } from '../../../common/CountryMap/CountryMap';
 
 export const DoctorsMap = styled(CountryMap)`
-  // Leaflet uses z-index inside. Create a new stacking context for avoiding overlapping
+  /* Leaflet uses z-index inside. Create a new stacking context for avoiding overlapping */
   isolation: isolate;
   height: 19rem;
 

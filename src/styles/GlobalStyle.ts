@@ -1,28 +1,22 @@
 import * as styled from 'styled-components';
 import { resetCss } from './resetCss';
 import { BREAKPOINTS, FONT_WEIGHT, media } from './themes/constants';
-import {
-  lightThemeVariables,
-  darkThemeVariables,
-  commonThemeVariables,
-  antOverrideCssVariables,
-} from './themes/themeVariables';
+import { getThemeVariables, commonThemeVariables } from './themes/themeVariables';
 
 export default styled.createGlobalStyle`
   ${resetCss}
 
   [data-theme='light'],
   :root {
-    ${lightThemeVariables}
+    ${getThemeVariables('light')}
   }
 
   [data-theme='dark'] {
-    ${darkThemeVariables}
+    ${getThemeVariables('dark')}
   }
 
   :root {
     ${commonThemeVariables};
-    ${antOverrideCssVariables};
   }
 
   [data-no-transition] * {

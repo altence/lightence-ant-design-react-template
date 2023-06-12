@@ -106,3 +106,19 @@ export const lightColorsTheme = {
   iconHover: 'rgba(0, 0, 0, 0.75)',
   ...chartColors,
 } as const satisfies ITheme;
+
+export const antLightColorsTheme = {
+  primaryColorHover: '#1c68a6',
+  primaryColor: 'rgb(1, 80, 154)',
+  primaryColorOutline: 'rgba(1, 80, 154, 0.2)',
+  primary1: lightColorsTheme.primary1,
+  primary2: '#85b3cc',
+  primary3: '#5e9abf',
+  primary4: '#3b81b3',
+  primary5: '#1c68a6',
+  primary6: '#01509a',
+  primary7: '#003773',
+  primary8: '#00224d',
+  primary9: '#001026',
+  primary10: '#000000',
+} as const;
