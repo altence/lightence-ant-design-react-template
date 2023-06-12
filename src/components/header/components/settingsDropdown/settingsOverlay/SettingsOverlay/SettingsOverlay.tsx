@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import { BaseCollapseProps } from '@app/components/common/BaseCollapse/BaseCollapse';
 import { DropdownCollapse } from '@app/components/header/Header.styles';
 import { useTranslation } from 'react-i18next';
 import { LanguagePicker } from '../LanguagePicker/LanguagePicker';
@@ -13,19 +14,30 @@ export const SettingsOverlay: React.FC = ({ ...props }) => {
 
   const { isPWASupported, event } = useAppSelector((state) => state.pwa);
 
+  const items: BaseCollapseProps['items'] = useMemo(
+    () => [
+      {
+        label: t('header.changeLanguage'),
+        key: 'languagePicker',
+        children: <LanguagePicker />,
+      },
+      {
+        label: t('header.changeTheme'),
+        key: 'themePicker',
+        children: <ThemePicker />,
+      },
+      {
+        label: t('header.nightMode.title'),
+        key: 'nightMode',
+        children: <NightModeSettings />,
+      },
+    ],
+    [t],
+  );
+
   return (
     <S.SettingsOverlayMenu {...props}>
-      <DropdownCollapse bordered={false} expandIconPosition="end" ghost defaultActiveKey="themePicker">
-        <DropdownCollapse.Panel header={t('header.changeLanguage')} key="languagePicker">
-          <LanguagePicker />
-        </DropdownCollapse.Panel>
-        <DropdownCollapse.Panel header={t('header.changeTheme')} key="themePicker">
-          <ThemePicker />
-        </DropdownCollapse.Panel>
-        <DropdownCollapse.Panel header={t('header.nightMode.title')} key="nightMode">
-          <NightModeSettings />
-        </DropdownCollapse.Panel>
-      </DropdownCollapse>
+      <DropdownCollapse bordered={false} expandIconPosition="end" ghost defaultActiveKey="themePicker" items={items} />
       {isPWASupported && (
         <S.PwaInstallWrapper>
           <BaseButton block type="primary" onClick={() => event && (event as BeforeInstallPromptEvent).prompt()}>

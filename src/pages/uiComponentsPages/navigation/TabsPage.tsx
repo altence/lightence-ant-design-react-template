@@ -46,7 +46,7 @@ const TabsPage: React.FC = () => {
           <BaseTabs defaultActiveKey="1" items={commonTabs} />
         </S.Card>
         <S.Card title={t('tabs.disabled')}>
-          <BaseTabs defaultActiveKey="1" items={commonTabs} />
+          <BaseTabs defaultActiveKey="1" items={commonTabs.map((tab) => ({ ...tab, disabled: true }))} />
         </S.Card>
         <S.Card title={t('tabs.withIcon')}>
           <BaseTabs

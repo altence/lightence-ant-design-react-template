@@ -3,6 +3,7 @@ import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { NFTCard } from '@app/components/nft-dashboard/common/NFTCard/NFTCard';
 import { FONT_SIZE, FONT_WEIGHT, FONT_FAMILY, media, BORDER_RADIUS } from '@app/styles/themes/constants';
 import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
+
 interface CardInternalProps {
   $img: string;
 }

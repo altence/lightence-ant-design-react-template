@@ -1,9 +1,9 @@
 import { ThemeType } from '@app/interfaces/interfaces';
 import { hexToRGB } from '@app/utils/utils';
-import { css } from 'styled-components';
+import { FlattenSimpleInterpolation, css } from 'styled-components';
 import { BASE_COLORS } from './constants';
 import { darkColorsTheme, antDarkColorsTheme } from './dark/darkTheme';
-import { lightColorsTheme } from './light/lightTheme';
+import { lightColorsTheme, antLightColorsTheme } from './light/lightTheme';
 
 export const themeObject = {
   light: lightColorsTheme,
@@ -11,11 +11,11 @@ export const themeObject = {
 };
 
 export const antThemeObject = {
-  light: {},
+  light: antLightColorsTheme,
   dark: antDarkColorsTheme,
 };
 
-const getThemeVariables = (theme: ThemeType) => css`
+export const getThemeVariables = (theme: ThemeType): FlattenSimpleInterpolation => css`
   color-scheme: ${theme};
   --primary-color: ${themeObject[theme].primary};
   --primary1-color: ${themeObject[theme].primary1};
@@ -99,16 +99,20 @@ const getThemeVariables = (theme: ThemeType) => css`
   --avatar-bg: ${themeObject[theme].avatarBg};
   --alert-text-color: ${themeObject[theme].alertTextColor};
   --breadcrumb-color: ${themeObject[theme].breadcrumb};
-`;
 
-export const lightThemeVariables = css`
-  ${getThemeVariables('light')}
-`;
-
-export const darkThemeVariables = css`
-  ${getThemeVariables('dark')}
-  --ant-success-color-deprecated-bg: ${antThemeObject['dark'].successBg} !important;
-  --ant-success-color-deprecated-border: ${antThemeObject['dark'].successBorder} !important;
+  --ant-primary-color-hover: ${antThemeObject[theme].primaryColorHover};
+  --ant-primary-color: ${antThemeObject[theme].primaryColor};
+  --ant-primary-color-outline: ${antThemeObject[theme].primaryColorOutline};
+  --ant-primary-1: ${antThemeObject[theme].primary1};
+  --ant-primary-2: ${antThemeObject[theme].primary2};
+  --ant-primary-3: ${antThemeObject[theme].primary3};
+  --ant-primary-4: ${antThemeObject[theme].primary4};
+  --ant-primary-5: ${antThemeObject[theme].primary5};
+  --ant-primary-6: ${antThemeObject[theme].primary6};
+  --ant-primary-7: ${antThemeObject[theme].primary7};
+  --ant-primary-8: ${antThemeObject[theme].primary8};
+  --ant-primary-9: ${antThemeObject[theme].primary9};
+  --ant-primary-10: ${antThemeObject[theme].primary10};
 `;
 
 export const commonThemeVariables = css`
@@ -125,8 +129,4 @@ export const commonThemeVariables = css`
   --blue: ${BASE_COLORS.blue};
   --skyblue: ${BASE_COLORS.skyblue};
   --red: ${BASE_COLORS.red};
-`;
-
-export const antOverrideCssVariables = css`
-  --ant-primary-1: var(--primary1-color) !important;
 `;

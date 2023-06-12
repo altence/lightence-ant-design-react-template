@@ -52,10 +52,16 @@ export const Select = styled(AntSelect)<InternalSelectProps>`
   }
 
   &.ant-select-disabled.ant-select-multiple .ant-select-selection-item {
+    color: #bfbfbf;
     background: var(--background-base-color);
+    border: 1px solid var(--border-base-color);
+    cursor: not-allowed;
   }
 
   &.ant-select-multiple {
+    .ant-select-selection-item {
+      border: 1px solid #f0f0f0;
+    }
     .ant-select-selector {
       padding-inline-start: 11px;
     }

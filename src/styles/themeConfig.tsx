@@ -1,5 +1,5 @@
-import { ThemeConfig } from 'antd';
-import { ThemeType } from '@app/interfaces/interfaces';
+import type { ThemeConfig } from 'antd';
+import type { ThemeType } from '@app/interfaces/interfaces';
 import {
   FONT_FAMILY,
   FONT_SIZE,
@@ -9,7 +9,7 @@ import {
   BASE_COLORS,
   HEIGHT,
 } from '@app/styles/themes/constants';
-import { themeObject } from './themes/themeVariables';
+import { antThemeObject, themeObject } from './themes/themeVariables';
 import { hexToRGB } from '@app/utils/utils';
 
 const remToPixels = (s: `${number}rem`) => parseFloat(s) * 16;
@@ -18,14 +18,20 @@ const parseNumber = (s: `${number}` | `${number}px`) => parseFloat(s);
 
 export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
   const currentTheme = themeObject[theme];
+  const antTheme = antThemeObject[theme];
 
   const colorFillAlter = `rgba(${hexToRGB(currentTheme.primary)}, 0.05)`;
 
   const fontFamily = `'${FONT_FAMILY.main}', sans-serif`;
 
+  // In some properties CSS variables are not parsed properly.
   return {
     token: {
       colorPrimary: currentTheme.primary,
+      colorInfo: currentTheme.primary,
+      colorSuccess: currentTheme.success,
+      colorError: currentTheme.error,
+      colorWarning: currentTheme.warning,
       boxShadow: currentTheme.boxShadow,
       colorTextHeading: currentTheme.heading,
       colorBgContainer: currentTheme.background,
@@ -38,11 +44,11 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       colorBgElevated: currentTheme.background,
       colorFillAlter,
       colorTextPlaceholder: currentTheme.inputPlaceholder,
-      colorPrimaryHover: 'var(--ant-primary-5)',
+      colorPrimaryHover: antTheme.primary5,
       ...(theme === 'dark'
         ? {
-            colorSuccessBg: 'var(--ant-success-color-deprecated-bg)',
-            colorSuccessBorder: 'var(--ant-success-color-deprecated-border)',
+            colorSuccessBg: antThemeObject[theme].successBg,
+            colorSuccessBorder: antThemeObject[theme].successBorder,
           }
         : {}),
       fontFamily,
@@ -53,7 +59,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       controlHeightLG: remToPixels(HEIGHT.lg),
       borderRadius: parseNumber(BORDER_RADIUS),
       colorSplit: '#f0f0f0',
-      controlOutline: 'var(--ant-primary-color-outline)',
+      controlOutline: antTheme.primaryColorOutline,
       controlOutlineWidth: 2,
       lineWidthFocus: 0,
       screenXSMin: BREAKPOINTS.xs,
@@ -74,7 +80,6 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       screenXXLMin: BREAKPOINTS.xxl,
       screenXXL: BREAKPOINTS.xxl,
     },
-    // Some component tokens do not properly parse CSS variables.
     components: {
       Layout: {
         controlHeight: 34,
@@ -102,8 +107,17 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
         borderRadiusLG: parseNumber(BORDER_RADIUS),
       },
       Tabs: {
-        colorPrimaryHover: 'var(--ant-primary-5)',
-        colorPrimary: 'var(--ant-primary-color)',
+        colorPrimaryHover: antTheme.primary5,
+        colorPrimary: antTheme.primaryColor,
+        colorPrimaryActive: antTheme.primary7,
+
+        itemSelectedColor: antTheme.primary5,
+        itemHoverColor: antTheme.primaryColor,
+        itemActiveColor: antTheme.primary7,
+
+        colorTextDisabled: currentTheme.disable,
+
+        colorBorderSecondary: '#f0f0f0',
       },
       Tree: {
         controlHeightSM: remToPixels(HEIGHT.xxs),
@@ -114,7 +128,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
         colorBorderSecondary: '#b3cbe1',
         colorTextHeading: currentTheme.primary,
         colorFillAlter,
-        controlItemBgActive: 'var(--ant-primary-1)',
+        controlItemBgActive: antTheme.primary1,
         controlItemBgActiveHover: `rgba(${hexToRGB(currentTheme.primary)}, 0.12)`,
       },
       Checkbox: {
@@ -131,11 +145,12 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
         fontSizeSM: remToPixels(FONT_SIZE.xs),
         borderRadiusXS: parseNumber(BORDER_RADIUS),
         borderRadiusSM: parseNumber(BORDER_RADIUS),
+        lineWidth: 0.8,
         colorFillSecondary: currentTheme.backgroundColorBase,
         colorIcon: currentTheme.icon,
-        colorPrimary: 'var(--ant-primary-color)',
-        colorPrimaryHover: 'var(--ant-primary-5)',
-        controlItemBgActive: 'var(--ant-primary-1)',
+        colorPrimary: antTheme.primaryColor,
+        colorPrimaryHover: antTheme.primary5,
+        controlItemBgActive: antTheme.primary1,
         controlItemBgHover: currentTheme.itemHoverBg,
       },
       Steps: {
@@ -149,30 +164,33 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       Spin: {
         controlHeight: remToPixels(HEIGHT.xs),
         controlHeightLG: remToPixels(HEIGHT.sm),
-        colorPrimary: 'var(--ant-primary-color)',
+        colorPrimary: antTheme.primaryColor,
       },
       Skeleton: {
         controlHeightXS: 16,
         controlHeightSM: remToPixels(HEIGHT.xs),
         controlHeight: remToPixels(HEIGHT.md),
         controlHeightLG: remToPixels(HEIGHT.lg),
-        color: 'rgba(190, 190, 190, 0.2)',
+        gradientFromColor: 'rgba(190, 190, 190, 0.2)',
       },
       Switch: {
         controlHeight: remToPixels(HEIGHT.xs),
-        colorPrimary: 'var(--ant-primary-color)',
+        colorPrimary: antTheme.primaryColor,
         colorWhite: currentTheme.background,
+        lineHeight: 1.375,
         lineWidthFocus: 1,
-        colorPrimaryBorder: 'var(--ant-primary-1)',
+        colorPrimaryBorder: antTheme.primary1,
         opacityLoading: 0.4,
       },
       Menu: {
         controlHeightLG: remToPixels(HEIGHT.md),
         fontSize: remToPixels(FONT_SIZE.xl),
-        colorItemTextSelected: 'var(--ant-primary-color)',
-        colorActiveBarWidth: 3,
-        colorActiveBarBorderSize: 0,
+        itemSelectedColor: antTheme.primaryColor,
+        colorFillAlter: `rgba(${hexToRGB(antThemeObject['light'].primary6)}, 0.05)`,
+        colorSplit: 'transparent',
+        activeBarWidth: 2,
         marginXXS: 8,
+        itemMarginInline: 0,
       },
       Divider: {
         colorSplit: 'rgba(0, 0, 0, 0.06)',
@@ -209,15 +227,15 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       Input: {
         colorTextPlaceholder: currentTheme.inputPlaceholder,
         colorTextDisabled: currentTheme.disable,
-        colorPrimaryHover: 'var(--ant-primary-5)',
+        colorPrimaryHover: antTheme.primary5,
         fontWeightStrong: parseNumber(FONT_WEIGHT.semibold),
         colorFillAlter,
       },
       InputNumber: {
-        colorPrimary: 'var(--ant-primary-5)',
+        colorPrimary: antTheme.primary5,
       },
       Form: {
-        colorInfoBorderHover: 'var(--ant-primary-color-hover)',
+        colorInfoBorderHover: antTheme.primaryColorHover,
       },
       Avatar: {
         colorTextPlaceholder: currentTheme.avatarBg,
@@ -227,14 +245,14 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
         controlHeightLG: remToPixels(HEIGHT.sm),
       },
       Badge: {
-        colorPrimary: 'var(--ant-primary-color)',
+        colorPrimary: antTheme.primaryColor,
         colorTextPlaceholder: '#d9d9d9',
         fontSizeSM: remToPixels(FONT_SIZE.xxs),
       },
       Button: {
         colorPrimary: currentTheme.primary,
         borderRadiusSM: parseNumber(BORDER_RADIUS),
-        controlTmpOutline: 'var(--ant-primary-color-outline)',
+        controlTmpOutline: antTheme.primaryColorOutline,
         controlOutline: '0',
         controlOutlineWidth: 0,
       },
@@ -246,7 +264,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
         colorFillContent: '#f0f0f0',
       },
       Radio: {
-        colorPrimary: 'var(--ant-primary-color)',
+        colorPrimary: antTheme.primaryColor,
         wireframe: true,
         controlItemBgActiveDisabled: '#e6e6e6',
       },
@@ -255,13 +273,13 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       },
       Pagination: {
         wireframe: true,
-        colorPrimary: 'var(--ant-primary-color)',
+        colorPrimary: antTheme.primaryColor,
         controlItemBgActiveDisabled: '#e6e6e6',
       },
       Slider: {
-        colorPrimaryBorder: 'var(--ant-primary-3)',
-        colorPrimary: 'var(--ant-primary-4)',
-        colorPrimaryBorderHover: 'var(--ant-primary-4)',
+        colorPrimaryBorder: antTheme.primary3,
+        colorPrimary: antTheme.primary4,
+        colorPrimaryBorderHover: antTheme.primary4,
         colorFillSecondary: '#e1e1e1',
         colorBorderSecondary: '#e1e1e1',
         colorFillContentHover: '#e1e1e1',
@@ -271,6 +289,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       },
       Modal: {
         colorTextDescription: currentTheme.icon,
+        colorIcon: currentTheme.icon,
         wireframe: true,
       },
       Progress: {
@@ -280,7 +299,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       DatePicker: {
         colorIcon: currentTheme.textLight,
         colorPrimary: '#1c68a6',
-        controlItemBgActive: 'var(--ant-primary-1)',
+        controlItemBgActive: antTheme.primary1,
         colorTextPlaceholder: currentTheme.inputPlaceholder,
         fontWeightStrong: parseNumber(FONT_WEIGHT.medium),
         controlHeightSM: remToPixels(HEIGHT.xs),
@@ -291,7 +310,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       },
       Upload: {
         colorFillAlter,
-        colorPrimaryHover: 'var(--ant-primary-5)',
+        colorPrimaryHover: antTheme.primary5,
       },
     },
   };
