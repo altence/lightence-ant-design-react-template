@@ -214,6 +214,9 @@ export const TrendingCreators: React.FC = () => {
                 return storiesCopy;
               });
             }}
+            onStoryEnd={(storyNumber: number) => {
+              setStoryIndex(storyNumber + 1);
+            }}
             onAllStoriesEnd={() => {
               setStoryOpened(false);
             }}
