@@ -61,7 +61,7 @@ export const TrendingCreators: React.FC = () => {
           slidesToShow={11}
           ref={sliderRef}
           centerMode={false}
-          infinite={true}
+          infinite={false}
           responsive={[
             {
               breakpoint: 1920,
