@@ -11155,7 +11155,7 @@ __metadata:
     react-helmet-async: ^1.3.0
     react-i18next: ^11.11.4
     react-infinite-scroll-component: ^6.1.0
-    react-insta-stories: ^2.3.0
+    react-insta-stories: ^2.6.0
     react-leaflet: next
     react-phone-number-input: ^3.2.17
     react-redux: ^7.2.6
@@ -15138,12 +15138,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-insta-stories@npm:^2.3.0":
-  version: 2.4.2
-  resolution: "react-insta-stories@npm:2.4.2"
+"react-insta-stories@npm:^2.6.0":
+  version: 2.6.0
+  resolution: "react-insta-stories@npm:2.6.0"
   peerDependencies:
-    react: ^16.8.2 || 17.x || 18.x
-  checksum: 544a5405c2f6b5079ebdf37984ec8c59508ce072dbaeb9a1bc2c5d77111bb80dc85a358764c7430d8c66f2bfa626647e75d612f2f1c35dcf3f80f1e1a288b6dd
+    react: ">=16.8.2"
+  checksum: 7729cec2ba5d4a7458477c3a0aeddc51fd8ca530d731b63324661bb679b574a2d25ce54b251203148f140a4551d873b9f1c00b3beb320cb841b7a8c5f9d685c6
   languageName: node
   linkType: hard
 

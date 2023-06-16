@@ -35,7 +35,7 @@
     "react-helmet-async": "^1.3.0",
     "react-i18next": "^11.11.4",
     "react-infinite-scroll-component": "^6.1.0",
-    "react-insta-stories": "^2.3.0",
+    "react-insta-stories": "^2.6.0",
     "react-leaflet": "next",
     "react-phone-number-input": "^3.2.17",
     "react-redux": "^7.2.6",
