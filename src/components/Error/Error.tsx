@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import * as S from './Error.styles';
-import { Link } from 'react-router-dom';
 
 interface ErrorProps {
   img: string;
@@ -18,9 +17,7 @@ export const Error: React.FC<ErrorProps> = ({ img, msg }) => {
         <S.Title>{t('common.oops')}</S.Title>
         <S.Text>{msg}</S.Text>
         {/*TODO make common component */}
-        <Link to="/" className="ant-btn ant-btn-link">
-          {t('error404.comeBack')}
-        </Link>
+        <S.Link href="/">{t('error404.comeBack')}</S.Link>
       </S.ContentWrapper>
     </S.Wrapper>
   );

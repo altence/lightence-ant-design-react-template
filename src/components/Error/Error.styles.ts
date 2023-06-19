@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { BORDER_RADIUS, media } from '@app/styles/themes/constants';
+import { BORDER_RADIUS, FONT_WEIGHT, HEIGHT, media } from '@app/styles/themes/constants';
 import { BaseImage } from '../common/BaseImage/BaseImage';
 import { BaseTypography } from '../common/BaseTypography/BaseTypography';
 
@@ -72,4 +72,10 @@ export const Text = styled(Title)`
     font-size: 1.5rem;
     margin-bottom: 1.8rem;
   }
+`;
+
+export const Link = styled(BaseTypography.Link)`
+  font-weight: ${FONT_WEIGHT.semibold};
+  line-height: ${HEIGHT.md};
+  padding-inline: 15px;
 `;
