@@ -18,6 +18,8 @@ const parseNumber = (s: `${number}` | `${number}px`) => parseFloat(s);
 
 const fontFamily = `'${FONT_FAMILY.main}', sans-serif`;
 
+const borderRadius = parseNumber(BORDER_RADIUS);
+
 const modalBoxShadow =
   '0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05)';
 
@@ -61,7 +63,11 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       controlHeightSM: remToPixels(HEIGHT.xs),
       controlHeight: remToPixels(HEIGHT.md),
       controlHeightLG: remToPixels(HEIGHT.lg),
-      borderRadius: parseNumber(BORDER_RADIUS),
+      borderRadiusXS: borderRadius,
+      borderRadiusSM: borderRadius,
+      borderRadius,
+      borderRadiusLG: borderRadius,
+      borderRadiusOuter: borderRadius,
       colorSplit: '#f0f0f0',
       controlOutline: antTheme.primaryColorOutline,
       controlOutlineWidth: 2,
@@ -99,14 +105,12 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
         paddingContentVerticalSM: 8,
         paddingMD: 15,
         paddingContentHorizontalLG: 15,
-        borderRadiusLG: parseNumber(BORDER_RADIUS),
       },
       Card: {
         colorTextHeading: currentTheme.textMain,
         padding: 20,
         paddingLG: 20,
         boxShadowTertiary: currentTheme.boxShadow,
-        borderRadiusLG: parseNumber(BORDER_RADIUS),
       },
       Tabs: {
         colorPrimaryHover: antTheme.primary5,
@@ -125,6 +129,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
         colorTextHeading: currentTheme.primary,
         colorFillAlter,
         controlItemBgActive: antTheme.primary1,
+        colorSplit: 'rgba(0, 0, 0, 0.15)',
         controlItemBgActiveHover: `rgba(${hexToRGB(currentTheme.primary)}, 0.12)`,
       },
       Checkbox: {
@@ -139,8 +144,6 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       },
       Select: {
         fontSizeSM: remToPixels(FONT_SIZE.xs),
-        borderRadiusXS: parseNumber(BORDER_RADIUS),
-        borderRadiusSM: parseNumber(BORDER_RADIUS),
         lineWidth: 0.8,
         colorFillSecondary: currentTheme.backgroundColorBase,
         colorIcon: currentTheme.icon,
@@ -209,7 +212,6 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
         width: 36 * 16,
         paddingMD: 20,
         paddingLG: 20,
-        borderRadiusLG: parseNumber(BORDER_RADIUS),
         paddingContentHorizontalLG: 2 * 16,
         lineHeightLG: 2,
         colorSuccess: currentTheme.success,
@@ -253,7 +255,6 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       },
       Button: {
         colorPrimary: currentTheme.primary,
-        borderRadiusSM: parseNumber(BORDER_RADIUS),
         controlTmpOutline: antTheme.primaryColorOutline,
         controlOutline: '0',
         controlOutlineWidth: 0,
