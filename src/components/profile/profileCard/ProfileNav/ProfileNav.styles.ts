@@ -17,6 +17,7 @@ export const Btn = styled(BaseButton)<BtnProps>`
   align-items: center;
   justify-content: unset !important;
   width: 100%;
+  column-gap: 12px;
 
   &.ant-btn:not(:disabled):hover {
     background-color: rgba(var(--primary-rgb-color), 0.05);
@@ -31,7 +32,6 @@ export const Btn = styled(BaseButton)<BtnProps>`
   & > span:first-of-type {
     padding: 0.625rem;
     border-radius: 10px;
-    margin-right: 0.5rem;
 
     color: ${(props) => `var(--${props.color}-color)`};
 
