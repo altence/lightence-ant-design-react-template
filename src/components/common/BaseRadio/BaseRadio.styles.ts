@@ -8,6 +8,10 @@ export const Radio = styled(AntdRadio)`
   }
 
   &.ant-radio-wrapper {
+    .ant-radio {
+      align-self: inherit;
+    }
+
     .ant-radio-inner,
     .ant-radio-inner::after {
       width: 1rem;
