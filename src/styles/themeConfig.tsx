@@ -132,7 +132,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
         colorPrimary: currentTheme.primary,
         colorTextDisabled: currentTheme.disable,
         controlInteractiveSize: 16,
-        marginXS: 0,
+        marginXS: 8,
       },
       Tag: {
         fontSize: remToPixels(FONT_SIZE.xs),
@@ -317,6 +317,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
         paddingXXS: 2,
       },
       Dropdown: {
+        paddingXXS: 0,
         controlHeight: 34,
       },
       Upload: {
