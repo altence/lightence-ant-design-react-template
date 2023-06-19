@@ -46,6 +46,12 @@ export const Card = styled(AntCard)<CardInternalProps>`
     }
   }
 
+  @media only screen and ${media.xl} {
+    &.ant-card .ant-card-head .ant-card-head-wrapper .ant-card-head-title .ant-row .ant-col.ant-col-xs-24 {
+      font-size: ${FONT_SIZE.xxl};
+    }
+  }
+
   .ant-card-body {
     flex-grow: 1;
 

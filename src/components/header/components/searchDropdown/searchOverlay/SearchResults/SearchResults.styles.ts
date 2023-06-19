@@ -4,7 +4,9 @@ import styled from 'styled-components';
 
 export const SearchResultsWrapper = styled.div`
   & > div {
-    font-size: 0.875rem;
+    .ant-typography {
+      font-size: 0.875rem;
+    }
 
     & .ant-list-header {
       font-size: 0.75rem;

@@ -4,7 +4,6 @@ import { BaseMenu } from '@app/components/common/BaseMenu/BaseMenu';
 
 export const Menu = styled(BaseMenu)`
   background: transparent;
-  border-right: 0;
 
   a {
     width: 100%;
@@ -17,7 +16,8 @@ export const Menu = styled(BaseMenu)`
     border-radius: 0;
   }
 
-  .ant-menu-item-icon {
+  &.ant-menu .ant-menu-item-icon {
+    font-size: ${FONT_SIZE.xl};
     width: 1.25rem;
   }
 
@@ -73,5 +73,10 @@ export const Menu = styled(BaseMenu)`
   .ant-menu-item-active,
   .ant-menu-submenu-active .ant-menu-submenu-title {
     background-color: transparent !important;
+  }
+
+  .ant-menu-item:not(:last-child),
+  .ant-menu-submenu-title {
+    margin-bottom: 8px;
   }
 `;

@@ -61,12 +61,10 @@ export const Select = styled(AntSelect)<InternalSelectProps>`
   &.ant-select-multiple {
     .ant-select-selection-item {
       border: 1px solid #f0f0f0;
+      margin-inline-end: 11px;
     }
     .ant-select-selector {
       padding-inline-start: 11px;
-    }
-    .ant-select-selection-item {
-      margin-inline-end: 11px;
     }
   }
 `;

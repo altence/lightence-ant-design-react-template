@@ -8,7 +8,7 @@ import { BaseCol } from '../common/BaseCol/BaseCol';
 export const HeaderActionWrapper = styled.div`
   cursor: pointer;
 
-  & > .ant-btn > span[role='img'],
+  & > .ant-btn span[role='img'],
   .ant-badge {
     font-size: 1.25rem;
 

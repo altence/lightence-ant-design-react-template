@@ -62,22 +62,6 @@ const EmptyDescription = styled.div`
   margin-top: -0.75rem;
 `;
 
-const SuccessIcon = styled(CheckCircleFilled)`
-  color: var(--success-color);
-`;
-
-const InfoIcon = styled(InfoCircleFilled)`
-  color: var(--primary-color);
-`;
-
-const WarningIcon = styled(ExclamationCircleFilled)`
-  color: var(--warning-color);
-`;
-
-const ErrorIcon = styled(StopFilled)`
-  color: var(--error-color);
-`;
-
 type NotificationType = Pick<NotificationInstance, 'success' | 'info' | 'warning' | 'error'>;
 
 const openSuccess = (notification: NotificationType) => (config: NotificationProps) => {
@@ -85,7 +69,7 @@ const openSuccess = (notification: NotificationType) => (config: NotificationPro
     ...config,
     icon: (
       <IconWrapper $isOnlyTitle={!config.description}>
-        <SuccessIcon />
+        <CheckCircleFilled className="ant-notification-notice-icon-success" />
       </IconWrapper>
     ),
     message: <Message $isOnlyTitle={!config.description}>{config.message}</Message>,
@@ -98,7 +82,7 @@ const openInfo = (notification: NotificationType) => (config: NotificationProps)
     ...config,
     icon: (
       <IconWrapper $isOnlyTitle={!config.description}>
-        <InfoIcon />
+        <InfoCircleFilled className="ant-notification-notice-icon-info" />
       </IconWrapper>
     ),
     message: <Message $isOnlyTitle={!config.description}>{config.message}</Message>,
@@ -111,7 +95,7 @@ const openWarning = (notification: NotificationType) => (config: NotificationPro
     ...config,
     icon: (
       <IconWrapper $isOnlyTitle={!config.description}>
-        <WarningIcon />
+        <ExclamationCircleFilled className="ant-notification-notice-icon-warning" />
       </IconWrapper>
     ),
     message: <Message $isOnlyTitle={!config.description}>{config.message}</Message>,
@@ -124,7 +108,7 @@ const openError = (notification: NotificationType) => (config: NotificationProps
     ...config,
     icon: (
       <IconWrapper $isOnlyTitle={!config.description}>
-        <ErrorIcon />
+        <StopFilled className="ant-notification-notice-icon-error" />
       </IconWrapper>
     ),
     message: <Message $isOnlyTitle={!config.description}>{config.message}</Message>,
