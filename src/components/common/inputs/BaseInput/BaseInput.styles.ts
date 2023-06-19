@@ -3,8 +3,6 @@ import { Input as AntInput } from 'antd';
 import { FONT_WEIGHT, FONT_SIZE } from '@app/styles/themes/constants';
 
 export const Input = styled(AntInput)`
-  font-family: inherit;
-
   .ant-select:not(.ant-select-disabled):not(.ant-select-customize-input):not(.ant-pagination-size-changer):hover
     .ant-select-selector {
     border-color: transparent;

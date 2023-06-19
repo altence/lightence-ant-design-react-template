@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Form, FormItemProps } from 'antd';
-import { media } from '@app/styles/themes/constants';
+import { FONT_SIZE, media } from '@app/styles/themes/constants';
 
 interface InternalFormItemProps {
   $isSuccess?: boolean;
@@ -12,7 +12,6 @@ export type BaseFormItemProps = FormItemProps;
 export const BaseFormItem = styled(Form.Item)<InternalFormItemProps>`
   .ant-input {
     font-size: 1rem;
-    font-family: inherit;
   }
 
   .ant-input:disabled {
@@ -23,6 +22,7 @@ export const BaseFormItem = styled(Form.Item)<InternalFormItemProps>`
 
   .ant-form-item-label > label {
     color: var(--primary-color);
+    font-size: ${FONT_SIZE.xs};
   }
 
   .ant-input-group-addon:first-of-type {
@@ -129,5 +129,9 @@ export const BaseFormItem = styled(Form.Item)<InternalFormItemProps>`
     .ant-input-affix-wrapper:hover {
       border-color: var(--success-color);
     }
+  }
+
+  & .ant-form-item-row {
+    flex-wrap: inherit;
   }
 `;

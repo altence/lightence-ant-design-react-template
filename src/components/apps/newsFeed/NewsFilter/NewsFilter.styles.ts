@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { SearchOutlined, PlusCircleFilled, CloseOutlined } from '@ant-design/icons';
 import { BaseDatePicker } from '@app/components/common/pickers/BaseDatePicker';
-import { BORDER_RADIUS, FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
+import { BORDER_RADIUS, BREAKPOINTS, FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
 import { BasePopover } from '@app/components/common/BasePopover/BasePopover';
 import { BaseInput } from '@app/components/common/inputs/BaseInput/BaseInput';
 import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
@@ -118,10 +118,19 @@ export const RangePicker = styled(BaseDatePicker.RangePicker)`
   width: 100%;
   margin-bottom: 0.875rem;
 
-  & input {
+  &.ant-picker .ant-picker-input input {
     color: var(--text-main-color);
     font-size: ${FONT_SIZE.xs};
     font-weight: ${FONT_WEIGHT.semibold};
+  }
+`;
+
+export const PanelWrapper = styled.div`
+  .ant-picker-panels {
+    @media only screen and ${media.xs} and (max-width: ${BREAKPOINTS.md - 0.02}px) {
+      display: flex;
+      flex-direction: column;
+    }
   }
 `;
 

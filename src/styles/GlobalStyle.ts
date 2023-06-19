@@ -1,6 +1,6 @@
 import * as styled from 'styled-components';
 import { resetCss } from './resetCss';
-import { BREAKPOINTS, FONT_WEIGHT, media } from './themes/constants';
+import { FONT_FAMILY } from './themes/constants';
 import { getThemeVariables, commonThemeVariables } from './themes/themeVariables';
 
 export default styled.createGlobalStyle`
@@ -23,26 +23,9 @@ export default styled.createGlobalStyle`
     transition: none !important;
   }
 
-  .range-picker {
-    & .ant-picker-panels {
-      @media only screen and ${media.xs} and (max-width: ${BREAKPOINTS.md - 0.02}px) {
-        display: flex;
-        flex-direction: column;
-      }
-    }
-  }
-
-  .search-overlay {
-    box-shadow: var(--box-shadow);
-
-    @media only screen and ${media.xs} and (max-width: ${BREAKPOINTS.md - 0.02}px) {
-      width: calc(100vw - 16px);
-      max-width: 600px;
-    }
-
-    @media only screen and ${media.md} {
-      width: 323px;
-    }
+  button,
+  input {
+    font-family: ${FONT_FAMILY.main}, sans-serif;
   }
 
   a {
@@ -54,27 +37,10 @@ export default styled.createGlobalStyle`
     }
   }
 
-  .ant-picker-cell {
-    color: var(--text-main-color);
-  }
-
-  .ant-picker-cell-in-view .ant-picker-calendar-date-value {
-    color: var(--text-main-color);
-    font-weight: ${FONT_WEIGHT.bold};
-  }
-
-  .ant-picker svg {
-    color: var(--text-light-color);
-  }
-
   .ant-notification {
     .ant-notification-notice {
       min-height: 6rem;
-
-      .ant-notification-notice-close {
-        top: 1.25rem;
-        right: 1.25rem;
-      }
+      padding: 2rem;
     }
 
     .ant-notification-notice-success {
@@ -96,10 +62,5 @@ export default styled.createGlobalStyle`
       border: 1px solid var(--error-color);
       background: var(--notification-error-color);
     }
-  }
-
-  .ant-menu-inline,
-  .ant-menu-vertical {
-    border-right: 0;
   }
 `;
