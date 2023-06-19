@@ -101,8 +101,7 @@ export const FormItem = styled(BaseForm.Item)`
     font-size: ${FONT_SIZE.xs};
   }
 
-  & label {
-    color: var(--primary-color);
+  & .ant-form-item-label label {
     font-size: ${FONT_SIZE.xs};
     line-height: 1.25rem;
   }

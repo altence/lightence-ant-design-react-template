@@ -4,7 +4,7 @@ import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
 import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
 
 export const UserList = styled(BaseForm.Item)`
-  & label {
+  & .ant-form-item-label label {
     font-size: ${FONT_SIZE.md};
     font-weight: ${FONT_WEIGHT.semibold};
   }

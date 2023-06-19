@@ -7,7 +7,9 @@ interface ViewAllInternalProps {
 }
 
 export const ViewAllBtn = styled(BaseButton)<ViewAllInternalProps>`
-  font-size: ${FONT_SIZE.xs};
+  &.ant-btn {
+    font-size: ${FONT_SIZE.xs};
+  }
 
   font-weight: ${FONT_WEIGHT.medium};
 

@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { Button as AntButton } from 'antd';
 import { Severity } from '@app/interfaces/interfaces';
 import { defineColorBySeverity } from '@app/utils/utils';
-import { FONT_WEIGHT, FONT_SIZE } from '@app/styles/themes/constants';
+import { FONT_WEIGHT } from '@app/styles/themes/constants';
 
 interface BtnProps {
   $severity?: Severity;
@@ -19,10 +19,6 @@ export const Button = styled(AntButton)<BtnProps>`
 
   font-weight: ${FONT_WEIGHT.semibold};
   box-shadow: none;
-
-  &.ant-btn.ant-btn-icon-only .anticon {
-    font-size: ${FONT_SIZE.xxxl};
-  }
 
   &:not(:disabled):focus-visible {
     outline: none;

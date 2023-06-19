@@ -1,20 +1,25 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { DatePicker as AntDatePicker } from 'antd';
 
-export const DatePicker = styled(AntDatePicker)`
-  & input {
-    font-family: inherit;
+const datePickerSizes = css`
+  &.ant-picker {
+    &.ant-picker-small {
+      padding: 3.1px 7px;
+    }
+    &.ant-picker-large {
+      padding: 17.6px 11px;
+    }
   }
+`;
+
+export const DatePicker = styled(AntDatePicker)`
+  ${datePickerSizes}
 `;
 
 export const RangePicker = styled(AntDatePicker.RangePicker)`
-  & input {
-    font-family: inherit;
-  }
+  ${datePickerSizes}
 `;
 
 export const TimePicker = styled(AntDatePicker.TimePicker)`
-  & input {
-    font-family: inherit;
-  }
+  ${datePickerSizes}
 `;
