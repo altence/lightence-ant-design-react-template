@@ -115,7 +115,7 @@ const Filter: React.FC<Filter> = ({
       </S.DateLabels>
 
       <S.RangePicker
-        popupClassName="range-picker"
+        panelRender={(originalPanel) => <S.PanelWrapper>{originalPanel}</S.PanelWrapper>}
         value={dates}
         onChange={(dates: RangeValue<AppDate>) =>
           updateFilteredField('dates', [dates?.length ? dates[0] : null, dates?.length ? dates[1] : null])

@@ -16,13 +16,16 @@ const remToPixels = (s: `${number}rem`) => parseFloat(s) * 16;
 
 const parseNumber = (s: `${number}` | `${number}px`) => parseFloat(s);
 
+const fontFamily = `'${FONT_FAMILY.main}', sans-serif`;
+
+const modalBoxShadow =
+  '0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05)';
+
 export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
   const currentTheme = themeObject[theme];
   const antTheme = antThemeObject[theme];
 
   const colorFillAlter = `rgba(${hexToRGB(currentTheme.primary)}, 0.05)`;
-
-  const fontFamily = `'${FONT_FAMILY.main}', sans-serif`;
 
   // In some properties CSS variables are not parsed properly.
   return {
@@ -52,6 +55,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
           }
         : {}),
       fontFamily,
+      fontFamilyCode: fontFamily,
       fontSize: remToPixels(FONT_SIZE.md),
       fontSizeSM: remToPixels(FONT_SIZE.xs),
       controlHeightSM: remToPixels(HEIGHT.xs),
@@ -62,21 +66,21 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       controlOutline: antTheme.primaryColorOutline,
       controlOutlineWidth: 2,
       lineWidthFocus: 0,
-      screenXSMin: BREAKPOINTS.xs,
+      screenXSMin: 0,
       screenXS: BREAKPOINTS.xs,
-      screenXSMax: BREAKPOINTS.xs,
+      screenXSMax: BREAKPOINTS.sm - 1,
       screenSMMin: BREAKPOINTS.sm,
       screenSM: BREAKPOINTS.sm,
-      screenSMMax: BREAKPOINTS.sm,
+      screenSMMax: BREAKPOINTS.md - 1,
       screenMDMin: BREAKPOINTS.md,
       screenMD: BREAKPOINTS.md,
-      screenMDMax: BREAKPOINTS.md,
+      screenMDMax: BREAKPOINTS.lg - 1,
       screenLGMin: BREAKPOINTS.lg,
       screenLG: BREAKPOINTS.lg,
-      screenLGMax: BREAKPOINTS.lg,
+      screenLGMax: BREAKPOINTS.xl - 1,
       screenXLMin: BREAKPOINTS.xl,
       screenXL: BREAKPOINTS.xl,
-      screenXLMax: BREAKPOINTS.xl,
+      screenXLMax: BREAKPOINTS.xxl - 1,
       screenXXLMin: BREAKPOINTS.xxl,
       screenXXL: BREAKPOINTS.xxl,
     },
@@ -100,8 +104,6 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       Card: {
         colorTextHeading: currentTheme.textMain,
         padding: 20,
-        fontSize: remToPixels(FONT_SIZE.lg),
-        fontSizeSM: remToPixels(FONT_SIZE.md),
         paddingLG: 20,
         boxShadowTertiary: currentTheme.boxShadow,
         borderRadiusLG: parseNumber(BORDER_RADIUS),
@@ -110,13 +112,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
         colorPrimaryHover: antTheme.primary5,
         colorPrimary: antTheme.primaryColor,
         colorPrimaryActive: antTheme.primary7,
-
-        itemSelectedColor: antTheme.primary5,
-        itemHoverColor: antTheme.primaryColor,
-        itemActiveColor: antTheme.primary7,
-
         colorTextDisabled: currentTheme.disable,
-
         colorBorderSecondary: '#f0f0f0',
       },
       Tree: {
@@ -155,7 +151,9 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       },
       Steps: {
         wireframe: true,
-        controlHeight: remToPixels(HEIGHT.xs),
+        iconSize: remToPixels(HEIGHT.xs),
+        iconFontSize: remToPixels(FONT_SIZE.lg),
+        controlHeight: remToPixels(HEIGHT.md),
         controlHeightSM: remToPixels(HEIGHT.xxs),
         fontSizeHeading3: remToPixels(FONT_SIZE.xxl),
         colorPrimary: currentTheme.primary,
@@ -184,12 +182,13 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       },
       Menu: {
         controlHeightLG: remToPixels(HEIGHT.md),
-        fontSize: remToPixels(FONT_SIZE.xl),
+        fontSize: remToPixels(FONT_SIZE.xs),
         itemSelectedColor: antTheme.primaryColor,
         colorFillAlter: `rgba(${hexToRGB(antThemeObject['light'].primary6)}, 0.05)`,
         colorSplit: 'transparent',
         activeBarWidth: 2,
-        marginXXS: 8,
+        marginXXS: 4,
+        controlHeightSM: 30,
         itemMarginInline: 0,
       },
       Divider: {
@@ -208,21 +207,23 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       Notification: {
         zIndexPopup: 9999,
         width: 36 * 16,
-        paddingMD: 2 * 16,
-        paddingLG: 0,
+        paddingMD: 20,
+        paddingLG: 20,
+        borderRadiusLG: parseNumber(BORDER_RADIUS),
         paddingContentHorizontalLG: 2 * 16,
         lineHeightLG: 2,
         colorSuccess: currentTheme.success,
         colorInfo: currentTheme.primary,
         colorWarning: currentTheme.warning,
         colorError: currentTheme.error,
-        fontFamily,
         fontSizeLG: remToPixels(FONT_SIZE.xxl),
         marginSM: 0,
-        boxShadow:
-          '0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05)',
+        boxShadow: modalBoxShadow,
         controlHeightLG: 15 / 0.55,
         wireframe: true,
+      },
+      Empty: {
+        controlHeightLG: remToPixels(HEIGHT.sm),
       },
       Input: {
         colorTextPlaceholder: currentTheme.inputPlaceholder,
@@ -235,6 +236,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
         colorPrimary: antTheme.primary5,
       },
       Form: {
+        marginLG: 16,
         colorInfoBorderHover: antTheme.primaryColorHover,
       },
       Avatar: {
@@ -260,7 +262,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
         colorTextDescription: currentTheme.breadcrumb,
       },
       Rate: {
-        'yellow-6': '#ffc24b',
+        starColor: '#ffc24b',
         colorFillContent: '#f0f0f0',
       },
       Radio: {
@@ -270,6 +272,8 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       },
       Result: {
         fontSizeHeading3: remToPixels(FONT_SIZE.xxl),
+        lineHeightHeading3: 1.8,
+        colorTextDescription: currentTheme.breadcrumb,
       },
       Pagination: {
         wireframe: true,
@@ -287,9 +291,13 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
         handleSize: 8,
         colorTextDisabled: currentTheme.disable,
       },
+      Calendar: {
+        controlHeightSM: remToPixels(HEIGHT.xs) / 1.5,
+      },
       Modal: {
         colorTextDescription: currentTheme.icon,
         colorIcon: currentTheme.icon,
+        boxShadow: modalBoxShadow,
         wireframe: true,
       },
       Progress: {
@@ -298,12 +306,15 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       },
       DatePicker: {
         colorIcon: currentTheme.textLight,
+        colorTextDisabled: currentTheme.textLight,
         colorPrimary: '#1c68a6',
         controlItemBgActive: antTheme.primary1,
         colorTextPlaceholder: currentTheme.inputPlaceholder,
         fontWeightStrong: parseNumber(FONT_WEIGHT.medium),
-        controlHeightSM: remToPixels(HEIGHT.xs),
-        controlHeightLG: remToPixels(HEIGHT.lg),
+        controlHeightSM: remToPixels(HEIGHT.xxs),
+        controlHeightLG: remToPixels(HEIGHT.sm),
+        padding: 13,
+        paddingXXS: 2,
       },
       Dropdown: {
         controlHeight: 34,
