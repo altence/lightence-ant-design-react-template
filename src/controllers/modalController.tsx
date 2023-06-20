@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 import { FONT_SIZE, FONT_WEIGHT, HEIGHT } from '@app/styles/themes/constants';
 import { ModalStaticFunctions } from 'antd/es/modal/confirm';
+import {
+  CheckCircleOutlined,
+  ExclamationCircleOutlined,
+  InfoCircleOutlined,
+  CloseCircleOutlined,
+} from '@ant-design/icons';
 
 const ModalStyles = styled.div`
   .ant-modal-confirm-success &,
@@ -37,9 +43,25 @@ const modalRender = (node: React.ReactNode) => <ModalStyles>{node}</ModalStyles>
 
 type ModalType = Pick<ModalStaticFunctions, 'info' | 'success' | 'warning' | 'error'>;
 
-export const modalController = (modalType: ModalType): ModalType => ({
-  info: (props) => modalType.info({ modalRender, ...props }),
-  success: (props) => modalType.success({ modalRender, ...props }),
-  warning: (props) => modalType.warning({ modalRender, ...props }),
-  error: (props) => modalType.error({ modalRender, ...props }),
+const openInfo = (modal: ModalType): ModalType['info'] => {
+  return (props) => modal.info({ modalRender, icon: <InfoCircleOutlined />, ...props });
+};
+
+const openSuccess = (modal: ModalType): ModalType['success'] => {
+  return (props) => modal.success({ modalRender, icon: <CheckCircleOutlined />, ...props });
+};
+
+const openWarning = (modal: ModalType): ModalType['warning'] => {
+  return (props) => modal.warning({ modalRender, icon: <ExclamationCircleOutlined />, ...props });
+};
+
+const openError = (modal: ModalType): ModalType['error'] => {
+  return (props) => modal.error({ modalRender, icon: <CloseCircleOutlined />, ...props });
+};
+
+export const modalController = (modal: ModalType): ModalType => ({
+  info: openInfo(modal),
+  success: openSuccess(modal),
+  warning: openWarning(modal),
+  error: openError(modal),
 });

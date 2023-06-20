@@ -1,7 +1,6 @@
 import type { NotificationInstance } from 'antd/es/notification/interface';
 import styled, { css } from 'styled-components';
 import { CheckCircleFilled, ExclamationCircleFilled, InfoCircleFilled, StopFilled } from '@ant-design/icons';
-import { ArgsProps as NotificationProps } from 'antd/lib/notification/interface';
 import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
 
 interface IconWrapperProps {
@@ -64,56 +63,60 @@ const EmptyDescription = styled.div`
 
 type NotificationType = Pick<NotificationInstance, 'success' | 'info' | 'warning' | 'error'>;
 
-const openSuccess = (notification: NotificationType) => (config: NotificationProps) => {
-  notification.success({
-    ...config,
-    icon: (
-      <IconWrapper $isOnlyTitle={!config.description}>
-        <CheckCircleFilled className="ant-notification-notice-icon-success" />
-      </IconWrapper>
-    ),
-    message: <Message $isOnlyTitle={!config.description}>{config.message}</Message>,
-    description: config.description ? <Description>{config.description}</Description> : <EmptyDescription />,
-  });
+const openSuccess = (notification: NotificationType): NotificationType['success'] => {
+  return ({ message, description, ...props }) =>
+    notification.success({
+      icon: (
+        <IconWrapper $isOnlyTitle={!description}>
+          <CheckCircleFilled className="ant-notification-notice-icon-success" />
+        </IconWrapper>
+      ),
+      message: <Message $isOnlyTitle={!description}>{message}</Message>,
+      description: description ? <Description>{description}</Description> : <EmptyDescription />,
+      ...props,
+    });
 };
 
-const openInfo = (notification: NotificationType) => (config: NotificationProps) => {
-  notification.info({
-    ...config,
-    icon: (
-      <IconWrapper $isOnlyTitle={!config.description}>
-        <InfoCircleFilled className="ant-notification-notice-icon-info" />
-      </IconWrapper>
-    ),
-    message: <Message $isOnlyTitle={!config.description}>{config.message}</Message>,
-    description: config.description ? <Description>{config.description}</Description> : <EmptyDescription />,
-  });
+const openInfo = (notification: NotificationType): NotificationType['info'] => {
+  return ({ message, description, ...props }) =>
+    notification.info({
+      icon: (
+        <IconWrapper $isOnlyTitle={!description}>
+          <InfoCircleFilled className="ant-notification-notice-icon-info" />
+        </IconWrapper>
+      ),
+      message: <Message $isOnlyTitle={!description}>{message}</Message>,
+      description: description ? <Description>{description}</Description> : <EmptyDescription />,
+      ...props,
+    });
 };
 
-const openWarning = (notification: NotificationType) => (config: NotificationProps) => {
-  notification.warning({
-    ...config,
-    icon: (
-      <IconWrapper $isOnlyTitle={!config.description}>
-        <ExclamationCircleFilled className="ant-notification-notice-icon-warning" />
-      </IconWrapper>
-    ),
-    message: <Message $isOnlyTitle={!config.description}>{config.message}</Message>,
-    description: config.description ? <Description>{config.description}</Description> : <EmptyDescription />,
-  });
+const openWarning = (notification: NotificationType): NotificationType['warning'] => {
+  return ({ message, description, ...props }) =>
+    notification.warning({
+      icon: (
+        <IconWrapper $isOnlyTitle={!description}>
+          <ExclamationCircleFilled className="ant-notification-notice-icon-warning" />
+        </IconWrapper>
+      ),
+      message: <Message $isOnlyTitle={!description}>{message}</Message>,
+      description: description ? <Description>{description}</Description> : <EmptyDescription />,
+      ...props,
+    });
 };
 
-const openError = (notification: NotificationType) => (config: NotificationProps) => {
-  notification.error({
-    ...config,
-    icon: (
-      <IconWrapper $isOnlyTitle={!config.description}>
-        <StopFilled className="ant-notification-notice-icon-error" />
-      </IconWrapper>
-    ),
-    message: <Message $isOnlyTitle={!config.description}>{config.message}</Message>,
-    description: config.description ? <Description>{config.description}</Description> : <EmptyDescription />,
-  });
+const openError = (notification: NotificationType): NotificationType['error'] => {
+  return ({ message, description, ...props }) =>
+    notification.error({
+      icon: (
+        <IconWrapper $isOnlyTitle={!description}>
+          <StopFilled className="ant-notification-notice-icon-error" />
+        </IconWrapper>
+      ),
+      message: <Message $isOnlyTitle={!description}>{message}</Message>,
+      description: description ? <Description>{description}</Description> : <EmptyDescription />,
+      ...props,
+    });
 };
 
 export const notificationController = (notification: NotificationType): NotificationType => ({
