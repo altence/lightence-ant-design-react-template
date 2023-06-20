@@ -260,6 +260,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
         controlOutlineWidth: 0,
       },
       Breadcrumb: {
+        fontSizeIcon: 10,
         colorTextDescription: currentTheme.breadcrumb,
       },
       Rate: {
