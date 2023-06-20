@@ -251,7 +251,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       Badge: {
         colorPrimary: antTheme.primaryColor,
         colorTextPlaceholder: '#d9d9d9',
-        fontSizeSM: remToPixels(FONT_SIZE.xxs),
+        fontSizeSM: remToPixels(FONT_SIZE.xs),
       },
       Button: {
         colorPrimary: currentTheme.primary,
@@ -281,6 +281,8 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
         wireframe: true,
         colorPrimary: antTheme.primaryColor,
         controlItemBgActiveDisabled: '#e6e6e6',
+        itemSizeSM: 24,
+        controlHeightLG: remToPixels(HEIGHT.sm),
       },
       Slider: {
         colorPrimaryBorder: antTheme.primary3,
@@ -301,6 +303,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
         colorIcon: currentTheme.icon,
         boxShadow: modalBoxShadow,
         wireframe: true,
+        lineHeight: 1.57,
       },
       Progress: {
         marginXS: 0,
@@ -320,6 +323,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       },
       Dropdown: {
         paddingXXS: 0,
+        fontSizeIcon: 10,
         controlHeight: 34,
       },
       Upload: {
