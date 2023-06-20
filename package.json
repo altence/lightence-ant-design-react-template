@@ -11,7 +11,7 @@
     "url": "https://github.com/altence/lightence-admin/issues"
   },
   "dependencies": {
-    "@ant-design/icons": "^5.0.1",
+    "@ant-design/icons": "^5.1.4",
     "@craco/craco": "^6.1.2",
     "@lit-labs/react": "^1.0.2",
     "@react-google-maps/api": "^2.18.1",
@@ -85,8 +85,8 @@
   "devDependencies": {
     "@types/country-list": "^2.1.0",
     "@types/leaflet": "^1.7.9",
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
+    "@types/react": "^18.2.13",
+    "@types/react-dom": "^18.2.6",
     "@types/react-helmet": "^6.1.5",
     "@types/react-responsive": "^8.0.5",
     "@types/react-router-dom": "^5.1.7",
@@ -120,7 +120,6 @@
     "node": "16.x"
   },
   "resolutions": {
-    "@types/react": "^18.0.28",
     "react-error-overlay": "6.0.9"
   },
   "packageManager": "yarn@3.1.1",
