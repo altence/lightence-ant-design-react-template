@@ -22,7 +22,6 @@ export const resetCss = css`
 
   body {
     font-weight: 500;
-    color: var(--text-main-color);
   }
 
   img {
