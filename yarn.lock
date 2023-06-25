@@ -3094,7 +3094,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^18.2.13":
+"@types/react@npm:^18.2.13":
   version: 18.2.13
   resolution: "@types/react@npm:18.2.13"
   dependencies:
@@ -3967,9 +3967,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"antd@npm:^5.6.2":
-  version: 5.6.2
-  resolution: "antd@npm:5.6.2"
+"antd@npm:^5.6.3":
+  version: 5.6.3
+  resolution: "antd@npm:5.6.3"
   dependencies:
     "@ant-design/colors": ^7.0.0
     "@ant-design/cssinjs": ^1.10.1
@@ -4022,7 +4022,7 @@ __metadata:
   peerDependencies:
     react: ">=16.9.0"
     react-dom: ">=16.9.0"
-  checksum: ac2e73a53bbb870310ea384e8b7cb178d4326d76637f3e887da5819b915b84ef42790400116a3d6cefed8d5fdc5e3bacc051c55f97eec238af50245a6fa015b0
+  checksum: 7ffe43b053383ee53c76213409ef8f6ef42b735ede79c7a0764579bc87ec44cc85dcdae03e82cc53ea3039fc23c0aecf1f6b6a75c6096e42d3c391627ca05a78
   languageName: node
   linkType: hard
 
@@ -11127,7 +11127,7 @@ __metadata:
     "@types/uuid": ^8.3.4
     "@typescript-eslint/eslint-plugin": ^5.10.0
     "@typescript-eslint/parser": ^5.8.0
-    antd: ^5.6.2
+    antd: ^5.6.3
     antd-mask-input: ^2.0.7
     axios: ^0.24.0
     axios-mock-adapter: ^1.20.0
