@@ -16,7 +16,7 @@
     "@lit-labs/react": "^1.0.2",
     "@react-google-maps/api": "^2.18.1",
     "@reduxjs/toolkit": "^1.7.1",
-    "antd": "^5.6.2",
+    "antd": "^5.6.3",
     "antd-mask-input": "^2.0.7",
     "axios": "^0.24.0",
     "axios-mock-adapter": "^1.20.0",
@@ -120,6 +120,7 @@
     "node": "16.x"
   },
   "resolutions": {
+    "@types/react": "^18.2.13",
     "react-error-overlay": "6.0.9"
   },
   "packageManager": "yarn@3.1.1",
