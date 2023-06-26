@@ -275,7 +275,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       Result: {
         fontSizeHeading3: remToPixels(FONT_SIZE.xxl),
         lineHeightHeading3: 1.8,
-        colorTextDescription: currentTheme.breadcrumb,
+        colorTextDescription: currentTheme.subText,
       },
       Pagination: {
         wireframe: true,
@@ -292,7 +292,10 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
         colorBorderSecondary: '#e1e1e1',
         colorFillContentHover: '#e1e1e1',
         colorFillTertiary: currentTheme.backgroundColorBase,
-        handleSize: 8,
+        handleSize: 11,
+        handleSizeHover: 11,
+        handleLineWidth: 2,
+        handleLineWidthHover: 2,
         colorTextDisabled: currentTheme.disable,
       },
       Calendar: {
