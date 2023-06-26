@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
-import MaskedInput from 'antd-mask-input';
+import { MaskedInput } from '@app/components/common/inputs/MaskedInput/MaskedInput';
 import { CardInputProps } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentMethod/paymentForm/interfaces';
 
 export const CardNumberItem: React.FC<CardInputProps> = ({ disabled, handleInputFocus }) => {
