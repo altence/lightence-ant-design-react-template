@@ -3,8 +3,8 @@ import { Radio as AntdRadio } from 'antd';
 
 export const Radio = styled(AntdRadio)`
   .ant-radio-input:focus-visible + .ant-radio-inner {
-    outline: none;
-    box-shadow: 0 0 0 3px var(--ant-primary-color-outline);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(var(--primary-rgb-color), 0.12);
   }
 
   &.ant-radio-wrapper {
@@ -32,8 +32,7 @@ export const Radio = styled(AntdRadio)`
 
 export const RadioButton = styled(AntdRadio.Button)`
   &.ant-radio-button-wrapper:has(:focus-visible) {
-    outline: none;
-    box-shadow: 0 0 0 3px var(--ant-primary-color-outline);
+    box-shadow: 0 0 0 3px rgba(var(--primary-rgb-color), 0.12);
   }
 
   &.ant-radio-button-wrapper-disabled {

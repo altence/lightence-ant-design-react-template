@@ -20,10 +20,6 @@ export const Button = styled(AntButton)<BtnProps>`
   font-weight: ${FONT_WEIGHT.semibold};
   box-shadow: none;
 
-  &:not(:disabled):focus-visible {
-    outline: none;
-  }
-
   ${(props) =>
     props.$noStyle &&
     css`
