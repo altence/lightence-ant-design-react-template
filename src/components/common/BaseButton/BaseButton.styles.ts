@@ -56,8 +56,8 @@ export const Button = styled(AntButton)<BtnProps>`
 
         &:focus,
         &:not(:disabled):hover {
-          color: var(--ant-primary-color-hover);
-          border-color: var(--ant-primary-color-hover);
+          color: var(--ant-primary-5);
+          border-color: var(--ant-primary-5);
         }
       }
 
@@ -84,8 +84,8 @@ export const Button = styled(AntButton)<BtnProps>`
         }
 
         &:focus {
-          color: var(--ant-primary-color-hover);
-          border-color: var(--ant-primary-color-hover);
+          color: var(--ant-primary-5);
+          border-color: var(--ant-primary-5);
         }
 
         &:not(:disabled):hover {
@@ -98,8 +98,8 @@ export const Button = styled(AntButton)<BtnProps>`
         background: var(--primary-color);
 
         &:focus {
-          border-color: var(--ant-primary-color-hover);
-          background: var(--ant-primary-color-hover);
+          border-color: var(--ant-primary-5);
+          background: var(--ant-primary-5);
         }
 
         &:hover {
@@ -117,12 +117,12 @@ export const Button = styled(AntButton)<BtnProps>`
         }
 
         &:focus {
-          color: var(--ant-primary-color-hover);
+          color: var(--ant-primary-5);
         }
 
         &:not(:disabled):hover {
           text-decoration: none;
-          color: var(--ant-primary-color-hover);
+          color: var(--ant-primary-5);
         }
 
         & span,

@@ -108,9 +108,6 @@ export const lightColorsTheme = {
 } as const satisfies ITheme;
 
 export const antLightColorsTheme = {
-  primaryColorHover: '#1c68a6',
-  primaryColor: 'rgb(1, 80, 154)',
-  primaryColorOutline: 'rgba(1, 80, 154, 0.2)',
   primary1: lightColorsTheme.primary1,
   primary2: '#85b3cc',
   primary3: '#5e9abf',

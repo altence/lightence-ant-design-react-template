@@ -7,7 +7,7 @@ export const Slider = styled(AntdSlider)`
   }
 
   &.ant-slider .ant-slider-handle:focus::after {
-    outline: 6px solid var(--ant-primary-color-outline);
+    outline: 6px solid rgba(var(--primary-color), 0.2);
   }
 
   & .ant-slider-mark-text:not(.ant-slider-mark-text-active) {

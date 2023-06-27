@@ -9,17 +9,17 @@ export const Pagination = styled(AntdPagination)`
   :not(.ant-pagination-disabled) {
     .ant-pagination-item:focus-visible {
       a {
-        color: var(--ant-primary-color);
+        color: var(--primary-color);
       }
-      border-color: var(--ant-primary-color);
+      border-color: var(--primary-color);
     }
 
     .ant-pagination-prev,
     .ant-pagination-next {
       &:focus-visible {
         .ant-pagination-item-link {
-          color: var(--ant-primary-color);
-          border-color: var(--ant-primary-color);
+          color: var(--primary-color);
+          border-color: var(--primary-color);
         }
       }
     }

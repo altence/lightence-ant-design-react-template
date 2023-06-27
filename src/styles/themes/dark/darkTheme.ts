@@ -108,9 +108,6 @@ export const darkColorsTheme = {
 } as const satisfies ITheme;
 
 export const antDarkColorsTheme = {
-  primaryColorHover: '#5cb6ff',
-  primaryColor: 'rgb(51, 156, 253)',
-  primaryColorOutline: 'rgba(51, 156, 253, 0.2)',
   primary1: darkColorsTheme.primary1,
   primary2: '#d6f1ff',
   primary3: '#ade0ff',

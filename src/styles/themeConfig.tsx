@@ -29,6 +29,8 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
 
   const colorFillAlter = `rgba(${hexToRGB(currentTheme.primary)}, 0.05)`;
 
+  const controlOutline = `rgba(${hexToRGB(currentTheme.primary)}, 0.2)`;
+
   // In some properties CSS variables are not parsed properly.
   return {
     token: {
@@ -69,8 +71,8 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       borderRadiusLG: borderRadius,
       borderRadiusOuter: borderRadius,
       colorSplit: '#f0f0f0',
-      controlOutline: antTheme.primaryColorOutline,
-      controlTmpOutline: antTheme.primaryColorOutline,
+      controlOutline,
+      controlTmpOutline: controlOutline,
       controlOutlineWidth: 2,
       lineWidthFocus: 0,
       screenXSMin: 0,
@@ -115,7 +117,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       },
       Tabs: {
         colorPrimaryHover: antTheme.primary5,
-        colorPrimary: antTheme.primaryColor,
+        colorPrimary: currentTheme.primary,
         colorPrimaryActive: antTheme.primary7,
         colorTextDisabled: currentTheme.disable,
         colorBorderSecondary: '#f0f0f0',
@@ -148,7 +150,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
         lineWidth: 0.8,
         colorFillSecondary: currentTheme.backgroundColorBase,
         colorIcon: currentTheme.icon,
-        colorPrimary: antTheme.primaryColor,
+        colorPrimary: currentTheme.primary,
         colorPrimaryHover: antTheme.primary5,
         controlItemBgActive: antTheme.primary1,
         controlItemBgHover: currentTheme.itemHoverBg,
@@ -166,7 +168,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       Spin: {
         controlHeight: remToPixels(HEIGHT.xs),
         controlHeightLG: remToPixels(HEIGHT.sm),
-        colorPrimary: antTheme.primaryColor,
+        colorPrimary: currentTheme.primary,
       },
       Skeleton: {
         controlHeightXS: 16,
@@ -177,7 +179,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       },
       Switch: {
         controlHeight: remToPixels(HEIGHT.xs),
-        colorPrimary: antTheme.primaryColor,
+        colorPrimary: currentTheme.primary,
         colorWhite: currentTheme.background,
         lineHeight: 1.375,
         colorPrimaryBorder: antTheme.primary1,
@@ -186,7 +188,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       Menu: {
         controlHeightLG: remToPixels(HEIGHT.md),
         fontSize: remToPixels(FONT_SIZE.xs),
-        itemSelectedColor: antTheme.primaryColor,
+        itemSelectedColor: currentTheme.primary,
         colorFillAlter: `rgba(${hexToRGB(antThemeObject['light'].primary6)}, 0.05)`,
         colorSplit: 'transparent',
         activeBarWidth: 2,
@@ -239,7 +241,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       },
       Form: {
         marginLG: 16,
-        colorInfoBorderHover: antTheme.primaryColorHover,
+        colorInfoBorderHover: antTheme.primary5,
       },
       Avatar: {
         colorTextPlaceholder: currentTheme.avatarBg,
@@ -249,13 +251,12 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
         controlHeightLG: remToPixels(HEIGHT.sm),
       },
       Badge: {
-        colorPrimary: antTheme.primaryColor,
+        colorPrimary: currentTheme.primary,
         colorTextPlaceholder: '#d9d9d9',
         fontSizeSM: remToPixels(FONT_SIZE.xs),
       },
       Button: {
         colorPrimary: currentTheme.primary,
-        controlOutline: '0',
         controlOutlineWidth: 0,
       },
       Breadcrumb: {
@@ -267,7 +268,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
         colorFillContent: '#f0f0f0',
       },
       Radio: {
-        colorPrimary: antTheme.primaryColor,
+        colorPrimary: currentTheme.primary,
         wireframe: true,
         controlItemBgActiveDisabled: '#e6e6e6',
       },
@@ -278,7 +279,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       },
       Pagination: {
         wireframe: true,
-        colorPrimary: antTheme.primaryColor,
+        colorPrimary: currentTheme.primary,
         controlItemBgActiveDisabled: '#e6e6e6',
         itemSizeSM: 24,
         controlHeightLG: remToPixels(HEIGHT.sm),
