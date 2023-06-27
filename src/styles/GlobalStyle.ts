@@ -33,7 +33,7 @@ export default styled.createGlobalStyle`
 
     &:hover,
     :active {
-      color: var(--ant-primary-color-hover);
+      color: var(--ant-primary-5);
     }
   }
 

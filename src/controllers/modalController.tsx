@@ -30,8 +30,8 @@ const ModalStyles = styled.div`
         .ant-btn.ant-btn-primary {
           font-size: ${FONT_SIZE.md};
           font-weight: ${FONT_WEIGHT.semibold};
-          background-color: var(--ant-primary-color);
-          border-color: var(--ant-primary-color);
+          background-color: var(--primary-color);
+          border-color: var(--primary-color);
           height: ${HEIGHT.md};
         }
       }

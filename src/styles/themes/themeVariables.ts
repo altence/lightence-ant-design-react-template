@@ -100,9 +100,6 @@ export const getThemeVariables = (theme: ThemeType): FlattenSimpleInterpolation 
   --alert-text-color: ${themeObject[theme].alertTextColor};
   --breadcrumb-color: ${themeObject[theme].breadcrumb};
 
-  --ant-primary-color-hover: ${antThemeObject[theme].primaryColorHover};
-  --ant-primary-color: ${antThemeObject[theme].primaryColor};
-  --ant-primary-color-outline: ${antThemeObject[theme].primaryColorOutline};
   --ant-primary-1: ${antThemeObject[theme].primary1};
   --ant-primary-2: ${antThemeObject[theme].primary2};
   --ant-primary-3: ${antThemeObject[theme].primary3};
