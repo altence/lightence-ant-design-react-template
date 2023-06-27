@@ -70,6 +70,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       borderRadiusOuter: borderRadius,
       colorSplit: '#f0f0f0',
       controlOutline: antTheme.primaryColorOutline,
+      controlTmpOutline: antTheme.primaryColorOutline,
       controlOutlineWidth: 2,
       lineWidthFocus: 0,
       screenXSMin: 0,
@@ -179,7 +180,6 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
         colorPrimary: antTheme.primaryColor,
         colorWhite: currentTheme.background,
         lineHeight: 1.375,
-        lineWidthFocus: 1,
         colorPrimaryBorder: antTheme.primary1,
         opacityLoading: 0.4,
       },
@@ -255,7 +255,6 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       },
       Button: {
         colorPrimary: currentTheme.primary,
-        controlTmpOutline: antTheme.primaryColorOutline,
         controlOutline: '0',
         controlOutlineWidth: 0,
       },
