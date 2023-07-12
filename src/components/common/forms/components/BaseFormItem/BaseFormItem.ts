@@ -23,6 +23,10 @@ export const BaseFormItem = styled(Form.Item)<InternalFormItemProps>`
   .ant-form-item-label > label {
     color: var(--primary-color);
     font-size: ${FONT_SIZE.xs};
+
+    .ant-form-item-optional {
+      color: var(--subtext-color);
+    }
   }
 
   .ant-input-group-addon:first-of-type {
