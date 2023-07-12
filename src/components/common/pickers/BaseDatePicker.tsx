@@ -1,8 +1,8 @@
 import React from 'react';
-import { DatePickerProps as BaseDatePickerProps } from 'antd';
+import { DatePickerProps } from 'antd';
 import * as S from './BaseDatePicker.styled';
 
-export type { BaseDatePickerProps };
+export type BaseDatePickerProps = DatePickerProps;
 
 const DatePicker = React.forwardRef<React.Component<BaseDatePickerProps>, BaseDatePickerProps>(
   ({ className, ...props }, ref) => <S.DatePicker ref={ref} className={className} {...props} />,
