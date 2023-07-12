@@ -1,10 +1,12 @@
-import { TableProps as BaseTableProps } from 'antd';
+import { TableProps } from 'antd';
 import * as S from './BaseTable.styles';
 
-export type { BaseTableProps };
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AnyRecord = Record<PropertyKey, any>;
+
+export type BaseTableProps<T extends AnyRecord> = TableProps<T>;
 
 // TODO make generic!
-// eslint-disable-next-line @typescript-eslint/ban-types
-export const BaseTable = <T extends object>(props: BaseTableProps<T>): JSX.Element => {
+export const BaseTable = <T extends AnyRecord>(props: BaseTableProps<T>): JSX.Element => {
   return <S.Table {...props} />;
 };
