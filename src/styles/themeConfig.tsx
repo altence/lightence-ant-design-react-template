@@ -103,8 +103,8 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       },
       Alert: {
         colorInfoBg: '#dfefff',
-        colorText: currentTheme.alertTextColor,
-        marginXS: 8,
+        colorText: BASE_COLORS.black,
+        colorTextHeading: BASE_COLORS.black,
         marginSM: 15,
         paddingContentVerticalSM: 8,
         paddingMD: 15,
