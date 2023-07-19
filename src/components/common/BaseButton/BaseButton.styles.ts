@@ -28,20 +28,19 @@ export const Button = styled(AntButton)<BtnProps>`
       height: unset;
     `}
 
-  &[disabled],
-  &[disabled]:active,
-  &[disabled]:focus,
-  &[disabled]:hover {
-    color: var(--disabled-color);
+  &.ant-btn {
+    &:disabled {
+      color: var(--disabled-color);
+      cursor: not-allowed; /* todo: https://github.com/ant-design/ant-design/issues/43661 */
+    }
   }
 
   &.ant-btn-dangerous {
-    &.ant-btn-primary {
-      box-shadow: none;
-    }
-
-    &.ant-btn-text:not(:disabled):hover {
-      background-color: transparent;
+    &.ant-btn-text {
+      &:focus,
+      &:not(:disabled):hover {
+        background: rgba(0, 0, 0, 0.018);
+      }
     }
   }
 
@@ -49,26 +48,32 @@ export const Button = styled(AntButton)<BtnProps>`
     !props.danger &&
     css`
       &.ant-btn-default,
-      &.ant-btn-dashed {
+      &.ant-btn-dashed,
+      &.ant-btn-ghost {
         &:focus {
-          background-color: var(--background-color);
-        }
-
-        &:focus,
-        &:not(:disabled):hover {
           color: var(--ant-primary-5);
           border-color: var(--ant-primary-5);
+        }
+      }
+
+      &.ant-btn-text,
+      &.ant-btn-ghost {
+        &:not(:disabled):hover {
+          color: var(--secondary-color);
+          background-color: transparent;
+        }
+      }
+
+      &.ant-btn-primary,
+      &.ant-btn-ghost {
+        &:not(:disabled):hover {
+          border-color: var(--secondary-color);
         }
       }
 
       &.ant-btn-text {
         &:focus {
           background-color: rgba(0, 0, 0, 0.018);
-        }
-
-        &:not(:disabled):hover {
-          background: transparent;
-          color: var(--secondary-color);
         }
       }
 
@@ -77,55 +82,29 @@ export const Button = styled(AntButton)<BtnProps>`
         border-color: var(--primary-color);
 
         &:disabled {
-          cursor: not-allowed;
-          color: var(--disabled-color);
           border-color: var(--border-base-color);
           background-color: var(--disabled-bg-color);
         }
+      }
 
+      &.ant-btn-primary {
         &:focus {
-          color: var(--ant-primary-5);
           border-color: var(--ant-primary-5);
+          background-color: var(--ant-primary-5);
         }
 
         &:not(:disabled):hover {
-          color: var(--secondary-color);
-          border-color: var(--secondary-color);
-        }
-      }
-
-      &.ant-btn-primary:not(:disabled) {
-        background: var(--primary-color);
-
-        &:focus {
-          border-color: var(--ant-primary-5);
-          background: var(--ant-primary-5);
-        }
-
-        &:hover {
-          background: var(--secondary-color);
-
-          border-color: var(--secondary-color);
+          background-color: var(--secondary-color);
         }
       }
 
       &.ant-btn-link {
-        color: var(--primary-color);
-
-        &:disabled {
-          color: var(--disabled-color);
-        }
-
+        &:not(:disabled):hover,
         &:focus {
           color: var(--ant-primary-5);
         }
 
-        &:not(:disabled):hover {
-          text-decoration: none;
-          color: var(--ant-primary-5);
-        }
-
-        & span,
+        span,
         a {
           text-decoration: underline;
         }
@@ -133,19 +112,17 @@ export const Button = styled(AntButton)<BtnProps>`
 
       ${props.$severity &&
       css`
-        background: rgba(${defineColorBySeverity(props.$severity, true)}, 0.2);
-
+        background-color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.2);
         border-color: ${defineColorBySeverity(props.$severity)};
-
         color: ${defineColorBySeverity(props.$severity)};
 
-        &.ant-btn-default:focus,
-        &.ant-btn-default:not(:disabled):hover {
-          background: var(--background-color);
-
-          border-color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9);
-
-          color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9);
+        &.ant-btn-default {
+          &:focus,
+          &:not(:disabled):hover {
+            background-color: var(--background-color);
+            border-color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9);
+            color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9);
+          }
         }
       `}
     `}
