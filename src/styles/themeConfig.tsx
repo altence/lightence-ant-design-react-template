@@ -256,7 +256,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       Badge: {
         colorPrimary: currentTheme.primary,
         colorTextPlaceholder: '#d9d9d9',
-        fontSizeSM: remToPixels(FONT_SIZE.xs),
+        fontSizeSM: remToPixels(FONT_SIZE.xxs),
       },
       Button: {
         colorPrimary: currentTheme.primary,
