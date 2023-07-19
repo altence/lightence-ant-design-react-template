@@ -41,6 +41,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       colorWarning: currentTheme.warning,
       boxShadow: currentTheme.boxShadow,
       colorTextHeading: currentTheme.heading,
+      colorTextDescription: currentTheme.subText,
       colorBgContainer: currentTheme.background,
       colorText: currentTheme.textMain,
       controlItemBgHover: currentTheme.itemHoverBg,
@@ -147,9 +148,11 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       },
       Select: {
         fontSizeSM: remToPixels(FONT_SIZE.xs),
-        lineWidth: 0.8,
+        colorTextTertiary: currentTheme.icon,
+        colorTextQuaternary: currentTheme.icon,
         colorFillSecondary: currentTheme.backgroundColorBase,
         colorIcon: currentTheme.icon,
+        colorIconHover: currentTheme.iconHover,
         colorPrimary: currentTheme.primary,
         colorPrimaryHover: antTheme.primary5,
         controlItemBgActive: antTheme.primary1,
@@ -163,7 +166,6 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
         controlHeightSM: remToPixels(HEIGHT.xxs),
         fontSizeHeading3: remToPixels(FONT_SIZE.xxl),
         colorPrimary: currentTheme.primary,
-        colorTextDescription: currentTheme.subText,
       },
       Spin: {
         controlHeight: remToPixels(HEIGHT.xs),
@@ -276,7 +278,6 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       Result: {
         fontSizeHeading3: remToPixels(FONT_SIZE.xxl),
         lineHeightHeading3: 1.8,
-        colorTextDescription: currentTheme.subText,
       },
       Pagination: {
         wireframe: true,
