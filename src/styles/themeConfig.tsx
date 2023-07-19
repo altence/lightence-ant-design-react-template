@@ -235,6 +235,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
         colorPrimaryHover: antTheme.primary5,
         fontWeightStrong: parseNumber(FONT_WEIGHT.semibold),
         colorFillAlter,
+        controlOutlineWidth: 0,
       },
       InputNumber: {
         colorPrimary: antTheme.primary5,
