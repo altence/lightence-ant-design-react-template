@@ -143,7 +143,7 @@ export const BasicTable: React.FC = () => {
         return (
           <BaseSpace>
             <BaseButton
-              type="ghost"
+              ghost
               onClick={() => {
                 notification.info({ message: t('tables.inviteMessage', { name: record.name }) });
               }}

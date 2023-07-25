@@ -19,7 +19,8 @@ export const NotificationsDropdown: React.FC = () => {
     >
       <HeaderActionWrapper>
         <BaseButton
-          type={isOpened ? 'ghost' : 'text'}
+          ghost={isOpened}
+          type={isOpened ? 'default' : 'text'}
           icon={
             <BaseBadge dot>
               <BellOutlined />

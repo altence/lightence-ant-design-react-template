@@ -69,7 +69,7 @@ export const NotificationsOverlay: React.FC<NotificationsOverlayProps> = ({
           <BaseRow gutter={[10, 10]}>
             {notifications.length > 0 && (
               <BaseCol span={24}>
-                <S.Btn type="ghost" onClick={() => setNotifications([])}>
+                <S.Btn ghost onClick={() => setNotifications([])}>
                   {t('header.notifications.readAll')}
                 </S.Btn>
               </BaseCol>

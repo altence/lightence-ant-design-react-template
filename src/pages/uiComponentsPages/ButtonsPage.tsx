@@ -41,7 +41,7 @@ const ButtonsPage: React.FC = () => {
         <S.Card title={t('buttons.types')}>
           <BaseButton type="primary">{t('buttons.primary')}</BaseButton>
           <BaseButton type="default">{t('buttons.default')}</BaseButton>
-          <BaseButton type="ghost">{t('buttons.ghost')}</BaseButton>
+          <BaseButton ghost>{t('buttons.ghost')}</BaseButton>
           <BaseButton type="dashed">{t('buttons.dashed')}</BaseButton>
           <BaseButton type="text">{t('buttons.text')}</BaseButton>
           <BaseButton type="link">{t('buttons.link')}</BaseButton>
@@ -53,13 +53,13 @@ const ButtonsPage: React.FC = () => {
           <BaseButton severity="error">{t('common.error')}</BaseButton>
         </S.Card>
         <S.Card title={t('buttons.sizes')}>
-          <BaseButton type="ghost" size="small">
+          <BaseButton ghost size="small">
             {t('buttons.small')}
           </BaseButton>
-          <BaseButton type="ghost" size="middle">
+          <BaseButton ghost size="middle">
             {t('buttons.default')}
           </BaseButton>
-          <BaseButton type="ghost" size="large">
+          <BaseButton ghost size="large">
             {t('buttons.large')}
           </BaseButton>
         </S.Card>
@@ -109,7 +109,7 @@ const ButtonsPage: React.FC = () => {
           <BaseButton type="default" disabled>
             {t('buttons.default')}
           </BaseButton>
-          <BaseButton type="ghost" disabled>
+          <BaseButton ghost disabled>
             {t('buttons.ghost')}
           </BaseButton>
           <BaseButton type="dashed" disabled>
@@ -146,7 +146,7 @@ const ButtonsPage: React.FC = () => {
             </BaseButton>
           </BaseTooltip>
           <BaseTooltip title={t('buttons.search')}>
-            <BaseButton type="ghost" icon={<SearchOutlined />} size="large" />
+            <BaseButton ghost icon={<SearchOutlined />} size="large" />
           </BaseTooltip>
         </S.Card>
       </BaseCol>

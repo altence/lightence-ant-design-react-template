@@ -17,7 +17,7 @@ export const AddNewCardButton: React.FC<AddNewCardButtonProps> = ({ onCardAdd })
 
   return (
     <>
-      <S.AddBtn type="ghost" onClick={openModal}>
+      <S.AddBtn ghost onClick={openModal}>
         {t('profile.nav.payments.addNewCard')}
       </S.AddBtn>
       <AddNewCardModal isModalOpen={isModalOpen} closeModal={closeModal} onCardAdd={onCardAdd} />

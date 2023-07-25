@@ -260,6 +260,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       },
       Button: {
         colorPrimary: currentTheme.primary,
+        colorLinkHover: antTheme.primary5,
         controlOutlineWidth: 0,
       },
       Breadcrumb: {

@@ -83,7 +83,7 @@ const AlertsPage: React.FC = () => {
             type="warning"
             action={
               <BaseSpace>
-                <BaseButton size="small" type="ghost">
+                <BaseButton size="small" ghost>
                   {t('alerts.done')}
                 </BaseButton>
               </BaseSpace>

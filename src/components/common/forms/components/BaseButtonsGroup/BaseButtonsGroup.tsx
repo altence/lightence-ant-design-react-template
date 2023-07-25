@@ -16,7 +16,7 @@ export const BaseButtonsGroup: React.FC<BaseButtonsGroupProps> = ({ className, o
   return (
     <BaseRow className={className} gutter={[10, 10]} wrap={false}>
       <BaseCol span={12}>
-        <BaseButton block type="ghost" onClick={onCancel} {...props}>
+        <BaseButton block ghost onClick={onCancel} {...props}>
           {t('common.cancel')}
         </BaseButton>
       </BaseCol>

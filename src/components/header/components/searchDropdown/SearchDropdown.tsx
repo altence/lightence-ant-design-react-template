@@ -49,7 +49,8 @@ export const SearchDropdown: React.FC<SearchOverlayProps> = ({
             filter={
               <Btn
                 size="small"
-                type={isFilterOpen ? 'ghost' : 'text'}
+                ghost={isFilterOpen}
+                type={isFilterOpen ? 'default' : 'text'}
                 aria-label="Filter"
                 icon={<FilterIcon />}
                 onClick={() => setFilterOpen(!isFilterOpen)}

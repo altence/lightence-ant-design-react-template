@@ -12,7 +12,7 @@ export const TrendingCollection: React.FC<TrendingActivity> = ({ title, owner, u
   return (
     <S.Card padding={0} $img={image}>
       <S.CollectionImage src={image} alt="nft" />
-      <S.BidButton type="ghost">{t('nft.bid')}</S.BidButton>
+      <S.BidButton ghost>{t('nft.bid')}</S.BidButton>
       <S.NftCollectionInfo>
         <S.AuthorAvatarWrapper>
           <BaseAvatar shape="circle" size={64} src={avatar} alt={owner} />
