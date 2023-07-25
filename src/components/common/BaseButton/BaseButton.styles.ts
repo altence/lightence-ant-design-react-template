@@ -28,13 +28,6 @@ export const Button = styled(AntButton)<BtnProps>`
       height: unset;
     `}
 
-  &.ant-btn {
-    &:disabled {
-      color: var(--disabled-color);
-      cursor: not-allowed; /* todo: https://github.com/ant-design/ant-design/issues/43661 */
-    }
-  }
-
   &.ant-btn-dangerous {
     &.ant-btn-text {
       &:focus,
@@ -47,66 +40,65 @@ export const Button = styled(AntButton)<BtnProps>`
   ${(props) =>
     !props.danger &&
     css`
-      &.ant-btn-default,
-      &.ant-btn-dashed,
-      &.ant-btn-ghost {
-        &:focus {
-          color: var(--ant-primary-5);
-          border-color: var(--ant-primary-5);
-        }
-      }
-
-      &.ant-btn-text,
-      &.ant-btn-ghost {
-        &:not(:disabled):hover {
-          color: var(--secondary-color);
-          background-color: transparent;
-        }
-      }
-
-      &.ant-btn-primary,
-      &.ant-btn-ghost {
-        &:not(:disabled):hover {
-          border-color: var(--secondary-color);
-        }
-      }
-
-      &.ant-btn-text {
-        &:focus {
-          background-color: rgba(0, 0, 0, 0.018);
-        }
-      }
-
-      &.ant-btn-ghost {
+      &.ant-btn-background-ghost {
         color: var(--primary-color);
         border-color: var(--primary-color);
 
         &:disabled {
-          border-color: var(--border-base-color);
           background-color: var(--disabled-bg-color);
         }
       }
 
-      &.ant-btn-primary {
-        &:focus {
-          border-color: var(--ant-primary-5);
-          background-color: var(--ant-primary-5);
-        }
-
-        &:not(:disabled):hover {
-          background-color: var(--secondary-color);
-        }
-      }
-
       &.ant-btn-link {
-        &:not(:disabled):hover,
-        &:focus {
-          color: var(--ant-primary-5);
-        }
-
         span,
         a {
           text-decoration: underline;
+        }
+      }
+
+      &:focus,
+      &:not(:disabled):hover {
+        &.ant-btn-default,
+        &.ant-btn-dashed {
+          color: var(--ant-primary-5);
+          border-color: var(--ant-primary-5);
+        }
+      }
+
+      &:focus {
+        &.ant-btn-link,
+        &.ant-btn-background-ghost {
+          color: var(--ant-primary-5);
+        }
+
+        &.ant-btn-text {
+          background-color: rgba(0, 0, 0, 0.018);
+        }
+
+        &.ant-btn-primary {
+          background-color: var(--ant-primary-5);
+        }
+
+        &.ant-btn-primary,
+        &.ant-btn-background-ghost {
+          border-color: var(--ant-primary-5);
+        }
+      }
+
+      &:not(:disabled):hover {
+        &.ant-btn-primary {
+          background-color: var(--secondary-color);
+        }
+
+        &.ant-btn-text,
+        &.ant-btn-background-ghost {
+          color: var(--secondary-color);
+          background-color: transparent;
+        }
+
+        &.ant-btn-primary,
+        &.ant-btn-background-ghost {
+          border-color: var(--secondary-color);
         }
       }
 

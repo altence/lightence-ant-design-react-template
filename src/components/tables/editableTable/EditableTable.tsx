@@ -116,12 +116,12 @@ export const EditableTable: React.FC = () => {
                   {t('common.save')}
                 </BaseButton>
                 <BasePopconfirm title={t('tables.cancelInfo')} onConfirm={cancel}>
-                  <BaseButton type="ghost">{t('common.cancel')}</BaseButton>
+                  <BaseButton ghost>{t('common.cancel')}</BaseButton>
                 </BasePopconfirm>
               </>
             ) : (
               <>
-                <BaseButton type="ghost" disabled={editingKey !== 0} onClick={() => edit(record)}>
+                <BaseButton ghost disabled={editingKey !== 0} onClick={() => edit(record)}>
                   {t('common.edit')}
                 </BaseButton>
                 <BaseButton type="default" danger onClick={() => handleDeleteRow(record.key)}>
