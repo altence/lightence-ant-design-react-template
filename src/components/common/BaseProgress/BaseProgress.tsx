@@ -1,9 +1,8 @@
 import React from 'react';
-import { ProgressProps } from 'antd';
-import * as S from './BaseProgress.styles';
+import { ProgressProps, Progress } from 'antd';
 
 export type BaseProgressProps = ProgressProps;
 
 export const BaseProgress: React.FC<ProgressProps> = (props) => {
-  return <S.Progress {...props} />;
+  return <Progress {...props} />;
 };

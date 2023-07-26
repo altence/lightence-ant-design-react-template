@@ -17,12 +17,13 @@ export const Icon = styled(AntIcon)`
 `;
 
 export const StatisticCard = styled(DashboardCard)<StatisticsProps>`
-  & .ant-col,
-  & .ant-space,
-  & .ant-space-item,
-  & .ant-typography {
+  .ant-col,
+  .ant-space,
+  .ant-space-item,
+  .ant-typography {
     line-height: 1;
   }
+
   overflow: hidden;
 
   ${Text} {
