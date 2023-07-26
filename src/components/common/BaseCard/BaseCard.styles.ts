@@ -14,22 +14,13 @@ export const Card = styled(AntCard)<CardInternalProps>`
 
   ${(props) => props.$autoHeight && 'height: 100%'};
 
-  box-shadow: var(--box-shadow);
-
   .ant-card-head {
+    border-bottom: 0;
+    font-weight: ${FONT_WEIGHT.bold};
+
     padding-top: 15px;
     padding-bottom: 15px;
     min-height: 36px;
-
-    border-bottom: 0;
-
-    font-weight: ${FONT_WEIGHT.bold};
-
-    .ant-card-head-title {
-      white-space: unset;
-      overflow: unset;
-      padding-bottom: 0;
-    }
 
     @media only screen and ${media.md} {
       padding-top: 20px;
@@ -39,16 +30,16 @@ export const Card = styled(AntCard)<CardInternalProps>`
 
     @media only screen and ${media.xl} {
       font-size: ${FONT_SIZE.xxl};
+    }
 
-      .ant-card-head-title {
+    .ant-card-head-title {
+      white-space: unset;
+      overflow: unset;
+      padding-bottom: 0;
+
+      @media only screen and ${media.xl} {
         padding-bottom: 0.25rem;
       }
-    }
-  }
-
-  @media only screen and ${media.xl} {
-    &.ant-card .ant-card-head .ant-card-head-wrapper .ant-card-head-title .ant-row .ant-col.ant-col-xs-24 {
-      font-size: ${FONT_SIZE.xxl};
     }
   }
 
