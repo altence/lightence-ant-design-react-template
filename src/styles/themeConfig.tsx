@@ -190,8 +190,12 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       Menu: {
         controlHeightLG: remToPixels(HEIGHT.md),
         fontSize: remToPixels(FONT_SIZE.xs),
-        itemSelectedColor: currentTheme.primary,
         colorFillAlter: `rgba(${hexToRGB(antThemeObject['light'].primary6)}, 0.05)`,
+        colorBgContainer: 'unset',
+        controlItemBgActive: 'unset',
+        colorBgTextHover: 'transparent',
+        itemSelectedColor: currentTheme.textSiderPrimary,
+        colorText: currentTheme.textSiderSecondary,
         colorSplit: 'transparent',
         activeBarWidth: 2,
         marginXXS: 4,
