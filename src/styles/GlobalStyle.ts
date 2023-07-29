@@ -36,31 +36,4 @@ export default styled.createGlobalStyle`
       color: var(--ant-primary-5);
     }
   }
-
-  .ant-notification {
-    .ant-notification-notice {
-      min-height: 6rem;
-      padding: 2rem;
-    }
-
-    .ant-notification-notice-success {
-      border: 1px solid var(--success-color);
-      background: var(--notification-success-color);
-    }
-
-    .ant-notification-notice-info {
-      border: 1px solid var(--primary-color);
-      background: var(--notification-primary-color);
-    }
-
-    .ant-notification-notice-warning {
-      border: 1px solid var(--warning-color);
-      background: var(--notification-warning-color);
-    }
-
-    .ant-notification-notice-error {
-      border: 1px solid var(--error-color);
-      background: var(--notification-error-color);
-    }
-  }
 `;

@@ -226,6 +226,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
         colorInfo: currentTheme.primary,
         colorWarning: currentTheme.warning,
         colorError: currentTheme.error,
+        colorIconHover: 'rgba(0, 0, 0, 0.67)',
         fontSizeLG: remToPixels(FONT_SIZE.xxl),
         marginSM: 0,
         boxShadow: modalBoxShadow,
