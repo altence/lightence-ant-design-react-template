@@ -1,7 +1,8 @@
-import type { NotificationInstance } from 'antd/es/notification/interface';
+import type { IconType, NotificationInstance, ArgsProps } from 'antd/es/notification/interface';
 import styled, { css } from 'styled-components';
 import { CheckCircleFilled, ExclamationCircleFilled, InfoCircleFilled, StopFilled } from '@ant-design/icons';
 import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
+import { defineColorBySeverity } from '@app/utils/utils';
 
 interface IconWrapperProps {
   $isOnlyTitle: boolean;
@@ -12,7 +13,11 @@ const IconWrapper = styled.div<IconWrapperProps>`
   line-height: 2rem;
 `;
 
-const Message = styled.div<IconWrapperProps>`
+interface MessageProps extends IconWrapperProps {
+  $type: IconType;
+}
+
+const Message = styled.div<MessageProps>`
   display: flex;
   align-items: center;
   margin-bottom: -0.5rem;
@@ -32,20 +37,8 @@ const Message = styled.div<IconWrapperProps>`
           margin-inline-start: 21px;
         `}
 
-  .ant-notification-notice.ant-notification-notice-success & {
-    color: var(--success-color);
-  }
-
-  .ant-notification-notice.ant-notification-notice-info & {
-    color: var(--primary-color);
-  }
-
-  .ant-notification-notice.ant-notification-notice-warning & {
-    color: var(--warning-color);
-  }
-
-  .ant-notification-notice.ant-notification-notice-error & {
-    color: var(--error-color);
+  .ant-notification-notice.ant-notification-notice-${(props) => props.$type} & {
+    color: ${(props) => defineColorBySeverity(props.$type)};
   }
 `;
 
@@ -61,67 +54,49 @@ const EmptyDescription = styled.div`
   margin-top: -0.75rem;
 `;
 
-type NotificationType = Pick<NotificationInstance, 'success' | 'info' | 'warning' | 'error'>;
+type NotificationType = Pick<NotificationInstance, IconType>;
 
-const openSuccess = (notification: NotificationType): NotificationType['success'] => {
+type NotificationOpener = (props: Omit<ArgsProps, 'type'>) => void;
+
+const Icons = {
+  success: CheckCircleFilled,
+  warning: ExclamationCircleFilled,
+  info: InfoCircleFilled,
+  error: StopFilled,
+} as const;
+
+const open = (type: IconType, notification: NotificationType): NotificationOpener => {
+  const Icon = Icons[type];
+
+  const colorType = type === 'info' ? 'primary' : type;
+
   return ({ message, description, ...props }) =>
-    notification.success({
+    notification[type]({
       icon: (
         <IconWrapper $isOnlyTitle={!description}>
-          <CheckCircleFilled className="ant-notification-notice-icon-success" />
+          <Icon className={`ant-notification-notice-icon-${type}`} />
         </IconWrapper>
       ),
-      message: <Message $isOnlyTitle={!description}>{message}</Message>,
+      message: (
+        <Message $isOnlyTitle={!description} $type={type}>
+          {message}
+        </Message>
+      ),
       description: description ? <Description>{description}</Description> : <EmptyDescription />,
+      style: {
+        minHeight: '6rem',
+        padding: '2rem',
+        border: `1px solid ${defineColorBySeverity(type)}`,
+        background: `var(--notification-${colorType}-color)`,
+      },
       ...props,
+      type,
     });
 };
 
-const openInfo = (notification: NotificationType): NotificationType['info'] => {
-  return ({ message, description, ...props }) =>
-    notification.info({
-      icon: (
-        <IconWrapper $isOnlyTitle={!description}>
-          <InfoCircleFilled className="ant-notification-notice-icon-info" />
-        </IconWrapper>
-      ),
-      message: <Message $isOnlyTitle={!description}>{message}</Message>,
-      description: description ? <Description>{description}</Description> : <EmptyDescription />,
-      ...props,
-    });
-};
-
-const openWarning = (notification: NotificationType): NotificationType['warning'] => {
-  return ({ message, description, ...props }) =>
-    notification.warning({
-      icon: (
-        <IconWrapper $isOnlyTitle={!description}>
-          <ExclamationCircleFilled className="ant-notification-notice-icon-warning" />
-        </IconWrapper>
-      ),
-      message: <Message $isOnlyTitle={!description}>{message}</Message>,
-      description: description ? <Description>{description}</Description> : <EmptyDescription />,
-      ...props,
-    });
-};
-
-const openError = (notification: NotificationType): NotificationType['error'] => {
-  return ({ message, description, ...props }) =>
-    notification.error({
-      icon: (
-        <IconWrapper $isOnlyTitle={!description}>
-          <StopFilled className="ant-notification-notice-icon-error" />
-        </IconWrapper>
-      ),
-      message: <Message $isOnlyTitle={!description}>{message}</Message>,
-      description: description ? <Description>{description}</Description> : <EmptyDescription />,
-      ...props,
-    });
-};
-
-export const notificationController = (notification: NotificationType): NotificationType => ({
-  success: openSuccess(notification),
-  info: openInfo(notification),
-  warning: openWarning(notification),
-  error: openError(notification),
+export const notificationController = (notification: NotificationType): Record<IconType, NotificationOpener> => ({
+  success: open('success', notification),
+  info: open('info', notification),
+  warning: open('warning', notification),
+  error: open('error', notification),
 });
