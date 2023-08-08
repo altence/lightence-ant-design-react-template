@@ -9,7 +9,7 @@ interface InternalFormItemProps {
 
 export type BaseFormItemProps = FormItemProps;
 
-export const BaseFormItem = styled(Form.Item)<InternalFormItemProps>`
+export const BaseFormItem = styled(Form.Item as React.FC<FormItemProps>)<InternalFormItemProps>`
   .ant-input {
     font-size: 1rem;
   }
