@@ -149,7 +149,7 @@ export const getThemeConfig = (theme: ThemeType): ThemeConfig => {
       Select: {
         fontSizeSM: remToPixels(FONT_SIZE.xs),
         colorTextTertiary: currentTheme.icon,
-        colorTextQuaternary: currentTheme.icon,
+        colorTextQuaternary: currentTheme.textMain, // arrow color
         colorFillSecondary: currentTheme.backgroundColorBase,
         colorIcon: currentTheme.icon,
         colorIconHover: currentTheme.iconHover,
