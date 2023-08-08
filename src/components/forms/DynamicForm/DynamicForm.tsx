@@ -80,7 +80,6 @@ export const DynamicForm: React.FC = () => {
                         {...field}
                         label={t('forms.dynamicFormLabels.sight')}
                         name={[field.name, 'sight']}
-                        fieldKey={[field.key, 'sight']}
                         rules={[{ required: true, message: t('forms.dynamicFormLabels.sightError') }]}
                       >
                         <BaseSelect disabled={!form.getFieldValue('area')}>
@@ -99,7 +98,6 @@ export const DynamicForm: React.FC = () => {
                     {...field}
                     label={t('forms.dynamicFormLabels.price')}
                     name={[field.name, 'price']}
-                    fieldKey={[field.key, 'price']}
                     rules={[{ required: true, message: t('forms.dynamicFormLabels.priceError') }]}
                   >
                     <S.Wrapper>
