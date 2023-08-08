@@ -7,6 +7,6 @@ type AnyRecord = Record<PropertyKey, any>;
 export type BaseTableProps<T extends AnyRecord> = TableProps<T>;
 
 // TODO make generic!
-export const BaseTable = <T extends AnyRecord>(props: BaseTableProps<T>): JSX.Element => {
+export const BaseTable = <T extends AnyRecord>(props: BaseTableProps<T>): React.JSX.Element => {
   return <S.Table {...props} />;
 };

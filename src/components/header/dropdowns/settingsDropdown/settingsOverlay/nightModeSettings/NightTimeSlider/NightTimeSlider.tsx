@@ -11,9 +11,14 @@ interface NightTimeSliderProps {
   setNightTime: (nightTime: number[]) => void;
 }
 
-const RoundSliderComponent = createComponent(React, 'round-slider', RoundSlider, {
-  onValueChanged: 'value-changed',
-  onChange: 'value-changing',
+const RoundSliderComponent = createComponent({
+  react: React,
+  tagName: 'round-slider',
+  elementClass: RoundSlider,
+  events: {
+    onValueChanged: 'value-changed',
+    onChange: 'value-changing',
+  },
 });
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

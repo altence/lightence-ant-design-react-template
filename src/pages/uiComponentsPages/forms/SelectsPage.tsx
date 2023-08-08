@@ -83,7 +83,7 @@ const SelectsPage: React.FC = () => {
               mode="multiple"
               allowClear
               width="100%"
-              showArrow={false}
+              suffixIcon={null}
               placeholder={t('selects.pleaseSelect')}
               defaultValue={['a10', 'c12']}
             >
@@ -92,7 +92,7 @@ const SelectsPage: React.FC = () => {
             <BaseSelect
               mode="multiple"
               disabled
-              showArrow={false}
+              suffixIcon={null}
               placeholder={t('selects.pleaseSelect')}
               defaultValue={['a10', 'c12']}
             >
@@ -133,7 +133,6 @@ const SelectsPage: React.FC = () => {
         <S.Card title={t('selects.customTags')}>
           <BaseSelect
             mode="multiple"
-            showArrow
             tagRender={tagRender}
             defaultValue={['gold', 'cyan']}
             width="100%"
