@@ -8,6 +8,7 @@ import { useMounted } from '@app/hooks/useMounted';
 import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
 import { BaseSpace } from '@app/components/common/BaseSpace/BaseSpace';
 import { BasePopconfirm } from '@app/components/common/BasePopconfirm/BasePopconfirm';
+import { ColumnsType } from 'antd/es/table/interface';
 
 const initialPagination: Pagination = {
   current: 1,
@@ -135,7 +136,7 @@ export const EditableTable: React.FC = () => {
     },
   ];
 
-  const mergedColumns = columns.map((col) => {
+  const mergedColumns: ColumnsType<BasicTableRow> = columns.map((col) => {
     if (!col.editable) {
       return col;
     }
