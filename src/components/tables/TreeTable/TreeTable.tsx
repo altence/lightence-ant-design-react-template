@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { BaseTable } from '@app/components/common/BaseTable/BaseTable';
-import { Key, DefaultRecordType } from 'rc-table/lib/interface';
+import { TableRowSelection, ColumnsType } from 'antd/es/table/interface';
 import { TreeTableRow, Pagination, getTreeTableData } from 'api/table.api';
 import { useTranslation } from 'react-i18next';
 import { useMounted } from '@app/hooks/useMounted';
@@ -39,19 +39,16 @@ export const TreeTable: React.FC = () => {
     fetch(pagination);
   };
 
-  const rowSelection = {
-    onChange: (selectedRowKeys: Key[], selectedRows: DefaultRecordType[]) => {
-      console.log(selectedRowKeys, selectedRows);
+  const rowSelection: TableRowSelection<TreeTableRow> = {
+    onChange: (selectedRowKeys: React.Key[], selectedRows: TreeTableRow[], info) => {
+      console.log(selectedRowKeys, selectedRows, info);
     },
-    onSelect: (record: DefaultRecordType, selected: boolean, selectedRows: DefaultRecordType[]) => {
+    onSelect: (record: TreeTableRow, selected: boolean, selectedRows: TreeTableRow[]) => {
       console.log(record, selected, selectedRows);
-    },
-    onSelectAll: (selected: boolean, selectedRows: DefaultRecordType[]) => {
-      console.log(selected, selectedRows);
     },
   };
 
-  const columns = [
+  const columns: ColumnsType<TreeTableRow> = [
     {
       title: t('common.name'),
       dataIndex: 'name',
@@ -72,16 +69,14 @@ export const TreeTable: React.FC = () => {
   ];
 
   return (
-    <>
-      <BaseTable
-        columns={columns}
-        dataSource={tableData.data}
-        rowSelection={{ ...rowSelection }}
-        pagination={tableData.pagination}
-        loading={tableData.loading}
-        onChange={handleTableChange}
-        scroll={{ x: 800 }}
-      />
-    </>
+    <BaseTable
+      columns={columns}
+      dataSource={tableData.data}
+      rowSelection={rowSelection}
+      pagination={tableData.pagination}
+      loading={tableData.loading}
+      onChange={handleTableChange}
+      scroll={{ x: 800 }}
+    />
   );
 };
