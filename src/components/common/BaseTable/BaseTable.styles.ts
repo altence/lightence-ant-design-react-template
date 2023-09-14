@@ -85,4 +85,4 @@ export const Table = styled(AntdTable)`
       color: var(--disabled-color);
     }
   }
-` as typeof AntdTable;
+`;

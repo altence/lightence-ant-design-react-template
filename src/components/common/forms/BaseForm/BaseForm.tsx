@@ -1,18 +1,17 @@
-import React, { ComponentProps } from 'react';
+import type { ComponentProps, FC } from 'react';
 import { Form, FormInstance } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { ValidateErrorEntity } from 'rc-field-form/lib/interface';
 import { BaseFormTitle } from '@app/components/common/forms/components/BaseFormTitle/BaseFormTitle';
 import { BaseFormItem } from '@app/components/common/forms/components/BaseFormItem/BaseFormItem';
 import { BaseFormList } from '@app/components/common/forms/components/BaseFormList/BaseFormList';
 import { useFeedback } from '@app/hooks/useFeedback';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type BaseFormProps = Omit<ComponentProps<typeof Form>, 'onFinish'> & { onFinish?: (values: any) => void };
+export type BaseFormProps = ComponentProps<typeof Form<any>>;
 
 export type BaseFormInstance = FormInstance;
 
-export interface BaseFormInterface<T> extends React.FC<T> {
+export interface BaseFormInterface<T> extends FC<T> {
   Title: typeof BaseFormTitle;
   Item: typeof BaseFormItem;
   List: typeof BaseFormList;
@@ -24,7 +23,7 @@ export const BaseForm: BaseFormInterface<BaseFormProps> = ({ onFinishFailed, lay
   const { t } = useTranslation();
   const { notification } = useFeedback();
 
-  const onFinishFailedDefault = (error: ValidateErrorEntity<unknown>) => {
+  const onFinishFailedDefault: typeof onFinishFailed = (error) => {
     notification.error({
       message: t('common.error'),
       description: error.errorFields[0].errors,
