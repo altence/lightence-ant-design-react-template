@@ -22,7 +22,7 @@ export const BaseFeed: React.FC<BaseFeedProps> = ({ next, hasMore, target = 'mai
         </S.SpinnerWrapper>
       }
       scrollableTarget={target}
-      style={{ overflow: 'visible' }}
+      style={{ overflow: undefined }} // workaround for https://github.com/ankeetmaini/react-infinite-scroll-component/issues/228
     >
       <S.NewsWrapper>{children}</S.NewsWrapper>
     </InfiniteScroll>
