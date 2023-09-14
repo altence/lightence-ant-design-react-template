@@ -27,7 +27,7 @@ export const Table = styled(BaseTable)`
     border: 0;
     cursor: pointer;
   }
-` as typeof BaseTable; // todo: remove type assertion
+`;
 
 export const Text = styled.span<TextProps>`
   color: var(--text-main-color);
