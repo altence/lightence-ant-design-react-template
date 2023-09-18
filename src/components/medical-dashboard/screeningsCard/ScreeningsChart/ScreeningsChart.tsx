@@ -4,8 +4,7 @@ import { BaseChart, getDefaultTooltipStyles } from '@app/components/common/chart
 import { hexToRGB } from '@app/utils/utils';
 import { getMarkAreaData } from '@app/utils/utils';
 import { ChartSeriesData } from '@app/interfaces/interfaces';
-import { themeObject } from '@app/styles/themes/themeVariables';
-import { useAppSelector } from '@app/hooks/reduxHooks';
+import { useTheme } from 'styled-components';
 
 interface StatisticsData {
   day: number;
@@ -25,14 +24,14 @@ interface ScreeningsChartProps {
 const xAxisData = Array.from({ length: 16 }, (_, i) => i + 1);
 
 export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, secondUser }) => {
-  const theme = useAppSelector((state) => state.theme.theme);
+  const theme = useTheme();
 
   const { t } = useTranslation();
 
   const option = {
-    color: [themeObject[theme].chartPrimaryGradient, themeObject[theme].chartSecondaryGradient],
+    color: [theme.chartPrimaryGradient, theme.chartSecondaryGradient],
     tooltip: {
-      ...getDefaultTooltipStyles(themeObject[theme]),
+      ...getDefaultTooltipStyles(theme),
       trigger: 'axis',
       formatter: (series: ChartSeriesData) => {
         const firstUser = series[1];
@@ -76,7 +75,7 @@ export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, sec
         showSymbol: false,
         lineStyle: {
           width: 2,
-          color: themeObject[theme].chartColor1,
+          color: theme.chartColor1,
         },
         areaStyle: {
           opacity: 1,
@@ -87,7 +86,7 @@ export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, sec
         data: firstUser?.data,
         markArea: {
           itemStyle: {
-            color: `rgba(${hexToRGB(themeObject[theme].chartColor1)}, 0.01)`,
+            color: `rgba(${hexToRGB(theme.chartColor1)}, 0.01)`,
           },
           data: getMarkAreaData(xAxisData),
         },
@@ -98,7 +97,7 @@ export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, sec
         smooth: true,
         lineStyle: {
           width: 2,
-          color: themeObject[theme].chartColor5,
+          color: theme.chartColor5,
         },
         showSymbol: false,
         areaStyle: {
@@ -110,7 +109,7 @@ export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, sec
         data: secondUser?.data,
         markArea: {
           itemStyle: {
-            color: `rgba(${hexToRGB(themeObject[theme].chartColor1)}, 0.01)`,
+            color: `rgba(${hexToRGB(theme.chartColor1)}, 0.01)`,
           },
           data: getMarkAreaData(xAxisData),
         },

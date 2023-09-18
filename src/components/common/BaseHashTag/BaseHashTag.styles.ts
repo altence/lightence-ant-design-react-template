@@ -9,7 +9,7 @@ export const RemoveTagWrapper = styled.span`
 `;
 
 export const RemoveTagIcon = styled(CloseOutlined)`
-  color: #ffffff;
+  color: ${({ theme }) => theme.white};
   font-size: ${({ theme }) => theme.fontSizes.xxs};
   cursor: pointer;
 `;

@@ -32,12 +32,12 @@ export const Select = styled(AntSelect)<InternalSelectProps>`
 
   &.ant-select-multiple {
     &.ant-select-disabled .ant-select-selection-item {
-      color: #bfbfbf;
+      color: ${({ theme }) => theme.selectionDisabled};
       border: 1px solid ${({ theme }) => theme.borderBase};
     }
 
     .ant-select-selection-item {
-      border: 1px solid #f0f0f0;
+      border: 1px solid ${({ theme }) => theme.split};
       margin-inline-end: 11px;
     }
 

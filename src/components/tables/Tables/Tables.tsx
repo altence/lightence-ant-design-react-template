@@ -7,16 +7,17 @@ import * as S from './Tables.styles';
 
 export const Tables: React.FC = () => {
   const { t } = useTranslation();
+  const padding = '1.25rem 1.25rem 0';
   return (
     <>
       <S.TablesWrapper>
-        <S.Card id="basic-table" title={t('tables.basicTable')} padding="1.25rem 1.25rem 0">
+        <S.Card id="basic-table" title={t('tables.basicTable')} padding={padding}>
           <BasicTable />
         </S.Card>
-        <S.Card id="tree-table" title={t('tables.treeTable')} padding="1.25rem 1.25rem 0">
+        <S.Card id="tree-table" title={t('tables.treeTable')} padding={padding}>
           <TreeTable />
         </S.Card>
-        <S.Card id="editable-table" title={t('tables.editableTable')} padding="1.25rem 1.25rem 0">
+        <S.Card id="editable-table" title={t('tables.editableTable')} padding={padding}>
           <EditableTable />
         </S.Card>
       </S.TablesWrapper>

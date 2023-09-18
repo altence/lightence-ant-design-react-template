@@ -11,12 +11,13 @@ import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 const AdvancedFormsPage: React.FC = () => {
   const { t } = useTranslation();
+  const padding = '1.25rem';
   return (
     <>
       <PageTitle>{t('common.advancedForms')}</PageTitle>
       <BaseRow gutter={[30, 30]}>
         <BaseCol xs={24} sm={24} xl={10}>
-          <BaseCard id="validation form" title={t('forms.validationForm')} padding="1.25rem">
+          <BaseCard id="validation form" title={t('forms.validationForm')} padding={padding}>
             <ValidationForm />
           </BaseCard>
         </BaseCol>
@@ -24,17 +25,17 @@ const AdvancedFormsPage: React.FC = () => {
         <BaseCol xs={24} sm={24} xl={14}>
           <BaseRow gutter={[30, 30]}>
             <BaseCol span={24}>
-              <BaseCard id="control-form" title={t('forms.controlForm')} padding="1.25rem">
+              <BaseCard id="control-form" title={t('forms.controlForm')} padding={padding}>
                 <ControlForm />
               </BaseCard>
             </BaseCol>
             <BaseCol span={24}>
-              <BaseCard id="dynamic-form" title={t('forms.dynamicForm')} padding="1.25rem">
+              <BaseCard id="dynamic-form" title={t('forms.dynamicForm')} padding={padding}>
                 <DynamicForm />
               </BaseCard>
             </BaseCol>
             <BaseCol span={24}>
-              <BaseCard id="step-form" title={t('forms.stepForm')} padding="1.25rem">
+              <BaseCard id="step-form" title={t('forms.stepForm')} padding={padding}>
                 <StepForm />
               </BaseCard>
             </BaseCol>

@@ -2,8 +2,7 @@ import React from 'react';
 import { BaseChart, getDefaultTooltipStyles } from '@app/components/common/charts/BaseChart';
 import { ChartData, ChartSeriesData, CurrencyTypeEnum } from '@app/interfaces/interfaces';
 import { formatNumberWithCommas, getCurrencyPrice } from '@app/utils/utils';
-import { useAppSelector } from '@app/hooks/reduxHooks';
-import { themeObject } from '@app/styles/themes/themeVariables';
+import { useTheme } from 'styled-components';
 
 interface LineData {
   data: ChartData;
@@ -15,10 +14,10 @@ interface TotalEarningChartProps {
 }
 
 export const TotalEarningChart: React.FC<TotalEarningChartProps> = ({ xAxisData, earningData }) => {
-  const theme = useAppSelector((state) => state.theme.theme);
+  const theme = useTheme();
   const option = {
     tooltip: {
-      ...getDefaultTooltipStyles(themeObject[theme]),
+      ...getDefaultTooltipStyles(theme),
       trigger: 'axis',
       crossStyle: {
         color: 'red',
@@ -59,7 +58,7 @@ export const TotalEarningChart: React.FC<TotalEarningChartProps> = ({ xAxisData,
         showSymbol: false,
         lineStyle: {
           width: 3,
-          color: themeObject[theme].chartColor3,
+          color: theme.chartColor3,
         },
         emphasis: {
           focus: 'series',

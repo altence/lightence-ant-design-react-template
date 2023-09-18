@@ -14,7 +14,7 @@ export const Event = styled.div<Event>`
   right: 0;
   width: 100%;
   height: 100%;
-  box-shadow: 0 5px 15px rgba(0, 89, 171, 0.3);
+  box-shadow: ${({ theme }) => theme.treatmentCalendarEventBoxShadow};
   font-weight: ${({ theme }) => theme.fontWeights.bold};
   background: ${({ theme }) => theme.secondaryBackground};
   color: ${(props) => (props.$isPast ? props.theme.textMain : props.theme.primary)};
@@ -51,7 +51,7 @@ export const Calendar = styled(BaseCalendar)`
 
     &.ant-picker-cell-selected {
       .ant-picker-cell-inner {
-        box-shadow: 0 5px 15px rgba(0, 89, 171, 0.3);
+        box-shadow: ${({ theme }) => theme.treatmentCalendarEventBoxShadow};
         background: ${({ theme }) => theme.primary};
 
         .ant-picker-calendar-date-value,

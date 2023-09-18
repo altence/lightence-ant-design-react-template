@@ -42,7 +42,7 @@ const Message = styled.div<MessageProps>`
 `;
 
 const Description = styled.div`
-  color: #404040;
+  color: ${({ theme }) => theme.textDark};
   font-size: ${({ theme }) => theme.fontSizes.md};
   font-weight: ${({ theme }) => theme.fontWeights.semibold};
   line-height: 1.375rem;

@@ -1,10 +1,8 @@
 import React, { CSSProperties, useEffect, useState } from 'react';
-import { DefaultTheme } from 'styled-components';
+import { DefaultTheme, useTheme } from 'styled-components';
 import { EChartsOption } from 'echarts-for-react';
 import ReactECharts from 'echarts-for-react';
 import { Loading } from '../Loading/Loading';
-import { useAppSelector } from '@app/hooks/reduxHooks';
-import { themeObject } from '@app/styles/themes/themeVariables';
 
 export interface BaseChartProps {
   option?: EChartsOption;
@@ -47,13 +45,13 @@ export const getDefaultTooltipStyles = (theme: DefaultTheme): DefaultTooltipStyl
 });
 
 export const BaseChart: React.FC<BaseChartProps> = ({ option, width, height, onEvents, style, ...props }) => {
-  const theme = useAppSelector((state) => state.theme.theme);
+  const theme = useTheme();
   const [loading, setLoading] = useState(true);
 
   const chartHeight = height || '400px';
 
   const defaultOption = {
-    color: getChartColors(themeObject[theme]),
+    color: getChartColors(theme),
   };
 
   useEffect(() => {
