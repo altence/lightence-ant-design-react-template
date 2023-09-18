@@ -1,6 +1,6 @@
 import React from 'react';
 import { DatePickerProps } from 'antd';
-import * as S from './BaseDatePicker.styled';
+import * as S from './BaseDatePicker.styles';
 
 export type BaseDatePickerProps = DatePickerProps;
 

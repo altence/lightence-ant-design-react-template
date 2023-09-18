@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Form, FormItemProps } from 'antd';
-import { FONT_SIZE, media } from '@app/styles/themes/constants';
+import { media } from '@app/utils/utils';
 
 interface InternalFormItemProps {
   $isSuccess?: boolean;
@@ -11,41 +11,40 @@ export type BaseFormItemProps = FormItemProps;
 
 export const BaseFormItem = styled(Form.Item as React.FC<FormItemProps>)<InternalFormItemProps>`
   .ant-input {
-    font-size: 1rem;
+    font-size: ${({ theme }) => theme.fontSizes.md};
   }
 
   .ant-input:disabled {
-    color: var(--disabled-color);
-    background-color: var(--disabled-bg-color);
+    color: ${({ theme }) => theme.disabled};
+    background-color: ${({ theme }) => theme.disabledBg};
     cursor: not-allowed;
   }
 
   .ant-form-item-label > label {
-    color: var(--primary-color);
-    font-size: ${FONT_SIZE.xs};
+    color: ${({ theme }) => theme.primary};
+    font-size: ${({ theme }) => theme.fontSizes.xs};
 
     .ant-form-item-optional {
-      color: var(--subtext-color);
+      color: ${({ theme }) => theme.subText};
     }
   }
 
   .ant-input-group-addon:first-of-type {
     font-weight: 600;
     width: 5rem;
-
-    color: var(--primary-color);
+    color: ${({ theme }) => theme.primary};
 
     .anticon,
     svg {
       font-size: 1.25rem;
     }
 
-    @media only screen and ${media.md} {
+    @media only screen and (${media('md')}) {
       width: 5.5rem;
       font-size: 1.125rem;
     }
 
-    @media only screen and ${media.xl} {
+    @media only screen and (${media('xl')}) {
       font-size: 1.5rem;
     }
   }
@@ -69,8 +68,8 @@ export const BaseFormItem = styled(Form.Item as React.FC<FormItemProps>)<Interna
       align-items: center;
       justify-content: center;
       margin: 0 0.25rem;
-      color: var(--text-secondary-color);
-      background: var(--error-color);
+      color: ${({ theme }) => theme.textSecondary};
+      background: ${({ theme }) => theme.error};
       border-radius: 50%;
       width: 1rem;
       height: 1rem;
@@ -88,7 +87,7 @@ export const BaseFormItem = styled(Form.Item as React.FC<FormItemProps>)<Interna
       .ant-input {
         &,
         &:hover {
-          border-color: var(--success-color);
+          border-color: ${({ theme }) => theme.success};
         }
       }
 
@@ -97,7 +96,7 @@ export const BaseFormItem = styled(Form.Item as React.FC<FormItemProps>)<Interna
 
         &::after {
           content: '✓ ${props.$successText}';
-          color: var(--success-color);
+          color: ${({ theme }) => theme.success};
         }
       }
     `}
@@ -122,7 +121,7 @@ export const BaseFormItem = styled(Form.Item as React.FC<FormItemProps>)<Interna
     .ant-input-affix-wrapper,
     .ant-input:hover,
     .ant-input-affix-wrapper:hover {
-      border-color: var(--error-color);
+      border-color: ${({ theme }) => theme.error};
     }
   }
 
@@ -131,7 +130,7 @@ export const BaseFormItem = styled(Form.Item as React.FC<FormItemProps>)<Interna
     .ant-input-affix-wrapper,
     .ant-input:hover,
     .ant-input-affix-wrapper:hover {
-      border-color: var(--success-color);
+      border-color: ${({ theme }) => theme.success};
     }
   }
 

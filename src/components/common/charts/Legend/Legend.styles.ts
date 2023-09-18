@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { InfoCircleOutlined } from '@ant-design/icons/lib';
-import { BORDER_RADIUS, FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
+import { media } from '@app/utils/utils';
 
 interface LegendWrapperProps {
   isSelected: boolean;
@@ -9,15 +9,15 @@ interface LegendWrapperProps {
 export const LegendWrapper = styled.div<LegendWrapperProps>`
   display: flex;
   padding: 0.5rem;
-  background: ${(props) => (props.isSelected ? 'var(--secondary-background-selected-color)' : 'transparent')};
-  border-radius: ${BORDER_RADIUS};
+  background: ${(props) => (props.isSelected ? props.theme.secondaryBackgroundSelected : 'transparent')};
+  border-radius: ${({ theme }) => theme.borderRadius};
 `;
 
 export const LegendInfo = styled.div`
   display: flex;
   width: 100%;
   align-items: center;
-  color: var(--text-superLight-color);
+  color: ${({ theme }) => theme.textSuperLight};
 `;
 
 export const LegendDescription = styled.div`
@@ -35,25 +35,24 @@ export const LegendColor = styled.span`
 
 export const LegendTitle = styled.div`
   line-height: 1rem;
-  font-weight: ${FONT_WEIGHT.semibold};
-  color: var(--text-main-color);
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
+  color: ${({ theme }) => theme.textMain};
   display: flex;
   justify-content: space-between;
 
-  @media only screen and ${media.xs} {
-    font-size: ${FONT_SIZE.xs};
+  @media only screen and (${media('xs')}) {
+    font-size: ${({ theme }) => theme.fontSizes.xs};
   }
 
-  @media only screen and ${media.md} {
-    font-size: ${FONT_SIZE.md};
+  @media only screen and (${media('md')}) {
+    font-size: ${({ theme }) => theme.fontSizes.md};
   }
 `;
 
 export const InfoStyled = styled(InfoCircleOutlined)`
   cursor: pointer;
   margin-left: 0.5rem;
-
-  color: var(--text-main-color);
+  color: ${({ theme }) => theme.textMain};
 `;
 
 export const PopoverContent = styled.div`
@@ -64,9 +63,9 @@ export const Values = styled.div`
   display: flex;
   align-items: center;
   margin-left: 0.5rem;
-  color: var(--primary-color);
+  color: ${({ theme }) => theme.primary};
 
-  @media only screen and ${media.md} {
+  @media only screen and (${media('md')}) {
     margin-left: 1.5rem;
   }
 `;

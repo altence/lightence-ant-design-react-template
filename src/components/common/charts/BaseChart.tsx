@@ -1,11 +1,10 @@
 import React, { CSSProperties, useEffect, useState } from 'react';
+import { DefaultTheme } from 'styled-components';
 import { EChartsOption } from 'echarts-for-react';
 import ReactECharts from 'echarts-for-react';
 import { Loading } from '../Loading/Loading';
 import { useAppSelector } from '@app/hooks/reduxHooks';
 import { themeObject } from '@app/styles/themes/themeVariables';
-import { ITheme } from '@app/styles/themes/types';
-import { BORDER_RADIUS } from '@app/styles/themes/constants';
 
 export interface BaseChartProps {
   option?: EChartsOption;
@@ -28,7 +27,7 @@ interface DefaultTooltipStyles {
   };
 }
 
-export const getChartColors = (theme: ITheme): string[] => [
+export const getChartColors = (theme: DefaultTheme): string[] => [
   theme.chartColor1,
   theme.chartColor2,
   theme.chartColor3,
@@ -36,10 +35,10 @@ export const getChartColors = (theme: ITheme): string[] => [
   theme.chartColor5,
 ];
 
-export const getDefaultTooltipStyles = (theme: ITheme): DefaultTooltipStyles => ({
+export const getDefaultTooltipStyles = (theme: DefaultTheme): DefaultTooltipStyles => ({
   borderColor: theme.chartColor1,
   borderWidth: 2,
-  borderRadius: Number.parseInt(BORDER_RADIUS),
+  borderRadius: parseInt(theme.borderRadius),
   textStyle: {
     fontWeight: 600,
     fontSize: 16,

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { media } from '@app/styles/themes/constants';
+import { media } from '@app/utils/utils';
 import { BaseTag } from '@app/components/common/BaseTag/BaseTag';
 
 export const StatusTag = styled(BaseTag)`
@@ -10,7 +10,7 @@ export const StatusTag = styled(BaseTag)`
   justify-content: center;
   margin: 0;
 
-  @media only screen and ${media.md} {
+  @media only screen and (${media('md')}) {
     min-width: 6.5rem;
   }
 `;

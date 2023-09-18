@@ -1,5 +1,6 @@
 import React from 'react';
 import * as S from './BaseHashTag.styles';
+import { useTheme } from 'styled-components';
 
 export interface IHashTag {
   id: string;
@@ -15,9 +16,10 @@ interface BaseHashTagProps {
 }
 
 export const BaseHashTag: React.FC<BaseHashTagProps> = ({ title, color, bgColor, removeTag, ...otherProps }) => {
+  const theme = useTheme();
   const style = {
-    color: color || 'var(--white)',
-    backgroundColor: bgColor ? `var(--${bgColor}-color)` : 'var(--orange)',
+    color: color || theme.white,
+    backgroundColor: bgColor ? theme[bgColor] : theme.orange,
   };
   return (
     <S.TagWrapper style={style} {...otherProps}>

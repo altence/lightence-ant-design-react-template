@@ -1,6 +1,6 @@
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 import styled from 'styled-components';
-import { BaseCard } from '../../../common/BaseCard/BaseCard';
+import { BaseCard } from '@app/components/common/BaseCard/BaseCard';
 
 export const DoctorName = styled.span`
   font-size: 1.25rem;
@@ -11,7 +11,11 @@ export const DoctorName = styled.span`
 `;
 
 export const DoctorCard = styled(BaseCard)`
-  background: linear-gradient(to bottom, var(--primary-color) 5rem, var(--secondary-background-color) 5rem);
+  background: linear-gradient(
+    to bottom,
+    ${({ theme }) => theme.primary} 5rem,
+    ${({ theme }) => theme.secondaryBackground} 5rem
+  );
 `;
 
 export const DoctorCardBody = styled.div`
@@ -28,7 +32,7 @@ export const LabelCol = styled(BaseCol)`
 export const ValueCol = styled(BaseCol)``;
 
 export const Tel = styled.a`
-  color: var(--text-main-color);
+  color: ${({ theme }) => theme.textMain};
 
   &:hover {
     text-decoration: underline;

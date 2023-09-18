@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
+import { media } from '@app/utils/utils';
 import { BaseInput } from '../BaseInput/BaseInput';
 import { BaseSpace } from '../../BaseSpace/BaseSpace';
 
@@ -19,9 +19,9 @@ export const SearchInput = styled(BaseInput.Search)`
 
   & input {
     font-weight: 600;
-    background-color: var(--background-color);
+    background-color: ${({ theme }) => theme.background};
 
-    @media only screen and ${media.md} {
+    @media only screen and (${media('md')}) {
       font-size: 1rem;
     }
 
@@ -32,24 +32,25 @@ export const SearchInput = styled(BaseInput.Search)`
 
   .ant-input-group-addon {
     min-width: 5.5rem;
-    color: var(--primary-color);
-    font-weight: ${FONT_WEIGHT.semibold};
-    font-size: ${FONT_SIZE.lg};
+    color: ${({ theme }) => theme.primary};
+    font-weight: ${({ theme }) => theme.fontWeights.semibold};
+    font-size: ${({ theme }) => theme.fontSizes.lg};
   }
 
   .ant-input-search-button,
   .ant-input-search-button:hover {
     &.ant-btn {
-      font-weight: ${FONT_WEIGHT.semibold};
+      font-weight: ${({ theme }) => theme.fontWeights.semibold};
 
       .anticon {
-        color: var(--primary-color);
+        color: ${({ theme }) => theme.primary};
       }
     }
+
     width: 100%;
     background-color: rgba(1, 80, 154, 0.05);
-    border: 1px solid var(--border-color);
-    color: var(--primary-color);
+    border: 1px solid ${({ theme }) => theme.border};
+    color: ${({ theme }) => theme.primary};
   }
 `;
 

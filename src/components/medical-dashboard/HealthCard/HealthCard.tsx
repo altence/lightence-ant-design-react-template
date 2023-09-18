@@ -1,6 +1,5 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { PieChartCustomLegend } from '../../common/charts/PieChartCustomLegend';
+import { PieChartCustomLegend } from '@app/components/common/charts/PieChartCustomLegend';
 import { healthChartData } from 'constants/healthChartData';
 import { BaseCard } from '@app/components/common/BaseCard/BaseCard';
 

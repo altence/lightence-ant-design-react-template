@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
-import { media } from '@app/styles/themes/constants';
+import { media } from '@app/utils/utils';
 import { BaseDivider } from '@app/components/common/BaseDivider/BaseDivider';
 import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
 
 export const NoticesOverlayMenu = styled.div`
   max-width: 15rem;
 
-  @media only screen and ${media.md} {
+  @media only screen and (${media('md')}) {
     max-width: 25rem;
   }
 `;

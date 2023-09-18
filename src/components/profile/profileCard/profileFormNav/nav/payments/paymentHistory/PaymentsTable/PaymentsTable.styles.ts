@@ -5,12 +5,11 @@ export const PaymentHistoryTable = styled(BaseTable)`
   .ant-table-thead > tr {
     th,
     td {
-      border-block: 1px solid rgba(var(--primary-rgb-color), 0.3);
+      border-block: 1px solid rgba(${({ theme }) => theme.rgb.primary}, 0.3);
     }
 
     th {
-      color: var(--primary-color);
-
+      color: ${({ theme }) => theme.primary};
       text-align: center;
 
       &::before {
@@ -20,7 +19,7 @@ export const PaymentHistoryTable = styled(BaseTable)`
   }
 
   .ant-table-tbody > tr > td {
-    border-bottom: 1px solid rgba(var(--primary-rgb-color), 0.3);
+    border-bottom: 1px solid rgba(${({ theme }) => theme.rgb.primary}, 0.3);
     font-weight: 600;
     font-size: 1rem;
   }

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { BaseSelect as CommonSelect } from '@app/components/common/selects/BaseSelect/BaseSelect';
 import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
-import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
 import { BaseSteps } from '@app/components/common/BaseSteps/BaseSteps';
 
 export const PhoneItem = styled(BaseForm.Item)`
@@ -42,16 +41,16 @@ export const DetailsRow = styled.div`
 `;
 
 export const DetailsTitle = styled.div`
-  color: var(--text-light-color);
-  font-size: ${FONT_SIZE.md};
-  font-weight: ${FONT_WEIGHT.semibold};
+  color: ${({ theme }) => theme.textLight};
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
   margin-right: 0.5rem;
 `;
 
 export const DetailsValue = styled.div`
-  color: var(--text-main-color);
-  font-size: ${FONT_SIZE.md};
-  font-weight: ${FONT_WEIGHT.semibold};
+  color: ${({ theme }) => theme.textMain};
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
 `;
 
 export const Row = styled.div`

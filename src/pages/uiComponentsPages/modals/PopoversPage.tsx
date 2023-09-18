@@ -4,7 +4,7 @@ import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { BasePopover } from '@app/components/common/BasePopover/BasePopover';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
-import { media } from '@app/styles/themes/constants';
+import { media } from '@app/utils/utils';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 const buttonWidth = 70;
@@ -17,11 +17,11 @@ export const PopoverButton = styled.div`
 export const TopButtons = styled(PopoverButton)`
   white-space: nowrap;
 
-  @media only screen and ${media.xs} {
+  @media only screen and (${media('xs')}) {
     margin-left: ${buttonWidth - 24}px;
   }
 
-  @media only screen and ${media.md} {
+  @media only screen and (${media('md')}) {
     margin-left: ${buttonWidth + 18}px;
   }
 `;
@@ -35,11 +35,11 @@ export const RightButtons = styled(PopoverButton)`
   flex-direction: column;
   width: ${buttonWidth}px;
 
-  @media only screen and ${media.xs} {
+  @media only screen and (${media('xs')}) {
     margin-left: ${buttonWidth * 3 - 14}px;
   }
 
-  @media only screen and ${media.md} {
+  @media only screen and (${media('md')}) {
     margin-left: ${buttonWidth * 4}px;
   }
 `;
@@ -49,11 +49,11 @@ export const BottomButtons = styled(PopoverButton)`
   clear: both;
   white-space: nowrap;
 
-  @media only screen and ${media.xs} {
+  @media only screen and (${media('xs')}) {
     margin-left: ${buttonWidth - 44}px;
   }
 
-  @media only screen and ${media.md} {
+  @media only screen and (${media('md')}) {
     margin-left: ${buttonWidth}px;
   }
 `;

@@ -6,16 +6,17 @@ import { BasePopconfirm } from '@app/components/common/BasePopconfirm/BasePopcon
 import { TopButtons, LeftButtons, RightButtons, BottomButtons } from '@app/pages/uiComponentsPages/modals/PopoversPage';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
-import { FONT_SIZE, media } from '@app/styles/themes/constants';
+import { media } from '@app/utils/utils';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 import { useFeedback } from '@app/hooks/useFeedback';
 
 const AsyncButton = styled(BaseButton)`
-  @media only screen and ${media.xs} {
-    font-size: ${FONT_SIZE.xs};
+  @media only screen and (${media('xs')}) {
+    font-size: ${({ theme }) => theme.fontSizes.xs};
   }
-  @media only screen and ${media.md} {
-    font-size: ${FONT_SIZE.md};
+
+  @media only screen and (${media('md')}) {
+    font-size: ${({ theme }) => theme.fontSizes.md};
   }
 `;
 

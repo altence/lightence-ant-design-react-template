@@ -1,8 +1,6 @@
-import React from 'react';
-
 import { useTranslation } from 'react-i18next';
 import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps';
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import { MapsCard } from '@app/pages/maps/maps.styles';
@@ -30,6 +28,7 @@ const markers = [
 
 const ReactSimpleMaps: React.FC = () => {
   const { t } = useTranslation();
+  const theme = useTheme();
 
   return (
     <>
@@ -45,12 +44,7 @@ const ReactSimpleMaps: React.FC = () => {
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
               geographies.map((geo) => (
-                <Geography
-                  key={geo.rsmKey}
-                  geography={geo}
-                  fill={'var(--secondary-background-color)'}
-                  stroke={'var(--primary-color)'}
-                />
+                <Geography key={geo.rsmKey} geography={geo} fill={theme.secondaryBackground} stroke={theme.primary} />
               ))
             }
           </Geographies>
@@ -58,7 +52,7 @@ const ReactSimpleMaps: React.FC = () => {
             <Marker key={name} coordinates={coordinates as [number, number]}>
               <g
                 fill="none"
-                stroke={'var(--primary-color)'}
+                stroke={theme.primary}
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -67,11 +61,7 @@ const ReactSimpleMaps: React.FC = () => {
                 <circle cx="12" cy="10" r="3" />
                 <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
               </g>
-              <text
-                textAnchor="middle"
-                y={markerOffset}
-                style={{ fontFamily: 'system-ui', fill: 'var(--text-main-color)' }}
-              >
+              <text textAnchor="middle" y={markerOffset} style={{ fontFamily: 'system-ui', fill: theme.textMain }}>
                 {name}
               </text>
             </Marker>

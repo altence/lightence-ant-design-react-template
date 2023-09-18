@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
-import { BREAKPOINTS } from '@app/styles/themes/constants';
 
 export const SectionWrapper = styled.div`
   .slick-slide > div {
@@ -14,7 +13,7 @@ export const SectionWrapper = styled.div`
     margin-bottom: -40px;
   }
 
-  @media only screen and (max-width: ${BREAKPOINTS.md - 0.02}px) {
+  @media only screen and (max-width: ${({ theme }) => theme.breakpoints.md - 0.02}px) {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -33,5 +32,5 @@ export const CardWrapper = styled.div`
 `;
 
 export const ArrowBtn = styled(BaseButton)`
-  color: var(--text-nft-light-color);
+  color: ${({ theme }) => theme.nft.textLight};
 `;

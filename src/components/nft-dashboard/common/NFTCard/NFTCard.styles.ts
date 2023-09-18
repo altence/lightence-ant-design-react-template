@@ -7,12 +7,12 @@ interface CardInternalProps {
 
 export const Card = styled(BaseCard)<CardInternalProps>`
   &.ant-card:not(.ant-card-bordered) {
-    box-shadow: var(--box-shadow-nft-color);
+    box-shadow: ${({ theme }) => theme.nft.boxShadow};
   }
 
   ${(props) =>
     props.$isSider &&
     css`
-      background: var(--additional-background-color);
+      background: ${({ theme }) => theme.additionalBackground};
     `};
 `;

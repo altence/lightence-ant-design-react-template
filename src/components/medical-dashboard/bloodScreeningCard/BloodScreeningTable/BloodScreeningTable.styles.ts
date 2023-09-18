@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { BaseTable } from '@app/components/common/BaseTable/BaseTable';
-import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
 
 interface TextProps {
   $isActive?: boolean;
@@ -9,14 +8,14 @@ interface TextProps {
 export const Table = styled(BaseTable)`
   thead .ant-table-cell {
     border-top: none;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid ${({ theme }) => theme.border};
   }
 
   .ant-table-thead > tr > th {
     background: transparent;
-    color: var(--text-main-color);
-    font-size: ${FONT_SIZE.md};
-    font-weight: ${FONT_WEIGHT.semibold};
+    color: ${({ theme }) => theme.textMain};
+    font-size: ${({ theme }) => theme.fontSizes.md};
+    font-weight: ${({ theme }) => theme.fontWeights.semibold};
 
     &::before {
       display: none;
@@ -30,10 +29,10 @@ export const Table = styled(BaseTable)`
 `;
 
 export const Text = styled.span<TextProps>`
-  color: var(--text-main-color);
-  font-weight: ${(props) => (props.$isActive ? `${FONT_WEIGHT.semibold}` : `${FONT_WEIGHT.regular}`)};
+  color: ${({ theme }) => theme.textMain};
+  font-weight: ${({ $isActive, theme }) => ($isActive ? theme.fontWeights.semibold : theme.fontWeights.regular)};
 `;
 
 export const Flag = styled(Text)<{ $isNorm: boolean }>`
-  color: ${(props) => (props.$isNorm ? 'var(--success-color)' : 'var(--error-color)')};
+  color: ${({ $isNorm, theme }) => ($isNorm ? theme.success : theme.error)};
 `;

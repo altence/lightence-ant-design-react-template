@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 
 export const CardIssuerImg = styled(BaseAvatar)`
   flex-shrink: 0;
-  border: 1px solid var(--border-nft-color);
+  border: 1px solid ${({ theme }) => theme.nft.border};
   padding: 3px;
 `;
 

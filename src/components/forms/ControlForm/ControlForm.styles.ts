@@ -1,19 +1,18 @@
 import styled from 'styled-components';
 import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
-import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
 
 export const UserList = styled(BaseForm.Item)`
   & .ant-form-item-label label {
-    font-size: ${FONT_SIZE.md};
-    font-weight: ${FONT_WEIGHT.semibold};
+    font-size: ${({ theme }) => theme.fontSizes.md};
+    font-weight: ${({ theme }) => theme.fontWeights.semibold};
   }
 `;
 
 export const Text = styled.div`
-  color: var(--primary-color);
-  font-size: ${FONT_SIZE.md};
-  font-weight: ${FONT_WEIGHT.semibold};
+  color: ${({ theme }) => theme.primary};
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
 `;
 
 export const List = styled.ul`
@@ -27,9 +26,9 @@ export const ListItem = styled.li`
 `;
 
 export const User = styled.div`
-  color: var(--text-main-color);
-  font-size: ${FONT_SIZE.md};
-  font-weight: ${FONT_WEIGHT.semibold};
+  color: ${({ theme }) => theme.textMain};
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
   margin-left: 0.5rem;
 `;
 

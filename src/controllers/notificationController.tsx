@@ -1,8 +1,7 @@
 import type { IconType, NotificationInstance, ArgsProps } from 'antd/es/notification/interface';
 import styled, { css } from 'styled-components';
 import { CheckCircleFilled, ExclamationCircleFilled, InfoCircleFilled, StopFilled } from '@ant-design/icons';
-import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
-import { defineColorBySeverity } from '@app/utils/utils';
+import { colorTypeFrom } from '@app/utils/utils';
 
 interface IconWrapperProps {
   $isOnlyTitle: boolean;
@@ -25,27 +24,27 @@ const Message = styled.div<MessageProps>`
   ${(props) =>
     props.$isOnlyTitle
       ? css`
-          font-size: ${FONT_SIZE.md};
+          font-size: ${({ theme }) => theme.fontSizes.md};
           height: 2rem;
-          font-weight: ${FONT_WEIGHT.semibold};
+          font-weight: ${({ theme }) => theme.fontWeights.semibold};
           margin-inline-start: 9px;
         `
       : css`
-          font-size: ${FONT_SIZE.xxl};
+          font-size: ${({ theme }) => theme.fontSizes.xxl};
           height: 3rem;
-          font-weight: ${FONT_WEIGHT.bold};
+          font-weight: ${({ theme }) => theme.fontWeights.bold};
           margin-inline-start: 21px;
         `}
 
   .ant-notification-notice.ant-notification-notice-${(props) => props.$type} & {
-    color: ${(props) => defineColorBySeverity(props.$type)};
+    color: ${(props) => props.theme[colorTypeFrom(props.$type)]};
   }
 `;
 
 const Description = styled.div`
   color: #404040;
-  font-size: ${FONT_SIZE.md};
-  font-weight: ${FONT_WEIGHT.semibold};
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
   line-height: 1.375rem;
   margin-inline-start: 22px;
 `;
@@ -68,8 +67,6 @@ const Icons = {
 const open = (type: IconType, notification: NotificationType): NotificationOpener => {
   const Icon = Icons[type];
 
-  const colorType = type === 'info' ? 'primary' : type;
-
   return ({ message, description, ...props }) =>
     notification[type]({
       icon: (
@@ -86,8 +83,6 @@ const open = (type: IconType, notification: NotificationType): NotificationOpene
       style: {
         minHeight: '6rem',
         padding: '2rem',
-        border: `1px solid ${defineColorBySeverity(type)}`,
-        background: `var(--notification-${colorType}-color)`,
       },
       ...props,
       type,

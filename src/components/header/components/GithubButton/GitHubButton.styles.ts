@@ -1,6 +1,5 @@
 import { GithubOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
-import { BASE_COLORS } from '@app/styles/themes/constants';
 import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 
 interface Dark {
@@ -8,21 +7,20 @@ interface Dark {
 }
 
 export const Button = styled(BaseButton)<Dark>`
-  color: ${(props) => BASE_COLORS[props.$isDark ? 'white' : 'black']};
-  background: ${(props) => BASE_COLORS[props.$isDark ? 'black' : 'white']};
+  color: ${({ $isDark, theme }) => ($isDark ? theme.white : theme.black)};
+  background: ${({ $isDark, theme }) => ($isDark ? theme.black : theme.white)};
   border-radius: 50px;
   padding-top: 0;
   padding-bottom: 0;
   gap: 0;
-
   align-items: center;
 
   &.ant-btn-default:not(:disabled) {
     &:hover,
     &:active,
     &:focus {
-      color: ${(props) => BASE_COLORS[props.$isDark ? 'black' : 'white']};
-      background: ${(props) => BASE_COLORS[props.$isDark ? 'white' : 'black']};
+      color: ${({ $isDark, theme }) => ($isDark ? theme.black : theme.white)};
+      background: ${({ $isDark, theme }) => ($isDark ? theme.white : theme.black)};
     }
   }
 `;

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { InputNumber } from '@app/components/common/inputs/InputNumber/InputNumber';
-import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
 import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
 
 const pathWidth = 22;
@@ -12,10 +11,10 @@ export const Wrapper = styled.div`
   --round-slider-handle-cursor: grabbing;
   --round-slider-path-width: ${pathWidth}px;
 
-  --round-slider-bar-color: var(--primary-color);
+  --round-slider-bar-color: ${({ theme }) => theme.primary};
   --round-slider-path-color: #def0ff;
-  --round-slider-handle-color: #fff;
-  --round-slider-handle-border-color: var(--primary-color);
+  --round-slider-handle-color: ${({ theme }) => theme.white};
+  --round-slider-handle-border-color: ${({ theme }) => theme.primary};
 
   round-slider {
     z-index: 1; /* To make it under InnerWrapper */
@@ -48,7 +47,7 @@ export const ShadowWrapper = styled(InnerWrapper)`
 `;
 
 export const Text = styled(BaseTypography.Text)`
-  font-size: ${FONT_SIZE.xs};
+  font-size: ${({ theme }) => theme.fontSizes.xs};
 `;
 
 export const TopText = styled(Text)`
@@ -84,10 +83,8 @@ export const CenterText = styled(BaseTypography.Text)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  font-size: ${FONT_SIZE.xl};
-
-  font-weight: ${FONT_WEIGHT.semibold};
+  font-size: ${({ theme }) => theme.fontSizes.xl};
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
 `;
 
 export const TimeRow = styled.div`
@@ -106,7 +103,6 @@ export const TimeWrapper = styled.div`
   width: 50%;
   border-radius: 14px;
   padding: 1rem;
-
   box-shadow: ${(props) => props.theme.boxShadow};
 `;
 
@@ -114,6 +110,6 @@ export const NumberInput = styled(InputNumber)`
   width: unset;
 
   input {
-    font-weight: ${FONT_WEIGHT.semibold};
+    font-weight: ${({ theme }) => theme.fontWeights.semibold};
   }
 `;

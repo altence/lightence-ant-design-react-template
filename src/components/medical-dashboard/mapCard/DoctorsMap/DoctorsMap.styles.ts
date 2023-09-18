@@ -1,6 +1,5 @@
-import { BORDER_RADIUS } from '@app/styles/themes/constants';
 import styled from 'styled-components';
-import { CountryMap } from '../../../common/CountryMap/CountryMap';
+import { CountryMap } from '@app/components/common/CountryMap/CountryMap';
 
 export const DoctorsMap = styled(CountryMap)`
   /* Leaflet uses z-index inside. Create a new stacking context for avoiding overlapping */
@@ -8,8 +7,8 @@ export const DoctorsMap = styled(CountryMap)`
   height: 19rem;
 
   &.leaflet-container {
-    background: var(--dashboard-map-background-color);
-    border-radius: ${BORDER_RADIUS};
+    background: ${({ theme }) => theme.dashboardMapBackground};
+    border-radius: ${({ theme }) => theme.borderRadius};
 
     svg {
       path {
@@ -24,11 +23,11 @@ export const DoctorsMap = styled(CountryMap)`
     }
 
     #pattern-circle {
-      fill: var(--dashboard-map-circle-color);
+      fill: ${({ theme }) => theme.dashboardMapCircleColor};
     }
 
     #pattern-circle-hovered {
-      fill: var(--primary-color);
+      fill: ${({ theme }) => theme.primary};
     }
   }
 
@@ -38,7 +37,7 @@ export const DoctorsMap = styled(CountryMap)`
 
   .leaflet-marker-icon {
     border-radius: 50%;
-    border: 2px solid var(--primary-color);
+    border: 2px solid ${({ theme }) => theme.primary};
   }
 
   .leaflet-control-zoom {
@@ -53,17 +52,17 @@ export const DoctorsMap = styled(CountryMap)`
 
   .leaflet-control-zoom-out,
   .leaflet-control-zoom-in {
-    background-color: var(--primary-color);
-    color: var(--text-secondary-color);
+    background-color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.textSecondary};
 
     &:hover {
-      background-color: var(--background-color);
-      color: var(--primary-color);
+      background-color: ${({ theme }) => theme.background};
+      color: ${({ theme }) => theme.primary};
     }
 
     &.leaflet-disabled {
-      background-color: var(--dashboard-map-control-disabled-background-color);
-      color: var(--text-secondary-color);
+      background-color: ${({ theme }) => theme.dashboardMapControlDisabledBackground};
+      color: ${({ theme }) => theme.textSecondary};
     }
   }
 

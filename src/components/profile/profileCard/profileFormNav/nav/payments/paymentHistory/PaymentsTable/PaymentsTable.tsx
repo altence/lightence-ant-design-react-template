@@ -1,10 +1,11 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from 'styled-components';
 import { ColumnType } from 'antd/lib/table';
 import { Dates } from 'constants/Dates';
 import { Status } from '../Status/Status';
 import { paymentStatuses, PaymentStatus } from 'constants/paymentStatuses';
-import { defineColorByPriority, getCurrencyPrice } from '@app/utils/utils';
+import { colorTypeFrom, getCurrencyPrice } from '@app/utils/utils';
 import { Payment } from 'api/paymentHistory.api';
 import * as S from './PaymentsTable.styles';
 import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
@@ -29,6 +30,7 @@ interface PaymentsTableProps {
 
 export const PaymentsTable: React.FC<PaymentsTableProps> = ({ payments }) => {
   const { t } = useTranslation();
+  const theme = useTheme();
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const columns: ColumnType<any>[] = useMemo(() => {
@@ -58,7 +60,7 @@ export const PaymentsTable: React.FC<PaymentsTableProps> = ({ payments }) => {
         dataIndex: 'status',
         key: 'status',
         render: (status: PaymentStatus) => (
-          <Status color={defineColorByPriority(status.priority)} text={t(status.name).toUpperCase()} />
+          <Status color={theme[colorTypeFrom(status.priority)]} text={t(status.name).toUpperCase()} />
         ),
         align: 'center',
       },
@@ -76,7 +78,7 @@ export const PaymentsTable: React.FC<PaymentsTableProps> = ({ payments }) => {
         render: () => <BaseButton type="link">{t('profile.nav.payments.details')}</BaseButton>,
       },
     ];
-  }, [t]);
+  }, [t, theme]);
 
   const dataSource: Status[] = useMemo(
     () =>

@@ -3,6 +3,6 @@ import styled from 'styled-components';
 
 export const TopUpButton = styled(BaseButton)`
   &.ant-btn-background-ghost {
-    color: var(--text-secondary-color);
+    color: ${({ theme }) => theme.textSecondary};
   }
 `;

@@ -1,7 +1,7 @@
 import { BaseAvatar } from '@app/components/common/BaseAvatar/BaseAvatar';
 import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
 import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
-import { FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
+import { media } from '@app/utils/utils';
 import styled from 'styled-components';
 
 interface ScreeningsRowProps {
@@ -22,38 +22,31 @@ export const ScreeningsRow = styled(BaseRow)<ScreeningsRowProps>`
   transition: all 0.3s ease;
 
   .ant-typography {
-    font-weight: ${(props) => (props.$isActive ? FONT_WEIGHT.bold : FONT_WEIGHT.regular)};
+    font-weight: ${({ $isActive, theme }) => ($isActive ? theme.fontWeights.bold : theme.fontWeights.regular)};
   }
 `;
 
 export const Avatar = styled(BaseAvatar)<Importance>`
   position: relative;
-
-  ${(props) =>
-    (props.$isPrimary && `border: 2px solid var(--primary-color)`) ||
-    (props.$isSecondary && `border 2px solid var(--error-color)`)}
+  border: 2px solid ${(props) => (props.$isPrimary && props.theme.primary) || (props.$isSecondary && props.theme.error)};
 `;
 
 export const Name = styled(BaseTypography.Text)<Importance>`
   white-space: nowrap;
+  font-size: ${({ theme }) => theme.fontSizes.xs};
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
+  color: ${(props) => (props.$isPrimary && props.theme.primary) || (props.$isSecondary && props.theme.error)};
 
-  font-size: ${FONT_SIZE.xs};
-
-  font-weight: ${FONT_WEIGHT.semibold};
-
-  color: ${(props) => (props.$isPrimary && 'var(--primary-color)') || (props.$isSecondary && 'var(--error-color)')};
-
-  @media only screen and ${media.xl} {
-    font-size: ${FONT_SIZE.md};
+  @media only screen and (${media('xl')}) {
+    font-size: ${({ theme }) => theme.fontSizes.md};
   }
 `;
 
 export const Percentage = styled(BaseTypography.Text)<PercentageProps>`
-  font-size: ${FONT_SIZE.xs};
+  font-size: ${({ theme }) => theme.fontSizes.xs};
+  color: ${({ $isDowngrade, theme }) => ($isDowngrade ? theme.error : theme.success)};
 
-  color: ${(props) => (props.$isDowngrade ? 'var(--error-color)' : 'var(--success-color)')};
-
-  @media only screen and ${media.xl} {
-    font-size: ${FONT_SIZE.md};
+  @media only screen and (${media('xl')}) {
+    font-size: ${({ theme }) => theme.fontSizes.md};
   }
 `;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useResponsive } from 'hooks/useResponsive';
 import { TreatmentCalendar } from './TreatmentCalendar/TreatmentCalendar';
@@ -8,10 +8,25 @@ import { DashboardCard } from '../DashboardCard/DashboardCard';
 import { CalendarEvent, getUserCalendar } from 'api/calendar.api';
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
-import { BaseButton } from '../../common/BaseButton/BaseButton';
+import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { useAppSelector } from '@app/hooks/reduxHooks';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
+
+const BackButtonWrapper = styled(BaseCol)`
+  position: relative;
+`;
+
+const BackButton = styled(BaseButton)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: ${({ theme }) => theme.white};
+`;
+
+const RowStyled = styled(BaseRow)`
+  min-height: 21.75rem;
+`;
 
 export const TreatmentCard: React.FC = () => {
   const { isTablet } = useResponsive();
@@ -80,18 +95,3 @@ export const TreatmentCard: React.FC = () => {
     </DashboardCard>
   );
 };
-
-const BackButtonWrapper = styled(BaseCol)`
-  position: relative;
-`;
-
-const BackButton = styled(BaseButton)`
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: var(--white);
-`;
-
-const RowStyled = styled(BaseRow)`
-  min-height: 21.75rem;
-`;

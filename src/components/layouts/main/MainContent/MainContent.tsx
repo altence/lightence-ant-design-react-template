@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
-import { LAYOUT, media } from '@app/styles/themes/constants';
+import { LAYOUT } from '@app/styles/themes/constants';
 import { BaseLayout } from '@app/components/common/BaseLayout/BaseLayout';
+import { media } from '@app/utils/utils';
 
 interface HeaderProps {
   $isTwoColumnsLayout: boolean;
@@ -13,11 +14,11 @@ export default styled(BaseLayout.Content)<HeaderProps>`
   flex-direction: column;
   justify-content: space-between;
 
-  @media only screen and ${media.md} {
+  @media only screen and (${media('md')}) {
     padding: ${LAYOUT.desktop.paddingVertical} ${LAYOUT.desktop.paddingHorizontal};
   }
 
-  @media only screen and ${media.xl} {
+  @media only screen and (${media('xl')}) {
     ${(props) =>
       props?.$isTwoColumnsLayout &&
       css`

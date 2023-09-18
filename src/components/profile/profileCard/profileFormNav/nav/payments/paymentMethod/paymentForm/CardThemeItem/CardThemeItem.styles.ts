@@ -1,5 +1,4 @@
-import { BORDER_RADIUS } from '@app/styles/themes/constants';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 interface BackgroundWrapperProps {
   isActive: boolean;
@@ -15,11 +14,14 @@ export const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
   height: 3.125rem;
   margin: 0 auto;
   transition: all 0.5s ease;
-
-  border-radius: ${BORDER_RADIUS};
-
-  ${(props) => props.isActive && `background: url(${props.background})`};
+  border-radius: ${({ theme }) => theme.borderRadius};
   background-size: cover;
+
+  ${(props) =>
+    props.isActive &&
+    css`
+      background: url(${props.background});
+    `};
 
   & > div {
     background: ${(props) => `url(${props.background})`};
@@ -28,9 +30,12 @@ export const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
 
   &:hover {
     opacity: 0.7;
-
-    ${(props) => `background: url(${props.background})`};
     background-size: cover;
+
+    ${(props) =>
+      css`
+        background: url(${props.background});
+      `};
   }
 `;
 
@@ -38,8 +43,6 @@ export const Theme = styled.div`
   width: calc(100% - 0.4rem);
   height: calc(100% - 0.4rem);
   margin: 0.2rem;
-
-  border: 5px solid var(--background-color);
-
-  border-radius: ${BORDER_RADIUS};
+  border: 5px solid ${({ theme }) => theme.background};
+  border-radius: ${({ theme }) => theme.borderRadius};
 `;

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 interface SuffixProps {
   isOpen: boolean;
@@ -9,5 +9,10 @@ export const Suffix = styled.div<SuffixProps>`
   visibility: visible;
   opacity: 1;
 
-  ${(props) => !props.isOpen && 'opacity: 0; visibility: hidden'};
+  ${(props) =>
+    !props.isOpen &&
+    css`
+      opacity: 0;
+      visibility: hidden;
+    `};
 `;

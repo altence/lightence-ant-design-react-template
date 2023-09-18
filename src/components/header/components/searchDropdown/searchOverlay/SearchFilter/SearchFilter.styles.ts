@@ -1,5 +1,5 @@
 import { BaseCheckbox } from '@app/components/common/BaseCheckbox/BaseCheckbox';
-import { media } from '@app/styles/themes/constants';
+import { media } from '@app/utils/utils';
 import styled, { css } from 'styled-components';
 
 interface FilterWrapperProps {
@@ -27,7 +27,7 @@ export const FilterWrapper = styled.div<FilterWrapperProps>`
 export const CheckBox = styled(BaseCheckbox)`
   font-size: 0.75rem;
 
-  @media only screen and ${media.md} {
+  @media only screen and (${media('md')}) {
     font-size: 0.875rem;
   }
 `;

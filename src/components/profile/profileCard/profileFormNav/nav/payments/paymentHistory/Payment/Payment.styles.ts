@@ -5,8 +5,7 @@ export const Header = styled.div`
   padding: 1.5rem 3.5rem;
   display: flex;
   align-items: center;
-
-  background-color: var(--secondary-background-color);
+  background-color: ${({ theme }) => theme.secondaryBackground};
 `;
 
 export const AvatarWrapper = styled.div`
@@ -29,8 +28,7 @@ export const ContentWrapper = styled.div`
     left: 0;
     width: 100%;
     height: 1px;
-
-    background-color: 1px solid rgba(var(--primary-rgb-color), 0.3);
+    background-color: 1px solid rgba(${({ theme }) => theme.rgb.primary}, 0.3);
   }
 `;
 
@@ -48,8 +46,7 @@ export const Item = styled.div`
 export const Subtitle = styled(BaseTypography.Text)`
   font-weight: 500;
   font-size: 0.75rem;
-
-  color: var(--primary-color);
+  color: ${({ theme }) => theme.primary};
 `;
 
 export const DetailsWrapper = styled.div`

@@ -1,3 +1,5 @@
+import type { FontWeights, NamedColors, NamedIndexes, RelativeSizes } from './types';
+
 export const BORDER_RADIUS = '7px';
 
 export const BASE_COLORS = {
@@ -6,14 +8,14 @@ export const BASE_COLORS = {
   green: '#008000',
   orange: '#ffb155',
   gray: '#808080',
-  lightgrey: '#c5d3e0',
+  lightgray: '#c5d3e0',
   violet: '#ee82ee',
   lightgreen: '#89dca0',
   pink: '#ffc0cb',
   blue: '#0000ff',
   skyblue: '#35a0dc',
   red: '#ff5252',
-} as const;
+} as const satisfies Partial<NamedColors>;
 
 export const LAYOUT = {
   mobile: {
@@ -32,7 +34,7 @@ export const LAYOUT = {
 export const FONT_FAMILY = {
   main: 'Montserrat',
   secondary: 'Lato',
-} as const;
+} as const satisfies Partial<NamedIndexes>;
 
 export const FONT_SIZE = {
   xxs: '0.75rem',
@@ -43,19 +45,19 @@ export const FONT_SIZE = {
   xxl: '1.5rem',
   xxxl: '1.625rem',
   xxxxl: '2rem',
-} as const;
+} as const satisfies Partial<RelativeSizes>;
 
 export const FONT_WEIGHT = {
-  thin: '100',
-  extraLight: '200',
-  light: '300',
-  regular: '400',
-  medium: '500',
-  semibold: '600',
-  bold: '700',
-  extraBold: '800',
-  black: '900',
-} as const;
+  thin: 100,
+  extraLight: 200,
+  light: 300,
+  regular: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700,
+  extraBold: 800,
+  black: 900,
+} as const satisfies FontWeights;
 
 export const HEIGHT = {
   xxs: '1.5rem',
@@ -63,7 +65,7 @@ export const HEIGHT = {
   sm: '2.5rem',
   md: '3.125rem',
   lg: '4rem',
-} as const;
+} as const satisfies Partial<RelativeSizes>;
 
 export const BREAKPOINTS = {
   xs: 360,
@@ -72,15 +74,4 @@ export const BREAKPOINTS = {
   lg: 992,
   xl: 1280,
   xxl: 1920,
-} as const;
-
-const getMedia = <T extends number>(breakpoint: T): `(min-width: ${T}px)` => `(min-width: ${breakpoint}px)`;
-
-export const media = {
-  xs: getMedia(BREAKPOINTS.xs),
-  sm: getMedia(BREAKPOINTS.sm),
-  md: getMedia(BREAKPOINTS.md),
-  lg: getMedia(BREAKPOINTS.lg),
-  xl: getMedia(BREAKPOINTS.xl),
-  xxl: getMedia(BREAKPOINTS.xxl),
-};
+} as const satisfies Partial<RelativeSizes>;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ConfigProvider, App as FeedbackProvider } from 'antd';
 import { HelmetProvider } from 'react-helmet-async';
+import { ThemeProvider } from 'styled-components';
 import deDe from 'antd/lib/locale/de_DE';
 import enUS from 'antd/lib/locale/en_US';
 import GlobalStyle from './styles/GlobalStyle';
@@ -18,6 +19,7 @@ import { getThemeConfig } from './styles/themeConfig';
 const App: React.FC = () => {
   const { language } = useLanguage();
   const theme = useAppSelector((state) => state.theme.theme);
+  const currentTheme = themeObject[theme];
 
   usePWA();
 
@@ -26,17 +28,17 @@ const App: React.FC = () => {
   useThemeWatcher();
 
   return (
-    <>
-      <meta name="theme-color" content={themeObject[theme].primary} />
+    <ThemeProvider theme={currentTheme}>
+      <meta name="theme-color" content={currentTheme.primary} />
       <GlobalStyle />
       <HelmetProvider>
-        <ConfigProvider theme={getThemeConfig(theme)} locale={language === 'en' ? enUS : deDe}>
+        <ConfigProvider theme={getThemeConfig(currentTheme)} locale={language === 'en' ? enUS : deDe}>
           <FeedbackProvider>
             <AppRouter />
           </FeedbackProvider>
         </ConfigProvider>
       </HelmetProvider>
-    </>
+    </ThemeProvider>
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { LeftOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
@@ -13,6 +13,19 @@ import { useResponsive } from '@app/hooks/useResponsive';
 import { useAppSelector } from '@app/hooks/reduxHooks';
 import { BaseRow } from '../common/BaseRow/BaseRow';
 import { BaseCol } from '../common/BaseCol/BaseCol';
+
+const ProfileCard = styled(BaseCard)`
+  height: unset;
+`;
+
+const Btn = styled(BaseButton)`
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  padding: 0;
+  height: unset;
+  color: ${({ theme }) => theme.secondary};
+`;
 
 const ProfileLayout: React.FC = () => {
   const user = useAppSelector((state) => state.user.user);
@@ -66,18 +79,5 @@ const ProfileLayout: React.FC = () => {
     </>
   );
 };
-
-const ProfileCard = styled(BaseCard)`
-  height: unset;
-`;
-
-const Btn = styled(BaseButton)`
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  font-weight: 600;
-  padding: 0;
-  height: unset;
-  color: var(--secondary-color);
-`;
 
 export default ProfileLayout;

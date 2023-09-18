@@ -1,13 +1,13 @@
-import { CollapseProps, Collapse as AntdCollapse } from 'antd';
+import { CollapseProps, Collapse as AntCollapse } from 'antd';
 
 export type BaseCollapseProps = CollapseProps;
 
 interface BaseCollapseInterface extends React.FC<BaseCollapseProps> {
-  Panel: typeof AntdCollapse.Panel;
+  Panel: typeof AntCollapse.Panel;
 }
 
 export const BaseCollapse: BaseCollapseInterface = (props) => {
-  return <AntdCollapse {...props} />;
+  return <AntCollapse {...props} />;
 };
 
-BaseCollapse.Panel = AntdCollapse.Panel;
+BaseCollapse.Panel = AntCollapse.Panel;

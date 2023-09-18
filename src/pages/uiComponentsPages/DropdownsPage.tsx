@@ -1,7 +1,7 @@
 import { DownOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
-import { BaseDropdown } from '@app/components/common/BaseDropdown/Dropdown';
+import { BaseDropdown } from '@app/components/common/BaseDropdown/BaseDropdown';
 import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';

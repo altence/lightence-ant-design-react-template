@@ -1,4 +1,4 @@
-import { BREAKPOINTS, media } from '@app/styles/themes/constants';
+import { useTheme } from 'styled-components';
 import { MediaQueryAllQueryable, MediaQueryMatchers, useMediaQuery } from 'react-responsive';
 
 interface ResponsiveReturnValues {
@@ -17,21 +17,23 @@ interface ResponsiveReturnValues {
 }
 
 export const useResponsive = (): ResponsiveReturnValues => {
-  const isMobile = useMediaQuery({ query: media.xs });
-  const isTablet = useMediaQuery({ query: media.md });
-  const isDesktop = useMediaQuery({ query: media.xl });
-  const isBigScreen = useMediaQuery({ query: media.xxl });
+  const theme = useTheme();
+
+  const isMobile = useMediaQuery({ query: `(min-width: ${theme.breakpoints.xs}px)` });
+  const isTablet = useMediaQuery({ query: `(min-width: ${theme.breakpoints.md}px)` });
+  const isDesktop = useMediaQuery({ query: `(min-width: ${theme.breakpoints.xl}px)` });
+  const isBigScreen = useMediaQuery({ query: `(min-width: ${theme.breakpoints.xxl}px)` });
 
   const mobileOnly = useMediaQuery({
-    query: `(max-width: ${BREAKPOINTS.md - 0.02}px)`,
+    query: `(max-width: ${theme.breakpoints.md - 0.02}px)`,
   });
 
   const tabletOnly = useMediaQuery({
-    query: `(min-width: ${BREAKPOINTS.md}px) and (max-width: ${BREAKPOINTS.xl - 0.02}px)`,
+    query: `(min-width: ${theme.breakpoints.md}px) and (max-width: ${theme.breakpoints.xl - 0.02}px)`,
   });
 
   const desktopOnly = useMediaQuery({
-    query: `(min-width: ${BREAKPOINTS.xl}px) and (max-width: ${BREAKPOINTS.xxl - 0.02}px)`,
+    query: `(min-width: ${theme.breakpoints.xl}px) and (max-width: ${theme.breakpoints.xxl - 0.02}px)`,
   });
 
   return {

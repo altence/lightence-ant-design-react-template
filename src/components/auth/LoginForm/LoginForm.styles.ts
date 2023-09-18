@@ -1,33 +1,33 @@
-import { FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
 import styled from 'styled-components';
+import { media } from '@app/utils/utils';
 
 export const LoginDescription = styled.div`
   margin-bottom: 1.875rem;
-  color: var(--text-main-color);
-  font-size: ${FONT_SIZE.xs};
+  color: ${({ theme }) => theme.textMain};
+  font-size: ${({ theme }) => theme.fontSizes.xs};
 
-  @media only screen and ${media.xs} {
+  @media only screen and (${media('xs')}) {
     margin-bottom: 1.5625rem;
-    font-weight: ${FONT_WEIGHT.bold};
+    font-weight: ${({ theme }) => theme.fontWeights.bold};
   }
 
-  @media only screen and ${media.md} {
+  @media only screen and (${media('md')}) {
     margin-bottom: 1.75rem;
-    font-weight: ${FONT_WEIGHT.regular};
+    font-weight: ${({ theme }) => theme.fontWeights.regular};
   }
 
-  @media only screen and ${media.xl} {
+  @media only screen and (${media('xl')}) {
     margin-bottom: 1.875rem;
   }
 `;
 
 export const RememberMeText = styled.span`
-  color: var(--primary-color);
-  font-size: ${FONT_SIZE.xs};
+  color: ${({ theme }) => theme.primary};
+  font-size: ${({ theme }) => theme.fontSizes.xs};
 `;
 
 export const ForgotPasswordText = styled.span`
-  color: var(--text-light-color);
-  font-size: ${FONT_SIZE.xs};
+  color: ${({ theme }) => theme.textLight};
+  font-size: ${({ theme }) => theme.fontSizes.xs};
   text-decoration: underline;
 `;

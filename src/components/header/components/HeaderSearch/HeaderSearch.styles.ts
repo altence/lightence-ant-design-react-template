@@ -3,14 +3,14 @@ import { SearchOutlined } from '@ant-design/icons';
 import { BaseModal } from '@app/components/common/BaseModal/BaseModal';
 import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { SearchInput } from 'components/common/inputs/SearchInput/SearchInput';
-import { BORDER_RADIUS, media } from '@app/styles/themes/constants';
+import { media } from '@app/utils/utils';
 
 export const SearchIcon = styled(SearchOutlined)`
   &.anticon.anticon-search {
     display: block;
     font-size: 1.25rem;
 
-    @media only screen and ${media.md} {
+    @media only screen and (${media('md')}) {
       font-size: 1.625rem;
     }
   }
@@ -21,7 +21,7 @@ export const InputSearch = styled(SearchInput)`
     display: none;
   }
 
-  @media only screen and ${media.md} {
+  @media only screen and (${media('md')}) {
     .ant-input-group .ant-input-affix-wrapper:not(:last-child) {
       border-radius: 3.125rem;
       border: 0;
@@ -31,7 +31,7 @@ export const InputSearch = styled(SearchInput)`
 `;
 
 export const SearchModal = styled(BaseModal)`
-  border-radius: ${BORDER_RADIUS};
+  border-radius: ${({ theme }) => theme.borderRadius};
 
   & .ant-modal-body {
     padding: 0;

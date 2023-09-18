@@ -1,9 +1,10 @@
 import styled, { css } from 'styled-components';
 import { BurgerIcon } from '@app/components/common/Burger/BurgerIcon';
 import { GitHubButton } from '@app/components/header/components/GithubButton/GitHubButton';
-import { LAYOUT, media } from '@app/styles/themes/constants';
+import { LAYOUT } from '@app/styles/themes/constants';
 import { BaseCollapse } from '../common/BaseCollapse/BaseCollapse';
 import { BaseCol } from '../common/BaseCol/BaseCol';
+import { media } from '@app/utils/utils';
 
 export const HeaderActionWrapper = styled.div`
   cursor: pointer;
@@ -12,7 +13,7 @@ export const HeaderActionWrapper = styled.div`
   .ant-badge {
     font-size: 1.25rem;
 
-    @media only screen and ${media.md} {
+    @media only screen and (${media('md')}) {
       font-size: 1.625rem;
     }
   }
@@ -27,9 +28,9 @@ export const DropdownCollapse = styled(BaseCollapse)`
     font-weight: 600;
     font-size: 0.875rem;
 
-    color: var(--primary-color);
+    color: ${({ theme }) => theme.primary};
 
-    @media only screen and ${media.md} {
+    @media only screen and (${media('md')}) {
       font-size: 1rem;
     }
   }
@@ -52,13 +53,7 @@ export const MobileBurger = styled(BurgerIcon)`
   width: 1.75rem;
   height: 1.75rem;
   margin-right: -0.5rem;
-  color: var(--text-main-color);
-
-  ${(props) =>
-    props.isCross &&
-    css`
-      color: var(--text-secondary-color);
-    `};
+  color: ${(props) => (props.isCross ? props.theme.textSecondary : props.theme.textMain)};
 `;
 
 export const SearchColumn = styled(BaseCol)`
@@ -70,11 +65,11 @@ interface ProfileColumn {
 }
 
 export const ProfileColumn = styled(BaseCol)<ProfileColumn>`
-  @media only screen and ${media.md} {
+  @media only screen and (${media('md')}) {
     ${(props) =>
       props?.$isTwoColumnsLayout &&
       css`
-        background-color: var(--sider-background-color);
+        background-color: ${({ theme }) => theme.siderBackground};
         padding: ${LAYOUT.desktop.paddingVertical} ${LAYOUT.desktop.paddingHorizontal};
       `}
   }
@@ -83,10 +78,8 @@ export const ProfileColumn = styled(BaseCol)<ProfileColumn>`
 export const GHButton = styled(GitHubButton)`
   &.ant-btn {
     display: none;
-  }
 
-  @media only screen and ${media.lg} {
-    &.ant-btn {
+    @media only screen and (${media('lg')}) {
       display: flex;
     }
   }

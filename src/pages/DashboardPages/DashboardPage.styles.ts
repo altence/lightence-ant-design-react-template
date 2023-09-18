@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { LAYOUT, media } from '@app/styles/themes/constants';
+import { LAYOUT } from '@app/styles/themes/constants';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
+import { media } from '@app/utils/utils';
 
 export const RightSideCol = styled(BaseCol)`
   padding: ${LAYOUT.desktop.paddingVertical} ${LAYOUT.desktop.paddingHorizontal};
@@ -9,12 +10,12 @@ export const RightSideCol = styled(BaseCol)`
   display: flex;
   flex-direction: column;
   height: calc(100vh - ${LAYOUT.desktop.headerHeight});
-  background-color: var(--sider-background-color);
+  background-color: ${({ theme }) => theme.siderBackground};
   overflow-y: auto;
 `;
 
 export const LeftSideCol = styled(BaseCol)`
-  @media only screen and ${media.xl} {
+  @media only screen and (${media('xl')}) {
     padding: ${LAYOUT.desktop.paddingVertical} ${LAYOUT.desktop.paddingHorizontal};
     height: calc(100vh - ${LAYOUT.desktop.headerHeight});
     overflow: auto;

@@ -1,5 +1,5 @@
 import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
-import { media } from '@app/styles/themes/constants';
+import { media } from '@app/utils/utils';
 import styled from 'styled-components';
 
 export const SearchResultsWrapper = styled.div`
@@ -11,10 +11,9 @@ export const SearchResultsWrapper = styled.div`
     & .ant-list-header {
       font-size: 0.75rem;
       padding-bottom: 6px;
+      color: ${({ theme }) => theme.primary};
 
-      color: var(--primary-color);
-
-      @media only screen and ${media.md} {
+      @media only screen and (${media('md')}) {
         font-size: 0.875rem;
       }
     }
@@ -26,7 +25,7 @@ export const SearchResultsWrapper = styled.div`
 `;
 
 export const Text = styled(BaseTypography.Text)`
-  color: var(--text-main-color);
+  color: ${({ theme }) => theme.textMain};
 
   &:hover {
     text-decoration: underline;
