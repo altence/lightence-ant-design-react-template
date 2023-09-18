@@ -11,11 +11,7 @@ export const DoctorName = styled.span`
 `;
 
 export const DoctorCard = styled(BaseCard)`
-  background: linear-gradient(
-    to bottom,
-    ${({ theme }) => theme.primary} 5rem,
-    ${({ theme }) => theme.secondaryBackground} 5rem
-  );
+  background: ${({ theme }) => `linear-gradient(to bottom, ${theme.primary} 5rem, ${theme.secondaryBackground} 5rem)`};
 `;
 
 export const DoctorCardBody = styled.div`
