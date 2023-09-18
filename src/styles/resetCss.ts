@@ -10,11 +10,13 @@ export const resetCss = css`
   ::-webkit-scrollbar {
     width: 1rem;
   }
+
   ::-webkit-scrollbar-track {
     background-color: transparent;
   }
+
   ::-webkit-scrollbar-thumb {
-    background-color: var(--scroll-color);
+    background-color: ${({ theme }) => theme.scroll};
     border-radius: 1.25rem;
     border: 0.375rem solid transparent;
     background-clip: content-box;

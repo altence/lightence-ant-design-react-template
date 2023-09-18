@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
-import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
 
 interface ViewAllInternalProps {
   $bordered: boolean;
@@ -8,16 +7,15 @@ interface ViewAllInternalProps {
 
 export const ViewAllBtn = styled(BaseButton)<ViewAllInternalProps>`
   &.ant-btn {
-    font-size: ${FONT_SIZE.xs};
+    font-size: ${({ theme }) => theme.fontSizes.xs};
   }
 
-  font-weight: ${FONT_WEIGHT.medium};
-
-  color: var(--text-main-color);
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
+  color: ${({ theme }) => theme.textMain};
 
   ${(props) =>
     props.$bordered &&
     css`
-      border-bottom: 0.2px solid var(--border-nft-color);
+      border-bottom: 0.2px solid ${({ theme }) => theme.nft.border};
     `};
 `;

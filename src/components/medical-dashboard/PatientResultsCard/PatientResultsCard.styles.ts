@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { CalendarOutlined } from '@ant-design/icons';
-import { FONT_SIZE, media } from '@app/styles/themes/constants';
+import { media } from '@app/utils/utils';
 import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
 
 interface IconProps {
@@ -13,10 +13,10 @@ export const TitleWrapper = styled.div`
 `;
 
 export const CalendarIcon = styled(CalendarOutlined)`
-  color: var(--primary-color);
+  color: ${({ theme }) => theme.primary};
 
-  @media only screen and ${media.md} {
-    color: var(--text-main-color);
+  @media only screen and (${media('md')}) {
+    color: ${({ theme }) => theme.textMain};
   }
 `;
 
@@ -35,26 +35,26 @@ export const InfoWrapper = styled.div`
 export const DateWrapper = styled.div`
   display: flex;
   align-items: center;
-  font-size: ${FONT_SIZE.xs};
+  font-size: ${({ theme }) => theme.fontSizes.xs};
 `;
 
 export const Text = styled(BaseTypography.Text)`
   margin-left: 0.5rem;
   line-height: 1;
-  font-size: ${FONT_SIZE.xxs};
-  color: var(--text-main-color);
+  font-size: ${({ theme }) => theme.fontSizes.xxs};
+  color: ${({ theme }) => theme.textMain};
 
-  @media only screen and ${media.md} {
-    font-size: ${FONT_SIZE.xs};
+  @media only screen and (${media('md')}) {
+    font-size: ${({ theme }) => theme.fontSizes.xs};
   }
 `;
 
 export const Description = styled(BaseTypography.Text)`
   margin-top: 0.625rem;
-  font-size: ${FONT_SIZE.xxs};
+  font-size: ${({ theme }) => theme.fontSizes.xxs};
 
-  @media only screen and ${media.md} {
-    font-size: ${FONT_SIZE.xs};
+  @media only screen and (${media('md')}) {
+    font-size: ${({ theme }) => theme.fontSizes.xs};
   }
 `;
 
@@ -65,15 +65,7 @@ export const IconWrapper = styled.div<IconProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  ${(props) =>
-    props.isActive
-      ? css`
-          background-color: var(--primary-color);
-          color: var(--text-secondary-color);
-        `
-      : css`
-          background-color: var(--timeline-background-color);
-          color: var(--primary-color);
-        `}
+  background-color: ${({ isActive, theme }) => (isActive ? theme.primary : theme.timelineBackground)};
+  color: ${({ isActive, theme }) => (isActive ? theme.textSecondary : theme.primary)};
   font-size: 1.15rem;
 `;

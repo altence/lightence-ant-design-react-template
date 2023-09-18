@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { NFTCard } from '@app/components/nft-dashboard/common/NFTCard/NFTCard';
-import { FONT_SIZE, media, FONT_FAMILY } from '@app/styles/themes/constants';
+import { media } from '@app/utils/utils';
 import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
 
 export const ActivityCard = styled(NFTCard)`
-  box-shadow: var(--box-shadow-nft-secondary-color);
+  box-shadow: ${({ theme }) => theme.nft.boxShadowSecondary};
 `;
 
 export const Wrapper = styled.div`
@@ -23,12 +23,9 @@ export const IconWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  color: var(--text-secondary-color);
-
-  background-color: var(--primary-color);
-
-  font-size: ${FONT_SIZE.xs};
+  color: ${({ theme }) => theme.textSecondary};
+  background-color: ${({ theme }) => theme.primary};
+  font-size: ${({ theme }) => theme.fontSizes.xs};
 `;
 
 export const InfoWrapper = styled.div`
@@ -58,31 +55,26 @@ export const TitleWrapper = styled.div`
 export const Title = styled(BaseTypography.Title)`
   &.ant-typography {
     margin-bottom: 0;
+    font-size: ${({ theme }) => theme.fontSizes.xs};
 
-    font-size: ${FONT_SIZE.xs};
-
-    @media only screen and ${media.xl} {
-      font-size: ${FONT_SIZE.md};
+    @media only screen and (${media('xl')}) {
+      font-size: ${({ theme }) => theme.fontSizes.md};
     }
   }
 `;
 
 export const Text = styled(BaseTypography.Text)`
   display: block;
+  font-size: ${({ theme }) => theme.fontSizes.xxs};
+  color: ${({ theme }) => theme.nft.textLight};
+  font-family: ${({ theme }) => theme.fontFamilies.secondary};
 
-  font-size: ${FONT_SIZE.xxs};
-
-  color: var(--text-nft-light-color);
-
-  font-family: ${FONT_FAMILY.secondary};
-
-  @media only screen and ${media.xl} {
-    font-size: ${FONT_SIZE.xs};
+  @media only screen and (${media('xl')}) {
+    font-size: ${({ theme }) => theme.fontSizes.xs};
   }
 `;
 
 export const DateText = styled(Text)`
   font-style: italic;
-
-  font-family: ${FONT_FAMILY.main};
+  font-family: ${({ theme }) => theme.fontFamilies.main};
 `;

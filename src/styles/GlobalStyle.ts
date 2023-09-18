@@ -1,22 +1,12 @@
 import * as styled from 'styled-components';
 import { resetCss } from './resetCss';
-import { FONT_FAMILY } from './themes/constants';
-import { getThemeVariables, commonThemeVariables } from './themes/themeVariables';
+import { colorTypeFrom } from '@app/utils/utils';
 
 export default styled.createGlobalStyle`
   ${resetCss}
 
-  [data-theme='light'],
   :root {
-    ${getThemeVariables('light')}
-  }
-
-  [data-theme='dark'] {
-    ${getThemeVariables('dark')}
-  }
-
-  :root {
-    ${commonThemeVariables};
+    color-scheme: light dark;
   }
 
   [data-no-transition] * {
@@ -25,15 +15,27 @@ export default styled.createGlobalStyle`
 
   button,
   input {
-    font-family: ${FONT_FAMILY.main}, sans-serif;
+    font-family: ${({ theme }) => theme.fontFamilies.main}, sans-serif;
   }
 
   a {
-    color: var(--primary-color);
+    color: ${({ theme }) => theme.primary};
 
     &:hover,
     :active {
-      color: var(--ant-primary-5);
+      color: ${({ theme }) => theme.primary5};
     }
+  }
+
+  .ant-notification {
+    ${({ theme }) =>
+      (['info', 'success', 'warning', 'error'] as const).map(
+        (notification) => styled.css`
+          .ant-notification-notice-${notification} {
+            border: 1px solid ${theme[colorTypeFrom(notification)]};
+            background: ${theme.notification[colorTypeFrom(notification)]};
+          }
+        `,
+      )}
   }
 `;

@@ -1,3 +1,4 @@
+import { DefaultTheme } from 'styled-components';
 import { NotificationType } from '@app/components/common/BaseNotification/BaseNotification';
 import { Priority } from '@app//constants/enums/priorities';
 import visa from '@app/assets/images/card-issuers/visa.png';
@@ -6,6 +7,7 @@ import maestro from '@app/assets/images/card-issuers/maestro.png';
 import { CurrencyTypeEnum, Severity } from '@app/interfaces/interfaces';
 import { BaseBadgeProps } from '@app/components/common/BaseBadge/BaseBadge';
 import { currencies } from '@app/constants/config/currencies';
+import { ColorType } from '@app/styles/themes/types';
 
 export const camelize = (string: string): string => {
   return string
@@ -48,35 +50,29 @@ export const getDifference = (value: number, prevValue: number): string | null =
   prevValue !== 0 ? `${((Math.abs(value - prevValue) / prevValue) * 100).toFixed(0)}%` : '100%';
 
 export const normalizeProp = (prop: string | number | [number, number]): string =>
-  typeof prop === 'number' ? `${prop}px` : (Array.isArray(prop) && `${prop[0]}px ${prop[1]}px`) || prop.toString();
+  typeof prop === 'number' ? `${prop}px` : Array.isArray(prop) ? `${prop[0]}px ${prop[1]}px` : prop;
 
-export const defineColorByPriority = (priority: Priority): string => {
-  switch (priority) {
-    case Priority.INFO:
-      return 'var(--primary-color)';
-    case Priority.LOW:
-      return 'var(--success-color)';
-    case Priority.MEDIUM:
-      return 'var(--warning-color)';
-    case Priority.HIGH:
-      return 'var(--error-color)';
-    default:
-      return 'var(--success-color)';
-  }
+export const colorTypeFrom = (severity: Priority | NotificationType | undefined): ColorType => {
+  const lookup: Record<Priority | NotificationType, ColorType> = {
+    [Priority.INFO]: 'primary',
+    [Priority.LOW]: 'success',
+    [Priority.MEDIUM]: 'warning',
+    [Priority.HIGH]: 'error',
+
+    ['info']: 'primary',
+    ['mention']: 'primary',
+    ['success']: 'success',
+    ['warning']: 'warning',
+    ['error']: 'error',
+  };
+
+  return severity !== undefined && Object.hasOwn(lookup, severity) ? lookup[severity] : 'primary';
 };
 
-export const defineColorBySeverity = (severity: NotificationType | undefined, rgb = false): string => {
-  const postfix = rgb ? 'rgb-color' : 'color';
-  switch (severity) {
-    case 'error':
-    case 'warning':
-    case 'success':
-      return `var(--${severity}-${postfix})`;
-    case 'info':
-    default:
-      return `var(--primary-${postfix})`;
-  }
-};
+export const media =
+  <T extends keyof DefaultTheme['breakpoints']>(breakpoint: T) =>
+  ({ theme }: { theme: DefaultTheme }): `(min-width: ${DefaultTheme['breakpoints'][T]}px)` =>
+    `(min-width: ${theme.breakpoints[breakpoint]}px)`;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const mergeBy = (a: any[], b: any[], key: string): any[] =>
@@ -109,6 +105,8 @@ export const shadeColor = (color: string, percent: number): string => {
 
   return '#' + RR + GG + BB;
 };
+
+export const remToPixels = (s: `${number}rem` | string): number => parseFloat(s) * 16;
 
 export const hexToHSL = (hex: string): { h: number; s: number; l: number } => {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);

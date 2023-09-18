@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Header } from '../../../header/Header';
+import { useEffect, useState } from 'react';
+import { Header } from '@app/components/header/Header';
 import MainSider from '../sider/MainSider/MainSider';
 import MainContent from '../MainContent/MainContent';
 import { MainHeader } from '../MainHeader/MainHeader';

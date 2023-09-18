@@ -1,6 +1,7 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { defineColorByPriority, getCurrencyPrice } from '@app/utils/utils';
+import { useTheme } from 'styled-components';
+import { colorTypeFrom, getCurrencyPrice } from '@app/utils/utils';
 import { paymentStatuses } from 'constants/paymentStatuses';
 import { Dates } from 'constants/Dates';
 import { Status } from '../Status/Status';
@@ -20,6 +21,7 @@ interface PaymentProps {
 
 export const Payment: React.FC<PaymentProps> = ({ src, recipient, date, status, price, currency }) => {
   const { t } = useTranslation();
+  const theme = useTheme();
 
   const paymentStatus = useMemo(() => paymentStatuses.find((item) => item.id === status), [status]);
 
@@ -38,7 +40,7 @@ export const Payment: React.FC<PaymentProps> = ({ src, recipient, date, status, 
         </S.Item>
         <S.Item>
           <S.Subtitle>{t('profile.nav.payments.status.title')}</S.Subtitle>
-          <Status color={defineColorByPriority(paymentStatus.priority)} text={t(paymentStatus.name)} />
+          <Status color={theme[colorTypeFrom(paymentStatus.priority)]} text={t(paymentStatus.name)} />
         </S.Item>
         <S.Item>
           <S.Subtitle>{t('profile.nav.payments.date')}</S.Subtitle>

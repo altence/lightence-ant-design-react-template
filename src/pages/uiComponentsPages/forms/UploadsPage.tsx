@@ -6,20 +6,21 @@ import { BaseUpload } from '@app/components/common/BaseUpload/BaseUpload';
 import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
-import { FONT_SIZE, FONT_WEIGHT } from '@app/styles/themes/constants';
 import { useFeedback } from '@app/hooks/useFeedback';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
 const DraggerIconWrapper = styled.div`
   font-size: 4rem;
-  color: var(--primary-color);
+  color: ${({ theme }) => theme.primary};
 `;
+
 const DraggerTitle = styled.div`
-  font-size: ${FONT_SIZE.xl};
-  font-weight: ${FONT_WEIGHT.bold};
+  font-size: ${({ theme }) => theme.fontSizes.xl};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
 `;
+
 const DraggerDescription = styled.div`
-  font-size: ${FONT_SIZE.md};
+  font-size: ${({ theme }) => theme.fontSizes.md};
   padding: 0 1rem;
 `;
 

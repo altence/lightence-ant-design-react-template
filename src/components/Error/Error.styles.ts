@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { BORDER_RADIUS, FONT_WEIGHT, HEIGHT, media } from '@app/styles/themes/constants';
+import { media } from '@app/utils/utils';
 import { BaseImage } from '../common/BaseImage/BaseImage';
 import { BaseTypography } from '../common/BaseTypography/BaseTypography';
 
@@ -8,15 +8,14 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 3.75rem 1.25rem;
-  border-radius: ${BORDER_RADIUS};
+  border-radius: ${({ theme }) => theme.borderRadius};
+  background-color: ${({ theme }) => theme.background};
 
-  background-color: var(--background-color);
-
-  @media only screen and ${media.md} {
+  @media only screen and (${media('md')}) {
     padding: 2.5rem 6.25rem 6.25rem;
   }
 
-  @media only screen and ${media.xl} {
+  @media only screen and (${media('xl')}) {
     flex-direction: row-reverse;
     justify-content: center;
     padding: 12.5rem 3.5rem;
@@ -26,7 +25,7 @@ export const Wrapper = styled.div`
 export const Image = styled(BaseImage)`
   margin-bottom: 4rem;
 
-  @media only screen and ${media.xxl} {
+  @media only screen and (${media('xxl')}) {
     margin-bottom: 0;
   }
 `;
@@ -36,7 +35,7 @@ export const ContentWrapper = styled.div`
   flex-direction: column;
   align-items: center;
 
-  @media only screen and ${media.xl} {
+  @media only screen and (${media('xl')}) {
     margin-right: 7.5rem;
   }
 `;
@@ -45,15 +44,14 @@ export const Title = styled(BaseTypography.Text)`
   font-size: 2.25rem;
   font-weight: 600;
   margin-bottom: 1rem;
+  color: ${({ theme }) => theme.textMain};
 
-  color: var(--text-main-color);
-
-  @media only screen and ${media.md} {
+  @media only screen and (${media('md')}) {
     font-size: 3rem;
     margin-bottom: 1.75rem;
   }
 
-  @media only screen and ${media.xl} {
+  @media only screen and (${media('xl')}) {
     font-size: 4rem;
     margin-bottom: 2.25rem;
   }
@@ -63,19 +61,19 @@ export const Text = styled(Title)`
   font-size: 0.875rem;
   margin-bottom: 1.25rem;
 
-  @media only screen and ${media.md} {
+  @media only screen and (${media('md')}) {
     font-size: 1.12rem;
     margin-bottom: 1.45rem;
   }
 
-  @media only screen and ${media.xl} {
+  @media only screen and (${media('xl')}) {
     font-size: 1.5rem;
     margin-bottom: 1.8rem;
   }
 `;
 
 export const Link = styled(BaseTypography.Link)`
-  font-weight: ${FONT_WEIGHT.semibold};
-  line-height: ${HEIGHT.md};
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
+  line-height: ${({ theme }) => theme.heights.md};
   padding-inline: 15px;
 `;

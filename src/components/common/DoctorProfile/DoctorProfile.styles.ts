@@ -1,4 +1,3 @@
-import { FONT_WEIGHT, FONT_SIZE } from '@app/styles/themes/constants';
 import styled from 'styled-components';
 import { BaseTypography } from '../BaseTypography/BaseTypography';
 import { BaseRate } from '../BaseRate/BaseRate';
@@ -17,14 +16,13 @@ export const Info = styled.div`
 export const Text = styled(BaseTypography.Text)`
   display: flex;
   line-height: 1.25rem;
-  font-weight: ${FONT_WEIGHT.semibold};
-  font-size: ${FONT_SIZE.xs};
-
-  color: var(--text-dark-color);
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
+  font-size: ${({ theme }) => theme.fontSizes.xs};
+  color: ${({ theme }) => theme.textDark};
 `;
 
 export const Title = styled(Text)`
-  color: var(--primary-color);
+  color: ${({ theme }) => theme.primary};
 `;
 
 export const Rating = styled(BaseRate)`

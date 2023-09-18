@@ -1,22 +1,22 @@
 import styled from 'styled-components';
-import { Checkbox as AntdCheckbox } from 'antd';
+import { Checkbox as AntCheckbox } from 'antd';
 
-const { Group } = AntdCheckbox;
+const { Group } = AntCheckbox;
 
-export const Checkbox = styled(AntdCheckbox)`
+export const Checkbox = styled(AntCheckbox)`
   & .ant-checkbox-inner {
     border-radius: 0.1875rem;
     height: 1.25rem;
     width: 1.25rem;
-    border: 1px solid var(--primary-color);
+    border: 1px solid ${({ theme }) => theme.primary};
   }
 
   .ant-checkbox-disabled .ant-checkbox-inner {
-    border-color: var(--border-base-color);
+    border-color: ${({ theme }) => theme.borderBase};
   }
 
   &.ant-checkbox-disabled.ant-checkbox-checked .ant-checkbox-inner::after {
-    border-color: var(--disabled-color);
+    border-color: ${({ theme }) => theme.disabled};
   }
 `;
 
@@ -29,6 +29,6 @@ export const CheckboxGroup = styled(Group)`
     border-radius: 0.1875rem;
     height: 1.25rem;
     width: 1.25rem;
-    border: 1px solid var(--primary-color);
+    border: 1px solid ${({ theme }) => theme.primary};
   }
 `;

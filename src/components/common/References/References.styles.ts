@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { media } from '@app/styles/themes/constants';
+import { media } from '@app/utils/utils';
 
 export const ReferencesWrapper = styled.div`
   width: 100%;
@@ -9,11 +9,11 @@ export const ReferencesWrapper = styled.div`
   flex-wrap: nowrap;
   margin-top: 2rem;
 
-  @media only screen and ${media.sm} {
+  @media only screen and (${media('sm')}) {
     align-items: center;
   }
 
-  @media only screen and ${media.xl} {
+  @media only screen and (${media('xl')}) {
     flex-direction: row;
     justify-content: space-between;
   }
@@ -26,7 +26,7 @@ export const Text = styled.span`
   flex-wrap: wrap;
   margin-bottom: 1rem;
 
-  @media only screen and ${media.xl} {
+  @media only screen and (${media('xl')}) {
     margin-bottom: 0;
   }
 `;

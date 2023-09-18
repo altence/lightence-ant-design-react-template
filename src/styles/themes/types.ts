@@ -1,14 +1,58 @@
-import { LinearGradientObject } from 'echarts';
+import 'styled-components';
+import type { LinearGradientObject } from 'echarts';
 
-export interface ITheme {
-  primary: string;
-  primary1: string;
+type IndexedPrimary = Record<`primary${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10}`, string>;
+
+type ChartColor = Record<`chartColor${1 | 2 | 3 | 4 | 5}${'Tint' | ''}`, string>;
+
+export type NamedColors = Record<
+  | 'black'
+  | 'blue'
+  | 'cyan'
+  | 'gray'
+  | 'green'
+  | 'lime'
+  | 'magenta'
+  | 'maroon'
+  | 'navy'
+  | 'olive'
+  | 'purple'
+  | 'red'
+  | 'silver'
+  | 'teal'
+  | 'white'
+  | 'yellow'
+  | 'orange'
+  | 'pink'
+  | 'skyblue'
+  | 'violet'
+  | `${'light'}${'blue' | 'cyan' | 'gray' | 'green' | 'yellow'}`,
+  string
+>;
+
+export type ColorType = 'primary' | 'success' | 'warning' | 'error';
+
+type ColorTypes = Record<ColorType, string>;
+
+type NFT = Record<'border' | 'textLight' | 'boxShadow' | 'boxShadowSecondary', string>;
+
+export type FontWeights = Record<
+  'thin' | 'extraLight' | 'light' | 'regular' | 'medium' | 'semibold' | 'bold' | 'extraBold' | 'black',
+  number
+>;
+
+export type NamedIndexes = Record<'main' | 'secondary' | 'tertiary' | 'quaternary', string>;
+
+export type RelativeSizeKey = 'sm' | 'md' | 'lg' | `${'x' | 'xx' | 'xxx' | 'xxxx'}${'s' | 'l'}`;
+
+export type RelativeSizes = Record<RelativeSizeKey, number> | Record<RelativeSizeKey, string>;
+
+export interface ITheme extends ColorTypes, IndexedPrimary, ChartColor, Partial<NamedColors> {
   primaryGradient: string;
   light: string;
   secondary: string;
-  error: string;
-  warning: string;
-  success: string;
+  successBg?: string;
+  successBorder?: string;
   background: string;
   secondaryBackground: string;
   secondaryBackgroundSelected: string;
@@ -17,39 +61,25 @@ export interface ITheme {
   collapseBackground: string;
   scroll: string;
   border: string;
-  borderNft: string;
   textMain: string;
   textLight: string;
   textSuperLight: string;
   textSecondary: string;
   textDark: string;
-  textNftLight: string;
   textSiderPrimary: string;
   textSiderSecondary: string;
   subText: string;
   shadow: string;
   boxShadow: string;
   boxShadowHover: string;
-  boxShadowNft: string;
-  boxShadowNftSecondary: string;
+  /** @summary strings in the format `'R, G, B'` */
+  rgb: Record<ColorType | 'background', string>;
+  nft: NFT;
   dashboardMapBackground: string;
   dashboardMapCircleColor: string;
   dashboardMapControlDisabledBackground: string;
-  notificationSuccess: string;
-  notificationPrimary: string;
-  notificationWarning: string;
-  notificationError: string;
+  notification: ColorTypes;
   chartTooltipLabel: string;
-  chartColor1: string;
-  chartColor1Tint: string;
-  chartColor2: string;
-  chartColor2Tint: string;
-  chartColor3: string;
-  chartColor3Tint: string;
-  chartColor4: string;
-  chartColor4Tint: string;
-  chartColor5: string;
-  chartColor5Tint: string;
   chartPrimaryGradient: LinearGradientObject;
   chartSecondaryGradient: LinearGradientObject;
   additionalBackground: string;
@@ -57,7 +87,7 @@ export interface ITheme {
   chartSecondaryGradientSpecular: LinearGradientObject;
   heading: string;
   borderBase: string;
-  disable: string;
+  disabled: string;
   disabledBg: string;
   layoutBodyBg: string;
   layoutHeaderBg: string;
@@ -70,4 +100,10 @@ export interface ITheme {
   breadcrumb: string;
   icon: string;
   iconHover: string;
+  borderRadius: string;
+  fontWeights: FontWeights;
+  fontFamilies: Partial<NamedIndexes>;
+  fontSizes: Partial<RelativeSizes>;
+  heights: Partial<RelativeSizes>;
+  breakpoints: Partial<RelativeSizes>;
 }

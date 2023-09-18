@@ -1,8 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Button as AntButton } from 'antd';
 import { Severity } from '@app/interfaces/interfaces';
-import { defineColorBySeverity } from '@app/utils/utils';
-import { FONT_WEIGHT } from '@app/styles/themes/constants';
+import { colorTypeFrom } from '@app/utils/utils';
 
 interface BtnProps {
   $severity?: Severity;
@@ -14,10 +13,8 @@ export const Button = styled(AntButton)<BtnProps>`
   align-items: center;
   justify-content: center;
   gap: 0.3rem;
-
   transition-duration: 0.3s;
-
-  font-weight: ${FONT_WEIGHT.semibold};
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
   box-shadow: none;
 
   ${(props) =>
@@ -41,11 +38,11 @@ export const Button = styled(AntButton)<BtnProps>`
     !props.danger &&
     css`
       &.ant-btn-background-ghost {
-        color: var(--primary-color);
-        border-color: var(--primary-color);
+        color: ${({ theme }) => theme.primary};
+        border-color: ${({ theme }) => theme.primary};
 
         &:disabled {
-          background-color: var(--disabled-bg-color);
+          background-color: ${({ theme }) => theme.disabledBg};
         }
       }
 
@@ -60,15 +57,15 @@ export const Button = styled(AntButton)<BtnProps>`
       &:not(:disabled):hover {
         &.ant-btn-default,
         &.ant-btn-dashed {
-          color: var(--ant-primary-5);
-          border-color: var(--ant-primary-5);
+          color: ${({ theme }) => theme.primary5};
+          border-color: ${({ theme }) => theme.primary5};
         }
       }
 
       &:focus {
         &.ant-btn-link,
         &.ant-btn-background-ghost {
-          color: var(--ant-primary-5);
+          color: ${({ theme }) => theme.primary5};
         }
 
         &.ant-btn-text {
@@ -76,44 +73,44 @@ export const Button = styled(AntButton)<BtnProps>`
         }
 
         &.ant-btn-primary {
-          background-color: var(--ant-primary-5);
+          background-color: ${({ theme }) => theme.primary5};
         }
 
         &.ant-btn-primary,
         &.ant-btn-background-ghost {
-          border-color: var(--ant-primary-5);
+          border-color: ${({ theme }) => theme.primary5};
         }
       }
 
       &:not(:disabled):hover {
         &.ant-btn-primary {
-          background-color: var(--secondary-color);
+          background-color: ${({ theme }) => theme.secondary};
         }
 
         &.ant-btn-text,
         &.ant-btn-background-ghost {
-          color: var(--secondary-color);
+          color: ${({ theme }) => theme.secondary};
           background-color: transparent;
         }
 
         &.ant-btn-primary,
         &.ant-btn-background-ghost {
-          border-color: var(--secondary-color);
+          border-color: ${({ theme }) => theme.secondary};
         }
       }
 
       ${props.$severity &&
       css`
-        background-color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.2);
-        border-color: ${defineColorBySeverity(props.$severity)};
-        color: ${defineColorBySeverity(props.$severity)};
+        background-color: rgba(${props.theme.rgb[colorTypeFrom(props.$severity)]}, 0.2);
+        border-color: ${props.theme[colorTypeFrom(props.$severity)]};
+        color: ${props.theme[colorTypeFrom(props.$severity)]};
 
         &.ant-btn-default {
           &:focus,
           &:not(:disabled):hover {
-            background-color: var(--background-color);
-            border-color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9);
-            color: rgba(${defineColorBySeverity(props.$severity, true)}, 0.9);
+            background-color: ${({ theme }) => theme.background};
+            border-color: rgba(${props.theme.rgb[colorTypeFrom(props.$severity)]}, 0.9);
+            color: rgba(${props.theme.rgb[colorTypeFrom(props.$severity)]}, 0.9);
           }
         }
       `}

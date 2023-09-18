@@ -1,17 +1,16 @@
 import styled from 'styled-components';
-import AntdMaskedInput from 'antd-mask-input';
-import { BORDER_RADIUS } from '@app/styles/themes/constants';
+import { MaskedInput as AntMaskedInput } from 'antd-mask-input';
 
 // https://github.com/antoniopresto/antd-mask-input/issues/73
-export const MaskedInput = styled(AntdMaskedInput)`
+export const MaskedInput = styled(AntMaskedInput)`
   font-family: inherit;
-  color: var(--text-main-color);
-  background-color: var(--background-color);
+  color: ${({ theme }) => theme.textMain};
+  background-color: ${({ theme }) => theme.background};
   padding: 11.4px 11px;
-  border: 1px solid var(--border-base-color);
-  border-radius: ${BORDER_RADIUS};
+  border: 1px solid ${({ theme }) => theme.borderBase};
+  border-radius: ${({ theme }) => theme.borderRadius};
 
   &::placeholder {
-    color: var(--input-placeholder-color);
+    color: ${({ theme }) => theme.inputPlaceholder};
   }
 `;

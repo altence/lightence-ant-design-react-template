@@ -1,5 +1,5 @@
 import { IHashTag } from '@app/components/common/BaseHashTag/BaseHashTag';
-import { AppDate } from '../../../constants/Dates';
+import { AppDate } from '@app/constants/Dates';
 
 abstract class Validator {
   validate(): boolean {

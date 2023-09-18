@@ -8,7 +8,7 @@ export const Menu = styled(BaseMenu)`
   }
 
   .ant-menu-item.ant-menu-item-selected::after {
-    border-color: var(--primary-color);
+    border-color: ${({ theme }) => theme.primary};
   }
 
   .ant-menu-item:not(:last-child),

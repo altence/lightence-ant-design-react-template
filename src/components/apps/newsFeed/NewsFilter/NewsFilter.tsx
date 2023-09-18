@@ -8,7 +8,7 @@ import { newsTags as defaultTags } from '@app/constants/newsTags';
 import { AppDate, Dates } from '@app/constants/Dates';
 import { Post } from '@app/api/news.api';
 import * as S from './NewsFilter.styles';
-import { BaseDropdown } from '@app/components/common/BaseDropdown/Dropdown';
+import { BaseDropdown } from '@app/components/common/BaseDropdown/BaseDropdown';
 
 interface NewsFilterProps {
   news: Post[];

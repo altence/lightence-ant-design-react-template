@@ -2,9 +2,8 @@ import React from 'react';
 import { LatLngExpression } from 'leaflet';
 import { GeoJSON, ZoomControl } from 'react-leaflet';
 import { MapContainerProps } from 'react-leaflet';
-
-import geoData from '../../../assets/map-data/countries.geo.json';
 import { FeatureCollection } from 'geojson';
+import geoData from '@app/assets/map-data/countries.geo.json';
 
 import * as S from './CountryMap.styles';
 

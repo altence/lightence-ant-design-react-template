@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 import { SearchOutlined, PlusCircleFilled, CloseOutlined } from '@ant-design/icons';
 import { BaseDatePicker } from '@app/components/common/pickers/BaseDatePicker';
-import { BORDER_RADIUS, BREAKPOINTS, FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
 import { BasePopover } from '@app/components/common/BasePopover/BasePopover';
 import { BaseInput } from '@app/components/common/inputs/BaseInput/BaseInput';
 import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { BaseCheckbox } from '@app/components/common/BaseCheckbox/BaseCheckbox';
+import { media } from '@app/utils/utils';
 
 export const AddTagText = styled.span`
-  color: var(--text-main-color);
-  font-size: ${FONT_SIZE.md};
-  font-weight: ${FONT_WEIGHT.semibold};
+  color: ${({ theme }) => theme.textMain};
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
   line-height: 1.375rem;
 `;
 
@@ -26,10 +26,10 @@ export const FilterButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--background-color);
-  border-radius: ${BORDER_RADIUS};
-  font-size: ${FONT_SIZE.xs};
-  font-weight: ${FONT_WEIGHT.semibold};
+  background: ${({ theme }) => theme.background};
+  border-radius: ${({ theme }) => theme.borderRadius};
+  font-size: ${({ theme }) => theme.fontSizes.xs};
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
   line-height: 1.25rem;
 `;
 
@@ -42,7 +42,7 @@ export const DateLabel = styled.div`
   width: 50%;
   line-height: 1.25rem;
   margin-bottom: 0.4375rem;
-  font-size: ${FONT_SIZE.xs};
+  font-size: ${({ theme }) => theme.fontSizes.xs};
 `;
 
 export const AddTagWrapper = styled.div`
@@ -65,7 +65,7 @@ export const BtnWrapper = styled.div`
 `;
 
 export const PlusIcon = styled(PlusCircleFilled)`
-  color: var(--lightgrey);
+  color: ${({ theme }) => theme.lightgray};
   font-size: 1.5625rem;
   margin-right: 1rem;
 `;
@@ -81,7 +81,7 @@ export const InputWrapper = styled.div`
   display: flex;
   height: 3.125rem;
   border-radius: 3.125rem;
-  background: var(--secondary-background-color);
+  background: ${({ theme }) => theme.secondaryBackground};
   margin-bottom: 1.25rem;
   position: relative;
 `;
@@ -98,19 +98,19 @@ export const TitleHeader = styled.div`
   margin-bottom: 1.25rem;
   box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.07);
   cursor: pointer;
-  background-color: var(--background-color);
-  border-radius: ${BORDER_RADIUS};
+  background-color: ${({ theme }) => theme.background};
+  border-radius: ${({ theme }) => theme.borderRadius};
 `;
 
 export const Input = styled(BaseInput)`
   height: 3.125rem;
   border: none;
-  background: var(--secondary-background-color);
+  background: ${({ theme }) => theme.secondaryBackground};
   border-radius: 3.125rem;
   padding-left: 3rem;
-  color: var(--text-main-color);
-  font-size: ${FONT_SIZE.md};
-  font-weight: ${FONT_WEIGHT.semibold};
+  color: ${({ theme }) => theme.textMain};
+  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
   line-height: 1.375rem;
 `;
 
@@ -119,15 +119,15 @@ export const RangePicker = styled(BaseDatePicker.RangePicker)`
   margin-bottom: 0.875rem;
 
   &.ant-picker .ant-picker-input input {
-    color: var(--text-main-color);
-    font-size: ${FONT_SIZE.xs};
-    font-weight: ${FONT_WEIGHT.semibold};
+    color: ${({ theme }) => theme.textMain};
+    font-size: ${({ theme }) => theme.fontSizes.xs};
+    font-weight: ${({ theme }) => theme.fontWeights.semibold};
   }
 `;
 
 export const PanelWrapper = styled.div`
   .ant-picker-panels {
-    @media only screen and ${media.xs} and (max-width: ${BREAKPOINTS.md - 0.02}px) {
+    @media only screen and (${media('xs')}) and (max-width: ${({ theme }) => theme.breakpoints.md - 0.02}px) {
       display: flex;
       flex-direction: column;
     }
@@ -142,11 +142,11 @@ export const Btn = styled(BaseButton)`
 export const NewsWrapper = styled.div`
   max-width: 35rem;
 
-  @media only screen and ${media.xs} {
+  @media only screen and (${media('xs')}) {
     width: 100%;
   }
 
-  @media only screen and ${media.md} {
+  @media only screen and (${media('md')}) {
     width: calc(100% - 21.25rem);
   }
 `;
@@ -156,14 +156,14 @@ export const FilterWrapper = styled.div`
   flex-direction: column;
   height: min-content;
 
-  @media only screen and ${media.md} {
+  @media only screen and (${media('md')}) {
     margin-left: 1.875rem;
     position: sticky;
     top: 1.875rem;
     padding: 1.25rem 1rem;
     filter: drop-shadow(0 4px 40px rgba(0, 0, 0, 0.07));
-    background: var(--background-color);
-    border-radius: ${BORDER_RADIUS};
+    background: ${({ theme }) => theme.background};
+    border-radius: ${({ theme }) => theme.borderRadius};
   }
 `;
 
@@ -171,9 +171,9 @@ export const FilterTitle = styled.div`
   display: flex;
   justify-content: center;
   line-height: 1.5625rem;
-  font-size: ${FONT_SIZE.lg};
-  font-weight: ${FONT_WEIGHT.bold};
-  color: var(--text-main-color);
+  font-size: ${({ theme }) => theme.fontSizes.lg};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  color: ${({ theme }) => theme.textMain};
   margin-bottom: 1rem;
 `;
 
@@ -199,7 +199,7 @@ export const ClosePopoverWrapper = styled.div`
 `;
 
 export const ClosePopover = styled(CloseOutlined)`
-  color: var(--primary-color);
+  color: ${({ theme }) => theme.primary};
   width: 0.875rem;
   height: 0.875rem;
 `;

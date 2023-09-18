@@ -1,8 +1,8 @@
 import React from 'react';
-import { InputNumberProps as AntdInputNumberProps } from 'antd';
+import { InputNumberProps as AntInputNumberProps } from 'antd';
 import * as S from './InputNumber.styles';
 
-export interface InputNumberProps extends AntdInputNumberProps {
+export interface InputNumberProps extends AntInputNumberProps {
   block?: boolean;
 }
 

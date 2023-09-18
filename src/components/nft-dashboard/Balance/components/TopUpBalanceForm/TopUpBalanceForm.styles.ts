@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { BaseRadio } from '@app/components/common/BaseRadio/BaseRadio';
-import { FONT_SIZE } from '@app/styles/themes/constants';
 import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
 
 export const ContentWrapper = styled.div`
@@ -16,8 +15,8 @@ export const BlockWrapper = styled.div`
 `;
 
 export const Label = styled(BaseTypography.Text)`
-  color: var(--text-nft-light-color);
-  font-size: ${FONT_SIZE.xs};
+  color: ${({ theme }) => theme.nft.textLight};
+  font-size: ${({ theme }) => theme.fontSizes.xs};
 `;
 
 export const ButtonsWrapper = styled.div`

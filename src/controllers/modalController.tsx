@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { FONT_SIZE, FONT_WEIGHT, HEIGHT } from '@app/styles/themes/constants';
 import { ModalStaticFunctions } from 'antd/es/modal/confirm';
 import {
   CheckCircleOutlined,
@@ -14,54 +13,52 @@ const ModalStyles = styled.div`
   .ant-modal-confirm-warning &,
   .ant-modal-confirm-error & {
     .ant-modal-content {
-      background-color: var(--background-color);
+      background-color: ${({ theme }) => theme.background};
 
       .ant-modal-confirm-title {
-        color: var(--heading-color);
-        font-size: ${FONT_SIZE.lg};
+        color: ${({ theme }) => theme.heading};
+        font-size: ${({ theme }) => theme.fontSizes.lg};
       }
 
       .ant-modal-confirm-content {
-        color: var(--text-main-color);
-        font-size: ${FONT_SIZE.md};
+        color: ${({ theme }) => theme.textMain};
+        font-size: ${({ theme }) => theme.fontSizes.md};
       }
 
       .ant-modal-confirm-btns {
         .ant-btn.ant-btn-primary {
-          font-size: ${FONT_SIZE.md};
-          font-weight: ${FONT_WEIGHT.semibold};
-          background-color: var(--primary-color);
-          border-color: var(--primary-color);
-          height: ${HEIGHT.md};
+          font-size: ${({ theme }) => theme.fontSizes.md};
+          font-weight: ${({ theme }) => theme.fontWeights.semibold};
+          background-color: ${({ theme }) => theme.primary};
+          border-color: ${({ theme }) => theme.primary};
+          height: ${({ theme }) => theme.heights.md};
         }
       }
     }
   }
 `;
 
+const Icons = {
+  success: CheckCircleOutlined,
+  warning: ExclamationCircleOutlined,
+  info: InfoCircleOutlined,
+  error: CloseCircleOutlined,
+} as const;
+
 const modalRender = (node: React.ReactNode) => <ModalStyles>{node}</ModalStyles>;
 
-type ModalType = Pick<ModalStaticFunctions, 'info' | 'success' | 'warning' | 'error'>;
+type IconType = 'info' | 'success' | 'warning' | 'error';
 
-const openInfo = (modal: ModalType): ModalType['info'] => {
-  return (props) => modal.info({ modalRender, icon: <InfoCircleOutlined />, ...props });
-};
+type ModalType = Pick<ModalStaticFunctions, IconType>;
 
-const openSuccess = (modal: ModalType): ModalType['success'] => {
-  return (props) => modal.success({ modalRender, icon: <CheckCircleOutlined />, ...props });
-};
-
-const openWarning = (modal: ModalType): ModalType['warning'] => {
-  return (props) => modal.warning({ modalRender, icon: <ExclamationCircleOutlined />, ...props });
-};
-
-const openError = (modal: ModalType): ModalType['error'] => {
-  return (props) => modal.error({ modalRender, icon: <CloseCircleOutlined />, ...props });
+const open = (type: IconType, modal: ModalType): ModalType[IconType] => {
+  const Icon = Icons[type];
+  return (props) => modal[type]({ modalRender, icon: <Icon />, ...props });
 };
 
 export const modalController = (modal: ModalType): ModalType => ({
-  info: openInfo(modal),
-  success: openSuccess(modal),
-  warning: openWarning(modal),
-  error: openError(modal),
+  info: open('info', modal),
+  success: open('success', modal),
+  warning: open('warning', modal),
+  error: open('error', modal),
 });

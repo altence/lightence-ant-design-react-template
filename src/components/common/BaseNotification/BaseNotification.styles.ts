@@ -3,6 +3,7 @@ import { BaseAvatar } from '../BaseAvatar/BaseAvatar';
 import { BaseSpace } from '../BaseSpace/BaseSpace';
 import { BaseTypography } from '../BaseTypography/BaseTypography';
 import { NotificationType } from './BaseNotification';
+import { colorTypeFrom } from '@app/utils/utils';
 
 interface SpacewWrapperProps {
   type: NotificationType;
@@ -20,26 +21,15 @@ export const Description = styled(BaseTypography.Text)`
 `;
 
 export const SpaceWrapper = styled(BaseSpace)<SpacewWrapperProps>`
-  background-color: var(--background-color);
+  background-color: ${({ theme }) => theme.background};
 
   & ${Title}, span[role='img'] {
-    ${(props) => {
-      switch (props.type) {
-        case 'error':
-        case 'warning':
-        case 'success':
-          return css`
-            color: var(--${props.type}-color);
-          `;
-        case 'info':
-        case 'mention':
-          return css`
-            color: var(--primary-color);
-          `;
-        default:
-          return '';
-      }
-    }}
+    ${({ type, theme }) =>
+      type
+        ? css`
+            color: ${theme[colorTypeFrom(type)]};
+          `
+        : ''}
   }
 
   & span[role='img'] {

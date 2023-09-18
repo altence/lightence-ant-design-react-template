@@ -2,7 +2,7 @@ import { BaseImage } from '@app/components/common/BaseImage/BaseImage';
 import styled from 'styled-components';
 
 export const Text = styled.div`
-  color: var(--primary-color);
+  color: ${({ theme }) => theme.primary};
   text-align: center;
   font-size: 1.25rem;
   margin: 1rem 0;

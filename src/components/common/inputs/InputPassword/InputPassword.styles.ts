@@ -3,9 +3,10 @@ import { BaseInput } from '../BaseInput/BaseInput';
 
 export const InputPassword = styled(BaseInput.Password)`
   .ant-input-password-icon.anticon {
-    color: var(--disabled-color);
+    color: ${({ theme }) => theme.disabled};
+
     &:hover {
-      color: var(--text-main-color);
+      color: ${({ theme }) => theme.textMain};
     }
   }
 `;

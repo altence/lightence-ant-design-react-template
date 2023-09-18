@@ -1,4 +1,4 @@
-import { FONT_SIZE, media } from '@app/styles/themes/constants';
+import { media } from '@app/utils/utils';
 import styled from 'styled-components';
 import { BaseTypography } from '../BaseTypography/BaseTypography';
 
@@ -9,10 +9,10 @@ export const CalendarSwitch = styled.div`
 `;
 export const Text = styled(BaseTypography.Text)`
   font-weight: bold;
-  font-size: ${FONT_SIZE.xs};
+  font-size: ${({ theme }) => theme.fontSizes.xs};
 
-  @media only screen and ${media.md} {
-    font-size: ${FONT_SIZE.lg};
+  @media only screen and (${media('md')}) {
+    font-size: ${({ theme }) => theme.fontSizes.lg};
   }
 `;
 

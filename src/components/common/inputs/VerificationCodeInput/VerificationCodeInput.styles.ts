@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import VerificationInput from 'react-verification-input';
-import { FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
+import { media } from '@app/utils/utils';
 
 export const CodeInput = styled(VerificationInput)`
   display: flex;
@@ -8,24 +8,24 @@ export const CodeInput = styled(VerificationInput)`
 
   .character {
     line-height: 5rem;
-    font-size: ${FONT_SIZE.xxl};
-    font-weight: ${FONT_WEIGHT.bold};
-    color: var(--text-main-color);
-    border: 3px solid var(--lightgrey);
+    font-size: ${({ theme }) => theme.fontSizes.xxl};
+    font-weight: ${({ theme }) => theme.fontWeights.bold};
+    color: ${({ theme }) => theme.textMain};
+    border: 3px solid ${({ theme }) => theme.lightgray};
     border-radius: 0.625rem;
     width: 3.4375rem;
     height: 5rem;
   }
 
   .character--inactive {
-    border: 3px solid var(--lightgrey);
+    border: 3px solid ${({ theme }) => theme.lightgray};
   }
 
   .character--selected {
-    border: 3px solid var(--primary-color);
+    border: 3px solid ${({ theme }) => theme.primary};
   }
 
-  @media only screen and ${media.xs} {
+  @media only screen and (${media('xs')}) {
     gap: 0.4375rem;
     .character {
       width: 2.5625rem;
@@ -33,7 +33,7 @@ export const CodeInput = styled(VerificationInput)`
     }
   }
 
-  @media only screen and ${media.md} {
+  @media only screen and (${media('md')}) {
     gap: 0.625rem;
     .character {
       width: 3.4375rem;
@@ -41,7 +41,7 @@ export const CodeInput = styled(VerificationInput)`
     }
   }
 
-  @media only screen and ${media.xl} {
+  @media only screen and (${media('xl')}) {
     gap: 0.625rem;
     .character {
       width: 3.4375rem;

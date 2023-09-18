@@ -4,7 +4,7 @@ import { BaseResult } from '@app/components/common/BaseResult/BaseResult';
 import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import * as S from '@app/pages/uiComponentsPages//UIComponentsPage.styles';
-import { media } from '@app/styles/themes/constants';
+import { media } from '@app/utils/utils';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 import { useMemo } from 'react';
 import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
@@ -16,11 +16,11 @@ const Card = styled(S.Card)`
 `;
 
 const BuyButton = styled(BaseButton)`
-  @media only screen and ${media.xs} {
+  @media only screen and (${media('xs')}) {
     margin-top: 1rem;
   }
 
-  @media only screen and ${media.md} {
+  @media only screen and (${media('md')}) {
     margin-top: 0;
   }
 `;

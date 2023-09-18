@@ -20,21 +20,21 @@ export const Btn = styled(BaseButton)<BtnProps>`
   column-gap: 12px;
 
   &.ant-btn:not(:disabled):hover {
-    background-color: rgba(var(--primary-rgb-color), 0.05);
+    background-color: rgba(${({ theme }) => theme.rgb.primary}, 0.05);
   }
 
   ${(props) =>
     props.$isActive &&
     css`
-      background-color: rgba(var(--primary-rgb-color), 0.05);
+      background-color: rgba(${({ theme }) => theme.rgb.primary}, 0.05);
     `};
 
   & > span:first-of-type {
     padding: 0.625rem;
     border-radius: 10px;
 
-    color: ${(props) => `var(--${props.color}-color)`};
+    color: ${({ color, theme }) => theme[color]};
 
-    background-color: rgba(var(--primary-rgb-color), 0.05);
+    background-color: rgba(${({ theme }) => theme.rgb.primary}, 0.05);
   }
 `;

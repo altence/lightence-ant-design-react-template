@@ -1,10 +1,11 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback } from 'react';
+import { useTheme } from 'styled-components';
 import { BasicTableRow, getBasicTableData, Pagination, Tag } from 'api/table.api';
 import { BaseTable } from '@app/components/common/BaseTable/BaseTable';
 import { ColumnsType } from 'antd/es/table';
 import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { useTranslation } from 'react-i18next';
-import { defineColorByPriority } from '@app/utils/utils';
+import { colorTypeFrom } from '@app/utils/utils';
 import { useFeedback } from '@app/hooks/useFeedback';
 import { Status } from '@app/components/profile/profileCard/profileFormNav/nav/payments/paymentHistory/Status/Status';
 import { useMounted } from '@app/hooks/useMounted';
@@ -26,6 +27,7 @@ export const BasicTable: React.FC = () => {
   const { t } = useTranslation();
   const { isMounted } = useMounted();
   const { notification } = useFeedback();
+  const theme = useTheme();
 
   const fetch = useCallback(
     (pagination: Pagination) => {
@@ -128,7 +130,7 @@ export const BasicTable: React.FC = () => {
           {tags.map((tag: Tag) => {
             return (
               <BaseCol key={tag.value}>
-                <Status color={defineColorByPriority(tag.priority)} text={tag.value.toUpperCase()} />
+                <Status color={theme[colorTypeFrom(tag.priority)]} text={tag.value.toUpperCase()} />
               </BaseCol>
             );
           })}

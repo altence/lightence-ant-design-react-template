@@ -1,5 +1,5 @@
 import { BaseRadio } from '@app/components/common/BaseRadio/BaseRadio';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 interface RadioBtnProps {
   $isActive: boolean;
@@ -10,7 +10,11 @@ export const RadioBtn = styled(BaseRadio)<RadioBtnProps>`
   width: 100%;
   transition: all 0.5s ease;
 
-  ${(props) => !props.$isActive && 'opacity: 0.5'};
+  ${(props) =>
+    !props.$isActive &&
+    css`
+      opacity: 0.5;
+    `};
 
   & > span:last-of-type {
     flex-grow: 1;

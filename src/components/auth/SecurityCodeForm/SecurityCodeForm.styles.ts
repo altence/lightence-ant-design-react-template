@@ -1,4 +1,4 @@
-import { FONT_SIZE, FONT_WEIGHT, media } from '@app/styles/themes/constants';
+import { media } from '@app/utils/utils';
 import styled from 'styled-components';
 
 export const ImageWrapper = styled.div`
@@ -7,24 +7,24 @@ export const ImageWrapper = styled.div`
 
 export const VerifyEmailDescription = styled.div`
   margin-bottom: 1.875rem;
-  color: var(--text-main-color);
-  font-size: ${FONT_SIZE.xs};
-  font-weight: ${FONT_WEIGHT.regular};
+  color: ${({ theme }) => theme.textMain};
+  font-size: ${({ theme }) => theme.fontSizes.xs};
+  font-weight: ${({ theme }) => theme.fontWeights.regular};
 
-  @media only screen and ${media.xs} {
-    font-size: ${FONT_SIZE.xxs};
+  @media only screen and (${media('xs')}) {
+    font-size: ${({ theme }) => theme.fontSizes.xxs};
   }
 
-  @media only screen and ${media.md} {
-    font-size: ${FONT_SIZE.xs};
+  @media only screen and (${media('md')}) {
+    font-size: ${({ theme }) => theme.fontSizes.xs};
   }
 `;
 
 export const NoCodeText = styled.div`
   margin-top: 1rem;
-  color: var(--primary-color);
-  font-size: ${FONT_SIZE.xs};
-  font-weight: ${FONT_WEIGHT.regular};
+  color: ${({ theme }) => theme.primary};
+  font-size: ${({ theme }) => theme.fontSizes.xs};
+  font-weight: ${({ theme }) => theme.fontWeights.regular};
   text-decoration: underline;
   cursor: pointer;
 `;
