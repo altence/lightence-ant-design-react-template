@@ -84,7 +84,7 @@ export const FullnessLine = styled.div<FullnessLineProps>`
   padding-right: 0.625rem;
   border-radius: 50px;
   width: ${(props) => props.width}%;
-  background: linear-gradient(90deg, ${({ theme }) => theme.warning} 0%, ${({ theme }) => theme.error} 100%);
+  background: ${({ theme }) => `linear-gradient(90deg, ${theme.warning} 0%, ${theme.error} 100%)`};
   color: ${({ theme }) => theme.textSecondary};
 
   @media only screen and (${media('xl')}) {

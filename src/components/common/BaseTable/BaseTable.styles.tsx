@@ -1,6 +1,5 @@
 import styled, { useTheme } from 'styled-components';
 import { Table as AntTable, ConfigProvider } from 'antd';
-import { hexToRGB } from '@app/utils/utils';
 
 export const Table = styled((props: React.ComponentProps<typeof AntTable>) => {
   const theme = useTheme();
@@ -12,10 +11,10 @@ export const Table = styled((props: React.ComponentProps<typeof AntTable>) => {
             borderRadiusLG: 0,
             colorBorderSecondary: '#b3cbe1',
             colorTextHeading: theme.primary,
-            colorFillAlter: `rgba(${hexToRGB(theme.primary)}, 0.05)`,
+            colorFillAlter: `rgba(${theme.rgb.primary}, 0.05)`,
             controlItemBgActive: theme.primary1,
             colorSplit: 'rgba(0, 0, 0, 0.15)',
-            controlItemBgActiveHover: `rgba(${hexToRGB(theme.primary)}, 0.12)`,
+            controlItemBgActiveHover: `rgba(${theme.rgb.primary}, 0.12)`,
           },
         },
       }}

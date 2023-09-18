@@ -28,7 +28,7 @@ export const Switch = styled((props: React.ComponentProps<typeof AntSwitch>) => 
   }
 
   &.ant-switch[aria-checked='false'] {
-    background-image: linear-gradient(to right, ${({ theme }) => theme.disabled}, ${({ theme }) => theme.disabled}),
-      linear-gradient(to right, ${({ theme }) => theme.background}, ${({ theme }) => theme.background});
+    background-image: ${({ theme }) => `linear-gradient(to right, ${theme.disabled}, ${theme.disabled})`},
+      ${({ theme }) => `linear-gradient(to right, ${theme.background}, ${theme.background})`};
   }
 `;
