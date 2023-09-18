@@ -3,15 +3,14 @@ import { EChartsInstance } from 'echarts-for-react';
 import { BaseChart } from '@app/components/common/charts/BaseChart';
 import { Dates } from '@app/constants/Dates';
 import { useResponsive } from 'hooks/useResponsive';
-import { useAppSelector } from '@app/hooks/reduxHooks';
-import { themeObject } from '@app/styles/themes/themeVariables';
+import { useTheme } from 'styled-components';
 
 interface BloodScreeningChartsProps {
   data: number[];
 }
 
 export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ data }) => {
-  const theme = useAppSelector((state) => state.theme.theme);
+  const theme = useTheme();
   const { isTablet, isDesktop, isMobile } = useResponsive();
   const months = Dates.getMonths();
 
@@ -57,21 +56,21 @@ export const BloodScreeningChart: React.FC<BloodScreeningChartsProps> = ({ data 
         showSymbol: false,
         symbol: 'circle',
         itemStyle: {
-          color: themeObject[theme].chartColor5,
-          borderColor: themeObject[theme].background,
+          color: theme.chartColor5,
+          borderColor: theme.background,
           borderWidth: 5,
-          shadowColor: themeObject[theme].shadow,
+          shadowColor: theme.shadow,
           shadowOffsetX: 0,
           shadowOffsetY: 5,
           opacity: 1,
         },
         symbolSize: 18,
         areaStyle: {
-          color: themeObject[theme].chartSecondaryGradient,
+          color: theme.chartSecondaryGradient,
         },
         lineStyle: {
           width: 2,
-          color: themeObject[theme].error,
+          color: theme.error,
         },
       },
     ],

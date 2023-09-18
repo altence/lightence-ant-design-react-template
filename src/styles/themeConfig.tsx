@@ -49,7 +49,7 @@ export const getThemeConfig = (theme: DefaultTheme): ThemeConfig => {
       borderRadius,
       borderRadiusLG: borderRadius,
       borderRadiusOuter: borderRadius,
-      colorSplit: '#f0f0f0',
+      colorSplit: theme.split,
       wireframe: true,
       controlOutline,
       controlTmpOutline: controlOutline,

@@ -96,7 +96,7 @@ export const TitleHeader = styled.div`
   display: inline-block;
   padding: 1rem;
   margin-bottom: 1.25rem;
-  box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.07);
+  box-shadow: ${({ theme }) => theme.newsFilterBoxShadow};
   cursor: pointer;
   background-color: ${({ theme }) => theme.background};
   border-radius: ${({ theme }) => theme.borderRadius};
@@ -161,7 +161,7 @@ export const FilterWrapper = styled.div`
     position: sticky;
     top: 1.875rem;
     padding: 1.25rem 1rem;
-    filter: drop-shadow(0 4px 40px rgba(0, 0, 0, 0.07));
+    filter: drop-shadow(${({ theme }) => theme.newsFilterBoxShadow});
     background: ${({ theme }) => theme.background};
     border-radius: ${({ theme }) => theme.borderRadius};
   }

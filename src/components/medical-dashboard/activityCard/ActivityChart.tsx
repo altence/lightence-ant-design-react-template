@@ -5,8 +5,7 @@ import { dashboardPaddings } from '@app/components/medical-dashboard/DashboardCa
 import { useResponsive } from '@app/hooks/useResponsive';
 import { Dates } from '@app/constants/Dates';
 import { ChartData, ChartSeriesData } from '@app/interfaces/interfaces';
-import { useAppSelector } from '@app/hooks/reduxHooks';
-import { themeObject } from '@app/styles/themes/themeVariables';
+import { useTheme } from 'styled-components';
 import { graphic } from 'echarts';
 
 interface ActivityChartProps {
@@ -14,7 +13,7 @@ interface ActivityChartProps {
 }
 
 export const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
-  const theme = useAppSelector((state) => state.theme.theme);
+  const theme = useTheme();
 
   const { t } = useTranslation();
 
@@ -53,7 +52,7 @@ export const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
       data: days,
       position: 'top',
       axisLabel: {
-        color: themeObject[theme].primary,
+        color: theme.primary,
         fontWeight: 500,
         fontSize: 14,
       },
@@ -63,7 +62,7 @@ export const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
       min: 1500,
       axisLabel: {
         formatter: '{value} kcal',
-        color: themeObject[theme].textLight,
+        color: theme.textLight,
         fontWeight: 500,
         fontSize: 14,
       },
@@ -79,7 +78,7 @@ export const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
       },
     ],
     tooltip: {
-      ...getDefaultTooltipStyles(themeObject[theme]),
+      ...getDefaultTooltipStyles(theme),
       trigger: 'axis',
       formatter: (data: ChartSeriesData) => {
         const currentItem = data[0];

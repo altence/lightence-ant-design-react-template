@@ -5,8 +5,7 @@ import { StatisticsProgress } from '../StatisticsProgress/StatisticsProgress';
 import { useResponsive } from '@app/hooks/useResponsive';
 import { StatisticColor } from '@app/constants/config/statistics';
 import * as S from './StatisticsCard.styles';
-import { themeObject } from '@app/styles/themes/themeVariables';
-import { useAppSelector } from '@app/hooks/reduxHooks';
+import { useTheme } from 'styled-components';
 import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 
@@ -20,7 +19,7 @@ interface StatisticsCardProps {
 }
 
 export const StatisticsCard: React.FC<StatisticsCardProps> = ({ name, value, prevValue, color, unit, Icon }) => {
-  const theme = useAppSelector((state) => state.theme.theme);
+  const theme = useTheme();
   const { isTablet: isTabletOrHigher } = useResponsive();
 
   const { t } = useTranslation();
@@ -41,7 +40,7 @@ export const StatisticsCard: React.FC<StatisticsCardProps> = ({ name, value, pre
             </BaseCol>
 
             <BaseCol>
-              <StatisticsProgress color={themeObject[theme][color]} unit={unit} value={value} />
+              <StatisticsProgress color={theme[color]} unit={unit} value={value} />
             </BaseCol>
           </BaseRow>
         </BaseCol>

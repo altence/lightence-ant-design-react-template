@@ -70,6 +70,6 @@ export const Card = styled((props: React.ComponentProps<typeof AntCard>) => {
   }
 
   .ant-card-bordered {
-    border-color: #f0f0f0;
+    border-color: ${({ theme }) => theme.split};
   }
 `;

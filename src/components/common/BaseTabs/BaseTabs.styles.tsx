@@ -12,7 +12,7 @@ export const Tabs = styled((props: React.ComponentProps<typeof AntTabs>) => {
             colorPrimary: theme.primary,
             colorPrimaryActive: theme.primary7,
             colorTextDisabled: theme.disabled,
-            colorBorderSecondary: '#f0f0f0',
+            colorBorderSecondary: theme.split,
           },
         },
       }}

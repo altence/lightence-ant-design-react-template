@@ -3,8 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { BaseCard } from '@app/components/common/BaseCard/BaseCard';
 import { BaseChart } from '@app/components/common/charts/BaseChart';
 import Data from './data.json';
-import { useAppSelector } from '@app/hooks/reduxHooks';
-import { themeObject } from '@app/styles/themes/themeVariables';
+import { useTheme } from 'styled-components';
 
 interface DataRow {
   id: string;
@@ -46,7 +45,7 @@ export const LineRaceChart: React.FC = () => {
   const rawData = JSON.parse(JSON.stringify(Data));
   const { t } = useTranslation();
 
-  const theme = useAppSelector((state) => state.theme.theme);
+  const theme = useTheme();
 
   const runAnimation = useCallback(() => {
     const countries = ['Finland', 'Germany', 'Iceland', 'Norway', 'United Kingdom'];
@@ -76,7 +75,7 @@ export const LineRaceChart: React.FC = () => {
         endLabel: {
           show: true,
           formatter: (params) => `${params.value[3]}: ${params.value[0]}`,
-          color: themeObject[theme].textMain,
+          color: theme.textMain,
         },
         labelLayout: {
           moveOverlap: 'shiftY',
@@ -133,7 +132,7 @@ export const LineRaceChart: React.FC = () => {
   };
 
   return (
-    <BaseCard padding="0 0 1.875rem" title={t('charts.lineRace')}>
+    <BaseCard padding={theme.chartsCardPadding} title={t('charts.lineRace')}>
       <BaseChart option={option} height="24rem" />
     </BaseCard>
   );

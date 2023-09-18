@@ -2,6 +2,7 @@ import React from 'react';
 import { BaseCard } from '@app/components/common/BaseCard/BaseCard';
 import { BaseChart } from 'components/common/charts/BaseChart';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from 'styled-components';
 
 const data = [
   [170.0, 59.0],
@@ -109,9 +110,10 @@ const defaultOption = {
 
 export const ScatterChart: React.FC = () => {
   const { t } = useTranslation();
+  const theme = useTheme();
 
   return (
-    <BaseCard padding="0 0 1.875rem" title={t('charts.scatter')}>
+    <BaseCard padding={theme.chartsCardPadding} title={t('charts.scatter')}>
       <BaseChart option={defaultOption} />
     </BaseCard>
   );

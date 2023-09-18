@@ -2,6 +2,7 @@ import React from 'react';
 import { BaseCard } from '@app/components/common/BaseCard/BaseCard';
 import { useTranslation } from 'react-i18next';
 import { PieChart } from '../common/charts/PieChart';
+import { useTheme } from 'styled-components';
 
 export const VisitorsPieChart: React.FC = () => {
   const { t } = useTranslation();
@@ -13,9 +14,10 @@ export const VisitorsPieChart: React.FC = () => {
     { value: 300, name: t('charts.video') },
   ];
   const name = t('charts.visitorsFrom');
+  const theme = useTheme();
 
   return (
-    <BaseCard padding="0 0 1.875rem" title={t('charts.pie')}>
+    <BaseCard padding={theme.chartsCardPadding} title={t('charts.pie')}>
       <PieChart data={data} name={name} showLegend={true} />
     </BaseCard>
   );

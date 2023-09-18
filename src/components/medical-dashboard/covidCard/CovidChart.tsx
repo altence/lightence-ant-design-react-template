@@ -2,8 +2,7 @@ import React from 'react';
 import { BaseChart, getDefaultTooltipStyles } from '@app/components/common/charts/BaseChart';
 import { getMarkAreaData, hexToRGB } from '@app/utils/utils';
 import { ChartData, xData } from '@app/interfaces/interfaces';
-import { useAppSelector } from '@app/hooks/reduxHooks';
-import { themeObject } from '@app/styles/themes/themeVariables';
+import { useTheme } from 'styled-components';
 
 interface CovidData {
   title: string;
@@ -15,10 +14,10 @@ export const CovidChart: React.FC<{
   deaths: CovidData;
   dateArr: xData;
 }> = ({ confirmed, deaths, dateArr }) => {
-  const theme = useAppSelector((state) => state.theme.theme);
+  const theme = useTheme();
 
   const option = {
-    color: [themeObject[theme].chartPrimaryGradient, themeObject[theme].chartSecondaryGradientSpecular],
+    color: [theme.chartPrimaryGradient, theme.chartSecondaryGradientSpecular],
     grid: [
       {
         top: 10,
@@ -70,7 +69,7 @@ export const CovidChart: React.FC<{
         areaStyle: {},
         markArea: {
           itemStyle: {
-            color: `rgba(${hexToRGB(themeObject[theme].chartColor1)}, 0.02)`,
+            color: `rgba(${hexToRGB(theme.chartColor1)}, 0.02)`,
           },
           data: dateArr && getMarkAreaData(dateArr),
         },
@@ -78,7 +77,7 @@ export const CovidChart: React.FC<{
         smooth: true,
         lineStyle: {
           width: 2,
-          color: themeObject[theme].chartColor1,
+          color: theme.chartColor1,
         },
       },
       {
@@ -90,7 +89,7 @@ export const CovidChart: React.FC<{
         areaStyle: {},
         markArea: {
           itemStyle: {
-            color: `rgba(${hexToRGB(themeObject[theme].chartColor5)}, 0.02)`,
+            color: `rgba(${hexToRGB(theme.chartColor5)}, 0.02)`,
           },
           data: dateArr && getMarkAreaData(dateArr),
         },
@@ -98,12 +97,12 @@ export const CovidChart: React.FC<{
         smooth: true,
         lineStyle: {
           width: 2,
-          color: themeObject[theme].chartColor5,
+          color: theme.chartColor5,
         },
       },
     ],
     tooltip: {
-      ...getDefaultTooltipStyles(themeObject[theme]),
+      ...getDefaultTooltipStyles(theme),
       trigger: 'axis',
     },
   };

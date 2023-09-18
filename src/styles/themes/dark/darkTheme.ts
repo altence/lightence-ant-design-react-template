@@ -136,4 +136,11 @@ export const darkColorsTheme = {
   fontWeights: FONT_WEIGHT,
   fontFamilies: FONT_FAMILY,
   breakpoints: BREAKPOINTS,
+  selectionDisabled: '#bfbfbf',
+  split: '#f0f0f0',
+  sliderFillColor: '#e1e1e1',
+  newsFilterBoxShadow: '0 4px 40px rgba(0, 0, 0, 0.07)',
+  radioBoxShadow: `0 0 0 3px rgba(${hexToRGB(colorTypes.primary)}, 0.12)`,
+  chartsCardPadding: '0 0 1.875rem',
+  treatmentCalendarEventBoxShadow: '0 5px 15px rgba(0, 89, 171, 0.3)',
 } as const satisfies ITheme;

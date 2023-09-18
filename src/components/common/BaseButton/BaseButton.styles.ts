@@ -25,15 +25,6 @@ export const Button = styled(AntButton)<BtnProps>`
       height: unset;
     `}
 
-  &.ant-btn-dangerous {
-    &.ant-btn-text {
-      &:focus,
-      &:not(:disabled):hover {
-        background: rgba(0, 0, 0, 0.018);
-      }
-    }
-  }
-
   ${(props) =>
     !props.danger &&
     css`
@@ -66,10 +57,6 @@ export const Button = styled(AntButton)<BtnProps>`
         &.ant-btn-link,
         &.ant-btn-background-ghost {
           color: ${({ theme }) => theme.primary5};
-        }
-
-        &.ant-btn-text {
-          background-color: rgba(0, 0, 0, 0.018);
         }
 
         &.ant-btn-primary {

@@ -106,4 +106,11 @@ export interface ITheme extends ColorTypes, IndexedPrimary, ChartColor, Partial<
   fontSizes: Partial<RelativeSizes>;
   heights: Partial<RelativeSizes>;
   breakpoints: Partial<RelativeSizes>;
+  selectionDisabled: string;
+  split: string;
+  sliderFillColor: string;
+  radioBoxShadow: string;
+  newsFilterBoxShadow: string;
+  chartsCardPadding: string;
+  treatmentCalendarEventBoxShadow: string;
 }
