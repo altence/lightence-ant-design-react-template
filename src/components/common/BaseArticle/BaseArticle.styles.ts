@@ -24,10 +24,7 @@ export const Wrapper = styled.div`
   box-shadow: ${({ theme }) => theme.boxShadow};
   border-radius: ${({ theme }) => theme.borderRadius};
   transition: 0.3s;
-
-  [data-theme='dark'] & {
-    background: ${({ theme }) => theme.secondaryBackground};
-  }
+  background: ${({ theme }) => theme.secondaryBackground};
 
   &:hover {
     box-shadow: ${({ theme }) => theme.boxShadowHover};
