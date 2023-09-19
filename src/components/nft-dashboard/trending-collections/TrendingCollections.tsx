@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Slider from 'react-slick';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
-import { BaseCarousel } from '@app/components/common/BaseCarousel/Carousel';
+import { BaseCarousel } from '@app/components/common/BaseCarousel/BaseCarousel';
 import { ViewAll } from '@app/components/nft-dashboard/common/ViewAll/ViewAll';
 import { NFTCardHeader } from '@app/components/nft-dashboard/common/NFTCardHeader/NFTCardHeader';
 import { TrendingCollection } from '@app/components/nft-dashboard/trending-collections/collection/TrendingCollection';

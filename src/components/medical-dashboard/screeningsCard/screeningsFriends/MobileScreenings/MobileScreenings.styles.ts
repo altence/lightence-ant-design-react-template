@@ -1,4 +1,4 @@
-import { BaseCarousel } from '@app/components/common/BaseCarousel/Carousel';
+import { BaseCarousel } from '@app/components/common/BaseCarousel/BaseCarousel';
 import styled from 'styled-components';
 
 export const ScreeningsCarousel = styled(BaseCarousel)`

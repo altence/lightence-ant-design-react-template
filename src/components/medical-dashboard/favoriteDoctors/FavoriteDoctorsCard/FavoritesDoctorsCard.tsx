@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from 'styled-components';
 import { DashboardCard } from '@app/components/medical-dashboard/DashboardCard/DashboardCard';
-import { BaseCarousel } from '@app/components/common/BaseCarousel/Carousel';
+import { BaseCarousel } from '@app/components/common/BaseCarousel/BaseCarousel';
 import { DoctorCard } from '../DoctorCard/DoctorCard';
 import { Dates } from '@app/constants/Dates';
 import { CalendarEvent, getUserCalendar } from '@app/api/calendar.api';
