@@ -26,15 +26,13 @@ export const Btn = styled(BaseButton)<BtnProps>`
   ${(props) =>
     props.$isActive &&
     css`
-      background-color: rgba(${({ theme }) => theme.rgb.primary}, 0.05);
-    `};
+      background-color: rgba(${props.theme.rgb.primary}, 0.05);
+    `}
 
   & > span:first-of-type {
     padding: 0.625rem;
     border-radius: 10px;
-
     color: ${({ color, theme }) => theme[color]};
-
     background-color: rgba(${({ theme }) => theme.rgb.primary}, 0.05);
   }
 `;

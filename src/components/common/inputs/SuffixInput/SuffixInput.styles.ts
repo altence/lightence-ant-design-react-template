@@ -14,5 +14,5 @@ export const Suffix = styled.div<SuffixProps>`
     css`
       opacity: 0;
       visibility: hidden;
-    `};
+    `}
 `;

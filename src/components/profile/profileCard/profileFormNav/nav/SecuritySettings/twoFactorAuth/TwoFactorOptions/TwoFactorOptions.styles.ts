@@ -14,7 +14,7 @@ export const RadioBtn = styled(BaseRadio)<RadioBtnProps>`
     !props.$isActive &&
     css`
       opacity: 0.5;
-    `};
+    `}
 
   & > span:last-of-type {
     flex-grow: 1;

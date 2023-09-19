@@ -21,21 +21,15 @@ export const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
     props.isActive &&
     css`
       background: url(${props.background});
-    `};
+    `}
 
-  & > div {
+  &:hover, & > div {
     background: ${(props) => `url(${props.background})`};
     background-size: cover;
   }
 
   &:hover {
     opacity: 0.7;
-    background-size: cover;
-
-    ${(props) =>
-      css`
-        background: url(${props.background});
-      `};
   }
 `;
 

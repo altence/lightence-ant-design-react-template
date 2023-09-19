@@ -43,9 +43,7 @@ export const BlockWrapper = styled.div`
   flex-direction: column;
   flex-shrink: 0;
   gap: 15px;
-
   background: black;
-
   min-height: 300px;
   overflow-y: auto;
 `;
