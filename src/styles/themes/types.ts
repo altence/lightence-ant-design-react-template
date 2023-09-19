@@ -1,38 +1,22 @@
-import 'styled-components';
+import type * as CSS from 'csstype';
 import type { LinearGradientObject } from 'echarts';
+import type { Breakpoint } from 'antd';
 
-type IndexedPrimary = Record<`primary${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10}`, string>;
+type IndexedPrimary = `primary${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10}`;
 
-type ChartColor = Record<`chartColor${1 | 2 | 3 | 4 | 5}${'Tint' | ''}`, string>;
+export type IndexedPrimaries = Record<IndexedPrimary, string>;
 
-export type NamedColors = Record<
-  | 'black'
-  | 'blue'
-  | 'cyan'
-  | 'gray'
-  | 'green'
-  | 'lime'
-  | 'magenta'
-  | 'maroon'
-  | 'navy'
-  | 'olive'
-  | 'purple'
-  | 'red'
-  | 'silver'
-  | 'teal'
-  | 'white'
-  | 'yellow'
-  | 'orange'
-  | 'pink'
-  | 'skyblue'
-  | 'violet'
-  | `${'light'}${'blue' | 'cyan' | 'gray' | 'green' | 'yellow'}`,
-  string
->;
+type ChartColor = `chartColor${1 | 2 | 3 | 4 | 5}${'Tint' | ''}`;
+
+export type ChartColors = Record<`chartColor${1 | 2 | 3 | 4 | 5}${'Tint' | ''}`, string>;
+
+export type NamedColors = Record<CSS.DataType.NamedColor, string>;
 
 export type ColorType = 'primary' | 'success' | 'warning' | 'error';
 
 type ColorTypes = Record<ColorType, string>;
+
+type RGB = Record<ColorType | IndexedPrimary | ChartColor | 'background', string>;
 
 type NFT = Record<'border' | 'textLight' | 'boxShadow' | 'boxShadowSecondary', string>;
 
@@ -43,11 +27,11 @@ export type FontWeights = Record<
 
 export type NamedIndexes = Record<'main' | 'secondary' | 'tertiary' | 'quaternary', string>;
 
-export type RelativeSizeKey = 'sm' | 'md' | 'lg' | `${'x' | 'xx' | 'xxx' | 'xxxx'}${'s' | 'l'}`;
+export type RelativeSizeKey = Breakpoint | `${'x' | 'xx' | 'xxx' | 'xxxx'}${'s' | 'l'}`;
 
 export type RelativeSizes = Record<RelativeSizeKey, number> | Record<RelativeSizeKey, string>;
 
-export interface ITheme extends ColorTypes, IndexedPrimary, ChartColor, Partial<NamedColors> {
+export interface ITheme extends ColorTypes, IndexedPrimaries, ChartColors, Partial<NamedColors> {
   primaryGradient: string;
   light: string;
   secondary: string;
@@ -73,7 +57,7 @@ export interface ITheme extends ColorTypes, IndexedPrimary, ChartColor, Partial<
   boxShadow: string;
   boxShadowHover: string;
   /** @summary strings in the format `'R, G, B'` */
-  rgb: Record<ColorType | 'background', string>;
+  rgb: RGB;
   nft: NFT;
   dashboardMapBackground: string;
   dashboardMapCircleColor: string;
@@ -113,4 +97,5 @@ export interface ITheme extends ColorTypes, IndexedPrimary, ChartColor, Partial<
   newsFilterBoxShadow: string;
   chartsCardPadding: string;
   treatmentCalendarEventBoxShadow: string;
+  modalBoxShadow: string;
 }
