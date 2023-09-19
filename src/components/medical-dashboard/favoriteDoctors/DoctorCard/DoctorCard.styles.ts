@@ -38,7 +38,6 @@ export const Text = styled(BaseTypography.Text)`
 export const ImgWrapper = styled.div`
   overflow: hidden;
   margin: -1rem -1rem 0;
-
   border-top-left-radius: ${({ theme }) => theme.borderRadius};
   border-top-right-radius: ${({ theme }) => theme.borderRadius};
 

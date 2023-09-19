@@ -26,14 +26,14 @@ export const ButtonGroup = styled.div<BtnProps>`
     props.$isFirstActive
       ? css`
           & > ${Btn}:first-of-type {
-            background: ${({ theme }) => theme.primary};
-            color: ${({ theme }) => theme.textSecondary};
+            background: ${props.theme.primary};
+            color: ${props.theme.textSecondary};
           }
         `
       : css`
           & > ${Btn}:last-of-type {
-            background: ${({ theme }) => theme.warning};
-            color: ${({ theme }) => theme.textSecondary};
+            background: ${props.theme.warning};
+            color: ${props.theme.textSecondary};
           }
         `}
 

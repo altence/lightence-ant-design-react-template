@@ -9,7 +9,7 @@ export interface InternalSelectProps {
 }
 
 export const Select = styled(AntSelect)<InternalSelectProps>`
-  width: ${({ $width }) => $width && normalizeProp($width)};
+  width: ${(props) => props.$width && normalizeProp(props.$width)};
   box-shadow: ${(props) => props.$shadow && props.theme.boxShadow};
 
   .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {

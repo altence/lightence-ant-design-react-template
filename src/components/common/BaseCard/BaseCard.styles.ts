@@ -4,7 +4,7 @@ import { normalizeProp } from '@app/utils/utils';
 import { media } from '@app/utils/utils';
 
 interface CardInternalProps {
-  $padding: string | number | [number, number];
+  $padding: string | number | readonly [number, number];
   $autoHeight: boolean;
 }
 
@@ -48,7 +48,7 @@ export const Card = styled(AntCard)<CardInternalProps>`
 
   .ant-card-body {
     flex-grow: 1;
-    padding: ${({ $padding }) => $padding && normalizeProp($padding)};
+    padding: ${(props) => props.$padding && normalizeProp(props.$padding)};
   }
 
   .ant-card-bordered {

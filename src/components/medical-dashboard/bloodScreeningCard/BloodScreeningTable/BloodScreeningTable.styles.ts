@@ -30,9 +30,9 @@ export const Table = styled(BaseTable)`
 
 export const Text = styled.span<TextProps>`
   color: ${({ theme }) => theme.textMain};
-  font-weight: ${({ $isActive, theme }) => ($isActive ? theme.fontWeights.semibold : theme.fontWeights.regular)};
+  font-weight: ${(props) => (props.$isActive ? props.theme.fontWeights.semibold : props.theme.fontWeights.regular)};
 `;
 
 export const Flag = styled(Text)<{ $isNorm: boolean }>`
-  color: ${({ $isNorm, theme }) => ($isNorm ? theme.success : theme.error)};
+  color: ${(props) => (props.$isNorm ? props.theme.success : props.theme.error)};
 `;

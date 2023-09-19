@@ -32,7 +32,7 @@ export const Btn = styled(BaseButton)<BtnProps>`
   & > span:first-of-type {
     padding: 0.625rem;
     border-radius: 10px;
-    color: ${({ color, theme }) => theme[color]};
+    color: ${(props) => props.theme[props.color]};
     background-color: rgba(${({ theme }) => theme.rgb.primary}, 0.05);
   }
 `;

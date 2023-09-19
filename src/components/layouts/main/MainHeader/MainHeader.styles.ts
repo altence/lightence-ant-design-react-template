@@ -18,7 +18,7 @@ export const Header = styled(BaseLayout.Header)<Header>`
     height: ${LAYOUT.desktop.headerHeight};
 
     ${(props) =>
-      props?.$isTwoColumnsLayoutHeader &&
+      props.$isTwoColumnsLayoutHeader &&
       css`
         padding: 0;
       `}

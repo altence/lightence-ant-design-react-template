@@ -11,7 +11,7 @@ export const Title = styled(BaseTypography.Text)`
 `;
 
 export const Status = styled(BaseTypography.Text)<StatusProps>`
-  color: ${({ $color, theme }) => theme[$color]};
+  color: ${(props) => props.theme[props.$color]};
   font-size: ${({ theme }) => theme.fontSizes.xs};
   font-family: ${({ theme }) => theme.fontFamilies.secondary};
 `;
