@@ -14,5 +14,5 @@ export const Card = styled(BaseCard)<CardInternalProps>`
     props.$isSider &&
     css`
       background: ${({ theme }) => theme.additionalBackground};
-    `};
+    `}
 `;

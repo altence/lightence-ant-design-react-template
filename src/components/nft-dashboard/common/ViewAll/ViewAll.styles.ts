@@ -17,5 +17,5 @@ export const ViewAllBtn = styled(BaseButton)<ViewAllInternalProps>`
     props.$bordered &&
     css`
       border-bottom: 0.2px solid ${({ theme }) => theme.nft.border};
-    `};
+    `}
 `;

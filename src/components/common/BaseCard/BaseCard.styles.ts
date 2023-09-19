@@ -16,7 +16,7 @@ export const Card = styled(AntCard)<CardInternalProps>`
     props.$autoHeight &&
     css`
       height: 100%;
-    `};
+    `}
 
   .ant-card-head {
     border-bottom: 0;

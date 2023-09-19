@@ -11,5 +11,5 @@ export const InputNumber = styled(AntInputNumber)<InputNumberProps>`
     css`
       display: block;
       width: 100%;
-    `};
+    `}
 `;
