@@ -3,7 +3,7 @@ import Stories from 'react-insta-stories';
 import Slider from 'react-slick';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
-import { BaseCarousel } from '@app/components/common/BaseCarousel/Carousel';
+import { BaseCarousel } from '@app/components/common/BaseCarousel/BaseCarousel';
 import { NFTCardHeader } from '@app/components/nft-dashboard/common/NFTCardHeader/NFTCardHeader';
 import { ViewAll } from '@app/components/nft-dashboard/common/ViewAll/ViewAll';
 import { TrendingCreatorsStory } from '@app/components/nft-dashboard/trending-creators/story/TrendingCreatorsStory';
