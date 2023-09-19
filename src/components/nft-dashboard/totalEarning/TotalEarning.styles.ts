@@ -21,5 +21,5 @@ export const Text = styled(BaseTypography.Text)`
 export const ValueText = styled(BaseTypography.Text)<ValueTextProps>`
   font-size: ${({ theme }) => theme.fontSizes.xs};
   font-family: ${({ theme }) => theme.fontFamilies.secondary};
-  color: ${({ $color, theme }) => theme[$color]};
+  color: ${(props) => props.theme[props.$color]};
 `;

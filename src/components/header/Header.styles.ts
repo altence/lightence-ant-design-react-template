@@ -27,7 +27,6 @@ export const DropdownCollapse = styled(BaseCollapse)`
   & > .ant-collapse-item > .ant-collapse-header {
     font-weight: 600;
     font-size: 0.875rem;
-
     color: ${({ theme }) => theme.primary};
 
     @media only screen and (${media('md')}) {
@@ -67,9 +66,9 @@ interface ProfileColumn {
 export const ProfileColumn = styled(BaseCol)<ProfileColumn>`
   @media only screen and (${media('md')}) {
     ${(props) =>
-      props?.$isTwoColumnsLayout &&
+      props.$isTwoColumnsLayout &&
       css`
-        background-color: ${({ theme }) => theme.siderBackground};
+        background-color: ${props.theme.siderBackground};
         padding: ${LAYOUT.desktop.paddingVertical} ${LAYOUT.desktop.paddingHorizontal};
       `}
   }

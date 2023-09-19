@@ -29,11 +29,11 @@ export const Button = styled(AntButton)<BtnProps>`
     !props.danger &&
     css`
       &.ant-btn-background-ghost {
-        color: ${({ theme }) => theme.primary};
-        border-color: ${({ theme }) => theme.primary};
+        color: ${props.theme.primary};
+        border-color: ${props.theme.primary};
 
         &:disabled {
-          background-color: ${({ theme }) => theme.disabledBg};
+          background-color: ${props.theme.disabledBg};
         }
       }
 
@@ -48,41 +48,41 @@ export const Button = styled(AntButton)<BtnProps>`
       &:not(:disabled):hover {
         &.ant-btn-default,
         &.ant-btn-dashed {
-          color: ${({ theme }) => theme.primary5};
-          border-color: ${({ theme }) => theme.primary5};
+          color: ${props.theme.primary5};
+          border-color: ${props.theme.primary5};
         }
       }
 
       &:focus {
         &.ant-btn-link,
         &.ant-btn-background-ghost {
-          color: ${({ theme }) => theme.primary5};
+          color: ${props.theme.primary5};
         }
 
         &.ant-btn-primary {
-          background-color: ${({ theme }) => theme.primary5};
+          background-color: ${props.theme.primary5};
         }
 
         &.ant-btn-primary,
         &.ant-btn-background-ghost {
-          border-color: ${({ theme }) => theme.primary5};
+          border-color: ${props.theme.primary5};
         }
       }
 
       &:not(:disabled):hover {
         &.ant-btn-primary {
-          background-color: ${({ theme }) => theme.secondary};
+          background-color: ${props.theme.secondary};
         }
 
         &.ant-btn-text,
         &.ant-btn-background-ghost {
-          color: ${({ theme }) => theme.secondary};
+          color: ${props.theme.secondary};
           background-color: transparent;
         }
 
         &.ant-btn-primary,
         &.ant-btn-background-ghost {
-          border-color: ${({ theme }) => theme.secondary};
+          border-color: ${props.theme.secondary};
         }
       }
 
@@ -95,7 +95,7 @@ export const Button = styled(AntButton)<BtnProps>`
         &.ant-btn-default {
           &:focus,
           &:not(:disabled):hover {
-            background-color: ${({ theme }) => theme.background};
+            background-color: ${props.theme.background};
             border-color: rgba(${props.theme.rgb[colorTypeFrom(props.$severity)]}, 0.9);
             color: rgba(${props.theme.rgb[colorTypeFrom(props.$severity)]}, 0.9);
           }

@@ -22,7 +22,7 @@ export const ScreeningsRow = styled(BaseRow)<ScreeningsRowProps>`
   transition: all 0.3s ease;
 
   .ant-typography {
-    font-weight: ${({ $isActive, theme }) => ($isActive ? theme.fontWeights.bold : theme.fontWeights.regular)};
+    font-weight: ${(props) => (props.$isActive ? props.theme.fontWeights.bold : props.theme.fontWeights.regular)};
   }
 `;
 
@@ -44,7 +44,7 @@ export const Name = styled(BaseTypography.Text)<Importance>`
 
 export const Percentage = styled(BaseTypography.Text)<PercentageProps>`
   font-size: ${({ theme }) => theme.fontSizes.xs};
-  color: ${({ $isDowngrade, theme }) => ($isDowngrade ? theme.error : theme.success)};
+  color: ${(props) => (props.$isDowngrade ? props.theme.error : props.theme.success)};
 
   @media only screen and (${media('xl')}) {
     font-size: ${({ theme }) => theme.fontSizes.md};

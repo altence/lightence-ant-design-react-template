@@ -7,8 +7,8 @@ interface Dark {
 }
 
 export const Button = styled(BaseButton)<Dark>`
-  color: ${({ $isDark, theme }) => ($isDark ? theme.white : theme.black)};
-  background: ${({ $isDark, theme }) => ($isDark ? theme.black : theme.white)};
+  color: ${(props) => (props.$isDark ? props.theme.white : props.theme.black)};
+  background: ${(props) => (props.$isDark ? props.theme.black : props.theme.white)};
   border-radius: 50px;
   padding-top: 0;
   padding-bottom: 0;
@@ -19,8 +19,8 @@ export const Button = styled(BaseButton)<Dark>`
     &:hover,
     &:active,
     &:focus {
-      color: ${({ $isDark, theme }) => ($isDark ? theme.black : theme.white)};
-      background: ${({ $isDark, theme }) => ($isDark ? theme.white : theme.black)};
+      color: ${(props) => (props.$isDark ? props.theme.black : props.theme.white)};
+      background: ${(props) => (props.$isDark ? props.theme.white : props.theme.black)};
     }
   }
 `;

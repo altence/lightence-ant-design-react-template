@@ -24,12 +24,11 @@ export const SpaceWrapper = styled(BaseSpace)<SpacewWrapperProps>`
   background-color: ${({ theme }) => theme.background};
 
   & ${Title}, span[role='img'] {
-    ${({ type, theme }) =>
-      type
-        ? css`
-            color: ${theme[colorTypeFrom(type)]};
-          `
-        : ''}
+    ${(props) =>
+      props.type &&
+      css`
+        color: ${props.theme[colorTypeFrom(props.type)]};
+      `}
   }
 
   & span[role='img'] {

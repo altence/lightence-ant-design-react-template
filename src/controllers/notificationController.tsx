@@ -24,15 +24,15 @@ const Message = styled.div<MessageProps>`
   ${(props) =>
     props.$isOnlyTitle
       ? css`
-          font-size: ${({ theme }) => theme.fontSizes.md};
+          font-size: ${props.theme.fontSizes.md};
           height: 2rem;
-          font-weight: ${({ theme }) => theme.fontWeights.semibold};
+          font-weight: ${props.theme.fontWeights.semibold};
           margin-inline-start: 9px;
         `
       : css`
-          font-size: ${({ theme }) => theme.fontSizes.xxl};
+          font-size: ${props.theme.fontSizes.xxl};
           height: 3rem;
-          font-weight: ${({ theme }) => theme.fontWeights.bold};
+          font-weight: ${props.theme.fontWeights.bold};
           margin-inline-start: 21px;
         `}
 
