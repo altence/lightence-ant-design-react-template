@@ -1,9 +1,8 @@
 import type { ThemeConfig } from 'antd';
-import { remToPixels } from '@app/utils/utils';
-import { DefaultTheme } from 'styled-components';
+import type { DefaultTheme } from 'styled-components';
+import { themeObject } from './themes/themeVariables';
 
-const modalBoxShadow =
-  '0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05)';
+const remToPixels = (s: `${number}rem`) => parseFloat(s) * 16;
 
 export const getThemeConfig = (theme: DefaultTheme): ThemeConfig => {
   const fontFamily = `'${theme.fontFamilies.main}', sans-serif`;
@@ -74,6 +73,135 @@ export const getThemeConfig = (theme: DefaultTheme): ThemeConfig => {
       screenXXL: theme.breakpoints.xxl,
     },
     components: {
+      Alert: {
+        colorInfoBg: '#dfefff',
+        colorText: theme.black,
+        colorTextHeading: theme.black,
+        marginSM: 15,
+        paddingContentVerticalSM: 8,
+        paddingMD: 15,
+        paddingContentHorizontalLG: 15,
+      },
+      Badge: {
+        colorPrimary: theme.primary,
+        colorTextPlaceholder: '#d9d9d9',
+        fontSizeSM: remToPixels(theme.fontSizes.xxs),
+      },
+      Breadcrumb: {
+        fontSizeIcon: 10,
+        colorTextDescription: theme.breadcrumb,
+      },
+      Calendar: {
+        controlHeightSM: remToPixels(theme.heights.xs) / 1.5,
+      },
+      Card: {
+        colorTextHeading: theme.textMain,
+        padding: 20,
+        paddingLG: 20,
+        boxShadowTertiary: theme.boxShadow,
+      },
+      Divider: {
+        colorSplit: 'rgba(0, 0, 0, 0.06)',
+      },
+      Empty: {
+        controlHeightLG: remToPixels(theme.heights.sm),
+      },
+      Menu: {
+        controlHeightLG: remToPixels(theme.heights.md),
+        fontSize: remToPixels(theme.fontSizes.xs),
+        colorFillAlter: `rgba(${themeObject['light'].rgb.primary6}, 0.05)`,
+        colorBgContainer: 'unset',
+        controlItemBgActive: 'unset',
+        colorBgTextHover: 'transparent',
+        itemSelectedColor: theme.textSiderPrimary,
+        colorText: theme.textSiderSecondary,
+        colorSplit: 'transparent',
+        activeBarWidth: 2,
+        marginXXS: 4,
+        controlHeightSM: 30,
+        itemMarginInline: 0,
+      },
+      Pagination: {
+        colorPrimary: theme.primary,
+        controlItemBgActiveDisabled: '#e6e6e6',
+        itemSizeSM: 24,
+        controlHeightLG: remToPixels(theme.heights.sm),
+      },
+      Popconfirm: {
+        fontWeightStrong: theme.fontWeights.semibold,
+        colorPrimary: theme.primary,
+      },
+      Popover: {
+        zIndexPopup: 2000,
+        controlHeight: 34,
+        sizePopupArrow: 20,
+      },
+      Progress: {
+        marginXS: 0,
+        colorFillSecondary: theme.backgroundColorBase,
+      },
+      Rate: {
+        starColor: '#ffc24b',
+        colorFillContent: theme.split,
+      },
+      Result: {
+        fontSizeHeading3: remToPixels(theme.fontSizes.xxl),
+        lineHeightHeading3: 1.8,
+      },
+      Slider: {
+        colorPrimaryBorder: theme.primary3,
+        colorPrimary: theme.primary4,
+        colorPrimaryBorderHover: theme.primary4,
+        colorFillSecondary: theme.sliderFillColor,
+        colorBorderSecondary: theme.sliderFillColor,
+        colorFillContentHover: theme.sliderFillColor,
+        colorFillTertiary: theme.backgroundColorBase,
+        handleSize: 11,
+        handleSizeHover: 11,
+        handleLineWidth: 2,
+        handleLineWidthHover: 2,
+        colorTextDisabled: theme.disabled,
+      },
+      Spin: {
+        controlHeight: remToPixels(theme.heights.xs),
+        controlHeightLG: remToPixels(theme.heights.sm),
+        colorPrimary: theme.primary,
+      },
+      Steps: {
+        iconSize: remToPixels(theme.heights.xs),
+        iconFontSize: remToPixels(theme.fontSizes.lg),
+        controlHeight: remToPixels(theme.heights.md),
+        controlHeightSM: remToPixels(theme.heights.xxs),
+        fontSizeHeading3: remToPixels(theme.fontSizes.xxl),
+        colorPrimary: theme.primary,
+      },
+      Switch: {
+        controlHeight: remToPixels(theme.heights.xs),
+        colorPrimary: theme.primary,
+        colorWhite: theme.background,
+        lineHeight: 1.375,
+        colorPrimaryBorder: theme.primary1,
+        opacityLoading: 0.4,
+      },
+      Table: {
+        borderRadiusLG: 0,
+        colorBorderSecondary: '#b3cbe1',
+        colorTextHeading: theme.primary,
+        colorFillAlter: `rgba(${theme.rgb.primary}, 0.05)`,
+        controlItemBgActive: theme.primary1,
+        colorSplit: 'rgba(0, 0, 0, 0.15)',
+        controlItemBgActiveHover: `rgba(${theme.rgb.primary}, 0.12)`,
+      },
+      Tabs: {
+        colorPrimaryHover: theme.primary5,
+        colorPrimary: theme.primary,
+        colorPrimaryActive: theme.primary7,
+        colorTextDisabled: theme.disabled,
+        colorBorderSecondary: theme.split,
+      },
+      InputNumber: {
+        colorPrimary: theme.primary5,
+      },
       Layout: {
         controlHeight: 34,
         controlHeightLG: 12.8,
@@ -127,7 +255,7 @@ export const getThemeConfig = (theme: DefaultTheme): ThemeConfig => {
         colorIconHover: 'rgba(0, 0, 0, 0.67)',
         fontSizeLG: remToPixels(theme.fontSizes.xxl),
         marginSM: 0,
-        boxShadow: modalBoxShadow,
+        boxShadow: theme.modalBoxShadow,
         controlHeightLG: 15 / 0.55,
       },
       Input: {
@@ -161,7 +289,7 @@ export const getThemeConfig = (theme: DefaultTheme): ThemeConfig => {
       Modal: {
         colorTextDescription: theme.icon,
         colorIcon: theme.icon,
-        boxShadow: modalBoxShadow,
+        boxShadow: theme.modalBoxShadow,
         lineHeight: 1.57,
       },
       DatePicker: {

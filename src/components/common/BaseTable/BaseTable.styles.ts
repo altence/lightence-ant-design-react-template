@@ -1,28 +1,7 @@
-import styled, { useTheme } from 'styled-components';
-import { Table as AntTable, ConfigProvider } from 'antd';
+import styled from 'styled-components';
+import { Table as AntTable } from 'antd';
 
-export const Table = styled((props: React.ComponentProps<typeof AntTable>) => {
-  const theme = useTheme();
-  return (
-    <ConfigProvider
-      theme={{
-        components: {
-          Table: {
-            borderRadiusLG: 0,
-            colorBorderSecondary: '#b3cbe1',
-            colorTextHeading: theme.primary,
-            colorFillAlter: `rgba(${theme.rgb.primary}, 0.05)`,
-            controlItemBgActive: theme.primary1,
-            colorSplit: 'rgba(0, 0, 0, 0.15)',
-            controlItemBgActiveHover: `rgba(${theme.rgb.primary}, 0.12)`,
-          },
-        },
-      }}
-    >
-      <AntTable {...props} />
-    </ConfigProvider>
-  );
-})`
+export const Table = styled(AntTable)`
   & thead .ant-table-cell {
     color: ${({ theme }) => theme.primary};
     font-size: ${({ theme }) => theme.fontSizes.xs};

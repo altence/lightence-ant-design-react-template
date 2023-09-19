@@ -1,26 +1,7 @@
-import styled, { css, useTheme } from 'styled-components';
-import { Pagination as AntPagination, ConfigProvider } from 'antd';
-import { remToPixels } from '@app/utils/utils';
+import styled, { css } from 'styled-components';
+import { Pagination as AntPagination } from 'antd';
 
-export const Pagination = styled((props: React.ComponentProps<typeof AntPagination>) => {
-  const theme = useTheme();
-  return (
-    <ConfigProvider
-      theme={{
-        components: {
-          Pagination: {
-            colorPrimary: theme.primary,
-            controlItemBgActiveDisabled: '#e6e6e6',
-            itemSizeSM: 24,
-            controlHeightLG: remToPixels(theme.heights.sm),
-          },
-        },
-      }}
-    >
-      <AntPagination {...props} />
-    </ConfigProvider>
-  );
-})`
+export const Pagination = styled(AntPagination)`
   ${(props) =>
     !props.disabled &&
     css`

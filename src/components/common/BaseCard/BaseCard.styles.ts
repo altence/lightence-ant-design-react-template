@@ -1,5 +1,5 @@
-import styled, { css, useTheme } from 'styled-components';
-import { Card as AntCard, ConfigProvider } from 'antd';
+import styled, { css } from 'styled-components';
+import { Card as AntCard } from 'antd';
 import { normalizeProp } from '@app/utils/utils';
 import { media } from '@app/utils/utils';
 
@@ -8,25 +8,7 @@ interface CardInternalProps {
   $autoHeight: boolean;
 }
 
-export const Card = styled((props: React.ComponentProps<typeof AntCard>) => {
-  const theme = useTheme();
-  return (
-    <ConfigProvider
-      theme={{
-        components: {
-          Card: {
-            colorTextHeading: theme.textMain,
-            padding: 20,
-            paddingLG: 20,
-            boxShadowTertiary: theme.boxShadow,
-          },
-        },
-      }}
-    >
-      <AntCard {...props} />
-    </ConfigProvider>
-  );
-})<CardInternalProps>`
+export const Card = styled(AntCard)<CardInternalProps>`
   display: flex;
   flex-direction: column;
 
