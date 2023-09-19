@@ -1,15 +1,10 @@
 import styled from 'styled-components';
 import { Badge as AntBadge } from 'antd';
 import { colorTypeFrom } from '@app/utils/utils';
-import { NotificationType } from '../BaseNotification/BaseNotification';
 
-interface BadgeProps {
-  $severity?: NotificationType;
-}
-
-export const Badge = styled(AntBadge)<BadgeProps>`
+export const Badge = styled(AntBadge)`
   .ant-badge-count {
-    background: ${({ $severity, theme }) => theme[colorTypeFrom($severity)]};
+    background: ${(props) => props.theme[colorTypeFrom(props.status)]};
     font-size: ${({ theme }) => theme.fontSizes.xs};
   }
 

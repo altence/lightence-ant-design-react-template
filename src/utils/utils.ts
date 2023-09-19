@@ -57,28 +57,27 @@ export const colorTypeFrom = (severity: Priority | NotificationType | undefined)
     return 'primary';
   }
 
+export const colorTypeFrom = (
+  value: Priority | Severity | NotificationType | BaseBadgeProps['status'] | undefined,
+): ColorType => {
   const lookup = {
-    [Priority.INFO]: 'primary',
-    [Priority.LOW]: 'success',
-    [Priority.MEDIUM]: 'warning',
-    [Priority.HIGH]: 'error',
-
+    ['default']: 'primary',
     ['info']: 'primary',
     ['mention']: 'primary',
+    ['processing']: 'primary',
+    [Priority.INFO]: 'primary',
+
     ['success']: 'success',
+    [Priority.LOW]: 'success',
+
     ['warning']: 'warning',
+    [Priority.MEDIUM]: 'warning',
+
     ['error']: 'error',
+    [Priority.HIGH]: 'error',
   } as const;
 
-  if (Object.hasOwn(lookup, severity)) {
-    return lookup[severity];
-  }
-
-  if (Object.values(Priority).includes(severity)) {
-    return 'success';
-  }
-
-  return 'primary';
+  return value !== undefined && Object.hasOwn(lookup, value) ? lookup[value] : 'primary';
 };
 
 export const media =
@@ -189,12 +188,4 @@ export const getPaymentCardTypeIcon = (type: string): string | null => {
     default:
       return null;
   }
-};
-
-export const mapBadgeStatus = (status: BaseBadgeProps['status']): Severity => {
-  if (!status || status === 'default' || status === 'processing') {
-    return 'info';
-  }
-
-  return status;
 };
