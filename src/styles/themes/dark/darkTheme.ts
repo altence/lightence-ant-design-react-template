@@ -1,7 +1,7 @@
 import { hexToRGB, shadeColor } from '@app/utils/utils';
 import { graphic } from 'echarts';
 import { BASE_COLORS, BORDER_RADIUS, BREAKPOINTS, FONT_FAMILY, FONT_SIZE, FONT_WEIGHT, HEIGHT } from '../constants';
-import type { ColorType, ITheme } from '../types';
+import type { ChartColors, ColorType, ITheme, IndexedPrimaries } from '../types';
 
 const colorTypes = {
   primary: '#339CFD',
@@ -10,9 +10,7 @@ const colorTypes = {
   error: '#FF5252',
 } as const satisfies Record<ColorType, string>;
 
-const background = '#25284B';
-
-export const darkColorsTheme = {
+const indexedPrimaries = {
   primary1: '#7568f6',
   primary2: '#d6f1ff',
   primary3: '#ade0ff',
@@ -23,6 +21,31 @@ export const darkColorsTheme = {
   primary8: '#1259b0',
   primary9: '#073d8a',
   primary10: '#042963',
+} as const satisfies IndexedPrimaries;
+
+const chartColors = {
+  chartColor1: '#339CFD',
+  chartColor1Tint: '#339CFD',
+  chartColor2: '#dc88f5',
+  chartColor2Tint: '#dc88f5',
+  chartColor3: '#FFB765',
+  chartColor3Tint: '#FFB765',
+  chartColor4: '#306955',
+  chartColor4Tint: '#306955',
+  chartColor5: '#ff3d71',
+  chartColor5Tint: '#ff3d71',
+} as const satisfies ChartColors;
+
+const background = '#25284B';
+
+const rgb = Object.fromEntries(
+  Object.entries({ ...colorTypes, ...indexedPrimaries, ...chartColors, background } satisfies ITheme['rgb']).map(
+    ([key, hexColor]) => [key, hexToRGB(hexColor)],
+  ),
+) as ITheme['rgb'];
+
+export const darkColorsTheme = {
+  ...indexedPrimaries,
   successBg: '#e6fff2',
   successBorder: '#79fcc4',
   primaryGradient: 'linear-gradient(211.49deg, #dc88f5 15.89%, #339CFD 48.97%)',
@@ -50,13 +73,7 @@ export const darkColorsTheme = {
   boxShadow: 'none',
   boxShadowHover: 'none',
   ...colorTypes,
-  rgb: {
-    primary: hexToRGB(colorTypes.primary),
-    success: hexToRGB(colorTypes.success),
-    warning: hexToRGB(colorTypes.warning),
-    error: hexToRGB(colorTypes.error),
-    background: hexToRGB(background),
-  },
+  rgb,
   nft: {
     border: '#797c9a',
     textLight: '#797C9A',
@@ -89,16 +106,7 @@ export const darkColorsTheme = {
   icon: '#a9a9a9',
   iconHover: '#ffffff',
   chartTooltipLabel: '#6a7985',
-  chartColor1: '#339CFD',
-  chartColor1Tint: '#339CFD',
-  chartColor2: '#dc88f5',
-  chartColor2Tint: '#dc88f5',
-  chartColor3: '#FFB765',
-  chartColor3Tint: '#FFB765',
-  chartColor4: '#306955',
-  chartColor4Tint: '#306955',
-  chartColor5: '#ff3d71',
-  chartColor5Tint: '#ff3d71',
+  ...chartColors,
   chartPrimaryGradient: new graphic.LinearGradient(0, 0, 0, 1, [
     {
       offset: 0,
@@ -140,7 +148,9 @@ export const darkColorsTheme = {
   split: '#f0f0f0',
   sliderFillColor: '#e1e1e1',
   newsFilterBoxShadow: '0 4px 40px rgba(0, 0, 0, 0.07)',
-  radioBoxShadow: `0 0 0 3px rgba(${hexToRGB(colorTypes.primary)}, 0.12)`,
+  radioBoxShadow: `0 0 0 3px rgba(${rgb.primary}, 0.12)`,
   chartsCardPadding: '0 0 1.875rem',
   treatmentCalendarEventBoxShadow: '0 5px 15px rgba(0, 89, 171, 0.3)',
+  modalBoxShadow:
+    '0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05)',
 } as const satisfies ITheme;

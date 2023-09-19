@@ -1,6 +1,6 @@
 import React from 'react';
 import { BaseChart, getDefaultTooltipStyles } from '@app/components/common/charts/BaseChart';
-import { getMarkAreaData, hexToRGB } from '@app/utils/utils';
+import { getMarkAreaData } from '@app/utils/utils';
 import { ChartData, xData } from '@app/interfaces/interfaces';
 import { useTheme } from 'styled-components';
 
@@ -69,7 +69,7 @@ export const CovidChart: React.FC<{
         areaStyle: {},
         markArea: {
           itemStyle: {
-            color: `rgba(${hexToRGB(theme.chartColor1)}, 0.02)`,
+            color: `rgba(${theme.rgb.chartColor1}, 0.02)`,
           },
           data: dateArr && getMarkAreaData(dateArr),
         },
@@ -89,7 +89,7 @@ export const CovidChart: React.FC<{
         areaStyle: {},
         markArea: {
           itemStyle: {
-            color: `rgba(${hexToRGB(theme.chartColor5)}, 0.02)`,
+            color: `rgba(${theme.rgb.chartColor5}, 0.02)`,
           },
           data: dateArr && getMarkAreaData(dateArr),
         },

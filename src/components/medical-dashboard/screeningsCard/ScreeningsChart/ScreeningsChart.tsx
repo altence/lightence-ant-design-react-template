@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { BaseChart, getDefaultTooltipStyles } from '@app/components/common/charts/BaseChart';
-import { hexToRGB } from '@app/utils/utils';
 import { getMarkAreaData } from '@app/utils/utils';
 import { ChartSeriesData } from '@app/interfaces/interfaces';
 import { useTheme } from 'styled-components';
@@ -86,7 +85,7 @@ export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, sec
         data: firstUser?.data,
         markArea: {
           itemStyle: {
-            color: `rgba(${hexToRGB(theme.chartColor1)}, 0.01)`,
+            color: `rgba(${theme.rgb.chartColor1}, 0.01)`,
           },
           data: getMarkAreaData(xAxisData),
         },
@@ -109,7 +108,7 @@ export const ScreeningsChart: React.FC<ScreeningsChartProps> = ({ firstUser, sec
         data: secondUser?.data,
         markArea: {
           itemStyle: {
-            color: `rgba(${hexToRGB(theme.chartColor1)}, 0.01)`,
+            color: `rgba(${theme.rgb.chartColor1}, 0.01)`,
           },
           data: getMarkAreaData(xAxisData),
         },
