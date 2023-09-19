@@ -20,6 +20,7 @@ const App: React.FC = () => {
   const { language } = useLanguage();
   const theme = useAppSelector((state) => state.theme.theme);
   const currentTheme = themeObject[theme];
+  const themeConfig = React.useMemo(() => getThemeConfig(currentTheme), [currentTheme]);
 
   usePWA();
 
@@ -32,7 +33,7 @@ const App: React.FC = () => {
       <meta name="theme-color" content={currentTheme.primary} />
       <GlobalStyle />
       <HelmetProvider>
-        <ConfigProvider theme={getThemeConfig(currentTheme)} locale={language === 'en' ? enUS : deDe}>
+        <ConfigProvider theme={themeConfig} locale={language === 'en' ? enUS : deDe}>
           <FeedbackProvider>
             <AppRouter />
           </FeedbackProvider>

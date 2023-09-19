@@ -53,7 +53,11 @@ export const normalizeProp = (prop: string | number | [number, number]): string 
   typeof prop === 'number' ? `${prop}px` : Array.isArray(prop) ? `${prop[0]}px ${prop[1]}px` : prop;
 
 export const colorTypeFrom = (severity: Priority | NotificationType | undefined): ColorType => {
-  const lookup: Record<Priority | NotificationType, ColorType> = {
+  if (severity === undefined) {
+    return 'primary';
+  }
+
+  const lookup = {
     [Priority.INFO]: 'primary',
     [Priority.LOW]: 'success',
     [Priority.MEDIUM]: 'warning',
@@ -64,9 +68,17 @@ export const colorTypeFrom = (severity: Priority | NotificationType | undefined)
     ['success']: 'success',
     ['warning']: 'warning',
     ['error']: 'error',
-  };
+  } as const;
 
-  return severity !== undefined && Object.hasOwn(lookup, severity) ? lookup[severity] : 'primary';
+  if (Object.hasOwn(lookup, severity)) {
+    return lookup[severity];
+  }
+
+  if (Object.values(Priority).includes(severity)) {
+    return 'success';
+  }
+
+  return 'primary';
 };
 
 export const media =
@@ -105,8 +117,6 @@ export const shadeColor = (color: string, percent: number): string => {
 
   return '#' + RR + GG + BB;
 };
-
-export const remToPixels = (s: `${number}rem` | string): number => parseFloat(s) * 16;
 
 export const hexToHSL = (hex: string): { h: number; s: number; l: number } => {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -153,6 +163,7 @@ export const hexToHSL = (hex: string): { h: number; s: number; l: number } => {
 export const formatNumberWithCommas = (value: number): string => {
   return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 };
+
 export const msToH = (ms: number): number => Math.floor(ms / 3600000);
 
 export const hToMS = (h: number): number => h * 3600000;

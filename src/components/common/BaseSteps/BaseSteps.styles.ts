@@ -1,29 +1,8 @@
-import styled, { useTheme } from 'styled-components';
-import { Steps as AntSteps, ConfigProvider } from 'antd';
+import styled from 'styled-components';
+import { Steps as AntSteps } from 'antd';
 import { media } from '@app/utils/utils';
-import { remToPixels } from '@app/utils/utils';
 
-export const Steps = styled((props: React.ComponentProps<typeof AntSteps>) => {
-  const theme = useTheme();
-  return (
-    <ConfigProvider
-      theme={{
-        components: {
-          Steps: {
-            iconSize: remToPixels(theme.heights.xs),
-            iconFontSize: remToPixels(theme.fontSizes.lg),
-            controlHeight: remToPixels(theme.heights.md),
-            controlHeightSM: remToPixels(theme.heights.xxs),
-            fontSizeHeading3: remToPixels(theme.fontSizes.xxl),
-            colorPrimary: theme.primary,
-          },
-        },
-      }}
-    >
-      <AntSteps {...props} />
-    </ConfigProvider>
-  );
-})`
+export const Steps = styled(AntSteps)`
   font-size: unset;
 
   & .ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title {
