@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const Text = styled.div`
   color: ${({ theme }) => theme.primary};
   text-align: center;
-  font-size: 1.25rem;
+  font-size: ${({ theme }) => theme.fontSizes.xl};
   margin: 1rem 0;
 `;
 

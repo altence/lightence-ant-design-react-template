@@ -11,10 +11,10 @@ export const HeaderActionWrapper = styled.div`
 
   & > .ant-btn span[role='img'],
   .ant-badge {
-    font-size: 1.25rem;
+    font-size: ${({ theme }) => theme.fontSizes.xl};
 
     @media only screen and (${media('md')}) {
-      font-size: 1.625rem;
+      font-size: ${({ theme }) => theme.fontSizes.xxxl};
     }
   }
 
@@ -25,12 +25,12 @@ export const HeaderActionWrapper = styled.div`
 
 export const DropdownCollapse = styled(BaseCollapse)`
   & > .ant-collapse-item > .ant-collapse-header {
-    font-weight: 600;
-    font-size: 0.875rem;
+    font-weight: ${({ theme }) => theme.fontWeights.semibold};
+    font-size: ${({ theme }) => theme.fontSizes.xs};
     color: ${({ theme }) => theme.primary};
 
     @media only screen and (${media('md')}) {
-      font-size: 1rem;
+      font-size: ${({ theme }) => theme.fontSizes.md};
     }
   }
 

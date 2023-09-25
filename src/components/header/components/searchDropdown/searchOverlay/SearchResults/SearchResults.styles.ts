@@ -5,16 +5,16 @@ import styled from 'styled-components';
 export const SearchResultsWrapper = styled.div`
   & > div {
     .ant-typography {
-      font-size: 0.875rem;
+      font-size: ${({ theme }) => theme.fontSizes.xs};
     }
 
     & .ant-list-header {
-      font-size: 0.75rem;
-      padding-bottom: 6px;
+      font-size: ${({ theme }) => theme.fontSizes.xxs};
+      padding-bottom: 0.375rem;
       color: ${({ theme }) => theme.primary};
 
       @media only screen and (${media('md')}) {
-        font-size: 0.875rem;
+        font-size: ${({ theme }) => theme.fontSizes.xs};
       }
     }
 

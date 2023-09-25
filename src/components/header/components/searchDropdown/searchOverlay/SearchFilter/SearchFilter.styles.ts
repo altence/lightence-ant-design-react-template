@@ -25,9 +25,9 @@ export const FilterWrapper = styled.div<FilterWrapperProps>`
 `;
 
 export const CheckBox = styled(BaseCheckbox)`
-  font-size: 0.75rem;
+  font-size: ${({ theme }) => theme.fontSizes.xxs};
 
   @media only screen and (${media('md')}) {
-    font-size: 0.875rem;
+    font-size: ${({ theme }) => theme.fontSizes.xs};
   }
 `;

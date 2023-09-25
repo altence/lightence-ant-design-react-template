@@ -8,7 +8,7 @@ export const CalendarSwitch = styled.div`
   align-items: center;
 `;
 export const Text = styled(BaseTypography.Text)`
-  font-weight: bold;
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
   font-size: ${({ theme }) => theme.fontSizes.xs};
 
   @media only screen and (${media('md')}) {

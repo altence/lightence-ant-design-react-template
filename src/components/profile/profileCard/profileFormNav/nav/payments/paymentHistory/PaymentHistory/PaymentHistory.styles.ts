@@ -25,6 +25,6 @@ export const ContentWrapper = styled.div<ContentWrapperProps>`
 
 export const Text = styled(BaseTypography.Text)`
   @media only screen and (${media('md')}) {
-    font-size: 1rem;
+    font-size: ${({ theme }) => theme.fontSizes.md};
   }
 `;

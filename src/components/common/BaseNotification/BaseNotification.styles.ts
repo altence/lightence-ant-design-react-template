@@ -12,12 +12,12 @@ interface SpacewWrapperProps {
 export const NotificationIcon = styled(BaseAvatar)``;
 
 export const Title = styled(BaseTypography.Text)`
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: ${({ theme }) => theme.fontSizes.xs};
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
 `;
 
 export const Description = styled(BaseTypography.Text)`
-  font-size: 0.875rem;
+  font-size: ${({ theme }) => theme.fontSizes.xs};
 `;
 
 export const SpaceWrapper = styled(BaseSpace)<SpacewWrapperProps>`
@@ -32,6 +32,6 @@ export const SpaceWrapper = styled(BaseSpace)<SpacewWrapperProps>`
   }
 
   & span[role='img'] {
-    font-size: 2rem;
+    font-size: ${({ theme }) => theme.fontSizes.xxxxl};
   }
 `;

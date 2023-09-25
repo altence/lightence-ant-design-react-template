@@ -8,10 +8,10 @@ import { media } from '@app/utils/utils';
 export const SearchIcon = styled(SearchOutlined)`
   &.anticon.anticon-search {
     display: block;
-    font-size: 1.25rem;
+    font-size: ${({ theme }) => theme.fontSizes.xl};
 
     @media only screen and (${media('md')}) {
-      font-size: 1.625rem;
+      font-size: ${({ theme }) => theme.fontSizes.xxxl};
     }
   }
 `;

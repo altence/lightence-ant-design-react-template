@@ -20,7 +20,7 @@ export const SliderArrow = styled.div`
 
   &:before {
     color: ${({ theme }) => theme.primary} !important;
-    font-size: 2rem !important;
+    font-size: ${({ theme }) => theme.fontSizes.xxxxl} !important;
     position: absolute;
     left: -6px;
     top: -6px;

@@ -14,7 +14,7 @@ export const AvatarWrapper = styled.div`
 `;
 
 export const Text = styled(BaseTypography.Text)`
-  font-weight: 600;
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
 `;
 
 export const ContentWrapper = styled.div`
@@ -44,8 +44,8 @@ export const Item = styled.div`
 `;
 
 export const Subtitle = styled(BaseTypography.Text)`
-  font-weight: 500;
-  font-size: 0.75rem;
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
+  font-size: ${({ theme }) => theme.fontSizes.xxs};
   color: ${({ theme }) => theme.primary};
 `;
 

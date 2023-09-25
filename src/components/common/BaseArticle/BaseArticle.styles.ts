@@ -86,7 +86,7 @@ export const Description = styled.div`
   color: ${({ theme }) => theme.textMain};
 
   @media only screen and (${media('xxl')}) {
-    font-size: 1rem;
+    font-size: ${({ theme }) => theme.fontSizes.md};
   }
 `;
 

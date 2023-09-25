@@ -20,8 +20,8 @@ export const PaymentHistoryTable = styled(BaseTable)`
 
   .ant-table-tbody > tr > td {
     border-bottom: 1px solid rgba(${({ theme }) => theme.rgb.primary}, 0.3);
-    font-weight: 600;
-    font-size: 1rem;
+    font-weight: ${({ theme }) => theme.fontWeights.semibold};
+    font-size: ${({ theme }) => theme.fontSizes.md};
   }
 `;
 

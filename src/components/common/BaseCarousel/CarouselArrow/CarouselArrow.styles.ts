@@ -4,7 +4,7 @@ import { CustomArrowProps } from 'react-slick';
 export const ArrowWrapper = styled.div.withConfig({
   shouldForwardProp: (prop) => !['currentSlide', 'slideCount'].includes(prop),
 })<CustomArrowProps>`
-  font-size: 1rem;
+  font-size: ${({ theme }) => theme.fontSizes.md};
 
   color: ${({ theme }) => theme.textMain};
 
