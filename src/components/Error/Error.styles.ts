@@ -42,7 +42,7 @@ export const ContentWrapper = styled.div`
 
 export const Title = styled(BaseTypography.Text)`
   font-size: 2.25rem;
-  font-weight: 600;
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
   margin-bottom: 1rem;
   color: ${({ theme }) => theme.textMain};
 
@@ -58,7 +58,7 @@ export const Title = styled(BaseTypography.Text)`
 `;
 
 export const Text = styled(Title)`
-  font-size: 0.875rem;
+  font-size: ${({ theme }) => theme.fontSizes.xs};
   margin-bottom: 1.25rem;
 
   @media only screen and (${media('md')}) {
@@ -67,7 +67,7 @@ export const Text = styled(Title)`
   }
 
   @media only screen and (${media('xl')}) {
-    font-size: 1.5rem;
+    font-size: ${({ theme }) => theme.fontSizes.xxl};
     margin-bottom: 1.8rem;
   }
 `;

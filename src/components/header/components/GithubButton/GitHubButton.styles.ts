@@ -26,6 +26,6 @@ export const Button = styled(BaseButton)<Dark>`
 `;
 
 export const GithubIcon = styled(GithubOutlined)`
-  font-size: 1.5rem;
+  font-size: ${({ theme }) => theme.fontSizes.xxl};
   vertical-align: middle;
 `;

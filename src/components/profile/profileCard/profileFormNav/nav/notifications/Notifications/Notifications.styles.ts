@@ -4,11 +4,11 @@ import styled from 'styled-components';
 
 export const Description = styled(BaseTypography.Text)`
   display: block;
-  font-size: 0.75rem;
+  font-size: ${({ theme }) => theme.fontSizes.xxs};
   margin-bottom: 1rem;
 
   @media only screen and (${media('md')}) {
-    font-size: 1rem;
+    font-size: ${({ theme }) => theme.fontSizes.md};
     margin-bottom: 2rem;
   }
 `;

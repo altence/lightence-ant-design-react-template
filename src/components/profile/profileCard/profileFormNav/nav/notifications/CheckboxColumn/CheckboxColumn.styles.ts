@@ -18,7 +18,7 @@ export const Col = styled.div`
 
   @media only screen and (${media('md')}) {
     justify-content: unset;
-    font-size: 1rem;
+    font-size: ${({ theme }) => theme.fontSizes.md};
     padding: 0.5rem;
   }
 

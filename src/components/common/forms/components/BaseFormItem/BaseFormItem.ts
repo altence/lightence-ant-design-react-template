@@ -30,22 +30,22 @@ export const BaseFormItem = styled(Form.Item as React.FC<FormItemProps>)<Interna
   }
 
   .ant-input-group-addon:first-of-type {
-    font-weight: 600;
+    font-weight: ${({ theme }) => theme.fontWeights.semibold};
     width: 5rem;
     color: ${({ theme }) => theme.primary};
 
     .anticon,
     svg {
-      font-size: 1.25rem;
+      font-size: ${({ theme }) => theme.fontSizes.xl};
     }
 
     @media only screen and (${media('md')}) {
       width: 5.5rem;
-      font-size: 1.125rem;
+      font-size: ${({ theme }) => theme.fontSizes.lg};
     }
 
     @media only screen and (${media('xl')}) {
-      font-size: 1.5rem;
+      font-size: ${({ theme }) => theme.fontSizes.xxl};
     }
   }
 
@@ -105,12 +105,12 @@ export const BaseFormItem = styled(Form.Item as React.FC<FormItemProps>)<Interna
     display: none;
   }
 
-  .ant-picker-suffix {
-    font-size: 1rem;
+  .ant-picker-suffix,
+  .ant-select-arrow {
+    font-size: ${({ theme }) => theme.fontSizes.md};
   }
 
   .ant-select-arrow {
-    font-size: 1rem;
     width: unset;
     height: unset;
     top: 50%;

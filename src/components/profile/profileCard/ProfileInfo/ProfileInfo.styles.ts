@@ -44,12 +44,12 @@ export const ImgWrapper = styled.div`
 `;
 
 export const Title = styled(BaseTypography.Text)`
-  font-size: 1.125rem;
-  font-weight: 700;
+  font-size: ${({ theme }) => theme.fontSizes.lg};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
   margin-bottom: 0.5rem;
 
   @media only screen and (${media('xl')}) {
-    font-size: 1.5rem;
+    font-size: ${({ theme }) => theme.fontSizes.xxl};
     margin-bottom: 1rem;
   }
 `;
@@ -58,8 +58,8 @@ export const Subtitle = styled(BaseTypography.Text)`
   margin-bottom: 2rem;
 
   @media only screen and (${media('xl')}) {
-    font-weight: 600;
-    font-size: 1rem;
+    font-weight: ${({ theme }) => theme.fontWeights.semibold};
+    font-size: ${({ theme }) => theme.fontSizes.md};
     margin-bottom: 2.5rem;
   }
 `;
@@ -88,14 +88,14 @@ export const FullnessLine = styled.div<FullnessLineProps>`
   color: ${({ theme }) => theme.textSecondary};
 
   @media only screen and (${media('xl')}) {
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: ${({ theme }) => theme.fontSizes.md};
+    font-weight: ${({ theme }) => theme.fontWeights.semibold};
     padding-right: 0.875rem;
   }
 `;
 
 export const Text = styled(BaseTypography.Text)`
-  font-size: 0.75rem;
+  font-size: ${({ theme }) => theme.fontSizes.xxs};
   text-align: left;
   color: ${({ theme }) => theme.textMain};
 
@@ -104,7 +104,7 @@ export const Text = styled(BaseTypography.Text)`
   }
 
   @media only screen and (${media('xl')}) {
-    font-size: 0.875rem;
+    font-size: ${({ theme }) => theme.fontSizes.xs};
     text-align: left;
   }
 `;

@@ -19,7 +19,7 @@ export const SplitDivider = styled(BaseDivider)`
 export const LinkBtn = styled(BaseButton)`
   &.ant-btn {
     padding: 0;
-    font-size: 0.875rem;
+    font-size: ${({ theme }) => theme.fontSizes.xs};
     height: unset;
     line-height: unset;
   }

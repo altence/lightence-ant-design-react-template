@@ -6,7 +6,7 @@ export const SettingsOverlayMenu = styled.div`
 `;
 
 export const RadioBtn = styled(BaseRadio)`
-  font-size: 0.875rem;
+  font-size: ${({ theme }) => theme.fontSizes.xs};
 `;
 
 export const PwaInstallWrapper = styled.div`

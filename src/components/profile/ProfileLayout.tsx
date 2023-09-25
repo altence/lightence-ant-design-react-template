@@ -19,9 +19,9 @@ const ProfileCard = styled(BaseCard)`
 `;
 
 const Btn = styled(BaseButton)`
-  font-size: 1rem;
+  font-size: ${({ theme }) => theme.fontSizes.md};
   margin-bottom: 1rem;
-  font-weight: 600;
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
   padding: 0;
   height: unset;
   color: ${({ theme }) => theme.secondary};

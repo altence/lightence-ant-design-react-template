@@ -172,7 +172,7 @@ export const FooterWrapper = styled.div`
 `;
 
 export const BackIcon = styled(LeftOutlined)`
-  font-size: 0.75rem;
+  font-size: ${({ theme }) => theme.fontSizes.xxs};
   margin-right: 0.75rem;
 `;
 

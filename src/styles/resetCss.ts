@@ -23,7 +23,7 @@ export const resetCss = css`
   }
 
   body {
-    font-weight: 500;
+    font-weight: ${({ theme }) => theme.fontWeights.medium};
   }
 
   img {

@@ -60,7 +60,7 @@ export const Table = styled(AntTable)`
   & .editable-row .ant-form-item-explain {
     position: absolute;
     top: 100%;
-    font-size: 0.75rem;
+    font-size: ${({ theme }) => theme.fontSizes.xxs};
   }
 
   .ant-table-column-sort {

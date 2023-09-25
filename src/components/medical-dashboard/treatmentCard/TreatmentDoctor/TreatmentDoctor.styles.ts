@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { BaseCard } from '@app/components/common/BaseCard/BaseCard';
 
 export const DoctorName = styled.span`
-  font-size: 1.25rem;
-  font-weight: bold;
+  font-size: ${({ theme }) => theme.fontSizes.xl};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
   margin-top: 0.5rem;
   margin-bottom: 1rem;
   text-align: center;

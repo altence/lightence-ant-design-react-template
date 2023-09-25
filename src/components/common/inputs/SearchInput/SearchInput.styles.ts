@@ -18,15 +18,15 @@ export const SearchInput = styled(BaseInput.Search)`
   }
 
   & input {
-    font-weight: 600;
+    font-weight: ${({ theme }) => theme.fontWeights.semibold};
     background-color: ${({ theme }) => theme.background};
 
     @media only screen and (${media('md')}) {
-      font-size: 1rem;
+      font-size: ${({ theme }) => theme.fontSizes.md};
     }
 
     &::placeholder {
-      font-weight: 500;
+      font-weight: ${({ theme }) => theme.fontWeights.medium};
     }
   }
 

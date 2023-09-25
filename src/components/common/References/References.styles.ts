@@ -38,7 +38,7 @@ export const Icons = styled.div`
   flex-wrap: nowrap;
 
   svg {
-    font-size: 2rem;
+    font-size: ${({ theme }) => theme.fontSizes.xxxxl};
     margin-left: 0.5rem;
     margin-right: 0.5rem;
   }

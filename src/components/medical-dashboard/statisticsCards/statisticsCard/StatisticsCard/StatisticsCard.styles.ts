@@ -13,7 +13,7 @@ export const IconWrapper = styled.div`
 `;
 
 export const Icon = styled(AntIcon)`
-  font-size: 1.5rem;
+  font-size: ${({ theme }) => theme.fontSizes.xxl};
 `;
 
 export const StatisticCard = styled(DashboardCard)<StatisticsProps>`

@@ -7,7 +7,7 @@ export const Card = styled(CommonCard)`
   margin-bottom: 1.25rem;
 
   .ant-card-head-title {
-    font-size: 1rem;
+    font-size: ${({ theme }) => theme.fontSizes.md};
   }
 
   .ant-card-body {

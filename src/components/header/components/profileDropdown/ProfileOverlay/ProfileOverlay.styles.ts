@@ -8,15 +8,15 @@ export const Text = styled(BaseTypography.Text)`
   align-items: center;
   justify-content: center;
   height: 50px;
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: ${({ theme }) => theme.fontSizes.xs};
+  font-weight: ${({ theme }) => theme.fontWeights.semibold};
 
   & > a {
     display: block;
   }
 
   @media only screen and (${media('md')}) {
-    font-size: 1rem;
+    font-size: ${({ theme }) => theme.fontSizes.md};
   }
 `;
 
