@@ -1,8 +1,7 @@
 import React from 'react';
+import PhoneInput from 'antd-phone-input/legacy';
 import { useTranslation } from 'react-i18next';
-import { isValidPhoneNumber } from 'react-phone-number-input';
 import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
-import * as S from './PhoneItem.styles';
 
 interface PhoneItemsProps {
   required?: boolean;
@@ -22,8 +21,8 @@ export const PhoneItem: React.FC<PhoneItemsProps> = ({ required, onClick, verifi
       rules={[
         { required, message: t('common.requiredField') },
         () => ({
-          validator(_, value) {
-            if (!value || isValidPhoneNumber(value)) {
+          validator(_, { valid }) {
+            if (valid()) {
               return Promise.resolve();
             }
             return Promise.reject(new Error(t('profile.nav.personalInfo.wrongNumber')));
@@ -31,7 +30,7 @@ export const PhoneItem: React.FC<PhoneItemsProps> = ({ required, onClick, verifi
         }),
       ]}
     >
-      <S.PhoneNumberInput disabled={verified} className="ant-input" onClick={onClick} />
+      <PhoneInput disabled={verified} onFocus={onClick} />
     </BaseButtonsForm.Item>
   );
 };
