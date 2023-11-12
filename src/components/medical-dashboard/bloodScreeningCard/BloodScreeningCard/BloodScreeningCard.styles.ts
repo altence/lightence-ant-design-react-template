@@ -13,7 +13,7 @@ export const TitleWrapper = styled.div`
 
 export const ActiveItem = styled.div`
   background: #ecf6ff;
-  height: 3.125rem;
+  height: ${({ theme }) => theme.heights.md};
   border-radius: ${({ theme }) => theme.borderRadius};
   padding: 0 1rem;
   display: flex;

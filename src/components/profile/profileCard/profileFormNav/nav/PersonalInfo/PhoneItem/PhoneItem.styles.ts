@@ -4,7 +4,7 @@ import styled from 'styled-components';
 // has wrong prop types
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const PhoneNumberInput = styled(PhoneInput as any)`
-  height: 50px;
+  height: ${({ theme }) => theme.heights.md};
   width: 100%;
   padding: 8px 11px;
   transition: all 0.3s;

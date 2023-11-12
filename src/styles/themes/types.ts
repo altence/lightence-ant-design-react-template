@@ -1,6 +1,7 @@
 import type * as CSS from 'csstype';
 import type { LinearGradientObject } from 'echarts';
 import type { Breakpoint } from 'antd';
+import type { PresetColorKey } from 'antd/es/theme/interface';
 
 type IndexedPrimary = `primary${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10}`;
 
@@ -10,7 +11,7 @@ type ChartColor = `chartColor${1 | 2 | 3 | 4 | 5}${'Tint' | ''}`;
 
 export type ChartColors = Record<`chartColor${1 | 2 | 3 | 4 | 5}${'Tint' | ''}`, string>;
 
-export type NamedColors = Record<CSS.DataType.NamedColor, string>;
+export type NamedColors = Record<CSS.DataType.NamedColor | PresetColorKey, string>;
 
 export type ColorType = 'primary' | 'success' | 'warning' | 'error';
 
@@ -27,7 +28,22 @@ export type FontWeights = Record<
 
 export type NamedIndexes = Record<'main' | 'secondary' | 'tertiary' | 'quaternary', string>;
 
-export type RelativeSizeKey = Breakpoint | `${'x' | 'xx' | 'xxx' | 'xxxx'}${'s' | 'l'}`;
+export enum WidthCategory {
+  /** mobile */
+  small = 'xs',
+  /** tablet */
+  medium = 'md',
+  /** desktop */
+  large = 'xl',
+}
+
+export type WidthCategories =
+  | Record<WidthCategory, number>
+  | Record<WidthCategory, string>
+  | Record<WidthCategory, readonly number[]>
+  | Record<WidthCategory, readonly string[]>;
+
+export type RelativeSizeKey = Breakpoint | `${'xx' | 'xxx' | 'xxxx'}${'s' | 'l'}`;
 
 export type RelativeSizes = Record<RelativeSizeKey, number> | Record<RelativeSizeKey, string>;
 
@@ -95,7 +111,8 @@ export interface ITheme extends ColorTypes, IndexedPrimaries, ChartColors, Parti
   sliderFillColor: string;
   radioBoxShadow: string;
   newsFilterBoxShadow: string;
-  chartsCardPadding: string;
   treatmentCalendarEventBoxShadow: string;
   modalBoxShadow: string;
+  margins: Partial<RelativeSizes>;
+  paddings: Partial<RelativeSizes>;
 }

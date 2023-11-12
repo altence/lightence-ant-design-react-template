@@ -14,7 +14,7 @@ export const Header = styled(BaseLayout.Header)<Header>`
   padding-bottom: 1rem;
 
   @media only screen and (${media('md')}) {
-    padding: ${LAYOUT.desktop.paddingVertical} ${LAYOUT.desktop.paddingHorizontal};
+    padding: ${({ theme }) => `${theme.paddings.md} ${theme.paddings.xl}`};
     height: ${LAYOUT.desktop.headerHeight};
 
     ${(props) =>

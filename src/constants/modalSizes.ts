@@ -1,11 +1,7 @@
-interface ModalSizes {
-  small: string;
-  medium: string;
-  large: string;
-}
+import { WidthCategories } from '@app/styles/themes/types';
 
-export const modalSizes: ModalSizes = {
-  small: '400px',
-  medium: '600px',
-  large: '800px',
-};
+export const modalSizes = {
+  xs: '400px',
+  md: '600px',
+  xl: '800px',
+} as const satisfies WidthCategories;

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
+import { mediaMax } from '@app/utils/utils';
 
 export const SectionWrapper = styled.div`
   .slick-slide > div {
@@ -13,7 +14,7 @@ export const SectionWrapper = styled.div`
     margin-bottom: -40px;
   }
 
-  @media only screen and (max-width: ${({ theme }) => theme.breakpoints.md - 0.02}px) {
+  @media only screen and (${mediaMax('md')}) {
     display: flex;
     flex-direction: column;
     width: 100%;

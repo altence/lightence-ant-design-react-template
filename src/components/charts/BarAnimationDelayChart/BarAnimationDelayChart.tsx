@@ -84,7 +84,7 @@ export const BarAnimationDelayChart: React.FC = () => {
     animationEasing: 'elasticOut',
   };
   return (
-    <BaseCard padding={theme.chartsCardPadding} title={t('charts.barLabel')}>
+    <BaseCard padding="0 0 1.875rem" title={t('charts.barLabel')}>
       <BaseChart option={option} />
     </BaseCard>
   );

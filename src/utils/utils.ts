@@ -49,41 +49,55 @@ export const hexToRGB = (hex: string): string => {
 export const getDifference = (value: number, prevValue: number): string | null =>
   prevValue !== 0 ? `${((Math.abs(value - prevValue) / prevValue) * 100).toFixed(0)}%` : '100%';
 
-export const normalizeProp = (prop: string | number | [number, number]): string =>
-  typeof prop === 'number' ? `${prop}px` : Array.isArray(prop) ? `${prop[0]}px ${prop[1]}px` : prop;
+const units = 'px';
+const normalize = <T extends string | number>(value: T) =>
+  typeof value === 'string' ? value : (`${value}${units}` as const);
 
-export const colorTypeFrom = (severity: Priority | NotificationType | undefined): ColorType => {
-  if (severity === undefined) {
-    return 'primary';
+export const normalizeProp = (prop: string | number | readonly number[] | readonly string[]): string => {
+  if (typeof prop == 'number' || typeof prop == 'string') {
+    return normalize(prop);
   }
+  return prop.map(normalize).join(' ');
+};
+
+const colorTypeLookup = {
+  ['default']: 'primary',
+  ['info']: 'primary',
+  ['mention']: 'primary',
+  ['processing']: 'primary',
+  ['undefined']: 'primary',
+  [Priority.INFO]: 'primary',
+
+  ['success']: 'success',
+  [Priority.LOW]: 'success',
+
+  ['warning']: 'warning',
+  [Priority.MEDIUM]: 'warning',
+
+  ['error']: 'error',
+  [Priority.HIGH]: 'error',
+} as const;
 
 export const colorTypeFrom = (
   value: Priority | Severity | NotificationType | BaseBadgeProps['status'] | undefined,
-): ColorType => {
-  const lookup = {
-    ['default']: 'primary',
-    ['info']: 'primary',
-    ['mention']: 'primary',
-    ['processing']: 'primary',
-    [Priority.INFO]: 'primary',
+): ColorType => colorTypeLookup[`${value}`];
 
-    ['success']: 'success',
-    [Priority.LOW]: 'success',
-
-    ['warning']: 'warning',
-    [Priority.MEDIUM]: 'warning',
-
-    ['error']: 'error',
-    [Priority.HIGH]: 'error',
-  } as const;
-
-  return value !== undefined && Object.hasOwn(lookup, value) ? lookup[value] : 'primary';
-};
+type Breakpoints = keyof DefaultTheme['breakpoints'];
 
 export const media =
-  <T extends keyof DefaultTheme['breakpoints']>(breakpoint: T) =>
-  ({ theme }: { theme: DefaultTheme }): `(min-width: ${DefaultTheme['breakpoints'][T]}px)` =>
-    `(min-width: ${theme.breakpoints[breakpoint]}px)`;
+  <T extends Breakpoints>(breakpoint: T) =>
+  ({ theme }: { theme: DefaultTheme }) =>
+    `width >= ${normalize(theme.breakpoints[breakpoint])}` as const;
+
+export const mediaMax =
+  <T extends Breakpoints>(breakpoint: T) =>
+  ({ theme }: { theme: DefaultTheme }) =>
+    `width < ${normalize(theme.breakpoints[breakpoint])}` as const;
+
+export const mediaRange =
+  <Lower extends Breakpoints, Upper extends Breakpoints>(lower: Lower, upper: Upper) =>
+  ({ theme }: { theme: DefaultTheme }) =>
+    `${normalize(theme.breakpoints[lower])} <= width < ${normalize(theme.breakpoints[upper])}` as const;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const mergeBy = (a: any[], b: any[], key: string): any[] =>

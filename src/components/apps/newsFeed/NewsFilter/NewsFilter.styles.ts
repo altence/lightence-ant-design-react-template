@@ -5,7 +5,7 @@ import { BasePopover } from '@app/components/common/BasePopover/BasePopover';
 import { BaseInput } from '@app/components/common/inputs/BaseInput/BaseInput';
 import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
 import { BaseCheckbox } from '@app/components/common/BaseCheckbox/BaseCheckbox';
-import { media } from '@app/utils/utils';
+import { media, mediaRange } from '@app/utils/utils';
 
 export const AddTagText = styled.span`
   color: ${({ theme }) => theme.textMain};
@@ -21,7 +21,7 @@ export const TitleWrapper = styled.div`
 `;
 
 export const FilterButton = styled.div`
-  height: 3.125rem;
+  height: ${({ theme }) => theme.heights.md};
   width: 6.125rem;
   display: flex;
   justify-content: center;
@@ -79,7 +79,7 @@ export const SearchIcon = styled(SearchOutlined)`
 
 export const InputWrapper = styled.div`
   display: flex;
-  height: 3.125rem;
+  height: ${({ theme }) => theme.heights.md};
   border-radius: 3.125rem;
   background: ${({ theme }) => theme.secondaryBackground};
   margin-bottom: 1.25rem;
@@ -103,7 +103,7 @@ export const TitleHeader = styled.div`
 `;
 
 export const Input = styled(BaseInput)`
-  height: 3.125rem;
+  height: ${({ theme }) => theme.heights.md};
   border: none;
   background: ${({ theme }) => theme.secondaryBackground};
   border-radius: 3.125rem;
@@ -127,7 +127,7 @@ export const RangePicker = styled(BaseDatePicker.RangePicker)`
 
 export const PanelWrapper = styled.div`
   .ant-picker-panels {
-    @media only screen and (${media('xs')}) and (max-width: ${({ theme }) => theme.breakpoints.md - 0.02}px) {
+    @media only screen and (${mediaRange('xs', 'md')}) {
       display: flex;
       flex-direction: column;
     }

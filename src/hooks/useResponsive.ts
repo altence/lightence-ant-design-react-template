@@ -1,5 +1,7 @@
 import { useTheme } from 'styled-components';
 import { MediaQueryAllQueryable, MediaQueryMatchers, useMediaQuery } from 'react-responsive';
+import { media, mediaMax, mediaRange } from '@app/utils/utils';
+import { WidthCategory } from '@app/styles/themes/types';
 
 interface ResponsiveReturnValues {
   isMobile: boolean;
@@ -9,6 +11,7 @@ interface ResponsiveReturnValues {
   mobileOnly: boolean;
   tabletOnly: boolean;
   desktopOnly: boolean;
+  breakpoint: WidthCategory;
   useMediaQuery: (
     settings: Partial<MediaQueryAllQueryable & { query?: string | undefined }>,
     device?: MediaQueryMatchers,
@@ -19,22 +22,16 @@ interface ResponsiveReturnValues {
 export const useResponsive = (): ResponsiveReturnValues => {
   const theme = useTheme();
 
-  const isMobile = useMediaQuery({ query: `(min-width: ${theme.breakpoints.xs}px)` });
-  const isTablet = useMediaQuery({ query: `(min-width: ${theme.breakpoints.md}px)` });
-  const isDesktop = useMediaQuery({ query: `(min-width: ${theme.breakpoints.xl}px)` });
-  const isBigScreen = useMediaQuery({ query: `(min-width: ${theme.breakpoints.xxl}px)` });
+  const isMobile = useMediaQuery({ query: media('xs')({ theme }) });
+  const isTablet = useMediaQuery({ query: media('md')({ theme }) });
+  const isDesktop = useMediaQuery({ query: media('xl')({ theme }) });
+  const isBigScreen = useMediaQuery({ query: media('xxl')({ theme }) });
 
-  const mobileOnly = useMediaQuery({
-    query: `(max-width: ${theme.breakpoints.md - 0.02}px)`,
-  });
+  const mobileOnly = useMediaQuery({ query: mediaMax('md')({ theme }) });
+  const tabletOnly = useMediaQuery({ query: mediaRange('md', 'xl')({ theme }) });
+  const desktopOnly = useMediaQuery({ query: mediaRange('xl', 'xxl')({ theme }) });
 
-  const tabletOnly = useMediaQuery({
-    query: `(min-width: ${theme.breakpoints.md}px) and (max-width: ${theme.breakpoints.xl - 0.02}px)`,
-  });
-
-  const desktopOnly = useMediaQuery({
-    query: `(min-width: ${theme.breakpoints.xl}px) and (max-width: ${theme.breakpoints.xxl - 0.02}px)`,
-  });
+  const breakpoint = isDesktop ? WidthCategory.large : isTablet ? WidthCategory.medium : WidthCategory.small;
 
   return {
     isMobile,
@@ -44,6 +41,7 @@ export const useResponsive = (): ResponsiveReturnValues => {
     mobileOnly,
     tabletOnly,
     desktopOnly,
+    breakpoint,
     useMediaQuery,
   };
 };

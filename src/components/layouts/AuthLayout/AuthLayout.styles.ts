@@ -95,7 +95,7 @@ export const FormItem = styled(BaseForm.Item)`
   margin-bottom: 0.75rem;
 
   & .ant-form-item-control-input {
-    min-height: 3.125rem;
+    min-height: ${({ theme }) => theme.heights.md};
   }
 
   & .ant-form-item-explain-error {

@@ -71,7 +71,7 @@ export const FullnessWrapper = styled.div`
   background-color: rgba(${({ theme }) => theme.rgb.warning}, 0.5);
 
   @media only screen and (${media('xl')}) {
-    height: 2.5rem;
+    height: ${({ theme }) => theme.heights.sm};
     margin-bottom: 1rem;
   }
 `;

@@ -72,15 +72,15 @@ export const SiderLogoLink = styled(Link)`
 
 export const SiderLogoDiv = styled.div`
   height: ${LAYOUT.mobile.headerHeight};
-  padding: ${LAYOUT.mobile.headerPadding};
+  padding: ${({ theme }) => theme.paddings.sm};
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   @media only screen and (${media('md')}) {
     height: ${LAYOUT.desktop.headerHeight};
-    padding-top: ${LAYOUT.desktop.paddingVertical};
-    padding-bottom: ${LAYOUT.desktop.paddingVertical};
+    padding-top: ${({ theme }) => theme.paddings.md};
+    padding-bottom: ${({ theme }) => theme.paddings.md};
   }
 `;
 

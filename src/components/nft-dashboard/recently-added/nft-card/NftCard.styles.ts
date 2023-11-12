@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { NFTCard } from '@app/components/nft-dashboard/common/NFTCard/NFTCard';
-import { media } from '@app/utils/utils';
+import { media, mediaMax } from '@app/utils/utils';
 import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
 
 interface CardInternalProps {
@@ -36,7 +36,7 @@ export const InfoRow = styled.div`
   justify-content: space-between;
   margin-bottom: 0.625rem;
 
-  @media only screen and (max-width: ${({ theme }) => theme.breakpoints.md - 0.02}px) {
+  @media only screen and (${mediaMax('md')}) {
     &:first-of-type {
       margin-bottom: 0;
     }
