@@ -54,6 +54,7 @@ export const getThemeConfig = (theme: DefaultTheme): ThemeConfig => {
       controlTmpOutline: controlOutline,
       controlOutlineWidth: 2,
       lineWidthFocus: 0,
+      controlInteractiveSize: 16,
       screenXSMin: 0,
       screenXS: theme.breakpoints.xs,
       screenXSMax: theme.breakpoints.sm - 1,
@@ -210,13 +211,11 @@ export const getThemeConfig = (theme: DefaultTheme): ThemeConfig => {
       },
       Tree: {
         controlHeightSM: remToPixels(theme.heights.xxs),
-        controlInteractiveSize: 16,
       },
       Checkbox: {
         colorBgContainer: 'transparent',
         colorPrimary: theme.primary,
         colorTextDisabled: theme.disabled,
-        controlInteractiveSize: 16,
         marginXS: 8,
       },
       Tag: {

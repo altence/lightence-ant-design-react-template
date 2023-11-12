@@ -19,8 +19,6 @@ export const Table = styled(AntTable)`
   }
 
   & tbody .ant-table-row-expand-icon {
-    min-height: 1.25rem;
-    min-width: 1.25rem;
     border-radius: 0.1875rem;
     margin-top: 0;
   }
