@@ -22,14 +22,14 @@ interface ResponsiveReturnValues {
 export const useResponsive = (): ResponsiveReturnValues => {
   const theme = useTheme();
 
-  const isMobile = useMediaQuery({ query: media('xs')({ theme }) });
-  const isTablet = useMediaQuery({ query: media('md')({ theme }) });
-  const isDesktop = useMediaQuery({ query: media('xl')({ theme }) });
-  const isBigScreen = useMediaQuery({ query: media('xxl')({ theme }) });
+  const isMobile = useMediaQuery({ query: `(${media('xs')({ theme })})` });
+  const isTablet = useMediaQuery({ query: `(${media('md')({ theme })})` });
+  const isDesktop = useMediaQuery({ query: `(${media('xl')({ theme })})` });
+  const isBigScreen = useMediaQuery({ query: `(${media('xxl')({ theme })})` });
 
-  const mobileOnly = useMediaQuery({ query: mediaMax('md')({ theme }) });
-  const tabletOnly = useMediaQuery({ query: mediaRange('md', 'xl')({ theme }) });
-  const desktopOnly = useMediaQuery({ query: mediaRange('xl', 'xxl')({ theme }) });
+  const mobileOnly = useMediaQuery({ query: `(${mediaMax('md')({ theme })})` });
+  const tabletOnly = useMediaQuery({ query: `(${mediaRange('md', 'xl')({ theme })})` });
+  const desktopOnly = useMediaQuery({ query: `(${mediaRange('xl', 'xxl')({ theme })})` });
 
   const breakpoint = isDesktop ? WidthCategory.large : isTablet ? WidthCategory.medium : WidthCategory.small;
 

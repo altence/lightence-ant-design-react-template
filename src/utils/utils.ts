@@ -86,17 +86,17 @@ type Breakpoints = keyof DefaultTheme['breakpoints'];
 
 export const media =
   <T extends Breakpoints>(breakpoint: T) =>
-  ({ theme }: { theme: DefaultTheme }) =>
+  ({ theme }: { readonly theme: DefaultTheme }) =>
     `width >= ${normalize(theme.breakpoints[breakpoint])}` as const;
 
 export const mediaMax =
   <T extends Breakpoints>(breakpoint: T) =>
-  ({ theme }: { theme: DefaultTheme }) =>
+  ({ theme }: { readonly theme: DefaultTheme }) =>
     `width < ${normalize(theme.breakpoints[breakpoint])}` as const;
 
 export const mediaRange =
   <Lower extends Breakpoints, Upper extends Breakpoints>(lower: Lower, upper: Upper) =>
-  ({ theme }: { theme: DefaultTheme }) =>
+  ({ theme }: { readonly theme: DefaultTheme }) =>
     `${normalize(theme.breakpoints[lower])} <= width < ${normalize(theme.breakpoints[upper])}` as const;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
