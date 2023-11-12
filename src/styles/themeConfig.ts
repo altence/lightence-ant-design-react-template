@@ -34,7 +34,7 @@ export const getThemeConfig = (theme: DefaultTheme): ThemeConfig => {
       colorFillAlter,
       colorTextPlaceholder: theme.inputPlaceholder,
       colorPrimaryHover: theme.primary5,
-      colorSuccessBg: theme['successBg'],
+      colorSuccessBg: theme.successBg,
       colorSuccessBorder: theme.successBorder,
       fontFamily,
       fontFamilyCode: fontFamily,

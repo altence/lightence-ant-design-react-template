@@ -51,8 +51,8 @@ export interface ITheme extends ColorTypes, IndexedPrimaries, ChartColors, Parti
   primaryGradient: string;
   light: string;
   secondary: string;
-  successBg?: string;
-  successBorder?: string;
+  successBg: string;
+  successBorder: string;
   background: string;
   secondaryBackground: string;
   secondaryBackgroundSelected: string;
