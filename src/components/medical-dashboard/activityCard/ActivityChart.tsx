@@ -19,9 +19,7 @@ export const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
 
   const days = Dates.getDays();
 
-  const { isTablet, isDesktop, isMobile } = useResponsive();
-
-  const size = isDesktop ? 'xl' : isTablet ? 'md' : isMobile ? 'xs' : 'xs';
+  const { breakpoint } = useResponsive();
 
   const option = {
     color: new graphic.LinearGradient(0, 0, 0, 1, [
@@ -35,10 +33,10 @@ export const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
       },
     ]),
     grid: {
-      top: dashboardPaddings[size][0],
-      right: dashboardPaddings[size][1],
-      bottom: dashboardPaddings[size][1],
-      left: dashboardPaddings[size][0],
+      top: dashboardPaddings[breakpoint][0],
+      right: dashboardPaddings[breakpoint][1],
+      bottom: dashboardPaddings[breakpoint][1],
+      left: dashboardPaddings[breakpoint][0],
       containLabel: true,
     },
     xAxis: {

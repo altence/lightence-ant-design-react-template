@@ -7,7 +7,7 @@ export const Text = styled(BaseTypography.Text)`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px;
+  height: ${({ theme }) => theme.heights.md};
   font-size: ${({ theme }) => theme.fontSizes.xs};
   font-weight: ${({ theme }) => theme.fontWeights.semibold};
 

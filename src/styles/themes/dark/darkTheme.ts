@@ -1,6 +1,16 @@
 import { hexToRGB, shadeColor } from '@app/utils/utils';
 import { graphic } from 'echarts';
-import { BASE_COLORS, BORDER_RADIUS, BREAKPOINTS, FONT_FAMILY, FONT_SIZE, FONT_WEIGHT, HEIGHT } from '../constants';
+import {
+  BASE_COLORS,
+  BORDER_RADIUS,
+  BREAKPOINTS,
+  FONT_FAMILY,
+  FONT_SIZE,
+  FONT_WEIGHT,
+  HEIGHTS,
+  MARGINS,
+  PADDINGS,
+} from '../constants';
 import type { ChartColors, ColorType, ITheme, IndexedPrimaries } from '../types';
 
 const colorTypes = {
@@ -139,7 +149,7 @@ export const darkColorsTheme = {
   ]),
   ...BASE_COLORS,
   fontSizes: FONT_SIZE,
-  heights: HEIGHT,
+  heights: HEIGHTS,
   borderRadius: BORDER_RADIUS,
   fontWeights: FONT_WEIGHT,
   fontFamilies: FONT_FAMILY,
@@ -149,8 +159,9 @@ export const darkColorsTheme = {
   sliderFillColor: '#e1e1e1',
   newsFilterBoxShadow: '0 4px 40px rgba(0, 0, 0, 0.07)',
   radioBoxShadow: `0 0 0 3px rgba(${rgb.primary}, 0.12)`,
-  chartsCardPadding: '0 0 1.875rem',
   treatmentCalendarEventBoxShadow: '0 5px 15px rgba(0, 89, 171, 0.3)',
   modalBoxShadow:
     '0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05)',
+  margins: MARGINS,
+  paddings: PADDINGS,
 } as const satisfies ITheme;

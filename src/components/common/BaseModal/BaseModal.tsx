@@ -1,5 +1,6 @@
 import React from 'react';
 import { Modal, ModalProps } from 'antd';
+import { WidthCategory } from '@app/styles/themes/types';
 import { modalSizes } from 'constants/modalSizes';
 
 interface BaseModalProps extends ModalProps {
@@ -7,7 +8,7 @@ interface BaseModalProps extends ModalProps {
 }
 
 export const BaseModal: React.FC<BaseModalProps> = ({ size = 'medium', children, ...props }) => {
-  const modalSize = modalSizes[size];
+  const modalSize = modalSizes[WidthCategory[size]];
 
   return (
     <Modal getContainer={false} width={modalSize} {...props}>

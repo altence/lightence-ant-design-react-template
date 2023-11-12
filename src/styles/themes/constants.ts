@@ -19,14 +19,9 @@ export const BASE_COLORS = {
 
 export const LAYOUT = {
   mobile: {
-    paddingVertical: '0.75rem',
-    paddingHorizontal: '1rem',
     headerHeight: '4.25rem',
-    headerPadding: '1rem',
   },
   desktop: {
-    paddingVertical: '1.25rem',
-    paddingHorizontal: '2.25rem',
     headerHeight: '5.625rem',
   },
 } as const;
@@ -59,7 +54,7 @@ export const FONT_WEIGHT = {
   black: 900,
 } as const satisfies FontWeights;
 
-export const HEIGHT = {
+export const HEIGHTS = {
   xxs: '1.5rem',
   xs: '2rem',
   sm: '2.5rem',
@@ -74,4 +69,24 @@ export const BREAKPOINTS = {
   lg: 992,
   xl: 1280,
   xxl: 1920,
+} as const satisfies Partial<RelativeSizes>;
+
+export const MARGINS = {
+  xs: '0.5rem',
+  sm: '0.625rem',
+  md: '1rem',
+  lg: '1.25rem',
+  xl: '1.875rem',
+  xxl: '2rem',
+  xxxl: '2.5rem',
+} as const satisfies Partial<RelativeSizes>;
+
+export const PADDINGS = {
+  xxs: '0.75rem',
+  xs: '0.9375rem',
+  sm: '1rem',
+  md: '1.25rem',
+  lg: '1.5rem',
+  xl: '2.25rem',
+  xxl: '2.5rem',
 } as const satisfies Partial<RelativeSizes>;

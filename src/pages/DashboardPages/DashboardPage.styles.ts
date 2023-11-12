@@ -4,7 +4,7 @@ import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 import { media } from '@app/utils/utils';
 
 export const RightSideCol = styled(BaseCol)`
-  padding: ${LAYOUT.desktop.paddingVertical} ${LAYOUT.desktop.paddingHorizontal};
+  padding: ${({ theme }) => `${theme.paddings.md} ${theme.paddings.xl}`};
   position: sticky;
   top: 0;
   display: flex;
@@ -16,7 +16,7 @@ export const RightSideCol = styled(BaseCol)`
 
 export const LeftSideCol = styled(BaseCol)`
   @media only screen and (${media('xl')}) {
-    padding: ${LAYOUT.desktop.paddingVertical} ${LAYOUT.desktop.paddingHorizontal};
+    padding: ${({ theme }) => `${theme.paddings.md} ${theme.paddings.xl}`};
     height: calc(100vh - ${LAYOUT.desktop.headerHeight});
     overflow: auto;
   }

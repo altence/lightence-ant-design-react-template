@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 import { BurgerIcon } from '@app/components/common/Burger/BurgerIcon';
 import { GitHubButton } from '@app/components/header/components/GithubButton/GitHubButton';
-import { LAYOUT } from '@app/styles/themes/constants';
 import { BaseCollapse } from '../common/BaseCollapse/BaseCollapse';
 import { BaseCol } from '../common/BaseCol/BaseCol';
 import { media } from '@app/utils/utils';
@@ -56,7 +55,7 @@ export const MobileBurger = styled(BurgerIcon)`
 `;
 
 export const SearchColumn = styled(BaseCol)`
-  padding: ${LAYOUT.desktop.paddingVertical} ${LAYOUT.desktop.paddingHorizontal};
+  padding: ${({ theme }) => `${theme.paddings.md} ${theme.paddings.xl}`};
 `;
 
 interface ProfileColumn {
@@ -69,7 +68,7 @@ export const ProfileColumn = styled(BaseCol)<ProfileColumn>`
       props.$isTwoColumnsLayout &&
       css`
         background-color: ${props.theme.siderBackground};
-        padding: ${LAYOUT.desktop.paddingVertical} ${LAYOUT.desktop.paddingHorizontal};
+        padding: ${({ theme }) => `${theme.paddings.md} ${theme.paddings.xl}`};
       `}
   }
 `;

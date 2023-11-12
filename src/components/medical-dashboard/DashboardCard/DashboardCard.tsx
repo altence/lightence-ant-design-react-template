@@ -1,30 +1,19 @@
 import React from 'react';
 import { BaseCard, BaseCardProps } from '@app/components/common/BaseCard/BaseCard';
 import { useResponsive } from 'hooks/useResponsive';
+import { WidthCategories } from '@app/styles/themes/types';
 
-interface DashboardPaddings {
-  xs: [number, number];
-  md: [number, number];
-  xl: [number, number];
-}
-
-export const dashboardPaddings: DashboardPaddings = {
+export const dashboardPaddings = {
   xs: [20, 15],
   md: [20, 20],
   xl: [20, 20],
-};
+} as const satisfies WidthCategories;
 
 export const DashboardCard: React.FC<BaseCardProps> = ({ children, ...props }) => {
-  const { isMobile, isTablet, isDesktop } = useResponsive();
-
-  const responsivePaddings =
-    (isDesktop && dashboardPaddings.xl) ||
-    (isTablet && dashboardPaddings.md) ||
-    (isMobile && dashboardPaddings.xs) ||
-    dashboardPaddings.xs;
+  const { breakpoint } = useResponsive();
 
   return (
-    <BaseCard padding={responsivePaddings} {...props}>
+    <BaseCard padding={dashboardPaddings[breakpoint]} {...props}>
       {children}
     </BaseCard>
   );

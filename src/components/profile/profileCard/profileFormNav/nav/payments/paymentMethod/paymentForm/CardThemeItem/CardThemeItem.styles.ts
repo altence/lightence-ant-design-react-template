@@ -11,7 +11,7 @@ export const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
   align-items: center;
   cursor: pointer;
   width: 3.125rem;
-  height: 3.125rem;
+  height: ${({ theme }) => theme.heights.md};
   margin: 0 auto;
   transition: all 0.5s ease;
   border-radius: ${({ theme }) => theme.borderRadius};

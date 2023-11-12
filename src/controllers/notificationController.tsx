@@ -8,7 +8,7 @@ interface IconWrapperProps {
 }
 
 const IconWrapper = styled.div<IconWrapperProps>`
-  font-size: ${(props) => (props.$isOnlyTitle ? '2rem' : '3rem')};
+  font-size: ${(props) => (props.$isOnlyTitle ? props.theme.fontSizes.xxxxl : '3rem')};
   line-height: 2rem;
 `;
 
@@ -25,7 +25,7 @@ const Message = styled.div<MessageProps>`
     props.$isOnlyTitle
       ? css`
           font-size: ${props.theme.fontSizes.md};
-          height: 2rem;
+          height: ${props.theme.heights.xs};
           font-weight: ${props.theme.fontWeights.semibold};
           margin-inline-start: 9px;
         `

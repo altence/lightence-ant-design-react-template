@@ -23,7 +23,7 @@ export const CalendarIcon = styled(CalendarOutlined)`
 export const MobileTitleWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 2rem;
+  height: ${({ theme }) => theme.heights.xs};
   align-items: center;
 `;
 
@@ -59,7 +59,7 @@ export const Description = styled(BaseTypography.Text)`
 `;
 
 export const IconWrapper = styled.div<IconProps>`
-  height: 2rem;
+  height: ${({ theme }) => theme.heights.xs};
   width: 2rem;
   border-radius: 50%;
   display: flex;

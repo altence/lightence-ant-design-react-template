@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { defaultPaddings } from '@app/constants/defaultPaddings';
-import { media } from '@app/utils/utils';
+import styled, { css } from 'styled-components';
+import { defaultPaddings } from '@app/components/common/BaseCard/BaseCard';
+import { media, normalizeProp } from '@app/utils/utils';
 import { BaseTypography } from '@app/components/common/BaseTypography/BaseTypography';
 
 interface ContentWrapperProps {
@@ -10,12 +10,16 @@ interface ContentWrapperProps {
 export const ContentWrapper = styled.div<ContentWrapperProps>`
   ${(props) =>
     !props.isEmptyHistory &&
-    `margin: 0 -${defaultPaddings.mobile[1]}px -${defaultPaddings.mobile[0]}px -${defaultPaddings.mobile[1]}px`};
+    css`
+      margin: ${normalizeProp([0, -defaultPaddings.xs[1], -defaultPaddings.xs[0], -defaultPaddings.xs[1]])};
+    `}
 
   @media only screen and (${media('md')}) {
     ${(props) =>
       !props.isEmptyHistory &&
-      `margin: 0 -${defaultPaddings.tablet[1]}px -${defaultPaddings.tablet[0]}px -${defaultPaddings.tablet[1]}px`};
+      css`
+        margin: ${normalizeProp([0, -defaultPaddings.md[1], -defaultPaddings.md[0], -defaultPaddings.md[1]])};
+      `}
   }
 
   @media only screen and (${media('xl')}) {

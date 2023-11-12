@@ -1,14 +1,20 @@
 import React from 'react';
 import { CardProps } from 'antd';
-import { defaultPaddings } from '@app/constants/defaultPaddings';
 import { useResponsive } from '@app/hooks/useResponsive';
 import * as S from './BaseCard.styles';
+import type { WidthCategories } from '@app/styles/themes/types';
 
 export interface BaseCardProps extends CardProps {
   className?: string;
-  padding?: string | number | [number, number];
+  padding?: string | number | readonly [number, number];
   autoHeight?: boolean;
 }
+
+export const defaultPaddings = {
+  xs: [30, 16],
+  md: [40, 30],
+  xl: [50, 60],
+} as const satisfies WidthCategories;
 
 export const BaseCard: React.FC<BaseCardProps> = ({
   className,
@@ -18,18 +24,14 @@ export const BaseCard: React.FC<BaseCardProps> = ({
   children,
   ...props
 }) => {
-  const { isTablet, isDesktop } = useResponsive();
+  const { isTablet, breakpoint } = useResponsive();
 
   return (
     <S.Card
-      size={size ? size : isTablet ? 'default' : 'small'}
+      size={size ?? (isTablet ? 'default' : 'small')}
       className={className}
       bordered={false}
-      $padding={
-        padding || padding === 0
-          ? padding
-          : (isDesktop && defaultPaddings.desktop) || (isTablet && defaultPaddings.tablet) || defaultPaddings.mobile
-      }
+      $padding={padding || padding === 0 ? padding : defaultPaddings[breakpoint]}
       $autoHeight={autoHeight}
       {...props}
     >

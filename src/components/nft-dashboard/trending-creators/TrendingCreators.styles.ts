@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { BaseModal } from '@app/components/common/BaseModal/BaseModal';
 import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
-import { media } from '@app/utils/utils';
+import { media, mediaMax } from '@app/utils/utils';
 
 export const StoriesModal = styled(BaseModal)`
-  @media only screen and (max-width: ${({ theme }) => theme.breakpoints.md - 0.02}px) {
+  @media only screen and (${mediaMax('md')}) {
     top: 0;
     padding: 0;
     margin: 0;
