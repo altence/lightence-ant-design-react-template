@@ -224,6 +224,7 @@ export const getThemeConfig = (theme: DefaultTheme): ThemeConfig => {
       },
       Select: {
         fontSizeSM: remToPixels(theme.fontSizes.xs),
+        colorTextPlaceholder: theme.textMain,
         colorTextTertiary: theme.icon,
         colorTextQuaternary: theme.textMain, // arrow color
         colorFillSecondary: theme.backgroundColorBase,
