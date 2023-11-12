@@ -56,8 +56,8 @@ const rgb = Object.fromEntries(
 
 export const lightColorsTheme = {
   ...indexedPrimaries,
-  successBg: undefined,
-  successBorder: undefined,
+  successBg: '#e1f0e4',
+  successBorder: '#a1d6ad',
   primaryGradient: 'linear-gradient(211.49deg, #006CCF 15.89%, #00509A 48.97%)',
   light: '#C5D3E0',
   secondary: '#0085FF',
