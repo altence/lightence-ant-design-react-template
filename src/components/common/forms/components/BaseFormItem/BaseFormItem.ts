@@ -12,6 +12,13 @@ export type BaseFormItemProps = FormItemProps;
 export const BaseFormItem = styled(Form.Item as React.FC<FormItemProps>)<InternalFormItemProps>`
   .ant-input {
     font-size: ${({ theme }) => theme.fontSizes.md};
+    background: inherit;
+    border-color: ${({ theme }) => theme.borderBase};
+  }
+
+  .ant-input:focus {
+    box-shadow: ${({ theme }) => theme.boxShadow};
+    border-color: ${({ theme }) => theme.primary5};
   }
 
   .ant-input:disabled {
