@@ -11091,10 +11091,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"libphonenumber-js@npm:^1.10.19":
-  version: 1.10.19
-  resolution: "libphonenumber-js@npm:1.10.19"
-  checksum: 8408056a375b36728b83daa2048a9157abe21596b042307487c64a648aa31319ace77f04c59331710b30d7fc79466fc5ad978fddb74b6e4a0a21463b7e6bd535
+"libphonenumber-js@npm:^1.10.48":
+  version: 1.10.49
+  resolution: "libphonenumber-js@npm:1.10.49"
+  checksum: 596b4ed05fbf8c99f384cda802e6afb111accdaf96f9baf2a3ac32c885602583f3e9cba4c4475c3922e9c4f79c63bcdf7e592666b7e14b258cad26f34f51c2e0
   languageName: node
   linkType: hard
 
@@ -11151,7 +11151,7 @@ __metadata:
     react-infinite-scroll-component: ^6.1.0
     react-insta-stories: ^2.6.0
     react-leaflet: next
-    react-phone-number-input: ^3.2.17
+    react-phone-number-input: ^3.3.7
     react-redux: ^7.2.6
     react-responsive: ^9.0.2
     react-router-dom: ^6.0.2
@@ -15231,19 +15231,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-phone-number-input@npm:^3.2.17":
-  version: 3.2.18
-  resolution: "react-phone-number-input@npm:3.2.18"
+"react-phone-number-input@npm:^3.3.7":
+  version: 3.3.7
+  resolution: "react-phone-number-input@npm:3.3.7"
   dependencies:
     classnames: ^2.3.1
     country-flag-icons: ^1.5.4
     input-format: ^0.3.8
-    libphonenumber-js: ^1.10.19
+    libphonenumber-js: ^1.10.48
     prop-types: ^15.8.1
   peerDependencies:
     react: ">=16.8"
     react-dom: ">=16.8"
-  checksum: baf12a74e85726754ffbeb55a3e0d9acd8a43f9d6831fa145c9ecdbbcdf788bae23eb66718256837f6e86e109d9822189e9ea81a82361dc9621282392318370c
+  checksum: 93e6bc232531355e32024d43730cceb8992fdb48342593586032b6323dd86f1f11c2398149b90176c1be6d43a55baa7f7c51f819f2fe05116df092bcf14231c1
   languageName: node
   linkType: hard
 
