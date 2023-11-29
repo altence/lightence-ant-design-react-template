@@ -17,7 +17,8 @@ export const CovidCard: React.FC = () => {
     getCovidData()
       .then((res) => setData(res))
       .catch((e) => notification.error({ message: e.message }));
-  }, [notification]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const { confirmedArr, deathsArr, dateArr } = useMemo(() => {
     const confirmedArr: number[] = Object.values(data?.cases || {}).splice(0, 100);
