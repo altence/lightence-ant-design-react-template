@@ -206,8 +206,8 @@ export const getThemeConfig = (theme: DefaultTheme): ThemeConfig => {
       Layout: {
         controlHeight: 34,
         controlHeightLG: 12.8,
-        colorBgBody: theme.layoutBodyBg,
-        colorBgHeader: theme.layoutSiderBg,
+        bodyBg: theme.layoutBodyBg,
+        headerBg: theme.layoutSiderBg,
       },
       Tree: {
         controlHeightSM: remToPixels(theme.heights.xxs),
