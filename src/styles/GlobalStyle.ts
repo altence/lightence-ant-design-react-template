@@ -18,12 +18,36 @@ export default styled.createGlobalStyle`
     font-family: ${({ theme }) => theme.fontFamilies.main}, sans-serif;
   }
 
-  a {
-    color: ${({ theme }) => theme.primary};
+  .ant-menu-vertical {
+    .ant-menu-item {
+      .ant-menu-title-content {
+        a {
+          font-size: ${({ theme }) => theme.fontSizes.md};
+          color: ${({ theme }) => theme.textMain};
+      
+          &:hover,
+          :active {
+            color: ${({ theme }) => theme.primary6};
+          }
+        }
+      }
+    }
+    .ant-menu-item-selected {
+      .ant-menu-title-content {
+        a {
+          color: inherit;
+        }
+      }
+    }
+  }
 
-    &:hover,
-    :active {
-      color: ${({ theme }) => theme.primary5};
+  .ant-tooltip {
+    .ant-tooltip-content {
+      .ant-tooltip-inner {
+        min-width: 30px;
+        min-height: 32px;
+        font-size: ${({ theme }) => theme.fontSizes.md};
+      }
     }
   }
 

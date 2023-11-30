@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { Draggable, Map } from 'pigeon-maps';
-import { stamenTerrain } from 'pigeon-maps/providers';
+import { osm } from 'pigeon-maps/providers';
 
 import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import pigeon from '@app/assets/icons/pigeon.svg';
@@ -17,7 +17,7 @@ const PigeonsMaps: React.FC = () => {
     <>
       <PageTitle>{t('common.pigeonMaps')}</PageTitle>
       <S.MapsCard title={t('common.pigeonMaps')}>
-        <Map defaultCenter={MAP_CENTER} defaultZoom={11} provider={stamenTerrain}>
+        <Map defaultCenter={MAP_CENTER} defaultZoom={11} provider={osm}>
           <Draggable offset={[60, 87]} anchor={MAP_CENTER}>
             <img src={pigeon} alt="Pigeon!" />
           </Draggable>
