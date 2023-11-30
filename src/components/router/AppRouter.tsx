@@ -56,7 +56,6 @@ const TabsPage = React.lazy(() => import('@app/pages/uiComponentsPages/navigatio
 const NotificationsUIPage = React.lazy(() => import('@app/pages/uiComponentsPages/feedback/NotificationsPage'));
 const GoogleMaps = React.lazy(() => import('@app/pages/maps/GoogleMapsPage/GoogleMapsPage'));
 const LeafletMaps = React.lazy(() => import('@app/pages/maps/LeafletMapsPage/LeafletMapsPage'));
-const ReactSimpleMaps = React.lazy(() => import('@app/pages/maps/ReactSimpleMapsPage/ReactSimpleMapsPage'));
 const PigeonsMaps = React.lazy(() => import('@app/pages/maps/PigeonsMapsPage/PigeonsMapsPage'));
 const Logout = React.lazy(() => import('./Logout'));
 
@@ -103,7 +102,6 @@ const Charts = withLoading(ChartsPage);
 // Maps
 const Google = withLoading(GoogleMaps);
 const Leaflet = withLoading(LeafletMaps);
-const ReactSimple = withLoading(ReactSimpleMaps);
 const Pigeons = withLoading(PigeonsMaps);
 
 const ServerError = withLoading(ServerErrorPage);
@@ -142,7 +140,6 @@ export const AppRouter: React.FC = () => {
           <Route path="maps">
             <Route path="google-maps" element={<Google />} />
             <Route path="leaflet-maps" element={<Leaflet />} />
-            <Route path="react-simple-maps" element={<ReactSimple />} />
             <Route path="pigeon-maps" element={<Pigeons />} />
           </Route>
           <Route path="server-error" element={<ServerError />} />

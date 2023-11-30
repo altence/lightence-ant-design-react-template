@@ -12,7 +12,7 @@ export const Popover = styled(BasePopover)`
     }
 
     @media only screen and (${media('md')}) {
-      width: 323px;
+      width: 100%;
     }
   }
 `;
