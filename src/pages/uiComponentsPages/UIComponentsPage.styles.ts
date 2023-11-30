@@ -33,6 +33,16 @@ export const Card = styled(CommonCard)`
   .ant-spin-blur {
     opacity: 0;
   }
+
+  .ant-select-selection-search {
+    input {
+      font-size: ${({ theme }) => theme.fontSizes.md};
+    }
+  }
+
+  .ant-select-selection-placeholder {
+    opacity: 0.5;
+  }
 `;
 
 export const InputsWrapper = styled.div`
