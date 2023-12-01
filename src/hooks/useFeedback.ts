@@ -1,9 +1,11 @@
 import { App } from 'antd';
 
 import { notificationController } from '@app/controllers/notificationController';
-import { modalController } from '@app/controllers/modalController';
+import { ModalType, modalController } from '@app/controllers/modalController';
 
-export const useFeedback = (): ReturnType<typeof App.useApp> => {
+export const useFeedback = (): Omit<ReturnType<typeof App.useApp>, 'modal'> & {
+  modal: ModalType;
+} => {
   const { message, notification, modal } = App.useApp();
 
   return {
@@ -15,7 +17,6 @@ export const useFeedback = (): ReturnType<typeof App.useApp> => {
     },
     modal: {
       ...modalController(modal),
-      confirm: modal.confirm,
     },
   };
 };

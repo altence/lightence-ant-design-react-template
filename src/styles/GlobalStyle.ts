@@ -24,7 +24,7 @@ export default styled.createGlobalStyle`
         a {
           font-size: ${({ theme }) => theme.fontSizes.md};
           color: ${({ theme }) => theme.textMain};
-      
+
           &:hover,
           :active {
             color: ${({ theme }) => theme.primary6};
