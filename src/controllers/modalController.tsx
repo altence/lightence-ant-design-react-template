@@ -49,7 +49,7 @@ const modalRender = (node: React.ReactNode) => <ModalStyles>{node}</ModalStyles>
 
 type IconType = 'info' | 'success' | 'warning' | 'error';
 
-type ModalType = Pick<ModalStaticFunctions, IconType>;
+export type ModalType = Pick<ModalStaticFunctions, IconType>;
 
 const open = (type: IconType, modal: ModalType): ModalType[IconType] => {
   const Icon = Icons[type];
