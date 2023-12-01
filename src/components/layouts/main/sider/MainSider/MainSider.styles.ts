@@ -20,7 +20,7 @@ export const Sider = styled(BaseLayout.Sider)`
 
   &.ant-layout-sider {
     position: fixed;
-    background: ${(({ theme }) => theme.layoutSiderBg)};
+    background: ${({ theme }) => theme.layoutSiderBg};
 
     @media only screen and (${media('xl')}) {
       position: unset;
