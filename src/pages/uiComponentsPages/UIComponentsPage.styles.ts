@@ -25,24 +25,6 @@ export const Card = styled(CommonCard)`
   &.ant-card-bordered {
     border: 1px solid ${({ theme }) => theme.border};
   }
-
-  .ant-radio-wrapper, label {
-    align-items: center;
-  }
-
-  .ant-spin-blur {
-    opacity: 0;
-  }
-
-  .ant-select-selection-search {
-    input {
-      font-size: ${({ theme }) => theme.fontSizes.md};
-    }
-  }
-
-  .ant-select-selection-placeholder {
-    opacity: 0.5;
-  }
 `;
 
 export const InputsWrapper = styled.div`
