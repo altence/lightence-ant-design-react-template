@@ -47,7 +47,7 @@ export const BurgerCol = styled(BaseCol)`
   display: flex;
 `;
 
-export const MobileBurger = styled(BurgerIcon)`
+export const MobileBurger = styled(BurgerIcon)<{ isCross: boolean }>`
   width: 1.75rem;
   height: 1.75rem;
   margin-right: -0.5rem;

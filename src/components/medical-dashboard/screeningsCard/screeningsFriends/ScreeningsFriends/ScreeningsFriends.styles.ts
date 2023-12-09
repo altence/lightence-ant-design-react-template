@@ -3,7 +3,7 @@ import { dashboardPaddings } from '@app/components/medical-dashboard/DashboardCa
 import { media, normalizeProp } from '@app/utils/utils';
 
 interface WrapperProps {
-  $isOpen: boolean;
+  $isopen: boolean;
 }
 
 export const Wrapper = styled.div<WrapperProps>`
@@ -26,7 +26,7 @@ export const Wrapper = styled.div<WrapperProps>`
     background-color: rgba(${({ theme }) => theme.rgb.background}, 0.9);
 
     ${(props) =>
-      !props.$isOpen &&
+      !props.$isopen &&
       css`
         width: 5rem;
       `}

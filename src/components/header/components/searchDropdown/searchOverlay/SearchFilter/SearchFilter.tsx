@@ -8,11 +8,11 @@ import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
 
 interface SearchFilterProps {
   data: CategoryComponents[] | null;
-  isOpen: boolean;
+  isopen: boolean;
   children: (filteredResults: CategoryComponents[]) => React.ReactNode;
 }
 
-export const SearchFilter: React.FC<SearchFilterProps> = ({ data, isOpen, children }) => {
+export const SearchFilter: React.FC<SearchFilterProps> = ({ data, isopen, children }) => {
   const [selectedFilter, setSelectedFilter] = useState<CategoryType[]>([]);
   const [filteredResults, setFilteredResults] = useState<CategoryComponents[] | null>(data);
 
@@ -44,7 +44,7 @@ export const SearchFilter: React.FC<SearchFilterProps> = ({ data, isOpen, childr
 
   return (
     <>
-      <S.FilterWrapper isOpen={isOpen}>
+      <S.FilterWrapper isopen={isopen}>
         <S.CheckboxGroup onChange={(checkedValues) => setSelectedFilter(checkedValues as CategoryType[])}>
           <BaseRow>{filterElements}</BaseRow>
         </S.CheckboxGroup>

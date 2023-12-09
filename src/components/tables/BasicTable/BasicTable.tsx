@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, Key } from 'react';
 import { useTheme } from 'styled-components';
 import { BasicTableRow, getBasicTableData, Pagination, Tag } from 'api/table.api';
 import { BaseTable } from '@app/components/common/BaseTable/BaseTable';
@@ -109,7 +109,7 @@ export const BasicTable: React.FC = () => {
           ],
         },
       ],
-      onFilter: (value: string | number | boolean, record: BasicTableRow) => record.name.includes(value.toString()),
+      onFilter: (value: boolean | Key, record: BasicTableRow) => record.name.includes(value.toString()),
     },
     {
       title: t('common.age'),

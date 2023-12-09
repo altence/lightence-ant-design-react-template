@@ -13,7 +13,7 @@ interface SearchOverlayProps {
 export const SearchOverlay: React.FC<SearchOverlayProps> = ({ data, isFilterOpen }) => {
   return (
     <S.Menu>
-      <SearchFilter data={data} isOpen={isFilterOpen}>
+      <SearchFilter data={data} isopen={isFilterOpen}>
         {(filteredResults) => (filteredResults.length > 0 ? <SearchResults results={filteredResults} /> : <NotFound />)}
       </SearchFilter>
     </S.Menu>
