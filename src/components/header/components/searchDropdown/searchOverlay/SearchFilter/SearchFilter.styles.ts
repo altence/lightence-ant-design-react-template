@@ -3,7 +3,7 @@ import { media } from '@app/utils/utils';
 import styled, { css } from 'styled-components';
 
 interface FilterWrapperProps {
-  isOpen: boolean;
+  isopen: boolean;
 }
 
 export const CheckboxGroup = styled(BaseCheckbox.Group)`
@@ -12,7 +12,7 @@ export const CheckboxGroup = styled(BaseCheckbox.Group)`
 
 export const FilterWrapper = styled.div<FilterWrapperProps>`
   ${(props) =>
-    !props.isOpen &&
+    !props.isopen &&
     css`
       position: absolute;
       top: 0;

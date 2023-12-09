@@ -93,7 +93,7 @@ export const Balance: React.FC = () => {
               <TopUpBalanceModal
                 cards={cards}
                 loading={loading}
-                isOpen={isModalOpen}
+                isopen={isModalOpen}
                 onOpenChange={handleModal}
                 onFinish={onFinish}
               />
