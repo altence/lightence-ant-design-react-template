@@ -8,5 +8,5 @@ export interface SuffixInputProps extends BaseInputProps {
 }
 
 export const SuffixInput: React.FC<SuffixInputProps> = ({ suffix, isOpenSuffix = true, ...props }) => (
-  <BaseInput suffix={<S.Suffix $isopen={isOpenSuffix}>{suffix}</S.Suffix>} {...props} />
+  <BaseInput suffix={<S.Suffix isOpen={isOpenSuffix}>{suffix}</S.Suffix>} {...props} />
 );
