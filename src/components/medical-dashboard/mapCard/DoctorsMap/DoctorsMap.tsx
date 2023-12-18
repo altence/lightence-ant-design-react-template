@@ -2,7 +2,7 @@ import React from 'react';
 import L, { IconOptions, PointExpression } from 'leaflet';
 import { Marker, Popup } from 'react-leaflet';
 
-import { ReactComponent as MapBackgroundIcon } from 'assets/icons/map-background.svg';
+import MapBackgroundIcon from 'assets/icons/map-background.svg';
 
 import * as S from './DoctorsMap.styles';
 import { useResponsive } from 'hooks/useResponsive';

@@ -1,10 +1,10 @@
 import { newsTags } from 'constants/newsTags';
 import { IHashTag } from '@app/components/common/BaseHashTag/BaseHashTag';
 
-const avatar1 = process.env.REACT_APP_ASSETS_BUCKET + '/avatars/avatar1.webp';
-const avatar2 = process.env.REACT_APP_ASSETS_BUCKET + '/avatars/avatar2.webp';
-const avatar3 = process.env.REACT_APP_ASSETS_BUCKET + '/avatars/avatar3.webp';
-const avatar4 = process.env.REACT_APP_ASSETS_BUCKET + '/avatars/avatar4.webp';
+const avatar1 = import.meta.env.VITE_ASSETS_BUCKET + '/avatars/avatar1.webp';
+const avatar2 = import.meta.env.VITE_ASSETS_BUCKET + '/avatars/avatar2.webp';
+const avatar3 = import.meta.env.VITE_ASSETS_BUCKET + '/avatars/avatar3.webp';
+const avatar4 = import.meta.env.VITE_ASSETS_BUCKET + '/avatars/avatar4.webp';
 
 export interface Post {
   avatarUrl: string;

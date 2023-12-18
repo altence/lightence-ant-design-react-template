@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { StyleSheetManager } from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
 import { BaseCard } from '@app/components/common/BaseCard/BaseCard';
@@ -45,11 +46,13 @@ export const PaymentHistory: React.FC = () => {
         </BaseCol>
 
         <BaseCol span={24}>
+        <StyleSheetManager shouldForwardProp={(prop) => prop !== 'isEmptyHistory'}>
           <S.ContentWrapper isEmptyHistory={history.length === 0}>
             {mobileOnly && (history.length > 0 ? payments : <S.Text>{t('profile.nav.payments.noHistory')}</S.Text>)}
 
             {isTablet && <PaymentsTable payments={history} />}
           </S.ContentWrapper>
+        </StyleSheetManager>
         </BaseCol>
       </BaseRow>
     ),

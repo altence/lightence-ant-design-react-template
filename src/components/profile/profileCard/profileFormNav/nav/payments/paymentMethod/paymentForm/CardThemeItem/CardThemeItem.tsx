@@ -1,5 +1,6 @@
 import React, { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { StyleSheetManager } from 'styled-components';
 import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
 import { CardTheme, cardThemes } from '@app/constants/cardThemes';
 import { PaymentCard } from '@app/interfaces/interfaces';
@@ -26,9 +27,11 @@ export const CardThemeItem: React.FC<CardThemeItemProps> = ({ cardData, setCardD
     () =>
       cardThemes.map((item) => (
         <BaseCol xs={8} md={4} key={item.id}>
-          <S.BackgroundWrapper background={item.background} isActive={cardData.background === item.background}>
-            <S.Theme tabIndex={0} onClick={handleChange(item)} />
-          </S.BackgroundWrapper>
+          <StyleSheetManager shouldForwardProp={(prop) => prop !== 'isActive'}>
+            <S.BackgroundWrapper background={item.background} isActive={cardData.background === item.background}>
+              <S.Theme tabIndex={0} onClick={handleChange(item)} />
+            </S.BackgroundWrapper>
+          </StyleSheetManager>
         </BaseCol>
       )),
     [cardData, handleChange],
