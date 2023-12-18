@@ -6,8 +6,8 @@ import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
 import { useAppDispatch } from '@app/hooks/reduxHooks';
 import { doSignUp } from '@app/store/slices/authSlice';
 import { useFeedback } from '@app/hooks/useFeedback';
-import { ReactComponent as GoogleIcon } from '@app/assets/icons/google.svg';
-import { ReactComponent as FacebookIcon } from '@app/assets/icons/facebook.svg';
+import GoogleIcon from '@app/assets/icons/google.svg';
+import FacebookIcon from '@app/assets/icons/facebook.svg';
 import * as Auth from '@app/components/layouts/AuthLayout/AuthLayout.styles';
 import * as S from './SignUpForm.styles';
 

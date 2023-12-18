@@ -194,8 +194,10 @@ export const TrendingCreators: React.FC = () => {
           }}
           footer={null}
           destroyOnClose
-          maskStyle={{
-            background: 'rgba(0, 0, 0, 0.85)',
+          styles={{
+            mask: {
+              background: 'rgba(0, 0, 0, 0.85)',
+            },
           }}
         >
           <Stories
