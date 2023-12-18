@@ -33,7 +33,7 @@ export const StatisticsCards: React.FC = () => {
               prevValue={st.prevValue}
               color={currentStatistic.color}
               unit={st.unit}
-              Icon={currentStatistic.Icon}
+              Icon={() => currentStatistic.Icon}
             />
           </BaseCol>
         ) : null;
