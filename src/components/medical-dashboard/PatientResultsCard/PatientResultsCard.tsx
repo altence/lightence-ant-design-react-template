@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyleSheetManager } from 'styled-components';
 import { BarChartOutlined, CheckOutlined, FileTextOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { BaseSteps } from '@app/components/common/BaseSteps/BaseSteps';
@@ -35,7 +36,13 @@ export const PatientResultsCard: React.FC = () => {
                 <S.Description>{t(status.desc)}</S.Description>
               </S.InfoWrapper>
             ),
-            icon: <S.IconWrapper isActive={patientResult.isActive}>{icons[index]}</S.IconWrapper>,
+            icon: (
+              <StyleSheetManager shouldForwardProp={(prop) => prop !== 'isActive'}>
+                <S.IconWrapper isActive={patientResult.isActive}>
+                  {icons[index]}
+                </S.IconWrapper>
+              </StyleSheetManager>
+            ),
           };
         })}
       />

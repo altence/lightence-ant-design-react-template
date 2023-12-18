@@ -40,7 +40,6 @@ export const ControlForm: React.FC = () => {
       setFieldsChanged(false);
       setLoading(false);
       notification.success({ message: t('common.success') });
-      console.log(values);
     }, 1000);
   };
 

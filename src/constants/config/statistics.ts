@@ -1,8 +1,7 @@
-import { FC } from 'react';
-import { ReactComponent as BonesIcon } from '@app/assets/icons/bones.svg';
-import { ReactComponent as FatIcon } from '@app/assets/icons/fat.svg';
-import { ReactComponent as ProteinIcon } from '@app/assets/icons/protein.svg';
-import { ReactComponent as WaterBalanceIcon } from '@app/assets/icons/water.svg';
+import BonesIcon from '@app/assets/icons/bones.svg';
+import FatIcon from '@app/assets/icons/fat.svg';
+import ProteinIcon from '@app/assets/icons/protein.svg';
+import WaterBalanceIcon from '@app/assets/icons/water.svg';
 
 export type StatisticColor = 'primary' | 'error' | 'secondary' | 'success';
 
@@ -11,7 +10,7 @@ interface ConfigStatistic {
   name: string;
   title: string;
   color: StatisticColor;
-  Icon: FC;
+  Icon: React.ReactNode;
 }
 
 export const statistics: ConfigStatistic[] = [

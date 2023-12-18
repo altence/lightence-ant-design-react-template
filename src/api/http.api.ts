@@ -3,7 +3,7 @@ import { ApiError } from '@app/api/ApiError';
 import { readToken } from '@app/services/localStorage.service';
 
 export const httpApi = axios.create({
-  baseURL: process.env.REACT_APP_BASE_URL,
+  baseURL: import.meta.env.VITE_BASE_URL,
 });
 
 httpApi.interceptors.request.use((config) => {

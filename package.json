@@ -7,15 +7,16 @@
     "type": "git",
     "url": "git+github.com:altence/lightence-admin.git"
   },
+  "type": "module",
   "bugs": {
     "url": "https://github.com/altence/lightence-admin/issues"
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
-    "@craco/craco": "6.1.2",
     "@lit-labs/react": "^2.1.2",
     "@react-google-maps/api": "^2.19.2",
     "@reduxjs/toolkit": "^2.0.1",
+    "@vitejs/plugin-react-refresh": "^1.3.6",
     "antd": "^5.11.5",
     "antd-mask-input": "^2.0.7",
     "antd-phone-input": "^0.3.3",
@@ -42,7 +43,6 @@
     "react-responsive": "^9.0.2",
     "react-router-dom": "^6.20.1",
     "react-router-hash-link": "^2.4.3",
-    "react-scripts": "4.0.3",
     "react-slick": "^0.29.0",
     "react-verification-input": "^2.0.3",
     "round-slider": "altence/round-slider#refactor/slider",
@@ -52,6 +52,7 @@
     "typeface-montserrat": "^1.1.13",
     "typescript": "^5.3.2",
     "uuid": "^9.0.1",
+    "vite-plugin-svgr": "^4.2.0",
     "web-vitals": "^3.5.0",
     "workbox-background-sync": "^7.0.0",
     "workbox-broadcast-update": "^7.0.0",
@@ -67,10 +68,10 @@
     "workbox-streams": "^7.0.0"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
-    "eject": "craco eject",
+    "start": "vite",
+    "build": "tsc --noEmit && vite build",
+    "test": "vite test",
+    "eject": "vite eject",
     "lint": "eslint \"*/**/*.{js,ts,tsx}\" --fix",
     "lint:styles": "stylelint '*/**/*.{js,ts,tsx}'",
     "prepare": "husky install"
@@ -85,6 +86,7 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@types/country-list": "^2.1.4",
     "@types/leaflet": "^1.9.8",
+    "@types/node": "^20.10.4",
     "@types/react": "^18.2.42",
     "@types/react-dom": "^18.2.17",
     "@types/react-helmet": "^6.1.11",
@@ -96,7 +98,7 @@
     "@types/uuid": "^9.0.7",
     "@typescript-eslint/eslint-plugin": "^6.13.2",
     "@typescript-eslint/parser": "^6.13.2",
-    "craco-alias": "^3.0.1",
+    "@vitejs/plugin-react": "^4.2.1",
     "eslint": "^7.28.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
@@ -109,6 +111,8 @@
     "stylelint-config-recommended": "^13.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.10.0",
+    "vite": "^5.0.8",
+    "vite-tsconfig-paths": "^4.2.2",
     "webpack-bundle-analyzer": "^4.10.1",
     "webpackbar": "^5.0.2"
   },
