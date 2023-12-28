@@ -13,6 +13,9 @@ export default defineConfig({
       include: '**/*.svg'
     })
   ],
+  define: {
+    'process.env': process.env,
+  },
   build: {
     outDir: 'build',
     chunkSizeWarningLimit: 10000,

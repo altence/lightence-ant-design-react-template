@@ -24,7 +24,7 @@ const AlertsPage: React.FC = () => {
         <Card title={t('alerts.basic')}>
           <BaseAlert message={t('alerts.success')} type="success" />
         </Card>
-        <Card title={t('alerts.types')}>
+        <Card title={t('alerts.types')} data-testid="alerts-types-card">
           <BaseAlert message={t('alerts.success')} type="success" />
           <BaseAlert message={t('alerts.info')} type="info" />
           <BaseAlert message={t('alerts.warning')} type="warning" />
