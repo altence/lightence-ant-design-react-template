@@ -69,7 +69,7 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "test": "jest --config jest.config.cjs",
+    "test": "jest --config jest.config.cjs --bail",
     "eject": "vite eject",
     "lint": "eslint \"*/**/*.{js,ts,tsx}\" --fix",
     "lint:styles": "stylelint '*/**/*.{js,ts,tsx}'",
