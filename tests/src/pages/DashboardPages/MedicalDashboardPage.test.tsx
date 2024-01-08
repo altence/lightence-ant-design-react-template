@@ -19,5 +19,5 @@ describe('MedicalDashboardPage regress test', () => {
     expect(screenshot).toMatchImageSnapshot();
 
     await browser.close();
-  }, 30000);
+  });
 });
