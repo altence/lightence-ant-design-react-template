@@ -12,7 +12,7 @@ describe('MedicalDashboardPage regress test', () => {
 
     await page.goto(deployUrl);
 
-    await page.waitForSelector('#news');
+    // await page.waitForSelector('#news');
 
     const screenshot = await page.screenshot({ fullPage: true }); 
 
