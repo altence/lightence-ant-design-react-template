@@ -1,0 +1,48 @@
+name: Deploy PR Preview
+on:
+  pull_request:
+    branches:
+      - develop
+    paths:
+      - '**/*'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build project
+        run: yarn build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Get deploy URL
+        run: |
+          echo "https://${GITHUB_ACTOR}.github.io/${GITHUB_REPOSITORY}/gh-pages/" > deploy-url.txt
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install dependencies and run tests
+        run: |
+          yarn install
+          yarn test
+
+      - name: Delete deploy
+        run: |
+          rm deploy-url.txt
