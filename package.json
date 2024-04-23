@@ -68,8 +68,8 @@
     "workbox-streams": "^5.1.3"
   },
   "scripts": {
-    "start": "yarn buildThemes && craco start",
-    "build": "yarn buildThemes && craco build",
+    "start": "yarn buildThemes && craco --openssl-legacy-provider start",
+    "build": "yarn buildThemes && craco --openssl-legacy-provider build",
     "test": "craco test",
     "eject": "craco eject",
     "lint": "eslint \"*/**/*.{js,ts,tsx}\" --fix",
